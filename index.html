@@ -35,7 +35,7 @@
             var normalizedEvents = {};
             var eventKinds = [];
 
-            d3.json("/data/events.json", function (events) {
+            d3.json("data/events.json", function (events) {
                 events.map(function (event, index) {
                     var kind = event.kind || '其他';
                     if (typeof(normalizedEvents[event.kind]) === 'undefined' && event.latitude && event.longtitude) {
