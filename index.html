@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Events Visualization</title>
+    <script type="text/javascript" src="/js/d3.min.js"></script>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; text-align: center; font-family: Roboto,Arial,sans-serif;}
+      #map { height: 60%; width: 60%; display: inline-block;}
+      #tabs { height: 60%; width: 30%; display: inline-block; text-align: left; vertical-align: top; list-style: none; margin: 10px; padding: 0;}
+      #tabs li {cursor: pointer;}
+      #tabs li:hover {background-color: #eee;}
+      #top {text-align: left;}
+      #title {font-size: 32px;}
+      #forkme {position: relative; left: 0;}
+    </style>
+  </head>
+  <body>
+    <div id="top">
+        <a id="forkme" href="https://github.com/twreporter/infographics"><img src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+        <span id="title">洪秀柱造勢活動</span>
+    </div>
+    <ul id="tabs"></ul>
+    <div id="map"></div>
+    
+    <script type="text/javascript">
+        var markers = [];
+        var map;
+        function initMap() {
+            parseEvents();
+        }
+
+        function parseEvents () {
+            var normalizedEvents = {};
+            var eventKinds = [];
+
+            d3.json("/data/events.json", function (events) {
+                events.map(function (event, index) {
+                    var kind = event.kind || '其他';
+                    if (typeof(normalizedEvents[event.kind]) === 'undefined' && event.latitude && event.longtitude) {
+                        normalizedEvents[kind] = {
+                            kind: kind,
+                            events: []
+                        }
+                        eventKinds.push(kind);
+                    }
+                    if (event.latitude && event.longtitude) {
+                        normalizedEvents[kind].events.push(event);
+                    }
+                });
+                createEventTab({
+                    events: normalizedEvents,
+                    eventKinds: eventKinds
+                });
+            });   
+        }
+
+        function createEventTab (events) {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: {lat: 23.8, lng: 120.0}
+            });
+            var tabs = document.getElementById('tabs');
+            
+            events.eventKinds.map(function (kind, i) {
+                var node = document.createElement("LI");
+                var textnode = document.createTextNode(kind);
+                node.appendChild(textnode);
+                tabs.appendChild(node);
+                node.addEventListener("click", setMarkers.bind(this, map, events.events[events.eventKinds[i]].events));
+            });
+            setMarkers(map, events.events[events.eventKinds[0]].events);
+        }
+
+        function setMarkers(map, events) {
+            var infoWindow = new google.maps.InfoWindow();
+            var bounds = new google.maps.LatLngBounds();
+
+            if (markers && markers.length > 0) {
+                for (var i = markers.length - 1; i >= 0; i-- ) {
+                    markers[i].setMap(null);
+                }
+                markers = [];
+            }
+            events.map(function (event, index) {
+                var latLng = new google.maps.LatLng(parseFloat(event.latitude),parseFloat(event.longtitude));
+                var marker = new google.maps.Marker({
+                      position: latLng,
+                      map: map,
+                      title: event.event
+                });
+                markers.push(marker);
+                google.maps.event.addListener(marker, "click", function (e) {
+                   infoWindow.setContent('<div>' + event.time + '</div>' + '<div>' + event.event + '</div>');
+                   infoWindow.open(map, marker);
+                });
+                bounds.extend(latLng);
+            });
+
+            map.fitBounds(bounds);
+        }
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh3243NzPMS-batIXvOIoW9b5jpi0U-cE&callback=initMap">
+    </script>
+  </body>
+</html>
