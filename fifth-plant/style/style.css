@@ -1,0 +1,292 @@
+/*
+	General styles
+*/
+body {
+	font-family: "Source Sans Pro", Arial, sans-serif;
+	background-color: #000;
+	font-size: 13px;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body, html {
+	height: 100%
+}
+
+h1, h2, h3, h4 {
+	font-family: "Josefin Slab", serif;
+}
+h1 {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 40px;
+}
+h2 {
+	font-size: 20px;
+}
+a, a:visited {
+	text-decoration: none;
+	color: #2e639e;
+}
+a:hover {
+	text-decoration: underline;
+}
+.touchonly {
+	display: none;
+}
+html.touch .touchonly {
+	display: block;
+}
+.noselect * {
+	user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+}
+.doselect * {
+	user-select: auto;
+	-webkit-user-select: auto;
+	-khtml-user-select: auto;
+	-moz-user-select: auto;
+	-o-user-select: auto;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+/*
+	Containers
+*/
+#content-wrapper, #wrapper {
+	height: 100%;
+}
+.scrollContainer {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	width: 100%
+}
+.scrollContainer {
+	height: 100%;
+	margin: auto;
+}
+#wrapper .scrollContent {
+	height: 100%;
+}
+
+.horizontal.scrollContainer {
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+#wrapper.scrollContainer .scrollContent {
+	width: 100%;
+	height: auto;
+}
+#wrapper.scrollContainer.horizontal .scrollContent {
+	width: auto;
+	height: 100%;
+}
+#wrapper.horizontal {
+	white-space: nowrap;
+	font-size: 0;  /* fix for spaces between inline block divs */
+}
+#wrapper.horizontal div {
+	font-size: 13px;
+}
+#wrapper .scrollContent, #wrapper.horizontal .scrollContent {
+	font-size: 0;
+}
+#wrapper .scrollContent div {
+	font-size: 13px;
+}
+#wrapper section {
+	text-align: center;
+}
+
+/* Content */
+#content-wrapper, #wraper {
+	height: 100%;
+}
+
+#wraper .scrollContent, #wraper.horizontal .scrollContent {
+	height: 100%;
+}
+
+#section-slides, #section-wipes {
+	text-align: center;
+	height: 100%;
+    width: 100%;
+    -background-image: none;
+}
+
+#section-wipes b{
+	font-size: 15px;
+	color: black;
+	position: relative;
+	display: block;
+	height: 0;
+	overflow: visible;
+	top: 25%;
+}
+
+.shadow {
+	-webkit-box-shadow: 6px 6px 6px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: 6px 6px 6px 0px rgba(0,0,0,0.3);
+	box-shadow: 6px 6px 6px 0px rgba(0,0,0,0.3);
+}
+.shadow-3px {
+	-webkit-filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.3));
+		filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.3));
+}
+.img-shadow {
+	-webkit-filter: drop-shadow(6px 6px 6px #222);
+		filter: drop-shadow(6px 6px 6px #222);
+}
+
+.navi_0 span a{
+	text-decoration:none;
+}
+
+.FL {
+	left:130px;
+}
+
+.FR {
+	right: 130px;
+}
+
+.F_IMG {
+	position: absolute; 
+	width: 100%; 
+	height: 100vh; 
+	background-size: cover;
+}
+
+.panel {
+	height: 100%;
+	width: 100%;
+}
+
+.B {
+	position: absolute; 
+	color: #fff; 
+	width: 450px; 
+	left: calc(50% - 225px); 
+	top: 50%; transform:translateY(-50%);
+	font-size: 18px;
+	line-height: 30px;
+	letter-spacing: 0.2em;
+	text-align: center;
+}
+
+.BG {
+	position:absolute; 
+	width: 100%; 
+	height: 100vh; 
+	background-size: cover; 
+	background-position: center center;
+}
+
+.BG_W {
+	position: absolute; 
+	width: 100%; 
+	height: 100%; 
+	background-color: #fff;
+}
+
+.dialogue {
+	top: 110vh;
+	position: fixed; 
+	width: 410px; 
+	padding: 30px;
+	padding-right: 5px;
+	background-color: #fdfffa;
+	z-index: 2;
+}
+
+.dialogue p{
+	color: #6d6e71;
+	margin: 0px;
+	font-size: 18px;
+	line-height: 30px;
+	letter-spacing: 0.2em;
+	text-align: left;
+}
+
+.fold {
+	position: absolute;
+	bottom: 25px;
+	right: -25px;
+	width: 25px;
+	height: calc(100% - 25px);
+	background-color: inherit;
+}
+.fold::before {
+	content: "";
+	position: absolute;
+	bottom: -25px;
+	right:0px;
+	border-bottom: 25px solid transparent;
+	border-left: 25px solid #d1d3d4;
+}
+
+svg text{
+  font-size: 14px;
+  font-family: sans-serif;
+  letter-spacing: 0.2em;
+  color: #595757;
+  text-anchor: middle;
+}
+
+svg {
+  transform: scale(0.8);
+}
+
+.home_0 a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.navi_0 a{
+	color: #000;
+}
+
+.video-wrapper {
+	height: 100%;
+	text-align: center;
+	overflow: hidden;
+}
+
+.video-wrapper video {
+	object-fit: cover;
+}
+
+.imgs img {
+	margin-top:30px;
+}
+
+.panorama {
+	margin: 0 auto;
+	cursor: ew-resize;
+	width: 100%;
+	background-size: cover;
+	background-position: 50% 0;
+	z-index: 3;
+	transition: background-position 0.1s linear;
+}
