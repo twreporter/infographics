@@ -1,0 +1,39 @@
+.footer {
+	width: 100%;
+	text-align: left;
+}
+.credit {
+	position: relative;
+	left:10%;
+	top:60px;
+	display: inline-block;
+	width: 56%;
+}
+.credit-bar {
+	display:inline-block;
+	width:8px;
+	height:45px;
+	background-color:#FFF;
+	position:relative;
+	left:0;
+	top:0px;
+}
+.credit-content {
+	display:inline-block;
+	margin-left:18px;
+}
+.credit-item {
+	width:28%;
+	display: inline-block;
+	text-align: left;
+	line-height: 30px;
+	letter-spacing: 0.2em;
+	color: #FFF;
+}
+.credit .title {
+	font-size:16px;
+	display: block;
+}
+.credit .content {
+	font: 13px;
+}

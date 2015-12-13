@@ -1,0 +1,47 @@
+/*
+	Containers
+*/
+#content-wrapper, #wrapper {
+	height: 100%;
+}
+.scrollContainer {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	width: 100%
+}
+.scrollContainer {
+	height: 100%;
+	margin: auto;
+}
+#wrapper .scrollContent {
+	height: 100%;
+}
+
+.horizontal.scrollContainer {
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+#wrapper.scrollContainer .scrollContent {
+	width: 100%;
+	height: auto;
+}
+#wrapper.scrollContainer.horizontal .scrollContent {
+	width: auto;
+	height: 100%;
+}
+#wrapper.horizontal {
+	white-space: nowrap;
+	font-size: 0;  /* fix for spaces between inline block divs */
+}
+#wrapper.horizontal div {
+	font-size: 13px;
+}
+#wrapper .scrollContent, #wrapper.horizontal .scrollContent {
+	font-size: 0;
+}
+#wrapper .scrollContent div {
+	font-size: 13px;
+}
+#wrapper section {
+	text-align: center;
+}
