@@ -71,7 +71,13 @@ $(function () { // wait for document ready
 		sceneHeight = $(sectionName).innerHeight();
 
 		new ScrollMagic.Scene({triggerElement: sectionName, duration: 2*windowHeight, offset: 0})
-		.setTween(TweenLite.to(sectionName+'-bg', 1, {css:{scale: 1.1}} ))
+		.setTween(
+			new TimelineLite()
+			.insert(TweenLite.to(sectionName+'-map', 1, {css:{scale: 1.1}}),0)
+			.insert(TweenLite.to(sectionName+'-route', 1, {css:{scale: 1.1}}),0)
+			.insert(TweenLite.to(sectionName+'-label-small', 1, {css:{scale: 1.15}}),0)
+			.insert(TweenLite.to(sectionName+'-label-large', 1, {css:{scale: 1.2}}),0)
+		)
 		.addTo(controller);
 
 		// move out
