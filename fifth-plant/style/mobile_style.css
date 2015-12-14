@@ -144,6 +144,10 @@ svg {
 	transition: background-position 0.1s linear;
 }
 
+#pano::-webkit-scrollbar { 
+    display: none;
+}
+
 .credit-mobile {
 	padding: 10%;
 }
