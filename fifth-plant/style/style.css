@@ -211,7 +211,7 @@ html[xmlns] .clearfix {
 }
 
 .dialogue {
-	top: 110vh;
+	top: 100%;
 	position: fixed; 
 	width: 410px; 
 	padding: 30px;
@@ -289,4 +289,10 @@ svg {
 	background-position: 50% 0;
 	z-index: 3;
 	transition: background-position 0.1s linear;
+}
+
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
 }
