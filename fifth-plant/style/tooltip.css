@@ -21,7 +21,7 @@
   color: white;
   white-space: nowrap;
   z-index: 2;
-  border-radius: 2px;
+  border-radius: 3px;
   -webkit-transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), -webkit-transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
   transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), -webkit-transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
   transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
@@ -31,6 +31,7 @@
   display: block;
   opacity: 1;
   visibility: visible;
+  font-family: 'Noto Sans TC', sans-serif;
   -webkit-transform: translateX(-50%) translateY(0);
           transform: translateX(-50%) translateY(0);
 }

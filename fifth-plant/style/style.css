@@ -1,8 +1,9 @@
+
 /*
 	General styles
 */
 body {
-	font-family: "Source Sans Pro", Arial, sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	background-color: #000;
 	font-size: 13px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -258,15 +259,6 @@ svg {
   transform: scale(0.8);
 }
 
-.home_0 a {
-	color: #fff;
-	text-decoration: none;
-}
-
-.navi_0 a{
-	color: #000;
-}
-
 .video-wrapper {
 	height: 100%;
 	text-align: center;
@@ -291,8 +283,80 @@ svg {
 	transition: background-position 0.1s linear;
 }
 
+/*
+ * Header
+ */
+.home {
+	background-color: #000; 
+	color: #FFF; 
+	text-align: center; 
+	line-height: 30px; 
+	width: 80px; 
+	height: 30px; 
+	font-size: 15px; 
+	letter-spacing: 0.3em; 
+	display: inline-block;
+}
+
+.navi {
+	background-color: #fff; 
+	color: #C9CACA; 
+	text-align:  center; 
+	line-height: 30px; 
+	width: 285px; 
+	height: 30px; 
+	font-size: 15px; 
+	letter-spacing: 9px; 
+	display: inline-block; 
+	font-family: 'PT Serif', serif; 
+	padding-left: 9px;
+}
+
+.home a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.navi a{
+	color: #C9CACA;
+	text-decoration: none;
+}
+
+.header:hover .home {
+	background-color: #3e3a39;
+}
+
+.header:hover .navi, .header:hover .navi a{
+	text-decoration: none;
+	color: #727171; 
+}
+
+/*
+ * Share Buttons
+ */
+.facebook {
+	display:inline-block; 
+	margin-right:22px; 
+	opacity:0.6;
+}
+
+.facebook:hover {
+	opacity: 1;
+}
+
+.twitter {
+	display:inline-block;
+	opacity:0.6;
+}
+
+.twitter:hover {
+	opacity: 1;
+}
+
+/* Clearfix */
 .clearfix:after {
 	content: "";
 	display: table;
 	clear: both;
 }
+

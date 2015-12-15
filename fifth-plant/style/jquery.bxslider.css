@@ -119,7 +119,7 @@ ul.bxslider {
   width: 52px;
   height: 81px;
   text-indent: -9999px;
-  z-index: 9999;
+  z-index: 99;
 }
 .bx-wrapper .bx-controls-direction a.disabled {
   display: none;
