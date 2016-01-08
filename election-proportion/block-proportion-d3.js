@@ -1,6 +1,7 @@
 (function() {
-    var WIDTH = 150,
-        HEIGHT = 150;
+    var WIDTH = 150;
+    var HEIGHT = 150;
+    var SQUARE = 22500; // HEIGHT * WIDTH
 
     function transferData(data) {
         var groupParty = function(party) {
@@ -77,7 +78,7 @@
         var OTHER = '其他政黨';
         data = transferData(data);
         var bgProportion = getBgProportion(data);
-        var rectScale = d3.scale.linear().domain([0, 1]).range([0, HEIGHT]);
+        // var rectScale = d3.scale.linear().domain([0, 1]).range([0, HEIGHT]);
 
         function renderProportionBlock(data, party, node) {
             var PARTY;
@@ -88,24 +89,22 @@
             } else {
                 PARTY = OTHER;
             }
+
+            var calculate = function(d) {
+                if (d.hasOwnProperty(PARTY)) {
+                    return Math.sqrt(SQUARE * d[PARTY] * bgProportion[PARTY]);
+                }
+                return Math.sqrt(SQUARE * bgProportion[PARTY]);
+            }
+
             var rect = node.selectAll('rect')
                 .data(data);
             rect.enter()
                 .append('rect')
-                .attr('width', function(d) {
-                    if (d.hasOwnProperty(PARTY)) {
-                        return rectScale(d[PARTY] * bgProportion[PARTY]);
-                    }
-                    return rectScale(bgProportion[PARTY])
-                })
-                .attr('height', function(d) {
-                    if (d.hasOwnProperty(PARTY)) {
-                        return rectScale(d[PARTY] * bgProportion[PARTY]);
-                    }
-                    return rectScale(bgProportion[PARTY])
-                })
+                .attr('width', calculate)
+                .attr('height', calculate)
                 .attr('y', function(d) {
-                    return HEIGHT - rectScale(bgProportion[PARTY]);
+                    return HEIGHT - (SQUARE * bgProportion[PARTY]);
                 })
                 .style("fill", function(d) {
                     if (d.hasOwnProperty(PARTY)) {
@@ -115,23 +114,13 @@
                 })
 
             rect.transition()
-                .attr('width', function(d) {
-                    if (d.hasOwnProperty(PARTY)) {
-                        return rectScale(d[PARTY] * bgProportion[PARTY]);
-                    }
-                    return rectScale(bgProportion[PARTY])
-                })
-                .attr('height', function(d) {
-                    if (d.hasOwnProperty(PARTY)) {
-                        return rectScale(d[PARTY] * bgProportion[PARTY]);
-                    }
-                    return rectScale(bgProportion[PARTY])
-                })
+                .attr('width', calculate)
+                .attr('height', calculate)
                 .attr('y', function(d) {
                     if (d.hasOwnProperty(PARTY)) {
-                        return HEIGHT - (rectScale(d[PARTY] * bgProportion[PARTY]));
+                        return HEIGHT - (Math.sqrt(SQUARE * d[PARTY] * bgProportion[PARTY]));
                     }
-                    return HEIGHT - rectScale(bgProportion[PARTY]);
+                    return HEIGHT - (Math.sqrt(SQUARE * bgProportion[PARTY]));
                 })
                 .duration(500);
         }
