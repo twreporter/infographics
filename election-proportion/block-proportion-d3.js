@@ -72,7 +72,7 @@
             .map(data);
     }
 
-    d3.csv("candidate.csv", function(error, data) {
+    d3.csv("/election-proportion/candidate.csv", function(error, data) {
         var KMT = '中國國民黨';
         var TPP = '民主進步黨';
         var OTHER = '其他政黨';
