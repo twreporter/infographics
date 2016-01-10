@@ -76,7 +76,7 @@
 
     var chart = d3.select(".chart");
 
-    d3.csv("geo.csv", function(error, data) {
+    d3.csv("/infographics/election-proportion/geo.csv", function(error, data) {
         var minLon = d3.median(data, function(d) {
             return d.lon
         });
