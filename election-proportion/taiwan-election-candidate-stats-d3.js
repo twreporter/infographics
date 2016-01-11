@@ -215,8 +215,6 @@
 
     d3.csv("/infographics/election-proportion/candidate.csv", function(error, rawData) {
         var data = transferData(rawData);
-
-        console.log(data);
         // render taiwan election result by map
         (function() {
             var MAPWIDTH = 500;
@@ -233,6 +231,7 @@
             var nondistrictGroupGray = taiwanMap.append('g').attr('class', 'nondistrict-group-gray');
             var districtGroup = taiwanMap.append('g').attr('class', 'district-group');
             var nondistrictGroup = taiwanMap.append('g').attr('class', 'nondistct-group-gray');
+
             var renderBg = function(data) {
                 districtGroupGray.selectAll('rect')
                     .data(data)
@@ -257,6 +256,7 @@
 
             var renderFilteredData = function(data, criteria) {
                 var filtered = filterData(data, criteria);
+                document.getElementsByClassName('map-result')[0].innerHTML = filtered.length;
                 var rects = districtGroup.selectAll('rect')
                     .data(filtered, function(d) {
                         return d.name;
