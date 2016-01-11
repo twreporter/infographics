@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.block {
+  width:300px;
+  height: 300px;
+  display: inline-block;
+}
+
+</style>
+<div class="taiwan-map-block">
+<button id='male'>male</button>
+<button id='female'>female</button>
+<button id='age-19'>29以下</button>
+<button id='age-29'>30-39</button>
+<button id='age-39'>40-49</button>
+<button id='age-49'>50-59</button>
+<button id='age-59'>60以上</button>
+<button id='edu-highschool'>highschool</button>
+<button id='edu-vocational'>vocational</button>
+<button id='edu-bachelor'>bachelor</button>
+<button id='edu-master'>master</button>
+<button id='edu-other'>other</button>
+<svg  class="taiwan-geo"></svg>
+</div>
+<div class="election-proportion-block">
+  <div class="gender-proportion">
+    <button id="maleButton">male</button>
+    <button id="femaleButton">female</button>
+    <div class="gender-proportion block">
+      <svg class="nation-gender"></svg>
+    </div>
+    <div class="gender-proportion block">
+      <svg class="congras-gender"></svg>
+    </div>
+    <div class="gender-proportion block">
+      <svg class="kmt-gender"></svg>
+    </div>
+    <div class="gender-proportion block">
+      <svg class="tpp-gender"></svg>
+    </div>
+    <div class="gender-proportion block">
+      <svg class="other-gender"></svg>
+    </div>
+  </div>
+  <div class="age-proportion">
+    <button id="twentyButton">29以下</button>
+    <button id="thirtyButton">30-39</button>
+    <button id="fortyButton">40-49</button>
+    <button id="fiftyButton">50-59</button>
+    <button id="sixtyButton">60以上</button>
+    <div class="age-proportion block">
+      <svg class="nation-age"></svg>
+    </div>
+    <div class="age-proportion block">
+      <svg class="congras-age"></svg>
+    </div>
+    <div class="age-proportion block">
+      <svg class="kmt-age"></svg>
+    </div>
+    <div class="age-proportion block">
+      <svg class="tpp-age"></svg>
+    </div>
+    <div class="age-proportion block">
+      <svg class="other-age"></svg>
+    </div>
+  </div>
+  <div class="education-proportion">
+    <button id="masterButton">碩博士</button>
+    <button id="bachelorButton">學士</button>
+    <button id="highSchoolButton">高中</button>
+    <button id="vocationalButton">專科</button>
+    <button id="otherButton">國中小</button>
+    <div class="education-proportion block">
+      <svg class="nation-education"></svg>
+    </div>
+    <div class="education-proportion block">
+      <svg class="congras-education"></svg>
+    </div>
+    <div class="education-proportion block">
+      <svg class="kmt-education"></svg>
+    </div>
+    <div class="education-proportion block">
+      <svg class="tpp-education"></svg>
+    </div>
+    <div class="education-proportion block">
+      <svg class="other-education"></svg>
+    </div>
+  </div>
+</div>
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="/infographics/election-proportion/taiwan-election-candidate-stats-d3.js" chartset="utf-8"></script>
