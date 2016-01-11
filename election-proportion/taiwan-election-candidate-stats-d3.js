@@ -163,7 +163,7 @@
             .map(data);
     }
 
-    function getCongrasProportion(data, property, value) {
+    function getCongressProportion(data, property, value) {
         var count = 0;
         data.forEach(function(d) {
             if (d[property] === value) {
@@ -171,7 +171,7 @@
             }
         });
         return {
-            congras: count / data.length
+            congress: count / data.length
         };
     }
 
@@ -328,7 +328,7 @@
             var HEIGHT = 150;
             var SQUARE = 22500; // HEIGHT * WIDTH
             var bgProportion = getBgProportion(data);
-            bgProportion.congras = 1;
+            bgProportion.congress = 1;
             bgProportion.nation = 1;
             // var rectScale = d3.scale.linear().domain([0, 1]).range([0, HEIGHT]);
 
@@ -382,10 +382,10 @@
 
             function renderBlock(data, key, value) {
                 var proportion = getProportion(data, key, value);
-                proportion.congras = getCongrasProportion(data, key, value).congras;
+                proportion.congress = getCongressProportion(data, key, value).congress;
                 proportion.nation = getNationalProportion(key, value).nation;
                 renderProportionBlock(['bgrect', proportion], 'nation', d3.select('.nation-' + key));
-                renderProportionBlock(['bgrect', proportion], 'congras', d3.select('.congras-' + key));
+                renderProportionBlock(['bgrect', proportion], 'congress', d3.select('.congress-' + key));
                 renderProportionBlock(['bgrect', proportion], 'kmt', d3.select('.kmt-' + key));
                 renderProportionBlock(['bgrect', proportion], 'tpp', d3.select('.tpp-' + key));
                 renderProportionBlock(['bgrect', proportion], 'other', d3.select('.other-' + key));
