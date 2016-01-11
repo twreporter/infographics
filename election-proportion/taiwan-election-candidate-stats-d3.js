@@ -75,13 +75,15 @@
 
     function transferData(data) {
         var groupParty = function(party) {
-            if (party === '中國國民黨' || party === '民主進步黨') {
-                return party;
+            if (party === '中國國民黨') {
+                return 'kmt';
+            } else if (party === '民主進步黨') {
+                return 'tpp';
             }
-            return '其他政黨';
+            return 'other';
         }
         var groupAge = function(age) {
-            for (var i = 60; i >= 20; i = i - 10) {
+            for (var i = 59; i >= 19; i = i - 10) {
                 if (age > i) {
                     return i;
                 }
@@ -90,7 +92,6 @@
         var changeEducationValue = function(education) {
             switch (education) {
                 case '博士':
-                    return 'dr';
                 case '碩士':
                     return 'master';
                 case '大學':
@@ -99,6 +100,9 @@
                     return 'highschool';
                 case '專科':
                     return 'vocational';
+                case '國小':
+                case '國中':
+                    return 'other'
                 default:
                     return '';
             }
@@ -159,9 +163,60 @@
             .map(data);
     }
 
+    function getCongrasProportion(data, property, value) {
+        var count = 0;
+        data.forEach(function(d) {
+            if (d[property] === value) {
+                count++;
+            }
+        });
+        return {
+            congras: count / data.length
+        };
+    }
+
+    function getNationalProportion(property, value) {
+        var stats = {
+            gender: {
+                M: 0.499,
+                F: 0.501
+            },
+            age: {
+                // 29以下
+                '19': 0.341,
+                // 30-39
+                '29': 0.168,
+                // 40-49
+                '39': 0.155,
+                // 50-59
+                '49': 0.153,
+                // 60以上
+                '59': 0.108,
+            },
+            education: {
+                // 碩博士
+                'master': 0.061,
+                // 大學
+                'bachelor': 0.241,
+                // 高中、高職
+                'highschool': 0.306,
+                // 專科
+                'vocational': 0.119,
+                // 國小、國中
+                'other': 0.253
+            }
+        }
+
+        return {
+            nation: stats[property][value]
+        };
+    }
+
+
     d3.csv("/infographics/election-proportion/candidate.csv", function(error, rawData) {
         var data = transferData(rawData);
 
+        console.log(data);
         // render taiwan election result by map
         (function() {
             var MAPWIDTH = 500;
@@ -255,10 +310,10 @@
                     }
                     renderFilteredData(data, criteria);
                 });
-                for (var i = 20; i < 70; i = i + 10) {
+                for (var i = 59; i >= 19; i = i - 10) {
                     d3.select('#age-' + i).on('click', helper.bind(this, 'age', i));
                 }
-                ['highschool', 'vocational', 'bachelor', 'master', 'dr'].forEach(function(education) {
+                ['other', 'highschool', 'vocational', 'bachelor', 'master'].forEach(function(education) {
                     d3.select('#edu-' + education).on('click', helper.bind(this, 'education', education));
                 });
             }
@@ -272,27 +327,17 @@
             var WIDTH = 150;
             var HEIGHT = 150;
             var SQUARE = 22500; // HEIGHT * WIDTH
-            var KMT = '中國國民黨';
-            var TPP = '民主進步黨';
-            var OTHER = '其他政黨';
             var bgProportion = getBgProportion(data);
+            bgProportion.congras = 1;
+            bgProportion.nation = 1;
             // var rectScale = d3.scale.linear().domain([0, 1]).range([0, HEIGHT]);
 
             function renderProportionBlock(data, party, node) {
-                var PARTY;
-                if (party === 'kmt') {
-                    PARTY = KMT;
-                } else if (party === 'tpp') {
-                    PARTY = TPP;
-                } else {
-                    PARTY = OTHER;
-                }
-
                 var calculate = function(d) {
-                    if (d.hasOwnProperty(PARTY)) {
-                        return Math.sqrt(SQUARE * d[PARTY] * bgProportion[PARTY]);
+                    if (d.hasOwnProperty(party)) {
+                        return Math.sqrt(SQUARE * d[party] * bgProportion[party]);
                     }
-                    return Math.sqrt(SQUARE * bgProportion[PARTY]);
+                    return Math.sqrt(SQUARE * bgProportion[party]);
                 }
 
                 var rect = node.selectAll('rect')
@@ -302,10 +347,10 @@
                     .attr('width', calculate)
                     .attr('height', calculate)
                     .attr('y', function(d) {
-                        return HEIGHT - (SQUARE * bgProportion[PARTY]);
+                        return HEIGHT - (SQUARE * bgProportion[party]);
                     })
                     .style("fill", function(d) {
-                        if (d.hasOwnProperty(PARTY)) {
+                        if (d.hasOwnProperty(party)) {
                             return '#4CC5E1';
                         }
                         return '#666';
@@ -315,10 +360,10 @@
                     .attr('width', calculate)
                     .attr('height', calculate)
                     .attr('y', function(d) {
-                        if (d.hasOwnProperty(PARTY)) {
-                            return HEIGHT - (Math.sqrt(SQUARE * d[PARTY] * bgProportion[PARTY]));
+                        if (d.hasOwnProperty(party)) {
+                            return HEIGHT - (Math.sqrt(SQUARE * d[party] * bgProportion[party]));
                         }
-                        return HEIGHT - (Math.sqrt(SQUARE * bgProportion[PARTY]));
+                        return HEIGHT - (Math.sqrt(SQUARE * bgProportion[party]));
                     })
                     .duration(500);
             }
@@ -336,10 +381,14 @@
             }
 
             function renderBlock(data, key, value) {
-                var genderData = getProportion(data, key, value);
-                renderProportionBlock(['bgrect', genderData], 'kmt', d3.select('.kmt-' + key));
-                renderProportionBlock(['bgrect', genderData], 'tpp', d3.select('.tpp-' + key));
-                renderProportionBlock(['bgrect', genderData], 'other', d3.select('.other-' + key));
+                var proportion = getProportion(data, key, value);
+                proportion.congras = getCongrasProportion(data, key, value).congras;
+                proportion.nation = getNationalProportion(key, value).nation;
+                renderProportionBlock(['bgrect', proportion], 'nation', d3.select('.nation-' + key));
+                renderProportionBlock(['bgrect', proportion], 'congras', d3.select('.congras-' + key));
+                renderProportionBlock(['bgrect', proportion], 'kmt', d3.select('.kmt-' + key));
+                renderProportionBlock(['bgrect', proportion], 'tpp', d3.select('.tpp-' + key));
+                renderProportionBlock(['bgrect', proportion], 'other', d3.select('.other-' + key));
             }
 
             function renderGenderBlockAndButtons(data, gender) {
@@ -351,24 +400,24 @@
 
             function renderAgeBlockAndButtons(data, age) {
                 renderBlock(data, 'age', age);
-                d3.select('#twentyButton').on('click', clickAgeButton.bind(this, data, 20));
-                d3.select('#thirtyButton').on('click', clickAgeButton.bind(this, data, 30));
-                d3.select('#fortyButton').on('click', clickAgeButton.bind(this, data, 40));
-                d3.select('#fiftyButton').on('click', clickAgeButton.bind(this, data, 50));
-                d3.select('#sixtyButton').on('click', clickAgeButton.bind(this, data, 60));
+                d3.select('#twentyButton').on('click', clickAgeButton.bind(this, data, 19));
+                d3.select('#thirtyButton').on('click', clickAgeButton.bind(this, data, 29));
+                d3.select('#fortyButton').on('click', clickAgeButton.bind(this, data, 39));
+                d3.select('#fiftyButton').on('click', clickAgeButton.bind(this, data, 49));
+                d3.select('#sixtyButton').on('click', clickAgeButton.bind(this, data, 59));
             }
 
             function renderEducationBlockAndButtons(data, education) {
                 renderBlock(data, 'education', education);
-                d3.select('#drButton').on('click', clickEducationButton.bind(this, data, 'dr'));
                 d3.select('#masterButton').on('click', clickEducationButton.bind(this, data, 'master'));
                 d3.select('#bachelorButton').on('click', clickEducationButton.bind(this, data, 'bachelor'));
                 d3.select('#highSchoolButton').on('click', clickEducationButton.bind(this, data, 'highschol'));
                 d3.select('#vocationalButton').on('click', clickEducationButton.bind(this, data, 'vocational'));
+                d3.select('#otherButton').on('click', clickEducationButton.bind(this, data, 'other'));
             }
 
             renderGenderBlockAndButtons(data, 'M');
-            renderAgeBlockAndButtons(data, 50);
+            renderAgeBlockAndButtons(data, 49);
             renderEducationBlockAndButtons(data, 'master');
         })();
     });
