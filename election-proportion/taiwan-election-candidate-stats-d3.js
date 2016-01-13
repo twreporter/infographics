@@ -107,11 +107,24 @@
                     return '';
             }
         }
+        var changeHairValue = function(hair) {
+            switch (hair) {
+                case '長':
+                    return 'long';
+                case '中':
+                    return 'medium';
+                case '短':
+                    return 'short';
+                default:
+                    return '';
+            }
+        }
 
         return data.map(function(d) {
             d.party = groupParty(d.party);
             d.age = groupAge(d.age);
             d.education = changeEducationValue(d.education);
+            d.hair = changeHairValue(d.hair);
             return d;
         });
     }
@@ -151,6 +164,9 @@
                 return false;
             }
             if (criteria.education && d.education !== criteria.education) {
+                return false;
+            }
+            if (criteria.hair && d.hair !== criteria.hair) {
                 return false;
             }
             return true;
@@ -367,6 +383,9 @@
                 ['other', 'highschool', 'vocational', 'bachelor', 'master'].forEach(function(education) {
                     helper('education', education);
                 });
+                ['long', 'medium', 'short'].forEach(function(hair) {
+                    helper('hair', hair);
+                })
             }
             renderButton(_splitData);
             renderTotal(_splitData);
@@ -452,26 +471,21 @@
                 renderBlock(data, 'gender', gender);
             }
 
-            function clickAgeButton(data, age) {
-                var className = '.age-' + age + '-bt';
-                unselect('.age-proportion');
+            function clickButton(data, category, value) {
+                var className = '.' + category + '-' + value + '-bt';
+                unselect('.' + category + '-proportion');
                 select(className);
-                renderBlock(data, 'age', age);
-            }
-
-            function clickEducationButton(data, education) {
-                var className = '.education-' + education + '-bt';
-                unselect('.education-proportion');
-                select(className);
-                renderBlock(data, 'education', education);
+                renderBlock(data, category, value);
             }
 
             function renderBlock(data, key, value) {
                 var proportion = getProportion(data, key, value);
                 proportion.congress = getCongressProportion(data, key, value).congress;
-                proportion.nation = getNationalProportion(key, value).nation;
-                renderPercentage(proportion.nation * 100, 'nation', key);
-                renderProportionBlock(['bgrect', proportion], 'nation', d3.select('.nation-' + key));
+                if (key !== 'hair') {
+                  proportion.nation = getNationalProportion(key, value).nation;
+                  renderPercentage(proportion.nation * 100, 'nation', key);
+                  renderProportionBlock(['bgrect', proportion], 'nation', d3.select('.nation-' + key));
+                }
                 renderPercentage(proportion.congress * 100, 'congress', key);
                 renderProportionBlock(['bgrect', proportion], 'congress', d3.select('.congress-' + key));
                 renderPercentage(proportion.kmt * 100, 'kmt', key);
@@ -491,25 +505,33 @@
 
             function renderAgeBlockAndButtons(data, age) {
                 renderBlock(data, 'age', age);
-                d3.select('#twentyButton').on('click', clickAgeButton.bind(this, data, 19));
-                d3.select('#thirtyButton').on('click', clickAgeButton.bind(this, data, 29));
-                d3.select('#fortyButton').on('click', clickAgeButton.bind(this, data, 39));
-                d3.select('#fiftyButton').on('click', clickAgeButton.bind(this, data, 49));
-                d3.select('#sixtyButton').on('click', clickAgeButton.bind(this, data, 59));
+                d3.select('#twentyButton').on('click', clickButton.bind(this, data, 'age', 19));
+                d3.select('#thirtyButton').on('click', clickButton.bind(this, data, 'age', 29));
+                d3.select('#fortyButton').on('click', clickButton.bind(this, data, 'age', 39));
+                d3.select('#fiftyButton').on('click', clickButton.bind(this, data, 'age', 49));
+                d3.select('#sixtyButton').on('click', clickButton.bind(this, data, 'age', 59));
             }
 
             function renderEducationBlockAndButtons(data, education) {
                 renderBlock(data, 'education', education);
-                d3.select('#masterButton').on('click', clickEducationButton.bind(this, data, 'master'));
-                d3.select('#bachelorButton').on('click', clickEducationButton.bind(this, data, 'bachelor'));
-                d3.select('#highSchoolButton').on('click', clickEducationButton.bind(this, data, 'highschool'));
-                d3.select('#vocationalButton').on('click', clickEducationButton.bind(this, data, 'vocational'));
-                d3.select('#otherButton').on('click', clickEducationButton.bind(this, data, 'other'));
+                d3.select('#masterButton').on('click', clickButton.bind(this, data, 'education', 'master'));
+                d3.select('#bachelorButton').on('click', clickButton.bind(this, data, 'education', 'bachelor'));
+                d3.select('#highSchoolButton').on('click', clickButton.bind(this, data, 'education', 'highschool'));
+                d3.select('#vocationalButton').on('click', clickButton.bind(this, data, 'education', 'vocational'));
+                d3.select('#otherButton').on('click', clickButton.bind(this, data, 'education', 'other'));
+            }
+
+            function renderHairBlockAndButtons(data, hair) {
+                renderBlock(data, 'hair', hair);
+                d3.select('#longHairBt').on('click', clickButton.bind(this, data, 'hair', 'long'));
+                d3.select('#mediumHairBt').on('click', clickButton.bind(this, data, 'hair', 'medium'));
+                d3.select('#shortHairBt').on('click', clickButton.bind(this, data, 'hair', 'short'));
             }
 
             renderGenderBlockAndButtons(data, 'M');
             renderAgeBlockAndButtons(data, 19);
             renderEducationBlockAndButtons(data, 'master');
+            renderHairBlockAndButtons(data, 'long');
         })();
     });
 
