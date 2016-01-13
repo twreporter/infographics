@@ -78,7 +78,7 @@
             if (party === '中國國民黨') {
                 return 'kmt';
             } else if (party === '民主進步黨') {
-                return 'tpp';
+                return 'dpp';
             }
             return 'other';
         }
@@ -114,6 +114,29 @@
             d.education = changeEducationValue(d.education);
             return d;
         });
+    }
+
+    function splitData(data) {
+        var district = [];
+        var nondistrict = [];
+        var aboriginal = [];
+        data.forEach(function(d) {
+            if (d.type === '分區立委') {
+                d.pos = district.length;
+                district.push(d);
+            } else if (d.type === '不分區立委') {
+                d.pos = nondistrict.length;
+                nondistrict.push(d);
+            } else {
+                d.pos = aboriginal.length;
+                aboriginal.push(d);
+            }
+        });
+        return {
+            district: district,
+            nondistrict: nondistrict,
+            aboriginal: aboriginal
+        };
     }
 
     function filterData(data, criteria) {
@@ -217,8 +240,11 @@
         var data = transferData(rawData);
         // render taiwan election result by map
         (function() {
+            var _splitData = splitData(data);
             var MAPWIDTH = 500;
             var MAPHEIGHT = 500;
+            var xScale = d3.scale.linear().domain([0, 10]).range([50, 200]);
+            var yScale = d3.scale.linear().domain([0, 10]).range([10, 200]);
             var projection = d3.geo.mercator()
                 .center([120.9688063, 23.82887])
                 .translate([MAPWIDTH / 2, MAPHEIGHT / 2])
@@ -226,57 +252,67 @@
 
             var criteria = {};
 
-            var taiwanMap = d3.select('.taiwan-geo').attr('viewBox', '100 100 500 500');
-            var districtGroupGray = taiwanMap.append('g').attr('class', 'district-group-gray');
-            var nondistrictGroupGray = taiwanMap.append('g').attr('class', 'nondistrict-group-gray');
-            var districtGroup = taiwanMap.append('g').attr('class', 'district-group');
-            var nondistrictGroup = taiwanMap.append('g').attr('class', 'nondistct-group-gray');
+            var districtMap = d3.select('.district-map').append('svg').attr('viewBox', '100 50 300 500');
+            var nondistrictMap = d3.select('.nondistrict').append('svg').attr('viewBox', '0 0 300 150');
+            var aboriginalMap = d3.select('.aboriginal').append('svg').attr('viewBox', '0 0 300 150');
+            var districtGroupGray = districtMap.append('g').attr('class', 'district-group-gray');
+            var nondistrictGroupGray = nondistrictMap.append('g').attr('class', 'nondistrict-group-gray');
+            var aboriginalGroupGray = aboriginalMap.append('g').attr('class', 'aboriginal-group-gray')
+            var districtGroup = districtMap.append('g').attr('class', 'district-group');
+            var nondistrictGroup = nondistrictMap.append('g').attr('class', 'nondistrict-group');
+            var aboriginalGroup = aboriginalMap.append('g').attr('class', 'aboriginal-group');
 
-            var renderBg = function(data) {
-                districtGroupGray.selectAll('rect')
+            var renderBg = function(data, type) {
+                var node;
+                if (type === 'district') {
+                    node = districtGroupGray
+                } else if (type === 'nondistrict') {
+                    node = nondistrictGroupGray;
+                } else {
+                    node = aboriginalGroupGray;
+                }
+                node.selectAll('circle')
                     .data(data)
                     .enter()
-                    .append('rect')
-                    .attr('class', 'rects')
-                    .attr("x", function(d) {
-                        return projection([d.lon, d.lat])[0];
+                    .append('circle')
+                    .attr('class', 'circle')
+                    .attr("cx", function(d) {
+                        return type === 'district' ? projection([d.lon, d.lat])[0] : xScale(d.pos % 20);
                     })
-                    .attr("y", function(d) {
-                        return projection([d.lon, d.lat])[1];
+                    .attr("cy", function(d) {
+                        return type === 'district' ? projection([d.lon, d.lat])[1] : yScale(Math.floor(d.pos / 20));
                     })
-                    .attr("width", function(d) {
-                        return 5;
-                    })
-                    .attr("height", function(d) {
-                        return 5;
-                    })
+                    .attr('r', 4)
                     .style("fill", "#EEE")
                     .style("cursor", "pointer");
             }
 
-            var renderFilteredData = function(data, criteria) {
+            var renderFront = function(data, type, criteria) {
                 var filtered = filterData(data, criteria);
-                document.getElementsByClassName('map-result')[0].innerHTML = filtered.length;
-                var rects = districtGroup.selectAll('rect')
+                var node;
+                if (type === 'district') {
+                    node = districtGroup;
+                } else if (type === 'nondistrict') {
+                    node = nondistrictGroup;
+                } else {
+                    node = aboriginalGroup;
+                }
+
+                var rects = node.selectAll('circle')
                     .data(filtered, function(d) {
                         return d.name;
                     });
 
                 rects.enter()
-                    .append('rect')
-                    .attr('class', 'selected-rects')
-                    .attr("x", function(d) {
-                        return projection([d.lon, d.lat])[0];
+                    .append('circle')
+                    .attr('class', 'selected-circles')
+                    .attr("cx", function(d) {
+                        return type === 'district' ? projection([d.lon, d.lat])[0] : xScale(d.pos % 20);
                     })
-                    .attr("y", function(d) {
-                        return projection([d.lon, d.lat])[1];
+                    .attr("cy", function(d) {
+                        return type === 'district' ? projection([d.lon, d.lat])[1] : yScale(Math.floor(d.pos / 20));
                     })
-                    .attr("width", function(d) {
-                        return 5;
-                    })
-                    .attr("height", function(d) {
-                        return 5;
-                    })
+                    .attr('r', 4)
                     .style("fill", "#4cc5dc")
                     .style("cursor", "pointer")
                     .style("stroke", "white")
@@ -285,41 +321,61 @@
                 rects.exit().remove();
             }
 
-            var renderButton = function(data) {
-                function helper(type, i) {
-                    if (criteria[type] === i) {
-                        delete criteria[type];
-                    } else {
-                        criteria[type] = i;
-                    }
-                    renderFilteredData(data, criteria);
+            var renderTotal = function(data, criteria) {
+                var length = 0;
+                for (var index in data) {
+                    length += filterData(data[index], criteria).length;
                 }
-                d3.select('#male').on('click', function() {
-                    if (criteria.gender === 'M') {
-                        delete criteria.gender;
-                    } else {
-                        criteria.gender = 'M';
+                document.getElementById('map-total-congress').innerHTML = length;
+            }
+
+            var renderButton = function(data) {
+                function unselect(className) {
+                    var selection = d3.selectAll(className + '.selected');
+                    if (selection[0].indexOf(this) == -1) {
+                        selection.classed("selected", false);
                     }
-                    renderFilteredData(data, criteria);
-                });
-                d3.select('#female').on('click', function() {
-                    if (criteria.gender === 'F') {
-                        delete criteria.gender;
-                    } else {
-                        criteria.gender = 'F';
+                }
+
+                function helper(type, i) {
+                        d3.select('#' + type + '-' + i).on('click', function() {
+                            unselect('.' + type + '-bt');
+                            if (type === 'gender' && i === 'male') {
+                                i = 'M';
+                            } else if (type === 'gender' && i === 'female') {
+                                i = 'F';
+                            }
+                            if (criteria[type] === i) {
+                                delete criteria[type];
+                            } else {
+                                criteria[type] = i;
+                                var selection = d3.select(this);
+                                selection.classed("selected", true);
+                            }
+                            renderFront(data.district, 'district', criteria);
+                            renderFront(data.nondistrict, 'nondistrict', criteria);
+                            renderFront(data.aboriginal, 'aboriginal', criteria);
+                            renderTotal(data, criteria);
+                        });
                     }
-                    renderFilteredData(data, criteria);
-                });
+                    ['male', 'female'].forEach(function(gender) {
+                        helper('gender', gender)
+                    });
                 for (var i = 59; i >= 19; i = i - 10) {
-                    d3.select('#age-' + i).on('click', helper.bind(this, 'age', i));
+                    helper('age', i);
                 }
                 ['other', 'highschool', 'vocational', 'bachelor', 'master'].forEach(function(education) {
-                    d3.select('#edu-' + education).on('click', helper.bind(this, 'education', education));
+                    helper('education', education);
                 });
             }
-            renderButton(data);
-            renderBg(data);
-            renderFilteredData(data);
+            renderButton(_splitData);
+            renderTotal(_splitData);
+            renderBg(_splitData.district, 'district');
+            renderFront(_splitData.district, 'district');
+            renderBg(_splitData.nondistrict, 'nondistrict');
+            renderFront(_splitData.nondistrict, 'nondistrict');
+            renderBg(_splitData.aboriginal, 'aboriginal');
+            renderFront(_splitData.aboriginal, 'aboriginal');
         })();
 
         // render election result by proportion square
@@ -368,15 +424,45 @@
                     .duration(500);
             }
 
+            function unselect(className) {
+                var selection = d3.selectAll(className + ' .selected');
+                if (selection[0].indexOf(this) == -1) {
+                    selection.classed("selected", false);
+                }
+            }
+
+            function select(className) {
+                var selection = d3.selectAll(className);
+                if (selection[0].indexOf(this) == -1) {
+                    selection.classed("selected", true);
+                }
+            }
+
+            var renderPercentage = function(data, party, category) {
+                document.getElementById(category + '-' + party + '-pt').innerHTML = data;
+            }
+
             function clickGenderButton(data, gender) {
+                unselect('.gender-proportion');
+                if (gender === 'M') {
+                    select('.gender-m-bt');
+                } else {
+                    select('.gender-f-bt');
+                }
                 renderBlock(data, 'gender', gender);
             }
 
             function clickAgeButton(data, age) {
+                var className = '.age-' + age + '-bt';
+                unselect('.age-proportion');
+                select(className);
                 renderBlock(data, 'age', age);
             }
 
             function clickEducationButton(data, education) {
+                var className = '.education-' + education + '-bt';
+                unselect('.education-proportion');
+                select(className);
                 renderBlock(data, 'education', education);
             }
 
@@ -384,11 +470,16 @@
                 var proportion = getProportion(data, key, value);
                 proportion.congress = getCongressProportion(data, key, value).congress;
                 proportion.nation = getNationalProportion(key, value).nation;
+                renderPercentage(proportion.nation * 100, 'nation', key);
                 renderProportionBlock(['bgrect', proportion], 'nation', d3.select('.nation-' + key));
+                renderPercentage(proportion.congress * 100, 'congress', key);
                 renderProportionBlock(['bgrect', proportion], 'congress', d3.select('.congress-' + key));
+                renderPercentage(proportion.kmt * 100, 'kmt', key);
                 renderProportionBlock(['bgrect', proportion], 'kmt', d3.select('.kmt-' + key));
-                renderProportionBlock(['bgrect', proportion], 'tpp', d3.select('.tpp-' + key));
-                renderProportionBlock(['bgrect', proportion], 'other', d3.select('.other-' + key));
+                renderPercentage(proportion.dpp * 100, 'dpp', key);
+                renderProportionBlock(['bgrect', proportion], 'dpp', d3.select('.dpp-' + key));
+                renderPercentage(proportion.other * 100, 'other-party', key);
+                renderProportionBlock(['bgrect', proportion], 'other', d3.select('.other-party-' + key));
             }
 
             function renderGenderBlockAndButtons(data, gender) {
@@ -411,13 +502,13 @@
                 renderBlock(data, 'education', education);
                 d3.select('#masterButton').on('click', clickEducationButton.bind(this, data, 'master'));
                 d3.select('#bachelorButton').on('click', clickEducationButton.bind(this, data, 'bachelor'));
-                d3.select('#highSchoolButton').on('click', clickEducationButton.bind(this, data, 'highschol'));
+                d3.select('#highSchoolButton').on('click', clickEducationButton.bind(this, data, 'highschool'));
                 d3.select('#vocationalButton').on('click', clickEducationButton.bind(this, data, 'vocational'));
                 d3.select('#otherButton').on('click', clickEducationButton.bind(this, data, 'other'));
             }
 
             renderGenderBlockAndButtons(data, 'M');
-            renderAgeBlockAndButtons(data, 49);
+            renderAgeBlockAndButtons(data, 19);
             renderEducationBlockAndButtons(data, 'master');
         })();
     });

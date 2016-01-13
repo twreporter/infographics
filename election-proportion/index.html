@@ -1,96 +1,289 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, initial-scale=1">
 <style>
 
-.block {
-  width:300px;
-  height: 300px;
+.election-container {
+}
+
+.condition-title {
+  width: 100%;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  text-align: center;
+  padding: 5px 0 5px 0;
+}
+
+.condition-block {
+  margin: 20px auto;
+  width: 800px;
+  height: auto;
+}
+
+.bt {
+  width: auto;
+  height: auto;
+  position: relative;
+  display: inline-block;
+  margin: 1px;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px 10px;
+  color: #666;
+  background-color: #fff;
+  border: 2px solid #f1f1f1;
+  border-radius: 62.5rem;
+  cursor: pointer;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+}
+
+.selected {
+  background-color: #000;
+  color: white;
+}
+
+.map-result {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin: 10px auto 0;
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.sentence {
+  white-space: nowrap;
+}
+
+.condition-result-container {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  margin: 50px auto 0px auto;
+}
+
+.district-map {
+  max-width: 400px;
+  width: 50%;
+  max-height: 600px;
+  height: 100%;
   display: inline-block;
 }
 
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.right-rail {
+  position: absolute;
+  border-left: 1px solid;
+  top: 0px;
+  right: 0px;
+  max-width: 400px;
+  width: 50%;
+  max-height: 600px;
+  height: 100%;
+}
+
+.right-rail .block {
+  max-height: 200px;
+  width: 100%;
+  height: 100%;
+}
+
+.proportion-block .rows {
+  margin: 50px 0px 0px 50px;
+}
+
+.proportion-block .row {
+  position: relative;
+  height: auto;
+  width: 100%;
+  margin-bottom: 75px;
+  display: table;
+}
+
+.proportion-block .row-text {
+  display: table-cell;
+  width: 25%;
+  vertical-align: top;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.row-text span {
+  width: 100%;
+  padding: 0 0 5px 10px;
+  float: left;
+}
+
+.category-row {
+  width: 150px;
+  height: 150px;
+  margin-left: 50px;
+}
+
+.kmt-block, .dpp-block, .other-party-block {
+  width: 100px;
+}
+
+.square-header {
+  margin-left: 50px;
+  width: 100px;
+}
+
+.gender-proportion .block, .age-proportion .block, .education-proportion .block {
+  position: relative;
+  display: inline;
+  float: left;
+}
+
 </style>
-<div class="taiwan-map-block">
-<button id='male'>male</button>
-<button id='female'>female</button>
-<button id='age-19'>29以下</button>
-<button id='age-29'>30-39</button>
-<button id='age-39'>40-49</button>
-<button id='age-49'>50-59</button>
-<button id='age-59'>60以上</button>
-<button id='edu-highschool'>highschool</button>
-<button id='edu-vocational'>vocational</button>
-<button id='edu-bachelor'>bachelor</button>
-<button id='edu-master'>master</button>
-<button id='edu-other'>other</button>
-<div>
-  there are 
-  <div class="map-result odometer"></div>
-  people in congress like you
-</div>
-<svg  class="taiwan-geo"></svg>
-</div>
-<div class="election-proportion-block">
-  <div class="gender-proportion">
-    <button id="maleButton">male</button>
-    <button id="femaleButton">female</button>
-    <div class="gender-proportion block">
-      <svg class="nation-gender"></svg>
+<div class="election-container">
+  <div class="taiwan-map-block">
+    <div class="condition-title">條件選擇</div>
+    <div class="condition-block">
+      <span class="sentence">
+        如果你是
+      </span>
+      <div id='gender-male' class="gender-bt bt">男性</div>
+      <div id='gender-female' class="gender-bt bt">女性</div>
+      <span class="sentence">
+      ，年齡是
+      </span>
+      <div id='age-19' class="age-bt bt">29歲以下</div>
+      <div id='age-29' class="age-bt bt">30-39歲</div>
+      <div id='age-39' class="age-bt bt">40-49歲</div>
+      <div id='age-49' class="age-bt bt">50-59歲</div>
+      <div id='age-59' class="age-bt bt">60歲以上</div>
+      <span class="sentence">
+      ，教育程度是
+      </span>
+      <div id='education-other' class="education-bt bt">國中小</div>
+      <div id='education-highschool' class="education-bt bt">高中職</div>
+      <div id='education-vocational' class="education-bt bt">專科</div>
+      <div id='education-bachelor' class="education-bt bt">大學</div>
+      <div id='education-master' class="education-bt bt">碩博士</div>
     </div>
-    <div class="gender-proportion block">
-      <svg class="congress-gender"></svg>
+    <div class="map-result">
+      總共有 
+      <div id="map-total-congress" class="odometer"></div>
+      位立委跟你一樣
     </div>
-    <div class="gender-proportion block">
-      <svg class="kmt-gender"></svg>
-    </div>
-    <div class="gender-proportion block">
-      <svg class="tpp-gender"></svg>
-    </div>
-    <div class="gender-proportion block">
-      <svg class="other-gender"></svg>
-    </div>
-  </div>
-  <div class="age-proportion">
-    <button id="twentyButton">29以下</button>
-    <button id="thirtyButton">30-39</button>
-    <button id="fortyButton">40-49</button>
-    <button id="fiftyButton">50-59</button>
-    <button id="sixtyButton">60以上</button>
-    <div class="age-proportion block">
-      <svg class="nation-age"></svg>
-    </div>
-    <div class="age-proportion block">
-      <svg class="congress-age"></svg>
-    </div>
-    <div class="age-proportion block">
-      <svg class="kmt-age"></svg>
-    </div>
-    <div class="age-proportion block">
-      <svg class="tpp-age"></svg>
-    </div>
-    <div class="age-proportion block">
-      <svg class="other-age"></svg>
+    <div class="condition-result-container">
+      <div class="district-map">
+        <div class="title"><span>分區立委</span></div>
+      </div>
+      <div class="right-rail">
+        <div class="nondistrict block">
+          <div class="title"><span>不分區立委</span></div>
+        </div>
+        <div class="aboriginal block" style="padding-top: 20px;">
+          <div class="title"><span>原住民立委</span></div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="education-proportion">
-    <button id="masterButton">碩博士</button>
-    <button id="bachelorButton">學士</button>
-    <button id="highSchoolButton">高中</button>
-    <button id="vocationalButton">專科</button>
-    <button id="otherButton">國中小</button>
-    <div class="education-proportion block">
-      <svg class="nation-education"></svg>
-    </div>
-    <div class="education-proportion block">
-      <svg class="congress-education"></svg>
-    </div>
-    <div class="education-proportion block">
-      <svg class="kmt-education"></svg>
-    </div>
-    <div class="education-proportion block">
-      <svg class="tpp-education"></svg>
-    </div>
-    <div class="education-proportion block">
-      <svg class="other-education"></svg>
+  <div class="proportion-block">
+    <div class="condition-title">看比例</div>
+    <div class="rows">
+      <div class="gender-proportion row">
+        <div class="row-text">
+          <span>性別</span>
+          <div id="maleButton" class="bt gender-m-bt selected">男性</div>
+          <div id="femaleButton" class="bt gender-f-bt">女性</div>
+        </div>
+        <div class="blocks">
+          <div class="nation-sqaure block">
+            <div class="square-header"><span>全國</span><div id="gender-nation-pt" class="odometer"></div>%</div>
+            <svg class="nation-gender category-row"></svg>
+          </div>
+          <div class="congress-square block">
+            <div class="square-header"><span>國會</span><div id="gender-congress-pt" class="odometer"></div>%</div>
+            <svg class="congress-gender category-row"></svg>
+          </div>
+          <div class="kmt-square block">
+            <div class="square-header"><span>國民黨</span><div id="gender-kmt-pt" class="odometer"></div>%</div>
+            <svg class="kmt-gender kmt-block category-row"></svg>
+          </div>
+          <div class="dpp-square block">
+            <div class="square-header"><span>民進黨</span><div id="gender-dpp-pt" class="odometer"></div>%</div>
+            <svg class="dpp-gender dpp-block category-row"></svg>
+          </div>
+          <div class="other-party-square block">
+            <div class="square-header"><span>其他黨</span><div id="gender-other-party-pt" class="odometer"></div>%</div>
+            <svg class="other-party-gender other-party-block category-row"></svg>
+          </div>
+        </div>
+      </div>
+      <div class="age-proportion row">
+        <div class="row-text">
+          <span>年齡</span>
+          <div id="twentyButton" class="bt age-19-bt selected">29以下</div>
+          <div id="thirtyButton" class="bt age-29-bt">30-39</div>
+          <div id="fortyButton" class="bt age-39-bt">40-49</div>
+          <div id="fiftyButton" class="bt age-49-bt">50-59</div>
+          <div id="sixtyButton" class="bt age-59-bt">60以上</div>
+        </div>
+        <div class="blocks">
+          <div class="nation-sqaure block">
+            <div class="square-header"><span>全國</span><div id="age-nation-pt" class="odometer"></div>%</div>
+            <svg class="nation-age category-row"></svg>
+          </div>
+          <div class="congress-sqaure block">
+            <div class="square-header"><span>國會</span><div id="age-congress-pt" class="odometer"></div>%</div>
+            <svg class="congress-age category-row"></svg>
+          </div>
+          <div class="kmt-sqaure block">
+            <div class="square-header"><span>國民黨</span><div id="age-kmt-pt" class="odometer"></div>%</div>
+            <svg class="kmt-age kmt-block category-row"></svg>
+          </div>
+          <div class="dpp-sqaure block">
+            <div class="square-header"><span>民進黨</span><div id="age-dpp-pt" class="odometer"></div>%</div>
+            <svg class="dpp-age dpp-block category-row"></svg>
+          </div>
+          <div class="other-party-sqaure block">
+            <div class="square-header"><span>其他黨</span><div id="age-other-party-pt" class="odometer"></div>%</div>
+            <svg class="other-party-age other-party-block category-row"></svg>
+          </div>
+        </div>
+      </div>
+      <div class="education-proportion row">
+        <div class="row-text">
+          <span>學歷</span>
+          <div id="masterButton" class="bt education-master-bt selected">碩博士</div>
+          <div id="bachelorButton" class="bt education-bachelor-bt">學士</div>
+          <div id="highSchoolButton" class="bt education-highschool-bt">高中</div>
+          <div id="vocationalButton" class="bt education-vocational-bt">專科</div>
+          <div id="otherButton" class="bt education-other-bt">國中小</div>
+        </div>
+        <div class="blocks">
+          <div class="nation-sqaure block">
+            <div class="square-header"><span>全國</span><div id="education-nation-pt" class="odometer"></div>%</div>
+            <svg class="nation-education category-row"></svg>
+          </div>
+          <div class="congress-sqaure block">
+            <div class="square-header"><span>國會</span><div id="education-congress-pt" class="odometer"></div>%</div>
+            <svg class="congress-education category-row"></svg>
+          </div>
+          <div class="kmt-sqaure block">
+            <div class="square-header"><span>國民黨</span><div id="education-kmt-pt" class="odometer"></div>%</div>
+            <svg class="kmt-education category-row kmt-block"></svg>
+          </div>
+          <div class="dpp-sqaure block">
+            <div class="square-header"><span>民進黨</span><div id="education-dpp-pt" class="odometer"></div>%</div>
+            <svg class="dpp-education category-row dpp-block"></svg>
+          </div>
+          <div class="other-party-sqaure block">
+            <div class="square-header"><span>其他黨</span><div id="education-other-party-pt" class="odometer"></div>%</div>
+            <svg class="other-party-education category-row other-party-block"></svg>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
