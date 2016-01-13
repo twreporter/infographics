@@ -71,11 +71,19 @@
   max-height: 600px;
   height: 100%;
   display: inline-block;
+  text-align: center;
 }
 
 .title {
+  display: inline-block;
+  margin: 0px auto;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px 10px;
   text-align: center;
-  margin-bottom: 20px;
+  color: #FFF;
+  background-color: #000;
+  border: 3px solid #f1f1f1;
 }
 
 .right-rail {
@@ -87,6 +95,7 @@
   width: 50%;
   max-height: 600px;
   height: 100%;
+  text-align: center;
 }
 
 .right-rail .block {
@@ -96,7 +105,8 @@
 }
 
 .proportion-block .rows {
-  margin: 50px 0px 0px 50px;
+  margin: 50px auto;
+  width: 95%;
 }
 
 .proportion-block .row {
@@ -136,10 +146,9 @@
   width: 100px;
 }
 
-.gender-proportion .block, .age-proportion .block, .education-proportion .block {
+.gender-proportion .block, .age-proportion .block, .education-proportion .block, .hair-proportion .block {
   position: relative;
-  display: inline;
-  float: left;
+  display: inline-block;
 }
 
 </style>
@@ -168,11 +177,17 @@
       <div id='education-vocational' class="education-bt bt">專科</div>
       <div id='education-bachelor' class="education-bt bt">大學</div>
       <div id='education-master' class="education-bt bt">碩博士</div>
+      <span class="sentence">
+      ，或是，你很在意頭髮長度
+      </span>
+      <div id='hair-short' class="hair-bt bt">短</div>
+      <div id='hair-medium' class="hair-bt bt">中</div>
+      <div id='hair-long' class="hair-bt bt">長</div>
     </div>
     <div class="map-result">
-      總共有 
+      <span>總共有</span>
       <div id="map-total-congress" class="odometer"></div>
-      位立委跟你一樣
+      <span>位立委跟你一樣</span>
     </div>
     <div class="condition-result-container">
       <div class="district-map">
@@ -281,6 +296,32 @@
           <div class="other-party-sqaure block">
             <div class="square-header"><span>其他黨</span><div id="education-other-party-pt" class="odometer"></div>%</div>
             <svg class="other-party-education category-row other-party-block"></svg>
+          </div>
+        </div>
+      </div>
+      <div class="hair-proportion row">
+        <div class="row-text">
+          <span>頭髮</span>
+          <div id="longHairBt" class="bt hair-long-bt selected">長</div>
+          <div id="mediumHairBt" class="bt hair-medium-bt">中</div>
+          <div id="shortHairBt" class="bt hair-short-bt">短</div>
+        </div>
+        <div class="blocks">
+          <div class="congress-sqaure block">
+            <div class="square-header"><span>國會</span><div id="hair-congress-pt" class="odometer"></div>%</div>
+            <svg class="congress-hair category-row"></svg>
+          </div>
+          <div class="kmt-sqaure block">
+            <div class="square-header"><span>國民黨</span><div id="hair-kmt-pt" class="odometer"></div>%</div>
+            <svg class="kmt-hair category-row kmt-block"></svg>
+          </div>
+          <div class="dpp-sqaure block">
+            <div class="square-header"><span>民進黨</span><div id="hair-dpp-pt" class="odometer"></div>%</div>
+            <svg class="dpp-hair category-row dpp-block"></svg>
+          </div>
+          <div class="other-party-sqaure block">
+            <div class="square-header"><span>其他黨</span><div id="hair-other-party-pt" class="odometer"></div>%</div>
+            <svg class="other-party-hair category-row other-party-block"></svg>
           </div>
         </div>
       </div>
