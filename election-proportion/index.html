@@ -71,11 +71,19 @@
   max-height: 600px;
   height: 100%;
   display: inline-block;
+  text-align: center;
 }
 
 .title {
+  display: inline-block;
+  margin: 0px auto;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px 10px;
   text-align: center;
-  margin-bottom: 20px;
+  color: #FFF;
+  background-color: #000;
+  border: 3px solid #f1f1f1;
 }
 
 .right-rail {
@@ -87,6 +95,7 @@
   width: 50%;
   max-height: 600px;
   height: 100%;
+  text-align: center;
 }
 
 .right-rail .block {
@@ -96,7 +105,8 @@
 }
 
 .proportion-block .rows {
-  margin: 50px 0px 0px 50px;
+  margin: 50px auto;
+  width: 95%;
 }
 
 .proportion-block .row {
@@ -138,8 +148,7 @@
 
 .gender-proportion .block, .age-proportion .block, .education-proportion .block {
   position: relative;
-  display: inline;
-  float: left;
+  display: inline-block;
 }
 
 </style>
@@ -170,9 +179,9 @@
       <div id='education-master' class="education-bt bt">碩博士</div>
     </div>
     <div class="map-result">
-      總共有 
+      <span>總共有</span>
       <div id="map-total-congress" class="odometer"></div>
-      位立委跟你一樣
+      <span>位立委跟你一樣</span>
     </div>
     <div class="condition-result-container">
       <div class="district-map">
