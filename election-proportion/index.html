@@ -4,19 +4,33 @@
 <style>
 
 .election-container {
+  font-family: "Noto Sans",'Noto Sans TC', "Apple LiGothic Medium", Roboto, "Microsoft JhengHei", "新細明體", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  font-size: 15px;
+}
+
+.fw500 {
+  font-weight: 500;
+}
+
+.fs30 {
+  font-size: 30px;
+}
+
+.taiwan-map-block {
+  max-width: 1280px;
 }
 
 .condition-title {
   width: 100%;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
   text-align: center;
   padding: 5px 0 5px 0;
 }
 
 .condition-block {
   margin: 20px auto;
-  width: 800px;
+  max-width: 800px;
   height: auto;
 }
 
@@ -26,7 +40,7 @@
   position: relative;
   display: inline-block;
   margin: 1px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   padding: 5px 10px;
   color: #666;
@@ -60,8 +74,7 @@
 
 .condition-result-container {
   position: relative;
-  max-width: 800px;
-  width: 100%;
+  width: 80%;
   margin: 50px auto 0px auto;
 }
 
@@ -86,24 +99,6 @@
   border: 3px solid #f1f1f1;
 }
 
-.right-rail {
-  position: absolute;
-  border-left: 1px solid;
-  top: 0px;
-  right: 0px;
-  max-width: 400px;
-  width: 50%;
-  max-height: 600px;
-  height: 100%;
-  text-align: center;
-}
-
-.right-rail .block {
-  max-height: 200px;
-  width: 100%;
-  height: 100%;
-}
-
 .proportion-block .rows {
   margin: 50px auto;
   width: 95%;
@@ -121,13 +116,13 @@
   display: table-cell;
   width: 25%;
   vertical-align: top;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 900;
 }
 
 .row-text span {
   width: 100%;
-  padding: 0 0 5px 10px;
+  padding: 0 0 15px 0px;
   float: left;
 }
 
@@ -142,13 +137,34 @@
 }
 
 .square-header {
-  margin-left: 50px;
+  margin: 0px 0px 15px 50px;
   width: 100px;
 }
 
 .block {
   position: relative;
   display: inline-block;
+  vertical-align: top;
+  margin-bottom: 30px;
+}
+
+.nondistrict, .aboriginal {
+  width: 100%;
+  max-width: 200px;
+  margin-left: 30px;
+  text-align: center;
+}
+
+.party-indicator {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.party-circle {
+  display: inline-block;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
 }
 
 @media
@@ -161,23 +177,23 @@ and (max-device-width : 414px) {
     width: 100%;
     height: auto;
   }
-  .block {
+  .dpp-square, .kmt-square, .other-party-square.block {
     display: none;
   }
-  .nation-square.block {
-    position: relative;
-    display: inline-block;
+  .district-map {
+    width: 100%;
+    display: block;
+    text-align: center;
   }
-  .congress-square.block {
-    position: relative;
-    display: inline-block;
+  .block {
+    margin-bottom: 0px;
   }
 }
 
 </style>
 <div class="election-container">
   <div class="taiwan-map-block">
-    <div class="condition-title">條件選擇</div>
+    <div class="condition-title fs30">選一選，看這款立委有幾位？</div>
     <div class="condition-block">
       <span class="sentence">
         如果你是
@@ -187,7 +203,7 @@ and (max-device-width : 414px) {
       <span class="sentence">
       ，年齡是
       </span>
-      <div id='age-19' class="age-bt bt">29歲以下</div>
+      <div id='age-19' class="age-bt bt">24-29歲</div>
       <div id='age-29' class="age-bt bt">30-39歲</div>
       <div id='age-39' class="age-bt bt">40-49歲</div>
       <div id='age-49' class="age-bt bt">50-59歲</div>
@@ -200,34 +216,72 @@ and (max-device-width : 414px) {
       <div id='education-vocational' class="education-bt bt">專科</div>
       <div id='education-bachelor' class="education-bt bt">大學</div>
       <div id='education-master' class="education-bt bt">碩博士</div>
-      <span class="sentence">
-      ，或是，你很在意頭髮長度
-      </span>
-      <div id='hair-short' class="hair-bt bt">短</div>
-      <div id='hair-medium' class="hair-bt bt">中</div>
-      <div id='hair-long' class="hair-bt bt">長</div>
+      <div>
+        <span class="sentence">
+        或是，你很執著頭髮長度，這邊可以選擇
+        </span>
+        <div id='hair-short' class="hair-bt bt">短髮</div>
+        <div id='hair-medium' class="hair-bt bt">中髮</div>
+        <div id='hair-long' class="hair-bt bt">長髮</div>
+      </div>
     </div>
     <div class="map-result">
-      <span>共有</span>
+      <span class="fw500 fs30">共有</span>
       <div id="map-total-congress" class="odometer"></div>
-      <span>位立委跟你一樣</span>
+      <span class="fw500 fs30">位立委跟你一樣</span>
     </div>
     <div class="condition-result-container">
+      <div style="margin-bottom: 50px; text-align: center">
+        <div class="party-indicator">
+          <div class="party-circle" style="background-color: #8ed2ff;"></div>
+          <span>國民黨</span>
+        </div>
+        <div class="party-indicator">
+          <div class="party-circle" style="background-color: #80eaa8;"></div>
+          <span>民進黨</span>
+        </div>
+        <div class="party-indicator">
+          <div class="party-circle" style="background-color: #ffb991;"></div>
+          <span>親民黨</span>
+        </div>
+        <div class="party-indicator">
+          <div class="party-circle" style="background-color: #ffd675;"></div>
+          <span>時代力量</span>
+        </div>
+        <div class="party-indicator">
+          <div class="party-circle" style="background-color: #ffaddb;"></div>
+          <span>綠社聯盟</span>
+        </div>
+        <div class="party-indicator">
+          <div class="party-circle" style="background-color: #ffff4d;"></div>
+          <span>新黨</span>
+        </div>
+        <div class="party-indicator">
+          <div class="party-circle" style="background-color: #bdccd4;"></div>
+          <span>無黨籍</span>
+        </div>
+        <div class="party-indicator">
+          <div class="party-circle" style="background-color: #486fff;"></div>
+          <span>民國黨</span>
+        </div>
+        <div class="party-indicator">
+          <div class="party-circle" style="background-color: #c7b299;"></div>
+          <span>台聯黨</span>
+        </div>
+      </div>
       <div class="district-map">
         <div class="title"><span>分區立委</span></div>
       </div>
-      <div class="right-rail">
-        <div class="nondistrict block">
-          <div class="title"><span>不分區立委</span></div>
-        </div>
-        <div class="aboriginal block" style="padding-top: 20px;">
-          <div class="title"><span>原住民立委</span></div>
-        </div>
+      <div class="nondistrict block">
+        <div class="title"><span>不分區立委</span></div>
+      </div>
+      <div class="aboriginal block">
+        <div class="title"><span>原住民立委</span></div>
       </div>
     </div>
   </div>
   <div class="proportion-block">
-    <div class="condition-title">看比例</div>
+    <div class="condition-title fs30">各款立委全國比一比</div>
     <div class="rows">
       <div class="gender-proportion row">
         <div class="row-text">
@@ -261,7 +315,7 @@ and (max-device-width : 414px) {
       <div class="age-proportion row">
         <div class="row-text">
           <span>年齡</span>
-          <div id="twentyButton" class="bt age-19-bt selected">29以下</div>
+          <div id="twentyButton" class="bt age-19-bt selected">24-29</div>
           <div id="thirtyButton" class="bt age-29-bt">30-39</div>
           <div id="fortyButton" class="bt age-39-bt">40-49</div>
           <div id="fiftyButton" class="bt age-49-bt">50-59</div>
