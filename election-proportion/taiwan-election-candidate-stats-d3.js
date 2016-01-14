@@ -13,8 +13,9 @@
                         .append('div')
                         .attr('class', 'tooltip')
                     var absoluteMousePos = d3.mouse(bodyNode);
+                    var left = (window.innerWidth <= 414) && absoluteMousePos[0] > (window.innerWidth/2) ? absoluteMousePos[0] - 87: absoluteMousePos[0] + 13;
                     tooltipDiv.style({
-                        left: (absoluteMousePos[0] + 13) + 'px',
+                        left: left + 'px',
                         top: (absoluteMousePos[1] - 23) + 'px',
                         'background': 'rgba(255, 255, 255, 0.7)',
                         color: '#333',
@@ -25,29 +26,18 @@
                         'box-shadow': '0 1px 2px 0 rgba(0,0,0,0.4)'
                     });
 
-                    var first_line = '<p>' + d.city + ', ' + d.district + '</p>'
-                    var second_line;
-                    if (d.num === '1') {
-                        second_line = '<p>' + d.district_name + '</p>'
-                    } else {
-                        second_line = '<p>' + d.district_name + '</p>'
-                    }
-                    var third_line = '<p>' + d.lon + ',' + d.lat + ' <p>'
+                    var image = d.photo ? '<img height="80px" src="' + d.photo + '"></img>' : '';
+                    var name = '<div style="font-size:24px; font-weight:500">' + d.name + '</div>';
+                    var party = '<div class="party-indicator"><div class="party-circle" style="background-color:' +getPartyColor(d.party) +'"></div><span>' + d.party + '</span></div>'
+                    var district = '<div>' + d.city +'</div>';
 
-                    tooltipDiv.html(first_line + second_line + third_line)
-                })
-                .on('mousemove.tooltip', function() {
-                    // Move tooltip
-                    var absoluteMousePos = d3.mouse(bodyNode);
-                    tooltipDiv.style({
-                        left: (absoluteMousePos[0] + 13) + 'px',
-                        top: (absoluteMousePos[1] - 23) + 'px'
-                    });
+                    var div = '<div class="election-container" style="padding:15px;">' + image + '<div style="display:inline-block;margin-left:10px;">' + name + party + district  + '</div></div>'
+                    tooltipDiv.html(div);
                 })
                 .on('mouseout.tooltip', function() {
-                    // Remove tooltip
-                    tooltipDiv.remove();
-                });
+                    // remove tooltip
+                  tooltipDiv.remove();
+                })
         }
 
         tooltip.attr = function(_x) {
@@ -73,15 +63,35 @@
         .range([0, width])
         */
 
-    function transferData(data) {
-        var groupParty = function(party) {
-            if (party === '中國國民黨') {
-                return 'kmt';
-            } else if (party === '民主進步黨') {
-                return 'dpp';
-            }
-            return 'other';
+    function getPartyColor(party) {
+        switch (party) {
+            case '中國國民黨':
+                return '#8ed2ff';
+            case '民主進步黨':
+                return '#80eaa8';
+            case '新黨':
+                return '#ffff4d';
+            case '親民黨':
+                return '#ffb991';
+            case '時代力量':
+                return '#ffd675';
+            case '綠黨社會民主黨聯盟':
+            case '綠社盟':
+                return '#ffaddb';
+            case '無黨籍':
+            case '無黨團結聯盟':
+                return '#bdccd4';
+            case '民國黨':
+                return '#486fff';
+            case '台灣團結聯盟':
+            case '台聯黨':
+                return '#c7b299';
+            default:
+                return '#FFF';
         }
+    }
+
+    function transferData(data) {
         var groupAge = function(age) {
             for (var i = 59; i >= 19; i = i - 10) {
                 if (age > i) {
@@ -121,7 +131,6 @@
         }
 
         return data.map(function(d) {
-            d.party = groupParty(d.party);
             d.age = groupAge(d.age);
             d.education = changeEducationValue(d.education);
             d.hair = changeHairValue(d.hair);
@@ -180,7 +189,7 @@
                 return d.party;
             })
             .rollup(function(d) {
-                return (d.length / data.length).toFixed(3);
+                return (d.length / data.length).toFixed(2);
             })
             .map(data);
     }
@@ -197,7 +206,7 @@
                         count++;
                     }
                 });
-                return (count / v.length).toFixed(3);
+                return (count / v.length).toFixed(2);
             })
             .map(data);
     }
@@ -259,8 +268,8 @@
             var _splitData = splitData(data);
             var MAPWIDTH = 500;
             var MAPHEIGHT = 500;
-            var xScale = d3.scale.linear().domain([0, 10]).range([50, 200]);
-            var yScale = d3.scale.linear().domain([0, 10]).range([10, 200]);
+            var xScale = d3.scale.linear().domain([0, 5]).range([30, 150]);
+            var yScale = d3.scale.linear().domain([0, 5]).range([50, 210]);
             var projection = d3.geo.mercator()
                 .center([120.9688063, 23.82887])
                 .translate([MAPWIDTH / 2, MAPHEIGHT / 2])
@@ -269,8 +278,8 @@
             var criteria = {};
 
             var districtMap = d3.select('.district-map').append('svg').attr('viewBox', '100 50 300 500');
-            var nondistrictMap = d3.select('.nondistrict').append('svg').attr('viewBox', '0 0 300 150');
-            var aboriginalMap = d3.select('.aboriginal').append('svg').attr('viewBox', '0 0 300 150');
+            var nondistrictMap = d3.select('.nondistrict').append('svg').attr('viewBox', '0 0 150 300');
+            var aboriginalMap = d3.select('.aboriginal').append('svg').attr('viewBox', '0 0 150 100');
             var districtGroupGray = districtMap.append('g').attr('class', 'district-group-gray');
             var nondistrictGroupGray = nondistrictMap.append('g').attr('class', 'nondistrict-group-gray');
             var aboriginalGroupGray = aboriginalMap.append('g').attr('class', 'aboriginal-group-gray')
@@ -293,14 +302,13 @@
                     .append('circle')
                     .attr('class', 'circle')
                     .attr("cx", function(d) {
-                        return type === 'district' ? projection([d.lon, d.lat])[0] : xScale(d.pos % 20);
+                        return type === 'district' ? projection([d.lon, d.lat])[0] : xScale(d.pos % 5);
                     })
                     .attr("cy", function(d) {
-                        return type === 'district' ? projection([d.lon, d.lat])[1] : yScale(Math.floor(d.pos / 20));
+                        return type === 'district' ? projection([d.lon, d.lat])[1] : yScale(Math.floor(d.pos / 5));
                     })
-                    .attr('r', 4)
-                    .style("fill", "#EEE")
-                    .style("cursor", "pointer");
+                    .attr('r', 6)
+                    .style("fill", "#EEE");
             }
 
             var renderFront = function(data, type, criteria) {
@@ -323,16 +331,18 @@
                     .append('circle')
                     .attr('class', 'selected-circles')
                     .attr("cx", function(d) {
-                        return type === 'district' ? projection([d.lon, d.lat])[0] : xScale(d.pos % 20);
+                        return type === 'district' ? projection([d.lon, d.lat])[0] : xScale(d.pos % 5);
                     })
                     .attr("cy", function(d) {
-                        return type === 'district' ? projection([d.lon, d.lat])[1] : yScale(Math.floor(d.pos / 20));
+                        return type === 'district' ? projection([d.lon, d.lat])[1] : yScale(Math.floor(d.pos / 5));
                     })
-                    .attr('r', 4)
-                    .style("fill", "#4cc5dc")
+                    .attr('r', 6)
+                    .style("fill", function(d) {
+                      return getPartyColor(d.party);
+                    })
                     .style("cursor", "pointer")
                     .style("stroke", "white")
-                    .style('stroke-width', 0.1)
+                    .style('stroke-width', 0.5)
                     .call(d3.helper.tooltip());
                 rects.exit().remove();
             }
@@ -402,7 +412,20 @@
             var WIDTH = 150;
             var HEIGHT = 150;
             var SQUARE = 22500; // HEIGHT * WIDTH
-            var bgProportion = getBgProportion(data);
+            var _data = data.map(function(d) {
+                d = JSON.parse(JSON.stringify(d));
+                var party = d.party;
+                if (party === '中國國民黨') {
+                    d.party = 'kmt';
+                } else if (party === '民主進步黨') {
+                    d.party = 'dpp';
+                }
+                if (d.party !== 'kmt' && d.party !== 'dpp') {
+                    d.party = 'other';
+                }
+                return d;
+            });
+            var bgProportion = getBgProportion(_data);
             bgProportion.congress = 1;
             bgProportion.nation = 1;
             // var rectScale = d3.scale.linear().domain([0, 1]).range([0, HEIGHT]);
@@ -426,9 +449,9 @@
                     })
                     .style("fill", function(d) {
                         if (d.hasOwnProperty(party)) {
-                            return '#4CC5E1';
+                            return '#d9dbd1';
                         }
-                        return '#666';
+                        return '#000';
                     })
 
                 rect.transition()
@@ -482,9 +505,9 @@
                 var proportion = getProportion(data, key, value);
                 proportion.congress = getCongressProportion(data, key, value).congress;
                 if (key !== 'hair') {
-                  proportion.nation = getNationalProportion(key, value).nation;
-                  renderPercentage(proportion.nation * 100, 'nation', key);
-                  renderProportionBlock(['bgrect', proportion], 'nation', d3.select('.nation-' + key));
+                    proportion.nation = getNationalProportion(key, value).nation;
+                    renderPercentage(proportion.nation * 100, 'nation', key);
+                    renderProportionBlock(['bgrect', proportion], 'nation', d3.select('.nation-' + key));
                 }
                 renderPercentage(proportion.congress * 100, 'congress', key);
                 renderProportionBlock(['bgrect', proportion], 'congress', d3.select('.congress-' + key));
@@ -528,10 +551,10 @@
                 d3.select('#shortHairBt').on('click', clickButton.bind(this, data, 'hair', 'short'));
             }
 
-            renderGenderBlockAndButtons(data, 'M');
-            renderAgeBlockAndButtons(data, 19);
-            renderEducationBlockAndButtons(data, 'master');
-            renderHairBlockAndButtons(data, 'long');
+            renderGenderBlockAndButtons(_data, 'M');
+            renderAgeBlockAndButtons(_data, 19);
+            renderEducationBlockAndButtons(_data, 'master');
+            renderHairBlockAndButtons(_data, 'long');
         })();
     });
 
