@@ -29,6 +29,10 @@
   height: auto;
 }
 
+.condition-block > div {
+  margin-top: 15px;
+}
+
 .bt {
   width: auto;
   height: auto;
