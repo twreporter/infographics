@@ -261,7 +261,7 @@
     }
 
 
-    d3.csv("./candidate.csv", function(error, rawData) {
+    d3.csv("../data/candidate.csv", function(error, rawData) {
         var data = transferData(rawData);
         // render taiwan election result by map
         (function() {

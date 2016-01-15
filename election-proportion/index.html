@@ -1,196 +1,20 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, initial-scale=1">
-<style>
-
-.election-container {
-  font-family: "Noto Sans",'Noto Sans TC', "Apple LiGothic Medium", Roboto, "Microsoft JhengHei", "新細明體", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
-  font-size: 15px;
-}
-
-.fw500 {
-  font-weight: 500;
-}
-
-.fs30 {
-  font-size: 30px;
-}
-
-.taiwan-map-block {
-  max-width: 1280px;
-}
-
-.condition-title {
-  width: 100%;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  text-align: center;
-  padding: 5px 0 5px 0;
-}
-
-.condition-block {
-  margin: 20px auto;
-  max-width: 800px;
-  height: auto;
-}
-
-.bt {
-  width: auto;
-  height: auto;
-  position: relative;
-  display: inline-block;
-  margin: 1px;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 5px 10px;
-  color: #666;
-  background-color: #fff;
-  border: 2px solid #f1f1f1;
-  border-radius: 62.5rem;
-  cursor: pointer;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-}
-
-.selected {
-  background-color: #000;
-  color: white;
-}
-
-.map-result {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  margin: 10px auto 0;
-  font-size: 32px;
-  font-weight: 900;
-}
-
-.sentence {
-  white-space: nowrap;
-}
-
-.condition-result-container {
-  position: relative;
-  width: 80%;
-  margin: 50px auto 0px auto;
-}
-
-.district-map {
-  max-width: 400px;
-  width: 50%;
-  max-height: 600px;
-  height: 100%;
-  display: inline-block;
-  text-align: center;
-}
-
-.title {
-  display: inline-block;
-  margin: 0px auto;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 5px 10px;
-  text-align: center;
-  color: #FFF;
-  background-color: #000;
-  border: 3px solid #f1f1f1;
-}
-
-.proportion-block .rows {
-  margin: 50px auto;
-  width: 95%;
-}
-
-.proportion-block .row {
-  position: relative;
-  height: auto;
-  width: 100%;
-  margin-bottom: 75px;
-  display: table;
-}
-
-.proportion-block .row-text {
-  display: table-cell;
-  width: 25%;
-  vertical-align: top;
-  font-size: 18px;
-  font-weight: 900;
-}
-
-.row-text span {
-  width: 100%;
-  padding: 0 0 15px 0px;
-  float: left;
-}
-
-.category-row {
-  width: 150px;
-  height: 150px;
-  margin-left: 50px;
-}
-
-.kmt-block, .dpp-block, .other-party-block {
-  width: 100px;
-}
-
-.square-header {
-  margin: 0px 0px 15px 50px;
-  width: 100px;
-}
-
-.block {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  margin-bottom: 30px;
-}
-
-.nondistrict, .aboriginal {
-  width: 100%;
-  max-width: 200px;
-  margin-left: 30px;
-  text-align: center;
-}
-
-.party-indicator {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-.party-circle {
-  display: inline-block;
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
-}
-
-@media
-only screen
-and (max-width: 414px),
-only screen
-and (max-device-width : 414px) {
-  .condition-block {
-    margin: 20px auto;
-    width: 100%;
-    height: auto;
-  }
-  .dpp-square, .kmt-square, .other-party-square.block {
-    display: none;
-  }
-  .district-map {
-    width: 100%;
-    display: block;
-    text-align: center;
-  }
-  .block {
-    margin-bottom: 0px;
-  }
-}
-
-</style>
+<link rel="stylesheet" href="./css/election-proportion.css" />
+<link rel="stylesheet" href="./css/footer.css">
+	<!-- Share Button -->
+	<div style="position:fixed; top:8px; right:15px; z-index:10;">
+    <div class="reporter-logo">
+			<a style="text-decoration:none;" href="https://www.twreporter.org/"><img src="https://dh1rvgpokacch.cloudfront.net/atavist/60826/image/derivative/cropandscale~64x64x0x0~favicon-1450079771-87.png" class="img-shadow" /></a>
+    </div>
+		<div class="facebook" style="margin-top:15px;">
+			<a style="text-decoration:none;" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fi%2Ffifth-plant%2F" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;"><img src="img/facebook.png" class="img-shadow"/></a>
+		</div>
+		<div class="twitter" style="margin-top:15px;">
+			<a style="text-decoration:none;" href="https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fi%2Ffifth-plant%2F"><img src="img/twitter.png" class="img-shadow" /></a>
+		</div>
+	</div>
 <div class="election-container">
   <div class="taiwan-map-block">
     <div class="condition-title fs30">選一選，看這款立委有幾位？</div>
@@ -405,7 +229,70 @@ and (max-device-width : 414px) {
     </div>
   </div>
 </div>
+<div>
+<div>
+  <div class='footer'>
+      <div class='footer-container'>
+          <div class='logo-container'>
+              <div class='logo'>
+          <a href="https://www.twreporter.org/" target="_self">
+            <img class="logo-img" src='https://www.twreporter.org/asset/footer-logo-desktop.png' /> </a>
+              </div>
+          </div>
+          <div class='social-container'>
+              <div class='item'>
+                  <a href='https://www.facebook.com/twreporter/' target='_blank'>
+                      <img class="fb" src='https://www.twreporter.org/asset/FB'/>
+                  </a>
+              </div>
+              <div class='item'>
+                  <a href='https://www.instagram.com/twreporter/' target='_blank' >
+                      <img class="ig" src='https://www.twreporter.org/asset/IG.png' />
+                  </a>
+              </div>
+          </div>
+          <div class='us-container'>
+              <div class='item'>
+                  <a href='https://www.twreporter.org/a/about-us-footer' target="_self">
+                      關於我們
+                  </a>
+              </div>
+              <div class='item'>
+                  <a href='https://www.twreporter.org/a/contact-footer' target="_self">
+                      聯絡我們
+                  </a>
+              </div>
+              <div class='item'>
+                  <a href='https://www.twreporter.org/a/privacy-footer' target="_self">
+                      隱私政策
+                  </a>
+              </div>
+              <div class='item'>
+                  <a href='https://twreporter.backme.tw:443/cashflow/checkout?project_id=175&reward_id=718' target="_self">
+                      贊助我們
+                  </a>
+              </div>
+          </div>
+      </div>
+      <div class='open-source-container'>
+          <div class='items'>
+              <div class='item'>
+                  <a href='http://creativecommons.org/licenses/by-nc-nd/3.0/tw/' rel="license" target='_blank'>
+                      <img class="cc-logo img" src='https://www.twreporter.org/asset/cc.png' />
+                      <span class="cc-license"> 除另有註明，網站內容皆採用創用CC姓名標示-非商業性-禁止改作授權條款</span>
+                  </a>
+              </div>
+              <div class='item'>
+                  <a href='https://github.com/twreporter' target='_blank'>
+                      <img src='https://www.twreporter.org/asset/github.png' class='img' />
+                      <span> github.com/twreporter</span>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="./odometer.min.js"></script>
-<link rel="stylesheet" href="./odometer-theme-default.css" />
-<script src="./taiwan-election-candidate-stats-d3.js" chartset="utf-8"></script>
+<script src="./js/odometer.min.js"></script>
+<link rel="stylesheet" href="./css/odometer-theme-default.css" />
+<script src="./js/taiwan-election-candidate-stats-d3.js" chartset="utf-8"></script>
