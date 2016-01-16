@@ -3,6 +3,24 @@
   font-size: 15px;
 }
 
+.article-container {
+  margin-bottom: 90px;
+}
+
+.article-body {
+  font-family: "Noto Sans",'Noto Sans TC', "Apple LiGothic Medium", Roboto, "Microsoft JhengHei", "新細明體", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  max-width: 716px;
+  margin: 90px auto 0 auto;
+}
+
+.article-body > p{
+  font-size: 17px;
+  line-height: 1.85;
+  font-weight: 400;
+  white-space: normal;
+  margin-top: 1.85em;
+}
+
 .fw500 {
   font-weight: 500;
 }
@@ -20,7 +38,8 @@
   border-top: 2px solid;
   border-bottom: 2px solid;
   text-align: center;
-  padding: 5px 0 5px 0;
+  line-height: 65px;
+  margin-bottom: 90px;
 }
 
 .condition-block {
@@ -31,6 +50,10 @@
 
 .condition-block > div {
   margin-top: 15px;
+}
+
+.category-condition {
+  display: inline-block;
 }
 
 .bt {
@@ -86,7 +109,7 @@
   text-align: center;
 }
 
-.title {
+.block-title {
   display: inline-block;
   margin: 0px auto;
   font-size: 15px;
@@ -171,10 +194,28 @@ only screen
 and (max-width: 414px),
 only screen
 and (max-device-width : 414px) {
+  .article-container {
+    margin-bottom: 40px;
+  }
+  .article-body {
+    max-width: calc(100% - 2rem);
+    margin: 40px auto 0px auto;
+  }
   .condition-block {
     margin: 20px auto;
-    width: 100%;
+    width: 80%;
     height: auto;
+  }
+  .condition-title {
+    line-height: 45px;
+    margin-bottom: 0px;
+  }
+  .category-condition {
+    display: block;
+    margin-top: 15px;
+  }
+  .condition-block > div {
+    margin-bottom: 30px;
   }
   .dpp-square, .kmt-square, .other-party-square.block {
     display: none;
