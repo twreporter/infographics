@@ -79,8 +79,9 @@
             case '綠社盟':
                 return '#ffaddb';
             case '無黨籍':
-            case '無黨團結聯盟':
                 return '#bdccd4';
+              case '無黨團結聯盟':
+                return  '#E83D8B';
             case '民國黨':
                 return '#486fff';
             case '台灣團結聯盟':
@@ -189,7 +190,7 @@
                 return d.party;
             })
             .rollup(function(d) {
-                return (d.length / data.length).toFixed(2);
+                return (d.length / data.length).toFixed(4);
             })
             .map(data);
     }
@@ -206,7 +207,7 @@
                         count++;
                     }
                 });
-                return (count / v.length).toFixed(2);
+                return (count / v.length).toFixed(4);
             })
             .map(data);
     }
