@@ -92,7 +92,7 @@
 }
 
 .sentence {
-  white-space: nowrap;
+  line-height: 1.5;
 }
 
 .condition-result-container {
