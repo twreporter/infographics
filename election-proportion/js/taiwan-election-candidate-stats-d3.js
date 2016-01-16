@@ -279,7 +279,7 @@
             var criteria = {};
 
             var districtMap = d3.select('.district-map').append('svg').attr('viewBox', '100 50 300 500');
-            var nondistrictMap = d3.select('.nondistrict').append('svg').attr('viewBox', '0 0 150 500');
+            var nondistrictMap = d3.select('.nondistrict').append('svg').attr('viewBox', '0 0 150 300');
             var aboriginalMap = d3.select('.aboriginal').append('svg').attr('viewBox', '0 0 150 150');
             var districtGroupGray = districtMap.append('g').attr('class', 'district-group-gray');
             var nondistrictGroupGray = nondistrictMap.append('g').attr('class', 'nondistrict-group-gray');
