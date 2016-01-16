@@ -19,6 +19,7 @@
   font-weight: 400;
   white-space: normal;
   margin-top: 1.85em;
+  text-align: justify;
 }
 
 .fw500 {
@@ -43,8 +44,8 @@
 }
 
 .condition-block {
-  margin: 20px auto;
-  max-width: 800px;
+  margin: 0px auto;
+  width:5500px;
   height: auto;
 }
 
