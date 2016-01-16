@@ -145,7 +145,7 @@
 
 .row-text span {
   width: 100%;
-  padding: 0 0 15px 0px;
+  padding: 15px 0 15px 0px;
   float: left;
 }
 
@@ -160,7 +160,7 @@
 }
 
 .square-header {
-  margin: 0px 0px 15px 50px;
+  margin: 15px 0px 15px 50px;
   width: 100px;
 }
 
