@@ -30,7 +30,7 @@
                     var name = '<div style="font-size:24px; font-weight:500">' + d.name + '</div>';
                     var party = '<div class="party-indicator" style="padding:5px;"><div class="party-circle" style="background-color:' +getPartyColor(d.party) +'"></div><span>' + d.party + '</span></div>'
                     var district = '<div style="padding-bottom:5px;">' + d.city +'</div>';
-                    var politics = '<div><a href="' + d.opinion + '" targe="_blank" />政見</div>';
+                    var politics = '<div><a href="' + d.opinion + '" target="_blank" />政見</div>';
 
                     var div = '<div class="election-container" style="padding:15px;">' + image + '<div style="display:inline-block;margin-left:10px;">' + name + party + district  + politics + '</div></div>'
                     tooltipDiv.html(div);
