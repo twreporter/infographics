@@ -3,6 +3,7 @@
         var TICKS = ticks;
         var INTERVAL = 100 / (TICKS * 2);
         var data = [];
+
         for (var i = 0; i <= TICKS * 2; i = i + 1) {
             var item = {
                 x: null,
@@ -62,25 +63,17 @@
             .append('g');
 
 
-        function click() {
-            var div = d3.select(this);
-            var absoluteMousePos = d3.mouse(div.node());
-            redrawPath(scaleX.invert(absoluteMousePos[0]), scaleY.invert(absoluteMousePos[1]));
-        }
-
         function mousedown() {
             var div = d3.select(this);
             d3.select(window)
                 .on('mouseup', function() {
-                    div.on('mousemove', null).on('mouseup', null);
+                    drawIncompleteArea(data, offset);
+                    div.on('mousemove', null);
                 });
             div.on('mousemove', function() {
                 var absoluteMousePos = d3.mouse(div.node());
                 redrawPath(scaleX.invert(absoluteMousePos[0]), scaleY.invert(absoluteMousePos[1]));
                 d3.event.preventDefault();
-            });
-            div.on('mouseup', function() {
-                div.on('mousemove', null).on('mouseup', null);
             });
         }
 
@@ -103,7 +96,6 @@
             // .attr('y', offset)
             .attr('transform', 'translate(' + offset + ',' + offset + ')')
             .attr('class', 'bg')
-            .on('click', click)
             .on('mousedown', mousedown)
             .on('touchstart', touchstart);
 
@@ -164,14 +156,12 @@
             };
 
             drawPath(data, offset);
-            drawIncompleteArea(data, offset);
         }
 
         function drawIncompleteArea(data, offset) {
             chart.select('.incomplete-area')
                 .attr('d', area(data))
                 .attr('transform', 'translate(' + offset + ',' + offset + ')')
-                .on('click', click)
                 .on('mousedown', mousedown)
                 .on('touchstart', touchstart);
         }
