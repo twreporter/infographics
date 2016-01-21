@@ -1,228 +1,113 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, initial-scale=1">
-<style>
+<meta property="og:title" content="新科立委，長什麼款？／報導者"/>
+<meta property="og:description" content="翻轉台灣政局的立委選舉熱騰騰的結束了！想知道是否有跟自己背景相似的新科立委嗎？報導者推出「新科立委，長什麼款？」專題，你可以根據不同條件查詢新科立委，了解他們的政黨、年齡、性別、學歷和地理分佈。如果你是二十五歲的年輕女性，或如果，你是長髮的生理男性，將有跟你相像背景的人在立法院裡為你發聲嗎？還等什麼，快來點擊看看吧！"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://www.twreporter.org/a/infographics-2016-election" />
+<meta property="og:image" content="https://twreporter.github.io/infographics/election-proportion/img/cover.png"/>
+<meta property="og:site_name" content="報導者"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://twreporter.github.io/infographics/election-proportion/img/cover.png" />
+<meta name="twitter:title" content="新科立委，長什麼款？／報導者" />
+<meta name="twitter:description" content="翻轉台灣政局的立委選舉熱騰騰的結束了！想知道是否有跟自己背景相似的新科立委嗎？報導者推出「新科立委，長什麼款？」專題，你可以根據不同條件查詢新科立委，了解他們的政黨、年齡、性別、學歷和地理分佈。如果你是二十五歲的年輕女性，或如果，你是長髮的生理男性，將有跟你相像背景的人在立法院裡為你發聲嗎？還等什麼，快來點擊看看吧！" />
+<title>新科立委，長什麼款？</title>
+<link rel="canonical" href="https://www.twreporter.org/a/infographics-2016-election" />
+<link href="https://www.twreporter.org/data/files/organization/60826/image/raw/logo32px-1449769774-30.png" rel="shortcut icon" />
 
-.election-container {
-  font-family: "Noto Sans",'Noto Sans TC', "Apple LiGothic Medium", Roboto, "Microsoft JhengHei", "新細明體", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
-  font-size: 15px;
-}
+<!-- reset css for cross browser-->
+<link rel="stylesheet" type="text/css" href="https://twreporter.github.io/infographics/election-proportion/css/reset.css">
+<link rel="stylesheet" href="https://twreporter.github.io/infographics/election-proportion/css/election-proportion.css" />
+<link rel="stylesheet" href="https://twreporter.github.io/infographics/election-proportion/css/footer.css">
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-.fw500 {
-  font-weight: 500;
-}
-
-.fs30 {
-  font-size: 30px;
-}
-
-.taiwan-map-block {
-  max-width: 1280px;
-}
-
-.condition-title {
-  width: 100%;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  text-align: center;
-  padding: 5px 0 5px 0;
-}
-
-.condition-block {
-  margin: 20px auto;
-  max-width: 800px;
-  height: auto;
-}
-
-.bt {
-  width: auto;
-  height: auto;
-  position: relative;
-  display: inline-block;
-  margin: 1px;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 5px 10px;
-  color: #666;
-  background-color: #fff;
-  border: 2px solid #f1f1f1;
-  border-radius: 62.5rem;
-  cursor: pointer;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-}
-
-.selected {
-  background-color: #000;
-  color: white;
-}
-
-.map-result {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  margin: 10px auto 0;
-  font-size: 32px;
-  font-weight: 900;
-}
-
-.sentence {
-  white-space: nowrap;
-}
-
-.condition-result-container {
-  position: relative;
-  width: 80%;
-  margin: 50px auto 0px auto;
-}
-
-.district-map {
-  max-width: 400px;
-  width: 50%;
-  max-height: 600px;
-  height: 100%;
-  display: inline-block;
-  text-align: center;
-}
-
-.title {
-  display: inline-block;
-  margin: 0px auto;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 5px 10px;
-  text-align: center;
-  color: #FFF;
-  background-color: #000;
-  border: 3px solid #f1f1f1;
-}
-
-.proportion-block .rows {
-  margin: 50px auto;
-  width: 95%;
-}
-
-.proportion-block .row {
-  position: relative;
-  height: auto;
-  width: 100%;
-  margin-bottom: 75px;
-  display: table;
-}
-
-.proportion-block .row-text {
-  display: table-cell;
-  width: 25%;
-  vertical-align: top;
-  font-size: 18px;
-  font-weight: 900;
-}
-
-.row-text span {
-  width: 100%;
-  padding: 0 0 15px 0px;
-  float: left;
-}
-
-.category-row {
-  width: 150px;
-  height: 150px;
-  margin-left: 50px;
-}
-
-.kmt-block, .dpp-block, .other-party-block {
-  width: 100px;
-}
-
-.square-header {
-  margin: 0px 0px 15px 50px;
-  width: 100px;
-}
-
-.block {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  margin-bottom: 30px;
-}
-
-.nondistrict, .aboriginal {
-  width: 100%;
-  max-width: 200px;
-  margin-left: 30px;
-  text-align: center;
-}
-
-.party-indicator {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-.party-circle {
-  display: inline-block;
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
-}
-
-@media
-only screen
-and (max-width: 414px),
-only screen
-and (max-device-width : 414px) {
-  .condition-block {
-    margin: 20px auto;
-    width: 100%;
-    height: auto;
-  }
-  .dpp-square, .kmt-square, .other-party-square.block {
-    display: none;
-  }
-  .district-map {
-    width: 100%;
-    display: block;
-    text-align: center;
-  }
-  .block {
-    margin-bottom: 0px;
-  }
-}
-
-</style>
+  ga('create', 'UA-69336956-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+<!-- Share Button -->
+<div style="position:fixed; top:8px; right:15px; z-index:10;">
+  <div class="reporter-logo">
+    <a style="text-decoration:none;" href="https://www.twreporter.org/"><img src="https://dh1rvgpokacch.cloudfront.net/atavist/60826/image/derivative/cropandscale~64x64x0x0~favicon-1450079771-87.png" class="img-shadow" /></a>
+  </div>
+  <div class="facebook" style="margin-top:15px;">
+    <a style="text-decoration:none;" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.twreporter.org%2fa%2finfographics-2016-election" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;"><img src="https://twreporter.github.io/infographics/election-proportion/img/facebook.png" class="img-shadow"/></a>
+  </div>
+  <div class="twitter" style="margin-top:15px;">
+    <a style="text-decoration:none;" href="https://twitter.com/home?status=https%3a%2f%2fwww.twreporter.org%2fa%2finfographics-2016-election"><img src="https://twreporter.github.io/infographics/election-proportion/img/twitter.png" class="img-shadow" /></a>
+  </div>
+</div>
+<div class="article-container">
+  <div clsas="article-cover-photo">
+    <img width="100%" src="https://twreporter.github.io/infographics/election-proportion/img/cover.png"></img>
+  </div>
+  <div class="article-body">
+    <div class="article-author">
+      <span style="margin-right:15px;">文／陳貞樺</span>
+      <span style="margin-right:15px;">資料蒐集／陳貞樺、鄭涵文、蔣宜婷</span>
+      <span>設計／殷子衿</span>
+    </div>
+    <p>
+    2016大選創下許多記錄，除了誕生台灣第一位女總統，民進黨立委席次也首次在立法院過半，區域立委席次50席，不分區立委席次18席，佔立法院總席次60.18%，達到完全執政。立委席次佔比其次為國民黨30.97%、時代力量4.42%、親民黨2.65%。
+    </p>
+    <p>
+    與第八屆相比，國民兩黨的優勢互調，第八屆立委選舉國民黨獲64席，此次減少了45.31%的席次，只剩35席。民進黨第八屆則是獲40席，本次增加了70%的席次，為68席。
+    </p>
+    <p>
+    除了新科立委所屬政黨，我們也分析了他們的性別、年齡等條件，發現立委男女比為六比四，大多是50歲到59歲的短髮壯年人。雖然這些條件並不能代表立委的政見和立場，但卻可以發現一些新國會有趣的現象。請點擊下列不同的按鈕，看看有沒有能代表你的新科立委吧！
+    </p>
+  </div>
+</div>
 <div class="election-container">
   <div class="taiwan-map-block">
-    <div class="condition-title fs30">選一選，看這款立委有幾位？</div>
+    <div class="condition-title fs30">選一選，看各款立委有幾位？</div>
     <div class="condition-block">
-      <span class="sentence">
-        如果你是
-      </span>
-      <div id='gender-male' class="gender-bt bt">男性</div>
-      <div id='gender-female' class="gender-bt bt">女性</div>
-      <span class="sentence">
-      ，年齡是
-      </span>
-      <div id='age-19' class="age-bt bt">24-29歲</div>
-      <div id='age-29' class="age-bt bt">30-39歲</div>
-      <div id='age-39' class="age-bt bt">40-49歲</div>
-      <div id='age-49' class="age-bt bt">50-59歲</div>
-      <div id='age-59' class="age-bt bt">60歲以上</div>
-      <span class="sentence">
-      ，教育程度是
-      </span>
-      <div id='education-other' class="education-bt bt">國中小</div>
-      <div id='education-highschool' class="education-bt bt">高中職</div>
-      <div id='education-vocational' class="education-bt bt">專科</div>
-      <div id='education-bachelor' class="education-bt bt">大學</div>
-      <div id='education-master' class="education-bt bt">碩博士</div>
       <div>
         <span class="sentence">
-        或是，你很執著頭髮長度，這邊可以選擇
+          如果你是
         </span>
-        <div id='hair-short' class="hair-bt bt">短髮</div>
-        <div id='hair-medium' class="hair-bt bt">中髮</div>
-        <div id='hair-long' class="hair-bt bt">長髮</div>
+        <div id='gender-male' class="gender-bt bt">男性</div>
+        <div id='gender-female' class="gender-bt bt">女性</div>
+      </div>
+      <div>
+        <span class="sentence">
+        年齡是
+        </span>
+        <div class="category-condition">
+          <div id='age-19' class="age-bt bt">24-29歲</div>
+          <div id='age-29' class="age-bt bt">30-39歲</div>
+          <div id='age-39' class="age-bt bt">40-49歲</div>
+          <div id='age-49' class="age-bt bt">50-59歲</div>
+          <div id='age-59' class="age-bt bt">60歲以上</div>
+        </div>
+      </div>
+      <div>
+        <span class="sentence">
+        教育程度是
+        </span>
+        <div class="category-condition">
+          <div id='education-other' class="education-bt bt">國中小</div>
+          <div id='education-highschool' class="education-bt bt">高中職</div>
+          <div id='education-vocational' class="education-bt bt">專科</div>
+          <div id='education-bachelor' class="education-bt bt">大學</div>
+          <div id='education-master' class="education-bt bt">碩博士</div>
+        </div>
+      </div>
+      <div>
+        <span class="sentence">
+        另外，如果你很執著頭髮長度，這邊還可以選擇
+        </span>
+        <div class="category-condition">
+          <div id='hair-short' class="hair-bt bt">短髮</div>
+          <div id='hair-medium' class="hair-bt bt">中髮</div>
+          <div id='hair-long' class="hair-bt bt">長髮</div>
+        </div>
       </div>
     </div>
     <div class="map-result">
@@ -231,7 +116,7 @@ and (max-device-width : 414px) {
       <span class="fw500 fs30">位立委跟你一樣</span>
     </div>
     <div class="condition-result-container">
-      <div style="margin-bottom: 50px; text-align: center">
+      <div style="margin-bottom: 50px; text-align: center; line-height:1.5">
         <div class="party-indicator">
           <div class="party-circle" style="background-color: #8ed2ff;"></div>
           <span>國民黨</span>
@@ -241,42 +126,30 @@ and (max-device-width : 414px) {
           <span>民進黨</span>
         </div>
         <div class="party-indicator">
-          <div class="party-circle" style="background-color: #ffb991;"></div>
-          <span>親民黨</span>
-        </div>
-        <div class="party-indicator">
           <div class="party-circle" style="background-color: #ffd675;"></div>
           <span>時代力量</span>
         </div>
         <div class="party-indicator">
-          <div class="party-circle" style="background-color: #ffaddb;"></div>
-          <span>綠社聯盟</span>
-        </div>
-        <div class="party-indicator">
-          <div class="party-circle" style="background-color: #ffff4d;"></div>
-          <span>新黨</span>
+          <div class="party-circle" style="background-color: #ffb991;"></div>
+          <span>親民黨</span>
         </div>
         <div class="party-indicator">
           <div class="party-circle" style="background-color: #bdccd4;"></div>
           <span>無黨籍</span>
         </div>
         <div class="party-indicator">
-          <div class="party-circle" style="background-color: #486fff;"></div>
-          <span>民國黨</span>
-        </div>
-        <div class="party-indicator">
-          <div class="party-circle" style="background-color: #c7b299;"></div>
-          <span>台聯黨</span>
+          <div class="party-circle" style="background-color: #E83D8B;"></div>
+          <span>無黨團結聯盟</span>
         </div>
       </div>
       <div class="district-map">
-        <div class="title"><span>分區立委</span></div>
+        <div class="block-title"><span>區域立委</span></div>
       </div>
       <div class="nondistrict block">
-        <div class="title"><span>不分區立委</span></div>
+        <div class="block-title"><span>不分區立委</span></div>
       </div>
       <div class="aboriginal block">
-        <div class="title"><span>原住民立委</span></div>
+        <div class="block-title"><span>原住民立委</span></div>
       </div>
     </div>
   </div>
@@ -291,11 +164,11 @@ and (max-device-width : 414px) {
         </div>
         <div class="blocks">
           <div class="nation-square block">
-            <div class="square-header"><span>全國</span><div id="gender-nation-pt" class="odometer"></div>%</div>
+            <div class="square-header"><span>全國人口</span><div id="gender-nation-pt" class="odometer"></div>%</div>
             <svg class="nation-gender category-row"></svg>
           </div>
           <div class="congress-square block">
-            <div class="square-header"><span>國會</span><div id="gender-congress-pt" class="odometer"></div>%</div>
+            <div class="square-header"><span>立法院</span><div id="gender-congress-pt" class="odometer"></div>%</div>
             <svg class="congress-gender category-row"></svg>
           </div>
           <div class="kmt-square block">
@@ -323,11 +196,11 @@ and (max-device-width : 414px) {
         </div>
         <div class="blocks">
           <div class="nation-square block">
-            <div class="square-header"><span>全國</span><div id="age-nation-pt" class="odometer"></div>%</div>
+            <div class="square-header"><span>全國人口</span><div id="age-nation-pt" class="odometer"></div>%</div>
             <svg class="nation-age category-row"></svg>
           </div>
           <div class="congress-square block">
-            <div class="square-header"><span>國會</span><div id="age-congress-pt" class="odometer"></div>%</div>
+            <div class="square-header"><span>立法院</span><div id="age-congress-pt" class="odometer"></div>%</div>
             <svg class="congress-age category-row"></svg>
           </div>
           <div class="kmt-square block">
@@ -355,11 +228,11 @@ and (max-device-width : 414px) {
         </div>
         <div class="blocks">
           <div class="nation-square block">
-            <div class="square-header"><span>全國</span><div id="education-nation-pt" class="odometer"></div>%</div>
+            <div class="square-header"><span>全國人口</span><div id="education-nation-pt" class="odometer"></div>%</div>
             <svg class="nation-education category-row"></svg>
           </div>
           <div class="congress-square block">
-            <div class="square-header"><span>國會</span><div id="education-congress-pt" class="odometer"></div>%</div>
+            <div class="square-header"><span>立法院</span><div id="education-congress-pt" class="odometer"></div>%</div>
             <svg class="congress-education category-row"></svg>
           </div>
           <div class="kmt-square block">
@@ -385,7 +258,7 @@ and (max-device-width : 414px) {
         </div>
         <div class="blocks">
           <div class="congress-square block">
-            <div class="square-header"><span>國會</span><div id="hair-congress-pt" class="odometer"></div>%</div>
+            <div class="square-header"><span>立法院</span><div id="hair-congress-pt" class="odometer"></div>%</div>
             <svg class="congress-hair category-row"></svg>
           </div>
           <div class="kmt-square block">
@@ -404,8 +277,74 @@ and (max-device-width : 414px) {
       </div>
     </div>
   </div>
+  <div style="max-width:850px; margin: 0 auto 90px;">
+    <div style="font-size:14px; padding: 0px 15px 0px 15px;"><span style="line-height:1.5">備註：年齡、教育人數比例採小數點以下第二位四捨五入。立委髮型以選舉公報為主，髮型長度判斷參考坊間髮廊標準－短髮：耳下三公分，中髮：下巴到鎖骨，長髮：肩膀以下。</span></div>
+    <div style="font-size:14px; padding: 15px 15px 15px 15px;"><span style="line-height:1.5">資料來源：內政部2014年人口統計年報／中選會／立委投票指南／民進黨點亮台灣網站／綠黨社會民主黨聯盟網站／時代力量網站</span></div>
+  </div>
+</div>
+<div>
+  <div class='footer'>
+      <div class='footer-container'>
+          <div class='logo-container'>
+              <div class='logo'>
+          <a href="https://www.twreporter.org/" target="_self">
+            <img class="logo-img" src='https://www.twreporter.org/asset/footer-logo-desktop.png' /> </a>
+              </div>
+          </div>
+          <div class='social-container'>
+              <div class='item'>
+                  <a href='https://www.facebook.com/twreporter/' target='_blank'>
+                      <img class="fb" src='https://www.twreporter.org/asset/FB'/>
+                  </a>
+              </div>
+              <div class='item'>
+                  <a href='https://www.instagram.com/twreporter/' target='_blank' >
+                      <img class="ig" src='https://www.twreporter.org/asset/IG.png' />
+                  </a>
+              </div>
+          </div>
+          <div class='us-container'>
+              <div class='item'>
+                  <a href='https://www.twreporter.org/a/about-us-footer' target="_self">
+                      關於我們
+                  </a>
+              </div>
+              <div class='item'>
+                  <a href='https://www.twreporter.org/a/contact-footer' target="_self">
+                      聯絡我們
+                  </a>
+              </div>
+              <div class='item'>
+                  <a href='https://www.twreporter.org/a/privacy-footer' target="_self">
+                      隱私政策
+                  </a>
+              </div>
+              <div class='item'>
+                  <a href='https://twreporter.backme.tw:443/cashflow/checkout?project_id=175&reward_id=718' target="_self">
+                      贊助我們
+                  </a>
+              </div>
+          </div>
+      </div>
+      <div class='open-source-container'>
+          <div class='items'>
+              <div class='item'>
+                  <a href='http://creativecommons.org/licenses/by-nc-nd/3.0/tw/' rel="license" target='_blank'>
+                      <img class="cc-logo img" src='https://www.twreporter.org/asset/cc.png' />
+                      <span class="cc-license"> 除另有註明，網站內容皆採用創用CC姓名標示-非商業性-禁止改作授權條款</span>
+                  </a>
+              </div>
+              <div class='item'>
+                  <a href='https://github.com/twreporter' target='_blank'>
+                      <img src='https://www.twreporter.org/asset/github.png' class='img' />
+                      <span> github.com/twreporter</span>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="./odometer.min.js"></script>
-<link rel="stylesheet" href="./odometer-theme-default.css" />
-<script src="./taiwan-election-candidate-stats-d3.js" chartset="utf-8"></script>
+<script src="https://twreporter.github.io/infographics/election-proportion/js/odometer.min.js"></script>
+<link rel="stylesheet" href="https://twreporter.github.io/infographics/election-proportion/css/odometer-theme-default.css" />
+<script src="https://twreporter.github.io/infographics/election-proportion/js/taiwan-election-candidate-stats-d3.js" chartset="utf-8"></script>
