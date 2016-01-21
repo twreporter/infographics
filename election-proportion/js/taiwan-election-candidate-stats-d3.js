@@ -28,15 +28,16 @@
 
                     var image = d.photo ? '<img height="80px" src="' + d.photo + '"></img>' : '';
                     var name = '<div style="font-size:24px; font-weight:500">' + d.name + '</div>';
-                    var party = '<div class="party-indicator"><div class="party-circle" style="background-color:' +getPartyColor(d.party) +'"></div><span>' + d.party + '</span></div>'
-                    var district = '<div>' + d.city +'</div>';
+                    var party = '<div class="party-indicator" style="padding:5px;"><div class="party-circle" style="background-color:' +getPartyColor(d.party) +'"></div><span>' + d.party + '</span></div>'
+                    var district = '<div style="padding-bottom:5px;">' + d.city +'</div>';
+                    var politics = '<div><a href="' + d.opinion + '" target="_blank" />政見</div>';
 
-                    var div = '<div class="election-container" style="padding:15px;">' + image + '<div style="display:inline-block;margin-left:10px;">' + name + party + district  + '</div></div>'
+                    var div = '<div class="election-container" style="padding:15px;">' + image + '<div style="display:inline-block;margin-left:10px;">' + name + party + district  + politics + '</div></div>'
                     tooltipDiv.html(div);
                 })
                 .on('mouseout.tooltip', function() {
                     // remove tooltip
-                  tooltipDiv.remove();
+                  //tooltipDiv.remove();
                 })
         }
 
@@ -79,8 +80,9 @@
             case '綠社盟':
                 return '#ffaddb';
             case '無黨籍':
-            case '無黨團結聯盟':
                 return '#bdccd4';
+              case '無黨團結聯盟':
+                return  '#E83D8B';
             case '民國黨':
                 return '#486fff';
             case '台灣團結聯盟':
@@ -189,7 +191,7 @@
                 return d.party;
             })
             .rollup(function(d) {
-                return (d.length / data.length).toFixed(2);
+                return (d.length / data.length).toFixed(4);
             })
             .map(data);
     }
@@ -206,7 +208,7 @@
                         count++;
                     }
                 });
-                return (count / v.length).toFixed(2);
+                return (count / v.length).toFixed(4);
             })
             .map(data);
     }
@@ -226,32 +228,32 @@
     function getNationalProportion(property, value) {
         var stats = {
             gender: {
-                M: 0.499,
-                F: 0.501
+                M: 0.4992,
+                F: 0.5008
             },
             age: {
-                // 29以下
-                '19': 0.341,
+                // 25-29
+                '19': 0.0680,
                 // 30-39
-                '29': 0.168,
+                '29': 0.1685,
                 // 40-49
-                '39': 0.155,
+                '39': 0.1553,
                 // 50-59
-                '49': 0.153,
+                '49': 0.1530,
                 // 60以上
-                '59': 0.108,
+                '59': 0.1816,
             },
             education: {
                 // 碩博士
-                'master': 0.061,
+                'master': 0.0614,
                 // 大學
-                'bachelor': 0.241,
+                'bachelor': 0.2416,
                 // 高中、高職
-                'highschool': 0.306,
+                'highschool': 0.3061,
                 // 專科
-                'vocational': 0.119,
+                'vocational': 0.1198,
                 // 國小、國中
-                'other': 0.253
+                'other': 0.2531
             }
         }
 
@@ -261,7 +263,7 @@
     }
 
 
-    d3.csv("./data/candidate.csv", function(error, rawData) {
+    d3.csv("https://twreporter.github.io/infographics/election-proportion/data/candidate.csv", function(error, rawData) {
         var data = transferData(rawData);
         // render taiwan election result by map
         (function() {
@@ -279,7 +281,7 @@
 
             var districtMap = d3.select('.district-map').append('svg').attr('viewBox', '100 50 300 500');
             var nondistrictMap = d3.select('.nondistrict').append('svg').attr('viewBox', '0 0 150 300');
-            var aboriginalMap = d3.select('.aboriginal').append('svg').attr('viewBox', '0 0 150 100');
+            var aboriginalMap = d3.select('.aboriginal').append('svg').attr('viewBox', '0 0 150 150');
             var districtGroupGray = districtMap.append('g').attr('class', 'district-group-gray');
             var nondistrictGroupGray = nondistrictMap.append('g').attr('class', 'nondistrict-group-gray');
             var aboriginalGroupGray = aboriginalMap.append('g').attr('class', 'aboriginal-group-gray')
