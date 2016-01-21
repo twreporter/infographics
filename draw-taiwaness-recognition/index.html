@@ -12,9 +12,49 @@ rect.bg {
 .incomplete-area {
   fill: #f2e277;
   fill-opacity: 0.05;
-  -webkit-animation: ani1 1.5s 0s infinite;
+  -webkit-animation: bling 1.5s 0s infinite;
+  -moz-animation: bling 1.5s 0s infinite;
+  -o-animation: bling 1.5s 0s infinite;
+  animation: bling 1.5s 0s infinite; 
 }
-@-webkit-keyframes ani1 {
+
+@-webkit-keyframes bling {
+  0 {
+    fill-opacity: 0.05;
+  }
+  50% {
+    fill-opacity: 0.3;
+  }
+  100% {
+    fill-opacity: 0.05;
+  }
+}
+
+@-moz-keyframes bling {
+  0 {
+    fill-opacity: 0.05;
+  }
+  50% {
+    fill-opacity: 0.3;
+  }
+  100% {
+    fill-opacity: 0.05;
+  }
+}
+
+@-o-keyframes bling {
+  0 {
+    fill-opacity: 0.05;
+  }
+  50% {
+    fill-opacity: 0.3;
+  }
+  100% {
+    fill-opacity: 0.05;
+  }
+}
+
+@keyframes bling {
   0 {
     fill-opacity: 0.05;
   }
