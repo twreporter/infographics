@@ -81,10 +81,15 @@
             var div = d3.select(this);
             div.on('touchmove', function() {
                 var absoluteMousePos = d3.mouse(div.node());
-                redrawPath(scaleX.invert(absoluteMousePos[0]), scaleY.invert(absoluteMousePos[1]));
+                var posX = scaleX.invert(absoluteMousePos[0]);
+                var posY = scaleY.invert(absoluteMousePos[1]);
+                posX = posX <= 100 ? posX : 100;
+                posY = posY < 0 ? 0 : (posY > 100 ? 100 : posY);
+                redrawPath(posX, posY);
                 d3.event.preventDefault();
             });
             div.on('touchend', function() {
+                drawIncompleteArea(data, offset);
                 div.on('touchmove', null).on('touchend', null);
             });
         }
