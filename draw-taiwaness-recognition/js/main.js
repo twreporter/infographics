@@ -1,9 +1,9 @@
 (function() {
 
-    var AXISLENGTH = 100;
-    var INTERVAL = 5;
+    var TICKS = 10;
+    var INTERVAL = 100 / (TICKS * 2);
     var data = [];
-    for (var i = 0; i <= AXISLENGTH; i = i + INTERVAL) {
+    for (var i = 0; i <= TICKS * 2; i = i + 1) {
         var item = {
             x: null,
             y: null
@@ -37,20 +37,18 @@
 
     var area = d3.svg.area()
         .x(function(d, i) {
-          if (i < data.length - 1 && data[i+1].x !== null) {
-            return scaleX((i+1) * INTERVAL)
-          }
-          return scaleX(i * INTERVAL);
+            if (data[i - 1] && data[i - 1].x !== null) {
+                return scaleX((i - 1) * INTERVAL)
+            }
+            return scaleX(i * INTERVAL);
         })
         .y0(0)
         .y1(function(d) {
             return scaleY(0);
         })
         .defined(function(d, i) {
-            if (i < data.length - 1) {
-                return d.x === null || data[i + 1].x === null;
-            }
-            return d.x === null;
+            // take i element away from data only if i-1 element is pointed by user
+            return d.x === null || (data[i -1] && data[i - 1].x === null);
         });
 
     var chart = d3.select('.g-chart')
@@ -70,13 +68,24 @@
         d3.select(window)
             .on('mouseup', function() {
                 div.on('mousemove', null).on('mouseup', null);
-            })
+            });
         div.on('mousemove', function() {
             var absoluteMousePos = d3.mouse(div.node());
             redrawPath(scaleX.invert(absoluteMousePos[0]), scaleY.invert(absoluteMousePos[1]));
         });
         div.on('mouseup', function() {
             div.on('mousemove', null).on('mouseup', null);
+        });
+    }
+
+    function touchstart() {
+        var div = d3.select(this);
+        div.on('touchmove', function() {
+            var absoluteMousePos = d3.mouse(div.node());
+            redrawPath(scaleX.invert(absoluteMousePos[0]), scaleY.invert(absoluteMousePos[1]));
+        });
+        div.on('touchend', function() {
+            div.on('touchmove', null).on('touchend', null);
         });
     }
 
@@ -88,32 +97,20 @@
         .attr('transform', 'translate(' + offset + ',' + offset + ')')
         .attr('class', 'bg')
         .on('click', click)
-        .on('mousedown', mousedown);
-    /*
-    .on('touchstart', function() {
-      console.log('touchstart');
-        var div = d3.select(this);
-        div.on('touchmove', function() {
-          var absoluteMousePos = d3.mouse(this);
-          redrawPath(scaleX.invert(absoluteMousePos[0] - offset), scaleY.invert(absoluteMousePos[1] - offset));
-        });
-        div.on('touchend', function() {
-          div.on('touchmove', null).on('touchend', null);
-        });
-    });
-    */
+        .on('mousedown', mousedown)
+        .on('touchstart', touchstart);
 
 
     var axisXGrid = d3.svg.axis()
         .scale(scaleX)
         .orient('bottom')
-        .ticks(10)
+        .ticks(TICKS)
         .tickSize(-height, 0);
 
     var axisYGrid = d3.svg.axis()
         .scale(scaleY)
         .orient('left')
-        .ticks(10)
+        .ticks(TICKS)
         .tickSize(-width, 0);
 
 
@@ -147,15 +144,15 @@
 
 
     chart.append('path')
-        .attr('class', 'incomplete-area')
+        .attr('class', 'incomplete-area');
 
     chart.append('path')
         .attr('class', 'user-path');
 
     function redrawPath(x, y) {
-        x = Math.round(x / 5);
+        x = Math.round(x / INTERVAL);
         data[x] = {
-            x: x * 5,
+            x: x * INTERVAL,
             y: y
         };
 
@@ -168,7 +165,8 @@
             .attr('d', area(data))
             .attr('transform', 'translate(' + offset + ',' + offset + ')')
             .on('click', click)
-            .on('mousedown', mousedown);
+            .on('mousedown', mousedown)
+            .on('touchstart', touchstart);
     }
 
     function drawPath(data, offset) {
@@ -192,7 +190,7 @@
                 }
             }
         };
-        c.exit().remove;
+        c.exit().remove();
         c.enter()
             .append('circle')
             .attr(circleAttr);
