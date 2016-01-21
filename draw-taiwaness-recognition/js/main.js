@@ -40,6 +40,11 @@
 
         var area = d3.svg.area()
             .x(function(d, i) {
+                //  for drawing last area
+                if (i+1 > data.length) {
+                  return scaleX(100);
+                }
+
                 if (data[i - 1] && data[i - 1].x !== null) {
                     return scaleX((i - 1) * INTERVAL);
                 }
@@ -62,6 +67,13 @@
             .attr('height', height + offset * 2)
             .append('g');
 
+        function click() {
+            var div = d3.select(this);
+            var absoluteMousePos = d3.mouse(div.node());
+            redrawPath(scaleX.invert(absoluteMousePos[0]), scaleY.invert(absoluteMousePos[1]));
+            drawIncompleteArea(data, offset);
+            d3.event.preventDefault();
+        }
 
         function mousedown() {
             var div = d3.select(this);
@@ -102,7 +114,8 @@
             .attr('transform', 'translate(' + offset + ',' + offset + ')')
             .attr('class', 'bg')
             .on('mousedown', mousedown)
-            .on('touchstart', touchstart);
+            .on('touchstart', touchstart)
+            .on('click', click);
 
 
         var axisXGrid = d3.svg.axis()
@@ -164,11 +177,15 @@
         }
 
         function drawIncompleteArea(data, offset) {
+            // for drawing the last area.
+            var _data = data.concat({x: 0, y: 0});
+
             chart.select('.incomplete-area')
-                .attr('d', area(data))
+                .attr('d', area(_data))
                 .attr('transform', 'translate(' + offset + ',' + offset + ')')
                 .on('mousedown', mousedown)
-                .on('touchstart', touchstart);
+                .on('touchstart', touchstart)
+                .on('click', click);
         }
 
         function drawPath(data, offset) {
@@ -264,7 +281,7 @@
     function draw() {
         var width = window.innerWidth;
         var offset = 50;
-        var ticks = width > 414 ? 10 : 5;
+        var ticks = 10;
         drawRecognitionChart(ticks, width - ( offset * 2 ), (width - offset * 2) / 3 * 2, offset);
     }
 
