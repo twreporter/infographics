@@ -77,6 +77,7 @@
             div.on('mousemove', function() {
                 var absoluteMousePos = d3.mouse(div.node());
                 redrawPath(scaleX.invert(absoluteMousePos[0]), scaleY.invert(absoluteMousePos[1]));
+                d3.event.preventDefault();
             });
             div.on('mouseup', function() {
                 div.on('mousemove', null).on('mouseup', null);
@@ -88,6 +89,7 @@
             div.on('touchmove', function() {
                 var absoluteMousePos = d3.mouse(div.node());
                 redrawPath(scaleX.invert(absoluteMousePos[0]), scaleY.invert(absoluteMousePos[1]));
+                d3.event.preventDefault();
             });
             div.on('touchend', function() {
                 div.on('touchmove', null).on('touchend', null);
