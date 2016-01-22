@@ -1,22 +1,7 @@
 (function() {
-    function drawRecognitionChart(ticks, width, height, offset) {
+    function drawRecognitionChart(data, ticks, width, height, offset) {
         var TICKS = ticks;
         var INTERVAL = 100 / (TICKS * 2);
-        var data = [];
-
-        for (var i = 0; i <= TICKS * 2; i = i + 1) {
-            var item = {
-                x: null,
-                y: null
-            };
-            data.push(item);
-        }
-
-        /*
-        var width = 950;
-        var height = 550;
-        var offset = 70;
-        */
 
         var scaleX = d3.scale.linear()
             .range([0, width])
@@ -41,8 +26,8 @@
         var area = d3.svg.area()
             .x(function(d, i) {
                 //  for drawing last area
-                if (i+1 > data.length) {
-                  return scaleX(100);
+                if (i + 1 > data.length) {
+                    return scaleX(100);
                 }
 
                 if (data[i - 1] && data[i - 1].x !== null) {
@@ -166,6 +151,16 @@
         chart.append('path')
             .attr('class', 'user-path');
 
+
+        // if data is already set, and then draw it.
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].x !== null) {
+                drawPath(data, offset);
+                drawIncompleteArea(data, offset);
+                break;
+            }
+        }
+
         function redrawPath(x, y) {
             x = Math.round(x / INTERVAL);
             data[x] = {
@@ -178,7 +173,10 @@
 
         function drawIncompleteArea(data, offset) {
             // for drawing the last area.
-            var _data = data.concat({x: 0, y: 0});
+            var _data = data.concat({
+                x: 0,
+                y: 0
+            });
 
             chart.select('.incomplete-area')
                 .attr('d', area(_data))
@@ -278,15 +276,24 @@
         };
     }());
 
-    function draw() {
+    function draw(data) {
         var width = window.innerWidth;
         var offset = 50;
         var ticks = 10;
-        drawRecognitionChart(ticks, width - ( offset * 2 ), (width - offset * 2) / 3 * 2, offset);
+        drawRecognitionChart(data, ticks, width - (offset * 2), (width - offset * 2) / 3 * 2, offset);
+    }
+
+    var data = [];
+    for (var i = 0; i <= 10 * 2; i = i + 1) {
+        var item = {
+            x: null,
+            y: null
+        };
+        data.push(item);
     }
 
     // start process
-    optimizedResize.add(draw);
+    optimizedResize.add(draw.bind(null, data));
 
-    draw();
+    draw(data);
 })();
