@@ -1,11 +1,14 @@
 (function() {
-    function drawRecognitionChart(data, ticks, width, height, offset) {
-        var TICKS = ticks;
-        var INTERVAL = 100 / (TICKS * 2);
 
-        var scaleX = d3.scale.linear()
+    function drawRecognitionChart(data, width, height, offset) {
+        var userData = data.userData;
+
+        var baseTS = userData[0].x.getTime();
+        var tsDiff = userData[1].x.getTime() - userData[0].x.getTime();
+
+        var scaleX = d3.time.scale()
             .range([0, width])
-            .domain([0, 100]);
+            .domain([userData[0].x, userData[userData.length - 1].x]);
 
         var scaleY = d3.scale.linear()
             .range([height, 0])
@@ -13,7 +16,7 @@
 
         var line = d3.svg.line()
             .defined(function(d, i) {
-                return d.x !== null && d.y !== null;
+                return d.y !== null;
             })
             .x(function(d) {
                 return scaleX(d.x);
@@ -26,14 +29,14 @@
         var area = d3.svg.area()
             .x(function(d, i) {
                 //  for drawing last area
-                if (i + 1 > data.length) {
-                    return scaleX(100);
+                if (i + 1 > userData.length) {
+                    return scaleX(userData[userData.length - 1].x);
                 }
 
-                if (data[i - 1] && data[i - 1].x !== null) {
-                    return scaleX((i - 1) * INTERVAL);
+                if (i > 0 && userData[i - 1] && userData[i - 1].y !== null) {
+                    return scaleX(userData[i - 1].x);
                 }
-                return scaleX(i * INTERVAL);
+                return scaleX(userData[i].x);
             })
             .y0(0)
             .y1(function(d) {
@@ -41,7 +44,7 @@
             })
             .defined(function(d, i) {
                 // take i element away from data only if i-1 element is pointed by user
-                return d.x === null || (data[i - 1] && data[i - 1].x === null);
+                return d.y === null || (userData[i - 1] && userData[i - 1].y === null);
             });
 
         var svg = d3.select('svg').remove();
@@ -56,7 +59,7 @@
             var div = d3.select(this);
             var absoluteMousePos = d3.mouse(div.node());
             redrawPath(scaleX.invert(absoluteMousePos[0]), scaleY.invert(absoluteMousePos[1]));
-            drawIncompleteArea(data, offset);
+            drawIncompleteArea(userData, offset);
             d3.event.preventDefault();
         }
 
@@ -64,7 +67,7 @@
             var div = d3.select(this);
             d3.select(window)
                 .on('mouseup', function() {
-                    drawIncompleteArea(data, offset);
+                    drawIncompleteArea(userData, offset);
                     div.on('mousemove', null);
                 });
             div.on('mousemove', function() {
@@ -86,7 +89,7 @@
                 d3.event.preventDefault();
             });
             div.on('touchend', function() {
-                drawIncompleteArea(data, offset);
+                drawIncompleteArea(userData, offset);
                 div.on('touchmove', null).on('touchend', null);
             });
         }
@@ -106,13 +109,19 @@
         var axisXGrid = d3.svg.axis()
             .scale(scaleX)
             .orient('bottom')
-            .ticks(TICKS)
-            .tickSize(-height, 0);
+            .ticks(d3.time.year, 1)
+            .tickSize(-height, 0)
+            .tickFormat(function(d, i) {
+                if (i % 2 !== 0) {
+                    return d3.time.format('%Y')(d);
+                }
+                return '';
+            });
 
         var axisYGrid = d3.svg.axis()
             .scale(scaleY)
             .orient('left')
-            .ticks(TICKS)
+            .ticks(10)
             .tickSize(-width, 0);
 
 
@@ -153,22 +162,22 @@
 
 
         // if data is already set, and then draw it.
-        for (var i = 0; i < data.length; i++) {
-            if (data[i].x !== null) {
-                drawPath(data, offset);
-                drawIncompleteArea(data, offset);
+        for (var i = 0; i < userData.length; i++) {
+            if (userData[i].y !== null) {
+                drawPath(userData, offset);
+                drawIncompleteArea(userData, offset);
                 break;
             }
         }
 
-        function redrawPath(x, y) {
-            x = Math.round(x / INTERVAL);
-            data[x] = {
-                x: x * INTERVAL,
+        function redrawPath(date, y) {
+            x = Math.round((date.getTime() - baseTS) / tsDiff);
+            userData[x] = {
+                x: userData[x].x,
                 y: y
             };
 
-            drawPath(data, offset);
+            drawPath(userData, offset);
         }
 
         function drawIncompleteArea(data, offset) {
@@ -192,7 +201,7 @@
             });
             var circleAttr = {
                 'r': function(d) {
-                    if (d.x === null && d.y === null) {
+                    if (d.y === null) {
                         return 0;
                     } else {
                         return 4;
@@ -279,21 +288,55 @@
     function draw(data) {
         var width = window.innerWidth;
         var offset = 50;
-        var ticks = 10;
-        drawRecognitionChart(data, ticks, width - (offset * 2), (width - offset * 2) / 3 * 2, offset);
+        drawRecognitionChart(data, width - (offset * 2), (width - offset * 2) / 3 * 2, offset);
     }
 
-    var data = [];
-    for (var i = 0; i <= 10 * 2; i = i + 1) {
-        var item = {
-            x: null,
+    var data = {
+        userData: []
+        /*
+        stats: [{
+            x: new Date(2002, 0, 1),
+            y: 42
+        }, {
+            x: new Date(2004, 0, 1),
+            y: 42
+        }, {
+            x: new Date(2005, 0, 1),
+            y: 38.5
+        }, {
+            x: new Date(2008, 0, 1),
+            y: 39.9
+        }, {
+            x: new Date(2011, 0, 1),
+            y: 40.5
+        }, {
+            x: new Date(2012, 0, 1),
+            y: 46.8
+        }, {
+            x: new Date(2014, 0, 1),
+            y: 54.8
+        }, {
+            x: new Date(2015, 0, 1),
+            y: 50.7
+        }]
+        */
+    };
+    for (var i = 2002; i < 2015; i = i + 1) {
+        data.userData.push({
+            x: new Date(i, 0, 1),
             y: null
-        };
-        data.push(item);
+        }, {
+            x: new Date(i, 6, 1),
+            y: null
+        });
     }
+
+    data.userData.push({
+        x: new Date(2015, 0, 1),
+        y: null
+    });
 
     // start process
     optimizedResize.add(draw.bind(null, data));
-
     draw(data);
 })();
