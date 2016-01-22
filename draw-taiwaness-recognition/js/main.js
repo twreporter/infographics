@@ -83,7 +83,7 @@
                 var absoluteMousePos = d3.mouse(div.node());
                 var posX = scaleX.invert(absoluteMousePos[0]);
                 var posY = scaleY.invert(absoluteMousePos[1]);
-                posX = posX <= 100 ? posX : 100;
+                posX = posX <= userData[userData.length-1].x ? (posX < userData[0].x ? userData[0].x : posX) : userData[userData.length-1].x;
                 posY = posY < 0 ? 0 : (posY > 100 ? 100 : posY);
                 redrawPath(posX, posY);
                 d3.event.preventDefault();
