@@ -22,9 +22,14 @@
             })
             .interpolate('cardinal');
 
+        var maxX = d3.max(userData, function(d) {
+            return d.x
+        });
         scaleX = d3.time.scale()
             .range([0, width])
-            .domain([userData[0].x, userData[userData.length - 1].x]);
+            .domain([d3.min(userData, function(d) {
+                return d.x
+            }), maxX]);
 
         scaleY = d3.scale.linear()
             .range([height, 0])
@@ -115,8 +120,11 @@
             .ticks(d3.time.year, 1)
             .tickSize(-height, 0)
             .tickFormat(function(d, i) {
-                if (i % 2 !== 0) {
+              if (d >= maxX) {
                     return d3.time.format('%Y')(d);
+                }
+                if (i % 2 !== 0) {
+                    return d3.time.format('%y')(d);
                 }
                 return '';
             });
@@ -314,7 +322,7 @@
     function drawUserData(data) {
         var width = window.innerWidth;
         var offset = 50;
-        drawRecognitionChart(data, width / 3 * 2, width / 3, offset);
+        drawRecognitionChart(data, width / 3 * 2, width / 3, 30);
     }
 
     function drawStats(data) {
@@ -365,9 +373,9 @@
 
         drawTWPath(data.tw);
         setTimeout(function() {
-          drawCHPath(data.ch);
-          drawBothPath(data.both);
-        },2000)
+            drawCHPath(data.ch);
+            drawBothPath(data.both);
+        }, 2000)
     }
 
     function parseByGroup(data) {
