@@ -67,8 +67,78 @@ rect.bg {
   }
 }
 
+.container {
+  width: 960px;
+  margin: 0px auto;
+  font-family: "Noto Sans",'Noto Sans TC', "Apple LiGothic Medium", Roboto, "Microsoft JhengHei", "新細明體", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+
+.title-block {
+  padding: 0px 0px 0px 50px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 500;
+  color: #005a49;
+}
+
+.group-selection {
+  padding: 35px 0px 0px 50px
+}
+
+.group-selection > span {
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.bt {
+  width: 101px;
+  line-height: 27px;
+  text-align: center;
+  display: inline-block;
+  background-color: #cfd8d6;
+  border: 2px solid #f1f1f1;
+  border-radius: 62.5rem;
+  cursor: pointer;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  color: white;
+}
+
+.bt.selected, .bt.done {
+  background-color: #005a49;
+}
+
+.done-or-reset-block {
+  padding: 0px 0px 0px 50px;
+  text-align: center;
+}
+
 </style>
-<div class="g-chart"> 
+<div class="container">
+  <div class="title-block">
+    <span class="title">根據不同年齡層，畫出認同自己是台灣人的走勢</span>
+  </div>
+  <div class="group-selection">
+    <span>選擇年齡區間：</span>
+    <div id="select_after_1980" class="bt selected"><span>20-35歲</span></div>
+    <div id="select_1966_1980" class="bt"><span>36-50歲</span></div>
+    <div id="select_1951_1965" class="bt"><span>50-65歲</span></div>
+    <div id="select_before_1950" class="bt"><span>65歲以上</span></div>
+  </div>
+  <div class="g-chart"> 
+  </div>
+  <div class="done-or-reset-block">
+    <div id="done" class="bt">
+      <span>看結果</span>
+    </div>
+    <div id="reset" class="bt done">
+      <span>再畫一次</span>
+    </div>
+  </div>
 </div>
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="./js/main.js" charset="utf-8"></script>

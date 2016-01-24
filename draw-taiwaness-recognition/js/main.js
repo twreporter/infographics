@@ -1,20 +1,16 @@
 (function() {
 
+    var line;
+    var scaleX;
+    var scaleY;
+
     function drawRecognitionChart(data, width, height, offset) {
-        var userData = data.userData;
+        var userData = data;
 
         var baseTS = userData[0].x.getTime();
         var tsDiff = userData[1].x.getTime() - userData[0].x.getTime();
 
-        var scaleX = d3.time.scale()
-            .range([0, width])
-            .domain([userData[0].x, userData[userData.length - 1].x]);
-
-        var scaleY = d3.scale.linear()
-            .range([height, 0])
-            .domain([0, 100]);
-
-        var line = d3.svg.line()
+        line = d3.svg.line()
             .defined(function(d, i) {
                 return d.y !== null;
             })
@@ -25,6 +21,15 @@
                 return scaleY(d.y);
             })
             .interpolate('cardinal');
+
+        scaleX = d3.time.scale()
+            .range([0, width])
+            .domain([userData[0].x, userData[userData.length - 1].x]);
+
+        scaleY = d3.scale.linear()
+            .range([height, 0])
+            .domain([0, 80]);
+
 
         var area = d3.svg.area()
             .x(function(d, i) {
@@ -83,7 +88,7 @@
                 var absoluteMousePos = d3.mouse(div.node());
                 var posX = scaleX.invert(absoluteMousePos[0]);
                 var posY = scaleY.invert(absoluteMousePos[1]);
-                posX = posX <= userData[userData.length-1].x ? (posX < userData[0].x ? userData[0].x : posX) : userData[userData.length-1].x;
+                posX = posX <= userData[userData.length - 1].x ? (posX < userData[0].x ? userData[0].x : posX) : userData[userData.length - 1].x;
                 posY = posY < 0 ? 0 : (posY > 100 ? 100 : posY);
                 redrawPath(posX, posY);
                 d3.event.preventDefault();
@@ -97,8 +102,6 @@
         chart.append('rect')
             .attr('width', width)
             .attr('height', height)
-            // .attr('x', offset)
-            // .attr('y', offset)
             .attr('transform', 'translate(' + offset + ',' + offset + ')')
             .attr('class', 'bg')
             .on('mousedown', mousedown)
@@ -122,7 +125,8 @@
             .scale(scaleY)
             .orient('left')
             .ticks(10)
-            .tickSize(-width, 0);
+            .tickSize(-width, 0)
+            .tickFormat(function(d) {return d+'%'});
 
 
         chart.append('g')
@@ -153,13 +157,23 @@
                 'font-size': '13px'
             });
 
+        var pathGroup = chart.append('g')
+            .attr('transform', 'translate(' + offset + ',' + offset + ')');
 
-        chart.append('path')
+        pathGroup.append('path')
             .attr('class', 'incomplete-area');
 
-        chart.append('path')
+        pathGroup.append('path')
             .attr('class', 'user-path');
 
+        pathGroup.append('path')
+            .attr('class', 'tw-recognition-path');
+
+        pathGroup.append('path')
+            .attr('class', 'ch-recognition-path');
+
+        pathGroup.append('path')
+            .attr('class', 'both-recognition-path');
 
         // if data is already set, and then draw it.
         for (var i = 0; i < userData.length; i++) {
@@ -178,6 +192,17 @@
             };
 
             drawPath(userData, offset);
+
+            var isDrawn = true;
+            for (var i = 0; i < userData.length; i++) {
+                if (userData[i].y === null) {
+                    isDrawn = false;
+                    break;
+                }
+            }
+            if (isDrawn) {
+                d3.select('#done').classed('done', true);
+            }
         }
 
         function drawIncompleteArea(data, offset) {
@@ -187,16 +212,16 @@
                 y: 0
             });
 
-            chart.select('.incomplete-area')
+            pathGroup.select('.incomplete-area')
                 .attr('d', area(_data))
-                .attr('transform', 'translate(' + offset + ',' + offset + ')')
                 .on('mousedown', mousedown)
                 .on('touchstart', touchstart)
                 .on('click', click);
         }
 
+
         function drawPath(data, offset) {
-            var c = chart.selectAll('circle').data(data, function(d, i) {
+            var c = pathGroup.selectAll('circle').data(data, function(d, i) {
                 return i;
             });
             var circleAttr = {
@@ -210,7 +235,7 @@
                 'class': 'circle',
                 'transform': function(d) {
                     if (d.x !== null || d.y !== null) {
-                        return 'translate(' + (scaleX(d.x) + offset) + ',' + (scaleY(d.y) + offset) + ')';
+                        return 'translate(' + scaleX(d.x) + ',' + scaleY(d.y) + ')';
                     } else {
                         return 'translate(0 , 0)';
                     }
@@ -222,15 +247,14 @@
                 .attr(circleAttr);
             c.attr(circleAttr);
 
-            chart.select('.user-path')
+            pathGroup.select('.user-path')
                 .attr({
                     'd': line(data),
                     'fill': 'none',
-                    'stroke': '#09c',
-                    'stroke-width': '3.5px',
+                    'stroke': '#005a49',
+                    'stroke-width': '5px',
                     'stroke-linecap': 'round',
-                    'stroke-linejoin': 'round',
-                    'transform': 'translate(' + offset + ',' + offset + ')'
+                    'stroke-linejoin': 'round'
                 });
         }
     }
@@ -285,58 +309,139 @@
         };
     }());
 
-    function draw(data) {
+    function drawUserData(data) {
         var width = window.innerWidth;
         var offset = 50;
-        drawRecognitionChart(data, width - (offset * 2), (width - offset * 2) / 3 * 2, offset);
+        drawRecognitionChart(data, width / 3 * 2 , width / 3, offset);
     }
 
-    var data = {
-        userData: []
-        /*
-        stats: [{
-            x: new Date(2002, 0, 1),
-            y: 42
-        }, {
-            x: new Date(2004, 0, 1),
-            y: 42
-        }, {
-            x: new Date(2005, 0, 1),
-            y: 38.5
-        }, {
-            x: new Date(2008, 0, 1),
-            y: 39.9
-        }, {
-            x: new Date(2011, 0, 1),
-            y: 40.5
-        }, {
-            x: new Date(2012, 0, 1),
-            y: 46.8
-        }, {
-            x: new Date(2014, 0, 1),
-            y: 54.8
-        }, {
-            x: new Date(2015, 0, 1),
-            y: 50.7
-        }]
-        */
-    };
-    for (var i = 2002; i < 2015; i = i + 1) {
-        data.userData.push({
-            x: new Date(i, 0, 1),
-            y: null
-        }, {
-            x: new Date(i, 6, 1),
-            y: null
+    function drawStats(data) {
+        var attr = {
+            'fill': 'none',
+            'stroke-width': '5px',
+            'stroke-linecap': 'round',
+            'stroke-linejoin': 'round',
+        };
+
+        function drawTWPath(data) {
+            attr.d = line(data);
+            attr.stroke = '#09c';
+            d3.select('.tw-recognition-path')
+                .attr(attr);
+        }
+
+        function drawCHPath(data) {
+            attr.d = line(data);
+            attr.stroke = '#efefef';
+            d3.select('.ch-recognition-path')
+                .attr(attr);
+        }
+
+        function drawBothPath(data) {
+            attr.d = line(data);
+            attr.stroke = '#09c';
+            d3.select('.both-recognition-path')
+                .attr(attr);
+        }
+
+        drawTWPath(data.tw);
+        drawCHPath(data.ch);
+        drawBothPath(data.both);
+    }
+
+    function parseByGroup(data) {
+        return d3.nest()
+            .key(function(d) {
+                return d.group;
+            })
+            .map(data);
+    }
+
+    function parseByOpinion(data) {
+        var tw = [];
+        var ch = [];
+        var both = [];
+        data.forEach(function(d) {
+            tw.push({
+                x: new Date(d.year, 0, 1),
+                y: parseFloat(d.tw.replace('%', ''))
+            });
+            ch.push({
+                x: new Date(d.year, 0, 1),
+                y: parseFloat(d.ch.replace('%', ''))
+            });
+            both.push({
+                x: new Date(d.year, 0, 1),
+                y: parseFloat(d.both.replace('%', ''))
+            });
         });
+        return {
+            tw: tw,
+            ch: ch,
+            both: both
+        };
     }
 
-    data.userData.push({
-        x: new Date(2015, 0, 1),
-        y: null
+    d3.csv('./data/recognition.csv', function(error, rawData) {
+        function prepareInitUserData() {
+            var userData = [];
+            for (var i = 2002; i < 2015; i = i + 1) {
+                userData.push({
+                    x: new Date(i, 0, 1),
+                    y: null
+                }, {
+                    x: new Date(i, 6, 1),
+                    y: null
+                });
+            }
+
+            userData.push({
+                x: new Date(2015, 0, 1),
+                y: null
+            });
+            return userData;
+        }
+
+        var grouped = parseByGroup(rawData);
+        var userData = prepareInitUserData();
+        Object.keys(grouped).forEach(function(g) {
+            grouped[g] = parseByOpinion(grouped[g]);
+        });
+
+        // draw user drawn path
+        optimizedResize.add(drawUserData.bind(null, userData));
+        // optimizedResize.add(drawStats.bind(null, grouped));
+        drawUserData(userData);
+        // drawStats(grouped['1951_1965']);
+
+        function prepareSelection(id) {
+          d3.select('#' + id).on('click', function() {
+            var selection = d3.select(this);
+            if (!selection.classed('selected')) {
+              d3.select('.group-selection .selected').classed('selected', false);
+              selection.classed('selected', true);
+              drawUserData(prepareInitUserData());
+            }
+          });
+        }
+        // group selection
+        ['select_1951_1965', 'select_1966_1980', 'select_after_1980', 'select_before_1950'].forEach(function(d) {
+          prepareSelection(d);
+        });
+
+        // done and reset
+        d3.select('#done').on('click', function() {
+            var div = d3.select(this);
+            if (div.classed('done')) {
+                var id = d3.select('.group-selection .selected').attr('id');
+                id = id.replace('select_', '');
+                drawStats(grouped[id]);
+            }
+        });
+
+        d3.select('#reset').on('click', function() {
+            drawUserData(prepareInitUserData());
+        });
     });
 
-    // start process
-    optimizedResize.add(draw.bind(null, data));
-    draw(data);
 })();
