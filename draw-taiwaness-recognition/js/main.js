@@ -414,6 +414,10 @@
         drawUserData(userData);
         // drawStats(grouped['1951_1965']);
 
+        function makeNotDone() {
+          d3.select('#done').classed('done', false);
+        }
+
         function prepareSelection(id) {
           d3.select('#' + id).on('click', function() {
             var selection = d3.select(this);
@@ -421,6 +425,7 @@
               d3.select('.group-selection .selected').classed('selected', false);
               selection.classed('selected', true);
               drawUserData(prepareInitUserData());
+              makeNotDone();
             }
           });
         }
@@ -441,6 +446,7 @@
 
         d3.select('#reset').on('click', function() {
             drawUserData(prepareInitUserData());
+            makeNotDone();
         });
     });
 
