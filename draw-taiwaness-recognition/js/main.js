@@ -126,7 +126,9 @@
             .orient('left')
             .ticks(10)
             .tickSize(-width, 0)
-            .tickFormat(function(d) {return d+'%'});
+            .tickFormat(function(d) {
+                return d + '%'
+            });
 
 
         chart.append('g')
@@ -252,7 +254,7 @@
                     'd': line(data),
                     'fill': 'none',
                     'stroke': '#333333',
-                    'stroke-width': '5px',
+                    'stroke-width': '3px',
                     'stroke-linecap': 'round',
                     'stroke-linejoin': 'round'
                 });
@@ -312,41 +314,60 @@
     function drawUserData(data) {
         var width = window.innerWidth;
         var offset = 50;
-        drawRecognitionChart(data, width / 3 * 2 , width / 3, offset);
+        drawRecognitionChart(data, width / 3 * 2, width / 3, offset);
     }
 
     function drawStats(data) {
         var attr = {
             'fill': 'none',
-            'stroke-width': '5px',
+            'stroke-width': '3px',
             'stroke-linecap': 'round',
             'stroke-linejoin': 'round',
         };
 
+        function doPathAnimation(path) {
+            var totalLength = path.node().getTotalLength();
+            path
+                .attr("stroke-dasharray", totalLength + " " + totalLength)
+                .attr("stroke-dashoffset", totalLength)
+                .transition()
+                .duration(2000)
+                .ease("linear")
+                .attr("stroke-dashoffset", 0);
+        }
+
         function drawTWPath(data) {
             attr.d = line(data);
             attr.stroke = '#5F7E4F';
-            d3.select('.tw-recognition-path')
+            var path = d3.select('.tw-recognition-path')
                 .attr(attr);
+            doPathAnimation(path);
+
         }
 
         function drawCHPath(data) {
             attr.d = line(data);
             attr.stroke = '#C2732C';
-            d3.select('.ch-recognition-path')
+            var path = d3.select('.ch-recognition-path')
                 .attr(attr);
+            doPathAnimation(path);
         }
 
         function drawBothPath(data) {
             attr.d = line(data);
             attr.stroke = '#508CAD';
-            d3.select('.both-recognition-path')
+            attr.id = 'bothpath'
+            var path = d3.select('.both-recognition-path')
                 .attr(attr);
+            doPathAnimation(path);
         }
 
+
         drawTWPath(data.tw);
-        drawCHPath(data.ch);
-        drawBothPath(data.both);
+        setTimeout(function() {
+          drawCHPath(data.ch);
+          drawBothPath(data.both);
+        },2000)
     }
 
     function parseByGroup(data) {
@@ -415,24 +436,24 @@
         // drawStats(grouped['1951_1965']);
 
         function makeNotDone() {
-          d3.select('#done').classed('done', false);
+            d3.select('#done').classed('done', false);
         }
 
         function prepareSelection(id) {
-          d3.select('#' + id).on('click', function() {
-            var selection = d3.select(this);
-            if (!selection.classed('selected')) {
-              d3.select('.group-selection .selected').classed('selected', false);
-              selection.classed('selected', true);
-              drawUserData(prepareInitUserData());
-              makeNotDone();
+                d3.select('#' + id).on('click', function() {
+                    var selection = d3.select(this);
+                    if (!selection.classed('selected')) {
+                        d3.select('.group-selection .selected').classed('selected', false);
+                        selection.classed('selected', true);
+                        drawUserData(prepareInitUserData());
+                        makeNotDone();
+                    }
+                });
             }
-          });
-        }
-        // group selection
-        ['select_1951_1965', 'select_1966_1980', 'select_after_1980', 'select_before_1950'].forEach(function(d) {
-          prepareSelection(d);
-        });
+            // group selection
+            ['select_1951_1965', 'select_1966_1980', 'select_after_1980', 'select_before_1950'].forEach(function(d) {
+                prepareSelection(d);
+            });
 
         // done and reset
         d3.select('#done').on('click', function() {
