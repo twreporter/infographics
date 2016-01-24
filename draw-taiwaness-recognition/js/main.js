@@ -251,7 +251,7 @@
                 .attr({
                     'd': line(data),
                     'fill': 'none',
-                    'stroke': '#005a49',
+                    'stroke': '#333333',
                     'stroke-width': '5px',
                     'stroke-linecap': 'round',
                     'stroke-linejoin': 'round'
