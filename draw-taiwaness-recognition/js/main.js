@@ -325,21 +325,21 @@
 
         function drawTWPath(data) {
             attr.d = line(data);
-            attr.stroke = '#09c';
+            attr.stroke = '#5F7E4F';
             d3.select('.tw-recognition-path')
                 .attr(attr);
         }
 
         function drawCHPath(data) {
             attr.d = line(data);
-            attr.stroke = '#efefef';
+            attr.stroke = '#C2732C';
             d3.select('.ch-recognition-path')
                 .attr(attr);
         }
 
         function drawBothPath(data) {
             attr.d = line(data);
-            attr.stroke = '#09c';
+            attr.stroke = '#508CAD';
             d3.select('.both-recognition-path')
                 .attr(attr);
         }
