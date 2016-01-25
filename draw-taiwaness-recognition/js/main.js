@@ -120,7 +120,7 @@
             .ticks(d3.time.year, 1)
             .tickSize(-height, 0)
             .tickFormat(function(d, i) {
-              if (d >= maxX) {
+                if (d >= maxX) {
                     return d3.time.format('%Y')(d);
                 }
                 if (i % 2 !== 0) {
@@ -167,6 +167,10 @@
                 'font-size': '13px'
             });
 
+        chart.append('g')
+        .attr('class', 'line-label')
+        .attr('transform', 'translate(' + offset + ',' + offset + ')');
+
         var pathGroup = chart.append('g')
             .attr('transform', 'translate(' + offset + ',' + offset + ')');
 
@@ -175,6 +179,7 @@
 
         pathGroup.append('path')
             .attr('class', 'user-path');
+
 
         pathGroup.append('path')
             .attr('class', 'tw-recognition-path');
@@ -269,113 +274,79 @@
         }
     }
 
-    var optimizedResize = (function() {
-
-        var callbacks = [],
-            running = false;
-
-        // fired on resize event
-        function resize() {
-
-            if (!running) {
-                running = true;
-
-                if (window.requestAnimationFrame) {
-                    window.requestAnimationFrame(runCallbacks);
-                } else {
-                    setTimeout(runCallbacks, 66);
-                }
-            }
-
-        }
-
-        // run the actual callbacks
-        function runCallbacks() {
-
-            callbacks.forEach(function(callback) {
-                callback();
-            });
-
-            running = false;
-        }
-
-        // adds callback to loop
-        function addCallback(callback) {
-
-            if (callback) {
-                callbacks.push(callback);
-            }
-
-        }
-
-        return {
-            // public method to add additional callback
-            add: function(callback) {
-                if (!callbacks.length) {
-                    window.addEventListener('resize', resize);
-                }
-                addCallback(callback);
-            }
-        };
-    }());
-
     function drawUserData(data) {
         var width = window.innerWidth;
         var offset = 50;
-        drawRecognitionChart(data, width / 3 * 2, width / 3, 30);
+        drawRecognitionChart(data, width / 3 * 2, width / 3, 50);
     }
 
-    function drawStats(data) {
-        var attr = {
-            'fill': 'none',
-            'stroke-width': '3px',
-            'stroke-linecap': 'round',
-            'stroke-linejoin': 'round',
+    var attr = {
+        'fill': 'none',
+        'stroke-width': '3px',
+        'stroke-linecap': 'round',
+        'stroke-linejoin': 'round',
+    };
+
+    function addTextToPath(x, y, fill, text) {
+        var svg = d3.select('.line-label')
+        .append('text')
+        .attr('transform', 'translate(' + x + ',' + y + ')')
+        .attr('text-anchor', 'start')
+        .style('fill', fill)
+        .text(text);
+    }
+
+    function doPathAnimation(path) {
+        var totalLength = path.node().getTotalLength();
+        path
+            .attr("stroke-dasharray", totalLength + " " + totalLength)
+            .attr("stroke-dashoffset", totalLength)
+            .transition()
+            .duration(2000)
+            .ease("linear")
+            .attr("stroke-dashoffset", 0);
+    }
+
+    function drawTWStats(data, doAnimation) {
+        attr.d = line(data);
+        attr.stroke = '#5F7E4F';
+        var path = d3.select('.tw-recognition-path')
+            .attr(attr);
+        if (doAnimation) {
+            doPathAnimation(path)
+        };
+        d3.select('#stats')
+            .classed('ready', true);
+
+        var last = data[data.length - 1];
+        addTextToPath(scaleX(last.x), scaleY(last.y), '#5F7E4F', '台灣人');
+    }
+
+    function drawCHStats(data, doAnimation) {
+        attr.d = line(data);
+        attr.stroke = '#C2732C';
+        var path = d3.select('.ch-recognition-path')
+            .attr(attr);
+        if (doAnimation) {
+            doPathAnimation(path)
         };
 
-        function doPathAnimation(path) {
-            var totalLength = path.node().getTotalLength();
-            path
-                .attr("stroke-dasharray", totalLength + " " + totalLength)
-                .attr("stroke-dashoffset", totalLength)
-                .transition()
-                .duration(2000)
-                .ease("linear")
-                .attr("stroke-dashoffset", 0);
-        }
+        var last = data[data.length - 1];
+        addTextToPath(scaleX(last.x), scaleY(last.y), '#C2732C', '中國人');
+    }
 
-        function drawTWPath(data) {
-            attr.d = line(data);
-            attr.stroke = '#5F7E4F';
-            var path = d3.select('.tw-recognition-path')
-                .attr(attr);
-            doPathAnimation(path);
+    function drawBothStats(data, doAnimation) {
+        attr.d = line(data);
+        attr.stroke = '#508CAD';
+        attr.id = 'bothpath'
+        var path = d3.select('.both-recognition-path')
+            .attr(attr);
+        if (doAnimation) {
+            doPathAnimation(path)
+        };
 
-        }
-
-        function drawCHPath(data) {
-            attr.d = line(data);
-            attr.stroke = '#C2732C';
-            var path = d3.select('.ch-recognition-path')
-                .attr(attr);
-            doPathAnimation(path);
-        }
-
-        function drawBothPath(data) {
-            attr.d = line(data);
-            attr.stroke = '#508CAD';
-            attr.id = 'bothpath'
-            var path = d3.select('.both-recognition-path')
-                .attr(attr);
-            doPathAnimation(path);
-        }
-
-
-        drawTWPath(data.tw);
-        setTimeout(function() {
-            drawCHPath(data.ch);
-            drawBothPath(data.both);
-        }, 2000)
+        var last = data[data.length - 1];
+        addTextToPath(scaleX(last.x), scaleY(last.y), '#508CAD', '都是');
     }
 
     function parseByGroup(data) {
@@ -437,14 +408,12 @@
             grouped[g] = parseByOpinion(grouped[g]);
         });
 
-        // draw user drawn path
-        optimizedResize.add(drawUserData.bind(null, userData));
-        // optimizedResize.add(drawStats.bind(null, grouped));
         drawUserData(userData);
-        // drawStats(grouped['1951_1965']);
+
 
         function makeNotDone() {
             d3.select('#done').classed('done', false);
+            d3.select('#stats').classed('ready', false);
         }
 
         function prepareSelection(id) {
@@ -469,13 +438,26 @@
             if (div.classed('done')) {
                 var id = d3.select('.group-selection .selected').attr('id');
                 id = id.replace('select_', '');
-                drawStats(grouped[id]);
+                drawTWStats(grouped[id].tw, true);
             }
         });
 
         d3.select('#reset').on('click', function() {
             drawUserData(prepareInitUserData());
             makeNotDone();
+        });
+
+        d3.select('#stats').on('click', function() {
+            var div = d3.select(this);
+            if (div.classed('ready')) {
+                var id = d3.select('.group-selection .selected').attr('id');
+                id = id.replace('select_', '');
+                d3.select('.user-path').remove();
+                d3.selectAll('circle').remove();
+                d3.select('rect').remove();
+                drawCHStats(grouped[id].ch, true);
+                drawBothStats(grouped[id].both, true);
+            }
         });
     });
 
