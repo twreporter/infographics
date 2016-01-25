@@ -94,7 +94,7 @@
                 var posX = scaleX.invert(absoluteMousePos[0]);
                 var posY = scaleY.invert(absoluteMousePos[1]);
                 posX = posX <= userData[userData.length - 1].x ? (posX < userData[0].x ? userData[0].x : posX) : userData[userData.length - 1].x;
-                posY = posY < 0 ? 0 : (posY > 100 ? 100 : posY);
+                posY = posY < 0 ? 0 : (posY > 80 ? 80 : posY);
                 redrawPath(posX, posY);
                 d3.event.preventDefault();
             });
@@ -348,47 +348,6 @@
         addTextToPath(scaleX(last.x), scaleY(last.y), '#508CAD', '都是');
     }
 
-    function drawExistingPath(userData, stats) {
-        var path = d3.select('.user-path').node();
-        var userFlag = false;
-        var twFlag = false;
-        var chFlag = false;
-        var bothFlag = false;
-        if (path && path.getTotalLength() > 0) {
-            userFlag = true;
-        }
-
-        path = d3.select('.tw-recognition-path').node();
-        if (path && path.getTotalLength() > 0) {
-            twFlag = true;
-        }
-
-        path = d3.select('.ch-recognition-path').node();
-        if (path && path.getTotalLength() > 0) {
-            chFlag = true;
-        }
-
-        path = d3.select('.both-recognition-path').node();
-        if (path && path.getTotalLength() > 0) {
-            bothFlag = true;
-        }
-
-        var id = d3.select('.group-selection .selected').attr('id');
-        id = id.replace('select_', '');
-
-        if (userFlag) {
-            drawUserData(userData);
-        }
-        if (twFlag) {
-            drawTWStats(stats[id].tw);
-        }
-        if (chFlag) {
-            drawCHStats(stats[id].ch);
-        }
-        if (bothFlag) {
-            drawBothStats(stats[id].both);
-        }
-    }
 
     function parseByGroup(data) {
         return d3.nest()
@@ -503,7 +462,51 @@
         drawUserData(userData);
 
         // draw user drawn path
-        optimizedResize.add(drawExistingPath.bind(null, userData, grouped));
+        optimizedResize.add(drawExistingPath);
+
+        function drawExistingPath() {
+            var path = d3.select('.user-path').node();
+            var userFlag = false;
+            var twFlag = false;
+            var chFlag = false;
+            var bothFlag = false;
+            if (path && path.getTotalLength() > 0) {
+                userFlag = true;
+            }
+
+            path = d3.select('.tw-recognition-path').node();
+            if (path && path.getTotalLength() > 0) {
+                twFlag = true;
+            }
+
+            path = d3.select('.ch-recognition-path').node();
+            if (path && path.getTotalLength() > 0) {
+                chFlag = true;
+            }
+
+            path = d3.select('.both-recognition-path').node();
+            if (path && path.getTotalLength() > 0) {
+                bothFlag = true;
+            }
+
+            var id = d3.select('.group-selection .selected').attr('id');
+            id = id.replace('select_', '');
+
+            if (userFlag) {
+                drawUserData(userData);
+            } else {
+                drawUserData(prepareInitUserData());
+            }
+            if (twFlag) {
+                drawTWStats(grouped[id].tw);
+            }
+            if (chFlag) {
+                drawCHStats(grouped[id].ch);
+            }
+            if (bothFlag) {
+                drawBothStats(grouped[id].both);
+            }
+        }
 
         function makeNotDone() {
             d3.select('#done').classed('done', false);
