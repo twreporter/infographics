@@ -276,8 +276,7 @@
 
     function drawUserData(data) {
         var width = window.innerWidth;
-        var offset = 50;
-        drawRecognitionChart(data, width / 3 * 2, width / 3, 50);
+        drawRecognitionChart(data, width / 3 * 2, width / 3, width <= 320 ? 30 : 50);
     }
 
     var attr = {
