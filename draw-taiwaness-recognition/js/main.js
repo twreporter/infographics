@@ -105,9 +105,9 @@
         }
 
         chart.append('rect')
-            .attr('width', width)
+            .attr('width', width + offset * 2)
             .attr('height', height)
-            .attr('transform', 'translate(' + offset + ',' + offset + ')')
+            .attr('transform', 'translate( 0,' + offset + ')')
             .attr('class', 'bg')
             .on('mousedown', mousedown)
             .on('touchstart', touchstart)
