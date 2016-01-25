@@ -168,8 +168,8 @@
             });
 
         chart.append('g')
-        .attr('class', 'line-label')
-        .attr('transform', 'translate(' + offset + ',' + offset + ')');
+            .attr('class', 'line-label')
+            .attr('transform', 'translate(' + offset + ',' + offset + ')');
 
         var pathGroup = chart.append('g')
             .attr('transform', 'translate(' + offset + ',' + offset + ')');
@@ -288,11 +288,11 @@
 
     function addTextToPath(x, y, fill, text) {
         var svg = d3.select('.line-label')
-        .append('text')
-        .attr('transform', 'translate(' + x + ',' + y + ')')
-        .attr('text-anchor', 'start')
-        .style('fill', fill)
-        .text(text);
+            .append('text')
+            .attr('transform', 'translate(' + x + ',' + y + ')')
+            .attr('text-anchor', 'start')
+            .style('fill', fill)
+            .text(text);
     }
 
     function doPathAnimation(path) {
@@ -348,6 +348,48 @@
         addTextToPath(scaleX(last.x), scaleY(last.y), '#508CAD', '都是');
     }
 
+    function drawExistingPath(userData, stats) {
+        var path = d3.select('.user-path').node();
+        var userFlag = false;
+        var twFlag = false;
+        var chFlag = false;
+        var bothFlag = false;
+        if (path && path.getTotalLength() > 0) {
+            userFlag = true;
+        }
+
+        path = d3.select('.tw-recognition-path').node();
+        if (path && path.getTotalLength() > 0) {
+            twFlag = true;
+        }
+
+        path = d3.select('.ch-recognition-path').node();
+        if (path && path.getTotalLength() > 0) {
+            chFlag = true;
+        }
+
+        path = d3.select('.both-recognition-path').node();
+        if (path && path.getTotalLength() > 0) {
+            bothFlag = true;
+        }
+
+        var id = d3.select('.group-selection .selected').attr('id');
+        id = id.replace('select_', '');
+
+        if (userFlag) {
+            drawUserData(userData);
+        }
+        if (twFlag) {
+            drawTWStats(stats[id].tw);
+        }
+        if (chFlag) {
+            drawCHStats(stats[id].ch);
+        }
+        if (bothFlag) {
+            drawBothStats(stats[id].both);
+        }
+    }
+
     function parseByGroup(data) {
         return d3.nest()
             .key(function(d) {
@@ -381,6 +423,57 @@
         };
     }
 
+    var optimizedResize = (function() {
+
+        var callbacks = [],
+            running = false;
+
+        // fired on resize event
+        function resize() {
+
+            if (!running) {
+                running = true;
+
+                if (window.requestAnimationFrame) {
+                    window.requestAnimationFrame(runCallbacks);
+                } else {
+                    setTimeout(runCallbacks, 66);
+                }
+            }
+
+        }
+
+        // run the actual callbacks
+        function runCallbacks() {
+
+            callbacks.forEach(function(callback) {
+                callback();
+            });
+
+            running = false;
+        }
+
+        // adds callback to loop
+        function addCallback(callback) {
+
+            if (callback) {
+                callbacks.push(callback);
+            }
+
+        }
+
+        return {
+            // public method to add additional callback
+            add: function(callback) {
+                if (!callbacks.length) {
+                    window.addEventListener('resize', resize);
+                }
+                addCallback(callback);
+            }
+        };
+    }());
+
+
     d3.csv('./data/recognition.csv', function(error, rawData) {
         function prepareInitUserData() {
             var userData = [];
@@ -409,6 +502,8 @@
 
         drawUserData(userData);
 
+        // draw user drawn path
+        optimizedResize.add(drawExistingPath.bind(null, userData, grouped));
 
         function makeNotDone() {
             d3.select('#done').classed('done', false);
@@ -437,6 +532,7 @@
             if (div.classed('done')) {
                 var id = d3.select('.group-selection .selected').attr('id');
                 id = id.replace('select_', '');
+                d3.select('.g-chart rect').on('click', null).on('mousedown', null).on('touchstart', null);
                 drawTWStats(grouped[id].tw, true);
             }
         });
