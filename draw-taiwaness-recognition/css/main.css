@@ -145,6 +145,7 @@ rect.bg {
 
 .line-label {
   font-size: 15px;
+  font-weight: 600;
 }
 
 @media
@@ -172,6 +173,7 @@ only screen
 and (max-device-width : 320px) {
   .line-label {
     font-size: 10px;
+    font-size: 300;
   }
 }
 

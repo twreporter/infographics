@@ -335,8 +335,8 @@
         d3.select('#stats')
             .classed('ready', true);
 
-        var last = data[data.length - 1];
-        addTextToPath(scaleX(last.x), scaleY(last.y), '#5F7E4F', '台灣人');
+        var point = data[data.length - 2];
+        addTextToPath(scaleX(point.x) - 10, scaleY(point.y) - 10, '#5F7E4F', '我是台灣人');
     }
 
     function drawCHStats(data, doAnimation) {
@@ -348,8 +348,8 @@
             doPathAnimation(path);
         }
 
-        var last = data[data.length - 1];
-        addTextToPath(scaleX(last.x), scaleY(last.y), '#C2732C', '中國人');
+        var last = data[data.length- 2];
+        addTextToPath(scaleX(last.x) - 10, scaleY(last.y) - 10, '#C2732C', '我是中國人');
     }
 
     function drawBothStats(data, doAnimation) {
@@ -362,8 +362,8 @@
             doPathAnimation(path);
         }
 
-        var last = data[data.length - 1];
-        addTextToPath(scaleX(last.x), scaleY(last.y), '#508CAD', '都是');
+        var point = data[data.length - 2];
+        addTextToPath(scaleX(point.x) - 10, scaleY(point.y) + 10, '#508CAD', '我都是');
     }
 
 
