@@ -1,0 +1,174 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-wrap: break-word;
+}
+
+.body {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.body p, .title-block p {
+  font-size: 17px;
+  line-height: 1.85;
+  font-weight: 400;
+  white-space: normal;
+  margin-top: 1.85rem;
+  text-align: justify;
+  text-indent: 0;
+  width: 42rem;
+  max-width: calc(100% - 8rem);
+  margin-left: auto;
+  margin-right: auto;
+  color: #4a4a4a;
+}
+
+rect.bg {
+  fill: #FFF
+}
+
+.g-chart svg {
+  cursor: pointer;
+}
+
+.incomplete-area {
+  fill: #f2e277;
+  fill-opacity: 0.05;
+  -webkit-animation: bling 1.5s 0s infinite;
+  -moz-animation: bling 1.5s 0s infinite;
+  -o-animation: bling 1.5s 0s infinite;
+  animation: bling 1.5s 0s infinite; 
+}
+
+@-webkit-keyframes bling {
+  0 {
+    fill-opacity: 0.05;
+  }
+  50% {
+    fill-opacity: 0.3;
+  }
+  100% {
+    fill-opacity: 0.05;
+  }
+}
+
+@-moz-keyframes bling {
+  0 {
+    fill-opacity: 0.05;
+  }
+  50% {
+    fill-opacity: 0.3;
+  }
+  100% {
+    fill-opacity: 0.05;
+  }
+}
+
+@-o-keyframes bling {
+  0 {
+    fill-opacity: 0.05;
+  }
+  50% {
+    fill-opacity: 0.3;
+  }
+  100% {
+    fill-opacity: 0.05;
+  }
+}
+
+@keyframes bling {
+  0 {
+    fill-opacity: 0.05;
+  }
+  50% {
+    fill-opacity: 0.3;
+  }
+  100% {
+    fill-opacity: 0.05;
+  }
+}
+
+.container {
+  max-width: 960px;
+  width: 90%;
+  margin: 0px auto;
+  font-family: "Noto Sans",'Noto Sans TC', "Apple LiGothic Medium", Roboto, "Microsoft JhengHei", "新細明體", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+
+.title-block {
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #333333;
+  line-height: 1.2;
+}
+
+.group-selection {
+  padding: 35px 0px 0px 5%
+}
+
+.group-selection > span {
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.bt {
+  width: 101px;
+  line-height: 27px;
+  text-align: center;
+  display: inline-block;
+  background-color: #cfd8d6;
+  border: 2px solid #f1f1f1;
+  border-radius: 62.5rem;
+  cursor: pointer;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  color: white;
+}
+
+.bt.selected, .bt.done, .bt.ready {
+  background-color: #333333;
+}
+
+.done-or-reset-block {
+  padding: 0 0 0 5%;
+}
+
+.line-label {
+  font-size: 15px;
+}
+
+@media
+only screen
+and (max-width: 567px),
+only screen 
+and (max-device-width: 567px) {
+  .title-block p {
+    width: 100%;
+    max-width: calc(100% - 2rem);
+    font-size: 1.2rem;
+  }
+
+  .body p, .title-block p {
+    width: 100%;
+    max-width: calc(100% - 2rem);
+    font-size: 1.2rem;
+  }
+}
+
+@media
+only screen
+and (max-width: 320px),
+only screen
+and (max-device-width : 320px) {
+  .line-label {
+    font-size: 10px;
+  }
+}
+
