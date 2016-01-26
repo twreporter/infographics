@@ -107,7 +107,7 @@
         chart.append('rect')
             .attr('width', width + 10)
             .attr('height', height)
-            .attr('transform', 'translate(' + (offset -10) + ',' + offset + ')')
+            .attr('transform', 'translate(' + (offset - 10) + ',' + offset + ')')
             .attr('class', 'bg')
             .on('mousedown', mousedown)
             .on('touchstart', touchstart)
@@ -432,26 +432,57 @@
         };
     }());
 
-
-    d3.csv('./data/recognition.csv', function(error, rawData) {
-        function prepareInitUserData() {
-            var userData = [];
-            for (var i = 2002; i < 2015; i = i + 1) {
-                userData.push({
-                    x: new Date(i, 0, 1),
-                    y: null
-                }, {
-                    x: new Date(i, 6, 1),
-                    y: null
-                });
-            }
-
+    function prepareInitUserData() {
+        var userData = [];
+        for (var i = 2002; i < 2015; i = i + 1) {
             userData.push({
-                x: new Date(2015, 0, 1),
+                x: new Date(i, 0, 1),
+                y: null
+            }, {
+                x: new Date(i, 6, 1),
                 y: null
             });
-            return userData;
         }
+
+        userData.push({
+            x: new Date(2015, 0, 1),
+            y: null
+        });
+        return userData;
+    }
+
+    function makeNotDone() {
+        d3.select('#done').classed('done', false);
+        d3.select('#stats').classed('ready', false);
+    }
+
+    function prepareSelection(id) {
+        d3.select('#' + id).on('click', function() {
+            var selection = d3.select(this);
+            if (!selection.classed('selected')) {
+                d3.select('.group-selection .selected').classed('selected', false);
+                selection.classed('selected', true);
+                drawUserData(prepareInitUserData());
+                makeNotDone();
+            }
+        });
+    }
+
+    function calculateDifference(userData, anwser) {
+        var totalDiff = 0;
+        for (var i = 0; i < anwser.length; i++) {
+            var year = anwser[i].x.getYear();
+            for (var j = 0; j < userData.length; j++) {
+                if (year === userData[j].x.getYear()) {
+                    totalDiff = Math.abs(userData[j].y - anwser[i].y) + totalDiff;
+                    break;
+                }
+            }
+        }
+        return totalDiff;
+    }
+
+    d3.csv('./data/recognition.csv', function(error, rawData) {
 
         var grouped = parseByGroup(rawData);
         var userData = prepareInitUserData();
@@ -495,7 +526,8 @@
             if (userFlag) {
                 drawUserData(userData);
             } else {
-                drawUserData(prepareInitUserData());
+                userData = prepareInitUserData();
+                drawUserData(userData);
             }
             if (twFlag) {
                 drawTWStats(grouped[id].tw);
@@ -508,26 +540,11 @@
             }
         }
 
-        function makeNotDone() {
-            d3.select('#done').classed('done', false);
-            d3.select('#stats').classed('ready', false);
-        }
 
-        function prepareSelection(id) {
-                d3.select('#' + id).on('click', function() {
-                    var selection = d3.select(this);
-                    if (!selection.classed('selected')) {
-                        d3.select('.group-selection .selected').classed('selected', false);
-                        selection.classed('selected', true);
-                        drawUserData(prepareInitUserData());
-                        makeNotDone();
-                    }
-                });
-            }
-            // group selection
-            ['select_1951_1965', 'select_1966_1980', 'select_after_1980', 'select_before_1950'].forEach(function(d) {
-                prepareSelection(d);
-            });
+        // group selection
+        ['select_1951_1965', 'select_1966_1980', 'select_after_1980', 'select_before_1950'].forEach(function(d) {
+            prepareSelection(d);
+        });
 
         // done and reset
         d3.select('#done').on('click', function() {
@@ -537,11 +554,28 @@
                 id = id.replace('select_', '');
                 d3.select('.g-chart rect').on('click', null).on('mousedown', null).on('touchstart', null);
                 drawTWStats(grouped[id].tw, true);
+                var diff = calculateDifference(userData, grouped[id].tw);
+                var result = '';
+                if (diff > 300) {
+                  result = '有點差太多了喔';
+                } else if (diff > 200) {
+                  result = '有點差距喔';
+                } else if (diff > 100) {
+                  result = '有點像樣喔';
+                } else if (diff > 50) {
+                  result = '有點接近喔';
+                } else if (diff < 50) {
+                  result = '你姓諸葛吧';
+                }
+
+                console.log('diff:', diff);
+                // d3.select('.draw-result').text(result);
             }
         });
 
         d3.select('#reset').on('click', function() {
-            drawUserData(prepareInitUserData());
+            userData = prepareInitUserData();
+            drawUserData(userData);
             makeNotDone();
         });
 
