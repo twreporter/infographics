@@ -291,7 +291,10 @@
 
     function drawUserData(data) {
         var width = window.innerWidth;
-        drawRecognitionChart(data, width / 3 * 2, width / 3, width <= 320 ? 30 : 50);
+        var containerW = width / 3 * 2;
+        containerW = containerW < 860 ? containerW : 860;
+        var containerH = containerW / 2;
+        drawRecognitionChart(data, containerW, containerH, width <= 320 ? 30 : 50);
     }
 
     var attr = {
