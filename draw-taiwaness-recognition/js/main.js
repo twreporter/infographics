@@ -23,12 +23,12 @@
             .interpolate('cardinal');
 
         var maxX = d3.max(userData, function(d) {
-            return d.x
+            return d.x;
         });
         scaleX = d3.time.scale()
             .range([0, width])
             .domain([d3.min(userData, function(d) {
-                return d.x
+                return d.x;
             }), maxX]);
 
         scaleY = d3.scale.linear()
@@ -57,17 +57,26 @@
                 return d.y === null || (userData[i - 1] && userData[i - 1].y === null);
             });
 
-        var svg = d3.select('svg').remove();
-        svg.selectAll('*').remove();
+        function refinePos(absoluteMousePos) {
+          var posX = absoluteMousePos[0];
+          var posY = absoluteMousePos[1];
+          if (posX < 0) {
+            posX = 0;
+          } else if (posX > width) {
+            posX = width;
+          }
 
-        var chart = d3.select('.g-chart').append('svg')
-            .attr('width', width + offset * 2)
-            .attr('height', height + offset * 2)
-            .append('g');
+          if (posY < 0) {
+            posY = 0;
+          } else if (posY > height) {
+            posY = height;
+          }
+          return [posX, posY];
+        }
 
         function click() {
             var div = d3.select(this);
-            var absoluteMousePos = d3.mouse(div.node());
+            var absoluteMousePos = refinePos(d3.mouse(div.node()));
             redrawPath(scaleX.invert(absoluteMousePos[0]), scaleY.invert(absoluteMousePos[1]));
             drawIncompleteArea(userData, offset);
             d3.event.preventDefault();
@@ -81,7 +90,7 @@
                     div.on('mousemove', null);
                 });
             div.on('mousemove', function() {
-                var absoluteMousePos = d3.mouse(div.node());
+                var absoluteMousePos = refinePos(d3.mouse(div.node()));
                 redrawPath(scaleX.invert(absoluteMousePos[0]), scaleY.invert(absoluteMousePos[1]));
                 d3.event.preventDefault();
             });
@@ -90,11 +99,9 @@
         function touchstart() {
             var div = d3.select(this);
             div.on('touchmove', function() {
-                var absoluteMousePos = d3.mouse(div.node());
+                var absoluteMousePos = refinePos(d3.mouse(div.node()));
                 var posX = scaleX.invert(absoluteMousePos[0]);
                 var posY = scaleY.invert(absoluteMousePos[1]);
-                posX = posX <= userData[userData.length - 1].x ? (posX < userData[0].x ? userData[0].x : posX) : userData[userData.length - 1].x;
-                posY = posY < 0 ? 0 : (posY > 80 ? 80 : posY);
                 redrawPath(posX, posY);
                 d3.event.preventDefault();
             });
@@ -104,10 +111,20 @@
             });
         }
 
+        var svg = d3.select('svg').remove();
+        svg.selectAll('*').remove();
+
+        var chart = d3.select('.g-chart').append('svg')
+            .attr('width', width + offset * 2)
+            .attr('height', height + offset * 2)
+            .append('g')
+            .attr('transform', 'translate(' + offset + ',' + offset + ')');
+
         chart.append('rect')
-            .attr('width', width + 10)
-            .attr('height', height)
-            .attr('transform', 'translate(' + (offset - 10) + ',' + offset + ')')
+            .attr('width', width + offset)
+            .attr('height', height + offset)
+            .attr('x', -offset/2)
+            .attr('y', -offset/2)
             .attr('class', 'bg')
             .on('mousedown', mousedown)
             .on('touchstart', touchstart)
@@ -135,7 +152,7 @@
             .ticks(10)
             .tickSize(-width, 0)
             .tickFormat(function(d) {
-                return d + '%'
+                return d + '%';
             });
 
 
@@ -144,7 +161,7 @@
             .attr({
                 'fill': 'none',
                 'stroke': 'rgba(0,0,0,.1)',
-                'transform': 'translate(' + offset + ',' + (height + offset) + ')'
+                'transform': 'translate(0, ' + height + ')'
             }).selectAll('text')
             .attr({
                 'fill': '#000',
@@ -158,7 +175,6 @@
             .attr({
                 'fill': 'none',
                 'stroke': 'rgba(0,0,0,.1)',
-                'transform': 'translate(' + offset + ',' + offset + ')'
             }).selectAll('text')
             .attr({
                 'fill': '#000',
@@ -168,11 +184,9 @@
             });
 
         chart.append('g')
-            .attr('class', 'line-label')
-            .attr('transform', 'translate(' + offset + ',' + offset + ')');
+            .attr('class', 'line-label');
 
-        var pathGroup = chart.append('g')
-            .attr('transform', 'translate(' + offset + ',' + offset + ')');
+        var pathGroup = chart.append('g');
 
         pathGroup.append('path')
             .attr('class', 'incomplete-area');
@@ -201,6 +215,7 @@
 
         function redrawPath(date, y) {
             x = Math.round((date.getTime() - baseTS) / tsDiff);
+            x = x < 0 ? 0 : ( x > userData.length - 1 ? userData.length - 1 : x);
             userData[x] = {
                 x: userData[x].x,
                 y: y
@@ -312,8 +327,8 @@
         var path = d3.select('.tw-recognition-path')
             .attr(attr);
         if (doAnimation) {
-            doPathAnimation(path)
-        };
+            doPathAnimation(path);
+        }
         d3.select('#stats')
             .classed('ready', true);
 
@@ -327,8 +342,8 @@
         var path = d3.select('.ch-recognition-path')
             .attr(attr);
         if (doAnimation) {
-            doPathAnimation(path)
-        };
+            doPathAnimation(path);
+        }
 
         var last = data[data.length - 1];
         addTextToPath(scaleX(last.x), scaleY(last.y), '#C2732C', '中國人');
@@ -337,12 +352,12 @@
     function drawBothStats(data, doAnimation) {
         attr.d = line(data);
         attr.stroke = '#508CAD';
-        attr.id = 'bothpath'
+        attr.id = 'bothpath';
         var path = d3.select('.both-recognition-path')
             .attr(attr);
         if (doAnimation) {
-            doPathAnimation(path)
-        };
+            doPathAnimation(path);
+        }
 
         var last = data[data.length - 1];
         addTextToPath(scaleX(last.x), scaleY(last.y), '#508CAD', '都是');

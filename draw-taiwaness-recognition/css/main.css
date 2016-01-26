@@ -30,6 +30,9 @@ rect.bg {
 
 .g-chart svg {
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .incomplete-area {
