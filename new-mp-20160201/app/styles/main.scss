@@ -15,9 +15,10 @@ html, body, .container, .main { height: 100%;}
   padding: 0.2em 0;
 }
 
-/* Space out content a bit */
+/* hide the scroll bar of the body */
 body {
   padding: 0;
+  overflow-y: hidden;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
