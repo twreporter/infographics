@@ -574,20 +574,18 @@
                 drawTWStats(grouped[id].tw, true);
                 var diff = calculateDifference(userData, grouped[id].tw);
                 var result = '';
-                if (diff > 300) {
-                  result = '有點差太多了喔';
-                } else if (diff > 200) {
-                  result = '有點差距喔';
+                if (diff > 150) {
+                  result = '(´_ゝ`) 加油好嗎？';
                 } else if (diff > 100) {
-                  result = '有點像樣喔';
-                } else if (diff > 50) {
-                  result = '有點接近喔';
-                } else if (diff < 50) {
-                  result = '你姓諸葛吧';
+                  result = '( ͡° ͜ʖ ͡ °) 還不賴！';
+                } else {
+                  result = '(╯°▽°)╯ 你真神！';
                 }
 
                 console.log('diff:', diff);
-                // d3.select('.draw-result').text(result);
+                console.log('result:', result);
+                d3.select('#drawing-result')
+                .attr('class', 'drawing-result').text(result);
             }
         });
 
