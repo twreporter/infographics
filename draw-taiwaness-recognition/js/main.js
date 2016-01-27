@@ -500,7 +500,7 @@
         return totalDiff;
     }
 
-    d3.csv('./data/recognition.csv', function(error, rawData) {
+    d3.csv('https://www.twreporter.org/i/draw-taiwaness-recognition/data/recognition.csv', function(error, rawData) {
 
         var grouped = parseByGroup(rawData);
         var userData = prepareInitUserData();
