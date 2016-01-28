@@ -148,6 +148,33 @@ rect.bg {
   font-weight: 600;
 }
 
+.drawing-result {
+  font-size: 23px;
+  display: inline-block;
+  background-color: #cfd8d6;
+  color: #000;
+  line-height: 27px;
+  padding: 10px 1em 10px 1em;
+  margin-left: 60px;
+}
+
+@media
+only screen
+and (max-width: 768px),
+only screen 
+and (max-device-width: 768px) {
+  .drawing-result {
+    font-size: 23px;
+    display: block;
+    background-color: #cfd8d6;
+    color: #000;
+    line-height: 27px;
+    padding: 10px 10px 10px 10px;
+    margin-left: 0px;
+    margin-top: 1rem;
+  }
+}
+
 @media
 only screen
 and (max-width: 567px),
