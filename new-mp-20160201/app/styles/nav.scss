@@ -1,0 +1,32 @@
+@import "./color";
+
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  color: $text-main;
+  background-color: $dark-blue;
+  text-align: center;
+  padding: 2em;
+}
+
+.progress {
+  width: 50%;
+  background-color: $dark-blue;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0;
+}
+
+.progress > .progress-item {
+  width: 25%;
+  height: 1.8em;
+  background-color: $light-blue;
+  border: $dark-blue 2px solid;
+  float: left;
+}
+
+.progress > .progress-item.active {
+  background-color: $text-main;
+}

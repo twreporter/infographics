@@ -4,9 +4,13 @@ $icon-font-path: '../fonts/';
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import "./color";
 @import "./slider";
+@import "./nav";
 
-html, body, .container, .main { height: 100%;}
+html, body, .container, .main {
+  height: 100%;
+}
 
 .browserupgrade {
   margin: 0.2em 0;
@@ -17,6 +21,8 @@ html, body, .container, .main { height: 100%;}
 
 /* hide the scroll bar of the body */
 body {
+  background-color: $dark-blue;
+  color: $text-main;
   padding: 0;
   overflow-y: hidden;
 }

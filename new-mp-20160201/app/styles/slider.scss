@@ -1,13 +1,11 @@
-nav {
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-}
+@import "./color";
 
 .twr-contentslider {
 	width: 100%;
 	height: 100%;
 	position: relative;
+  background-color: $dark-blue;
+  padding-top: 5em;
 }
 
 .twr-contentslider > ul {
@@ -27,12 +25,16 @@ nav {
 	left: 0;
 	top: 0;
 	padding: 1em;
-	background: #fff;
+	background-color: $dark-blue;
 }
 
 /* use :target to show the selected slide  */
 .twr-contentslider > ul li:target {
 	z-index: 100;
+}
+
+.twr-contentslider > div:target {
+	z-index: 50;
 }
 
 .twr-contentslider h3 {
@@ -42,7 +44,7 @@ nav {
 	font-weight: 300;
 	margin: 0 0 0.3em;
 	position: relative;
-	color: #47a3da;
+	color: $text-main;
 	text-transform: uppercase;
 	text-align: right;
 	letter-spacing: 0.3em;
@@ -58,7 +60,7 @@ nav {
 	line-height: 1;
 	height: 1.2em;
 	margin: 0;
-	color: #47a3da;
+	color: $text-main;
 }
 
 .twr-contentslider li > .twr-interactive, .twr-contentslider li > .twr-description {
@@ -93,7 +95,7 @@ nav {
 }
 
 .twr-contentslider p {
-	color: #47a3da;
+	color: $text-main;
 	padding: 0 0.5em 0.4em;
 	margin: 0;
 	font-size: 1.2em;
