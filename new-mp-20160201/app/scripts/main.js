@@ -2,6 +2,7 @@
 
 function setActiveBars(activeCounts) {
   // controls the progress bar on the top
+  $('#progress-nav').show();
   $( '.progress > .progress-item' ).each(function( index ) {
     console.log( index + ": " + $( this ) );
     if(index < activeCounts) {
@@ -12,19 +13,28 @@ function setActiveBars(activeCounts) {
   });
 }
 
+function playSlide0() {
+  console.log('playSlide0');
+  $('#progress-nav').hide();
+}
+
 function playSlide1() {
+  console.log('playSlide1');
   setActiveBars(1);
 }
 
 function playSlide2() {
+  console.log('playSlide2');
   setActiveBars(2);
 }
 
 function playSlide3() {
+  console.log('playSlide3');
   setActiveBars(3);
 }
 
 function playSlide4() {
+  console.log('playSlide4');
   setActiveBars(4);
 }
 
@@ -44,6 +54,9 @@ $( document ).ready(function() {
     case 'slide4':
       playSlide4();
       break;
+    default:
+      // welcome screen
+      playSlide0();
   }
 
 });

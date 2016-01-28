@@ -26,11 +26,11 @@
 
 <body>
 
-  <nav>
-    <a href="#slide1" class="icon-wolf"><span>Wolf</span></a>
-    <a href="#slide2" class="icon-rabbit"><span>Rabbit</span></a>
-    <a href="#slide3" class="icon-aligator"><span>Aligator</span></a>
-    <a href="#slide4" class="icon-turtle"><span>Turtle</span></a>
+  <nav id="progress-nav">
+    <a href="#slide1" class="icon-wolf" onclick="playSlide1()"><span>Wolf</span></a>
+    <a href="#slide2" class="icon-rabbit" onclick="playSlide2()"><span>Rabbit</span></a>
+    <a href="#slide3" class="icon-aligator" onclick="playSlide3()"><span>Aligator</span></a>
+    <a href="#slide4" class="icon-turtle" onclick="playSlide4()"><span>Turtle</span></a>
     <a href="#slide5" class="icon-platypus"><span>Platypus</span></a>
     <div class="progress">
       <div class="progress-item active"></div>
@@ -41,26 +41,36 @@
   </nav>
   <div id="twr-contentslider" class="twr-contentslider">
     <ul>
-      <!-- Slide 1 -->
-      <li id="slide1">
-        <h3 class="icon-wolf">Wolf</h3>
+      <!-- Slide 0 - Welcome Screen -->
+      <li id="slide0">
+        <h3 class="icon-wolf">Welcome Screen</h3>
         <div>
           <div class="twr-content">
             <p>Wolf</p>
-            <a href="#slide2" class="btn btn-primary btn-lg active" role="button">Next</a>
+            <a href="#slide1" class="btn btn-primary btn-lg active" role="button" onclick="playSlide1()">Next</a>
+          </div>
+        </div>
+      </li>
+      <!-- Slide 1 -->
+      <li id="slide1">
+        <h3>Slide 1</h3>
+        <div>
+          <div class="twr-content">
+            <p>Slide 1</p>
+            <a href="#slide2" class="btn btn-primary btn-lg active" role="button" onclick="playSlide2()">Next</a>
           </div>
         </div>
       </li>
       <!-- Slide 2 -->
       <li id="slide2">
         <div class="twr-interactive">
-          <h3>Rabbit</h3>
+          <h3>Slide 2</h3>
           <div class="twr-content">
             <p>Chicory collard greens tatsoi cress bamboo shoot broccoli rabe lotus root earthnut pea arugula okra welsh onion leek shallot courgette. Chard garlic fava bean pea sprouts gram spinach plantain tomatillo. Chicory garlic black-eyed pea gourd
               chickpea cucumber lotus root.</p>
             <p>Daikon artichoke gumbo azuki bean bok choy avocado winter purslane gram earthnut pea broccoli salsify squash plantain wattle seed wakame broccoli rabe bamboo shoot. Zucchini lotus root azuki bean epazote dulse pumpkin rutabaga spinach. Endive
               mung bean gumbo maize plantain rock melon.</p>
-            <a href="#slide3" class="btn btn-primary btn-lg active" role="button">Next</a>
+            <a href="#slide3" class="btn btn-primary btn-lg active" role="button" onclick="playSlide3()">Next</a>
             <a href="#" class="btn btn-primary btn-lg active" role="button">Show Description</a>
           </div>
         </div>
@@ -68,7 +78,7 @@
           <div class="panel-heading">Panel heading without title</div>
           <div class="panel-body">
             Panel content
-            <a href="#slide3" class="btn btn-primary btn-lg active" role="button">Next</a>
+            <a href="#slide3" class="btn btn-primary btn-lg active" role="button" onclick="playSlide3()">Next</a>
           </div>
         </div>
 
@@ -93,11 +103,21 @@
       </li>
       <!-- Slide 4 -->
       <li id="slide4">
-        <!-- ... -->
-      </li>
-      <!-- Slide 5 -->
-      <li id="slide5">
-        <!-- ... -->
+        <div class="twr-interactive">
+          <h3>Slide 4</h3>
+          <div class="twr-content">
+            <p>Chicory collard greens tatsoi cress bamboo shoot broccoli rabe lotus root earthnut pea arugula okra welsh onion leek shallot courgette. Chard garlic fava bean pea sprouts gram spinach plantain tomatillo. Chicory garlic black-eyed pea gourd
+              chickpea cucumber lotus root.</p>
+            <p>Daikon artichoke gumbo azuki bean bok choy avocado winter purslane gram earthnut pea broccoli salsify squash plantain wattle seed wakame broccoli rabe bamboo shoot. Zucchini lotus root azuki bean epazote dulse pumpkin rutabaga spinach. Endive
+              mung bean gumbo maize plantain rock melon.</p>
+          </div>
+        </div>
+        <div id="description4" class="twr-description panel panel-default">
+          <div class="panel-heading">Aligator heading without title</div>
+          <div class="panel-body">
+            Aligator content
+          </div>
+        </div>
       </li>
     </ul>
   </div>
