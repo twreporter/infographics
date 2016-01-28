@@ -1,4 +1,9 @@
-@import "./color";
+@import "./variables";
+
+#progress-nav {
+  display: none;
+  transition: all .5s linear;
+}
 
 nav {
   position: fixed;
@@ -6,7 +11,7 @@ nav {
   z-index: 1000;
   width: 100%;
   color: $text-main;
-  background-color: $dark-blue;
+  background-color: transparent;
   text-align: center;
   padding: 2em;
 }
@@ -25,6 +30,7 @@ nav {
   background-color: $light-blue;
   border: $dark-blue 2px solid;
   float: left;
+  transition: background-color .5s ease-in-out;
 }
 
 .progress > .progress-item.active {

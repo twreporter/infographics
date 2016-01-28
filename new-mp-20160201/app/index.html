@@ -27,10 +27,10 @@
 <body>
 
   <nav id="progress-nav">
-    <a href="#slide1" class="icon-wolf" onclick="playSlide1()"><span>Wolf</span></a>
-    <a href="#slide2" class="icon-rabbit" onclick="playSlide2()"><span>Rabbit</span></a>
-    <a href="#slide3" class="icon-aligator" onclick="playSlide3()"><span>Aligator</span></a>
-    <a href="#slide4" class="icon-turtle" onclick="playSlide4()"><span>Turtle</span></a>
+    <a href="#slide1" class="icon-wolf" onclick="playSlide1()"><span>slide1</span></a>
+    <a href="#slide2" class="icon-rabbit" onclick="playSlide2()"><span>slide2</span></a>
+    <a href="#slide3" class="icon-aligator" onclick="playSlide3()"><span>slide3</span></a>
+    <a href="#slide4" class="icon-turtle" onclick="playSlide4()"><span>slide4</span></a>
     <a href="#slide5" class="icon-platypus"><span>Platypus</span></a>
     <div class="progress">
       <div class="progress-item active"></div>
@@ -43,13 +43,19 @@
     <ul>
       <!-- Slide 0 - Welcome Screen -->
       <li id="slide0">
-        <h3 class="icon-wolf">Welcome Screen</h3>
-        <div>
           <div class="twr-content">
-            <p>Wolf</p>
-            <a href="#slide1" class="btn btn-primary btn-lg active" role="button" onclick="playSlide1()">Next</a>
+            <img class="img-fitWidth" src="/images/yuan-big.png">
           </div>
-        </div>
+          <div class="description-box">
+            <div class="inner-description">
+              <p>2月1日是第九屆立法委員報到日，你是一位剛當選的新科立委，這天你除了報到，依慣例還會選舉立法院正副院長。</p>
+              <a href="#slide1" class="control-btn" role="button" onclick="playSlide1()">GO</a>
+            </div>
+            <span class="corner TL"></span>
+            <span class="corner TR"></span>
+            <span class="corner BL"></span>
+            <span class="corner BR"></span>
+          </div>
       </li>
       <!-- Slide 1 -->
       <li id="slide1">
