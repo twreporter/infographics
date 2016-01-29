@@ -1,15 +1,16 @@
+@import "./variables";
+
 .img-fitWidth {
   width: 100%;
 }
 
-.pad-h-samll {
-  padding: 0 3em;
-}
-
-.pad-top-small {
-  padding-top: 2em;
-}
-
-.pad-top-big {
-  padding-top: 4em;
+.middle-pic {
+  display: block;
+  width: auto;
+  height: 25em;
+  margin-left: auto;
+  margin-right: auto;
+  @include media(">superWidth") {
+    height: 30em;
+  }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 195.5 80.5" enable-background="new 0 0 195.5 80.5" xml:space="preserve">
+<g id="圖層_1">
+	<g>
+		<rect x="22.7" y="1" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" width="150" height="65"/>
+		<g>
+			<circle fill="none" stroke="#FFFFFF" stroke-miterlimit="10" cx="32.6" cy="10.2" r="2.8"/>
+			<circle fill="none" stroke="#FFFFFF" stroke-miterlimit="10" cx="32.6" cy="56.8" r="2.8"/>
+			<circle fill="none" stroke="#FFFFFF" stroke-miterlimit="10" cx="162.9" cy="10.2" r="2.8"/>
+			<circle fill="none" stroke="#FFFFFF" stroke-miterlimit="10" cx="162.9" cy="56.8" r="2.8"/>
+		</g>
+		<g>
+			<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="43.2" y1="10.2" x2="152.3" y2="10.2"/>
+			<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="43.2" y1="56.8" x2="152.3" y2="56.8"/>
+		</g>
+		<path fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" d="M172.8,30.4c12.2,1.4,21.7,11.8,21.7,24.5v0
+			c0,13.6-11,24.6-24.6,24.6H25.6C12,79.5,1,68.5,1,54.9v0c0-12.6,9.5-23,21.7-24.5"/>
+	</g>
+</g>
+<g id="Layer_2">
+</g>
+</svg>

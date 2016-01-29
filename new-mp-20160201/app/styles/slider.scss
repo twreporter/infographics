@@ -17,6 +17,13 @@
   text-align: center;
   border: 3px solid $text-main;
   background-color: rgba($dark-blue, 0.6);
+  padding: 2em;
+}
+
+.result-box {
+  padding: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .inner-description {
@@ -55,6 +62,16 @@
 	position: relative;
 }
 
+.margin-control {
+  margin-top: 1.5em;
+  @include media("<minWidth") {
+    margin-top: 0.5em;
+  }
+  @include media(">superWidth") {
+    margin-top: 3em;
+  }
+}
+
 .full-width-btn {
   display: block;
   width: 100%;
@@ -75,8 +92,8 @@
 
 .corner {
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
     border: white;
     border-style: double;
     border-radius: 50%;

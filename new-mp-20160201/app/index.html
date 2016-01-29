@@ -63,11 +63,11 @@
           <div class="row pad-top-small">
             <div class="col-md-6">
               <h1 class="pad-top-small">你要幾點來報到？</h1>
-              <img class="img-fitWidth pad-h-samll pad-top-big" alt="你要幾點來報到？" src="/images/clock.png">
+              <img class="img-fitWidth pad-h-samll pad-top-big" alt="你要幾點來報到？" src="/images/clock.svg">
             </div>
             <div class="col-md-6">
               <a href="#slide2" class="btn btn-primary btn-lg active" role="button" onclick="playSlide2()">Next</a>
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '你也太早來了吧，<br/>不過你是第一名喔！')" type="button"><h3>1/31 - 晚上9點</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，</p><p>不過你是第一名喔！</p>')" type="button"><h3>1/31 - 晚上9點</h3></button>
               <button class="full-width-btn" type="button"><h3>2/1 - 凌晨3點</h3></button>
               <button class="full-width-btn" type="button"><h3>2/1 - 早上9點</h3></button>
               <button class="full-width-btn" type="button"><h3>2/1 - 中午12點</h3></button>
@@ -77,9 +77,13 @@
 
         </div>
         <div id="slide1-quickview" class="twr-quick-view">
-          <div class="container text-center initial-height">
-            <h2 class="title slidedown"></h2>
-            <img class="img-fitWidth pad-h-samll pad-top-big" alt="你要幾點來報到？" src="/images/clock.png">
+          <div class="container text-center initial-height margin-top-tiny">
+            <div class="result-box" style="background-image: url('/images/white-result-box.svg')">
+              <h3 class="title slidedown"></h3>
+              <img class="middle-pic pad-h-samll pad-top-big" alt="你要幾點來報到？" src="/images/slide1-person.svg">
+              <button class="control-btn margin-control" type="button" onclick="scrollToInfoBox()">MORE</button>
+            </div>
+            <div class="large-v-space"></div>
             <div class="info-box">
                 <p>2月1日是第九屆立法委員報到日，<p/><p>你是一位剛當選的<p/><p>新科<p/><p>立委，這天<p/><p>你除了<p/><p>報到，依慣例<p/><p>還會<p/><p>選舉立法院<p/><p>正副院長。</p>
                 <a href="#slide2" class="control-btn" role="button" onclick="playSlide2()">NEXT</a>
@@ -88,7 +92,7 @@
               <span class="corner BL"></span>
               <span class="corner BR"></span>
             </div>
-            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+            <div class="small-v-space"></div>
           </div>
         </div> <!-- twr-quick-view -->
       </li>

@@ -3,7 +3,9 @@
 function setActiveBars(activeCounts) {
   // controls the progress bar on the top
   $('#progress-nav').show();
-  $('.twr-quick-view').hide();
+  // $('.twr-quick-view').hide();
+  // $('.twr-quick-view').velocity('transition.slideLeftout', { stagger: 250, duration: 1000 });
+
   $( '.progress > .progress-item' ).each(function( index ) {
     console.log( index + ": " + $( this ) );
     if(index < activeCounts) {
@@ -62,11 +64,19 @@ function showSlide1Dialog(btn, message) {
 	.velocity({
     'width': '100%',
     'left': 0, // ($(window).width - sliderFinalWidth)/2,
-    'top': '7em' // ($(window).height - slider final height)/2,
-	}, 300, 'ease', function(){
+    'top': '6em' // ($(window).height - slider final height)/2,
+	}, 600, 'ease', function(){
 		//show quick view content
     $('#slide1-quickview .title').html(message);
 	}).addClass('is-visible');
+}
+
+function scrollToInfoBox() {
+  $('.info-box').velocity('scroll', {
+    container: $('#slide1-quickview'),
+    duration: 300,
+    easing: 'easeInOutSine'
+  });
 }
 
 $( document ).ready(function() {
