@@ -40,5 +40,8 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "velocity-animate": "^1.2.3"
   }
 }

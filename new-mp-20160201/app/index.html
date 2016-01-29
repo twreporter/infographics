@@ -27,11 +27,11 @@
 <body>
 
   <nav id="progress-nav">
+    <a href="#slide0" class="icon-platypus"><span>slide0</span></a>
     <a href="#slide1" class="icon-wolf" onclick="playSlide1()"><span>slide1</span></a>
     <a href="#slide2" class="icon-rabbit" onclick="playSlide2()"><span>slide2</span></a>
     <a href="#slide3" class="icon-aligator" onclick="playSlide3()"><span>slide3</span></a>
     <a href="#slide4" class="icon-turtle" onclick="playSlide4()"><span>slide4</span></a>
-    <a href="#slide5" class="icon-platypus"><span>Platypus</span></a>
     <div class="progress">
       <div class="progress-item active"></div>
       <div class="progress-item"></div>
@@ -44,7 +44,7 @@
       <!-- Slide 0 - Welcome Screen -->
       <li id="slide0">
           <div class="twr-content">
-            <img class="img-fitWidth" src="/images/yuan-big.png">
+            <img id="yuan-welcome" class="img-fitWidth" alt="2月1日是第九屆立法委員報到日" src="/images/yuan-big.png">
           </div>
           <div class="description-box">
             <div class="inner-description">
@@ -59,12 +59,49 @@
       </li>
       <!-- Slide 1 -->
       <li id="slide1">
-        <h3>Slide 1</h3>
-        <div>
-          <div class="twr-content">
-            <p>Slide 1</p>
-            <a href="#slide2" class="btn btn-primary btn-lg active" role="button" onclick="playSlide2()">Next</a>
+        <div class="twr-content container">
+          <div class="row pad-top-small">
+            <div class="col-md-6">
+              <h1 class="pad-top-small">你要幾點來報到？</h1>
+              <img class="img-fitWidth pad-h-samll pad-top-big" alt="你要幾點來報到？" src="/images/clock.png">
+            </div>
+            <div class="col-md-6">
+              <a href="#slide2" class="btn btn-primary btn-lg active" role="button" onclick="playSlide2()">Next</a>
+              <button class="full-width-btn" type="button"><h3>1/31 - 晚上9點</h3></button>
+              <button class="full-width-btn" type="button"><h3>2/1 - 凌晨3點</h3></button>
+              <button class="full-width-btn" type="button"><h3>2/1 - 早上9點</h3></button>
+              <button class="full-width-btn" type="button"><h3>2/1 - 中午12點</h3></button>
+              <button class="full-width-btn" type="button"><h3>2/1 - 晚上6點</h3></button>
+            </div>
           </div>
+
+
+          <div class="twr-quick-view">
+          	<div class="cd-slider-wrapper">
+          		<ul class="cd-slider">
+          			<li class="selected"><img src="img/item-1.jpg" alt="Product 1"></li>
+          			<li><img src="img/item-2.jpg" alt="Product 2"></li>
+          			<li><img src="img/item-3.jpg" alt="Product 3"></li>
+          		</ul> <!-- cd-slider -->
+
+          		<ul class="cd-slider-navigation">
+          			<li><a class="cd-next" href="#0">Prev</a></li>
+          			<li><a class="cd-prev" href="#0">Next</a></li>
+          		</ul> <!-- cd-slider-navigation -->
+          	</div> <!-- cd-slider-wrapper -->
+
+          	<div class="cd-item-info">
+          		<h2>Produt Title</h2>
+          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing...</p>
+
+          		<ul class="cd-item-action">
+          			<li><button class="add-to-cart">Add to cart</button></li>
+          			<li><a href="#0">Learn more</a></li>
+          		</ul> <!-- cd-item-action -->
+          	</div> <!-- cd-item-info -->
+          	<a href="#0" class="cd-close">Close</a>
+          </div> <!-- cd-quick-view -->
+
         </div>
       </li>
       <!-- Slide 2 -->
@@ -149,6 +186,7 @@
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 

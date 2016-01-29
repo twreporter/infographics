@@ -16,6 +16,9 @@
   margin-right: auto;
   font-size: 120%;
   padding: 1em;
+  @include media("<minWidth") {
+    max-height: 11em;
+  }
   @include media(">bp1Width", "<superWidth") {
     max-height: 6em;
   }
@@ -44,6 +47,24 @@
 	position: relative;
 }
 
+.full-width-btn {
+  display: block;
+  width: 100%;
+  border-radius: 1px;
+  border: 2px solid $text-main;
+  color: $text-main;
+  background: $secondary-blue;
+  padding: 0.3em;
+  margin: 1.5em 0;
+  text-decoration: none;
+  transition: background-color .25s linear;
+}
+.full-width-btn:hover {
+  background: $light-blue;
+  text-decoration: none;
+  text-decoration: none;
+}
+
 .corner {
     position: absolute;
     width: 15px;
@@ -66,8 +87,23 @@
     left: -10px
 }
 .BR {
-    bottom: -10px;
-    right: -10px
+  bottom: -10px;
+  right: -10px
+}
+
+.twr-quick-view {
+  display: block;
+  position: fixed;
+  max-width: 900px;
+  visibility: hidden;
+
+  // Force Hardware Acceleration in WebKit
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  will-change: left, top, width;
+  z-index: 1;
 }
 
 .twr-contentslider {
@@ -110,20 +146,6 @@
 
 .twr-contentslider > div:target {
 	z-index: 50;
-}
-
-.twr-contentslider h3 {
-	font-size: 4em;
-	height: 2em;
-	line-height: 1.7;
-	font-weight: 300;
-	margin: 0 0 0.3em;
-	position: relative;
-	color: $text-main;
-	text-transform: uppercase;
-	text-align: right;
-	letter-spacing: 0.3em;
-	padding: 0 0.2em 0 0;
 }
 
 .twr-contentslider li > .twr-interactive, .twr-contentslider li > .twr-description {
