@@ -3,6 +3,7 @@
 function setActiveBars(activeCounts) {
   // controls the progress bar on the top
   $('#progress-nav').show();
+  $('.twr-quick-view').hide();
   $( '.progress > .progress-item' ).each(function( index ) {
     console.log( index + ": " + $( this ) );
     if(index < activeCounts) {
@@ -48,26 +49,25 @@ function playSlide4() {
   setActiveBars(4);
 }
 
-// function showSlide1Dialog(message) {
-//   $('.twr-quick-view').css({
-// 	    "top": topSelected, // this is the selected image top value
-// 	    "left": leftSelected, // this is the selected image left value
-// 	    "width": widthSelected, // this is the selected image width
-// 	}).velocity({
-// 		//animate the quick view: animate its width and center it in the viewport
-// 		//during this animation, only the slider image is visible
-// 	    'width': sliderFinalWidth+'px',
-// 	    'left': finalLeft+'px', // ($(window).width - sliderFinalWidth)/2,
-// 	    'top': finalTop+ 'px', // ($(window).height - slider final height)/2,
-// 	}, 1000, [ 400, 20 ])
-// 	.velocity({
-// 		'width': quickViewWidth+'px', // 80% of the viewport
-// 		'left': quickViewLeft+'px', // 10% of the viewport
-// 	}, 300, 'ease', function(){
-// 		//show quick view content
-// 		$('.twr-quick-view').addClass('add-content');
-// 	}).addClass('is-visible');
-// }
+function showSlide1Dialog(btn, message) {
+  $('.twr-quick-view').show();
+  console.log(message, $(btn).offset(), $(btn).width());
+  var pos = $(btn).offset();
+  $('#slide1-quickview').css({
+    'top': pos.top, // selected button top value
+    'left': pos.left, // selected button left value
+    'width': $(btn).width(), // selected image width,
+    'visibility': 'visible'
+	})
+	.velocity({
+    'width': '100%',
+    'left': 0, // ($(window).width - sliderFinalWidth)/2,
+    'top': '7em' // ($(window).height - slider final height)/2,
+	}, 300, 'ease', function(){
+		//show quick view content
+    $('#slide1-quickview .title').html(message);
+	}).addClass('is-visible');
+}
 
 $( document ).ready(function() {
   var slideTarget = window.location.hash.replace(/#/, '');

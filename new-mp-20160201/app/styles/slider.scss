@@ -11,6 +11,14 @@
   transform: translate(-50%, -50%);
 }
 
+.info-box {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  border: 3px solid $text-main;
+  background-color: rgba($dark-blue, 0.6);
+}
+
 .inner-description {
   margin-left: auto;
   margin-right: auto;
@@ -94,16 +102,16 @@
 .twr-quick-view {
   display: block;
   position: fixed;
-  max-width: 900px;
+  max-width: 100%;
+  min-height: 10em;
+  height: 100%;
   visibility: hidden;
-
-  // Force Hardware Acceleration in WebKit
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-
+  background-color: $light-blue;
+  padding-bottom: 15em;
   will-change: left, top, width;
   z-index: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .twr-contentslider {
@@ -129,6 +137,10 @@
 	margin: 0;
 }
 
+.twr-contentslider .slide {
+  background-color: $dark-blue;
+}
+
 .twr-contentslider > ul li {
 	position: absolute;
 	width: 100%;
@@ -136,7 +148,6 @@
 	left: 0;
 	top: 0;
 	padding: 1em;
-	background-color: $dark-blue;
 }
 
 /* use :target to show the selected slide  */

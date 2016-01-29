@@ -42,7 +42,7 @@
   <div id="twr-contentslider" class="twr-contentslider">
     <ul>
       <!-- Slide 0 - Welcome Screen -->
-      <li id="slide0">
+      <li class="slide" id="slide0">
           <div class="twr-content">
             <img id="yuan-welcome" class="img-fitWidth" alt="2月1日是第九屆立法委員報到日" src="/images/yuan-big.png">
           </div>
@@ -58,7 +58,7 @@
           </div>
       </li>
       <!-- Slide 1 -->
-      <li id="slide1">
+      <li class="slide" id="slide1">
         <div class="twr-content container">
           <div class="row pad-top-small">
             <div class="col-md-6">
@@ -67,7 +67,7 @@
             </div>
             <div class="col-md-6">
               <a href="#slide2" class="btn btn-primary btn-lg active" role="button" onclick="playSlide2()">Next</a>
-              <button class="full-width-btn" type="button"><h3>1/31 - 晚上9點</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '你也太早來了吧，<br/>不過你是第一名喔！')" type="button"><h3>1/31 - 晚上9點</h3></button>
               <button class="full-width-btn" type="button"><h3>2/1 - 凌晨3點</h3></button>
               <button class="full-width-btn" type="button"><h3>2/1 - 早上9點</h3></button>
               <button class="full-width-btn" type="button"><h3>2/1 - 中午12點</h3></button>
@@ -75,37 +75,25 @@
             </div>
           </div>
 
-
-          <div class="twr-quick-view">
-          	<div class="cd-slider-wrapper">
-          		<ul class="cd-slider">
-          			<li class="selected"><img src="img/item-1.jpg" alt="Product 1"></li>
-          			<li><img src="img/item-2.jpg" alt="Product 2"></li>
-          			<li><img src="img/item-3.jpg" alt="Product 3"></li>
-          		</ul> <!-- cd-slider -->
-
-          		<ul class="cd-slider-navigation">
-          			<li><a class="cd-next" href="#0">Prev</a></li>
-          			<li><a class="cd-prev" href="#0">Next</a></li>
-          		</ul> <!-- cd-slider-navigation -->
-          	</div> <!-- cd-slider-wrapper -->
-
-          	<div class="cd-item-info">
-          		<h2>Produt Title</h2>
-          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing...</p>
-
-          		<ul class="cd-item-action">
-          			<li><button class="add-to-cart">Add to cart</button></li>
-          			<li><a href="#0">Learn more</a></li>
-          		</ul> <!-- cd-item-action -->
-          	</div> <!-- cd-item-info -->
-          	<a href="#0" class="cd-close">Close</a>
-          </div> <!-- cd-quick-view -->
-
         </div>
+        <div id="slide1-quickview" class="twr-quick-view">
+          <div class="container text-center initial-height">
+            <h2 class="title slidedown"></h2>
+            <img class="img-fitWidth pad-h-samll pad-top-big" alt="你要幾點來報到？" src="/images/clock.png">
+            <div class="info-box">
+                <p>2月1日是第九屆立法委員報到日，<p/><p>你是一位剛當選的<p/><p>新科<p/><p>立委，這天<p/><p>你除了<p/><p>報到，依慣例<p/><p>還會<p/><p>選舉立法院<p/><p>正副院長。</p>
+                <a href="#slide2" class="control-btn" role="button" onclick="playSlide2()">NEXT</a>
+              <span class="corner TL"></span>
+              <span class="corner TR"></span>
+              <span class="corner BL"></span>
+              <span class="corner BR"></span>
+            </div>
+            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+          </div>
+        </div> <!-- twr-quick-view -->
       </li>
       <!-- Slide 2 -->
-      <li id="slide2">
+      <li class="slide" id="slide2">
         <div class="twr-interactive">
           <h3>Slide 2</h3>
           <div class="twr-content">
@@ -117,17 +105,17 @@
             <a href="#" class="btn btn-primary btn-lg active" role="button">Show Description</a>
           </div>
         </div>
-        <div id="description2" class="twr-description panel panel-default">
+        <!-- <div id="description2" class="twr-description panel panel-default">
           <div class="panel-heading">Panel heading without title</div>
           <div class="panel-body">
             Panel content
             <a href="#slide3" class="btn btn-primary btn-lg active" role="button" onclick="playSlide3()">Next</a>
           </div>
-        </div>
+        </div> -->
 
       </li>
       <!-- Slide 3 -->
-      <li id="slide3">
+      <li class="slide" id="slide3">
         <div class="twr-interactive">
           <h3>Aligator</h3>
           <div class="twr-content">
@@ -137,15 +125,15 @@
               mung bean gumbo maize plantain rock melon.</p>
           </div>
         </div>
-        <div id="description3" class="twr-description panel panel-default">
+        <!-- <div id="description3" class="twr-description panel panel-default">
           <div class="panel-heading">Aligator heading without title</div>
           <div class="panel-body">
             Aligator content
           </div>
-        </div>
+        </div> -->
       </li>
       <!-- Slide 4 -->
-      <li id="slide4">
+      <li class="slide" id="slide4">
         <div class="twr-interactive">
           <h3>Slide 4</h3>
           <div class="twr-content">
@@ -155,12 +143,12 @@
               mung bean gumbo maize plantain rock melon.</p>
           </div>
         </div>
-        <div id="description4" class="twr-description panel panel-default">
+        <!-- <div id="description4" class="twr-description panel panel-default">
           <div class="panel-heading">Aligator heading without title</div>
           <div class="panel-body">
             Aligator content
           </div>
-        </div>
+        </div> -->
       </li>
     </ul>
   </div>
@@ -186,7 +174,7 @@
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <script src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
