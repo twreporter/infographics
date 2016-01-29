@@ -60,18 +60,17 @@
       <!-- Slide 1 -->
       <li class="slide" id="slide1">
         <div class="twr-content container">
-          <div class="row pad-top-small">
+          <div class="row pad-top-small flex-vertical-outer">
             <div class="col-md-6">
-              <h1 class="pad-top-small">你要幾點來報到？</h1>
-              <img class="img-fitWidth pad-h-samll pad-top-big" alt="你要幾點來報到？" src="/images/clock.svg">
+              <div class="title-box" style="background-image: url('/images/white-clock-top.svg')">
+                <h1 style="padding-bottom: 2em;">你要幾點來報到？</h1>
+              </div>
+              <img class="img-fitWidth" alt="你要幾點來報到？" style="margin-top: -5em;" src="/images/clock.svg">
             </div>
-            <div class="col-md-6">
-              <a href="#slide2" class="btn btn-primary btn-lg active" role="button" onclick="playSlide2()">Next</a>
+            <div class="col-md-6 flex-vertical-inner">
               <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，</p><p>不過你是第一名喔！</p>')" type="button"><h3>1/31 - 晚上9點</h3></button>
-              <button class="full-width-btn" type="button"><h3>2/1 - 凌晨3點</h3></button>
-              <button class="full-width-btn" type="button"><h3>2/1 - 早上9點</h3></button>
-              <button class="full-width-btn" type="button"><h3>2/1 - 中午12點</h3></button>
-              <button class="full-width-btn" type="button"><h3>2/1 - 晚上6點</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，</p><p>不過你是第一名喔！</p>')" type="button"><h3>2/1 - 凌晨3點</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，</p><p>歡迎來報到～</p>')" type="button"><h3>2/1 - 早上9點</h3></button>
             </div>
           </div>
 
@@ -79,13 +78,15 @@
         <div id="slide1-quickview" class="twr-quick-view">
           <div class="container text-center initial-height margin-top-tiny">
             <div class="result-box" style="background-image: url('/images/white-result-box.svg')">
-              <h3 class="title slidedown"></h3>
+              <div class="title-box" style="background-image: url('/images/white-title-top.svg')">
+                <h3 class="title slidedown"></h3>
+              </div>
               <img class="middle-pic pad-h-samll pad-top-big" alt="你要幾點來報到？" src="/images/slide1-person.svg">
               <button class="control-btn margin-control" type="button" onclick="scrollToInfoBox()">MORE</button>
             </div>
             <div class="large-v-space"></div>
             <div class="info-box">
-                <p>2月1日是第九屆立法委員報到日，<p/><p>你是一位剛當選的<p/><p>新科<p/><p>立委，這天<p/><p>你除了<p/><p>報到，依慣例<p/><p>還會<p/><p>選舉立法院<p/><p>正副院長。</p>
+                <p><span>立法院每會期立委報到，「搶頭香」總會成為媒體焦點，報到時間從上午8時到當天6時下班前，不過按規定新一屆立委須先報到並宣誓就職後，才能取得立委身分，以這屆為例，若上午10時30分選舉院長前未完成報到，就等同放棄投票。過去動輒有立委在當天凌晨，甚至前一天晚上就到立法院排隊。其中的經典案例包括第6屆民進黨立委李明憲和李鎮楠在前一晚就攜帶睡袋、枕頭、棉被、蚊香到立院排隊，李明憲甚至帶了畫布與彩筆，畫油畫打發時間。</span></p>
                 <a href="#slide2" class="control-btn" role="button" onclick="playSlide2()">NEXT</a>
               <span class="corner TL"></span>
               <span class="corner TR"></span>

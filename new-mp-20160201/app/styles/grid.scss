@@ -16,7 +16,7 @@
   padding: 5em 0;
 }
 
-.pad-h-samll {
+.pad-h-small {
   padding: 0 3em;
 }
 
@@ -30,8 +30,23 @@
 
 .margin-top-tiny {
   margin-top: 2em;
+  @include media("<minWidth") {
+    margin-top: 0;
+  }
 }
 
 .margin-h-tiny {
   margin: 0 2em;
+}
+
+.flex-vertical-outer {
+  @include media(">minWidth") {
+    display: flex;
+    justify-content: center;
+  }
+}
+.flex-vertical-inner {
+  @include media(">minWidth") {
+    align-self: center;
+  }
 }

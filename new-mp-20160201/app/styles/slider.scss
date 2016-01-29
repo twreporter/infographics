@@ -20,6 +20,15 @@
   padding: 2em;
 }
 
+.title-box {
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2em;
+  @include media(">bp1Width") {
+    padding: 2em 5em;
+  }
+}
+
 .result-box {
   padding: 2em;
   background-repeat: no-repeat;
