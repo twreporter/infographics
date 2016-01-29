@@ -1,14 +1,16 @@
 @import "./variables";
 
 .description-box {
-  width: 70%;
   text-align: center;
-  position: fixed;
-  bottom: 8%;
   border: 3px solid $text-main;
   background-color: rgba($dark-blue, 0.6);
-  left: 50%;
-  transform: translate(-50%, -50%);
+  @include media(">bp1Width") {
+    position: fixed;
+    bottom: 8%;
+    width: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .info-box {
@@ -99,6 +101,41 @@
   text-decoration: none;
 }
 
+.btn-party {
+  width: 100%;
+  padding-bottom: 100%;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  h3 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin: auto;
+    width:50%;
+    height: 30%;
+  }
+}
+
+.btn-party-blue {
+  @extend .btn-party;
+  background-image: url(/images/party-blue.svg);
+}
+.btn-party-yellow {
+  @extend .btn-party;
+  background-image: url(/images/party-yellow.svg);
+}
+.btn-party-green {
+  @extend .btn-party;
+  background-image: url(/images/party-green.svg);
+}
+.btn-party-orange {
+  @extend .btn-party;
+  background-image: url(/images/party-orange.svg);
+}
+
 .corner {
     position: absolute;
     width: 18px;
@@ -157,7 +194,7 @@
 	list-style: none;
 	height: 100%;
 	width: 100%;
-	overflow: scroll;
+	overflow: hidden;
 	position: relative;
 	padding: 0;
 	margin: 0;
