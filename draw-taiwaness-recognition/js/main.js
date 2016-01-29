@@ -564,6 +564,8 @@
             prepareSelection(d);
         });
 
+        var picture = 'https://www.twreporter.org/i/draw-taiwaness-recognition/img/default-share-image.png';
+
         // done and reset
         d3.select('#done').on('click', function() {
             var div = d3.select(this);
@@ -576,14 +578,15 @@
                 var result = '';
                 if (diff > 150) {
                   result = '(´_ゝ`) 加油好嗎？';
+                  picture = 'https://www.twreporter.org/i/draw-taiwaness-recognition/img/come-on-share-image.png';
                 } else if (diff > 100) {
                   result = '( ͡° ͜ʖ ͡ °) 還不賴！';
+                  picture = 'https://www.twreporter.org/i/draw-taiwaness-recognition/img/not-bad-share-image.png';
                 } else {
                   result = '(╯°▽°)╯ 你真神！';
+                  picture = 'https://www.twreporter.org/i/draw-taiwaness-recognition/img/awesome-share-image.png';
                 }
 
-                console.log('diff:', diff);
-                console.log('result:', result);
                 d3.select('#drawing-result')
                 .attr('class', 'drawing-result').text(result);
             }
@@ -606,6 +609,15 @@
                 drawCHStats(grouped[id].ch, true);
                 drawBothStats(grouped[id].both, true);
             }
+        });
+
+        d3.select('.facebook').on('click', function() {
+          FB.ui({
+            method: 'feed',
+            link: 'https://www.twreporter.org/i/draw-taiwaness-recognition/index.html',
+            caption: '變動的「台灣人」',
+            picture: picture
+          }, function(response){});
         });
     });
 
