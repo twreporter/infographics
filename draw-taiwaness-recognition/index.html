@@ -38,7 +38,7 @@
     <a style="text-decoration:none;" href="https://www.twreporter.org/"><img src="https://dh1rvgpokacch.cloudfront.net/atavist/60826/image/derivative/cropandscale~64x64x0x0~favicon-1450079771-87.png" class="img-shadow" /></a>
   </div>
   <div class="facebook" style="margin-top:15px;">
-    <a style="text-decoration:none;" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.twreporter.org%2fi%2fdraw-taiwaness-recognition/index.html" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;"><img src="https://www.twreporter.org/i/draw-taiwaness-recognition/img/facebook.png" class="img-shadow" style="opacity:.1;" /></a>
+    <img src="https://www.twreporter.org/i/draw-taiwaness-recognition/img/facebook.png" class="img-shadow" style="opacity:.1;cursor:pointer" />
   </div>
   <div class="twitter" style="margin-top:15px;">
     <a style="text-decoration:none;" href="https://twitter.com/home?status=https%3a%2f%2fwww.twreporter.org%2fa%2fi/draw-taiwaness-recognition/index.html"><img src="https://www.twreporter.org/i/draw-taiwaness-recognition/img/twitter.png" class="img-shadow" style="opacity:.1;" /></a>
@@ -166,6 +166,23 @@
   </div>
 </div>
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '962589903815787',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <script src="https://twreporter.github.io/infographics/draw-taiwaness-recognition/js/main.js" charset="utf-8"></script>
 <!--<script src="./js/main.js" charset="utf-8"></script>-->
 
