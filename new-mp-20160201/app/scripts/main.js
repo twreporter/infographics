@@ -54,12 +54,6 @@ function playSlide4() {
   setActiveBars(4);
 }
 
-function voteSlide3(person) {
-  sPerson = person;
-  playSlide4();
-  location.hash = '#slide4';
-}
-
 function showDialogAnimation(dialog, btn, callback) {
   $('.twr-quick-view').show();
   var pos = $(btn).offset();
@@ -111,9 +105,19 @@ function showSlide2Dialog(btn, party) {
 	});
 }
 
+function voteSlide3(person) {
+  sPerson = person;
+  if(person === 'O') {
+    // orange party
+  }
+  playSlide4();
+  location.hash = '#slide4';
+}
+
 function showSlide4Dialog(btn, choice) {
   let success = false;
-  if(choice==='S') {
+  console.log(choice, sParty, sPerson);
+  if(choice === 'S' && (sParty === 'O' || sPerson === sParty) ) {
     success = true;
   }
 
