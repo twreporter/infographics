@@ -81,22 +81,22 @@ function showSlide2Dialog(btn, party) {
   switch(party) {
     case 'B':
       $('#slide2-quickview .title').html('<p>所有藍黨立委已經在上週開過黨團會議，會中決議支持藍黨的賴小葆為立法院長。</p>');
-      $('#slide2-quickview .middle-pic').attr({src: '/images/decision-blue.svg'});
+      $('#slide2-quickview .middle-pic').attr({src: 'images/s/decision-blue.svg'});
       sParty = 'B';
       break;
     case 'Y':
       $('#slide2-quickview .title').html('<p>所有黃黨立委已經在上週開過黨團會議，由於黃黨無人表達角逐院長意願，會中決議一致支持綠黨的蘇小全為立法院長。</p>');
-      $('#slide2-quickview .middle-pic').attr({src: '/images/decision-green.svg'});
+      $('#slide2-quickview .middle-pic').attr({src: 'images/decision-green.svg'});
       sParty = 'Y';
       break;
     case 'G':
       $('#slide2-quickview .title').html('<p>所有綠黨立委已經在上週開過黨團會議，會中決議支持綠黨的蘇小全為立法院長。</p>');
-      $('#slide2-quickview .middle-pic').attr({src: '/images/decision-green.svg'});
+      $('#slide2-quickview .middle-pic').attr({src: 'images/decision-green.svg'});
       sParty = 'G';
       break;
     case 'O':
       $('#slide2-quickview .title').html('<p>所有橘黨立委已經在上週開過黨團會議，由於橘黨無人表達角逐院長意願，會中決議開放黨籍立委自主投票。</p>');
-      $('#slide2-quickview .middle-pic').attr({src: '/images/decision-orange.svg'});
+      $('#slide2-quickview .middle-pic').attr({src: 'images/decision-orange.svg'});
       sParty = 'O';
       break;
   }
