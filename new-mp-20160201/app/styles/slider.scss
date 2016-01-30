@@ -28,6 +28,7 @@
   background-repeat: no-repeat;
   background-position: center;
   padding: 2em;
+  min-height: 15em;
   @include media(">bp1Width") {
     padding: 2em 5em;
   }
@@ -35,7 +36,6 @@
 
 .dialog-box {
   @extend .title-box;
-  min-height: 15em;
   @include media(">minWidth") {
     min-height: 20em;
   }

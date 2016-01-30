@@ -44,7 +44,7 @@
       <!-- Slide 0 - Welcome Screen -->
       <li class="slide" id="slide0">
           <div class="twr-content">
-            <img id="yuan-welcome" class="img-fitWidth" alt="2月1日是第九屆立法委員報到日" src="/images/yuan-big.png">
+            <img id="yuan-welcome" class="img-fitWidth" alt="2月1日是第九屆立法委員報到日" src="/images/flag.gif">
           </div>
           <div class="description-box">
             <div class="inner-description">
@@ -81,7 +81,7 @@
                 <h3 class="title slidedown"></h3>
               </div>
               <img class="middle-pic pad-top-big" alt="你要幾點來報到？" src="/images/slide1-person.svg">
-              <button class="control-btn margin-control" type="button" onclick="scrollToInfoBox()">MORE</button>
+              <button class="control-btn margin-control" type="button" onclick="scrollToInfoBox('#slide1-quickview')">MORE</button>
             </div>
             <div class="large-v-space"></div>
             <div class="info-box">
@@ -101,21 +101,21 @@
         <div class="twr-content container">
           <div class="row">
             <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2">
-              <button class="btn-party-blue" onclick="showSlide2Dialog(this, '<p>所有綠黨立委已經在上週開過黨團會議，</p><p>會中決議支持綠黨的蘇小全為立法院長。</p>')" type="button"><h3>藍</h3></button>
+              <button class="btn-party-blue" onclick="showSlide2Dialog(this, 'B')" type="button"><h3>藍</h3></button>
             </div>
             <div class="col-md-4 col-sm-4">
-              <button class="btn-party-yellow" onclick="showSlide2Dialog(this, '<p>你也太早來了吧，</p><p>不過你是第一名喔！</p>')" type="button"><h3>黃</h3></button>
+              <button class="btn-party-yellow" onclick="showSlide2Dialog(this, 'Y')" type="button"><h3>黃</h3></button>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4 col-sm-4">
-              <button class="btn-party-green" onclick="showSlide2Dialog(this, '<p>你也太早來了吧，</p><p>不過你是第一名喔！</p>')" type="button"><h3>綠</h3></button>
+              <button class="btn-party-green" onclick="showSlide2Dialog(this, 'G')" type="button"><h3>綠</h3></button>
             </div>
             <div class="col-md-4 col-sm-4">
               <img class="middle-pic" alt="選院長" style="margin-top:-1em;" src="/images/slide2-middle-man.svg">
             </div>
             <div class="col-md-4 col-sm-4">
-              <button class="btn-party-orange" onclick="showSlide2Dialog(this, '<p>你也太早來了吧，</p><p>不過你是第一名喔！</p>')" type="button"><h3>橘</h3></button>
+              <button class="btn-party-orange" onclick="showSlide2Dialog(this, 'O')" type="button"><h3>橘</h3></button>
             </div>
           </div>
           <div class="description-box">
@@ -136,13 +136,13 @@
               <div class="dialog-box" style="background-image: url('/images/white-dialog-box.svg')">
                 <h4 class="title slidedown"></h4>
               </div>
-              <img class="middle-pic pad-h-samll" alt="選院長" src="/images/decision-green.svg">
-              <button class="control-btn" type="button" onclick="scrollToInfoBox()">MORE</button>
+              <img class="middle-pic pad-h-samll" alt="選院長" src="/images/decision-green.svg" style="margin-top:-8em;">
+              <button class="control-btn" type="button" onclick="scrollToInfoBox('#slide2-quickview')">MORE</button>
             </div>
             <div class="large-v-space"></div>
             <div class="info-box">
                 <p><span>雖然正副院長是由所有立法委員彼此互選，所有立委都是候選人，但過去國、民兩大政黨大多會預先透過黨內協商、假投票等方式推出一組正副院長候選人（例如今年民進黨推蘇嘉全、蔡其昌；國民黨推賴士葆、曾銘宗參選），讓黨籍立委集中選票，才有機會角逐成功。而其他小黨或無黨籍立委則可能事先協商，決議支持兩大黨候選人，或開放個人自主投票。</span></p>
-                <a href="#slide2" class="control-btn" role="button" onclick="playSlide2()">NEXT</a>
+                <a href="#slide3" class="control-btn" role="button" onclick="playSlide3()">NEXT</a>
               <span class="corner TL"></span>
               <span class="corner TR"></span>
               <span class="corner BL"></span>
