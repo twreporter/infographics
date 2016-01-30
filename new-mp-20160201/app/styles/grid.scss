@@ -21,7 +21,17 @@
 }
 
 .pad-v-small {
-  padding: 3em 0em;
+  padding: 1em 0em;
+  @include media(">maxWidth") {
+    padding: 3em 0em;
+  }
+}
+
+.pad-h-tiny {
+  padding: 0 1em;
+  @include media(">maxWidth") {
+    padding: 0 2.5em;
+  }
 }
 
 .pad-h-small {
