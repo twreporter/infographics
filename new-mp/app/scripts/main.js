@@ -29,7 +29,9 @@ function playSlide0() {
   );
 
   $('.description-box').velocity(
-    {'opacity': [1, 0, 'linear'], 'left': ['50%', '80%']},
+    {'opacity': [1, 0, 'linear']
+    // ,'left': ['50%', '80%']
+    },
     { delay: 0, duration: 1500 }
   );
 }
@@ -81,7 +83,7 @@ function showSlide2Dialog(btn, party) {
   switch(party) {
     case 'B':
       $('#slide2-quickview .title').html('<p>所有藍黨立委已經在上週開過黨團會議，會中決議支持藍黨的賴小葆為立法院長。</p>');
-      $('#slide2-quickview .middle-pic').attr({src: 'images/s/decision-blue.svg'});
+      $('#slide2-quickview .middle-pic').attr({src: 'images/decision-blue.svg'});
       sParty = 'B';
       break;
     case 'Y':

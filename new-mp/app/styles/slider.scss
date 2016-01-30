@@ -8,10 +8,37 @@
   @include media(">bp1Width") {
     position: fixed;
     // bottom: 0;
-    top: 80%;
+    // top: 80%;
     width: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+}
+
+.welcome-box {
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 40em;
+  width: 50%;
+  position: absolute;
+  top: -5em;
+  left: 50%;
+  transform: translate(-50%, 0);
+  h1 {
+    @include media("<maxWidth") {
+      font-size: 28px;
+    }
+  }
+  @include media("<minWidth") {
+    top: -2em;
+    width: 80%;
+  }
+  @include media(">minWidth", "<bp1Width") {
+    top: -3em;
+    width: 70%;
+  }
+  @include media(">bp1Width") {
+    padding: 2em 3em;
   }
 }
 
@@ -58,14 +85,14 @@
   margin-right: auto;
   font-size: 120%;
   padding: 1em;
-  @include media("<minWidth") {
-    max-height: 11em;
-  }
+  // @include media("<minWidth") {
+  //   max-height: 11em;
+  // }
   @include media(">bp1Width", "<superWidth") {
-    max-height: 6em;
+    max-height: 14em;
   }
   @include media(">superWidth") {
-    max-height: 5em;
+    max-height: 12em;
   }
 }
 
