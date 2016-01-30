@@ -28,12 +28,23 @@
   padding: 0 3em;
 }
 
+.pad-h-big {
+  padding: 0 3em;
+  @include media(">superWidth") {
+    padding: 0 5em;
+  }
+}
+
 .pad-top-small {
   padding-top: 2em;
 }
 
 .pad-top-big {
   padding-top: 4em;
+}
+
+.pad-top-large {
+  padding-top: 10em;
 }
 
 .margin-top-tiny {

@@ -1,6 +1,7 @@
 'use strict';
 
 let sParty = null;
+let sPerson = null;
 
 function setActiveBars(activeCounts) {
   // controls the progress bar on the top
@@ -53,6 +54,12 @@ function playSlide4() {
   setActiveBars(4);
 }
 
+function voteSlide3(person) {
+  sPerson = person;
+  playSlide4();
+  location.hash = '#slide4';
+}
+
 function showDialogAnimation(dialog, btn, callback) {
   $('.twr-quick-view').show();
   var pos = $(btn).offset();
@@ -65,7 +72,7 @@ function showDialogAnimation(dialog, btn, callback) {
 	.velocity({
     'width': '100%',
     'left': 0, // ($(window).width - sliderFinalWidth)/2,
-    'top': '6em' // ($(window).height - slider final height)/2,
+    'top': '5.5em' // ($(window).height - slider final height)/2,
 	}, 800, 'ease', callback).addClass('is-visible');
 }
 

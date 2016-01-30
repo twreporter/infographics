@@ -100,21 +100,21 @@
       <li class="slide" id="slide2">
         <div class="twr-content container">
           <div class="row">
-            <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2">
+            <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-6">
               <button class="btn-party-blue" onclick="showSlide2Dialog(this, 'B')" type="button"><h3>藍</h3></button>
             </div>
-            <div class="col-md-4 col-sm-4">
+            <div class="col-md-4 col-sm-4 col-xs-6">
               <button class="btn-party-yellow" onclick="showSlide2Dialog(this, 'Y')" type="button"><h3>黃</h3></button>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4 col-sm-4">
+            <div class="col-md-4 col-sm-4 col-xs-6">
               <button class="btn-party-green" onclick="showSlide2Dialog(this, 'G')" type="button"><h3>綠</h3></button>
             </div>
-            <div class="col-md-4 col-sm-4">
+            <div class="col-md-4 col-sm-4 col-xs-6">
               <img class="middle-pic" alt="選院長" style="margin-top:-1em;" src="/images/slide2-middle-man.svg">
             </div>
-            <div class="col-md-4 col-sm-4">
+            <div class="col-md-4 col-sm-4 col-xs-6">
               <button class="btn-party-orange" onclick="showSlide2Dialog(this, 'O')" type="button"><h3>橘</h3></button>
             </div>
           </div>
@@ -162,13 +162,37 @@
       </li>
       <!-- Slide 3 -->
       <li class="slide" id="slide3">
-        <div class="twr-interactive">
-          <h3>Aligator</h3>
-          <div class="twr-content">
-            <p>Chicory collard greens tatsoi cress bamboo shoot broccoli rabe lotus root earthnut pea arugula okra welsh onion leek shallot courgette. Chard garlic fava bean pea sprouts gram spinach plantain tomatillo. Chicory garlic black-eyed pea gourd
-              chickpea cucumber lotus root.</p>
-            <p>Daikon artichoke gumbo azuki bean bok choy avocado winter purslane gram earthnut pea broccoli salsify squash plantain wattle seed wakame broccoli rabe bamboo shoot. Zucchini lotus root azuki bean epazote dulse pumpkin rutabaga spinach. Endive
-              mung bean gumbo maize plantain rock melon.</p>
+        <div class="twr-content container">
+          <div class="row pad-top-small flex-vertical-outer">
+            <div class="col-md-12">
+              <div class="title-box pad-top-large" style="background-image: url('/images/slide3-title.svg')">
+                <h1>你要投票給誰？</h1>
+              </div>
+            </div>
+          </div>
+          <div class="row pad-h-big">
+            <div class="col-md-6">
+              <button class="full-width-btn" onclick="voteSlide3('B')" type="button"><h3>藍黨的王小平</h3></button>
+            </div>
+            <div class="col-md-6">
+              <button class="full-width-btn" onclick="voteSlide3('O')" type="button"><h3>橘黨的李小鈞</h3></button>
+            </div>
+          </div>
+          <div class="row pad-h-big">
+            <div class="col-md-6">
+              <button class="full-width-btn" onclick="voteSlide3('G')" type="button"><h3>綠黨的蘇小全</h3></button>
+            </div>
+            <div class="col-md-6">
+              <button class="full-width-btn" onclick="voteSlide3('M')" type="button"><h3>投自己</h3></button>
+            </div>
+          </div>
+          <div class="row pad-h-big">
+            <div class="col-md-6">
+              <button class="full-width-btn" onclick="voteSlide3('Y')" type="button"><h3>黃黨的黃小昌</h3></button>
+            </div>
+            <div class="col-md-6">
+              <button class="full-width-btn" onclick="voteSlide3('X')" type="button"><h3>其他人</h3></button>
+            </div>
           </div>
         </div>
         <!-- <div id="description3" class="twr-description panel panel-default">
