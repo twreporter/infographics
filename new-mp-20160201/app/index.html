@@ -218,13 +218,49 @@
           </div>
           <div class="row pad-h-big">
             <div class="col-md-6">
-              <button class="full-width-btn pad-h-tiny" onclick="voteSlide3('B')" type="button"><h3 class="pad-v-small">假裝不小心攤開選票，讓同事看到你/妳投給誰</h3></button>
+              <button class="full-width-btn pad-h-tiny" onclick="showSlide4Dialog(this, 'S')" type="button"><h3 class="pad-v-small">假裝不小心攤開選票，讓同事看到你/妳投給誰</h3></button>
             </div>
             <div class="col-md-6">
-              <button class="full-width-btn pad-h-tiny" onclick="voteSlide3('O')" type="button"><h3 class="pad-v-small">投票是個人自主行為，不願意亮票給他們看</h3></button>
+              <button class="full-width-btn pad-h-tiny" onclick="showSlide4Dialog(this, 'F')" type="button"><h3 class="pad-v-small">投票是個人自主行為，不願意亮票給他們看</h3></button>
             </div>
           </div>
         </div>
+        <div id="slide4-quickview" class="twr-quick-view">
+          <div class="container text-center initial-height margin-top-tiny">
+            <div id="result-fail" class="result-box">
+              <h2 class="title">你/妳完成了投票，但因違背黨意<br/>遭受黨紀處分，開除黨籍！</h2>
+              <img class="middle-pic pad-h-samll" alt="失去立委資格" src="/images/slide4-fail.svg">
+              <div class="info-box" style="margin-top:-8em;">
+                  <p><span>如果你是區域立委，你將成為無黨籍立委；<br/>如果你是不分區立委，很遺憾，你已經失去立委資格……</span></p>
+                <span class="corner TL"></span>
+                <span class="corner TR"></span>
+                <span class="corner BL"></span>
+                <span class="corner BR"></span>
+              </div>
+              <button class="control-btn" type="button" onclick="scrollToInfoBox('#slide4-quickview')" style="position:relative; margin-top:-2em;">MORE</button>
+            </div>
+            <div id="result-success" class="result-box">
+              <div class="row">
+                <div class="col-md-4">
+                  <img class="middle-pic pad-h-samll" alt="失去立委資格" src="/images/slide4-success.svg">
+                </div>
+                <div class="col-md-8" style="margin-top:-10em;">
+                  <h2 class="title title-box" style="background-image: url('/images/slide4-success-box.svg'); padding:6em 1em;">你/妳已經順利完成了這次立法院長選舉！</h2>
+                </div>
+              </div>
+              <button class="control-btn" type="button" onclick="scrollToInfoBox('#slide4-quickview')" style="position:relative; margin-top:-2em;">MORE</button>
+            </div>
+            <div class="large-v-space"></div>
+            <div class="info-box">
+                <p><span>由於院長選舉採取不記名投票（政壇也不斷有聲音主張基於政黨政治，應改為記名投票，蔡英文也做此呼籲），各政黨為了確保票票入匭，時常要求黨籍立委「技術性亮票」，要求立委在投票時將選票讓負責監票的同黨立委看到，針對跑票或不願亮票者，以黨紀處分。最有名的案例是2002年第五屆立法委員的民進黨不分區立委邱彰，她在選舉院長時因拒絕依民進黨立院黨團指示亮票，遭黨中央決議開除黨籍，並因而喪失不分區立委資格。</span></p>
+              <span class="corner TL"></span>
+              <span class="corner TR"></span>
+              <span class="corner BL"></span>
+              <span class="corner BR"></span>
+            </div>
+            <div class="small-v-space"></div>
+          </div>
+        </div> <!-- twr-quick-view -->
         <!-- <div id="description4" class="twr-description panel panel-default">
           <div class="panel-heading">Aligator heading without title</div>
           <div class="panel-body">

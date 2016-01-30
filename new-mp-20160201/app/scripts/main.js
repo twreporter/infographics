@@ -111,6 +111,24 @@ function showSlide2Dialog(btn, party) {
 	});
 }
 
+function showSlide4Dialog(btn, choice) {
+  let success = false;
+  if(choice==='S') {
+    success = true;
+  }
+
+  if(success){
+    $('#result-success').show();
+    $('#result-fail').hide();
+  }else{
+    $('#result-success').hide();
+    $('#result-fail').show();
+  }
+  showDialogAnimation($('.twr-quick-view'), btn, function(){
+		//show quick view content
+	});
+}
+
 function scrollToInfoBox(_c) {
   $('.info-box').velocity('scroll', {
     container: $(_c),
