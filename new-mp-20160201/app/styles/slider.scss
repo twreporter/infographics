@@ -1,12 +1,14 @@
 @import "./variables";
 
 .description-box {
+  position: relative;
   text-align: center;
   border: 3px solid $text-main;
   background-color: rgba($dark-blue, 0.6);
   @include media(">bp1Width") {
     position: fixed;
-    bottom: 8%;
+    // bottom: 0;
+    top: 80%;
     width: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -28,6 +30,20 @@
   padding: 2em;
   @include media(">bp1Width") {
     padding: 2em 5em;
+  }
+}
+
+.dialog-box {
+  @extend .title-box;
+  min-height: 15em;
+  @include media(">minWidth") {
+    min-height: 20em;
+  }
+  h4 {
+    @include media(">bp1Width") {
+      padding-left: 2em;
+      padding-right: 2em;
+    }
   }
 }
 
@@ -79,7 +95,7 @@
     margin-top: 0.5em;
   }
   @include media(">superWidth") {
-    margin-top: 3em;
+    margin-top: 2em;
   }
 }
 

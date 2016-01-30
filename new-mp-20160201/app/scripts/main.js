@@ -3,7 +3,7 @@
 function setActiveBars(activeCounts) {
   // controls the progress bar on the top
   $('#progress-nav').show();
-  // $('.twr-quick-view').hide();
+  $('.twr-quick-view').hide();
   // $('.twr-quick-view').velocity('transition.slideLeftout', { stagger: 250, duration: 1000 });
 
   $( '.progress > .progress-item' ).each(function( index ) {
@@ -51,11 +51,10 @@ function playSlide4() {
   setActiveBars(4);
 }
 
-function showSlide1Dialog(btn, message) {
+function showDialogAnimation(dialog, btn, callback) {
   $('.twr-quick-view').show();
-  console.log(message, $(btn).offset(), $(btn).width());
   var pos = $(btn).offset();
-  $('#slide1-quickview').css({
+  dialog.css({
     'top': pos.top, // selected button top value
     'left': pos.left, // selected button left value
     'width': $(btn).width(), // selected image width,
@@ -65,10 +64,21 @@ function showSlide1Dialog(btn, message) {
     'width': '100%',
     'left': 0, // ($(window).width - sliderFinalWidth)/2,
     'top': '6em' // ($(window).height - slider final height)/2,
-	}, 600, 'ease', function(){
+	}, 800, 'ease', callback).addClass('is-visible');
+}
+
+function showSlide1Dialog(btn, message) {
+  $('#slide1-quickview .title').html(message);
+  showDialogAnimation($('.twr-quick-view'), btn, function(){
 		//show quick view content
-    $('#slide1-quickview .title').html(message);
-	}).addClass('is-visible');
+	});
+}
+
+function showSlide2Dialog(btn, message) {
+  showDialogAnimation($('.twr-quick-view'), btn, function(){
+		//show quick view content
+    $('#slide2-quickview .title').html(message);
+	});
 }
 
 function scrollToInfoBox() {

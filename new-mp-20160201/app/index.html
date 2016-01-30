@@ -73,7 +73,6 @@
               <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，</p><p>歡迎來報到～</p>')" type="button"><h3>2/1 - 早上9點</h3></button>
             </div>
           </div>
-
         </div>
         <div id="slide1-quickview" class="twr-quick-view">
           <div class="container text-center initial-height margin-top-tiny">
@@ -81,7 +80,7 @@
               <div class="title-box" style="background-image: url('/images/white-title-top.svg')">
                 <h3 class="title slidedown"></h3>
               </div>
-              <img class="middle-pic pad-h-samll pad-top-big" alt="你要幾點來報到？" src="/images/slide1-person.svg">
+              <img class="middle-pic pad-top-big" alt="你要幾點來報到？" src="/images/slide1-person.svg">
               <button class="control-btn margin-control" type="button" onclick="scrollToInfoBox()">MORE</button>
             </div>
             <div class="large-v-space"></div>
@@ -102,7 +101,7 @@
         <div class="twr-content container">
           <div class="row">
             <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2">
-              <button class="btn-party-blue" onclick="showSlide2Dialog(this, '<p>你也太早來了吧，</p><p>不過你是第一名喔！</p>')" type="button"><h3>藍</h3></button>
+              <button class="btn-party-blue" onclick="showSlide2Dialog(this, '<p>所有綠黨立委已經在上週開過黨團會議，</p><p>會中決議支持綠黨的蘇小全為立法院長。</p>')" type="button"><h3>藍</h3></button>
             </div>
             <div class="col-md-4 col-sm-4">
               <button class="btn-party-yellow" onclick="showSlide2Dialog(this, '<p>你也太早來了吧，</p><p>不過你是第一名喔！</p>')" type="button"><h3>黃</h3></button>
@@ -120,18 +119,38 @@
             </div>
           </div>
           <div class="description-box">
-            <div class="inner-description">
-              <p>2月1日是第九屆立法委員報到日，你是一位剛當選的新科立委，這天你除了報到，依慣例還會選舉立法院正副院長。</p>
-              <a href="#slide1" class="control-btn" role="button" onclick="playSlide1()">GO</a>
+            <div class="pad-v-tiny">
+              <h2>選院長</h2>
+              <hr/>
+              <p>早上要選舉立法院長，依照《立法委員互選院長副院長辦法》規定，院長由所有立法委員彼此互選，所有立委都是當然候選人，選票上113位立委都可以選。<br/>在那之前，請問你的黨籍是？</p>
             </div>
             <span class="corner TL"></span>
             <span class="corner TR"></span>
             <span class="corner BL"></span>
             <span class="corner BR"></span>
           </div>
-            <a href="#slide3" class="btn btn-primary btn-lg active" role="button" onclick="playSlide3()">Next</a>
-            <a href="#" class="btn btn-primary btn-lg active" role="button">Show Description</a>
         </div>
+        <div id="slide2-quickview" class="twr-quick-view">
+          <div class="container text-center initial-height margin-top-tiny">
+            <div class="result-box">
+              <div class="dialog-box" style="background-image: url('/images/white-dialog-box.svg')">
+                <h4 class="title slidedown"></h4>
+              </div>
+              <img class="middle-pic pad-h-samll" alt="選院長" src="/images/decision-green.svg">
+              <button class="control-btn" type="button" onclick="scrollToInfoBox()">MORE</button>
+            </div>
+            <div class="large-v-space"></div>
+            <div class="info-box">
+                <p><span>雖然正副院長是由所有立法委員彼此互選，所有立委都是候選人，但過去國、民兩大政黨大多會預先透過黨內協商、假投票等方式推出一組正副院長候選人（例如今年民進黨推蘇嘉全、蔡其昌；國民黨推賴士葆、曾銘宗參選），讓黨籍立委集中選票，才有機會角逐成功。而其他小黨或無黨籍立委則可能事先協商，決議支持兩大黨候選人，或開放個人自主投票。</span></p>
+                <a href="#slide2" class="control-btn" role="button" onclick="playSlide2()">NEXT</a>
+              <span class="corner TL"></span>
+              <span class="corner TR"></span>
+              <span class="corner BL"></span>
+              <span class="corner BR"></span>
+            </div>
+            <div class="small-v-space"></div>
+          </div>
+        </div> <!-- twr-quick-view -->
         <!-- <div id="description2" class="twr-description panel panel-default">
           <div class="panel-heading">Panel heading without title</div>
           <div class="panel-body">
