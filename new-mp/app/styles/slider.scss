@@ -37,8 +37,11 @@
     top: -3em;
     width: 70%;
   }
-  @include media(">bp1Width") {
-    padding: 2em 3em;
+  @include media(">bp1Width", "<maxWidth") {
+    padding: 1.6em 3em;
+  }
+  @include media(">maxWidth") {
+    padding: 1em 3em;
   }
 }
 
