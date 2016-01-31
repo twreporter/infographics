@@ -109,10 +109,16 @@ function showSlide2Dialog(btn, party) {
 
 function voteSlide3(person) {
   sPerson = person;
-  if(person === 'O') {
+  if(sParty === 'O') {
     // orange party
+    playSlide4();
+    location.hash = '#slide4';
+    // $('#success-btn').trigger('click');
+    showSlide4Dialog($('#success-btn'), 'S');
+    console.log("orange")
+  } else {
+    playSlide4();
   }
-  playSlide4();
   location.hash = '#slide4';
 }
 

@@ -6,3 +6,4 @@ test/bower_components
 .idea/
 .DS_Store
 dist
+npm-debug.log

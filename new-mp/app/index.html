@@ -89,9 +89,9 @@
               <img class="img-fitWidth" alt="你要幾點來報到？" style="margin-top: -5em;" src="images/clock.svg">
             </div>
             <div class="col-md-6 flex-vertical-inner">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你/妳也太早來了吧，</p><p>不過是第一名喔！</p>')" type="button"><h3>1/31 - 晚上9點</h3></button>
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你/妳也太早來了吧，</p><p>不過是第一名喔！</p>')" type="button"><h3>2/1 - 凌晨3點</h3></button>
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你/妳好準時喔，</p><p>歡迎來報到～</p>')" type="button"><h3>2/1 - 早上9點</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你/妳也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><h3>1/31 - 晚上9點</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你/妳也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><h3>2/1 - 凌晨3點</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你/妳好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>2/1 - 早上9點</h3></button>
             </div>
           </div>
         </div>
@@ -166,9 +166,9 @@
           <div class="container text-center initial-height margin-top-tiny">
             <div class="result-box">
               <div class="dialog-box" style="background-image: url('images/white-dialog-box.svg')">
-                <h4 class="title slidedown"></h4>
+                <h4 class="title slidedown text-glow"></h4>
               </div>
-              <img class="middle-pic pad-h-samll" alt="選院長" src="images/decision-green.svg" style="margin-top:-8em;">
+              <img class="middle-pic pad-h-samll move-up-desktop" alt="選院長" src="images/decision-green.svg">
               <button class="control-btn" type="button" onclick="scrollToInfoBox('#slide2-quickview')">MORE</button>
             </div>
             <div class="large-v-space"></div>
@@ -250,7 +250,7 @@
           </div>
           <div class="row pad-h-big">
             <div class="col-md-6">
-              <button class="full-width-btn pad-h-tiny" onclick="showSlide4Dialog(this, 'S')" type="button"><h3 class="pad-v-small">假裝不小心攤開選票，讓同事看到你/妳投給誰</h3></button>
+              <button id="success-btn" class="full-width-btn pad-h-tiny" onclick="showSlide4Dialog(this, 'S')" type="button"><h3 class="pad-v-small">假裝不小心攤開選票，讓同事看到你/妳投給誰</h3></button>
             </div>
             <div class="col-md-6">
               <button class="full-width-btn pad-h-tiny" onclick="showSlide4Dialog(this, 'F')" type="button"><h3 class="pad-v-small">投票是個人自主行為，不願意亮票給他們看</h3></button>
@@ -260,7 +260,7 @@
         <div id="slide4-quickview" class="twr-quick-view">
           <div class="container text-center initial-height margin-top-tiny">
             <div id="result-fail" class="result-box">
-              <h2 class="title">你/妳完成了投票，但因違背黨意<br/>遭受黨紀處分，開除黨籍！</h2>
+              <h2 class="title text-glow">你/妳完成了投票，但因違背黨意<br/>遭受黨紀處分，開除黨籍！</h2>
               <img class="middle-pic pad-h-samll" alt="失去立委資格" src="images/slide4-fail.svg">
               <div class="info-box" style="margin-top:-8em;">
                   <p><span>如果你是區域立委，你將成為無黨籍立委；<br/>如果你是不分區立委，很遺憾，你已經失去立委資格……</span></p>
@@ -277,7 +277,7 @@
                   <img class="middle-pic pad-h-samll" alt="失去立委資格" src="images/slide4-success.svg">
                 </div>
                 <div class="col-md-8" style="margin-top:-10em;">
-                  <h2 class="title title-box" style="background-image: url('images/slide4-success-box.svg'); padding:6em 1em;">你/妳已經順利完成了這次立法院長選舉！</h2>
+                  <h2 class="title title-box text-glow" style="background-image: url('images/slide4-success-box.svg'); padding:6em 1em;">你/妳已經順利完成了這次立法院長選舉！</h2>
                 </div>
               </div>
               <button class="control-btn" type="button" onclick="scrollToInfoBox('#slide4-quickview')" style="position:relative; margin-top:-2em;">MORE</button>
@@ -291,7 +291,7 @@
               <span class="corner BR"></span>
             </div>
             <br/>
-            <p>* 此遊戲中黨名與人名均純屬虛構，請勿過度聯想及對號入座</p>
+            <p class="text-glow">* 此遊戲中黨名與人名均純屬虛構，請勿過度聯想及對號入座</p>
             <div class="small-v-space"></div>
           </div>
         </div> <!-- twr-quick-view -->
