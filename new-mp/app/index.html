@@ -89,9 +89,9 @@
               <img class="img-fitWidth" alt="你要幾點來報到？" style="margin-top: -5em;" src="images/clock.svg">
             </div>
             <div class="col-md-6 flex-vertical-inner">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你/妳也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><h3>1/31 - 晚上9點</h3></button>
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你/妳也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><h3>2/1 - 凌晨3點</h3></button>
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你/妳好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>2/1 - 早上9點</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><h3>1/31 - 晚上9點</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你以為你很早嗎？<br/>第一名被人家拿走囉～</p>')" type="button"><h3>2/1 - 凌晨3點</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>2/1 - 早上9點</h3></button>
             </div>
           </div>
         </div>
@@ -122,9 +122,9 @@
         <div class="twr-content container">
           <div class="description-box visible-xs visible-sm" style="margin-top: 0.5em;">
             <div class="pad-v-tiny">
-              <h2>選院長</h2>
+              <h2 class="text-glow">選院長</h2>
               <hr/>
-              <p>早上要選舉立法院長，依照《立法委員互選院長副院長辦法》規定，院長由所有立法委員彼此互選，所有立委都是當然候選人，選票上113位立委都可以選。<br/>在那之前，請問你/妳的黨籍是？</p>
+              <p class="text-glow">早上要選舉立法院長，依照《立法委員互選院長副院長辦法》規定，院長由所有立法委員彼此互選，所有立委都是當然候選人，選票上113位立委都可以選。<br/>在那之前，請問你/妳的黨籍是？</p>
             </div>
             <span class="corner TL"></span>
             <span class="corner TR"></span>
@@ -152,9 +152,9 @@
           </div>
           <div class="description-box hidden-xs hidden-sm">
             <div class="pad-v-tiny">
-              <h2>選院長</h2>
+              <h2 class="text-glow">選院長</h2>
               <hr/>
-              <p>早上要選舉立法院長，依照《立法委員互選院長副院長辦法》規定，院長由所有立法委員彼此互選，所有立委都是當然候選人，選票上113位立委都可以選。<br/>在那之前，請問你/妳的黨籍是？</p>
+              <p class="text-glow">早上要選舉立法院長，依照《立法委員互選院長副院長辦法》規定，院長由所有立法委員彼此互選，所有立委都是當然候選人，選票上113位立委都可以選。<br/>在那之前，請問你/妳的黨籍是？</p>
             </div>
             <span class="corner TL"></span>
             <span class="corner TR"></span>
@@ -289,8 +289,20 @@
               <span class="corner TR"></span>
               <span class="corner BL"></span>
               <span class="corner BR"></span>
+              <!-- Share Button -->
+              <div class="sharing-buttons" align="center">
+                <div class="round-share">
+                  <a style="text-decoration:none;" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fi%2Fnew-mp%2F20160201%2F" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;"><img src="images/white-fb.svg" class="img-shadow"/></a>
+                </div>
+                <div class="round-share">
+                  <a style="text-decoration:none;" href="https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fi%2Fnew-mp%2F20160201%2F"><img src="images/white-twitter.svg" class="img-shadow" /></a>
+                </div>
+                <button class="control-btn" type="button" onclick="replayGame()" style="float: left; margin-top: 0.5em;">再玩一次</button>
+              </div>
+
             </div>
-            <br/>
+
+            <br/><br/><br/>
             <p class="text-glow">* 此遊戲中黨名與人名均純屬虛構，請勿過度聯想及對號入座</p>
             <div class="small-v-space"></div>
           </div>

@@ -89,7 +89,8 @@ function showSlide2Dialog(btn, party) {
     case 'Y':
       $('#slide2-quickview .title').html('<p>所有黃黨立委已經在上週開過黨團會議，由於黃黨無人表達角逐院長意願，會中決議一致支持綠黨的蘇小全為立法院長。</p>');
       $('#slide2-quickview .middle-pic').attr({src: 'images/decision-green.svg'});
-      sParty = 'Y';
+      // sParty = 'Y';
+      sParty = 'G'; // deal with yellow party -> they should vote for the green
       break;
     case 'G':
       $('#slide2-quickview .title').html('<p>所有綠黨立委已經在上週開過黨團會議，會中決議支持綠黨的蘇小全為立法院長。</p>');
@@ -147,6 +148,10 @@ function scrollToInfoBox(_c) {
     duration: 300,
     easing: 'easeInOutSine'
   });
+}
+
+function replayGame() {
+  window.location.href = '/';
 }
 
 $( document ).ready(function() {

@@ -14,6 +14,9 @@
 
 .small-v-space {
   padding: 3em 0;
+  @include media("<minWidth") {
+    padding: 0.5em 0;
+  }
 }
 
 .pad-v-tiny {
@@ -80,8 +83,8 @@
   }
 }
 
-.text-glow, .text-glow > p, .text-glow > p > *, .text-glow > span {
-  text-shadow: 0px 0px 2px rgba(black, 2%) !important;
+.text-glow, .text-glow > h2, .text-glow > p, .text-glow > p > *, .text-glow > span {
+  text-shadow: 0px 0px 3px rgba(black, 3%) !important;
 }
 
 .round-button {
@@ -99,6 +102,32 @@
   width: 100%;
   padding: 2px;
   height: auto;
+}
+
+.round-share {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: $secondary-blue;
+  padding: 8px;
+  border: 2px white solid;
+  float: left;
+  margin: 5px;
+}
+.round-share:hover {
+  background: $dark-blue;
+}
+.round-share img {
+  display: block;
+  width: 100%;
+  padding: 2px;
+  height: auto;
+  max-height: 100%;
+}
+
+.sharing-buttons div{
+  margin: 1em;
+  min-height: 50px;
 }
 
 .move-up-desktop {
