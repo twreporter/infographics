@@ -20,6 +20,8 @@ function setActiveBars(activeCounts) {
 
 function playSlide0() {
   // console.log('playSlide0');
+  $('.slide').hide();
+  $('#slide0').show();
   $('#progress-nav').hide();
 
   $('#yuan-welcome').velocity(
@@ -37,21 +39,29 @@ function playSlide0() {
 
 function playSlide1() {
   // console.log('playSlide1');
+  $('.slide').hide();
+  $('#slide1').show();
   setActiveBars(1);
 }
 
 function playSlide2() {
   // console.log('playSlide2');
+  $('.slide').hide();
+  $('#slide2').show();
   setActiveBars(2);
 }
 
 function playSlide3() {
   // console.log('playSlide3');
+  $('.slide').hide();
+  $('#slide3').show();
   setActiveBars(3);
 }
 
 function playSlide4() {
   // console.log('playSlide4');
+  $('.slide').hide();
+  $('#slide4').show();
   setActiveBars(4);
 }
 
