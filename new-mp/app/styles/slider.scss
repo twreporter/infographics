@@ -4,14 +4,14 @@
   position: relative;
   text-align: center;
   border: 3px solid $text-main;
-  background-color: rgba($dark-blue, 0.6);
+  background-color: rgba($dark-blue, .9);
   @include media(">bp1Width") {
     position: fixed;
-    // bottom: 0;
+    bottom: 1em;
     // top: 80%;
     width: 70%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
   }
 }
 
