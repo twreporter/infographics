@@ -151,7 +151,7 @@ function scrollToInfoBox(_c) {
 }
 
 function replayGame() {
-  window.location.href = '/';
+  window.location.href = '';
 }
 
 $( document ).ready(function() {
