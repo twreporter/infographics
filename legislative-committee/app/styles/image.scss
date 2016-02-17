@@ -1,0 +1,17 @@
+@import "./variables";
+
+.img-fitWidth {
+  width: 100%;
+}
+
+.middle-pic {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 25em;
+  margin-left: auto;
+  margin-right: auto;
+  @include media(">superWidth") {
+    height: 30em;
+  }
+}

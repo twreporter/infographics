@@ -1,0 +1,147 @@
+@import "./variables";
+
+.left-grid {
+  width: 50%
+}
+
+.initial-height {
+  height: initial !important;
+}
+
+.large-v-space {
+  padding: 10em 0;
+}
+
+.small-v-space {
+  padding: 3em 0;
+  @include media("<minWidth") {
+    padding: 0.5em 0;
+  }
+}
+
+.pad-v-tiny {
+  padding: 0.2em 0em;
+}
+
+.pad-v-small {
+  padding: 1em 0em;
+  @include media(">maxWidth") {
+    padding: 3em 0em;
+  }
+}
+
+.pad-h-tiny {
+  padding: 0 1em;
+  @include media(">maxWidth") {
+    padding: 0 2.5em;
+  }
+}
+
+.pad-h-small {
+  padding: 0 3em;
+}
+
+.pad-h-big {
+  padding: 0 3em;
+  @include media(">superWidth") {
+    padding: 0 5em;
+  }
+}
+
+.pad-top-small {
+  padding-top: 2em;
+}
+
+.pad-top-big {
+  padding-top: 4em;
+}
+
+.pad-top-large {
+  padding-top: 10em;
+}
+
+.margin-top-tiny {
+  margin-top: 2em;
+  @include media("<minWidth") {
+    margin-top: 0;
+  }
+}
+
+.margin-h-tiny {
+  margin: 0 2em;
+}
+
+.flex-vertical-outer {
+  @include media(">minWidth") {
+    display: flex;
+    justify-content: center;
+  }
+}
+.flex-vertical-inner {
+  @include media(">minWidth") {
+    align-self: center;
+  }
+}
+
+.text-glow, .text-glow > h2, .text-glow > p, .text-glow > p > *, .text-glow > span {
+  // text-shadow: 0px 0px 3px rgba(black, 3%) !important;
+}
+
+.round-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: $text-main;
+  padding: 8px;
+}
+.round-button:hover {
+  background: $light-blue;
+}
+.round-button img {
+  display: block;
+  width: 100%;
+  padding: 2px;
+  height: auto;
+}
+
+.round-share {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: $secondary-blue;
+  padding: 8px;
+  border: 2px white solid;
+  float: left;
+  margin: 5px;
+}
+.round-share:hover {
+  background: $dark-blue;
+}
+.round-share img {
+  display: block;
+  width: 100%;
+  padding: 2px;
+  height: auto;
+  max-height: 100%;
+}
+
+.abs-center {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.sharing-buttons div{
+  margin: 1em;
+  min-height: 50px;
+}
+
+.move-up-desktop {
+  margin-top: -6em;
+  @include media("<minWidth") {
+    margin-top: -4em;
+  }
+  @include media(">maxWidth") {
+    margin-top: -8em;
+  }
+}

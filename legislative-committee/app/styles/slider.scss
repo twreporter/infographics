@@ -1,0 +1,313 @@
+@import "./variables";
+
+.description-box {
+  position: relative;
+  text-align: center;
+  border: 3px solid $text-main;
+  background-color: rgba($dark-blue, .9);
+  @include media(">bp1Width") {
+    position: fixed;
+    bottom: 1.5em;
+    // top: 80%;
+    width: 70%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+.welcome-box {
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 40em;
+  width: 50%;
+  position: absolute;
+  top: -5em;
+  left: 50%;
+  transform: translate(-50%, 0);
+  h1 {
+    @include media("<maxWidth") {
+      font-size: 28px;
+    }
+  }
+  @include media("<minWidth") {
+    top: -2em;
+    width: 80%;
+  }
+  @include media(">minWidth", "<bp1Width") {
+    top: -3em;
+    width: 70%;
+  }
+  @include media(">bp1Width", "<maxWidth") {
+    padding: 1.6em 3em;
+  }
+  @include media(">maxWidth") {
+    padding: 1em 3em;
+  }
+}
+
+.info-box {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  border: 3px solid $text-main;
+  background-color: rgba($dark-blue, 0.6);
+  padding: 2em;
+}
+
+.info-box > p {
+  font-size: 1.35em !important;
+  line-height: 1.8;
+}
+
+.title-box {
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2em;
+  min-height: 15em;
+  @include media("<minWidth") {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: -2em;
+    padding-top: 3.3em;
+  }
+  @include media(">bp1Width") {
+    padding: 2em 5em;
+  }
+}
+
+.dialog-box {
+  @extend .title-box;
+  @include media(">minWidth") {
+    min-height: 20em;
+  }
+  h4 {
+    @include media(">bp1Width") {
+      padding-left: 2em;
+      padding-right: 2em;
+    }
+  }
+}
+
+.result-box {
+  padding: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.inner-description {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 120%;
+  padding: 1em;
+  // @include media("<minWidth") {
+  //   max-height: 11em;
+  // }
+  @include media(">bp1Width", "<superWidth") {
+    max-height: 14em;
+  }
+  @include media(">superWidth") {
+    max-height: 12em;
+  }
+}
+
+.control-btn {
+	background-color: $secondary-blue;
+	border-radius: 3em;
+	border: 2px solid $text-main;
+	cursor: pointer;
+	color: $text-main;
+  font-size: 1.8em;
+  padding: 0.3em 3em;
+	text-decoration: none;
+  transition: background-color .25s linear;
+}
+.control-btn:hover {
+	background-color: $dark-blue;
+  color: $text-main;
+  text-decoration: none;
+}
+.control-btn:active {
+	position: relative;
+}
+
+.margin-control {
+  margin-top: 1.5em;
+  @include media("<minWidth") {
+    margin-top: 0.5em;
+  }
+  @include media(">superWidth") {
+    margin-top: 2em;
+  }
+}
+
+.full-width-btn {
+  display: block;
+  width: 100%;
+  border-radius: 1px;
+  border: 2px solid $text-main;
+  color: $text-main;
+  background: $secondary-blue;
+  padding: 0.3em;
+  margin: 1.5em 0;
+  text-decoration: none;
+  transition: background-color .25s linear;
+}
+.full-width-btn:hover {
+  background: $light-blue;
+  text-decoration: none;
+  text-decoration: none;
+}
+
+.btn-party {
+  width: 100%;
+  padding-bottom: 100%;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  h3 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin: auto;
+    width:50%;
+    height: 30%;
+    font-size: 30px;
+  }
+}
+
+.btn-party-blue {
+  @extend .btn-party;
+  background-image: url(../images/party-blue.svg);
+}
+.btn-party-yellow {
+  @extend .btn-party;
+  background-image: url(../images/party-yellow.svg);
+}
+.btn-party-green {
+  @extend .btn-party;
+  background-image: url(../images/party-green.svg);
+}
+.btn-party-orange {
+  @extend .btn-party;
+  background-image: url(../images/party-orange.svg);
+}
+
+.corner {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: white;
+    border-style: double;
+    border-radius: 50%;
+    background-color: $dark-blue;
+}
+.TL {
+    top: -10px;
+    left: -10px
+}
+.TR {
+    top: -10px;
+    right: -10px
+}
+.BL {
+    bottom: -10px;
+    left: -10px
+}
+.BR {
+  bottom: -10px;
+  right: -10px
+}
+
+.twr-quick-view {
+  display: block;
+  position: fixed;
+  max-width: 100%;
+  min-height: 10em;
+  height: 100%;
+  visibility: hidden;
+  background-color: $light-blue;
+  padding-bottom: 15em;
+  will-change: left, top, width;
+  z-index: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.twr-contentslider {
+	width: 100%;
+	height: 100%;
+	position: relative;
+  background-color: $dark-blue;
+  padding-top: 5em;
+}
+
+// put the first slide on the top
+.twr-contentslider #slide0 {
+  z-index: 50;
+}
+
+.twr-contentslider > ul {
+	list-style: none;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+
+.twr-contentslider .slide {
+  background-color: $dark-blue;
+}
+
+.twr-contentslider > ul li {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	padding: 1em;
+}
+
+/* use :target to show the selected slide  */
+.twr-contentslider > ul li:target {
+	z-index: 100;
+}
+
+.twr-contentslider > div:target {
+	z-index: 50;
+}
+
+.twr-contentslider li > .twr-interactive, .twr-contentslider li > .twr-description {
+  height: 100%;
+}
+
+.twr-contentslider li > .twr-content {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  vertical-align: middle;
+	padding: 0 1em;
+	overflow-x: hidden;
+	overflow-y: auto;
+  max-width: 60%;
+  @include media("<minWidth") {
+    max-width: 100%;
+  }
+  @include media(">minWidth", "<bp1Width") {
+    max-width: 90%;
+  }
+  @include media(">superWidth") {
+    max-width: 1000px;
+  }
+}
+
+.twr-contentslider p {
+	color: $text-main;
+	padding: 0 0.5em 0.4em;
+	font-size: 1.2em;
+	font-weight: 300;
+  line-height: 1.5;
+}
