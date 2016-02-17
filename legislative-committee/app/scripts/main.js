@@ -118,6 +118,12 @@ function showSlide2Dialog(btn, party) {
 	});
 }
 
+function showSlide3Dialog(btn) {
+  showDialogAnimation($('#slide3-quickview'), btn, function(){
+		//show quick view content
+	});
+}
+
 function voteSlide3(person) {
   sPerson = person;
   if(sParty === 'O') {
