@@ -53,6 +53,8 @@
       <div class="progress-item"></div>
       <div class="progress-item"></div>
       <div class="progress-item"></div>
+      <div class="progress-item"></div>
+      <div class="progress-item"></div>
     </div>
   </nav>
   <div id="twr-contentslider" class="twr-contentslider">
@@ -64,11 +66,12 @@
             <div class="description-box">
               <div class="inner-description">
                 <div class="welcome-box" style="background-image: url('images/welcome-title.svg')">
-                  <h1 class="title slidedown">劉姥姥進立法院</h1>
+                  <h1 class="title slidedown">劉姥姥選委員會</h1>
                 </div>
-                <h2 class="text-glow">菜鳥立委的第一天</h2>
+                <h2 class="text-glow">菜鳥立委的標題</h2>
                 <hr/>
-                <p class="text-glow">2月1日是第九屆立法委員報到日，你是一位剛當選的菜鳥立委，這天你除了報到，依慣例還會選舉立法院正副院長。</p>
+                <p class="text-glow">2月22日、23日是第九屆立法委員選擇委員會的日子，你是一位首次當選的菜鳥立委，該怎麼選擇委員會？會經過哪些流程？讓我們一起走一遭…
+</p>
                 <a href="#slide1" class="control-btn" role="button" onclick="playSlide1()">GO</a>
               </div>
               <span class="corner TL"></span>
@@ -81,17 +84,22 @@
       <!-- Slide 1 -->
       <li class="slide" id="slide1">
         <div class="twr-content container">
-          <div class="row pad-top-small flex-vertical-outer">
-            <div class="col-md-6">
-              <div class="title-box animated bounceInDown" style="background-image: url('images/white-clock-top.svg')">
-                <h1 style="padding-bottom: 2em;">你/妳要幾點來報到？</h1>
-              </div>
-              <img class="img-fitWidth animated infinite bounce" alt="你要幾點來報到？" style="margin-top: -5em;" src="images/clock.svg">
+          <div class="row pad-top-small">
+            <div class="title-box animated bounceInDown">
+              <h1 style="padding-bottom: 0.5em;">首先，請問你/妳的黨籍是？</h1>
             </div>
-            <div class="col-md-6 flex-vertical-inner animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><h3>1/31 - 晚上9點</h3></button>
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你以為你很早嗎？<br/>第一名被人家拿走囉～</p>')" type="button"><h3>2/1 - 凌晨3點</h3></button>
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>2/1 - 早上9點</h3></button>
+            <p>依據《立法院各委員會組織法》及《無黨籍及少數黨團委員參加常設委員會抽籤辦法》，22日小黨或無黨籍立委以抽籤方式平均參加各委員會；而大黨依政黨比例分配在各委員會之席次，23日各大黨立委選擇委員會，並確定名單。</p>
+            <div class="col-md-3 col-xs-6 animated fadeInUp">
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><h3>藍</h3></button>
+            </div>
+            <div class="col-md-3 col-xs-6 animated fadeInUp">
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你以為你很早嗎？<br/>第一名被人家拿走囉～</p>')" type="button"><h3>綠</h3></button>
+            </div>
+            <div class="col-md-3 col-xs-6 animated fadeInUp">
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>黃</h3></button>
+            </div>
+            <div class="col-md-3 col-xs-6 animated fadeInUp">
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>橘</h3></button>
             </div>
           </div>
         </div>
@@ -120,46 +128,32 @@
       <!-- Slide 2 -->
       <li class="slide" id="slide2">
         <div class="twr-content container">
-          <div class="description-box visible-xs visible-sm" style="margin-top: 0.5em;">
-            <div class="pad-v-tiny">
-              <h2 class="text-glow">選院長</h2>
-              <hr/>
-              <p class="text-glow">早上要選舉立法院長，依照《立法委員互選院長副院長辦法》規定，院長由所有立法委員彼此互選，所有立委都是當然候選人，選票上113位立委都可以選。<br/>在那之前，請問你/妳的黨籍是？</p>
-            </div>
-            <span class="corner TL"></span>
-            <span class="corner TR"></span>
-            <span class="corner BL"></span>
-            <span class="corner BR"></span>
-          </div>
+          <h1 style="padding-bottom: 0.5em;">你／妳要選哪個委員會？</h1>
           <div class="row">
-            <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-6">
-              <button class="btn-party-blue" onclick="showSlide2Dialog(this, 'B')" type="button"><h3>藍</h3></button>
+            <div class="col-md-3 col-xs-6 animated fadeInUp">
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><h3>財政</h3></button>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
-              <button class="btn-party-yellow" onclick="showSlide2Dialog(this, 'Y')" type="button"><h3>黃</h3></button>
+            <div class="col-md-3 col-xs-6 animated fadeInUp">
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你以為你很早嗎？<br/>第一名被人家拿走囉～</p>')" type="button"><h3>交通</h3></button>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-6">
-              <button class="btn-party-green" onclick="showSlide2Dialog(this, 'G')" type="button"><h3>綠</h3></button>
+            <div class="col-md-3 col-xs-6 animated fadeInUp">
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>內政</h3></button>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 hidden-xs">
-              <img class="middle-pic animated bounceIn" alt="選院長" style="margin-top:-1em;" src="images/slide2-middle-man.svg">
+            <div class="col-md-3 col-xs-6 animated fadeInUp">
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>經濟</h3></button>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
-              <button class="btn-party-orange" onclick="showSlide2Dialog(this, 'O')" type="button"><h3>橘</h3></button>
+            <div class="col-md-3 col-xs-6 animated fadeInUp">
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><h3>教育文化</h3></button>
             </div>
-          </div>
-          <div class="description-box hidden-xs hidden-sm">
-            <div class="pad-v-tiny">
-              <h2 class="text-glow">選院長</h2>
-              <hr/>
-              <p class="text-glow">早上要選舉立法院長，依照《立法委員互選院長副院長辦法》規定，院長由所有立法委員彼此互選，所有立委都是當然候選人，選票上113位立委都可以選。<br/>在那之前，請問你/妳的黨籍是？</p>
+            <div class="col-md-3 col-xs-6 animated fadeInUp">
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你以為你很早嗎？<br/>第一名被人家拿走囉～</p>')" type="button"><h3>社福衛環</h3></button>
             </div>
-            <span class="corner TL"></span>
-            <span class="corner TR"></span>
-            <span class="corner BL"></span>
-            <span class="corner BR"></span>
+            <div class="col-md-3 col-xs-6 animated fadeInUp">
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>國防外交</h3></button>
+            </div>
+            <div class="col-md-3 col-xs-6 animated fadeInUp">
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>司法法制</h3></button>
+            </div>
           </div>
         </div>
         <div id="slide2-quickview" class="twr-quick-view">
@@ -198,41 +192,39 @@
           <div class="row pad-top-small flex-vertical-outer">
             <div class="col-md-12">
               <div class="title-box pad-top-large animated fadeInLeft" style="background-image: url('images/slide3-title.svg')">
-                <h1 class="animated fadeInUp" style="margin-top: -0.5em;">你/妳要投票給誰？</h1>
+                <h1 class="animated fadeInUp" style="margin-top: -0.5em;">你/妳正考慮進入<b>財政</b>委員會貢獻專業...</h1>
               </div>
             </div>
           </div>
           <div class="row pad-h-big animated flipInX">
             <div class="col-md-6">
-              <button class="full-width-btn" onclick="voteSlide3('B')" type="button"><h3>藍黨的賴小葆</h3></button>
+              <button class="full-width-btn" onclick="voteSlide3('B')" type="button"><h3>就決定是你了</h3></button>
             </div>
             <div class="col-md-6">
-              <button class="full-width-btn" onclick="voteSlide3('O')" type="button"><h3>橘黨的李小鈞</h3></button>
-            </div>
-          </div>
-          <div class="row pad-h-big">
-            <div class="col-md-6">
-              <button class="full-width-btn" onclick="voteSlide3('G')" type="button"><h3>綠黨的蘇小全</h3></button>
-            </div>
-            <div class="col-md-6">
-              <button class="full-width-btn" onclick="voteSlide3('M')" type="button"><h3>投自己</h3></button>
-            </div>
-          </div>
-          <div class="row pad-h-big">
-            <div class="col-md-6">
-              <button class="full-width-btn" onclick="voteSlide3('Y')" type="button"><h3>黃黨的黃小昌</h3></button>
-            </div>
-            <div class="col-md-6">
-              <button class="full-width-btn" onclick="voteSlide3('X')" type="button"><h3>其他人</h3></button>
+              <button class="full-width-btn" onclick="voteSlide3('O')" type="button"><h3>看看其它</h3></button>
             </div>
           </div>
         </div>
-        <!-- <div id="description3" class="twr-description panel panel-default">
-          <div class="panel-heading">Aligator heading without title</div>
-          <div class="panel-body">
-            Aligator content
+        <div id="slide3-quickview" class="twr-quick-view">
+          <div class="container text-center initial-height margin-top-tiny">
+            <div class="result-box" style="background-image: url('images/white-result-box.svg')">
+              <div class="title-box" style="background-image: url('images/white-title-top.svg')">
+                <h3 class="title slidedown text-glow">你/妳是O黨立委，你/妳能進OO委員會的機率OO，你/妳能確定嗎？</h3>
+              </div>
+              <img class="middle-pic pad-top-big animated fadeInDown" alt="你要幾點來報到？" src="images/slide1-person.svg">
+              <button class="control-btn margin-control" type="button" onclick="scrollToInfoBox('#slide1-quickview')">MORE</button>
+            </div>
+            <div class="info-box text-glow">
+                <p><span>立法院每會期立委報到，「搶頭香」總會成為媒體焦點，報到時間從上午8時到當天6時下班前，不過按規定新一屆立委須先報到並宣誓就職後，才能取得立委身分，以這屆為例，若上午10時30分選舉院長前未完成報到，就等同放棄投票。過去動輒有立委在當天凌晨，甚至前一天晚上就到立法院排隊。其中的經典案例包括第6屆民進黨立委李明憲和李鎮楠在前一晚就攜帶睡袋、枕頭、棉被、蚊香到立院排隊，李明憲甚至帶了畫布與彩筆，畫油畫打發時間。</span></p>
+                <a href="#slide2" class="control-btn" role="button" onclick="playSlide2()">NEXT</a>
+              <span class="corner TL"></span>
+              <span class="corner TR"></span>
+              <span class="corner BL"></span>
+              <span class="corner BR"></span>
+            </div>
+            <div class="small-v-space"></div>
           </div>
-        </div> -->
+        </div> <!-- twr-quick-view -->
       </li>
       <!-- Slide 4 -->
       <li class="slide" id="slide4">
@@ -355,18 +347,6 @@
   <!-- endbuild -->
 
   <!-- build:js scripts/plugins.js -->
-  <!-- <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
-  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
-  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
-  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
-  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
-  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
-  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
-  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
-  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
-  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
-  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script> -->
   <!-- endbuild -->
 
   <!-- build:js scripts/main.js -->
