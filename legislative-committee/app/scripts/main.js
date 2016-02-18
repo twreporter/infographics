@@ -38,31 +38,39 @@ function playSlide0() {
 }
 
 function playSlide1() {
-  // console.log('playSlide1');
   $('.slide').hide();
   $('#slide1').show();
   setActiveBars(1);
 }
 
 function playSlide2() {
-  // console.log('playSlide2');
   $('.slide').hide();
   $('#slide2').show();
   setActiveBars(2);
 }
 
 function playSlide3() {
-  // console.log('playSlide3');
   $('.slide').hide();
   $('#slide3').show();
   setActiveBars(3);
 }
 
 function playSlide4() {
-  // console.log('playSlide4');
   $('.slide').hide();
   $('#slide4').show();
   setActiveBars(4);
+}
+
+function playSlide5() {
+  $('.slide').hide();
+  $('#slide5').show();
+  setActiveBars(5);
+}
+
+function playSlide6() {
+  $('.slide').hide();
+  $('#slide6').show();
+  setActiveBars(6);
 }
 
 function showDialogAnimation(dialog, btn, callback) {
@@ -184,6 +192,12 @@ $( document ).ready(function() {
       break;
     case 'slide4':
       playSlide4();
+      break;
+    case 'slide5':
+      playSlide5();
+      break;
+    case 'slide6':
+      playSlide6();
       break;
     default:
       // welcome screen
