@@ -3,11 +3,11 @@
 .description-box {
   position: relative;
   text-align: center;
-  border: 3px solid $text-main;
-  background-color: rgba($dark-blue, .9);
+  border-top: 3px solid white;
+  background-color: rgba($light-green, .9);
   @include media(">bp1Width") {
     position: fixed;
-    bottom: 1.5em;
+    bottom: 2.2em;
     // top: 80%;
     width: 70%;
     left: 50%;
@@ -15,14 +15,22 @@
   }
 }
 
+.shadow-box {
+  background-color: white;
+  color: $green;
+  box-shadow: 7px 7px 18px 0px rgba(50, 50, 50, 0.35);
+}
+
 .welcome-box {
+  @extend .shadow-box;
   background-repeat: no-repeat;
   background-position: center;
   max-width: 40em;
-  width: 50%;
+  width: 70%;
   position: absolute;
-  top: -5em;
+  top: -9em;
   left: 50%;
+  padding: 0.5em 0.3em;
   transform: translate(-50%, 0);
   h1 {
     @include media("<maxWidth") {
@@ -30,18 +38,15 @@
     }
   }
   @include media("<minWidth") {
-    top: -2em;
-    width: 80%;
+    top: -7em;
+    width: 90%;
   }
   @include media(">minWidth", "<bp1Width") {
-    top: -3em;
-    width: 70%;
-  }
-  @include media(">bp1Width", "<maxWidth") {
-    padding: 1.6em 3em;
+    top: -7.5em;
+    width: 80%;
   }
   @include media(">maxWidth") {
-    padding: 1em 3em;
+    padding: 0.5em 2em;
   }
 }
 
@@ -50,7 +55,7 @@
   width: 100%;
   text-align: center;
   border: 3px solid $text-main;
-  background-color: rgba($dark-blue, 0.6);
+  background-color: rgba($light-green, 0.6);
   padding: 2em;
 }
 
@@ -111,18 +116,20 @@
 }
 
 .control-btn {
-	background-color: $secondary-blue;
-	border-radius: 3em;
-	border: 2px solid $text-main;
+	background-color: $green;
+	border-radius: 50%;
+	border: 4px solid white;
 	cursor: pointer;
-	color: $text-main;
+	color: white;
   font-size: 1.8em;
-  padding: 0.3em 3em;
+  width: 3em;
+  height: 3em;
+  padding: 1.2em;
 	text-decoration: none;
   transition: background-color .25s linear;
 }
 .control-btn:hover {
-	background-color: $dark-blue;
+	background-color: $yellow;
   color: $text-main;
   text-decoration: none;
 }
@@ -239,7 +246,7 @@
 	width: 100%;
 	height: 100%;
 	position: relative;
-  background-color: $dark-blue;
+  background-color: $light-green;
   padding-top: 5em;
 }
 
@@ -259,7 +266,7 @@
 }
 
 .twr-contentslider .slide {
-  background-color: $dark-blue;
+  background-color: $light-green;
 }
 
 .twr-contentslider > ul li {

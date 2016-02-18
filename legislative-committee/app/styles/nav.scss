@@ -18,7 +18,7 @@ nav {
 
 .progress {
   width: 50%;
-  background-color: $dark-blue;
+  background-color: $light-green;
   margin-left: auto;
   margin-right: auto;
   border-radius: 0;
@@ -27,12 +27,12 @@ nav {
 .progress > .progress-item {
   width: 16%;
   height: 1.8em;
-  background-color: $light-blue;
-  border: $dark-blue 2px solid;
+  background-color: white;
+  border: $light-green 2px solid;
   float: left;
   transition: background-color .5s ease-in-out;
 }
 
 .progress > .progress-item.active {
-  background-color: $text-main;
+  background-color: $green;
 }
