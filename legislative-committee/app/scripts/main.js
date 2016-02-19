@@ -40,36 +40,42 @@ function playSlide0() {
 function playSlide1() {
   $('.slide').hide();
   $('#slide1').show();
+  location.hash = '#slide1';
   setActiveBars(1);
 }
 
 function playSlide2() {
   $('.slide').hide();
   $('#slide2').show();
+  location.hash = '#slide2';
   setActiveBars(2);
 }
 
 function playSlide3() {
   $('.slide').hide();
   $('#slide3').show();
+  location.hash = '#slide3';
   setActiveBars(3);
 }
 
 function playSlide4() {
   $('.slide').hide();
   $('#slide4').show();
+  location.hash = '#slide4';
   setActiveBars(4);
 }
 
 function playSlide5() {
   $('.slide').hide();
   $('#slide5').show();
+  location.hash = '#slide5';
   setActiveBars(5);
 }
 
 function playSlide6() {
   $('.slide').hide();
   $('#slide6').show();
+  location.hash = '#slide6';
   setActiveBars(6);
 }
 
@@ -90,11 +96,22 @@ function showDialogAnimation(dialog, btn, callback) {
 	}, 800, 'ease', callback).addClass('is-visible');
 }
 
-function showSlide1Dialog(btn, message) {
-  $('#slide1-quickview .title').html(message);
-  showDialogAnimation($('#slide1-quickview'), btn, function(){
-		//show quick view content
-	});
+function voteSlide1(btn, party) {
+  switch(party) {
+    case 'B':
+      sParty = 'B';
+      break;
+    case 'Y':
+      sParty = 'G';
+      break;
+    case 'G':
+      sParty = 'G';
+      break;
+    case 'O':
+      sParty = 'O';
+      break;
+  }
+  playSlide2();
 }
 
 function showSlide2Dialog(btn, party) {

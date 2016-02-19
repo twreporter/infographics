@@ -89,70 +89,57 @@
             <div class="row pad-h-small">
               <h1 class="pad-bottom-tiny">請選擇黨籍</h1>
               <div class="col-md-3 col-xs-6 animated fadeInUp">
-                <button class="full-width-btn blue-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><div class="button-inner"><h2>藍</h2></div></button>
+                <button class="full-width-btn blue-btn" onclick="voteSlide1(this, 'B')" type="button"><div class="button-inner"><h2>藍</h2></div></button>
               </div>
               <div class="col-md-3 col-xs-6 animated fadeInDown">
-                <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你以為你很早嗎？<br/>第一名被人家拿走囉～</p>')" type="button"><div class="button-inner"><h2>綠</h2></div></button>
+                <button class="full-width-btn" onclick="voteSlide1(this, 'G')" type="button"><div class="button-inner"><h2>綠</h2></div></button>
               </div>
               <div class="col-md-3 col-xs-6 animated fadeInUp">
-                <button class="full-width-btn yellow-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><div class="button-inner"><h2>黃</h2></div></button>
+                <button class="full-width-btn yellow-btn" onclick="voteSlide1(this, 'Y')" type="button"><div class="button-inner"><h2>黃</h2></div></button>
               </div>
               <div class="col-md-3 col-xs-6 animated fadeInDown">
-                <button class="full-width-btn orange-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><div class="button-inner"><h2>橘</h2></div></button>
+                <button class="full-width-btn orange-btn" onclick="voteSlide1(this, 'O')" type="button"><div class="button-inner"><h2>橘</h2></div></button>
               </div>
             </div>
           </div>
         </div>
-        <div id="slide1-quickview" class="twr-quick-view">
-          <div class="container text-center initial-height margin-top-tiny">
-            <div class="result-box" style="background-image: url('images/white-result-box.svg')">
-              <div class="title-box" style="background-image: url('images/white-title-top.svg')">
-                <h3 class="title slidedown text-glow"></h3>
-              </div>
-              <img class="middle-pic pad-top-big animated fadeInDown" alt="你要幾點來報到？" src="images/slide1-person.svg">
-              <button class="control-btn margin-control" type="button" onclick="scrollToInfoBox('#slide1-quickview')">MORE</button>
-            </div>
-            <div class="large-v-space"></div>
-            <div class="info-box text-glow">
-                <p><span>立法院每會期立委報到，「搶頭香」總會成為媒體焦點，報到時間從上午8時到當天6時下班前，不過按規定新一屆立委須先報到並宣誓就職後，才能取得立委身分，以這屆為例，若上午10時30分選舉院長前未完成報到，就等同放棄投票。過去動輒有立委在當天凌晨，甚至前一天晚上就到立法院排隊。其中的經典案例包括第6屆民進黨立委李明憲和李鎮楠在前一晚就攜帶睡袋、枕頭、棉被、蚊香到立院排隊，李明憲甚至帶了畫布與彩筆，畫油畫打發時間。</span></p>
-                <a href="#slide2" class="control-btn" role="button" onclick="playSlide2()">NEXT</a>
-              <span class="corner TL"></span>
-              <span class="corner TR"></span>
-              <span class="corner BL"></span>
-              <span class="corner BR"></span>
-            </div>
-            <div class="small-v-space"></div>
-          </div>
-        </div> <!-- twr-quick-view -->
       </li>
       <!-- Slide 2 -->
       <li class="slide" id="slide2">
         <div class="twr-content container">
-          <h1 style="padding-bottom: 0.5em;">你／妳要選哪個委員會？</h1>
+          <div class="title-box animated bounceInLeft">
+            <h1>你／妳要選哪個委員會？</h1>
+          </div>
+          <div class="top-btm-line-box text-left">
+            <p>委員會是法案經一讀程序後，進入實質審查程序之階段。法案經此初審後送出委員會，才能進到院會二三讀。</p>
+            <p>立法院設有八個常設委員會，包括財政、交通、經濟、內政、教育文化、社福衛環、外交國防，和司法法制委員會，另有程序委員會、修憲委員會，以及紀律委員會等特種委員會。本遊戲探討範疇僅限於常設委員會。</p>
+            <p>各委員會自有其法定分工職掌，雖有此權責劃分，各立委其實也能到其他委員會參與法案及預算審查，但不能提案（若欲提案，須找財政委員會立委連署）和參與表決。因此，日前外界對於軍事冤案罹難者洪仲丘的姊姊、時代力量新科立委洪慈庸是否願進入外交國防委員會多所爭議，然而，就算未來洪慈庸沒有進入外交國防委員會，她依然能夠參與軍中人權改革法案之審查。</p>
+          </div>
+          <h2>請選擇感興趣的委員會看相關執掌內容</h2>
           <div class="row">
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><h3>財政</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><div class="button-inner"><h3>財政</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你以為你很早嗎？<br/>第一名被人家拿走囉～</p>')" type="button"><h3>交通</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你以為你很早嗎？<br/>第一名被人家拿走囉～</p>')" type="button"><div class="button-inner"><h3>交通</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>內政</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><div class="button-inner"><h3>內政</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>經濟</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><div class="button-inner"><h3>經濟</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><h3>教育文化</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><div class="button-inner"><h3>教育文化</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你以為你很早嗎？<br/>第一名被人家拿走囉～</p>')" type="button"><h3>社福衛環</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你以為你很早嗎？<br/>第一名被人家拿走囉～</p>')" type="button"><div class="button-inner"><h3>社福衛環</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>國防外交</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><div class="button-inner"><h3>國防外交</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><h3>司法法制</h3></button>
+              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><div class="button-inner"><h3>司法法制</h3></div></button>
             </div>
           </div>
         </div>
