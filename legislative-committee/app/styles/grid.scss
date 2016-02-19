@@ -60,6 +60,14 @@
   padding-top: 10em;
 }
 
+.pad-bottom-small {
+  padding-bottom: 2em;
+}
+
+.pad-bottom-tiny {
+  padding-bottom: 1em;
+}
+
 .margin-top-tiny {
   margin-top: 2em;
   @include media("<minWidth") {
@@ -144,4 +152,16 @@
   @include media(">maxWidth") {
     margin-top: -8em;
   }
+}
+
+.blue-btn {
+  background: $blue;
+}
+
+.yellow-btn {
+  background: $yellow;
+}
+
+.orange-btn {
+  background: $orange;
 }
