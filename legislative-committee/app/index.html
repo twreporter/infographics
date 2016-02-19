@@ -118,77 +118,60 @@
           <h2>請選擇感興趣的委員會看相關執掌內容</h2>
           <div class="row">
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><div class="button-inner"><h3>財政</h3></div></button>
+              <button class="full-width-btn" onclick="voteSlide2(this, 'FN')" type="button"><div class="button-inner"><h3>財政</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你以為你很早嗎？<br/>第一名被人家拿走囉～</p>')" type="button"><div class="button-inner"><h3>交通</h3></div></button>
+              <button class="full-width-btn" onclick="voteSlide2(this, 'TR')" type="button"><div class="button-inner"><h3>交通</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><div class="button-inner"><h3>內政</h3></div></button>
+              <button class="full-width-btn" onclick="voteSlide2(this, 'IN')" type="button"><div class="button-inner"><h3>內政</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><div class="button-inner"><h3>經濟</h3></div></button>
+              <button class="full-width-btn" onclick="voteSlide2(this, 'EC')" type="button"><div class="button-inner"><h3>經濟</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你也太早來了吧，<br/>不過是第一名喔！</p>')" type="button"><div class="button-inner"><h3>教育文化</h3></div></button>
+              <button class="full-width-btn" onclick="voteSlide2(this, 'ED')" type="button"><div class="button-inner"><h3>教育文化</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你以為你很早嗎？<br/>第一名被人家拿走囉～</p>')" type="button"><div class="button-inner"><h3>社福衛環</h3></div></button>
+              <button class="full-width-btn" onclick="voteSlide2(this, 'WL')" type="button"><div class="button-inner"><h3>社福衛環</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><div class="button-inner"><h3>國防外交</h3></div></button>
+              <button class="full-width-btn" onclick="voteSlide2(this, 'DF')" type="button"><div class="button-inner"><h3>國防外交</h3></div></button>
             </div>
             <div class="col-md-3 col-xs-6 animated fadeInUp">
-              <button class="full-width-btn" onclick="showSlide1Dialog(this, '<p>你好準時喔，<br/>歡迎來報到～</p>')" type="button"><div class="button-inner"><h3>司法法制</h3></div></button>
+              <button class="full-width-btn" onclick="voteSlide2(this, 'LW')" type="button"><div class="button-inner"><h3>司法法制</h3></div></button>
             </div>
           </div>
         </div>
-        <div id="slide2-quickview" class="twr-quick-view">
-          <div class="container text-center initial-height margin-top-tiny">
-            <div class="result-box">
-              <div class="dialog-box" style="background-image: url('images/white-dialog-box.svg')">
-                <h4 class="title slidedown text-glow"></h4>
-              </div>
-              <img class="middle-pic pad-h-samll move-up-desktop animated rollIn" alt="選院長" src="images/decision-green.svg">
-              <button class="control-btn" type="button" onclick="scrollToInfoBox('#slide2-quickview')">MORE</button>
-            </div>
-            <div class="large-v-space"></div>
-            <div class="info-box text-glow">
-                <p><span>雖然正副院長是由所有立法委員彼此互選，所有立委都是候選人，但過去國、民兩大政黨大多會預先透過黨內協商、假投票等方式推出一組正副院長候選人（例如今年民進黨推蘇嘉全、蔡其昌；國民黨推賴士葆、曾銘宗參選），讓黨籍立委集中選票，才有機會角逐成功。而其他小黨或無黨籍立委則可能事先協商，決議支持兩大黨候選人，或開放個人自主投票。</span></p>
-                <a href="#slide3" class="control-btn" role="button" onclick="playSlide3()">NEXT</a>
-              <span class="corner TL"></span>
-              <span class="corner TR"></span>
-              <span class="corner BL"></span>
-              <span class="corner BR"></span>
-            </div>
-            <div class="small-v-space"></div>
-          </div>
-        </div> <!-- twr-quick-view -->
-        <!-- <div id="description2" class="twr-description panel panel-default">
-          <div class="panel-heading">Panel heading without title</div>
-          <div class="panel-body">
-            Panel content
-            <a href="#slide3" class="btn btn-primary btn-lg active" role="button" onclick="playSlide3()">Next</a>
-          </div>
-        </div> -->
-
       </li>
       <!-- Slide 3 -->
       <li class="slide" id="slide3">
         <div class="twr-content container">
           <div class="row pad-top-small flex-vertical-outer">
             <div class="col-md-12">
-              <div class="title-box pad-top-large animated fadeInLeft" style="background-image: url('images/slide3-title.svg')">
-                <h1 class="animated fadeInUp" style="margin-top: -0.5em;">你/妳正考慮進入<b>財政</b>委員會貢獻專業...</h1>
+              <div class="title-box animated bounceInLeft">
+                <h1 class="animated fadeInUp">你/妳正考慮進入<b class="s-committee">財政</b>委員會貢獻專業...</h1>
               </div>
             </div>
           </div>
-          <div class="row pad-h-big animated flipInX">
+          <div class="row pad-h-small">
+            <div class="col-md-12">
+              <h2 class="pad-bottom-tiny">認識職掌</h2>
+              <p class="s-job">審查財政部、金管會等機關預算及其掌理事項的相關法案。例如你／妳可以推動財劃法修法，改善地方財政結構。</p>
+            </div>
+          </div>
+          <div class="row pad-h-small dark-box">
+            <div class="col-md-12">
+              <h2 class="pad-bottom-tiny">暗黑技能</h2>
+              <p class="white-text text-left s-skill">只要你夠厲害而且找到門路，你可能幫自己或別人向銀行「喬」超貸，若是幫別人喬，順便收一到三成回扣。另外，你也可能從官員那兒獲得股票內線消息，江湖傳言，過去有官員拿內線做人情給立委、因此朝野都吃得開，一路升官當到行政院長呢！</p>
+            </div>
+          </div>
+          <div class="row pad-h-large pad-h-big animated flipInX">
             <div class="col-md-6">
-              <button class="full-width-btn" onclick="showSlide3Dialog(this)" type="button"><h3>就決定是你了</h3></button>
+              <button class="full-width-btn" onclick="showSlide3Dialog(this)" type="button"><div class="button-inner"><h2>我要加入<span class="s-committee">財政</span>委員會</h2></div></button>
             </div>
             <div class="col-md-6">
-              <button class="full-width-btn" onclick="showSlide3Dialog(this)" type="button"><h3>看看其它</h3></button>
+              <button class="full-width-btn pink-btn" onclick="playSlide2()" type="button"><div class="button-inner"><h2>回上一頁<br/>看看其它</h2></div></button>
             </div>
           </div>
         </div>

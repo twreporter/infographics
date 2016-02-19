@@ -48,6 +48,13 @@
   }
 }
 
+.pad-h-large {
+  padding: 0 6em;
+  @include media(">superWidth") {
+    padding: 0 8em;
+  }
+}
+
 .pad-top-small {
   padding-top: 2em;
 }
@@ -164,4 +171,12 @@
 
 .orange-btn {
   background: $orange;
+}
+
+.pink-btn {
+  background: $pink;
+}
+
+.white-text {
+  color: white !important;
 }

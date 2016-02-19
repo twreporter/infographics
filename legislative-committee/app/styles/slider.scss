@@ -15,6 +15,13 @@
   }
 }
 
+.dark-box {
+  background-color: $text-main;
+  color: white;
+  padding: 3em 0.5em;
+  margin: 1em;
+}
+
 .top-btm-line-box {
   border-top: 3px solid white;
   border-bottom: 3px solid white;
