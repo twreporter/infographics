@@ -18,7 +18,7 @@
 .dark-box {
   background-color: $text-main;
   color: white;
-  padding: 3em 0.5em;
+  padding: 3em 1em;
   margin: 1em;
 }
 
@@ -163,6 +163,37 @@
   }
   @include media(">superWidth") {
     margin-top: 2em;
+  }
+}
+
+.top-deco-icon {
+  width: 22%;
+  padding: 0 5% 1.5em 5%;
+  @include media("<minWidth") {
+    width: 60%;
+  }
+  @include media(">minWidth", "<bp1Width") {
+    width: 35%;
+  }
+  @include media(">superWidth") {
+    max-width: 250px;
+  }
+}
+
+.top-committee-icon {
+  @extend .top-deco-icon;
+  border-bottom: 3px solid white;
+}
+
+.top-skill-icon {
+  @extend .top-deco-icon;
+  padding-bottom: 0;
+  margin-bottom: -8em;
+  @include media("<minWidth") {
+    margin-bottom: -14em;
+  }
+  @include media(">minWidth", "<bp1Width") {
+    margin-bottom: -10em;
   }
 }
 
