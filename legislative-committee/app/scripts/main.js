@@ -3,16 +3,23 @@
 let sParty = null;
 let sCommittee = null;
 let sPerson = null;
+let sProb = 0;
 
+const PARTY = {
+  'B': {
+    text: '藍'
+  },
+  'G': {
+    text: '綠'
+  },
+  'Y': {
+    text: '黃'
+  },
+  'O': {
+    text: '橘'
+  }
+};
 
-// FN 財政
-// TR 交通
-// IN 內政
-// EC 經濟
-// ED 教育文化
-// WL 社福衛環
-// DF 國防外交
-// LW 司法法制
 const COMMITTEE = {
   'FN': {
     text: '財政',
@@ -60,7 +67,6 @@ function setActiveBars(activeCounts) {
   // controls the progress bar on the top
   $('#progress-nav').show();
   $('.twr-quick-view').hide();
-  // $('.twr-quick-view').velocity('transition.slideLeftout', { stagger: 250, duration: 1000 });
 
   $( '.progress > .progress-item' ).each(function( index ) {
     if(index < activeCounts) {
@@ -72,7 +78,6 @@ function setActiveBars(activeCounts) {
 }
 
 function playSlide0() {
-  // console.log('playSlide0');
   $('.slide').hide();
   $('#slide0').show();
   $('#progress-nav').hide();
@@ -90,6 +95,33 @@ function playSlide0() {
   );
 }
 
+function getProbability() {
+  let prob = 0;
+  if(sParty !== 'B' && sCommittee === 'FN' || sCommittee === 'TR' || sCommittee === 'EC'){
+    prob = 10;
+  } else if (sCommittee === 'IN' || sCommittee === 'ED' || sCommittee === 'WL') {
+    prob = 10;
+  } else if (sCommittee === 'DF' || sCommittee === 'LW') {
+    prob = 100;
+  }
+  sProb = prob;
+  return prob;
+}
+
+function getResults() {
+  console.log('sProb', sProb);
+  if(sProb === 100){
+    return true;
+  } else if (sProb === 10){
+    let num = Math.floor((Math.random() * 10) + 1);  // rand between 1~10
+    console.log(num);
+    if(num === 10){
+      return true;
+    }
+  }
+  return false;
+}
+
 function playSlide1() {
   $('.slide').hide();
   $('#slide1').show();
@@ -105,9 +137,17 @@ function playSlide2() {
 }
 
 function playSlide3() {
+  let proText = '極低';
+  if(getProbability() === 10) {
+    proText = '只有一半';
+  } else if (getProbability() === 100) {
+    proText = '極高';
+  }
   $('#slide3 .s-committee').text(COMMITTEE[sCommittee].text);
   $('#slide3 .s-job').text(COMMITTEE[sCommittee].job);
   $('#slide3 .s-skill').text(COMMITTEE[sCommittee].skill);
+  $('#slide3 .s-party').text(PARTY[sParty].text);
+  $('#slide3 .s-prob').text(proText);
   $('#slide3 .top-committee-icon').attr('src', 'images/committee-' + sCommittee + '.svg');
   $('.slide').hide();
   $('#slide3').show();
@@ -163,6 +203,15 @@ function voteSlide2(btn, committee) {
   playSlide3();
 }
 
+function voteSlide3(){
+  let res = getResults();
+  if (res){
+    playSlide6();
+  } else {
+    playSlide4();
+  }
+}
+
 function showSlide2Dialog(btn, party) {
   switch(party) {
     case 'B':
@@ -196,21 +245,6 @@ function showSlide3Dialog(btn) {
   showDialogAnimation($('#slide3-quickview'), btn, function(){
 		//show quick view content
 	});
-}
-
-function voteSlide3(person) {
-  sPerson = person;
-  if(sParty === 'O') {
-    // orange party
-    playSlide4();
-    location.hash = '#slide4';
-    // $('#success-btn').trigger('click');
-    showSlide4Dialog($('#success-btn'), 'S');
-    console.log("orange")
-  } else {
-    playSlide4();
-  }
-  location.hash = '#slide4';
 }
 
 function showSlide4Dialog(btn, choice) {
