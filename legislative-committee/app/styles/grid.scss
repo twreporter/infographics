@@ -30,6 +30,19 @@
   }
 }
 
+.pad-h-on-bp1 {
+  padding: 0 0.2em;
+  @include media(">minWidth", "<bp1Width") {
+    padding: 0 3em;
+  }
+  @include media(">bp1Width", "<maxWidth") {
+    padding: 0 5em;
+  }
+  @include media(">maxWidth") {
+    padding: 0 7em;
+  }
+}
+
 .pad-h-tiny {
   padding: 0 1em;
   @include media(">maxWidth") {

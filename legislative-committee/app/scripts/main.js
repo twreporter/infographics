@@ -108,6 +108,7 @@ function playSlide3() {
   $('#slide3 .s-committee').text(COMMITTEE[sCommittee].text);
   $('#slide3 .s-job').text(COMMITTEE[sCommittee].job);
   $('#slide3 .s-skill').text(COMMITTEE[sCommittee].skill);
+  $('#slide3 .top-committee-icon').attr('src', 'images/committee-' + sCommittee + '.svg');
   $('.slide').hide();
   $('#slide3').show();
   location.hash = '#slide3';
@@ -153,20 +154,6 @@ function showDialogAnimation(dialog, btn, callback) {
 }
 
 function voteSlide1(btn, party) {
-  // switch(party) {
-  //   case 'B':
-  //     sParty = 'B';
-  //     break;
-  //   case 'Y':
-  //     sParty = 'G';
-  //     break;
-  //   case 'G':
-  //     sParty = 'G';
-  //     break;
-  //   case 'O':
-  //     sParty = 'O';
-  //     break;
-  // }
   sParty = party;
   playSlide2();
 }
