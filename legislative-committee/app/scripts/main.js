@@ -199,7 +199,7 @@ function playSlide3() {
   }
 
   // slide 6
-  $('#slide6 .s-job').text(COMMITTEE[sCommittee].job);
+  $('#slide6 .s-committee').text(COMMITTEE[sCommittee].text);
   $('#slide6 .s-skill').text(COMMITTEE[sCommittee].skill);
 
   location.hash = '#slide3';
@@ -257,10 +257,22 @@ function voteSlide2(btn, committee) {
 function voteSlide3(){
   let res = getResults();
   if (res){
+    $('#slide6 .result-box').hide();
+    $('#slide6 #result-success').show();
     playSlide6();
   } else {
     playSlide4();
   }
+}
+
+function voteSlide5(ans){
+  $('#slide6 .result-box').hide();
+  if(COMMITTEE[sCommittee].answer === ans && sParty !== 'B') {
+    $('#slide6 #result-right').show();
+  } else if(COMMITTEE[sCommittee].answer === ans && sParty === 'B') {
+    $('#slide6 #result-fail').show();
+  }
+  playSlide6();
 }
 
 function showSlide2Dialog(btn, party) {
