@@ -89,8 +89,8 @@
   margin-left: auto;
   // min-height: 15em;
   @include media("<minWidth") {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
     padding-top: 3.3em;
   }
   @include media(">bp1Width") {
@@ -201,7 +201,7 @@
 .top-skill-icon {
   @extend .top-deco-icon;
   padding-bottom: 0;
-  margin-bottom: -8em;
+  margin-bottom: -6.2em;
   @include media("<minWidth") {
     margin-bottom: -14em;
   }
@@ -225,6 +225,25 @@
     margin-bottom: -4em;
   }
 }
+
+.choice-btn {
+  display: block;
+  margin: 0.5em 0;
+  border-radius: 1px;
+  border: 4px solid white;
+  color: white;
+  background: $green;
+  width: 100%;
+  padding-bottom: 100%;
+  text-decoration: none;
+  transition: background-color .25s linear;
+}
+.choice-btn:hover {
+	background-color: $yellow;
+  color: $text-main;
+  text-decoration: none;
+}
+
 
 .full-width-btn {
   display: block;

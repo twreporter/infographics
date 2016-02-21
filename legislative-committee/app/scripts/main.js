@@ -149,6 +149,7 @@ function playSlide3() {
   $('#slide3 .s-party').text(PARTY[sParty].text);
   $('#slide3 .s-prob').text(proText);
   $('#slide3 .top-committee-icon').attr('src', 'images/committee-' + sCommittee + '.svg');
+  $('#slide4 .committee-icon').attr('src', 'images/committee-' + sCommittee + '.svg');
   $('.slide').hide();
   $('#slide3').show();
   location.hash = '#slide3';
