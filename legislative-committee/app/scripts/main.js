@@ -198,6 +198,10 @@ function playSlide3() {
     $('#slide5 #four-questions').hide();
   }
 
+  // slide 6
+  $('#slide6 .s-job').text(COMMITTEE[sCommittee].job);
+  $('#slide6 .s-skill').text(COMMITTEE[sCommittee].skill);
+
   location.hash = '#slide3';
   setActiveBars(3);
 }

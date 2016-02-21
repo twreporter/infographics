@@ -62,7 +62,7 @@
       <!-- Slide 0 - Welcome Screen -->
       <li class="slide" id="slide0">
           <div class="twr-content container">
-            <img id="yuan-welcome" class="img-fitWidth" alt="2月1日是第九屆立法委員報到日" src="images/flag.gif">
+            <img id="yuan-welcome" class="img-fitWidth" alt="2月1日是第九屆立法委員報到日" src="images/slide0-top.svg">
             <div class="description-box">
               <div class="inner-description">
                 <div class="welcome-box">
@@ -273,29 +273,58 @@
       <!-- Slide 6 -->
       <li class="slide" id="slide6">
         <div class="twr-content container">
-          <div class="result-box">
-            <img class="middle-pic pad-h-samll animated rubberBand" alt="失去立委資格" src="images/slide4-fail.svg">
-            <div class="info-box text-glow">
-                <h3>你/妳很順利的進入了<b>ＸＸ</b>委員會<br/>但這次真的只是賽到，不信你再玩一次！</h3>
-              <span class="corner TL"></span>
-              <span class="corner TR"></span>
-              <span class="corner BL"></span>
-              <span class="corner BR"></span>
-              <!-- Share Button -->
-              <div class="abs-center">
-                <div class="sharing-buttons" align="center">
-                  <div class="round-share">
-                    <a style="text-decoration:none;" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fi%2Fnew-mp%2F20160201%2F" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;"><img src="images/white-fb.svg" class="img-shadow"/></a>
-                  </div>
-                  <div class="round-share">
-                    <a style="text-decoration:none;" href="https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fi%2Fnew-mp%2F20160201%2F"><img src="images/white-twitter.svg" class="img-shadow" /></a>
-                  </div>
-                  <button class="control-btn" type="button" onclick="replayGame()" style="float: left; margin-top: 0.5em; padding: 0.3em 1.2em;">再玩一次</button>
-                </div>
-
-              </div>
+          <div id="result-success" class="result-box">
+            <img class="middle-pic pad-h-samll animated rubberBand" src="images/slide6-congrats.svg">
+            <div  class="top-line-box">
+              <h3>你／妳很順利的進入了<b class="s-committee">○○</b>委員會，接下來你／妳（<span class="s-skill"></span>）！不過菜鳥要進<b class="s-committee">○○</b>委員會不容易，你／妳這次真的只是賽到，不信你／妳再玩一次！</h3>
+            </div>
           </div>
+
+          <div id="result-right" class="result-box">
+            <img class="middle-pic pad-h-samll animated rubberBand" src="images/slide6-right.svg">
+            <div  class="top-line-box">
+              <h3>你很順利的進入了<b class="s-committee">○○</b>委員會，但<b class="s-committee">○○</b>領域的專業知識和接觸的行政體系比較封閉，對菜鳥立委來說不易發揮，會有點吃力喔！要不要考慮再玩一次？</h3>
+            </div>
+          </div>
+
+          <div id="result-right" class="result-box">
+            <img class="middle-pic pad-h-samll animated rubberBand" src="images/slide6-fail.svg">
+            <div  class="top-line-box">
+              <h3>恭喜你／妳，答對了！證明你／妳是一位<b class="s-committee">○○</b>領域的專業立委。但是很可惜，你／妳的黨重視論資排輩，你／妳有專業也沒用！看來你／妳只好認命，到<b>國防外交</b>或<b>司法法制</b>委員會磨練磨練惹……</h3>
+            </div>
+          </div>
+
+          <p>真實世界的立委選擇委員會之過程動態，遠較本遊戲複雜得太多，例如各自立委有其不同背景、動機，各自理想的委員會志願排序實際上相當分歧；又例如立委之間彼此協調、交換委員會之情形，牽涉因素上至整個黨團戰略布局、下至個人意願、同儕間人際關係。本遊戲僅是將各項條件極簡化後所得之成果。</p>
+          <p>此外，本遊戲所設定之藍、綠、黃、橘各政黨，皆為100%虛構，切勿對號入座；如有部份雷同，絕非巧合。</p>
+
+          <!-- Share Button -->
+          <div class="row pad-h-on-bp1">
+            <div class="col-md-4 col-xs-4 animated fadeInRight">
+              <a class="full-width-btn" href="https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fi%2Fnew-mp%2F20160201%2F"><div class="button-inner"><img src="images/white-twitter.svg" class="share-icon"/></div></a>
+            </div>
+            <div class="col-md-4 col-xs-4 animated fadeInRight">
+              <a class="full-width-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fi%2Fnew-mp%2F20160201%2F" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;"><div class="button-inner"><img src="images/white-fb.svg" class="share-icon"/></div></a>
+            </div>
+            <div class="col-md-4 col-xs-4 animated fadeInRight">
+              <button class="full-width-btn" onclick="replayGame()" type="button"><div class="button-inner"><h2>再玩一次</h2></div></button>
+            </div>
+          </div>
+
+          <!-- Share Button -->
+          <div class="abs-center">
+            <div class="sharing-buttons" align="center">
+              <div class="round-share">
+                <a style="text-decoration:none;" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fi%2Fnew-mp%2F20160201%2F" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;"><div class="button-inner"><img src="images/white-fb.svg" class="img-shadow"/></div></a>
+              </div>
+              <div class="round-share">
+                <a style="text-decoration:none;" href="https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fi%2Fnew-mp%2F20160201%2F"><img src="images/white-twitter.svg" class="img-shadow" /></a>
+              </div>
+              <button class="control-btn" type="button" onclick="replayGame()">再玩一次</button>
+            </div>
+          </div>
+
         </div>
+
       </li>
     </ul>
   </div>
