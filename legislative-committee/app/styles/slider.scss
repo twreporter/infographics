@@ -22,6 +22,12 @@
   margin: 1em;
 }
 
+.top-line-box {
+  border-top: 3px solid white;
+  padding: 1.2em;
+  margin: 2em 2em 0 2em;
+}
+
 .top-btm-line-box {
   border-top: 3px solid white;
   border-bottom: 3px solid white;
@@ -89,8 +95,8 @@
   margin-left: auto;
   // min-height: 15em;
   @include media("<minWidth") {
-    padding-left: 0.2em;
-    padding-right: 0.2em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
     padding-top: 3.3em;
   }
   @include media(">bp1Width") {

@@ -218,7 +218,7 @@
               </div>
             </div>
             <div class="col-md-12 animated fadeInRight pad-h-big">
-              <button id="success-btn" class="choice-btn pad-h-tiny pink-btn" onclick="showSlide4Dialog(this, 'S')" type="button"><h3>不願意，我還是想進我選擇的委員會<img class="inline-icon committee-icon animated fadeInDown" src="images/committee-FN.svg"></h3></button>
+              <button id="success-btn" class="choice-btn pad-h-tiny pink-btn" onclick="playSlide5()" type="button"><h3>不願意，我還是想進我選擇的委員會<img class="inline-icon committee-icon animated fadeInDown" src="images/committee-FN.svg"></h3></button>
               <button id="success-btn" class="choice-btn pad-h-tiny" onclick="showSlide4Dialog(this, 'S')" type="button"><h3>願意，我要到<b>國防及外交委員會</b><img class="inline-icon animated fadeInDown" src="images/committee-DF.svg"></h3></button>
               <button id="success-btn" class="choice-btn pad-h-tiny" onclick="showSlide4Dialog(this, 'S')" type="button"><h3>願意，我要到<b>司法及法制委員會<img class="inline-icon animated fadeInDown" src="images/committee-LW.svg"></h3></button>
             </div>
@@ -228,22 +228,44 @@
       <!-- Slide 5 -->
       <li class="slide" id="slide5">
         <div class="twr-content container">
-          <div class="row">
-            <!--  style="background-image: url('images/white-slide4-top.svg')" -->
-            <div class="pad-top-small animated fadeInDown">
+          <div class="row pad-top-small">
+            <div class="title-box animated bounceInDown">
               <h1>為了測試你/妳是不是代表<b>財政</b>領域的專業立委...</h1>
             </div>
-            <p><span>立法院每會期立委報到，「搶頭香」總會成為媒體焦點，報到時間從上午8時到當天6時下班前，不過按規定新一屆立委須先報到並宣誓就職後，才能取得立委身分，以這屆為例，若上午10時30分選舉院長前未完成報到，就等同放棄投票。過去動輒有立委在當天凌晨，甚至前一天晚上就到立法院排隊。其中的經典案例包括第6屆民進黨立委李明憲和李鎮楠在前一晚就攜帶睡袋、枕頭、棉被、蚊香到立院排隊，李明憲甚至帶了畫布與彩筆，畫油畫打發時間。</span></p>
+            <img class="center-image animated slideInDown" src="images/slide5-top.svg">
+            <div class="top-line-box text-left">
+              <h2><b class="s-question">請問哪一項不是政府抑制房地產炒作的手段？</b></h2>
+              <br/>
+              <span class="s-options">
+                <p>A. 提高房屋稅與地價稅</p>
+                <p>B. 降低貸款利息</p>
+                <p>C. 加強信用管制</p>
+              </span>
+            </div>
           </div>
-          <div class="row pad-h-big">
-            <div class="col-md-4 animated fadeInRight">
-              <button id="success-btn" class="full-width-btn pad-h-tiny" onclick="showSlide4Dialog(this, 'S')" type="button"><h3>1</h3></button>
+          <div id="three-questions" class="row pad-h-on-bp1">
+            <div class="col-md-4 col-xs-4 animated fadeInRight">
+              <button class="full-width-btn" onclick="voteSlide1(this, 'B')" type="button"><div class="button-inner"><h2>A</h2></div></button>
             </div>
-            <div class="col-md-4 animated fadeInRight">
-              <button id="success-btn" class="full-width-btn pad-h-tiny" onclick="showSlide4Dialog(this, 'S')" type="button"><h3>2</h3></button>
+            <div class="col-md-4 col-xs-4 animated fadeInRight">
+              <button class="full-width-btn" onclick="voteSlide1(this, 'B')" type="button"><div class="button-inner"><h2>B</h2></div></button>
             </div>
-            <div class="col-md-4 animated fadeInRight">
-              <button id="success-btn" class="full-width-btn pad-h-tiny" onclick="showSlide4Dialog(this, 'S')" type="button"><h3>3</h3></button>
+            <div class="col-md-4 col-xs-4 animated fadeInRight">
+              <button class="full-width-btn" onclick="voteSlide1(this, 'B')" type="button"><div class="button-inner"><h2>C</h2></div></button>
+            </div>
+          </div>
+          <div id="four-questions" class="row pad-h-big">
+            <div class="col-md-3 col-xs-6 animated fadeInRight">
+              <button class="full-width-btn" onclick="voteSlide1(this, 'B')" type="button"><div class="button-inner"><h2>A</h2></div></button>
+            </div>
+            <div class="col-md-3 col-xs-6 animated fadeInRight">
+              <button class="full-width-btn" onclick="voteSlide1(this, 'B')" type="button"><div class="button-inner"><h2>B</h2></div></button>
+            </div>
+            <div class="col-md-3 col-xs-6 animated fadeInRight">
+              <button class="full-width-btn" onclick="voteSlide1(this, 'B')" type="button"><div class="button-inner"><h2>C</h2></div></button>
+            </div>
+            <div class="col-md-3 col-xs-6 animated fadeInRight">
+              <button class="full-width-btn" onclick="voteSlide1(this, 'B')" type="button"><div class="button-inner"><h2>C</h2></div></button>
             </div>
           </div>
         </div>
