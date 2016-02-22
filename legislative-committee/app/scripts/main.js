@@ -24,12 +24,13 @@ const COMMITTEE = {
   'FN': {
     text: '財政',
     job: '審查財政部、金管會等機關預算及其掌理事項的相關法案。例如你／妳可以推動財劃法修法，改善地方財政結構。',
-    skill: '只要你夠厲害而且找到門路，你可能幫自己或別人向銀行「喬」超貸，若是幫別人喬，順便收一到三成回扣。另外，你也可能從官員那兒獲得股票內線消息，江湖傳言，過去有官員拿內線做人情給立委、因此朝野都吃得開，一路升官當到行政院長呢！',
+    skill: '只要你夠厲害而且找到門路，你可能幫自己或別人向銀行「喬」超貸，若是幫別人喬，順便收一到三成回扣。另外，你也可能從官員那兒獲得股票內線消息。',
     question: '請問哪一項不是政府抑制房地產炒作的手段？',
     qnumbers: 3,
     options: '<p>A. 提高房屋稅與地價稅</p> <p>B. 降低貸款利息</p> <p>C. 加強信用管制</p>',
     answer: 'B',
-    answerTxt: 'B. 降低貸款利息'
+    answerTxt: 'B. 降低貸款利息',
+    cSkill: '就可以大搞超貸、內線交易，但小心別被抓到'
   },
   'TR': {
     text: '交通',
@@ -39,7 +40,8 @@ const COMMITTEE = {
     qnumbers: 3,
     options: '<p>A. 固網、電信、有線、無線、衛星廣電等網路之技術與產業整合</p> <p>B. 數位相機、數位手機、數位手表之技術與產業整合</p> <p>C. 各種數位貨幣在金融市場流通匯聚的現象</p>',
     answer: 'A',
-    answerTxt: 'A. 固網、電信、有線、無線、衛星廣電等網路之技術與產業整合'
+    answerTxt: 'A. 固網、電信、有線、無線、衛星廣電等網路之技術與產業整合',
+    cSkill: '就可以幫家鄉爭取多停幾班高鐵跟自強號，讓鄉親好方便呢'
   },
   'IN': {
     text: '內政',
@@ -49,7 +51,8 @@ const COMMITTEE = {
     qnumbers: 4,
     options: '<p>A. 鄰近地價翻漲，縣市政府藉由標售土地來降低負債</p> <p>B. 該縣市首長利用「天賜良機」順利拔除釘子戶，卻釀成全國性政治風暴</p> <p>C. 內政部審議通過之區段徵收遭法院判決違法，遭強拆迫遷居民勝訴</p> <p>D. 以上皆是</p>',
     answer: 'D',
-    answerTxt: 'D. 以上皆是'
+    answerTxt: 'D. 以上皆是',
+    cSkill: '可以找你／妳的人馬一起搞土地重劃，地方發展、有錢大家賺'
   },
   'EC': {
     text: '經濟',
@@ -59,7 +62,8 @@ const COMMITTEE = {
     qnumbers: 4,
     options: '<p>A. TPP</p> <p>B. PPT</p> <p>C. PTT</p> <p>D. DPP</p>',
     answer: 'A',
-    answerTxt: 'A. TPP'
+    answerTxt: 'A. TPP',
+    cSkill: '做選民服務、請朋友吃飯，常常可以叫台電來付錢唷'
   },
   'ED': {
     text: '教育及文化',
@@ -69,7 +73,8 @@ const COMMITTEE = {
     qnumbers: 3,
     options: '<p>A. 產學落差大，以致學生畢業後難與業界接軌</p> <p>B. 教改政策實施後國內廣設專科學校，導致技職教育資源分散、品質下降</p> <p>C. 技職教育學術化，技職學校向普通教育靠攏、定位不明確</p>',
     answer: 'B',
-    answerTxt: 'B. 教改政策實施後國內廣設專科學校，導致技職教育資源分散、品質下降'
+    answerTxt: 'B. 教改政策實施後國內廣設專科學校，導致技職教育資源分散、品質下降',
+    cSkill: '每年都可以拿金馬獎頒獎典禮門票送朋友囉'
   },
   'WL': {
     text: '社會福利及衛生環境',
@@ -79,7 +84,8 @@ const COMMITTEE = {
     qnumbers: 3,
     options: '<p>A. 不會有影響</p> <p>B. 頭腦會變靈活好多，每次考試都考100分</p> <p>C. 恐造成肝腎負擔，導致肝硬化和溶血反應</p>',
     answer: 'C',
-    answerTxt: 'C. 恐造成肝腎負擔，導致肝硬化和溶血反應'
+    answerTxt: 'C. 恐造成肝腎負擔，導致肝硬化和溶血反應',
+    cSkill: '可以幫好多商人朋友和選民喬各種補助，下次選舉就有更多金主跟支持者了'
   },
   'DF': {
     text: '外交及國防',
@@ -89,7 +95,8 @@ const COMMITTEE = {
     qnumbers: 3,
     options: null,
     answer: null,
-    answerTxt: null
+    answerTxt: null,
+    cSkill: null
   },
   'LW': {
     text: '司法及法制',
@@ -99,7 +106,8 @@ const COMMITTEE = {
     qnumbers: 3,
     options: null,
     answer: null,
-    answerTxt: null
+    answerTxt: null,
+    cSkill: null
   }
 };
 
@@ -235,7 +243,7 @@ function playSlide6() {
 
   // slide 6
   $('#slide6 .s-committee').text(COMMITTEE[sCommittee].text);
-  $('#slide6 .s-skill').text(COMMITTEE[sCommittee].skill);
+  $('#slide6 .s-skill').text(COMMITTEE[sCommittee].cSkill);
   $('#slide6 .s-answer').text(COMMITTEE[sCommittee].answerTxt);
 
   location.hash = '#slide6';
