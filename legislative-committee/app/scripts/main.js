@@ -28,7 +28,8 @@ const COMMITTEE = {
     question: '請問哪一項不是政府抑制房地產炒作的手段？',
     qnumbers: 3,
     options: '<p>A. 提高房屋稅與地價稅</p> <p>B. 降低貸款利息</p> <p>C. 加強信用管制</p>',
-    answer: 'B'
+    answer: 'B',
+    answerTxt: 'B. 降低貸款利息'
   },
   'TR': {
     text: '交通',
@@ -37,7 +38,8 @@ const COMMITTEE = {
     question: '請問數位匯流指的是什麼？',
     qnumbers: 3,
     options: '<p>A. 固網、電信、有線、無線、衛星廣電等網路之技術與產業整合</p> <p>B. 數位相機、數位手機、數位手表之技術與產業整合</p> <p>C. 各種數位貨幣在金融市場流通匯聚的現象</p>',
-    answer: 'A'
+    answer: 'A',
+    answerTxt: 'A. 固網、電信、有線、無線、衛星廣電等網路之技術與產業整合'
   },
   'IN': {
     text: '內政',
@@ -46,7 +48,8 @@ const COMMITTEE = {
     question: '某縣市執行都市計劃，透過區段徵收方式強徵農地、發展工業園區，可能導致哪些狀況？',
     qnumbers: 4,
     options: '<p>A. 鄰近地價翻漲，縣市政府藉由標售土地來降低負債</p> <p>B. 該縣市首長利用「天賜良機」順利拔除釘子戶，卻釀成全國性政治風暴</p> <p>C. 內政部審議通過之區段徵收遭法院判決違法，遭強拆迫遷居民勝訴</p> <p>D. 以上皆是</p>',
-    answer: 'D'
+    answer: 'D',
+    answerTxt: 'D. 以上皆是'
   },
   'EC': {
     text: '經濟',
@@ -55,7 +58,8 @@ const COMMITTEE = {
     question: '請問這幾年政府積極推動加入的、由美國主導的區域經濟整合體，也是五月將上任的蔡英文力推加入的，是下列何者？',
     qnumbers: 4,
     options: '<p>A. TPP</p> <p>B. PPT</p> <p>C. PTT</p> <p>D. DPP</p>',
-    answer: 'A'
+    answer: 'A',
+    answerTxt: 'A. TPP'
   },
   'ED': {
     text: '教育及文化',
@@ -64,7 +68,8 @@ const COMMITTEE = {
     question: '下列何者不是台灣技職教育面臨之困境？',
     qnumbers: 3,
     options: '<p>A. 產學落差大，以致學生畢業後難與業界接軌</p> <p>B. 教改政策實施後國內廣設專科學校，導致技職教育資源分散、品質下降</p> <p>C. 技職教育學術化，技職學校向普通教育靠攏、定位不明確</p>',
-    answer: 'B'
+    answer: 'B',
+    answerTxt: 'B. 教改政策實施後國內廣設專科學校，導致技職教育資源分散、品質下降'
   },
   'WL': {
     text: '社會福利及衛生環境',
@@ -73,7 +78,8 @@ const COMMITTEE = {
     question: '前兩年黑心油事件一度震驚全國，請問吃了混充大量銅葉綠素的食用油，對身體會有什麼影響？',
     qnumbers: 3,
     options: '<p>A. 不會有影響</p> <p>B. 頭腦會變靈活好多，每次考試都考100分</p> <p>C. 恐造成肝腎負擔，導致肝硬化和溶血反應</p>',
-    answer: 'C'
+    answer: 'C',
+    answerTxt: 'C. 恐造成肝腎負擔，導致肝硬化和溶血反應'
   },
   'DF': {
     text: '外交及國防',
@@ -82,7 +88,8 @@ const COMMITTEE = {
     question: null,
     qnumbers: 3,
     options: null,
-    answer: null
+    answer: null,
+    answerTxt: null
   },
   'LW': {
     text: '司法及法制',
@@ -91,7 +98,8 @@ const COMMITTEE = {
     question: null,
     qnumbers: 3,
     options: null,
-    answer: null
+    answer: null,
+    answerTxt: null
   }
 };
 
@@ -184,10 +192,27 @@ function playSlide3() {
   $('.slide').hide();
   $('#slide3').show();
 
+  location.hash = '#slide3';
+  setActiveBars(3);
+}
+
+function playSlide4() {
+  $('.slide').hide();
+  $('#slide4').show();
+
   // slide 4
   $('#slide4 .committee-icon').attr('src', 'images/committee-' + sCommittee + '.svg');
 
+  location.hash = '#slide4';
+  setActiveBars(4);
+}
+
+function playSlide5() {
+  $('.slide').hide();
+  $('#slide5').show();
+
   // slide 5
+  $('#slide5 .s-committee').text(COMMITTEE[sCommittee].text);
   $('#slide5 .s-question').text(COMMITTEE[sCommittee].question);
   $('#slide5 .s-options').html(COMMITTEE[sCommittee].options);
   if(COMMITTEE[sCommittee].qnumbers > 3) {
@@ -198,24 +223,6 @@ function playSlide3() {
     $('#slide5 #four-questions').hide();
   }
 
-  // slide 6
-  $('#slide6 .s-committee').text(COMMITTEE[sCommittee].text);
-  $('#slide6 .s-skill').text(COMMITTEE[sCommittee].skill);
-
-  location.hash = '#slide3';
-  setActiveBars(3);
-}
-
-function playSlide4() {
-  $('.slide').hide();
-  $('#slide4').show();
-  location.hash = '#slide4';
-  setActiveBars(4);
-}
-
-function playSlide5() {
-  $('.slide').hide();
-  $('#slide5').show();
   location.hash = '#slide5';
   setActiveBars(5);
 }
@@ -223,6 +230,12 @@ function playSlide5() {
 function playSlide6() {
   $('.slide').hide();
   $('#slide6').show();
+
+  // slide 6
+  $('#slide6 .s-committee').text(COMMITTEE[sCommittee].text);
+  $('#slide6 .s-skill').text(COMMITTEE[sCommittee].skill);
+  $('#slide6 .s-answer').text(COMMITTEE[sCommittee].answerTxt);
+
   location.hash = '#slide6';
   setActiveBars(6);
 }
@@ -258,73 +271,39 @@ function voteSlide3(){
   let res = getResults();
   if (res){
     $('#slide6 .result-box').hide();
-    $('#slide6 #result-success').show();
+    if(sCommittee !== 'DF' && sCommittee !== 'LW'){
+      $('#slide6 #result-success').show();
+    } else {
+      $('#slide6 #result-right').show();
+    }
     playSlide6();
   } else {
     playSlide4();
   }
 }
 
+function voteSlide4(committee){
+  sCommittee = committee;
+  $('#slide6 .result-box').hide();
+  $('#slide6 #result-right').show();
+  playSlide6();
+}
+
 function voteSlide5(ans){
   $('#slide6 .result-box').hide();
   if(COMMITTEE[sCommittee].answer === ans && sParty !== 'B') {
-    $('#slide6 #result-right').show();
+    $('#slide6 #result-correct').show();
   } else if(COMMITTEE[sCommittee].answer === ans && sParty === 'B') {
     $('#slide6 #result-fail').show();
+  } else {
+    // wrong answer was chosen
+    $('#slide6 #result-wrong').show();
   }
   playSlide6();
 }
 
-function showSlide2Dialog(btn, party) {
-  switch(party) {
-    case 'B':
-      $('#slide2-quickview .title').html('<p>所有藍黨立委已經在上週開過黨團會議，會中決議支持藍黨的賴小葆為立法院長。</p>');
-      $('#slide2-quickview .middle-pic').attr({src: 'images/decision-blue.svg'});
-      sParty = 'B';
-      break;
-    case 'Y':
-      $('#slide2-quickview .title').html('<p>所有黃黨立委已經在上週開過黨團會議，由於黃黨無人表達角逐院長意願，會中決議一致支持綠黨的蘇小全為立法院長。</p>');
-      $('#slide2-quickview .middle-pic').attr({src: 'images/decision-green.svg'});
-      // sParty = 'Y';
-      sParty = 'G'; // deal with yellow party -> they should vote for the green
-      break;
-    case 'G':
-      $('#slide2-quickview .title').html('<p>所有綠黨立委已經在上週開過黨團會議，會中決議支持綠黨的蘇小全為立法院長。</p>');
-      $('#slide2-quickview .middle-pic').attr({src: 'images/decision-green.svg'});
-      sParty = 'G';
-      break;
-    case 'O':
-      $('#slide2-quickview .title').html('<p>所有橘黨立委已經在上週開過黨團會議，由於橘黨無人表達角逐院長意願，會中決議開放黨籍立委自主投票。</p>');
-      $('#slide2-quickview .middle-pic').attr({src: 'images/decision-orange.svg'});
-      sParty = 'O';
-      break;
-  }
-  showDialogAnimation($('#slide2-quickview'), btn, function(){
-		//show quick view content
-	});
-}
-
 function showSlide3Dialog(btn) {
   showDialogAnimation($('#slide3-quickview'), btn, function(){
-		//show quick view content
-	});
-}
-
-function showSlide4Dialog(btn, choice) {
-  let success = false;
-  console.log(choice, sParty, sPerson);
-  if(choice === 'S' && (sParty === 'O' || sPerson === sParty) && sParty != null && sPerson != null) {
-    success = true;
-  }
-
-  if(success){
-    $('#result-success').show();
-    $('#result-fail').hide();
-  }else{
-    $('#result-success').hide();
-    $('#result-fail').show();
-  }
-  showDialogAnimation($('#slide4-quickview'), btn, function(){
 		//show quick view content
 	});
 }

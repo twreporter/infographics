@@ -113,7 +113,7 @@
           <div class="top-btm-line-box text-left">
             <p>委員會是法案經一讀程序後，進入實質審查程序之階段。法案經此初審後送出委員會，才能進到院會二三讀。</p>
             <p>立法院設有八個常設委員會，包括財政、交通、經濟、內政、教育文化、社福衛環、外交國防，和司法法制委員會，另有程序委員會、修憲委員會，以及紀律委員會等特種委員會。本遊戲探討範疇僅限於常設委員會。</p>
-            <p>各委員會自有其法定分工職掌，雖有此權責劃分，各立委其實也能到其他委員會參與法案及預算審查，但不能提案（若欲提案，須找財政委員會立委連署）和參與表決。因此，日前外界對於軍事冤案罹難者洪仲丘的姊姊、時代力量新科立委洪慈庸是否願進入外交國防委員會多所爭議，然而，就算未來洪慈庸沒有進入外交國防委員會，她依然能夠參與軍中人權改革法案之審查。</p>
+            <p>各委員會自有其法定分工職掌，雖有此權責劃分，各立委其實也能到其他委員會參與法案及預算審查，但不能提案（若欲提案，須找該委員會立委連署）和參與表決。因此，日前外界對於軍事冤案罹難者洪仲丘的姊姊、時代力量新科立委洪慈庸是否願進入外交國防委員會多所爭議，然而，就算未來洪慈庸沒有進入外交國防委員會，她依然能夠參與軍中人權改革法案之審查。</p>
           </div>
           <h2>請選擇感興趣的委員會看相關執掌內容</h2>
           <div class="row">
@@ -219,8 +219,8 @@
             </div>
             <div class="col-md-12 animated fadeInRight pad-h-big">
               <button id="success-btn" class="choice-btn pad-h-tiny pink-btn" onclick="playSlide5()" type="button"><h3>不願意，我還是想進我選擇的委員會<img class="inline-icon committee-icon animated fadeInDown" src="images/committee-FN.svg"></h3></button>
-              <button id="success-btn" class="choice-btn pad-h-tiny" onclick="showSlide4Dialog(this, 'S')" type="button"><h3>願意，我要到<b>國防及外交委員會</b><img class="inline-icon animated fadeInDown" src="images/committee-DF.svg"></h3></button>
-              <button id="success-btn" class="choice-btn pad-h-tiny" onclick="showSlide4Dialog(this, 'S')" type="button"><h3>願意，我要到<b>司法及法制委員會<img class="inline-icon animated fadeInDown" src="images/committee-LW.svg"></h3></button>
+              <button id="success-btn" class="choice-btn pad-h-tiny" onclick="voteSlide4('DF')" type="button"><h3>願意，我要到<b>國防及外交委員會</b><img class="inline-icon animated fadeInDown" src="images/committee-DF.svg"></h3></button>
+              <button id="success-btn" class="choice-btn pad-h-tiny" onclick="voteSlide4('LW')" type="button"><h3>願意，我要到<b>司法及法制委員會<img class="inline-icon animated fadeInDown" src="images/committee-LW.svg"></h3></button>
             </div>
           </div>
         </div>
@@ -230,7 +230,7 @@
         <div class="twr-content container">
           <div class="row pad-top-small">
             <div class="title-box animated bounceInDown">
-              <h1>為了測試你/妳是不是代表<b>財政</b>領域的專業立委...</h1>
+              <h1>為了測試你/妳是不是代表<b class="s-committee">財政</b>領域的專業立委...</h1>
             </div>
             <img class="center-image animated slideInDown" src="images/slide5-top.svg">
             <div class="top-line-box text-left">
@@ -287,10 +287,24 @@
             </div>
           </div>
 
+          <div id="result-correct" class="result-box">
+            <img class="middle-pic pad-h-samll animated rubberBand" src="images/slide6-congrats.svg">
+            <div  class="top-line-box">
+              <h3>恭喜你／妳答對了！證明你／妳是一位<b class="s-committee">○○</b>領域的專業立委。你／妳的黨團透過內部協商機制，幫你／妳和同黨立委交換，讓你／妳進入<b class="s-committee">○○</b>委員會，接下來你／妳（<span class="s-skill"></span>）！</h3>
+            </div>
+          </div>
+
           <div id="result-fail" class="result-box">
             <img class="middle-pic pad-h-samll animated rubberBand" src="images/slide6-fail.svg">
             <div  class="top-line-box">
               <h3>恭喜你／妳，答對了！證明你／妳是一位<b class="s-committee">○○</b>領域的專業立委。但是很可惜，你／妳的黨重視論資排輩，你／妳有專業也沒用！看來你／妳只好認命，到<b>國防外交</b>或<b>司法法制</b>委員會磨練磨練惹……</h3>
+            </div>
+          </div>
+
+          <div id="result-wrong" class="result-box">
+            <img class="middle-pic pad-h-samll animated rubberBand" src="images/slide6-fail.svg">
+            <div  class="top-line-box">
+              <h3>你／妳答錯了！答案是（<span class="s-answer">各題正解</span>），顯然你／妳不是<b class="s-committee">○○</b>領域的專業立委。看來你／妳只好認命，到<b>國防外交</b>或<b>司法法制</b>委員會磨練磨練惹……</h3>
             </div>
           </div>
 
