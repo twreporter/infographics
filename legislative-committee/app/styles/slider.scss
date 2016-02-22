@@ -133,6 +133,9 @@
 
 .result-box {
   padding: 2em;
+  @include media("<minWidth") {
+    padding: 2em 0;
+  }
   background-repeat: no-repeat;
   background-position: center;
 }
