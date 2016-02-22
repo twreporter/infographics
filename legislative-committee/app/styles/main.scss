@@ -16,6 +16,10 @@ html, body, .container, .main {
   font-family: PingFangTC-Regular, simhei, 微軟正黑體, sans-serif;
 }
 
+a {
+  color: $blue;
+}
+
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;

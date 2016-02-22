@@ -177,6 +177,8 @@ function playSlide2() {
 }
 
 function playSlide3() {
+  $('#slide3 .twr-content').animate({ scrollTop: 0 }, 'fast');
+
   let proText = '極低';
   if(getProbability() === 10) {
     proText = '只有一半';
@@ -253,7 +255,7 @@ function showDialogAnimation(dialog, btn, callback) {
 	.velocity({
     'width': '100%',
     'left': 0, // ($(window).width - sliderFinalWidth)/2,
-    'top': '5.5em' // ($(window).height - slider final height)/2,
+    'top': '5em' // ($(window).height - slider final height)/2,
 	}, 800, 'ease', callback).addClass('is-visible');
 }
 

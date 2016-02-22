@@ -11,9 +11,10 @@ nav {
   z-index: 1000;
   width: 100%;
   color: $text-main;
-  background-color: transparent;
+  background-color: $light-green;
+  box-shadow: 15px 15px 15px $light-green;
   text-align: center;
-  padding: 2em;
+  padding: 2em 2em 0 2em;
 }
 
 .progress {
@@ -21,6 +22,7 @@ nav {
   background-color: $light-green;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 13px;
   border-radius: 0;
   box-shadow: none;
 }

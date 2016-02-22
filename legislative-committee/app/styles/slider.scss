@@ -368,7 +368,6 @@
 	height: 100%;
 	position: relative;
   background-color: $light-green;
-  padding-top: 5em;
 }
 
 // put the first slide on the top
@@ -417,10 +416,11 @@
   margin-right: auto;
   text-align: center;
   vertical-align: middle;
-	padding: 0 1em;
+	padding: 5em 1em 0 1em;
 	overflow-x: hidden;
 	overflow-y: auto;
   max-width: 60%;
+      padding-top: 5em;
   @include media("<minWidth") {
     max-width: 100%;
   }
