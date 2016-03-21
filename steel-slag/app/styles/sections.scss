@@ -1,0 +1,14 @@
+@import "bourbon";
+
+.section-cover {
+  min-height: 600px;
+  height: 90vh;
+  // @include background-image(url("/images/bg_top_high.jpg"));
+  // background-position: center top;
+  // background-repeat: no-repeat;
+  @include hidpi(1.5) {
+    background: url(/images/bg_top_high.jpg) no-repeat center center fixed;
+  }
+  background: url(/images/bg_top_low.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
