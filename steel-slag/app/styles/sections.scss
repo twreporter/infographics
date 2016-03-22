@@ -80,5 +80,41 @@
     background: url(../images/bg_top_low.jpg);
   }
 
+}
 
+.content-block {
+  padding-top: 6em;
+  padding-bottom: 3em;
+  line-height: 2;
+}
+
+.article-location {
+  background: url(../images/01-top-bg.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20em;
+  min-height: 30em;
+  height: auto;
+  position: absolute;
+  left: 3em;
+  margin-top: -12em;
+}
+
+.location-text {
+  display: table-cell;
+  vertical-align: middle;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-40%);
+
+  h1 {
+    font-size: 45px;
+    margin-left: -1em;
+  }
+  h2 {
+    margin: -0.3em 0 0 -0.7em;
+    font-size: 24px;
+    line-height: 1.5;
+  }
 }
