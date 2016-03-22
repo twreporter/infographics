@@ -1,14 +1,84 @@
 @import "bourbon";
+@import "./variables.scss";
+
+.blurred-bg {
+  opacity:0;
+  filter: blur(20px) brightness(0.7);
+}
+
+.scroll-down-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  // margin-left: -3em;
+  bottom: 20%;
+
+  img {
+    width: 3em;
+    height: 3em;
+    margin-bottom: 1em;
+  }
+}
+
+.chapter-cover {
+  background-color: $dark;
+
+  .container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  h2 {
+    margin-bottom: 0.8em;
+    font-size: 30px;
+  }
+
+  h1 {
+    line-height: 1.75;
+    font-size: 42px;
+    border-bottom: 3px solid $green;
+    padding-bottom: 5px;
+    display: inline;
+  }
+
+  .image-box {
+    position: absolute;
+    top: -10%;
+    bottom: 10%;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .image-bg {
+    position: absolute;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  .blurred-image {
+    opacity: 0;
+    filter: blur(5px) brightness(0.7);
+  }
+}
 
 .section-cover {
+  @extend .chapter-cover;
+
   min-height: 600px;
   height: 90vh;
-  // @include background-image(url("/images/bg_top_high.jpg"));
-  // background-position: center top;
-  // background-repeat: no-repeat;
-  @include hidpi(1.5) {
-    background: url(/images/bg_top_high.jpg) no-repeat center center fixed;
+  overflow: hidden;
+
+  .image-bg {
+    @include hidpi(1.5) {
+      background: url(../images/bg_top_high.jpg);
+    }
+    background: url(../images/bg_top_low.jpg);
   }
-  background: url(/images/bg_top_low.jpg) no-repeat center center fixed;
-  background-size: cover;
+
+
 }

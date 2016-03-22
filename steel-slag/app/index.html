@@ -26,20 +26,20 @@
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <header class="section-cover">
+    <header id="scene-1" class="section-cover">
+      <div class="image-box">
+        <div class="image-bg"></div>
+        <div class="image-bg blurred-image"></div>
+      </div>
       <div class="container">
-        <div class="col-md-8 col-md-offset-2">
-          <h1>
-            <i class="fa fa-heart"></i>
-            ScrollMagic Demos
-            <i class="fa fa-magic"></i>
+        <div class="col-md-10 col-md-offset-1 text-center">
+          <h2 class="green-text">全國污染土地大調查</h2>
+          <h1 class="white-text">
+            假的大標假的大標假的大標假的大標假，大標假的大
           </h1>
-          <hr>
-          <h2>CSS Class Toggles</h2>
-          <p class="lead">ScrollMagic also lets you easily toggle as many classes as you want when the Scene is activated via the scroll event. This is super handy for doing some complex stuff without the additional JavaScript</p>
         </div>
       </div>
-      <i class="fa fa-angle-double-down"></i>
+      <a class="scroll-down-btn" href="#"><img src="images/scroll_down_btn.svg" /></a>
     </header>
 
     <div class="container">
@@ -96,6 +96,9 @@
     <!-- endbuild -->
 
     <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/velocity/velocity.js"></script>
+    <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+    <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.velocity.js"></script>
     <!-- <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>

@@ -4,7 +4,8 @@
   "dependencies": {
     "bootstrap-sass": "~3.3.5",
     "modernizr": "~2.8.1",
-    "scrollmagic": "^2.0.5"
+    "scrollmagic": "^2.0.5",
+    "velocity": "^1.2.3"
   },
   "overrides": {
     "bootstrap-sass": {
