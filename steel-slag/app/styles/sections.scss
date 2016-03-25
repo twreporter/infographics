@@ -99,6 +99,13 @@
   background: url(../images/bg_middle_low.jpg);
 }
 
+#scene-5 .image-bg {
+  @include hidpi(1.5) {
+    background: url(../images/bg_bottom_high.jpg);
+  }
+  background: url(../images/bg_bottom_low.jpg);
+}
+
 .content-block {
   padding-top: 6em;
   padding-bottom: 3em;
