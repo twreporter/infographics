@@ -63,72 +63,68 @@
       </div>
     </section>
 
-    <section>
-      <div id="scene-3" class="container">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <div class="wrap">
-              <h2>Magic Happens Here</h2>
-              <div class="animation" id="animation-1"><i class="fa fa-heart"></i></div>
+    <section id="scene-3" class="section-chapter-title">
+      <div class="image-box">
+        <div class="image-bg"></div>
+        <div class="image-bg blurred-image"></div>
+      </div>
+      <div class="container">
+        <div class="col-md-10 col-md-offset-1 text-center">
+          <h2 class="green-text">全國污染土地大調查</h2>
+          <h1 class="white-text">
+              假的大標假的大標假的大標假的大標假，大標假的大
+            </h1>
+        </div>
+      </div>
+      <a class="scroll-down-btn" href="#"><img src="images/scroll_down_btn.svg" /></a>
+    </section>
+
+
+    <section id="scene-google-map" class="wheat-dark-bg">
+      <div class="row">
+        <div class="col-md-8">
+          <div id="map" style="height: 600px;"></div>
+        </div>
+        <div class="col-md-4">
+          <div class="onoffToggleOuter pull-right onoffToggle-purple">
+            <div class="onoffToggle">
+              <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setAgricultureToggle()" id="myonoffToggle1" checked>
+              <label class="onoffToggle-label" for="myonoffToggle1">
+                  <span class="onoffToggle-inner"></span>
+                  <span class="onoffToggle-switch"></span>
+              </label>
             </div>
+            <span class="toggleDescription">一般農業區</span>
           </div>
 
+          <div class="onoffToggleOuter pull-right onoffToggle-yellow" data-toggle="tooltip" data-placement="bottom" title="特定農業區指非都市土地中的優良農地或曾經投資建設重大農業改良設施，經會同農業主管主管機關認為必須加以特別保護而劃定者。">
+            <div class="onoffToggle">
+              <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setSpecificToggle()" id="myonoffToggle2" checked>
+              <label class="onoffToggle-label" for="myonoffToggle2">
+                  <span class="onoffToggle-inner"></span>
+                  <span class="onoffToggle-switch"></span>
+              </label>
+            </div>
+            <span class="toggleDescription">特定農業區</span>
+          </div>
+
+          <div class="onoffToggleOuter pull-right">
+            <div class="onoffToggle">
+              <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setMountainToggle()" id="myonoffToggle0" checked>
+              <label class="onoffToggle-label" for="myonoffToggle0">
+                  <span class="onoffToggle-inner"></span>
+                  <span class="onoffToggle-switch"></span>
+              </label>
+            </div>
+            <span class="toggleDescription">山坡地</span>
+          </div>
         </div>
       </div>
     </section>
-
 
   </main>
 
   <div class="container">
-    <div class="header">
-      <ul class="nav nav-pills pull-right">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <h3 class="text-muted">全國土地污染大調查</h3>
-    </div>
-
-    <section id="cd-google-map">
-      <div class="row">
-        <div class="onoffToggleOuter pull-right onoffToggle-purple">
-          <div class="onoffToggle">
-            <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setAgricultureToggle()" id="myonoffToggle1" checked>
-            <label class="onoffToggle-label" for="myonoffToggle1">
-                <span class="onoffToggle-inner"></span>
-                <span class="onoffToggle-switch"></span>
-            </label>
-          </div>
-          <span class="toggleDescription">一般農業區</span>
-        </div>
-
-        <div class="onoffToggleOuter pull-right onoffToggle-yellow" data-toggle="tooltip" data-placement="bottom" title="特定農業區指非都市土地中的優良農地或曾經投資建設重大農業改良設施，經會同農業主管主管機關認為必須加以特別保護而劃定者。">
-          <div class="onoffToggle">
-            <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setSpecificToggle()" id="myonoffToggle2" checked>
-            <label class="onoffToggle-label" for="myonoffToggle2">
-                <span class="onoffToggle-inner"></span>
-                <span class="onoffToggle-switch"></span>
-            </label>
-          </div>
-          <span class="toggleDescription">特定農業區</span>
-        </div>
-
-        <div class="onoffToggleOuter pull-right">
-          <div class="onoffToggle">
-            <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setMountainToggle()" id="myonoffToggle0" checked>
-            <label class="onoffToggle-label" for="myonoffToggle0">
-                <span class="onoffToggle-inner"></span>
-                <span class="onoffToggle-switch"></span>
-            </label>
-          </div>
-          <span class="toggleDescription">山坡地</span>
-        </div>
-      </div>
-      <div class="row">
-        <div id="map" style="height: 600px;"></div>
-      </div>
-    </section>
 
     <div class="jumbotron">
       <h1>'Allo, 'Allo!</h1>
