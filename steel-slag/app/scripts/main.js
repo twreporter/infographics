@@ -1,4 +1,7 @@
 $(function() {
+  // enable Bootstrap Tooltips
+  $('[data-toggle="tooltip"]').tooltip();
+
   // initiate ScrollMagic
   let controller = new ScrollMagic.Controller();
 
@@ -10,5 +13,6 @@ $(function() {
   // .setPin("#scene-1")
   .setVelocity("#scene-1 .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
   .addTo(controller);
+
 
 });

@@ -1,0 +1,113 @@
+@import "./variables.scss";
+
+.onoffToggleOuter {
+  margin: 5px 20px 5px 0;
+  display: inline-block;
+}
+.onoffToggleOuter .toggleDescription {
+  vertical-align: middle;
+  margin-top: -18px;
+  display: inline-block;
+  padding-left: 3px;
+}
+.onoffToggle {
+  position: relative;
+  width: 60px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  display: inline-block;
+}
+.onoffToggle-checkbox {
+  display: none;
+}
+.onoffToggle-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid $green;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.onoffToggle-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffToggle-inner:after,
+.onoffToggle-inner:before {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  line-height: 26px;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.onoffToggle-inner:before {
+  content: "\e013";
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  padding-left: 10px;
+  background-color: #FFFFFF;
+  color: $green;
+}
+.onoffToggle-inner:after {
+  content: "\e014";
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  padding-right: 15px;
+  background-color: #FFFFFF;
+  color: $gray-dark;
+  text-align: right;
+}
+.onoffToggle-switch {
+  display: block;
+  width: 10px;
+  margin: 0;
+  background: $green;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 50px;
+  transition: all 0.3s ease-in 0s;
+}
+.onoffToggle-checkbox:checked + .onoffToggle-label .onoffToggle-inner {
+  margin-left: 0;
+}
+.onoffToggle-checkbox:checked + .onoffToggle-label .onoffToggle-switch {
+  width: 25px;
+  right: 0;
+}
+
+.onoffToggle-purple {
+  .onoffToggle-label {
+    border-color: $purple;
+  }
+  .onoffToggle-inner:before {
+    color: $purple;
+  }
+  .onoffToggle-switch {
+    background: $purple;
+  }
+}
+
+.onoffToggle-yellow {
+  .onoffToggle-label {
+    border-color: $yellow;
+  }
+  .onoffToggle-inner:before {
+    color: $yellow;
+  }
+  .onoffToggle-switch {
+    background: $yellow;
+  }
+}
