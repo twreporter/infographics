@@ -1,5 +1,6 @@
 $icon-font-path: '../fonts/';
 
+@import "bourbon";
 @import "./variables.scss";
 @import "./bootswatch.scss";
 @import "./background.scss";
@@ -20,8 +21,11 @@ $icon-font-path: '../fonts/';
 
 /* Space out content a bit */
 body {
-  // padding-top: 20px;
-  // padding-bottom: 20px;
+  overflow-x: hidden;
+}
+
+@include selection {
+  background-color: $green;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */

@@ -1,6 +1,10 @@
 @import "bourbon";
 @import "./variables.scss";
 
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
 .blurred-bg {
   opacity:0;
   filter: blur(20px) brightness(0.7);
@@ -140,5 +144,60 @@
     margin: -0.3em 0 0 -0.7em;
     font-size: 24px;
     line-height: 1.5;
+  }
+}
+
+.image-slider {
+  margin: 26px -15px;
+  @media (min-width: $screen-md-min) {
+    margin-left: -7em;
+    margin-right: -7em;
+  }
+  @media (min-width: $screen-lg-min) {
+    margin-left: -7em;
+    margin-right: -13em;
+  }
+
+  .slider-description {
+    padding: 1em;
+    padding-bottom: 3.6em;
+    p {
+      padding: 0.5em;
+    }
+    @media (min-width: $screen-md-min) {
+      margin-left: -8px;
+      padding-top: 5em;
+      padding-bottom: 10em;
+    }
+  }
+
+  .carousel-inner {
+    overflow: visible;
+  }
+
+  .row-eq-height {
+    // make the description box and the image on the left of the same height
+    @media (min-width: $screen-md-min) {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+    }
+  }
+
+  .slide-controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-left: 1.6em;
+  }
+
+  .slide-control-btn {
+    padding: 0.6em;
+    img {
+      width: 3em;
+      height: 3em;
+      margin-bottom: 1em;
+    }
   }
 }

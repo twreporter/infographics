@@ -1,4 +1,4 @@
-$(function() {
+$( document ).ready(function() {
   // enable Bootstrap Tooltips
   $('[data-toggle="tooltip"]').tooltip();
 
@@ -10,6 +10,7 @@ $(function() {
     triggerHook: 'onLeave',
     offset: 20
   })
+  // .setPin("#scene-1")
   .setVelocity("#scene-1 .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
   .addTo(controller);
 
@@ -17,7 +18,7 @@ $(function() {
     triggerElement: '#scene-2',
     triggerHook: 'onLeave',
   })
-  .setPin("#scene-2")
+  // .setPin("#scene-2")
   .addTo(controller);
 
   // middle chapter
@@ -33,9 +34,9 @@ $(function() {
   let scene4 = new ScrollMagic.Scene({
     triggerElement: '#scene-4',
     triggerHook: 'onLeave',
-    offset: '20%'
+    offset: 10
   })
-  .setPin("#scene-4")
+  // .setPin("#scene-4")
   .addTo(controller);
 
 
@@ -46,5 +47,31 @@ $(function() {
   })
   .setPin("#scene-google-map")
   .addTo(controller);
+
+
+  // enable carousel
+  $('.carousel').carousel({
+    interval: 2000
+  });
+  // enable mobile sliding
+  $('.carousel').bcSwipe({ threshold: 50 });
+  $('#environment-slider').on('slid.bs.carousel', checkSlider);
+
+  function checkSlider() {
+    // check if it is the begin/end of the slider
+    var $slider = $('#environment-slider');
+    if ($('.carousel-inner .item:first').hasClass('active')) {
+      // begin of the slider
+      $slider.find('.left-btn').attr('src', "images/left_btn.svg");
+      $slider.find('.right-btn').attr('src', "images/right_btn_active.svg");
+    } else if ($('.carousel-inner .item:last').hasClass('active')) {
+      // end of the slider
+      $slider.find('.left-btn').attr('src', "images/left_btn_active.svg");
+      $slider.find('.right-btn').attr('src', "images/right_btn.svg");
+    } else {
+      $slider.find('.left-btn').attr('src', "images/left_btn_active.svg");
+      $slider.find('.right-btn').attr('src', "images/right_btn_active.svg");
+    }
+  }
 
 });
