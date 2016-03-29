@@ -1,0 +1,70 @@
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+#g-soil_layer-_____1{
+  position:relative;
+  overflow:hidden;
+}
+.g-aiAbs{
+  position:absolute;
+}
+.g-aiImg{
+  display:block;
+  width:100% !important;
+}
+
+.g-aiPStyle {
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing:0.04166666666667em;
+  @media (max-width: $screen-xs-max) {
+    font-size: 14px;
+    line-height: 1;
+  }
+}
+
+.g-aiTitleStyle {
+  font-size: 43px;
+  line-height: 1.2;
+  letter-spacing:0.08333333333333em;
+  @media (max-width: $screen-xs-max) {
+    font-size: 28px;
+    line-height: 1;
+  }
+}
+
+#g-soil_layer-_____1 p{
+  font-size:13px;
+  line-height:18px;
+  margin:0;
+}
+#g-soil_layer-_____1 .g-aiPstyle0 {
+  @extend .g-aiPStyle;
+  color:#9ca829;
+}
+#g-soil_layer-_____1 .g-aiPstyle1 {
+  @extend .g-aiTitleStyle;
+  color:#27d6a4;
+}
+#g-soil_layer-_____1 .g-aiPstyle2 {
+  @extend .g-aiPStyle;
+  color:#27d6a4;
+}
+#g-soil_layer-_____1 .g-aiPstyle3 {
+  @extend .g-aiTitleStyle;
+  color:#666666;
+}
+#g-soil_layer-_____1 .g-aiPstyle4 {
+  @extend .g-aiPStyle;
+  color:#666666;
+}
+#g-soil_layer-_____1 .g-aiPstyle5 {
+  @extend .g-aiTitleStyle;
+  color:#bea68e;
+}
+#g-soil_layer-_____1 .g-aiPstyle6 {
+  @extend .g-aiPStyle;
+  color:#bea68e;
+}
+.g-aiPtransformed p { white-space: nowrap; }
