@@ -1,3 +1,7 @@
+const ANIMATION = {
+  fadeInUp: { opacity: [1, 0], translateY: [0, '100%']}
+};
+
 $( document ).ready(function() {
   // enable Bootstrap Tooltips
   $('[data-toggle="tooltip"]').tooltip();
@@ -37,6 +41,22 @@ $( document ).ready(function() {
     offset: 10
   })
   // .setPin("#scene-4")
+  .addTo(controller);
+
+  let gSoil = new ScrollMagic.Scene({
+    triggerElement: '#g-soil',
+    triggerHook: 'onEnter',
+    offset: 50
+  })
+  // .setPin("#scene-1")
+  // .setVelocity(".soil-bottom", "fadeIn", {duration: 500, easing: "linear", delay: 500})
+  .setVelocity("#g-soil", { translateX: 0 }, {duration: 0, complete: function() {
+    console.log("complete", this);
+    $(".soil-bottom").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 100});
+    $(".soil-middle").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 300});
+    $(".soil-top").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 600});
+    $(".soil-tree").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 800});
+  }})
   .addTo(controller);
 
 
