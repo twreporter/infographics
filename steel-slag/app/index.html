@@ -104,7 +104,7 @@
                 <div class="item active">
                   <div class="row row-eq-height">
                     <div class="col-md-9">
-                      <img class="img-responsive" src="images/slider-img0.png">
+                      <img class="img-fit-width" src="images/slider-img0.png">
                     </div>
                     <div class="col-md-3 wheat-dark-bg slider-description">
                       <p>00000 - 我們將位在高雄市旗山區圓子潭段的掩埋場址，疊上「地下水分區範圍圖」、「自來水水質水量保護區圖」發現都在兩者範圍內。</p>
@@ -116,7 +116,7 @@
                 <div class="item">
                   <div class="row row-eq-height">
                     <div class="col-md-9">
-                      <img class="img-responsive" src="images/slider-img1.png">
+                      <img class="img-fit-width" src="images/slider-img1.png">
                     </div>
                     <div class="col-md-3 wheat-dark-bg slider-description">
                       <p>11111 - 我們將位在高雄市旗山區圓子潭段的掩埋場址，疊上「地下水分區範圍圖」、「自來水水質水量保護區圖」發現都在兩者範圍內。</p>
@@ -161,10 +161,69 @@
       </div>
     </section>
 
-    <section id="scene-birdview" class="section-chapter-title">
-      <div class="image-box">
-        <div class="image-bg"></div>
-        <div class="image-bg blurred-image"></div>
+    <section id="scene-birdview" class="birdview-outer">
+      <div class="birdview-container">
+        <div class="birdview-box">
+          <div class="row">
+            <img class="birdview-img" src="images/earth/2013.2.9.jpg"/>
+          </div>
+          <div class="row birdview-description">
+            <div class="col-md-3 col-md-push-2 birdview-colorbox white-text">
+              <div class="birdview-text">
+                <h4>2013年2月9日</h4>
+                <p>
+                  近幾年，居民發覺有大卡車頻繁出入附近農村，一問之下才發現業者在此傾倒建築廢棄物，原因是池子太深，地主想要石斑魚，因此需要填高水池。在2011年，地主黃胤鴒更向高雄市政府提出申請，想以中鋼轉爐石回填農地，事件就此開始。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="birdview-box">
+          <div class="row">
+            <img class="birdview-img" src="images/earth/2013.12.5.jpg"/>
+          </div>
+          <div class="row birdview-description">
+            <div class="col-md-3 col-md-push-2 birdview-colorbox white-text">
+              <div class="birdview-text">
+                <h4>2013年12月5日</h4>
+                <p>
+                  近幾年，居民發覺有大卡車頻繁出入附近農村，一問之下才發現業者在此傾倒建築廢棄物，原因是池子太深，地主想要石斑魚，因此需要填高水池。在2011年，地主黃胤鴒更向高雄市政府提出申請，想以中鋼轉爐石回填農地，事件就此開始。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="birdview-box">
+          <div class="row">
+            <img class="birdview-img" src="images/earth/2014.1.1.jpg"/>
+          </div>
+          <div class="row birdview-description">
+            <div class="col-md-3 col-md-push-2 birdview-colorbox white-text">
+              <div class="birdview-text">
+                <h4>2014年1月1日</h4>
+                <p>
+                  近幾年，居民發覺有大卡車頻繁出入附近農村，一問之下才發現業者在此傾倒建築廢棄物，原因是池子太深，地主想要石斑魚，因此需要填高水池。在2011年，地主黃胤鴒更向高雄市政府提出申請，想以中鋼轉爐石回填農地，事件就此開始。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="birdview-box">
+          <div class="row">
+            <img class="birdview-img" src="images/earth/2014.2.16.jpg"/>
+          </div>
+          <div class="row birdview-description">
+            <div class="col-md-3 col-md-push-2 birdview-colorbox white-text">
+              <div class="birdview-text">
+                <h4>2014年2月16日</h4>
+                <p>
+                  近幾年，居民發覺有大卡車頻繁出入附近農村，一問之下才發現業者在此傾倒建築廢棄物，原因是池子太深，地主想要石斑魚，因此需要填高水池。在2011年，地主黃胤鴒更向高雄市政府提出申請，想以中鋼轉爐石回填農地，事件就此開始。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -227,7 +286,7 @@
       </div>
     </section>
 
-    <section id="scene-6" class="section-chapter-title">
+    <section id="chapter-bottom" class="section-chapter-title">
       <div class="image-box">
         <div class="image-bg"></div>
         <div class="image-bg blurred-image"></div>
@@ -315,9 +374,6 @@
     </div>
   </div>
 
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChDAwKn1Udj2EOrr0iSbjUuvBIMzNnof4&callback=initMap" async defer></script>
-
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
     (function(b, o, i, l, e, r) {
@@ -339,15 +395,18 @@
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <script src="/bower_components/velocity/velocity.ui.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:js scripts/plugins.js -->
   <script src="/bower_components/velocity/velocity.js"></script>
+  <script src="/bower_components/velocity/velocity.ui.js"></script>
+  <script src="/bower_components/gsap/src/minified/TweenMax.min.js"></script>
+  <script src="/bower_components/gsap/src/minified/TimelineMax.min.js"></script>
   <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
   <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.velocity.js"></script>
-
+  <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+  <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
   <!-- <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script> -->
@@ -367,6 +426,10 @@
   <script src="scripts/main.js"></script>
   <script src="scripts/map.js"></script>
   <!-- endbuild -->
+
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChDAwKn1Udj2EOrr0iSbjUuvBIMzNnof4&callback=initMap" async defer></script>
+
 </body>
 
 </html>

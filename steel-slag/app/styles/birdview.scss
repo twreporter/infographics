@@ -1,0 +1,59 @@
+@import "./variables.scss";
+
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+.birdview-outer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.birdview-container {
+  width: 400%;  // 4X
+  perspective: 1000;
+}
+
+.birdview-box {
+  position: relative;
+  width: 25%;   // 1/4
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .birdview-img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .birdview-description {
+    max-width: 100%;
+    margin: 0;
+
+    @media (min-width: $screen-md-min) {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .birdview-colorbox {
+    margin: 0;
+    background: rgba($wheat-dark, 0.85);
+    line-height: 2;
+    padding: 2em 1.5em;
+  }
+}
+
+.img-fit-width {
+  display: block;
+  width: 100%;
+  height: auto;
+}

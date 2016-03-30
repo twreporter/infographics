@@ -46,18 +46,24 @@ $( document ).ready(function() {
   let gSoil = new ScrollMagic.Scene({
     triggerElement: '#g-soil',
     triggerHook: 'onEnter',
-    offset: 50
+    offset: 0
   })
-  // .setPin("#scene-1")
-  // .setVelocity(".soil-bottom", "fadeIn", {duration: 500, easing: "linear", delay: 500})
   .setVelocity("#g-soil", { translateX: 0 }, {duration: 0, complete: function() {
-    console.log("complete", this);
-    $(".soil-bottom").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 100});
-    $(".soil-middle").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 300});
-    $(".soil-top").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 600});
-    $(".soil-tree").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 800});
+    $(".soil-bottom").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 300});
+    $(".soil-middle").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 600});
+    $(".soil-top").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 1000});
+    $(".soil-tree").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 1200});
+
   }})
   .addTo(controller);
+
+  // let gSoilExit = new ScrollMagic.Scene({
+  //   triggerElement: '#g-soil',
+  //   triggerHook: 'onLeave',
+  //   offset: 50
+  // })
+  // .removeVelocity(true)
+  // .addTo(controller);
 
 
   let sceneMap = new ScrollMagic.Scene({
@@ -66,6 +72,40 @@ $( document ).ready(function() {
     offset: '50%'
   })
   .setPin("#scene-google-map")
+  .addTo(controller);
+
+  // define movement of panels
+	let wipeAnimation = new TimelineMax()
+		// animate to 2nd panel
+		.to(".birdview-container", 0.5, {z: -150})		// move back in 3D space
+    // .to(".birdview-text", 0.5, {opacity: 1})
+    // .to(".birdview-text", 1, {opacity: 0.5})
+		.to(".birdview-container", 1,   {x: "-25%"})	// move in to first panel
+		.to(".birdview-container", 0.5, {z: 0})				// move back to origin in 3D space
+
+    // animate to 3rd panel
+		.to(".birdview-container", 0.5, {z: -150})		// move back in 3D space
+    // .to(".birdview-text", 0.5, {opacity: 1})
+    // .to(".birdview-text", 1, {opacity: 0.5})
+		.to(".birdview-container", 1,   {x: "-50%"})	// move in to first panel
+		.to(".birdview-container", 0.5, {z: 0})				// move back to origin in 3D space
+
+    // animate to 4th panel
+		.to(".birdview-container", 0.5, {z: -150})		// move back in 3D space
+    // .to(".birdview-text", 0.5, {opacity: 1})
+    // .to(".birdview-text", 1, {opacity: 0.5})
+		.to(".birdview-container", 1,   {x: "-75%"})	// move in to first panel
+		.to(".birdview-container", 0.5, {z: 0})				// move back to origin in 3D space
+    ;
+
+  let sceneBirdview = new ScrollMagic.Scene({
+    triggerElement: '#scene-birdview',
+    triggerHook: 'onLeave',
+    duration: "200%"
+  })
+  .setPin("#scene-birdview")
+  .setTween(wipeAnimation)
+  .addIndicators() // add indicators (plugin)
   .addTo(controller);
 
 
