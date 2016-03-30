@@ -10,16 +10,23 @@
 }
 
 .birdview-container {
-  width: 400%;  // 4X
-  perspective: 1000;
+  width: 100%;
+  position: relative;
+
+  .first {
+    position: relative !important;
+    opacity: 1;
+  }
 }
 
 .birdview-box {
-  position: relative;
-  width: 25%;   // 1/4
+  position: absolute;
+
+  width: 100%;
   float: left;
   margin-left: 0;
   margin-right: 0;
+  opacity: 0;
 
   .row {
     margin-left: 0;
@@ -35,11 +42,12 @@
   .birdview-description {
     max-width: 100%;
     margin: 0;
+    top: 100%;
 
     @media (min-width: $screen-md-min) {
       position: absolute;
       width: 100%;
-      top: 50%;
+      // top: 50%;
       transform: translateY(-50%);
     }
   }

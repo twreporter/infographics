@@ -76,27 +76,44 @@ $( document ).ready(function() {
 
   // define movement of panels
 	let wipeAnimation = new TimelineMax()
-		// animate to 2nd panel
-		.to(".birdview-container", 0.5, {z: -150})		// move back in 3D space
-    // .to(".birdview-text", 0.5, {opacity: 1})
-    // .to(".birdview-text", 1, {opacity: 0.5})
-		.to(".birdview-container", 1,   {x: "-25%"})	// move in to first panel
-		.to(".birdview-container", 0.5, {z: 0})				// move back to origin in 3D space
+    .to("#1st-birdview .birdview-description", 0, {top: "100%"})
+    .to("#1st-birdview .birdview-description", 1, {top: 0})
+    .to("#2nd-birdview", 1, {opacity: 1})
 
-    // animate to 3rd panel
-		.to(".birdview-container", 0.5, {z: -150})		// move back in 3D space
-    // .to(".birdview-text", 0.5, {opacity: 1})
-    // .to(".birdview-text", 1, {opacity: 0.5})
-		.to(".birdview-container", 1,   {x: "-50%"})	// move in to first panel
-		.to(".birdview-container", 0.5, {z: 0})				// move back to origin in 3D space
+    .to("#2nd-birdview .birdview-description", 0, {top: "100%"})
+    .to("#2nd-birdview .birdview-description", 1, {top: 0})
+    .to("#3rd-birdview", 1, {opacity: 1})
 
-    // animate to 4th panel
-		.to(".birdview-container", 0.5, {z: -150})		// move back in 3D space
-    // .to(".birdview-text", 0.5, {opacity: 1})
-    // .to(".birdview-text", 1, {opacity: 0.5})
-		.to(".birdview-container", 1,   {x: "-75%"})	// move in to first panel
-		.to(".birdview-container", 0.5, {z: 0})				// move back to origin in 3D space
+    .to("#3rd-birdview .birdview-description", 0, {top: "100%"})
+    .to("#3rd-birdview .birdview-description", 1, {top: 0})
+    .to("#4th-birdview", 1, {opacity: 1})
+
+    .to("#4th-birdview .birdview-description", 0, {top: "100%"})
+    .to("#4th-birdview .birdview-description", 1, {top: 0})
+
     ;
+
+		// // animate to 2nd panel
+		// .to(".birdview-container", 0.5, {z: -150})		// move back in 3D space
+    // // .to(".birdview-text", 0.5, {opacity: 1})
+    // // .to(".birdview-text", 1, {opacity: 0.5})
+		// .to(".birdview-container", 1,   {x: "-25%"})	// move in to first panel
+		// .to(".birdview-container", 0.5, {z: 0})				// move back to origin in 3D space
+    //
+    // // animate to 3rd panel
+		// .to(".birdview-container", 0.5, {z: -150})		// move back in 3D space
+    // // .to(".birdview-text", 0.5, {opacity: 1})
+    // // .to(".birdview-text", 1, {opacity: 0.5})
+		// .to(".birdview-container", 1,   {x: "-50%"})	// move in to first panel
+		// .to(".birdview-container", 0.5, {z: 0})				// move back to origin in 3D space
+    //
+    // // animate to 4th panel
+		// .to(".birdview-container", 0.5, {z: -150})		// move back in 3D space
+    // // .to(".birdview-text", 0.5, {opacity: 1})
+    // // .to(".birdview-text", 1, {opacity: 0.5})
+		// .to(".birdview-container", 1,   {x: "-75%"})	// move in to first panel
+		// .to(".birdview-container", 0.5, {z: 0})				// move back to origin in 3D space
+    // ;
 
   let sceneBirdview = new ScrollMagic.Scene({
     triggerElement: '#scene-birdview',
@@ -105,7 +122,7 @@ $( document ).ready(function() {
   })
   .setPin("#scene-birdview")
   .setTween(wipeAnimation)
-  .addIndicators() // add indicators (plugin)
+  // .addIndicators() // add indicators (plugin)
   .addTo(controller);
 
 
