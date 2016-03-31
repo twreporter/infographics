@@ -34,13 +34,13 @@ gulp.task('scripts', () => {
 });
 
 function lint(files, options) {
-  return () => {
-    // return gulp.src(files)
-    //   .pipe(reload({stream: true, once: true}))
-    //   .pipe($.eslint(options))
-    //   .pipe($.eslint.format())
-    //   .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
-  };
+  // return () => {
+  //   return gulp.src(files)
+  //     .pipe(reload({stream: true, once: true}))
+  //     .pipe($.eslint(options))
+  //     .pipe($.eslint.format())
+  //     .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
+  // };
 }
 const testLintOptions = {
   env: {
@@ -58,6 +58,11 @@ gulp.task('html', ['styles', 'scripts'], () => {
     .pipe($.if('*.css', $.cssnano()))
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(gulp.dest('dist'));
+});
+
+gulp.task('assets', () => {
+  return gulp.src('app/assets/**/*')
+    .pipe(gulp.dest('dist/assets'));
 });
 
 gulp.task('images', () => {

@@ -123,7 +123,7 @@ function initMap() {
   contourOverlay.setMap(map);
 
   var ctaLayer = new google.maps.KmlLayer({
-    url:  'images/TWQPROT.kml'
+    url:  'assets/TWQPROT.kml'
   });
   ctaLayer.setMap(map);
 
