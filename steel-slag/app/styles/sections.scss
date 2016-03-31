@@ -47,6 +47,10 @@
   }
 }
 
+#cover-video {
+  filter: blur(3px) brightness(0.7);
+}
+
 .image-bg {
   position: absolute;
   background-position: center top !important;
@@ -96,7 +100,7 @@
     position: absolute;
   }
 }
-#scene-3 .image-bg {
+#chapter-middle .image-bg {
   @include hidpi(1.5) {
     background: url(../images/bg_middle_high.jpg);
   }

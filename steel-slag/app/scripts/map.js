@@ -122,6 +122,11 @@ function initMap() {
     imageBounds, overlayOpts);
   contourOverlay.setMap(map);
 
+  var ctaLayer = new google.maps.KmlLayer({
+    url:  'images/TWQPROT.kml'
+  });
+  ctaLayer.setMap(map);
+
 }
 
 function setToggle (isOn, overlay) {

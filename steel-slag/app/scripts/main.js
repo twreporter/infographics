@@ -9,14 +9,18 @@ $( document ).ready(function() {
   // initiate ScrollMagic
   let controller = new ScrollMagic.Controller();
 
-  let scene1 = new ScrollMagic.Scene({
-    triggerElement: '#scene-1',
-    triggerHook: 'onLeave',
-    offset: 20
-  })
-  // .setPin("#scene-1")
-  .setVelocity("#scene-1 .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
-  .addTo(controller);
+  // // cover video
+  // let scene1 = new ScrollMagic.Scene({
+  //   triggerElement: '#scene-1',
+  //   triggerHook: 'onLeave',
+  //   offset: 20
+  // })
+  // // .setPin("#scene-1")
+  // // .setVelocity("#scene-1 .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
+  // .setTween(TweenMax.to('#cover-video', 0.5, {
+  //   filter: blur(5px) brightness(0.7)
+  // }))
+  // .addTo(controller);
 
   let scene2 = new ScrollMagic.Scene({
     triggerElement: '#scene-2',
@@ -26,13 +30,23 @@ $( document ).ready(function() {
   .addTo(controller);
 
   // middle chapter
-  let scene3 = new ScrollMagic.Scene({
-    triggerElement: '#scene-3',
+  let chapterMiddle = new ScrollMagic.Scene({
+    triggerElement: '#chapter-middle',
     triggerHook: 'onLeave',
     offset: '50%'
   })
   // .setPin("#scene-3")
-  .setVelocity("#scene-3 .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
+  .setVelocity("#chapter-middle .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
+  .addTo(controller);
+
+  // bottom chapter
+  let chapterBottom = new ScrollMagic.Scene({
+    triggerElement: '#chapter-bottom',
+    triggerHook: 'onLeave',
+    offset: '50%'
+  })
+  // .setPin("#scene-3")
+  .setVelocity("#chapter-bottom .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
   .addTo(controller);
 
   let scene4 = new ScrollMagic.Scene({
@@ -57,21 +71,13 @@ $( document ).ready(function() {
   }})
   .addTo(controller);
 
-  // let gSoilExit = new ScrollMagic.Scene({
-  //   triggerElement: '#g-soil',
-  //   triggerHook: 'onLeave',
-  //   offset: 50
-  // })
-  // .removeVelocity(true)
-  // .addTo(controller);
-
 
   let sceneMap = new ScrollMagic.Scene({
     triggerElement: '#scene-google-map',
     triggerHook: 'onLeave',
     offset: '50%'
   })
-  .setPin("#scene-google-map")
+  // .setPin("#scene-google-map")
   .addTo(controller);
 
   // define movement of panels
@@ -90,30 +96,7 @@ $( document ).ready(function() {
 
     .to("#4th-birdview .birdview-description", 0, {top: "100%"})
     .to("#4th-birdview .birdview-description", 1, {top: 0})
-
     ;
-
-		// // animate to 2nd panel
-		// .to(".birdview-container", 0.5, {z: -150})		// move back in 3D space
-    // // .to(".birdview-text", 0.5, {opacity: 1})
-    // // .to(".birdview-text", 1, {opacity: 0.5})
-		// .to(".birdview-container", 1,   {x: "-25%"})	// move in to first panel
-		// .to(".birdview-container", 0.5, {z: 0})				// move back to origin in 3D space
-    //
-    // // animate to 3rd panel
-		// .to(".birdview-container", 0.5, {z: -150})		// move back in 3D space
-    // // .to(".birdview-text", 0.5, {opacity: 1})
-    // // .to(".birdview-text", 1, {opacity: 0.5})
-		// .to(".birdview-container", 1,   {x: "-50%"})	// move in to first panel
-		// .to(".birdview-container", 0.5, {z: 0})				// move back to origin in 3D space
-    //
-    // // animate to 4th panel
-		// .to(".birdview-container", 0.5, {z: -150})		// move back in 3D space
-    // // .to(".birdview-text", 0.5, {opacity: 1})
-    // // .to(".birdview-text", 1, {opacity: 0.5})
-		// .to(".birdview-container", 1,   {x: "-75%"})	// move in to first panel
-		// .to(".birdview-container", 0.5, {z: 0})				// move back to origin in 3D space
-    // ;
 
   let sceneBirdview = new ScrollMagic.Scene({
     triggerElement: '#scene-birdview',
