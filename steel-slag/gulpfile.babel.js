@@ -35,11 +35,11 @@ gulp.task('scripts', () => {
 
 function lint(files, options) {
   return () => {
-    return gulp.src(files)
-      .pipe(reload({stream: true, once: true}))
-      .pipe($.eslint(options))
-      .pipe($.eslint.format())
-      .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
+    // return gulp.src(files)
+    //   .pipe(reload({stream: true, once: true}))
+    //   .pipe($.eslint(options))
+    //   .pipe($.eslint.format())
+    //   .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
   };
 }
 const testLintOptions = {
