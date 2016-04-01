@@ -172,7 +172,7 @@
             <img class="birdview-img" src="images/earth/2013.2.9.jpg"/>
           </div>
           <div class="row birdview-description">
-            <div class="col-md-3 col-md-push-2 birdview-colorbox white-text">
+            <div class="col-md-3 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
               <div class="birdview-text">
                 <h3>2013年2月9日</h3>
                 <p>
@@ -187,7 +187,7 @@
             <img class="birdview-img" src="images/earth/2013.12.5.jpg"/>
           </div>
           <div class="row birdview-description">
-            <div class="col-md-3 col-md-push-2 birdview-colorbox white-text">
+            <div class="col-md-3 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
               <div class="birdview-text">
                 <h3>2013年12月5日</h3>
                 <p>
@@ -202,7 +202,7 @@
             <img class="birdview-img" src="images/earth/2014.1.1.jpg"/>
           </div>
           <div class="row birdview-description">
-            <div class="col-md-3 col-md-push-2 birdview-colorbox white-text">
+            <div class="col-md-3 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
               <div class="birdview-text">
                 <h3>2014年1月1日</h3>
                 <p>
@@ -217,7 +217,7 @@
             <img class="birdview-img" src="images/earth/2014.2.16.jpg"/>
           </div>
           <div class="row birdview-description">
-            <div class="col-md-3 col-md-push-2 birdview-colorbox white-text">
+            <div class="col-md-3 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
               <div class="birdview-text">
                 <h3>2014年2月16日</h3>
                 <p>
@@ -311,7 +311,29 @@
           <div id="map" style="height: 600px;"></div>
         </div>
         <div class="col-md-4">
-          <div class="onoffToggleOuter pull-right onoffToggle-purple">
+          <div class="onoffToggleOuter onoffToggle-purple" data-toggle="tooltip" data-placement="bottom" title="自民國64年起，劃設水源水質水量保護區，目的在於保護重要之水源，劃定範圍大體上為重要取水口上游之集水區，以維護水質與水量。">
+            <div class="onoffToggle">
+              <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setTapWaterToggle()" id="myonoffToggleW1" checked>
+              <label class="onoffToggle-label" for="myonoffToggleW1">
+                <span class="onoffToggle-inner"></span>
+                <span class="onoffToggle-switch"></span>
+              </label>
+            </div>
+            <span class="toggleDescription">自來水質水量(全國)</span>
+          </div>
+
+          <div class="onoffToggleOuter onoffToggle-purple" data-toggle="tooltip" data-placement="bottom" title="地下水分區多屬於地質學中之第四紀岩層，且在地形上多以海岸台地、河階台地與沖積平原出現等特性，目前劃分為九個地下水區。">
+            <div class="onoffToggle">
+              <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setGroundWaterToggle()" id="myonoffToggleW2" checked>
+              <label class="onoffToggle-label" for="myonoffToggleW2">
+                <span class="onoffToggle-inner"></span>
+                <span class="onoffToggle-switch"></span>
+              </label>
+            </div>
+            <span class="toggleDescription">地下水(全國)</span>
+          </div>
+
+          <div class="onoffToggleOuter onoffToggle-purple" data-toggle="tooltip" data-placement="bottom" title="特定農業區以外供農業使用之土地。">
             <div class="onoffToggle">
               <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setAgricultureToggle()" id="myonoffToggle1" checked>
               <label class="onoffToggle-label" for="myonoffToggle1">
@@ -319,10 +341,10 @@
                 <span class="onoffToggle-switch"></span>
               </label>
             </div>
-            <span class="toggleDescription">一般農業區</span>
+            <span class="toggleDescription">一般農業區(旗山)</span>
           </div>
 
-          <div class="onoffToggleOuter pull-right onoffToggle-yellow" data-toggle="tooltip" data-placement="bottom" title="特定農業區指非都市土地中的優良農地或曾經投資建設重大農業改良設施，經會同農業主管主管機關認為必須加以特別保護而劃定者。">
+          <div class="onoffToggleOuter onoffToggle-yellow" data-toggle="tooltip" data-placement="bottom" title="優良農地或曾經投資建設重大農業改良設施，經會同農業主管機關認為必須加以特別保護而劃定者。">
             <div class="onoffToggle">
               <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setSpecificToggle()" id="myonoffToggle2" checked>
               <label class="onoffToggle-label" for="myonoffToggle2">
@@ -330,10 +352,10 @@
                 <span class="onoffToggle-switch"></span>
               </label>
             </div>
-            <span class="toggleDescription">特定農業區</span>
+            <span class="toggleDescription">特定農業區(旗山)</span>
           </div>
 
-          <div class="onoffToggleOuter pull-right">
+          <div class="onoffToggleOuter" data-toggle="tooltip" data-placement="bottom" title="為保護自然生態資源、景觀、環境，與防治沖蝕、崩塌、地滑、土石流失等地質災害，及涵養水源等水土保育，依有關法規，會同有關機關劃定者。">
             <div class="onoffToggle">
               <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setMountainToggle()" id="myonoffToggle0" checked>
               <label class="onoffToggle-label" for="myonoffToggle0">
@@ -341,9 +363,11 @@
                 <span class="onoffToggle-switch"></span>
               </label>
             </div>
-            <span class="toggleDescription">山坡地</span>
+            <span class="toggleDescription">山坡地保育區(旗山)</span>
           </div>
         </div>
+
+        <small>資料來源：內政部地政司、水利署</small>
       </div>
     </section>
 

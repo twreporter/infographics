@@ -54,8 +54,9 @@ const styles = [{
 }];
 
 let map;
-let agricultureOverlay, specificOverlay, mountainOverlay, contourOverlay;
-let agricultureOn = true, specificOn = true, mountainOn = true, contourOn = true;
+let agricultureOverlay, specificOverlay, mountainOverlay, contourOverlay, tapWaterLayer, groundwaterLayer;
+let agricultureOn = true, specificOn = true, mountainOn = true, contourOn = true,
+    tapWaterOn, groundwaterOn;
 
 function initMap() {
   // Create a new StyledMapType object, passing it the array of styles,
@@ -68,7 +69,8 @@ function initMap() {
   // to the map type control.
   let mapOptions = {
     zoom: 12,
-    draggable: false,
+    draggable: true,         // avoid scrolling problem on mobile devices
+    scrollwheel: false,      // avoid scrolling problem on mobile devices
     center: new google.maps.LatLng(22.8702492, 120.4703258),
     mapTypeControlOptions: {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -95,6 +97,7 @@ function initMap() {
   let specificImage = 'images/layer_specific_agriculture.svg';
   let mountainImage = 'images/layer_mountain.svg';
   let contourImage = 'images/layer_contour.svg';
+  // let contourImage = 'images/test-outer.png';
 
   let imageBounds = {
     north: 23.0069,
@@ -106,6 +109,27 @@ function initMap() {
   let overlayOpts = {
     opacity: 0.7
   };
+
+  //  自來水水質水量保護區圖
+  tapWaterLayer = new google.maps.Data();
+  tapWaterLayer.loadGeoJson('assets/TWQPROT.json');
+  tapWaterLayer.setStyle({
+    fillColor: 'green',
+    strokeWeight: 0,
+    opacity: 0.5
+  });
+  tapWaterLayer.setMap(map);
+
+
+  // 地下水分區範圍圖
+  groundwaterLayer = new google.maps.Data();
+  groundwaterLayer.loadGeoJson('assets/GWREGION.json');
+  groundwaterLayer.setStyle({
+    fillColor: 'blue',
+    strokeWeight: 0,
+    opacity: 0.5
+  });
+  groundwaterLayer.setMap(map);
 
   agricultureOverlay = new google.maps.GroundOverlay(agricultureImage,
     imageBounds, overlayOpts);
@@ -123,10 +147,18 @@ function initMap() {
     imageBounds, overlayOpts);
   contourOverlay.setMap(map);
 
-  var ctaLayer = new google.maps.KmlLayer({
-    url:  'assets/TWQPROT.kml'
+  // set marker for the polluted point
+  let marker = new google.maps.Marker({
+      position: new google.maps.LatLng(22.949986, 120.516294),
+      title: "旗山污染場址",
+      animation: google.maps.Animation.DROP,
   });
-  ctaLayer.setMap(map);
+  marker.setMap(map);
+
+  // var ctaLayer = new google.maps.KmlLayer({
+  //   url:  'assets/TWQPROT.kml'
+  // });
+  // ctaLayer.setMap(map);
 
 }
 
@@ -151,4 +183,14 @@ function setSpecificToggle () {
 function setMountainToggle () {
   mountainOn = !mountainOn;
   setToggle(mountainOn, mountainOverlay);
+}
+
+function setTapWaterToggle () {
+  tapWaterOn = !tapWaterOn;
+  setToggle(tapWaterOn, tapWaterLayer);
+}
+
+function setGroundWaterToggle () {
+  groundwaterOn = !groundwaterOn;
+  setToggle(groundwaterOn, groundwaterLayer);
 }
