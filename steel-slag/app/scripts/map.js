@@ -88,11 +88,6 @@ function initMap() {
     mapTypeControl: false
   });
 
-
-  let bounds = new google.maps.LatLngBounds(
-    new google.maps.LatLng(23.0069, 120.2682),
-    new google.maps.LatLng(22.7646, 120.6699));
-
   let agricultureImage = 'images/layer_agriculture.svg';
   let specificImage = 'images/layer_specific_agriculture.svg';
   let mountainImage = 'images/layer_mountain.svg';
@@ -100,10 +95,10 @@ function initMap() {
   // let contourImage = 'images/test-outer.png';
 
   let imageBounds = {
-    north: 23.0069,
-    south: 22.7646,
-    east: 120.6699,
-    west: 120.2682
+    north: 23.0079,
+    south: 22.7462,
+    east: 120.6790,
+    west: 120.2666
   };
 
   let overlayOpts = {
@@ -116,7 +111,7 @@ function initMap() {
   tapWaterLayer.setStyle({
     fillColor: 'green',
     strokeWeight: 0,
-    opacity: 0.5
+    opacity: 0.1
   });
   tapWaterLayer.setMap(map);
 
@@ -127,7 +122,7 @@ function initMap() {
   groundwaterLayer.setStyle({
     fillColor: 'blue',
     strokeWeight: 0,
-    opacity: 0.5
+    opacity: 0.1
   });
   groundwaterLayer.setMap(map);
 

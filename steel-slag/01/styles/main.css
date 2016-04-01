@@ -24,7 +24,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */.birdview-outer{width:100%;overflow:hidden}.birdview-container{width:100%;position:relative}.birdview-container .first{position:relative!important;opacity:1}.birdview-box{position:absolute;width:100%;float:left;opacity:0}.birdview-box,.birdview-box .row{margin-left:0;margin-right:0}.birdview-box .birdview-img{width:100%;height:auto;margin:0}.birdview-box .birdview-description{max-width:100%;margin:0;top:100%}@media (min-width:992px){.birdview-box .birdview-description{position:absolute;width:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}}.birdview-box .birdview-colorbox{margin:0;background:hsla(28,15%,53%,.85);line-height:2;padding:2em 1.5em}
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */.birdview-outer{width:100%;overflow:hidden}.birdview-container{width:100%;position:relative}.birdview-container .first{position:relative!important;opacity:1}.birdview-box{position:absolute;width:100%;float:left;opacity:0}.birdview-box,.birdview-box .row{margin-left:0;margin-right:0}.birdview-box .birdview-img{width:100%;height:auto;margin:0}.birdview-box .birdview-description{max-width:100%;margin:0;top:100%}@media (min-width:768px){.birdview-box .birdview-description{position:absolute;width:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}}.birdview-box .birdview-colorbox{margin:0;background:hsla(28,15%,53%,.85);line-height:2;padding:2em 1.5em}
 
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
