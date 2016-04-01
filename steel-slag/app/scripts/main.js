@@ -82,6 +82,8 @@ $( document ).ready(function() {
 
   // define movement of panels
 	let wipeAnimation = new TimelineMax()
+    .to("#scene-birdview", 0.5, {height: "100%", backgroundColor : "#000"})
+
     .to("#1st-birdview .birdview-description", 0, {top: "100%"})
     .to("#1st-birdview .birdview-description", 1, {top: 0})
     .to("#2nd-birdview", 1, {opacity: 1})
