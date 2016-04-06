@@ -1,0 +1,40 @@
+@import "./variables.scss";
+
+.desktop-nav {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 7em;
+	height: 100%;
+	border: 0;
+  z-index: 1030;
+  background-color: rgba($dark-green, 0.9);
+
+  @media (max-width: $screen-xs-max) {
+    // hide the desktop navbar on mobile phones
+    display: none;
+  }
+
+  .logo {
+    width: 5em;
+    margin: 2em 0;
+  }
+
+  .nav-icon {
+    width: 4em;
+    height: 4em;
+  }
+
+  #btn-banana {
+    content: url('../images/nav/banana.svg');
+
+    &:hover {
+      content: url('../images/nav/banana-mouseover.svg');
+    }
+
+    &:focus {
+      content: url('../images/nav/banana-click.svg');
+    }
+  }
+
+}

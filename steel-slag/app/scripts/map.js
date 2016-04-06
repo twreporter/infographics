@@ -102,7 +102,7 @@ function initMap() {
   };
 
   let overlayOpts = {
-    opacity: 0.7
+    opacity: 0.9
   };
 
   //  自來水水質水量保護區圖
@@ -145,7 +145,8 @@ function initMap() {
   // set marker for the polluted point
   let marker = new google.maps.Marker({
       position: new google.maps.LatLng(22.949986, 120.516294),
-      title: "旗山污染場址",
+      title: '旗山污染場址',
+      icon: 'images/map-icon.png',
       animation: google.maps.Animation.DROP,
   });
   marker.setMap(map);

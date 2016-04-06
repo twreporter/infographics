@@ -1,5 +1,15 @@
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
 .img-fit-width {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.pad-v-mobile {
+  @media (max-width: $screen-xs-max) {
+    margin-top: 3.8em;
+  }
 }
