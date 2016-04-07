@@ -136,4 +136,49 @@ $( document ).ready(function() {
     }
   }
 
+  // sidebar navigation controls
+  $('.nav-icon').mouseover(function() {
+    let btnId = this.id;
+    $('.nav-description').velocity(
+      {top: $(this).position().top,
+      opacity: 1},
+      {easing: 'easeInSine',
+      duration: 300});
+
+    switch(btnId) {
+      case 'btn-banana':
+        $('#nav-hover-id').text('1');
+        $('#nav-title').text('旗山香蕉樹旁的爐碴');
+        break;
+      case 'btn-satellitemap':
+        $('#nav-hover-id').text('2');
+        $('#nav-title').text('農地淪陷事件簿');
+        break;
+      case 'btn-truck':
+        $('#nav-hover-id').text('3');
+        $('#nav-title').text('清走怎麼這麼難？');
+        break;
+      case 'btn-government':
+        $('#nav-hover-id').text('4');
+        $('#nav-title').text('中央出來面對！');
+        break;
+      case 'btn-rocks':
+        $('#nav-hover-id').text('5');
+        $('#nav-title').text('爐碴家族圖鑑');
+        break;
+      case 'btn-protester':
+        $('#nav-hover-id').text('6');
+        $('#nav-title').text('大家都驚死，只有她往前衝');
+        break;
+    }
+  });
+
+  $('.nav-icon').mouseout(function() {
+    $('.nav-description').velocity("stop", true);
+    $('.nav-description').velocity(
+      {opacity: 0},
+      {easing: 'easeInSine',
+      duration: 50});
+  });
+
 });

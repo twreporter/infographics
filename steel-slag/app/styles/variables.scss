@@ -1,3 +1,5 @@
+@import "bourbon";
+
 $bootstrap-sass-asset-helper: false !default;
 
 // project colors
@@ -9,6 +11,16 @@ $purple: #A06AFF;
 $yellow: #FFFF62;
 
 $dark: #000;
+
+@include keyframes(fadeIn) {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 
 // Flatly 3.3.6
 // Variables

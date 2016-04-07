@@ -1,3 +1,4 @@
+@import "bourbon";
 @import "./variables.scss";
 
 .desktop-nav {
@@ -23,18 +24,79 @@
   .nav-icon {
     width: 4em;
     height: 4em;
+    margin: 0.8em 0;
+    @include animation(fadeIn 0.2s ease-in);
+  }
+
+  #share-top {
+    width: 3em;
+    margin-top: 3em;
   }
 
   #btn-banana {
-    content: url('../images/nav/banana.svg');
-
     &:hover {
       content: url('../images/nav/banana-mouseover.svg');
     }
+  }
 
-    &:focus {
-      content: url('../images/nav/banana-click.svg');
+  #btn-satellitemap {
+    &:hover {
+      content: url('../images/nav/satellitemap-mouseover.svg');
     }
   }
 
+  #btn-truck {
+    &:hover {
+      content: url('../images/nav/truck-mouseover.svg');
+    }
+  }
+
+  #btn-government {
+    &:hover {
+      content: url('../images/nav/government-mouseover.svg');
+    }
+  }
+
+  #btn-rocks {
+    &:hover {
+      content: url('../images/nav/rocks-mouseover.svg');
+    }
+  }
+
+  #btn-protester {
+    &:hover {
+      content: url('../images/nav/protester-mouseover.svg');
+    }
+  }
+
+
+}
+
+.nav-description {
+  position: fixed;
+  z-index: 1035;
+	top: 0;
+	right: 7em;
+	width: em(60px);
+  color: white;
+  background-color: $green;
+  opacity: 0;
+
+  p {
+    width: 1em;
+    font-weight: 700;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.25;
+    writing-mode: vertical-rl;
+  }
+
+  .nav-part {
+    font-size: 0.5em;
+    font-weight: 700;
+    margin: em(12px) em(10px) em(18px) em(10px);
+    padding: em(5px) em(2px);
+    test-align: center;
+    border-bottom: 3px solid white;
+  }
 }
