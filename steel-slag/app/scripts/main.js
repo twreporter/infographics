@@ -25,27 +25,39 @@ $( document ).ready(function() {
   let scene2 = new ScrollMagic.Scene({
     triggerElement: '#scene-2',
     triggerHook: 'onLeave',
+    duration: '100%'
   })
   // .setPin("#scene-2")
+  .setClassToggle("#btn-banana", "active")
   .addTo(controller);
 
   // middle chapter
   let chapterMiddle = new ScrollMagic.Scene({
     triggerElement: '#chapter-middle',
-    triggerHook: 'onLeave',
-    offset: '50%'
+    triggerHook: 'onEnter',
+    offset: 100,
+    duration: '100%'
   })
   // .setPin("#scene-3")
+  .setClassToggle("#btn-satellitemap", "active")
   .setVelocity("#chapter-middle .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
   .addTo(controller);
 
   // bottom chapter
+  let chapterTruck = new ScrollMagic.Scene({
+    triggerElement: '#chapter-truck',
+    triggerHook: 'onEnter',
+    offset: 100,
+    duration: '100%'
+  })
+  .setClassToggle("#btn-truck", "active")
+  .addTo(controller);
+
   let chapterBottom = new ScrollMagic.Scene({
     triggerElement: '#chapter-bottom',
     triggerHook: 'onLeave',
     offset: '50%'
   })
-  // .setPin("#scene-3")
   .setVelocity("#chapter-bottom .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
   .addTo(controller);
 

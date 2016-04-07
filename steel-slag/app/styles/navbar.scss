@@ -29,13 +29,17 @@
   }
 
   #share-top {
-    width: 3em;
+    width: 100%;
     margin-top: 3em;
+    padding: 2em;
   }
 
   #btn-banana {
     &:hover {
       content: url('../images/nav/banana-mouseover.svg');
+    }
+    &.active {
+      content: url('../images/nav/banana-click.svg');
     }
   }
 
@@ -43,11 +47,17 @@
     &:hover {
       content: url('../images/nav/satellitemap-mouseover.svg');
     }
+    &.active {
+      content: url('../images/nav/satellitemap-click.svg');
+    }
   }
 
   #btn-truck {
     &:hover {
       content: url('../images/nav/truck-mouseover.svg');
+    }
+    &.active {
+      content: url('../images/nav/truck-click.svg');
     }
   }
 
@@ -55,17 +65,26 @@
     &:hover {
       content: url('../images/nav/government-mouseover.svg');
     }
+    &.active {
+      content: url('../images/nav/government-click.svg');
+    }
   }
 
   #btn-rocks {
     &:hover {
       content: url('../images/nav/rocks-mouseover.svg');
     }
+    &.active {
+      content: url('../images/nav/rocks-click.svg');
+    }
   }
 
   #btn-protester {
     &:hover {
       content: url('../images/nav/protester-mouseover.svg');
+    }
+    &.active {
+      content: url('../images/nav/protester-click.svg');
     }
   }
 
