@@ -112,3 +112,27 @@
     background: $yellow;
   }
 }
+
+.onoffToggle-tap {
+  .onoffToggle-label {
+    border-color: #c7997d;
+  }
+  .onoffToggle-inner:before {
+    color: #c7997d;
+  }
+  .onoffToggle-switch {
+    background: #c7997d;
+  }
+}
+
+.onoffToggle-ground {
+  .onoffToggle-label {
+    border-color: #9cb5bc;
+  }
+  .onoffToggle-inner:before {
+    color: #9cb5bc;
+  }
+  .onoffToggle-switch {
+    background: #9cb5bc;
+  }
+}

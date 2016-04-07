@@ -109,9 +109,9 @@ function initMap() {
   tapWaterLayer = new google.maps.Data();
   tapWaterLayer.loadGeoJson('assets/TWQPROT.json');
   tapWaterLayer.setStyle({
-    fillColor: 'green',
+    fillColor: '#c7997d',
     strokeWeight: 0,
-    opacity: 0.1
+    opacity: 0.25
   });
   tapWaterLayer.setMap(map);
 
@@ -120,9 +120,9 @@ function initMap() {
   groundwaterLayer = new google.maps.Data();
   groundwaterLayer.loadGeoJson('assets/GWREGION.json');
   groundwaterLayer.setStyle({
-    fillColor: 'blue',
+    fillColor: '#9cb5bc',
     strokeWeight: 0,
-    opacity: 0.1
+    opacity: 0.25
   });
   groundwaterLayer.setMap(map);
 

@@ -33,23 +33,23 @@
     <a href="https://www.twreporter.org/" target="_blank">
       <img class="logo" src="images/twr_logo.svg"/>
     </a>
-    <a href="#chapter-middle">
-      <img id="btn-banana" src="images/nav/banana.svg" class="nav-icon" ></div>
+    <a href="#chapter-middle" class="nav-link">
+      <img id="btn-banana" src="images/nav/banana.svg" class="nav-icon" >
     </a>
-    <a href="#">
-      <img id="btn-satellitemap" src="images/nav/satellitemap.svg" class="nav-icon" ></div>
+    <a href="#" class="nav-link">
+      <img id="btn-satellitemap" src="images/nav/satellitemap.svg" class="nav-icon" >
     </a>
-    <a href="#">
-      <img id="btn-truck" src="images/nav/truck.svg" class="nav-icon" ></div>
+    <a href="#" class="nav-link">
+      <img id="btn-truck" src="images/nav/truck.svg" class="nav-icon" >
     </a>
-    <a href="#">
-      <img id="btn-government" src="images/nav/government.svg" class="nav-icon" ></div>
+    <a href="#" class="nav-link">
+      <img id="btn-government" src="images/nav/government.svg" class="nav-icon" >
     </a>
-    <a href="#">
-      <img id="btn-rocks" src="images/nav/rocks.svg" class="nav-icon" ></div>
+    <a href="#" class="nav-link">
+      <img id="btn-rocks" src="images/nav/rocks.svg" class="nav-icon" >
     </a>
-    <a href="#">
-      <img id="btn-protester" src="images/nav/protester.svg" class="nav-icon" ></div>
+    <a href="#" class="nav-link">
+      <img id="btn-protester" src="images/nav/protester.svg" class="nav-icon" >
     </a>
     <img id="share-top" src="images/nav/share.svg" >
   </nav>
@@ -143,7 +143,7 @@
                     <div class="col-md-9">
                       <img class="img-fit-width" src="images/slider-img0.png">
                     </div>
-                    <div class="col-md-3 wheat-dark-bg slider-description">
+                    <div class="col-md-3 dark-bg slider-description">
                       <p>00000 - 我們將位在高雄市旗山區圓子潭段的掩埋場址，疊上「地下水分區範圍圖」、「自來水水質水量保護區圖」發現都在兩者範圍內。</p>
                     </div>
                   </div>
@@ -155,7 +155,7 @@
                     <div class="col-md-9">
                       <img class="img-fit-width" src="images/slider-img1.png">
                     </div>
-                    <div class="col-md-3 wheat-dark-bg slider-description">
+                    <div class="col-md-3 dark-bg slider-description">
                       <p>11111 - 我們將位在高雄市旗山區圓子潭段的掩埋場址，疊上「地下水分區範圍圖」、「自來水水質水量保護區圖」發現都在兩者範圍內。</p>
                     </div>
                   </div>
@@ -167,7 +167,7 @@
                     <div class="col-md-9">
                       <img class="img-fit-width" src="images/slider-img0.png">
                     </div>
-                    <div class="col-md-3 wheat-dark-bg slider-description">
+                    <div class="col-md-3 dark-bg slider-description">
                       <p>22222 - 我們將位在高雄市旗山區圓子潭段的掩埋場址，疊上「地下水分區範圍圖」、「自來水水質水量保護區圖」發現都在兩者範圍內。</p>
                     </div>
                   </div>
@@ -342,13 +342,13 @@
 
     </section>
 
-    <section id="scene-google-map" class="wheat-dark-bg">
-      <div class="row wheat-dark-bg">
+    <section id="scene-google-map" class="dark-bg">
+      <div class="row dark-bg">
         <div class="col-md-8">
           <div id="map" style="height: 600px;"></div>
         </div>
         <div class="col-md-4">
-          <div class="onoffToggleOuter onoffToggle-purple" data-toggle="tooltip" data-placement="bottom" title="自民國64年起，劃設水源水質水量保護區，目的在於保護重要之水源，劃定範圍大體上為重要取水口上游之集水區，以維護水質與水量。">
+          <div class="onoffToggleOuter onoffToggle-tap" data-toggle="tooltip" data-placement="bottom" title="自民國64年起，劃設水源水質水量保護區，目的在於保護重要之水源，劃定範圍大體上為重要取水口上游之集水區，以維護水質與水量。">
             <div class="onoffToggle">
               <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setTapWaterToggle()" id="myonoffToggleW1" checked>
               <label class="onoffToggle-label" for="myonoffToggleW1">
@@ -359,7 +359,7 @@
             <span class="toggleDescription">自來水質水量(全國)</span>
           </div>
 
-          <div class="onoffToggleOuter onoffToggle-purple" data-toggle="tooltip" data-placement="bottom" title="地下水分區多屬於地質學中之第四紀岩層，且在地形上多以海岸台地、河階台地與沖積平原出現等特性，目前劃分為九個地下水區。">
+          <div class="onoffToggleOuter onoffToggle-ground" data-toggle="tooltip" data-placement="bottom" title="地下水分區多屬於地質學中之第四紀岩層，且在地形上多以海岸台地、河階台地與沖積平原出現等特性，目前劃分為九個地下水區。">
             <div class="onoffToggle">
               <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setGroundWaterToggle()" id="myonoffToggleW2" checked>
               <label class="onoffToggle-label" for="myonoffToggleW2">

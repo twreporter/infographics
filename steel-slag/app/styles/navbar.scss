@@ -5,8 +5,8 @@
 	position: fixed;
 	top: 0;
 	right: 0;
-	width: 7em;
-	height: 100%;
+  width: 7em;
+  height: 100%;
 	border: 0;
   z-index: 1030;
   background-color: rgba($dark-green, 0.9);
@@ -16,15 +16,22 @@
     display: none;
   }
 
+  @media (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
+    width: 3.5em;
+  	max-height: 22em;
+  }
+
   .logo {
-    width: 5em;
-    margin: 2em 0;
+    width: 62%;
+    margin: 1.2em 0;
   }
 
   .nav-icon {
-    width: 4em;
-    height: 4em;
-    margin: 0.8em 0;
+    width: 52%;
+    height: auto;
+    margin: 0.2em 0;
+    margin-left: auto;
+    margin-right: auto;
     @include animation(fadeIn 0.2s ease-in);
   }
 
@@ -98,8 +105,12 @@
 	right: 7em;
 	width: em(60px);
   color: white;
-  background-color: $green;
+  background-color: $green-darker;
   opacity: 0;
+
+  @media (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
+    right: 3.5em;
+  }
 
   p {
     width: 1em;

@@ -4,13 +4,19 @@ $bootstrap-sass-asset-helper: false !default;
 
 // project colors
 $green:  #27FFC6;
+$green-darker: #42d1a5;
 $dark-green: #094745;
 $wheat:  #C7B299;
 $wheat-dark: #998675;
 $purple: #A06AFF;
 $yellow: #FFFF62;
+$blue-dark: #2C3E50;
 
 $dark: #000;
+
+// width or height
+$screen-height: 700px;
+
 
 @include keyframes(fadeIn) {
   from {
