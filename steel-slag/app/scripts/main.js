@@ -2,25 +2,34 @@ const ANIMATION = {
   fadeInUp: { opacity: [1, 0], translateY: [0, '100%']}
 };
 
+function enbaleSmoothScroll() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('body').animate({
+          scrollTop: target.offset().top
+        }, 800);
+        return false;
+      }
+    }
+  });
+}
+
 $( document ).ready(function() {
   // enable Bootstrap Tooltips
   $('[data-toggle="tooltip"]').tooltip();
 
+  // set navlinks' height equal to width
+  let navlinkWidth = $('.nav-icon').width();
+  $('.nav-icon').css({'min-height': navlinkWidth+'px'});
+
   // initiate ScrollMagic
   let controller = new ScrollMagic.Controller();
 
-  // // cover video
-  // let scene1 = new ScrollMagic.Scene({
-  //   triggerElement: '#scene-1',
-  //   triggerHook: 'onLeave',
-  //   offset: 20
-  // })
-  // // .setPin("#scene-1")
-  // // .setVelocity("#scene-1 .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
-  // .setTween(TweenMax.to('#cover-video', 0.5, {
-  //   filter: blur(5px) brightness(0.7)
-  // }))
-  // .addTo(controller);
+  // enable smooth scrolling for the page
+  enbaleSmoothScroll();
 
   let scene2 = new ScrollMagic.Scene({
     triggerElement: '#scene-2',

@@ -35,6 +35,22 @@
     @include animation(fadeIn 0.2s ease-in);
   }
 
+	.share-box {
+		width: 100%;
+		padding: 0 em(10px);
+		a:hover {
+			text-decoration: none;
+		}
+	}
+
+	.share-icon {
+		width: 46%;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+		@include animation(fadeIn 0.2s ease-in);
+	}
+
   #share-top {
     width: 100%;
     margin-top: 3em;
@@ -118,7 +134,10 @@
     margin-left: auto;
     margin-right: auto;
     line-height: 1.25;
-    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      writing-mode: inherit;
+    }
   }
 
   .nav-part {
