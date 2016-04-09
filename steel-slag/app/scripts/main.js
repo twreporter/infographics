@@ -18,8 +18,21 @@ function enbaleSmoothScroll() {
 }
 
 $( document ).ready(function() {
+  let isBurgerOpen = false;
+
   // enable Bootstrap Tooltips
   $('[data-toggle="tooltip"]').tooltip();
+
+  $('.burger-icon').click(function() {
+    isBurgerOpen = !isBurgerOpen;
+    if(isBurgerOpen){
+      $('.nav-container').show();
+      $('.burger-icon').addClass('open');
+    }else{
+      $('.nav-container').hide();
+      $('.burger-icon').removeClass('open');
+    }
+  });
 
   // set navlinks' height equal to width
   let navlinkWidth = $('.nav-icon').width();
@@ -102,34 +115,34 @@ $( document ).ready(function() {
   .addTo(controller);
 
   // define movement of panels
-	let wipeAnimation = new TimelineMax()
-    .to("#scene-birdview", 0.5, {height: "100%", backgroundColor : "#000"})
-
-    .to("#1st-birdview .birdview-description", 0, {top: "100%"})
-    .to("#1st-birdview .birdview-description", 1, {top: 0})
-    .to("#2nd-birdview", 1, {opacity: 1})
-
-    .to("#2nd-birdview .birdview-description", 0, {top: "100%"})
-    .to("#2nd-birdview .birdview-description", 1, {top: 0})
-    .to("#3rd-birdview", 1, {opacity: 1})
-
-    .to("#3rd-birdview .birdview-description", 0, {top: "100%"})
-    .to("#3rd-birdview .birdview-description", 1, {top: 0})
-    .to("#4th-birdview", 1, {opacity: 1})
-
-    .to("#4th-birdview .birdview-description", 0, {top: "100%"})
-    .to("#4th-birdview .birdview-description", 1, {top: 0})
-    ;
-
-  let sceneBirdview = new ScrollMagic.Scene({
-    triggerElement: '#scene-birdview',
-    triggerHook: 'onLeave',
-    duration: "200%"
-  })
-  .setPin("#scene-birdview")
-  .setTween(wipeAnimation)
-  // .addIndicators() // add indicators (plugin)
-  .addTo(controller);
+	// let wipeAnimation = new TimelineMax()
+  //   .to("#scene-birdview", 0.5, {height: "100%", backgroundColor : "#000"})
+  //
+  //   .to("#1st-birdview .birdview-description", 0, {top: "100%"})
+  //   .to("#1st-birdview .birdview-description", 1, {top: 0})
+  //   .to("#2nd-birdview", 1, {opacity: 1})
+  //
+  //   .to("#2nd-birdview .birdview-description", 0, {top: "100%"})
+  //   .to("#2nd-birdview .birdview-description", 1, {top: 0})
+  //   .to("#3rd-birdview", 1, {opacity: 1})
+  //
+  //   .to("#3rd-birdview .birdview-description", 0, {top: "100%"})
+  //   .to("#3rd-birdview .birdview-description", 1, {top: 0})
+  //   .to("#4th-birdview", 1, {opacity: 1})
+  //
+  //   .to("#4th-birdview .birdview-description", 0, {top: "100%"})
+  //   .to("#4th-birdview .birdview-description", 1, {top: 0})
+  //   ;
+  //
+  // let sceneBirdview = new ScrollMagic.Scene({
+  //   triggerElement: '#scene-birdview',
+  //   triggerHook: 'onLeave',
+  //   duration: "200%"
+  // })
+  // .setPin("#scene-birdview")
+  // .setTween(wipeAnimation)
+  // // .addIndicators() // add indicators (plugin)
+  // .addTo(controller);
 
 
   // enable carousel

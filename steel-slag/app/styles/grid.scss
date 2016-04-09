@@ -13,3 +13,9 @@
     margin-top: 3.8em;
   }
 }
+
+.show-mobile {
+  @media (min-width: $screen-xs-min) {
+    display: none;
+  }
+}

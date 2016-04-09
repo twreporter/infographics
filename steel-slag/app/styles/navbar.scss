@@ -1,7 +1,7 @@
 @import "bourbon";
 @import "./variables.scss";
 
-.desktop-nav {
+.side-nav {
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -11,20 +11,42 @@
   z-index: 1030;
   background-color: rgba($dark-green, 0.9);
 
-  @media (max-width: $screen-xs-max) {
-    // hide the desktop navbar on mobile phones
-    display: none;
-  }
+	@media (max-width: $screen-xs-min) {
+		// mobile phones
+		width: 100%;
+		height: auto;
+	}
 
-  @media (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
-    width: 3.5em;
-  	max-height: 22em;
-  }
+	@media (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
+		width: 3.5em;
+		max-height: 25.6em;
+	}
+
+	.nav-container {
+		@media (max-width: $screen-xs-min) {
+			display: flex;
+			flex-wrap: wrap;
+    	flex-direction: row;
+			margin-bottom: 0.6em;
+		}
+	}
 
   .logo {
     width: 62%;
     margin: 1.2em 0;
+		@media (max-width: $screen-xs-min) {
+	    // mobile phones
+	    display: none;
+	  }
   }
+
+	.nav-link {
+		@media (max-width: $screen-xs-min) {
+	    // mobile phones
+	    width: 32%;
+			flex: 1;
+		}
+	}
 
   .nav-icon {
     width: 52%;
@@ -33,6 +55,11 @@
     margin-left: auto;
     margin-right: auto;
     @include animation(fadeIn 0.2s ease-in);
+		@media (max-width: $screen-xs-min) {
+	    // mobile phones
+	    width: 4em;
+			margin: 0.5em 2em;
+		}
   }
 
 	.share-box {
@@ -41,6 +68,18 @@
 		a:hover {
 			text-decoration: none;
 		}
+
+		@media (max-width: $screen-xs-min) {
+	    // mobile phones
+	    flex: 2;
+	  }
+	}
+
+	.social-link {
+		@media (max-width: $screen-xs-min) {
+	    // mobile phones
+	    width: 30%;
+	  }
 	}
 
 	.share-icon {
@@ -49,13 +88,43 @@
 		margin-left: auto;
 		margin-right: auto;
 		@include animation(fadeIn 0.2s ease-in);
+
+		@media (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
+			width: 80%;
+		}
+
+		@media (max-width: $screen-xs-min) {
+	    // mobile phones
+			width: 3.5em;
+		}
 	}
 
-  #share-top {
-    width: 100%;
-    margin-top: 3em;
-    padding: 2em;
+  .share-top {
+    width: 50%;
+    margin-top: 2em;
+		margin-left: auto;
+		margin-right: auto;
+
+		@media (max-width: $screen-xs-min) {
+			// mobile phones
+			display: none;
+		}
+
+		@media (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
+			margin-top: 0.5em;
+			width: 61%;
+			margin-left: auto;
+			margin-right: auto;
+		}
   }
+
+	.share-top-img {
+		width: 100%;
+		@media (max-width: $screen-xs-min) {
+			// mobile phones
+			width: 3.5em;
+		}
+	}
 
   #btn-banana {
     &:hover {
@@ -128,6 +197,11 @@
     right: 3.5em;
   }
 
+	@media (max-width: $screen-xs-min) {
+		// mobile phones
+		display: none;
+	}
+
   p {
     width: 1em;
     font-weight: 700;
@@ -148,4 +222,68 @@
     test-align: center;
     border-bottom: 3px solid white;
   }
+}
+
+.mobile-row {
+	height: em(50px);
+}
+
+.burger-icon {
+  width: 46px;
+  height: 30px;
+  position: absolute;
+	top: 15px;
+	right: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+.burger-icon span {
+  display: block;
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  background: white;
+  border-radius: 1px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .20s ease-in-out;
+}
+
+.burger-icon span:nth-child(1) {
+  top: 0px;
+	transform-origin: left center;
+}
+
+.burger-icon span:nth-child(2) {
+  top: 14px;
+	transform-origin: left center;
+}
+
+.burger-icon span:nth-child(3) {
+  top: 28px;
+	transform-origin: left center;
+}
+
+.burger-icon.open span:nth-child(1) {
+  top: 0px;
+  transform: rotate(45deg);
+}
+
+.burger-icon.open span:nth-child(2) {
+  opacity: 0;
+  left: -10px;
+}
+
+.burger-icon.open span:nth-child(3) {
+  top: 32px;
+  transform: rotate(-45deg);
 }
