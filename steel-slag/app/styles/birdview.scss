@@ -37,18 +37,31 @@
     width: 100%;
     height: auto;
     margin: 0;
+    @media (max-width: $screen-sm-min) {
+      display: none;
+    }
+  }
+
+  .birdview-mobile-img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    @media (min-width: $screen-sm-min) {
+      display: none;
+    }
   }
 
   .birdview-description {
     max-width: 100%;
     margin: 0;
-    top: 100%;
-    position: absolute;
     width: 100%;
 
-    @media (min-width: $screen-sm-min) {  
+    @media (min-width: $screen-sm-min) {
       transform: translateY(-50%);
+      top: 50%;
+      position: absolute;
     }
+
   }
 
   .birdview-colorbox {

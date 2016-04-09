@@ -17,14 +17,14 @@
 		height: auto;
 	}
 
-	@media (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
+	@media (min-width: $screen-xs-min) and (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
 		width: 3.5em;
 		max-height: 25.6em;
 	}
 
 	.nav-container {
 		@media (max-width: $screen-xs-min) {
-			display: flex;
+			display: none;
 			flex-wrap: wrap;
     	flex-direction: row;
 			margin-bottom: 0.6em;
@@ -89,7 +89,7 @@
 		margin-right: auto;
 		@include animation(fadeIn 0.2s ease-in);
 
-		@media (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
+		@media (min-width: $screen-xs-min) and (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
 			width: 80%;
 		}
 
@@ -110,7 +110,7 @@
 			display: none;
 		}
 
-		@media (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
+		@media (min-width: $screen-xs-min) and (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
 			margin-top: 0.5em;
 			width: 61%;
 			margin-left: auto;
@@ -193,7 +193,7 @@
   background-color: $green-darker;
   opacity: 0;
 
-  @media (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
+  @media (min-width: $screen-xs-min) and (max-height: $screen-height) , (min-width: $screen-xs-min) and (max-width: $screen-md-max) {
     right: 3.5em;
   }
 

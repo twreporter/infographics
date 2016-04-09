@@ -3,7 +3,7 @@ const ANIMATION = {
 };
 
 function enbaleSmoothScroll() {
-  $('a[href*="#"]:not([href="#"])').click(function() {
+  $('a[href*="#chapter"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -45,11 +45,11 @@ $( document ).ready(function() {
   enbaleSmoothScroll();
 
   let scene2 = new ScrollMagic.Scene({
-    triggerElement: '#scene-2',
+    triggerElement: '#chapter-intro',
     triggerHook: 'onLeave',
     duration: '100%'
   })
-  // .setPin("#scene-2")
+  // .setPin("#chapter-intro")
   .setClassToggle("#btn-banana", "active")
   .addTo(controller);
 
