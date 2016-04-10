@@ -215,4 +215,20 @@ $( document ).ready(function() {
       duration: 50});
   });
 
+  // bird view
+  $(".birdview-slider").css({'height': $(".birdview-img-box").height()*0.7,
+                             'transform': 'translate(0,' + $(".birdview-img-box").height()*0.15+'px)'
+  });
+
+  let birdviewSlider = $("#ex4").slider({
+  	reversed : true
+  });
+
+  birdviewSlider.slider('setValue', 20);
+
+  $( "#ex4" ).change(function() {
+    console.log("birdviewSlider", birdviewSlider.slider('getValue'));
+  });
+
+
 });

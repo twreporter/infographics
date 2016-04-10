@@ -40,6 +40,12 @@
 	  }
   }
 
+	.mobile-logo {
+		width: 32%;
+		position: absolute;
+    left: 0.6em;
+	}
+
 	.nav-link {
 		@media (max-width: $screen-xs-min) {
 	    // mobile phones
@@ -226,13 +232,14 @@
 
 .mobile-row {
 	height: em(50px);
+	margin-bottom: 0.3em;
 }
 
 .burger-icon {
   width: 46px;
   height: 30px;
   position: absolute;
-	top: 15px;
+	top: 12px;
 	right: 20px;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
