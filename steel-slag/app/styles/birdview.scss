@@ -117,6 +117,44 @@
     }
   }
 
+  .indicator-overlay {
+    position: absolute;
+    height: 100%;
+    width: 2em;
+    color: white;
+    margin-top: em(-23px);
+
+    hr {
+      position: absolute;
+      left: -0.1em;
+      width: 1.3em;
+      // z-index: 200;
+      border-top: 3px solid $green;
+    }
+
+    #i-0 {
+      top: 0%;
+    }
+    #i-1 {
+      top: 28%;
+    }
+    #i-2 {
+      top: 48%;
+    }
+    #i-3 {
+      top: 51%;
+    }
+    #i-4 {
+      top: 54%;
+    }
+    #i-5 {
+      top: 83%;
+    }
+    #i-6 {
+      top: 99%;
+    }
+  }
+
   .slider-selection, .slider-track {
     background-color: $green;
     background-image: none;

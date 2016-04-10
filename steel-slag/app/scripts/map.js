@@ -67,9 +67,11 @@ function initMap() {
 
   // Create a map object, and include the MapTypeId to add
   // to the map type control.
+  let scrW = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  let isDraggable = scrW > 480 ? true : false;
   let mapOptions = {
     zoom: 12,
-    draggable: true,         // avoid scrolling problem on mobile devices
+    draggable: isDraggable,         // avoid scrolling problem on mobile devices
     scrollwheel: false,      // avoid scrolling problem on mobile devices
     center: new google.maps.LatLng(22.8702492, 120.4703258),
     mapTypeControlOptions: {

@@ -2,6 +2,9 @@ const ANIMATION = {
   fadeInUp: { opacity: [1, 0], translateY: [0, '100%']}
 };
 
+const SLIDE_POSITION = [0, 28, 48, 51, 54, 83, 99];
+let birdviewSlider;
+
 function enbaleSmoothScroll() {
   $('a[href*="#chapter"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -15,6 +18,34 @@ function enbaleSmoothScroll() {
       }
     }
   });
+}
+
+function getClosest(number, array) {
+  var cIndex = 0;
+  var difference = Math.abs(number - array[0]);
+  var index = array.length;
+  while (index--) {
+      var newDifference = Math.abs(number - array[index]);
+      if (newDifference < difference) {
+          difference = newDifference;
+          cIndex = index;
+      }
+  }
+  return cIndex;
+}
+
+function playBirdviewSlide(cIndex) {
+  if(birdviewSlider) {
+    for(let i=0; i<SLIDE_POSITION.length; i++){
+      if(i !== cIndex) {
+        $('#'+i+'-birdview').fadeTo('fast', 0);
+      }
+    }
+    $('#'+cIndex+'-birdview').css('opacity', '1');
+
+    // toggle slider to the closet position
+    birdviewSlider.slider('setValue', 100-SLIDE_POSITION[cIndex]);
+  }
 }
 
 $( document ).ready(function() {
@@ -216,19 +247,26 @@ $( document ).ready(function() {
   });
 
   // bird view
-  $(".birdview-slider").css({'height': $(".birdview-img-box").height()*0.7,
-                             'transform': 'translate(0,' + $(".birdview-img-box").height()*0.15+'px)'
+  $(".birdview-slider").css({'height': $(".first > .birdview-img-box").height()*0.9,
+                             'transform': 'translate(0,' + $(".birdview-img-box").height()*0.05+'px)'
   });
 
-  let birdviewSlider = $("#ex4").slider({
-  	reversed : true
+ birdviewSlider = $("#bvSlider").slider({
+  	reversed : true,
+    // ticks: SLIDE_POSITION
   });
 
-  birdviewSlider.slider('setValue', 20);
 
-  $( "#ex4" ).change(function() {
-    console.log("birdviewSlider", birdviewSlider.slider('getValue'));
+  // set slider to the nearest position
+  $( "#bvSlider" ).on('slideStop', function() {
+    let cValue = birdviewSlider.slider('getValue');
+    let cIndex = getClosest(100-cValue, SLIDE_POSITION);
+    console.log("birdviewSlider", cValue, cIndex);
+    playBirdviewSlide(cIndex);
+
   });
+
+  // END - bird view
 
 
 });
