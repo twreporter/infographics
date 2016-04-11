@@ -48,6 +48,23 @@ function playBirdviewSlide(cIndex) {
   }
 }
 
+function checkSlider(sid) {
+  // check if it is the begin/end of the slider
+  let $slider = $(sid);
+  if ($slider.find('.item:first').hasClass('active')) {
+    // begin of the slider
+    $slider.find('.left-btn').attr('src', "images/left_btn.svg");
+    $slider.find('.right-btn').attr('src', "images/right_btn_active.svg");
+  } else if ($slider.find('.item:last').hasClass('active')) {
+    // end of the slider
+    $slider.find('.left-btn').attr('src', "images/left_btn_active.svg");
+    $slider.find('.right-btn').attr('src', "images/right_btn.svg");
+  } else {
+    $slider.find('.left-btn').attr('src', "images/left_btn_active.svg");
+    $slider.find('.right-btn').attr('src', "images/right_btn_active.svg");
+  }
+}
+
 $( document ).ready(function() {
   let isBurgerOpen = false;
 
@@ -182,24 +199,15 @@ $( document ).ready(function() {
   });
   // enable mobile sliding
   $('.carousel').bcSwipe({ threshold: 50 });
-  $('#environment-slider').on('slid.bs.carousel', checkSlider);
-
-  function checkSlider() {
+  $('#environment-slider').on('slid.bs.carousel', function() {
     // check if it is the begin/end of the slider
-    var $slider = $('#environment-slider');
-    if ($('.carousel-inner .item:first').hasClass('active')) {
-      // begin of the slider
-      $slider.find('.left-btn').attr('src', "images/left_btn.svg");
-      $slider.find('.right-btn').attr('src', "images/right_btn_active.svg");
-    } else if ($('.carousel-inner .item:last').hasClass('active')) {
-      // end of the slider
-      $slider.find('.left-btn').attr('src', "images/left_btn_active.svg");
-      $slider.find('.right-btn').attr('src', "images/right_btn.svg");
-    } else {
-      $slider.find('.left-btn').attr('src', "images/left_btn_active.svg");
-      $slider.find('.right-btn').attr('src', "images/right_btn_active.svg");
-    }
-  }
+    checkSlider('#environment-slider .carousel-inner');
+  });
+  $('#slag-slider').on('slid.bs.carousel', function() {
+    // check if it is the begin/end of the slider
+    checkSlider('#slag-slider .carousel-inner');
+  });
+
 
   // sidebar navigation controls
   $('.nav-icon').mouseover(function() {

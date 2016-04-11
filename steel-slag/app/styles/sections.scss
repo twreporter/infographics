@@ -57,6 +57,7 @@
 
 #cover-video {
   filter: blur(3px) brightness(0.7);
+  height: 100%;
 }
 
 .image-bg {
@@ -185,6 +186,10 @@
       margin-left: -8px;
       padding-top: 5em;
       padding-bottom: 5em;
+    }
+    h4 {
+      padding-left: em(3px);
+      color: $green;
     }
   }
 

@@ -25,3 +25,9 @@
     padding-top: 0 !important;
   }
 }
+
+.pad-zero {
+  @media (max-width: $screen-md-min) {
+    padding: 0 !important;
+  }
+}
