@@ -1,3 +1,5 @@
+"use strict";
+
 const ANIMATION = {
   fadeInUp: { opacity: [1, 0], translateY: [0, '100%']}
 };
@@ -65,6 +67,17 @@ function checkSlider(sid) {
   }
 }
 
+function enableBlurBackground(cid, controller) {
+  new ScrollMagic.Scene({
+    triggerElement: cid,
+    triggerHook: 'onLeave',
+    offset: '50%'
+  })
+  .setVelocity(cid+' .blurred-image', {opacity: 1}, {duration: 500, easing: 'linear'})
+  .addTo(controller);
+}
+
+
 $( document ).ready(function() {
   let isBurgerOpen = false;
 
@@ -112,6 +125,12 @@ $( document ).ready(function() {
   .setClassToggle("#btn-satellitemap", "active")
   .setVelocity("#chapter-middle .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
   .addTo(controller);
+
+  // enable the blur effect for each chapter's cover
+  for(let i=1; i<7; i++) {
+    enableBlurBackground('#cover-0'+i, controller);
+  }
+  
 
   // bottom chapter
   let chapterTruck = new ScrollMagic.Scene({
@@ -221,23 +240,23 @@ $( document ).ready(function() {
     switch(btnId) {
       case 'btn-banana':
         $('#nav-hover-id').text('1');
-        $('#nav-title').text('旗山香蕉樹旁的爐碴');
+        $('#nav-title').text('香蕉樹旁埋爐碴？');
         break;
       case 'btn-satellitemap':
         $('#nav-hover-id').text('2');
-        $('#nav-title').text('農地淪陷事件簿');
+        $('#nav-title').text('案發現場');
         break;
       case 'btn-truck':
         $('#nav-hover-id').text('3');
-        $('#nav-title').text('清走怎麼這麼難？');
+        $('#nav-title').text('疑點重重');
         break;
       case 'btn-government':
         $('#nav-hover-id').text('4');
-        $('#nav-title').text('中央出來面對！');
+        $('#nav-title').text('碴不只一種');
         break;
       case 'btn-rocks':
         $('#nav-hover-id').text('5');
-        $('#nav-title').text('爐碴家族圖鑑');
+        $('#nav-title').text('中央出來面對！');
         break;
       case 'btn-protester':
         $('#nav-hover-id').text('6');

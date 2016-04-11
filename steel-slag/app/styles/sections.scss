@@ -123,6 +123,43 @@
   background: url(../images/bg_bottom_low.jpg);
 }
 
+#cover-01 .image-bg {
+  @include hidpi(1.5) {
+    background: url(../images/cover/bg_sec1_high.jpg);
+  }
+  background: url(../images/cover/bg_sec1_low.jpg);
+}
+#cover-02 .image-bg {
+  @include hidpi(1.5) {
+    background: url(../images/cover/bg_sec2_high.jpg);
+  }
+  background: url(../images/cover/bg_sec2_low.jpg);
+}
+#cover-03 .image-bg {
+  @include hidpi(1.5) {
+    background: url(../images/cover/bg_sec3_high.jpg);
+  }
+  background: url(../images/cover/bg_sec3_low.jpg);
+}
+#cover-04 .image-bg {
+  @include hidpi(1.5) {
+    background: url(../images/cover/bg_sec4_high.jpg);
+  }
+  background: url(../images/cover/bg_sec4_low.jpg);
+}
+#cover-05 .image-bg {
+  @include hidpi(1.5) {
+    background: url(../images/cover/bg_sec5_high.jpg);
+  }
+  background: url(../images/cover/bg_sec5_low.jpg);
+}
+#cover-06 .image-bg {
+  @include hidpi(1.5) {
+    background: url(../images/cover/bg_sec6_high.jpg);
+  }
+  background: url(../images/cover/bg_sec6_low.jpg);
+}
+
 .content-block {
   padding-top: 6em;
   padding-bottom: 3em;
