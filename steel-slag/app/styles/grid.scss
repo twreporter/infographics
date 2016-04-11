@@ -8,6 +8,10 @@
   height: auto;
 }
 
+.pad-small {
+  padding: 0.5em;
+}
+
 .pad-v-mobile {
   @media (max-width: $screen-xs-max) {
     margin-top: 3.8em;
@@ -29,5 +33,11 @@
 .pad-zero {
   @media (max-width: $screen-md-min) {
     padding: 0 !important;
+  }
+}
+
+.pad-for-nav {
+  @media (min-width: $screen-md-min) {
+    padding-right: 7em !important;
   }
 }
