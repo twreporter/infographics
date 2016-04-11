@@ -247,8 +247,9 @@ $( document ).ready(function() {
   });
 
   // bird view
-  $(".birdview-slider").css({'height': $(".first > .birdview-img-box").height()*0.9,
-                             'transform': 'translate(0,' + $(".birdview-img-box").height()*0.05+'px)'
+  let bvHeight = $(window).width()*65/110;
+  $(".birdview-slider").css({'height': bvHeight*0.9,
+                             'transform': 'translate(0,' + bvHeight*0.05+'px)'
   });
 
  birdviewSlider = $("#bvSlider").slider({

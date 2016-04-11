@@ -19,3 +19,9 @@
     display: none;
   }
 }
+
+.no-pad-top {
+  @media (min-width: $screen-md-min) {
+    padding-top: 0 !important;
+  }
+}
