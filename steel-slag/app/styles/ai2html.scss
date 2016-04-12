@@ -62,7 +62,7 @@
 // END - intro card
 
 
-
+// soil layer
 #g-soil_layer-_____1{
   position:relative;
   overflow:hidden;
@@ -142,3 +142,52 @@
   color:#bea68e;
 }
 .g-aiPtransformed p { white-space: nowrap; }
+// END - soil layer
+
+// types of slag
+#g-______html-_____1{
+  position:relative;
+  overflow:hidden;
+}
+.g-aiAbs{
+  position:absolute;
+}
+.g-aiImg{
+  display:block;
+  width:100% !important;
+}
+#g-______html-_____1 p{
+  font-size:13px;
+  line-height:18px;
+  margin:0;
+}
+#g-______html-_____1 .g-aiPstyle0 {
+  font-size:32px;
+  line-height:72px;
+  text-align:center;
+  letter-spacing:0.16666666666667em;
+  color:#ffffff;
+}
+#g-______html-_____1 .g-aiPstyle1 {
+  font-size:20px;
+  line-height:51px;
+  text-align:justify;
+  letter-spacing:0.04166666666667em;
+  color:#ffffff;
+}
+#g-______html-_____1 .g-aiPstyle2 {
+  font-size:20px;
+  line-height:51px;
+  text-align:justify;
+  letter-spacing:0.04166666666667em;
+  color:#333333;
+}
+#g-______html-_____1 .g-aiPstyle3 {
+  font-size:18px;
+  line-height:51px;
+  text-align:center;
+  letter-spacing:0.04166666666667em;
+  color:#ffffff;
+}
+.g-aiPtransformed p { white-space: nowrap; }
+// END - types of slag
