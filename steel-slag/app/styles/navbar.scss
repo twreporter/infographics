@@ -132,57 +132,63 @@
 		}
 	}
 
-  #btn-banana {
+  #btn-01 {
     &:hover {
       content: url('../images/nav/banana-mouseover.svg');
     }
     &.active {
       content: url('../images/nav/banana-click.svg');
+			// background: url("../images/nav/banana-click.svg");
     }
   }
 
-  #btn-satellitemap {
+  #btn-02 {
     &:hover {
       content: url('../images/nav/satellitemap-mouseover.svg');
     }
     &.active {
       content: url('../images/nav/satellitemap-click.svg');
+			// background: url('../images/nav/satellitemap-click.svg');
     }
   }
 
-  #btn-truck {
+  #btn-03 {
     &:hover {
       content: url('../images/nav/truck-mouseover.svg');
     }
     &.active {
       content: url('../images/nav/truck-click.svg');
+			// background: url('../images/nav/truck-click.svg');
     }
   }
 
-  #btn-government {
-    &:hover {
-      content: url('../images/nav/government-mouseover.svg');
-    }
-    &.active {
-      content: url('../images/nav/government-click.svg');
-    }
-  }
-
-  #btn-rocks {
+  #btn-04 {
     &:hover {
       content: url('../images/nav/rocks-mouseover.svg');
     }
     &.active {
       content: url('../images/nav/rocks-click.svg');
+			// background: url('../images/nav/rocks-click.svg');
     }
   }
 
-  #btn-protester {
+  #btn-05 {
+    &:hover {
+      content: url('../images/nav/government-mouseover.svg');
+    }
+    &.active {
+      content: url('../images/nav/government-click.svg');
+			// background: url('../images/nav/government-click.svg');
+    }
+  }
+
+  #btn-06 {
     &:hover {
       content: url('../images/nav/protester-mouseover.svg');
     }
     &.active {
       content: url('../images/nav/protester-click.svg');
+			// background: url('../images/nav/protester-click.svg');
     }
   }
 

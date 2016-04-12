@@ -188,6 +188,9 @@
     margin-left: -5em;
     width: 15em;
   }
+  &.active {
+    margin-top: 0;
+  }
 }
 
 .location-text {
@@ -229,7 +232,7 @@
     @media (min-width: $screen-md-min) {
       margin-left: -8px;
       padding-top: 5em;
-      padding-bottom: 5em;
+      padding-bottom: 3.8em;
     }
     h4 {
       padding-left: em(3px);

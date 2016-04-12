@@ -77,6 +77,16 @@ function enableBlurBackground(cid, controller) {
   .addTo(controller);
 }
 
+function setChapterActiveColor(cid, controller) {
+  new ScrollMagic.Scene({
+    triggerElement: '#chapter-0'+cid,
+    triggerHook: 'onLeave',
+    duration: '100%'
+  })
+  .setClassToggle("#btn-0"+cid, "active")
+  .addTo(controller);
+}
+
 
 $( document ).ready(function() {
   let isBurgerOpen = false;
@@ -105,50 +115,19 @@ $( document ).ready(function() {
   // enable smooth scrolling for the page
   enbaleSmoothScroll();
 
-  let scene2 = new ScrollMagic.Scene({
+  let sceneIntro = new ScrollMagic.Scene({
     triggerElement: '#chapter-intro',
     triggerHook: 'onLeave',
-    duration: '100%'
+    duration: '50%',
+    offset: 10
   })
-  // .setPin("#chapter-intro")
-  .setClassToggle("#btn-banana", "active")
-  .addTo(controller);
-
-  // middle chapter
-  let chapterMiddle = new ScrollMagic.Scene({
-    triggerElement: '#chapter-middle',
-    triggerHook: 'onEnter',
-    offset: 100,
-    duration: '100%'
-  })
-  // .setPin("#scene-3")
-  .setClassToggle("#btn-satellitemap", "active")
-  .setVelocity("#chapter-middle .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
+  .setPin('.article-location')
   .addTo(controller);
 
   // enable the blur effect for each chapter's cover
   for(let i=1; i<7; i++) {
     enableBlurBackground('#cover-0'+i, controller);
   }
-  
-
-  // bottom chapter
-  let chapterTruck = new ScrollMagic.Scene({
-    triggerElement: '#chapter-truck',
-    triggerHook: 'onEnter',
-    offset: 100,
-    duration: '100%'
-  })
-  .setClassToggle("#btn-truck", "active")
-  .addTo(controller);
-
-  let chapterBottom = new ScrollMagic.Scene({
-    triggerElement: '#chapter-bottom',
-    triggerHook: 'onLeave',
-    offset: '50%'
-  })
-  .setVelocity("#chapter-bottom .blurred-image", {opacity: 1}, {duration: 500, easing: "linear"})
-  .addTo(controller);
 
   let scene4 = new ScrollMagic.Scene({
     triggerElement: '#scene-4',
@@ -181,35 +160,6 @@ $( document ).ready(function() {
   // .setPin("#scene-google-map")
   .addTo(controller);
 
-  // define movement of panels
-	// let wipeAnimation = new TimelineMax()
-  //   .to("#scene-birdview", 0.5, {height: "100%", backgroundColor : "#000"})
-  //
-  //   .to("#1st-birdview .birdview-description", 0, {top: "100%"})
-  //   .to("#1st-birdview .birdview-description", 1, {top: 0})
-  //   .to("#2nd-birdview", 1, {opacity: 1})
-  //
-  //   .to("#2nd-birdview .birdview-description", 0, {top: "100%"})
-  //   .to("#2nd-birdview .birdview-description", 1, {top: 0})
-  //   .to("#3rd-birdview", 1, {opacity: 1})
-  //
-  //   .to("#3rd-birdview .birdview-description", 0, {top: "100%"})
-  //   .to("#3rd-birdview .birdview-description", 1, {top: 0})
-  //   .to("#4th-birdview", 1, {opacity: 1})
-  //
-  //   .to("#4th-birdview .birdview-description", 0, {top: "100%"})
-  //   .to("#4th-birdview .birdview-description", 1, {top: 0})
-  //   ;
-  //
-  // let sceneBirdview = new ScrollMagic.Scene({
-  //   triggerElement: '#scene-birdview',
-  //   triggerHook: 'onLeave',
-  //   duration: "200%"
-  // })
-  // .setPin("#scene-birdview")
-  // .setTween(wipeAnimation)
-  // // .addIndicators() // add indicators (plugin)
-  // .addTo(controller);
 
 
   // enable carousel
@@ -264,6 +214,11 @@ $( document ).ready(function() {
         break;
     }
   });
+
+  // set active color for the navigation button
+  for(let i=1; i<7; i++) {
+    setChapterActiveColor(i, controller);
+  }
 
   $('.nav-icon').mouseout(function() {
     $('.nav-description').velocity("stop", true);

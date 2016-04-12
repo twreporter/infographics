@@ -2,6 +2,67 @@
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+// intro card
+#g-overview-card-_____1{
+  position:relative;
+  overflow:hidden;
+  float: left;
+  @media (max-width: $screen-md-min) {
+    margin: 1em 1.2em 1em 0.2em;
+    max-width: 440px;
+  }
+}
+#g-overview-card-_____1 p{
+  font-size:15px;
+  line-height:18px;
+  margin:0;
+}
+#g-overview-card-_____1 .g-aiPstyle0 {
+  font-size: 42px;
+  line-height: 50px;
+  font-weight: 700;
+  color:#4d4d4d;
+  @media (max-width: $screen-md-min) {
+    font-size: 27px;
+    line-height: 32px;
+  }
+}
+#g-overview-card-_____1 .g-aiPstyle1, #g-overview-card-_____1 .g-aiPstyle4 {
+  font-size:25px;
+  line-height: 50px;
+  text-align:center;
+  font-weight: 700;
+  color:#666666;
+  @media (max-width: $screen-md-min) {
+    font-size: 17px;
+    line-height: 15px;
+  }
+}
+#g-overview-card-_____1 .g-aiPstyle2 {
+  font-size: 17px;
+  line-height:44px;
+  font-weight: 700;
+  text-align:center;
+  color:#ffffff;
+  @media (max-width: $screen-md-min) {
+    font-size: 11px;
+    line-height: 27px;
+  }
+}
+#g-overview-card-_____1 .g-aiPstyle3 {
+  font-size: 15px;
+  line-height: 44px;
+  color:#000000;
+  @media (max-width: $screen-md-min) {
+    font-size: 10px;
+    line-height: 27px;
+  }
+}
+.g-aiPtransformed p { white-space: nowrap; }
+// END - intro card
+
+
+
 #g-soil_layer-_____1{
   position:relative;
   overflow:hidden;
