@@ -81,7 +81,7 @@ function enableBlurBackground(cid, controller) {
 function setChapterActiveColor(cid, controller) {
   new ScrollMagic.Scene({
     triggerElement: '#chapter-0'+cid,
-    triggerHook: 'onLeave',
+    triggerHook: 'onEnter',
     duration: '100%'
   })
   .setClassToggle("#btn-0"+cid, "active")
