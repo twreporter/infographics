@@ -85,6 +85,19 @@
   min-height: 280px;
   transform: translate(0, 15%);
 
+  .slider-tick.in-selection {
+    background: transparent !important;
+    background-image: none;
+  }
+  .slider-selection.tick-slider-selection {
+    background: $green-darker !important;
+    background-image: none;
+  }
+
+  * {
+    user-select: none;
+  }
+
   .slider-vertical {
     height: 100% !important;
   }
@@ -118,6 +131,28 @@
     }
   }
 
+  .slider-tick.custom::before {
+    content: ' ';
+    box-shadow: none !important;
+    color: transparent;
+    width: 1.3em;
+    margin-top: 0.8em;
+    margin-left: -0.1em;
+    border-top: 3px solid $green;
+    display: block;
+  }
+
+  .about-equal-icon {
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    display: block;
+    background-image: url('../images/earth/about_equals.svg');
+    background-repeat: no-repeat;
+    margin-left: -0.3em;
+    top: 13%;
+  }
+
   .indicator-overlay {
     position: absolute;
     height: 100%;
@@ -125,35 +160,35 @@
     color: white;
     margin-top: em(-23px);
 
-    hr {
-      position: absolute;
-      left: -0.1em;
-      width: 1.3em;
-      // z-index: 200;
-      border-top: 3px solid $green;
-    }
-
-    #i-0 {
-      top: 0%;
-    }
-    #i-1 {
-      top: 28%;
-    }
-    #i-2 {
-      top: 48%;
-    }
-    #i-3 {
-      top: 51%;
-    }
-    #i-4 {
-      top: 54%;
-    }
-    #i-5 {
-      top: 83%;
-    }
-    #i-6 {
-      top: 99%;
-    }
+    // hr {
+    //   position: absolute;
+    //   left: -0.1em;
+    //   width: 1.3em;
+    //   // z-index: 200;
+    //   border-top: 3px solid $green;
+    // }
+    //
+    // #i-0 {
+    //   top: 0%;
+    // }
+    // #i-1 {
+    //   top: 28%;
+    // }
+    // #i-2 {
+    //   top: 48%;
+    // }
+    // #i-3 {
+    //   top: 51%;
+    // }
+    // #i-4 {
+    //   top: 54%;
+    // }
+    // #i-5 {
+    //   top: 83%;
+    // }
+    // #i-6 {
+    //   top: 99%;
+    // }
   }
 
   .slider-selection, .slider-track {

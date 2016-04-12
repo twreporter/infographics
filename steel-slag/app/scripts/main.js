@@ -4,7 +4,8 @@ const ANIMATION = {
   fadeInUp: { opacity: [1, 0], translateY: [0, '100%']}
 };
 
-const SLIDE_POSITION = [0, 28, 48, 51, 54, 83, 99];
+const SLIDE_POSITION = [0, 26, 40, 51, 62, 83, 99];
+const TICK_POSITION = [100, 74, 60, 49, 38, 17, 1];
 let birdviewSlider;
 
 function enbaleSmoothScroll() {
@@ -234,9 +235,9 @@ $( document ).ready(function() {
                              'transform': 'translate(0,' + bvHeight*0.05+'px)'
   });
 
- birdviewSlider = $("#bvSlider").slider({
+  birdviewSlider = $("#bvSlider").slider({
   	reversed : true,
-    // ticks: SLIDE_POSITION
+    ticks: TICK_POSITION
   });
 
 
