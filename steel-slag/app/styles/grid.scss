@@ -12,6 +12,10 @@
   padding: 0.5em;
 }
 
+.pad-bottom-small {
+  padding-bottom: 0.5em;
+}
+
 .pad-v-mobile {
   @media (max-width: $screen-xs-max) {
     margin-top: 3.8em;
