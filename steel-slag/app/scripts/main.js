@@ -188,27 +188,27 @@ $( document ).ready(function() {
       duration: 300});
 
     switch(btnId) {
-      case 'btn-banana':
+      case 'btn-01':
         $('#nav-hover-id').text('1');
         $('#nav-title').text('香蕉樹旁埋爐碴？');
         break;
-      case 'btn-satellitemap':
+      case 'btn-02':
         $('#nav-hover-id').text('2');
         $('#nav-title').text('案發現場');
         break;
-      case 'btn-truck':
+      case 'btn-03':
         $('#nav-hover-id').text('3');
         $('#nav-title').text('疑點重重');
         break;
-      case 'btn-government':
+      case 'btn-04':
         $('#nav-hover-id').text('4');
         $('#nav-title').text('碴不只一種');
         break;
-      case 'btn-rocks':
+      case 'btn-05':
         $('#nav-hover-id').text('5');
         $('#nav-title').text('中央出來面對！');
         break;
-      case 'btn-protester':
+      case 'btn-06':
         $('#nav-hover-id').text('6');
         $('#nav-title').text('大家都驚死，只有她往前衝');
         break;

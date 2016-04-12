@@ -70,7 +70,7 @@ function initMap() {
   let scrW = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
   let isDraggable = scrW > 480 ? true : false;
   let mapOptions = {
-    zoom: 11.7,
+    zoom: 11,
     draggable: isDraggable,         // avoid scrolling problem on mobile devices
     scrollwheel: false,      // avoid scrolling problem on mobile devices
     center: new google.maps.LatLng(22.8702492, 120.4703258),
