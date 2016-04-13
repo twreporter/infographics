@@ -168,9 +168,15 @@
 }
 
 .content-block {
-  padding-top: 6em;
-  padding-bottom: 3em;
+  padding-top: 4em;
+  padding-bottom: 2em;
   line-height: 2;
+
+  h3 {
+    font-size: 23px;
+    margin-top: 55px;
+    margin-bottom: 20px;
+  }
 }
 
 .article-location {
