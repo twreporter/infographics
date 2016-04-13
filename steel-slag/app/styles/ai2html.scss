@@ -48,6 +48,10 @@
     font-size: 11px;
     line-height: 27px;
   }
+  @media (max-width: $screen-xs-max) {
+    font-size: 10px;
+    line-height: 25px;
+  }
 }
 #g-overview-card-_____1 .g-aiPstyle3 {
   font-size: 15px;
@@ -56,6 +60,10 @@
   @media (max-width: $screen-md-min) {
     font-size: 10px;
     line-height: 27px;
+  }
+  @media (max-width: $screen-xs-max) {
+    font-size: 1px;
+    line-height: 25px;
   }
 }
 .g-aiPtransformed p { white-space: nowrap; }
@@ -93,7 +101,7 @@
   line-height: 1.2;
   letter-spacing:0.04166666666667em;
   @media (max-width: $screen-xs-max) {
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1;
   }
 }
@@ -116,6 +124,12 @@
 #g-soil_layer-_____1 .g-aiPstyle0 {
   @extend .g-aiPStyle;
   color:#9ca829;
+  @media (max-width: $screen-xs-max) {
+    margin-top: 25px;
+  }
+  @media (max-width: $screen-xs-min) {
+    margin-top: 56px;
+  }
 }
 #g-soil_layer-_____1 .g-aiPstyle1 {
   @extend .g-aiTitleStyle;
@@ -124,6 +138,12 @@
 #g-soil_layer-_____1 .g-aiPstyle2 {
   @extend .g-aiPStyle;
   color:#27d6a4;
+  @media (max-width: $screen-xs-max) {
+    margin-top: 20px;
+  }
+  @media (max-width: $screen-xs-min) {
+    margin-top: 30px;
+  }
 }
 #g-soil_layer-_____1 .g-aiPstyle3 {
   @extend .g-aiTitleStyle;
@@ -132,6 +152,9 @@
 #g-soil_layer-_____1 .g-aiPstyle4 {
   @extend .g-aiPStyle;
   color:#666666;
+  @media (max-width: $screen-xs-max) {
+    margin-top: 13px;
+  }
 }
 #g-soil_layer-_____1 .g-aiPstyle5 {
   @extend .g-aiTitleStyle;
@@ -140,6 +163,9 @@
 #g-soil_layer-_____1 .g-aiPstyle6 {
   @extend .g-aiPStyle;
   color:#bea68e;
+  @media (max-width: $screen-xs-max) {
+    margin-top: -15px;
+  }
 }
 .g-aiPtransformed p { white-space: nowrap; }
 // END - soil layer
@@ -164,6 +190,16 @@
 #g-______html-_____1 .g-aiPstyle0 {
   font-size:32px;
   line-height:72px;
+  @media (max-width: $screen-sm-max) {
+    padding-top: 12px;
+    font-size: 22px;
+    line-height:30px;
+  }
+  @media (max-width: $screen-xs-max) {
+    padding-top: 10px;
+    font-size: 18px;
+    line-height:30px;
+  }
   text-align:center;
   letter-spacing:0.16666666666667em;
   color:#ffffff;
@@ -171,6 +207,9 @@
 #g-______html-_____1 .g-aiPstyle1 {
   font-size:20px;
   line-height:51px;
+  @media (max-width: $screen-xs-max) {
+    font-size: 15px;
+  }
   text-align:justify;
   letter-spacing:0.04166666666667em;
   color:#ffffff;
@@ -178,14 +217,29 @@
 #g-______html-_____1 .g-aiPstyle2 {
   font-size:20px;
   line-height:51px;
+  @media (max-width: $screen-xs-max) {
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: -2px;
+    margin-left: -10px;
+  }
   text-align:justify;
   letter-spacing:0.04166666666667em;
   color:#333333;
 }
 #g-______html-_____1 .g-aiPstyle3 {
-  font-size:18px;
-  line-height:51px;
+  font-size: 18px;
+  line-height: 25px;
   text-align:center;
+  @media (max-width: $screen-xs-max) {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  @media (max-width: $screen-xs-min) {
+    font-size: 11px;
+    line-height: 18px;
+    margin-left: -5px;
+  }
   letter-spacing:0.04166666666667em;
   color:#ffffff;
 }
