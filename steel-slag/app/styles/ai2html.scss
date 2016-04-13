@@ -234,11 +234,13 @@
   @media (max-width: $screen-xs-max) {
     font-size: 14px;
     line-height: 18px;
+    margin-top: -5px;
   }
   @media (max-width: $screen-xs-min) {
     font-size: 11px;
     line-height: 18px;
     margin-left: -5px;
+    margin-top: -10px;
   }
   letter-spacing:0.04166666666667em;
   color:#ffffff;

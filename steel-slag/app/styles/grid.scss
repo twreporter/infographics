@@ -58,6 +58,10 @@
   &.container {
     @media (min-width: $screen-sm-min) {
       max-width: none;
+      width: 100%;
+    }
+    @media (min-width: $screen-md-min) {
+      width: 100%;
     }
     @media (min-width: $screen-lg-min) {
       width: 100%;
