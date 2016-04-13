@@ -49,3 +49,19 @@
 .hide-all {
   display: none;
 }
+
+.max-fit {
+  max-width: 100%;
+}
+
+.disable-desktop-c {
+  &.container {
+    @media (min-width: $screen-sm-min) {
+      max-width: none;
+    }
+    @media (min-width: $screen-lg-min) {
+      width: 100%;
+    }
+  }
+
+}
