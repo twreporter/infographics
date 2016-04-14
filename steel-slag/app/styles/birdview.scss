@@ -16,6 +16,7 @@
   .first {
     position: relative !important;
     opacity: 1;
+    z-index: 80;
   }
 }
 
@@ -37,7 +38,7 @@
     width: 100%;
     height: auto;
     margin: 0;
-    @media (max-width: $screen-sm-min) {
+    @media only screen and (max-width: $screen-sm-min - 1) {
       display: none;
     }
   }
@@ -51,12 +52,19 @@
     }
   }
 
+  .control-btn {
+    img {
+      width: 3em;
+      height: 3em;
+    }
+  }
+
   .birdview-description {
     max-width: 100%;
     margin: 0;
     width: 100%;
 
-    @media (min-width: $screen-sm-min) {
+    @media only screen and (min-width: $screen-sm-min) {
       transform: translateY(-50%);
       top: 50%;
       position: absolute;
@@ -151,6 +159,7 @@
     background-repeat: no-repeat;
     margin-left: -0.3em;
     top: 13%;
+    z-index: 300;
   }
 
   .indicator-overlay {

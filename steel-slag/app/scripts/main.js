@@ -4,8 +4,8 @@ const ANIMATION = {
   fadeInUp: { opacity: [1, 0], translateY: [0, '100%']}
 };
 
-const SLIDE_POSITION = [0, 26, 40, 51, 62, 83, 99];
-const TICK_POSITION = [100, 74, 60, 49, 38, 17, 1];
+const SLIDE_POSITION = [3, 26, 40, 51, 62, 83, 96];
+const TICK_POSITION = [97, 74, 60, 49, 38, 17, 4];
 let birdviewSlider;
 
 function enbaleSmoothScroll() {
@@ -25,7 +25,12 @@ function enbaleSmoothScroll() {
 
 function getClosest(number, array) {
   var cIndex = 0;
-  var difference = Math.abs(number - array[0]);
+  number = number - 5;
+  if (number < 0) {
+    number = 0;
+  }
+
+  var difference = 10000;
   var index = array.length;
   while (index--) {
       var newDifference = Math.abs(number - array[index]);
@@ -33,11 +38,13 @@ function getClosest(number, array) {
           difference = newDifference;
           cIndex = index;
       }
+      console.log(index, newDifference);
   }
   return cIndex;
 }
 
 function playBirdviewSlide(cIndex) {
+  $('.birdview-box').css('z-index', 0);
   if(birdviewSlider) {
     for(let i=0; i<SLIDE_POSITION.length; i++){
       if(i !== cIndex) {
@@ -45,6 +52,7 @@ function playBirdviewSlide(cIndex) {
       }
     }
     $('#'+cIndex+'-birdview').css('opacity', '1');
+    $('#'+cIndex+'-birdview').css('z-index', 100);
 
     // toggle slider to the closet position
     birdviewSlider.slider('setValue', 100-SLIDE_POSITION[cIndex]);
