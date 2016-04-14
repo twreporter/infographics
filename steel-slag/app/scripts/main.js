@@ -82,7 +82,8 @@ function setChapterActiveColor(cid, controller) {
   new ScrollMagic.Scene({
     triggerElement: '#chapter-0'+cid,
     triggerHook: 'onEnter',
-    duration: $('#chapter-0'+cid).height()
+    offset: 120,
+    duration: $('#chapter-0'+cid).height()+130
   })
   .setClassToggle("#btn-0"+cid, "active")
   .addTo(controller);

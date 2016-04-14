@@ -56,7 +56,7 @@ const styles = [{
 let map;
 let agricultureOverlay, specificOverlay, mountainOverlay, contourOverlay, tapWaterLayer, groundwaterLayer;
 let agricultureOn = true, specificOn = true, mountainOn = true, contourOn = true,
-    tapWaterOn, groundwaterOn;
+    tapWaterOn = true, groundwaterOn = true;
 
 function initMap() {
   // Create a new StyledMapType object, passing it the array of styles,

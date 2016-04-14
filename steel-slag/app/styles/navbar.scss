@@ -52,6 +52,9 @@
 	    width: 32%;
 			flex: 1;
 		}
+		&:hover, &:visited, &:link, &:active {
+		    text-decoration: none;
+		}
 	}
 
   .nav-icon {

@@ -1,3 +1,16 @@
+blockquote {
+  border-left: none !important;
+  &:before {
+    content: url('../images/quotation-1.svg');
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    margin-left: -1em;
+    padding-right: 0.5em;
+  }
+}
+
+
 // Bootswatch
 // -----------------------------------------------------
 

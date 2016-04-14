@@ -69,3 +69,9 @@
   }
 
 }
+
+.desktop-text-right {
+  @media (min-width: $screen-xs-max) {
+    text-align: right;
+  }
+}
