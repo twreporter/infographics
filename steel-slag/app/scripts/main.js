@@ -8,6 +8,26 @@ const SLIDE_POSITION = [3, 26, 40, 51, 62, 83, 96];
 const TICK_POSITION = [97, 74, 60, 49, 38, 17, 4];
 let birdviewSlider;
 
+let birdviewTimeouts = [];
+
+function setBirdViewAnimation() {
+  for(let i = 0; i <= 6; i++) {
+    (function(index) {
+        let timer = window.setTimeout(function() {
+          playBirdviewSlide(index);
+        }, i * 2000);
+        birdviewTimeouts.push(timer);
+    })(i);
+  }
+
+}
+function clearBirdViewAnimation() {
+  for(let i = 0; i <= 7; i++) {
+    window.clearTimeout(birdviewTimeouts[i]);
+  }
+  birdviewTimeouts = [];
+}
+
 function enbaleSmoothScroll() {
   $('a[href*="#chapter"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -38,7 +58,6 @@ function getClosest(number, array) {
           difference = newDifference;
           cIndex = index;
       }
-      console.log(index, newDifference);
   }
   return cIndex;
 }
@@ -144,13 +163,24 @@ $( document ).ready(function() {
     triggerHook: 'onEnter',
     offset: 0
   })
-  .setVelocity("#g-soil", { translateX: 0 }, {duration: 0, complete: function() {
+  .on('start', function () {
     $(".soil-bottom").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 300});
     $(".soil-middle").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 600});
     $(".soil-top").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 1000});
     $(".soil-tree").velocity(ANIMATION.fadeInUp, {delay: 100, duration: 1200});
+  })
+  .addTo(controller);
 
-  }})
+  let gBirdview = new ScrollMagic.Scene({
+    triggerElement: '#scene-birdview',
+    triggerHook: 'onEnter',
+    offset: 0
+  })
+  .on('start', function () {
+    console.log("#scene-birdview");
+    clearBirdViewAnimation();
+    setBirdViewAnimation();
+  })
   .addTo(controller);
 
 
@@ -234,7 +264,6 @@ $( document ).ready(function() {
   $( "#bvSlider" ).on('slideStop', function() {
     let cValue = birdviewSlider.slider('getValue');
     let cIndex = getClosest(100-cValue, SLIDE_POSITION);
-    console.log("birdviewSlider", cValue, cIndex);
     playBirdviewSlide(cIndex);
 
   });
