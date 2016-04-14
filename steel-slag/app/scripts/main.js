@@ -82,7 +82,7 @@ function setChapterActiveColor(cid, controller) {
   new ScrollMagic.Scene({
     triggerElement: '#chapter-0'+cid,
     triggerHook: 'onEnter',
-    duration: '100%'
+    duration: $('#chapter-0'+cid).height()
   })
   .setClassToggle("#btn-0"+cid, "active")
   .addTo(controller);
@@ -129,14 +129,6 @@ $( document ).ready(function() {
   for(let i=1; i<7; i++) {
     enableBlurBackground('#cover-0'+i, controller);
   }
-
-  let scene4 = new ScrollMagic.Scene({
-    triggerElement: '#scene-4',
-    triggerHook: 'onLeave',
-    offset: 10
-  })
-  // .setPin("#scene-4")
-  .addTo(controller);
 
   let gSoil = new ScrollMagic.Scene({
     triggerElement: '#g-soil',
