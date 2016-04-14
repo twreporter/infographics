@@ -146,16 +146,6 @@ $( document ).ready(function() {
   .addTo(controller);
 
 
-  let sceneMap = new ScrollMagic.Scene({
-    triggerElement: '#scene-google-map',
-    triggerHook: 'onLeave',
-    offset: '50%'
-  })
-  // .setPin("#scene-google-map")
-  .addTo(controller);
-
-
-
   // enable carousel
   $('.carousel').carousel({
     interval: 2000
