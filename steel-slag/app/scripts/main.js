@@ -182,27 +182,27 @@ $( document ).ready(function() {
 
     switch(btnId) {
       case 'btn-01':
-        $('#nav-hover-id').text('1');
+        $('#nav-hover-id').text('1-1');
         $('#nav-title').text('香蕉樹旁埋爐碴？');
         break;
       case 'btn-02':
-        $('#nav-hover-id').text('2');
+        $('#nav-hover-id').text('1-2');
         $('#nav-title').text('案發現場');
         break;
       case 'btn-03':
-        $('#nav-hover-id').text('3');
+        $('#nav-hover-id').text('1-3');
         $('#nav-title').text('疑點重重');
         break;
       case 'btn-04':
-        $('#nav-hover-id').text('4');
+        $('#nav-hover-id').text('2-1');
         $('#nav-title').text('碴不只一種');
         break;
       case 'btn-05':
-        $('#nav-hover-id').text('5');
+        $('#nav-hover-id').text('2-2');
         $('#nav-title').text('中央出來面對！');
         break;
       case 'btn-06':
-        $('#nav-hover-id').text('6');
+        $('#nav-hover-id').text('人物');
         $('#nav-title').text('大家都驚死，只有她往前衝');
         break;
     }
