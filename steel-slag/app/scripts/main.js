@@ -147,9 +147,7 @@ $( document ).ready(function() {
 
 
   // enable carousel
-  $('.carousel').carousel({
-    interval: 2000
-  });
+  $('.carousel').carousel({interval: false});
   // enable mobile sliding
   $('.carousel').bcSwipe({ threshold: 50 });
   $('#environment-slider').on('slid.bs.carousel', function() {
