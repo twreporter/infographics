@@ -236,7 +236,7 @@ $( document ).ready(function() {
   // bird view
   $('#scene-birdview').css('min-height', $('#6-birdview').height());
 
-  let bvHeight = $('#1-birdview .birdview-img-box').height();
+  let bvHeight = $('#0-birdview .birdview-img-box').height();
   $(".birdview-slider").css({'height': bvHeight*0.8,
                              'transform': 'translate(0,' + bvHeight*0.1+'px)'
   });
