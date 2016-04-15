@@ -1,0 +1,82 @@
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+.img-fit-width {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pad-small {
+  padding: 0.5em;
+}
+
+.margin-v-small {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+.pad-bottom-small {
+  padding-bottom: 0.5em;
+}
+
+.pad-v-mobile {
+  @media (max-width: $screen-xs-max) {
+    margin-top: 3.8em;
+  }
+}
+
+.show-mobile {
+  @media (min-width: $screen-xs-min) {
+    display: none;
+  }
+}
+
+.no-pad-top {
+  @media (min-width: $screen-md-min) {
+    padding-top: 0 !important;
+  }
+}
+
+.pad-zero {
+  @media (max-width: $screen-md-min) {
+    padding: 0 !important;
+  }
+}
+
+.pad-for-nav {
+  @media (min-width: $screen-md-min) {
+    padding-right: 7em !important;
+  }
+}
+
+.hide-all {
+  display: none;
+}
+
+.max-fit {
+  max-width: 100%;
+}
+
+.disable-desktop-c {
+  &.container {
+    @media (min-width: $screen-sm-min) {
+      max-width: none;
+      width: 100%;
+    }
+    @media (min-width: $screen-md-min) {
+      width: 100%;
+    }
+    @media (min-width: $screen-lg-min) {
+      width: 100%;
+    }
+  }
+
+}
+
+.desktop-text-right {
+  @media (min-width: $screen-xs-max) {
+    text-align: right;
+  }
+}

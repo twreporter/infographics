@@ -1,0 +1,21 @@
+@import "./variables.scss";
+
+.white-text {
+  color: white;
+}
+
+.green-text {
+  color: $green;
+}
+
+.light-font {
+  font-weight: 300;
+}
+
+.bold-font {
+  font-weight: 700;
+}
+
+.wheat-text {
+  color: $wheat;
+}

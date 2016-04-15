@@ -1,0 +1,15 @@
+/* Grow Effect */
+.hover-grow {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition-duration: 0.2s;
+  transition-property: transform;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hover-grow:hover,
+.hover-grow:focus, .hover-grow:active {
+  transform: scale(1.2);
+}
