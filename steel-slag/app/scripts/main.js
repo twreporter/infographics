@@ -71,7 +71,7 @@ function playBirdviewSlide(cIndex) {
       }
     }
     $('#'+cIndex+'-birdview').css('opacity', '1');
-    $('#'+cIndex+'-birdview').css('z-index', 100);
+    $('#'+cIndex+'-birdview').css('z-index', 5);
 
     // toggle slider to the closet position
     birdviewSlider.slider('setValue', 100-SLIDE_POSITION[cIndex]);
@@ -144,14 +144,14 @@ $( document ).ready(function() {
   // enable smooth scrolling for the page
   enbaleSmoothScroll();
 
-  let sceneIntro = new ScrollMagic.Scene({
-    triggerElement: '#chapter-intro',
-    triggerHook: 'onLeave',
-    duration: '50%',
-    offset: 10
-  })
-  .setPin('.article-location')
-  .addTo(controller);
+  // let sceneIntro = new ScrollMagic.Scene({
+  //   triggerElement: '#chapter-intro',
+  //   triggerHook: 'onLeave',
+  //   duration: '50%',
+  //   offset: 10
+  // })
+  // .setPin('.article-location')
+  // .addTo(controller);
 
   // enable the blur effect for each chapter's cover
   for(let i=1; i<7; i++) {

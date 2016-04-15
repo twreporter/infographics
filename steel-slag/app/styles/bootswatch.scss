@@ -8,6 +8,16 @@ blockquote {
     margin-left: -1em;
     padding-right: 0.5em;
   }
+  &:after {
+    content: url('../images/quotation-2.svg');
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    margin-left: -1em;
+    padding-right: 0.5em;
+    position: absolute;
+    right: -0.5em;
+  }
 }
 
 .modal-header {
