@@ -144,15 +144,6 @@ $( document ).ready(function() {
   // enable smooth scrolling for the page
   enbaleSmoothScroll();
 
-  // let sceneIntro = new ScrollMagic.Scene({
-  //   triggerElement: '#chapter-intro',
-  //   triggerHook: 'onLeave',
-  //   duration: '50%',
-  //   offset: 10
-  // })
-  // .setPin('.article-location')
-  // .addTo(controller);
-
   // enable the blur effect for each chapter's cover
   for(let i=1; i<7; i++) {
     enableBlurBackground('#cover-0'+i, controller);
@@ -235,11 +226,6 @@ $( document ).ready(function() {
     }
   });
 
-  // set active color for the navigation button
-  for(let i=1; i<7; i++) {
-    setChapterActiveColor(i, controller);
-  }
-
   $('.nav-icon').mouseout(function() {
     $('.nav-description').velocity("stop", true);
     $('.nav-description').velocity(
@@ -249,7 +235,9 @@ $( document ).ready(function() {
   });
 
   // bird view
-  let bvHeight = $(window).width()*65/110;
+  $('#scene-birdview').css('min-height', $('#6-birdview').height());
+
+  let bvHeight = $('#1-birdview .birdview-img-box').height();
   $(".birdview-slider").css({'height': bvHeight*0.9,
                              'transform': 'translate(0,' + bvHeight*0.05+'px)'
   });
@@ -259,7 +247,6 @@ $( document ).ready(function() {
     ticks: TICK_POSITION
   });
 
-
   // set slider to the nearest position
   $( "#bvSlider" ).on('slideStop', function() {
     let cValue = birdviewSlider.slider('getValue');
@@ -267,8 +254,11 @@ $( document ).ready(function() {
     playBirdviewSlide(cIndex);
 
   });
-
   // END - bird view
 
+  // set active color for the navigation button
+  for(let i=1; i<7; i++) {
+    setChapterActiveColor(i, controller);
+  }
 
 });
