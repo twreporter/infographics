@@ -234,7 +234,7 @@ $( document ).ready(function() {
   });
 
   // bird view
-  $('#scene-birdview').css('min-height', $('#6-birdview').height());
+  $('#scene-birdview').css('min-height', $('#6-birdview').height() + 10);
 
   let bvHeight = $('#0-birdview .birdview-img-box').height();
   $(".birdview-slider").css({'height': bvHeight*0.8,
