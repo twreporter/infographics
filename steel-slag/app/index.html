@@ -30,7 +30,7 @@
   <!-- endbuild -->
 
   <!-- build:js scripts/vendor/modernizr.js -->
-  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <script src="/bower_components/modernizr/modernizr.js" async defer></script>
   <!-- endbuild -->
 </head>
 
@@ -135,8 +135,7 @@
             <!-- BEGIN - overview card -->
             <div id='g-overview-card-_____1' class="hidden-xs">
               <img id='g-ai0-0'
-                class='g-aiImg'
-                src='images/overview-card.svg'
+                class='g-aiImg' src='images/overview-card.svg'
                 />
               <div id='g-ai0-1' class='g-___1 g-aiAbs' style='top:4.7316%;left:5.1264%;'>
                 <p class='g-aiPstyle0'>台灣污染土地大調查</p>
@@ -233,7 +232,7 @@
             <p>旗山案擺了3年，至今仍懸宕未決。</p>
 
             <!-- Image Slider -->
-            <div id="environment-slider" class="carousel slide image-slider" data-ride="carousel">
+            <div id="environment-slider" class="carousel slide image-slider lazyload" data-ride="carousel">
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
                 <div class="item active">
@@ -275,7 +274,7 @@
                 <div class="item">
                   <div class="row row-eq-height">
                     <div class="col-md-9 pad-zero">
-                      <img class="img-fit-width" src="images/photo-slide/S_04.jpg">
+                      <img class="img-fit-width" src="mages/photo-slide/S_04.jpg">
                     </div>
                     <div class="col-md-3 dark-bg slider-description">
                       <p>業者在疑似受汙的土地上種植龍柏，即使套著塑膠盆沒有跟受汙土壤接觸，但三個月後記者重回現場，龍柏幾乎枯死。</p>
@@ -460,8 +459,8 @@
               </div>
               <div id="1-birdview" class="birdview-box">
                 <div class="row birdview-img-box">
-                  <img class="birdview-mobile-img" src="images/earth/m/2013.2.9.jpg"/>
-                  <img class="birdview-img" src="images/earth/2013.2.9.jpg"/>
+                  <img class="birdview-mobile-img lazyload" src="images/earth/m/2005.jpg" alt="Photo" data-src="images/earth/m/2013.2.9.jpg"/>
+                  <img class="birdview-img lazyload" src="images/earth/2005.jpg" alt="Photo" data-src="images/earth/2013.2.9.jpg"/>
                 </div>
                 <div class="row birdview-description">
                   <div class="col-md-4 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
@@ -482,8 +481,8 @@
               </div>
               <div id="2-birdview" class="birdview-box">
                 <div class="row birdview-img-box">
-                  <img class="birdview-mobile-img" src="images/earth/m/2013.12.15.jpg"/>
-                  <img class="birdview-img" src="images/earth/2013.12.15.jpg"/>
+                  <img class="birdview-mobile-img lazyload" src="images/earth/m/2005.jpg" alt="Photo" data-src="images/earth/m/2013.12.15.jpg"/>
+                  <img class="birdview-img lazyload" src="images/earth/2005.jpg" alt="Photo" data-src="images/earth/2013.12.15.jpg"/>
                 </div>
                 <div class="row birdview-description">
                   <div class="col-md-4 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
@@ -504,8 +503,8 @@
               </div>
               <div id="3-birdview" class="birdview-box">
                 <div class="row birdview-img-box">
-                  <img class="birdview-mobile-img" src="images/earth/m/2014.1.1.jpg"/>
-                  <img class="birdview-img" src="images/earth/2014.1.1.jpg"/>
+                  <img class="birdview-mobile-img lazyload" src="images/earth/m/2005.jpg" alt="Photo" data-src="images/earth/m/2014.1.1.jpg"/>
+                  <img class="birdview-img lazyload" src="images/earth/2005.jpg" alt="Photo" data-src="images/earth/2014.1.1.jpg"/>
                 </div>
                 <div class="row birdview-description">
                   <div class="col-md-4 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
@@ -526,8 +525,8 @@
               </div>
               <div id="4-birdview" class="birdview-box">
                 <div class="row birdview-img-box">
-                  <img class="birdview-mobile-img" src="images/earth/m/2014.2.16.jpg"/>
-                  <img class="birdview-img" src="images/earth/2014.2.16.jpg"/>
+                  <img class="birdview-mobile-img lazyload" src="images/earth/m/2005.jpg" alt="Photo" data-src="images/earth/m/2014.2.16.jpg"/>
+                  <img class="birdview-img lazyload" src="images/earth/2005.jpg" alt="Photo" data-src="images/earth/2014.2.16.jpg"/>
                 </div>
                 <div class="row birdview-description">
                   <div class="col-md-4 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
@@ -548,8 +547,8 @@
               </div>
               <div id="5-birdview" class="birdview-box">
                 <div class="row birdview-img-box">
-                  <img class="birdview-mobile-img" src="images/earth/m/2015.4.29.jpg"/>
-                  <img class="birdview-img" src="images/earth/2015.4.29.jpg"/>
+                  <img class="birdview-mobile-img lazyload" src="images/earth/m/2005.jpg" alt="Photo" data-src="images/earth/m/2015.4.29.jpg"/>
+                  <img class="birdview-img lazyload" src="images/earth/2005.jpg" alt="Photo" data-src="images/earth/2015.4.29.jpg"/>
                 </div>
                 <div class="row birdview-description">
                   <div class="col-md-4 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
@@ -1387,7 +1386,7 @@
               雖可再利用，但轉爐石實質上卻不是市場寵兒。「現在人工石材愈來愈多，愈來愈多就造成互相排擠，」環保署廢棄物管理處處長吳盛忠解釋，早年還有高雄南星填海計劃，轉爐石還有去處，但近年沒有這類海事工程，市場變得有限。</p>
 
             <!-- Slag's Life: Image Slider -->
-            <div id="slag-slider" class="carousel slide image-slider" data-ride="carousel">
+            <div id="slag-slider" class="carousel slide image-slider lazyload" data-ride="carousel">
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
                 <div class="item active">
@@ -1502,7 +1501,7 @@
         <div class="row">
           <div class="col-md-12">
             <blockquote>珍貴農地被大量傾倒爐碴（轉爐石），讓一位幼稚園老師的平靜生活就此崩解。看到家園的水變色，聞到空氣變臭，鄭妙珍毅然辭去工作投入抗爭。抗爭尚未成功，卻得先面對部分居民的冷漠、親戚的不諒解⋯⋯，單純要找回家園的舊樣子，代價居然這麼大。</blockquote>
-            <img class="img-responsive margin-v-small" src="images/cover/bg_sec6_1_low.jpg" srcset="images/cover/bg_sec6_1_low.jpg 1x, images/cover/bg_sec6_1_high.jpg 2x" />
+            <img class="img-responsive margin-v-small lazyload" data-sizes="auto" data-src="images/cover/bg_sec6_1_low.jpg" data-srcset="images/cover/bg_sec6_1_low.jpg 1x, images/cover/bg_sec6_1_high.jpg 2x" />
             <p>「做這件事情，如果那天媽媽走了，你們要堅強。」反旗山大林回填廢爐渣自救會會長鄭妙珍，將大女兒叫到身邊，忍著身體的疼痛對她說出了這句話。抗爭這段時間，她什麼沒遇過──暴力威脅、家庭失和、居民的漠不關心，都咬牙撐過來了。但當拳頭真的打在身上時，鄭妙珍著實楞住，她沒有想到保護自己家園的代價竟這麼殘酷。</p>
 
             <p>自旗山大林里傾倒爐碴案爆發以來，鄭妙珍過去3年不間斷的到現場，蒐集自然生態改變、業者掩埋不明土石等證據。2014年9月25日，她如往常，在農忙後走到住家附近200公尺外的爐碴掩埋地，進行例行的觀測。</p>
@@ -1535,7 +1534,7 @@
             「我們想說高雄市政府可能會賴皮，去年也去告高雄市政府，是行政訴訟。」只要是抗爭相關，鄭妙珍總是希望做到滴水不漏。她將自己譬喻成「愚公」，就算再傻，也要等到政府願意「移山」那天。</p><p>
             「剛開始遇到業者的業配新聞或政府消極處理，你會覺得很無力。可是你會慢慢發現這就是他們的技倆，你幹嘛生氣呢！沒關係，我就跟你耗，因為政府就喜歡跟人民耗，他們用資源跟人民耗，耗到你舉白旗投降，他們就贏了。」</p><p>
             「我們就是不給政府這樣，我就跟你耗，我走了還有我的孩子，孩子走了還有孫子，就是愚公移山！這條路我就是跟你堅持下去，堅持到你撤走為止，堅持到政府已經有規範出來。」鄭妙珍說。</p>
-            <img class="img-responsive margin-v-small" src="images/cover/bg_sec6_2_low.jpg" srcset="images/cover/bg_sec6_2_low.jpg 1x, images/cover/bg_sec6_2_high.jpg 2x" />
+            <img class="img-responsive margin-v-small lazyload" data-sizes="auto" data-src="images/cover/bg_sec6_2_low.jpg" data-srcset="images/cover/bg_sec6_2_low.jpg 1x, images/cover/bg_sec6_2_high.jpg 2x" />
           </div>
         </div>
       </div>
@@ -1550,12 +1549,12 @@
     <footer class="footer">
       <div class="row pad-bottom-small">
         <div class="col-md-5 col-sm-5">
-          <a href="https://www.twreporter.org/" target="_blank"><img class="hover-grow" src="images/footer/logo-footer.svg"/></a>
+          <a href="https://www.twreporter.org/" target="_blank"><img class="hover-grow lazyload" data-src="images/footer/logo-footer.svg"/></a>
         </div>
         <div class="col-md-7 col-sm-7 desktop-text-right">
-          <a href="https://www.facebook.com/twreporter/" target="_blank"><img class="hover-grow" src="images/footer/facebook-footer.svg"/></a>
-          <a href="https://www.instagram.com/twreporter/" target="_blank"><img class="hover-grow" src="images/footer/instagram-footer.svg"/></a>
-          <a href="https://twreporter.backme.tw:443/cashflow/checkout?project_id=175&reward_id=718" target="_blank"><img class="hover-grow" src="images/footer/donate-footer.svg"/></a>
+          <a href="https://www.facebook.com/twreporter/" target="_blank"><img class="hover-grow lazyload" data-src="images/footer/facebook-footer.svg"/></a>
+          <a href="https://www.instagram.com/twreporter/" target="_blank"><img class="hover-grow lazyload" data-src="images/footer/instagram-footer.svg"/></a>
+          <a href="https://twreporter.backme.tw:443/cashflow/checkout?project_id=175&reward_id=718" target="_blank"><img class="hover-grow lazyload" data-src="images/footer/donate-footer.svg"/></a>
         </div>
       </div>
       <div class="row pad-bottom-small">
@@ -1599,6 +1598,8 @@
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/lazysizes/lazysizes.min.js" async=""></script>
+  <script src="/bower_components/lazysizes/plugins/unveilhooks/ls.unveilhooks.min.js" async=""></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -1629,11 +1630,12 @@
 
   <!-- build:js scripts/main.js -->
   <script src="scripts/main.js"></script>
-  <script src="scripts/map.js"></script>
+  <script src="scripts/map.js" async defer></script>
   <!-- endbuild -->
 
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChDAwKn1Udj2EOrr0iSbjUuvBIMzNnof4&callback=initMap" async defer></script>
+
 
 </body>
 

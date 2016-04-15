@@ -168,7 +168,6 @@ $( document ).ready(function() {
     offset: 0
   })
   .on('start', function () {
-    console.log("#scene-birdview");
     clearBirdViewAnimation();
     setBirdViewAnimation();
   })
@@ -238,8 +237,8 @@ $( document ).ready(function() {
   $('#scene-birdview').css('min-height', $('#6-birdview').height());
 
   let bvHeight = $('#1-birdview .birdview-img-box').height();
-  $(".birdview-slider").css({'height': bvHeight*0.9,
-                             'transform': 'translate(0,' + bvHeight*0.05+'px)'
+  $(".birdview-slider").css({'height': bvHeight*0.8,
+                             'transform': 'translate(0,' + bvHeight*0.1+'px)'
   });
 
   birdviewSlider = $("#bvSlider").slider({

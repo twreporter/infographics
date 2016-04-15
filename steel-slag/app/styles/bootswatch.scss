@@ -27,7 +27,7 @@ blockquote {
 // Bootswatch
 // -----------------------------------------------------
 
-$web-font-path: "http://fonts.googleapis.com/earlyaccess/notosanstc.css";
+$web-font-path: "https://fonts.googleapis.com/earlyaccess/notosanstc.css";
 @import "./variables.scss";
 @import url($web-font-path);
 
