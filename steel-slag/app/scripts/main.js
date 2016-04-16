@@ -234,11 +234,21 @@ $( document ).ready(function() {
   });
 
   // bird view
-  $('#scene-birdview').css('min-height', $('#6-birdview').height() + 10);
+  let bvHeight = $(window).width() / 100 * 59;
+  let bvPortion = 0.84;
+  let desHeight = 0;
+  if($(window).width() < 768) {
+    desHeight =  $('#6-birdview .birdview-description').height();
+    bvPortion = 0.7;
+  }
+  if($(window).width() <= 768) {
+    bvHeight = $(window).width() / 100 * 89;
+  }
 
-  let bvHeight = $('#0-birdview .birdview-img-box').height();
-  $(".birdview-slider").css({'height': bvHeight*0.8,
-                             'transform': 'translate(0,' + bvHeight*0.1+'px)'
+  $('#scene-birdview').css('min-height', desHeight + bvHeight + 10);
+
+  $(".birdview-slider").css({'height': bvHeight*bvPortion,
+                             'transform': 'translate(0,' + bvHeight*( (1-bvPortion)/2 )+'px)'
   });
 
   birdviewSlider = $("#bvSlider").slider({

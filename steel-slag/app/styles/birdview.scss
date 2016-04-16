@@ -38,7 +38,7 @@
     width: 100%;
     height: auto;
     margin: 0;
-    @media only screen and (max-width: $screen-sm-min - 1) {
+    @media only screen and (max-width: $screen-sm-min) {
       display: none;
     }
   }
@@ -47,7 +47,7 @@
     width: 100%;
     height: auto;
     margin: 0;
-    @media (min-width: $screen-sm-min) {
+    @media only screen and (min-width: $screen-sm-min + 1) {
       display: none;
     }
   }
