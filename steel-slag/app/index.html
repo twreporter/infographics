@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="2月22日、23日是第九屆立法委員選擇委員會的日子，你是一位首次當選的菜鳥立委，該怎麼選擇委員會？會經過哪些流程？讓我們一起走一遭...">
+  <meta name="description" content="案發至今已三年的旗山案無法俐落處理、結案歸檔。明明轉爐石不能回填在農業用地，但這99萬噸的轉爐石卡
+  死在面積達5.2公頃巨大窟窿中。鄰近六十戶人家還要用水種農物，他們能等多久？">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="農地找「碴」　旗山之痛—／報導者"/>
   <meta property="og:description" content="案發至今已三年的旗山案無法俐落處理、結案歸檔。明明轉爐石不能回填在農業用地，但這99萬噸的轉爐石卡死在面積達5.2公頃巨大窟窿中。鄰近六十戶人家還要用水種農物，他們能等多久？"/>
@@ -54,22 +55,22 @@
       <img class="logo hover-grow" src="images/twr_logo.svg"/>
     </a>
     <div class="nav-container">
-      <a href="#chapter-01" class="nav-link">
+      <a href="#chapter-01" class="nav-link" onClick="ga('send', 'event', 'menu', 'click', 'chapter1');">
         <img id="btn-01" alt="香蕉樹旁埋爐碴？" src="images/nav/banana.svg" class="nav-icon" >
       </a>
-      <a href="#chapter-02" class="nav-link">
+      <a href="#chapter-02" class="nav-link" onClick="ga('send', 'event', 'menu', 'click', 'chapter2);">
         <img id="btn-02" alt="1-1. &nbsp;" src="images/nav/satellitemap.svg" class="nav-icon" >
       </a>
-      <a href="#chapter-03" class="nav-link">
+      <a href="#chapter-03" class="nav-link" onClick="ga('send', 'event', 'menu', 'click', 'chapter3');">
         <img id="btn-03" alt="疑點重重" src="images/nav/truck.svg" class="nav-icon" >
       </a>
-      <a href="#chapter-04" class="nav-link">
+      <a href="#chapter-04" class="nav-link" onClick="ga('send', 'event', 'menu', 'click', 'chapter4');">
         <img id="btn-04" alt="碴不只一種" src="images/nav/rocks.svg" class="nav-icon" >
       </a>
-      <a href="#chapter-05" class="nav-link">
+      <a href="#chapter-05" class="nav-link" onClick="ga('send', 'event', 'menu', 'click', 'chapter5');">
         <img id="btn-05" alt="中央出來面對！" src="images/nav/government.svg" class="nav-icon" >
       </a>
-      <a href="#chapter-06" class="nav-link">
+      <a href="#chapter-06" class="nav-link" onClick="ga('send', 'event', 'menu', 'click', 'chapter6');">
         <img id="btn-06" alt="大家都驚死，只有她往前衝" src="images/nav/protester.svg" class="nav-icon" >
       </a>
       <div class="share-top">
@@ -368,8 +369,8 @@
                 <!-- End Item -->
                 <div class="row">
                   <div class="col-md-3 col-md-push-9 slide-controls">
-                    <a class="slide-control-btn" data-slide="prev" role="button" href="#environment-slider"><img class="left-btn" src="images/left_btn_active.svg"></a>
-                    <a class="slide-control-btn" data-slide="next" role="button" href="#environment-slider"><img class="right-btn" src="images/right_btn_active.svg"></a>
+                    <a class="slide-control-btn" data-slide="prev" role="button" href="#environment-slider" onClick="ga('send', 'event', 'interactive', 'click', 'slideshow');"><img class="left-btn" src="images/left_btn_active.svg"></a>
+                    <a class="slide-control-btn" data-slide="next" role="button" href="#environment-slider" onClick="ga('send', 'event', 'interactive', 'click', 'slideshow');"><img class="right-btn" src="images/right_btn_active.svg"></a>
                   </div>
                 </div>
               </div>
@@ -415,7 +416,7 @@
         <div class="row">
           <!-- 衛星圖 -->
           <div id="scene-birdview" class="birdview-outer">
-            <div class="birdview-slider">
+            <div class="birdview-slider" onclick="ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');">
               <div class="time-overlay">
                 <p id="t-2005">2005</p>
                 <p id="t-2013">2013</p>
@@ -436,7 +437,7 @@
               <input id="bvSlider" type="text" data-slider-min="0" data-slider-max="100"
                       data-slider-step="1" data-slider-value="100"
                       data-slider-orientation="vertical" data-slider-tooltip="hide"
-                      data-slider-handle="custom"/>
+                      data-slider-handle="custom" />
             </div>
             <div class="birdview-container">
               <!-- Birdview Slides -->
@@ -448,7 +449,7 @@
                 <div class="row birdview-description">
                   <div class="col-md-4 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
                     <div class="birdview-text">
-                      <a class="control-btn" onClick="playBirdviewSlide(1)" href="#scene-birdview"><img class="right-btn" src="images/earth/down-click.svg"></a>
+                      <a class="control-btn" onClick="playBirdviewSlide(1);ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');" href="#scene-birdview"><img class="right-btn" src="images/earth/down-click.svg"></a>
                       <h3>2005</h3>
                       <p>
                         更早以前，此地原是養豬場，後來政府實施「離牧政策」，閒置一陣後，土石被盜挖，形成兩個大窟窿，業者便跑路了。窟窿經年累月變成深水池，居民偶而會到池邊釣魚、玩耍。
@@ -465,8 +466,8 @@
                 <div class="row birdview-description">
                   <div class="col-md-4 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
                     <div class="birdview-text">
-                      <a class="control-btn" onClick="playBirdviewSlide(0)" href="#scene-birdview"><img class="right-btn" src="images/earth/up-click.svg"></a>
-                      <a class="control-btn" onClick="playBirdviewSlide(2)" href="#scene-birdview"><img class="right-btn" src="images/earth/down-click.svg"></a>
+                      <a class="control-btn" onClick="playBirdviewSlide(0);ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');" href="#scene-birdview"><img class="right-btn" src="images/earth/up-click.svg"></a>
+                      <a class="control-btn" onClick="playBirdviewSlide(2);ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');" href="#scene-birdview"><img class="right-btn" src="images/earth/down-click.svg"></a>
                       <h3>2013 . 2 . 9</h3>
                       <h5>
                         (A) 部分已經有填入跡象
@@ -487,8 +488,8 @@
                 <div class="row birdview-description">
                   <div class="col-md-4 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
                     <div class="birdview-text">
-                      <a class="control-btn" onClick="playBirdviewSlide(1)" href="#scene-birdview"><img class="right-btn" src="images/earth/up-click.svg"></a>
-                      <a class="control-btn" onClick="playBirdviewSlide(3)" href="#scene-birdview"><img class="right-btn" src="images/earth/down-click.svg"></a>
+                      <a class="control-btn" onClick="playBirdviewSlide(1);ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');" href="#scene-birdview"><img class="right-btn" src="images/earth/up-click.svg"></a>
+                      <a class="control-btn" onClick="playBirdviewSlide(3);ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');" href="#scene-birdview"><img class="right-btn" src="images/earth/down-click.svg"></a>
                       <h3>2013 . 12 . 15</h3>
                       <h5>
                         (A) 段已經被填滿，業者開闢 (C) 道路，傾倒廢棄物於 (B) 段
@@ -509,8 +510,8 @@
                 <div class="row birdview-description">
                   <div class="col-md-4 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
                     <div class="birdview-text">
-                      <a class="control-btn" onClick="playBirdviewSlide(2)" href="#scene-birdview"><img class="right-btn" src="images/earth/up-click.svg"></a>
-                      <a class="control-btn" onClick="playBirdviewSlide(4)" href="#scene-birdview"><img class="right-btn" src="images/earth/down-click.svg"></a>
+                      <a class="control-btn" onClick="playBirdviewSlide(2);ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');" href="#scene-birdview"><img class="right-btn" src="images/earth/up-click.svg"></a>
+                      <a class="control-btn" onClick="playBirdviewSlide(4);ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');" href="#scene-birdview"><img class="right-btn" src="images/earth/down-click.svg"></a>
                       <h3>2014 . 1 . 1</h3>
                       <h5>
                         (B) 段水池顏色已呈現蒂芬妮綠色，居民檢測ph值達12
@@ -531,8 +532,8 @@
                 <div class="row birdview-description">
                   <div class="col-md-4 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
                     <div class="birdview-text">
-                      <a class="control-btn" onClick="playBirdviewSlide(3)" href="#scene-birdview"><img class="right-btn" src="images/earth/up-click.svg"></a>
-                      <a class="control-btn" onClick="playBirdviewSlide(5)" href="#scene-birdview"><img class="right-btn" src="images/earth/down-click.svg"></a>
+                      <a class="control-btn" onClick="playBirdviewSlide(3);ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');" href="#scene-birdview"><img class="right-btn" src="images/earth/up-click.svg"></a>
+                      <a class="control-btn" onClick="playBirdviewSlide(5);ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');" href="#scene-birdview"><img class="right-btn" src="images/earth/down-click.svg"></a>
                       <h3>2014 . 2 . 16</h3>
                       <h5>
                         (B) 段已經快被填滿一半， (B) 11段為國土地、水利地
@@ -553,8 +554,8 @@
                 <div class="row birdview-description">
                   <div class="col-md-4 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
                     <div class="birdview-text">
-                      <a class="control-btn" onClick="playBirdviewSlide(4)" href="#scene-birdview"><img class="right-btn" src="images/earth/up-click.svg"></a>
-                      <a class="control-btn" onClick="playBirdviewSlide(6)" href="#scene-birdview"><img class="right-btn" src="images/earth/down-click.svg"></a>
+                      <a class="control-btn" onClick="playBirdviewSlide(4);ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');" href="#scene-birdview"><img class="right-btn" src="images/earth/up-click.svg"></a>
+                      <a class="control-btn" onClick="playBirdviewSlide(6);ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');" href="#scene-birdview"><img class="right-btn" src="images/earth/down-click.svg"></a>
                       <h3>2015 . 4 . 29</h3>
                       <h5>
                         (A) 、 (B) 、 (C) 段都已經被填滿
@@ -576,7 +577,7 @@
                 <div class="row birdview-description">
                   <div class="col-md-4 col-md-push-2 col-sm-5 col-sm-push-1 birdview-colorbox white-text">
                     <div class="birdview-text">
-                      <a class="control-btn" onClick="playBirdviewSlide(5)" href="#scene-birdview"><img class="right-btn" src="images/earth/up-click.svg"></a>
+                      <a class="control-btn" onClick="playBirdviewSlide(5);ga('send', 'event', 'interactive', 'click', 'playBirdviewSlide');" href="#scene-birdview"><img class="right-btn" src="images/earth/up-click.svg"></a>
                       <h3>2015 . 12 . 4</h3>
                       <h5>
                         業者於回填地段種植龍柏，預計發展太陽能發電版
@@ -618,7 +619,7 @@
               <div class="pad-small pad-for-nav">
                 <div class="onoffToggleOuter onoffToggle-purple" data-toggle="tooltip" data-placement="bottom" title="特定農業區以外供農業使用之土地。">
                   <div class="onoffToggle">
-                    <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setAgricultureToggle()" id="myonoffToggle1" checked>
+                    <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setAgricultureToggle();ga('send', 'event', 'interactive', 'click', 'setToggle');" id="myonoffToggle1" checked>
                     <label class="onoffToggle-label" for="myonoffToggle1">
                       <span class="onoffToggle-inner"></span>
                       <span class="onoffToggle-switch"></span>
@@ -629,7 +630,7 @@
 
                 <div class="onoffToggleOuter onoffToggle-yellow" data-toggle="tooltip" data-placement="bottom" title="優良農地或曾經投資建設重大農業改良設施，經會同農業主管機關認為必須加以特別保護而劃定者。">
                   <div class="onoffToggle">
-                    <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setSpecificToggle()" id="myonoffToggle2" checked>
+                    <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setSpecificToggle();ga('send', 'event', 'interactive', 'click', 'setToggle');" id="myonoffToggle2" checked>
                     <label class="onoffToggle-label" for="myonoffToggle2">
                       <span class="onoffToggle-inner"></span>
                       <span class="onoffToggle-switch"></span>
@@ -640,7 +641,7 @@
 
                 <div class="onoffToggleOuter" data-toggle="tooltip" data-placement="bottom" title="為保護自然生態資源、景觀、環境，與防治沖蝕、崩塌、地滑、土石流失等地質災害，及涵養水源等水土保育，依有關法規，會同有關機關劃定者。">
                   <div class="onoffToggle">
-                    <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setMountainToggle()" id="myonoffToggle0" checked>
+                    <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setMountainToggle();ga('send', 'event', 'interactive', 'click', 'setToggle');" id="myonoffToggle0" checked>
                     <label class="onoffToggle-label" for="myonoffToggle0">
                       <span class="onoffToggle-inner"></span>
                       <span class="onoffToggle-switch"></span>
@@ -651,7 +652,7 @@
 
                 <div class="onoffToggleOuter onoffToggle-tap" data-toggle="tooltip" data-placement="bottom" title="自民國64年起，劃設水源水質水量保護區，目的在於保護重要之水源，劃定範圍大體上為重要取水口上游之集水區，以維護水質與水量。">
                   <div class="onoffToggle">
-                    <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setTapWaterToggle()" id="myonoffToggleW1" checked>
+                    <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setTapWaterToggle();ga('send', 'event', 'interactive', 'click', 'setToggle');" id="myonoffToggleW1" checked>
                     <label class="onoffToggle-label" for="myonoffToggleW1">
                       <span class="onoffToggle-inner"></span>
                       <span class="onoffToggle-switch"></span>
@@ -662,7 +663,7 @@
 
                 <div class="onoffToggleOuter onoffToggle-ground" data-toggle="tooltip" data-placement="bottom" title="地下水分區多屬於地質學中之第四紀岩層，且在地形上多以海岸台地、河階台地與沖積平原出現等特性，目前劃分為九個地下水區。">
                   <div class="onoffToggle">
-                    <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setGroundWaterToggle()" id="myonoffToggleW2" checked>
+                    <input type="checkbox" name="onoffToggle" class="onoffToggle-checkbox" onClick="setGroundWaterToggle();ga('send', 'event', 'interactive', 'click', 'setToggle');" id="myonoffToggleW2" checked>
                     <label class="onoffToggle-label" for="myonoffToggleW2">
                       <span class="onoffToggle-inner"></span>
                       <span class="onoffToggle-switch"></span>
@@ -845,22 +846,22 @@
                   <p class='g-aiPstyle2'>中龍</p>
                 </div>
                 <div id='g-ai0-6' class='g-____ g-aiAbs' style='top:45.2%;left:16.9%;width:16%;margin-left:-7.842%;'>
-                  <a href="#" data-toggle="modal" data-target="#steelModal-1"> <p class='g-aiPstyle3 hover-grow'>高爐石君</p> </a>
+                  <a href="#" data-toggle="modal" data-target="#steelModal-1" onClick="ga('send', 'event', 'interactive', 'click', 'modal');"> <p class='g-aiPstyle3 hover-grow'>高爐石君</p> </a>
                 </div>
                 <div id='g-ai0-7' class='g-_____ g-aiAbs' style='top:45.2%;left:49.2%;width:18%;margin-left:-6.2%;'>
-                  <a href="#" data-toggle="modal" data-target="#steelModal-2"> <p class='g-aiPstyle3 hover-grow'>脫硫渣次郎</p> </a>
+                  <a href="#" data-toggle="modal" data-target="#steelModal-2" onClick="ga('send', 'event', 'interactive', 'click', 'modal');"> <p class='g-aiPstyle3 hover-grow'>脫硫渣次郎</p> </a>
                 </div>
                 <div id='g-ai0-8' class='g-____ g-aiAbs' style='top:45.2%;left:86.2%;width:16%;margin-left:-7.8419%;'>
-                  <a href="#" data-toggle="modal" data-target="#steelModal-3"> <p class='g-aiPstyle3 hover-grow'>轉爐石子</p> </a>
+                  <a href="#" data-toggle="modal" data-target="#steelModal-3" onClick="ga('send', 'event', 'interactive', 'click', 'modal');"> <p class='g-aiPstyle3 hover-grow'>轉爐石子</p> </a>
                 </div>
                 <div id='g-ai0-9' class='g-________ g-aiAbs' style='top:63%;left:37.7%;'>
                   <p class='g-aiPstyle2'>各地電弧爐煉鋼廠</p>
                 </div>
                 <div id='g-ai0-10' class='g-_______ g-aiAbs' style='top:93.3%;left:30%;width:25%;margin-left:-8.5595%;'>
-                  <a href="#" data-toggle="modal" data-target="#steelModal-4"> <p class='g-aiPstyle3 hover-grow'>電弧爐碴雙胞胎</p> </a>
+                  <a href="#" data-toggle="modal" data-target="#steelModal-4" onClick="ga('send', 'event', 'interactive', 'click', 'modal');"> <p class='g-aiPstyle3 hover-grow'>電弧爐碴雙胞胎</p> </a>
                 </div>
                 <div id='g-ai0-11' class='g-______ g-aiAbs' style='top:93.3%;left:68.5%;width:23%;margin-left:-8.5595%;'>
-                  <a href="#" data-toggle="modal" data-target="#steelModal-5"> <p class='g-aiPstyle3 hover-grow'>集塵灰小五郎</p> </a>
+                  <a href="#" data-toggle="modal" data-target="#steelModal-5" onClick="ga('send', 'event', 'interactive', 'click', 'modal');"> <p class='g-aiPstyle3 hover-grow'>集塵灰小五郎</p> </a>
                 </div>
               </div>
             </div>
@@ -1575,6 +1576,7 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
     ga('create', 'UA-69336956-1', 'auto');
+    ga('require', 'linkid', 'linkid.js');
     ga('send', 'pageview');
 
    // facebook App ID

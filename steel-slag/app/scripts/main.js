@@ -101,6 +101,9 @@ function enableBlurBackground(cid, controller) {
     triggerHook: 'onLeave',
     offset: '50%'
   })
+  .on('start', function() {
+      ga('send', 'event', 'interactive', 'scroll', cid);
+  })
   .setVelocity(cid+' .blurred-image', {opacity: 1}, {duration: 500, easing: 'linear'})
   .addTo(controller);
 }
