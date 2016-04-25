@@ -27,3 +27,20 @@
   width: 100%;
   margin-bottom: 0.6rem;
 }
+
+.cover-title {
+  font-size: 45px;
+  @media screen and (max-width: 567px) {
+    font-size: 34px;
+  }
+}
+
+.title-date {
+  display: inline-block;
+  font-size: 15px;
+  font-family: Times New Roman;
+  font-style: italic;
+  word-spacing: 20px;
+  padding-right: 0px;
+  text-align: right;
+}
