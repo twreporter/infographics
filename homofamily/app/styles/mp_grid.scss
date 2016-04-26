@@ -1,16 +1,16 @@
 @import "./variables.scss";
 
-.mp-grid {
-  margin-bottom: 0.5em;
-}
+// .mp-grid {
+//   margin-bottom: 0.5em;
+// }
 .border-green {
-  border: 3px solid $party-green;
+  border: 4px solid $party-green;
 }
 .border-blue {
-  border: 3px solid $party-blue;
+  border: 4px solid $party-blue;
 }
 .border-orange {
-  border: 3px solid $party-orange;
+  border: 4px solid $party-orange;
 }
 .scene-mp {
   padding: 1em 0 5em 0;
@@ -31,3 +31,52 @@
 #scene-mp-na {
   background: #F1F1F1;
 }
+
+.position-line {
+  display: inline;
+  width: 0.6em;
+  height: 0;
+  padding: 0 0.5em;
+  margin: 0 0.1em;
+  font-size: small;
+}
+
+.position-sp {
+  @extend .position-line;
+  border-top: 3px solid #0ADECA;
+}
+.position-ps {
+  @extend .position-line;
+  border-top: 3px solid #F9E819;
+}
+.position-nt {
+  @extend .position-line;
+  border-top: 3px solid #F36140;
+}
+.position-na {
+  @extend .position-line;
+  border-top: 3px solid #71528E;
+}
+
+
+/*Form Wizard*/
+.bs-wizard {border-bottom: solid 1px #e0e0e0; padding: 0 0 10px 0;}
+.bs-wizard > .bs-wizard-step {padding: 0; position: relative;}
+.bs-wizard > .bs-wizard-step + .bs-wizard-step {}
+.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {color: #595959; font-size: 16px; margin-bottom: 5px;}
+.bs-wizard > .bs-wizard-step .bs-wizard-info {color: #999; font-size: 14px;}
+.bs-wizard > .bs-wizard-step > .bs-wizard-dot {position: absolute; width: 30px; height: 30px; display: block; background: $green; top: 45px; left: 50%; margin-top: -15px; margin-left: -15px; border-radius: 50%;}
+.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {content: ' '; width: 14px; height: 14px; background: white; border-radius: 50px; position: absolute; top: 8px; left: 8px; }
+.bs-wizard > .bs-wizard-step > .progress {z-index: -1; position: relative; border-radius: 0px; height: 8px; box-shadow: none; margin: 20px 0;}
+.bs-wizard > .bs-wizard-step > .progress > .p-bar {width:0px; box-shadow: none; background: $green;}
+.bs-wizard > .bs-wizard-step .dot-highlight {background: #FFDA27;}
+.bs-wizard > .bs-wizard-step.complete > .progress > .p-bar {width:100%;}
+.bs-wizard > .bs-wizard-step.active > .progress > .p-bar {width:50%;}
+.bs-wizard > .bs-wizard-step:first-child.active > .progress > .p-bar {width:0%;}
+.bs-wizard > .bs-wizard-step:last-child.active > .progress > .p-bar {width: 100%;}
+.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {background-color: #f5f5f5;}
+.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {opacity: 0;}
+.bs-wizard > .bs-wizard-step:first-child  > .progress {left: 50%; width: 50%;}
+.bs-wizard > .bs-wizard-step:last-child  > .progress {width: 50%;}
+.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot{ pointer-events: none; }
+/*END Form Wizard*/
