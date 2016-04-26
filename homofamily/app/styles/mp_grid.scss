@@ -1,7 +1,7 @@
 @import "./variables.scss";
 
 .mp-grid {
-
+  margin-bottom: 0.5em;
 }
 .border-green {
   border: 3px solid $party-green;
@@ -11,4 +11,23 @@
 }
 .border-orange {
   border: 3px solid $party-orange;
+}
+.scene-mp {
+  padding: 1em 0 5em 0;
+}
+.mp-list-row {
+  margin-top: 3em;
+}
+
+#scene-mp-sp {
+  background: #D4FFE7;
+}
+#scene-mp-ps {
+  background: #FFFFDF;
+}
+#scene-mp-nt {
+  background: #E8DBD6;
+}
+#scene-mp-na {
+  background: #F1F1F1;
 }

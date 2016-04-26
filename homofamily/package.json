@@ -41,7 +41,6 @@
     }
   },
   "dependencies": {
-    "bourbon": "^4.2.7",
-    "shufflejs": "^4.0.0"
+    "bourbon": "^4.2.7"
   }
 }
