@@ -15,7 +15,7 @@ function setBirdViewAnimation() {
     (function(index) {
         let timer = window.setTimeout(function() {
           playBirdviewSlide(index);
-        }, i * 2000);
+        }, i * 1800);
         birdviewTimeouts.push(timer);
     })(i);
   }
