@@ -1,6 +1,13 @@
 'use strict';
 
 let currentMpBoxID = 'scene-mp-intro';
+let MP_LIST = [
+  {scene: 'scene-mp-intro', key: ''},
+  {scene: 'scene-mp-sp', key: 'SP'},
+  {scene: 'scene-mp-ps', key: 'PS'},
+  {scene: 'scene-mp-nt', key: 'NT'},
+  {scene: 'scene-mp-na', key: 'NA'}
+];
 
 function setMpFilterAnimation(controller, shuffle, scene, filterItem) {
   new ScrollMagic.Scene({
@@ -19,14 +26,14 @@ function setMpFilterAnimation(controller, shuffle, scene, filterItem) {
 }
 
 $( document ).ready(function() {
-  var Shuffle = window.shuffle;
-  var element = document.getElementById('shuffle-mp-figure');
+  let Shuffle = window.shuffle;
+  let element = document.getElementById('shuffle-mp-figure');
 
   // set min height for the fitst mp-figure
   $('#first-mp-box').css('min-height', $('#shuffle-mp-figure').height());
 
   // initiate shufflejs for the mp list
-  var shuffle = new Shuffle(element, {
+  let sff = new Shuffle(element, {
     itemSelector: '.mp-item'
   });
   // shufflejs finished moving
@@ -37,37 +44,8 @@ $( document ).ready(function() {
   // initiate ScrollMagic
   let controller = new ScrollMagic.Controller();
 
-  // let gMpAll = new ScrollMagic.Scene({
-  //   triggerElement: '#scene-mp-intro',
-  //   triggerHook: 'onEnter',
-  //   duration: '100%',
-  //   offset: '20%',
-  //   reverse: true
-  // })
-  // .addTo(controller)
-  // .on('start', function () {
-  //   console.log("scene-mp-intro");
-  //   $("#shuffle-mp-figure").detach().appendTo('#scene-mp-intro .mp-figure');
-  //   shuffle.filter('');
-  // });
-  //
-  // let gMpSP = new ScrollMagic.Scene({
-  //   triggerElement: '#scene-mp-sp',
-  //   triggerHook: 'onEnter',
-  //   duration: '100%',
-  //   offset: '20%',
-  //   reverse: true
-  // })
-  // .addTo(controller)
-  // .on('start', function () {
-  //   console.log("scene-mp-sp");
-  //   $("#shuffle-mp-figure").detach().appendTo('#scene-mp-sp .mp-figure');
-  //   shuffle.filter('SP');
-  // });
 
-  setMpFilterAnimation(controller, shuffle, 'scene-mp-intro', '');
-  setMpFilterAnimation(controller, shuffle, 'scene-mp-sp', 'SP');
-  setMpFilterAnimation(controller, shuffle, 'scene-mp-ps', 'PS');
-  setMpFilterAnimation(controller, shuffle, 'scene-mp-nt', 'NT');
-  setMpFilterAnimation(controller, shuffle, 'scene-mp-na', 'NA');
+  for(let i=0; i<MP_LIST.length; i++){
+    setMpFilterAnimation(controller, sff, MP_LIST[i].scene, MP_LIST[i].key);
+  }
 });
