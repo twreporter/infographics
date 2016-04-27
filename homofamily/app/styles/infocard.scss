@@ -1,0 +1,41 @@
+.scroll-panel {
+  top: auto;
+  left: auto;
+  bottom: auto;
+  right: auto;
+  margin: 0px;
+  display: block;
+  position: relative;
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background: white;
+}
+
+.scroll-panel.green {
+	margin-bottom: 400px
+}
+
+.rainbow-bg {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background: url(../images/rainbow-bg.svg);
+}
+
+.title-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  h1{
+    display: inline;
+  }
+  img {
+    display: inline;
+  }
+}
