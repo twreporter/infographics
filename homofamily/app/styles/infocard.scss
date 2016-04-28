@@ -1,3 +1,7 @@
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
 .scroll-panel {
   top: auto;
   left: auto;
@@ -31,11 +35,30 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -95%);
+
   h1{
     display: inline;
+    font-size: 56px;
+    font-weight: 900;
+    padding-top: 0.5em;
+    vertical-align: middle;
+    @media only screen and (min-width: $screen-md-max) {
+      font-size: 66px;
+    }
+    @media only screen and (max-width: $screen-sm-min) {
+      font-size: 42px;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      font-size: 30px;
+    }
   }
   img {
     display: inline;
+    max-width: 40%;
+  }
+
+  @media only screen and (max-width: $screen-sm-min) {
+    width: 100%;
   }
 }
