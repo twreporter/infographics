@@ -16,10 +16,20 @@
   padding-top: 0px;
   padding-bottom: 0px;
   background: white;
-}
+  overflow-x: hidden;
 
-.scroll-panel.green {
-	margin-bottom: 400px
+  h2 {
+    position: absolute;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    font-size: 34px;
+
+    @media only screen and (max-width: $screen-sm-min) {
+      font-size: 32px;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      font-size: 20px;
+    }
+  }
 }
 
 .rainbow-bg {
@@ -56,9 +66,82 @@
   img {
     display: inline;
     max-width: 40%;
+    @media only screen and (max-width: $screen-xs-min) {
+      max-width: 33%;
+    }
   }
 
   @media only screen and (max-width: $screen-sm-min) {
     width: 100%;
+  }
+}
+
+#slide2 {
+  // Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffe4b7+3,ffc552+100
+  background: #ffe4b7; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #ffe4b7 3%, #ffc552 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, #ffe4b7 3%,#ffc552 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #ffe4b7 3%,#ffc552 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffe4b7', endColorstr='#ffc552',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  .main-img {
+    position: absolute;
+    height: 80%;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+  }
+
+  h2 {
+    top: 60%;
+    left: 10%;
+    max-width: 50%;
+    transform: translate(0, -50%);
+    @media only screen and (max-width: $screen-xs-min) {
+      max-width: 45%;
+      left: 5%;
+    }
+  }
+
+}
+
+#slide3 {
+  /* IE10+ */
+  background-image: -ms-radial-gradient(right bottom, ellipse farthest-corner, #BA832E 0%, #EDA83A 42%, #EDA83A 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-radial-gradient(right bottom, ellipse farthest-corner, #BA832E 0%, #EDA83A 42%, #EDA83A 100%);
+  /* Opera */
+  background-image: -o-radial-gradient(right bottom, ellipse farthest-corner, #BA832E 0%, #EDA83A 42%, #EDA83A 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(radial, right bottom, 0, right bottom, 724, color-stop(0, #BA832E), color-stop(42, #EDA83A), color-stop(100, #EDA83A));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-radial-gradient(right bottom, ellipse farthest-corner, #BA832E 0%, #EDA83A 42%, #EDA83A 100%);
+  /* W3C Markup */
+  background-image: radial-gradient(ellipse farthest-corner at right bottom, #BA832E 0%, #EDA83A 42%, #EDA83A 100%);
+
+  h2 {
+    top: 80%;
+    left: 5%;
+    max-width: 46%;
+    transform: translate(0, -50%);
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 76%;
+      max-width: 47%;
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    height: 66%;
+    bottom: 0;
+    left: 76%;
+    transform: translate(-50%, 0);
+  }
+
+  .sub-img {
+    position: absolute;
+    max-width: 46%;
+    top: 10%;
+    left: 5%;
   }
 }
