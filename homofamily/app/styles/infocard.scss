@@ -294,3 +294,95 @@
     }
   }
 }
+
+#slide7 {
+  background-color: #7BAAAA;
+
+  .text-block {
+    position: absolute;
+    top: 66%;
+    left: 42%;
+    max-width: 38%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 45%;
+      width: 70%;
+      min-width: 70%;
+      left: 5%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 41%;
+      width: 70%;
+      min-width: 70%;
+      left: 2%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    h2 {
+      position: relative;
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    top: 45%;
+    left: 18%;
+    max-width: 80%;
+    max-height: 102%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 80%;
+      top: 0;
+      left: 2%;
+      transform: translate(0, 0);
+    }
+  }
+
+  .main-img-right {
+    position: absolute;
+    top: 45%;
+    left: 68%;
+    max-width: 80%;
+    max-height: 102%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 100%;
+      left: 76%;
+      top: 65%;
+      transform: translate(-50%, -50%);
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      max-width: 100%;
+      left: 76%;
+      top: 70%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .sub-img {
+    position: absolute;
+    max-width: 60%;
+    max-height: 55%;
+    top: 66%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 37%;
+      max-width: 65%;
+      max-height: 50%;
+      left: -5%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 37%;
+      max-width: 80%;
+      max-height: 58%;
+      left: -8%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+  }
+}
