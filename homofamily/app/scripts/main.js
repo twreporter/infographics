@@ -19,8 +19,8 @@ function setMpFilterAnimation(controller, shuffle, scene, filterItem) {
   })
   .addTo(controller)
   .on('end', function () {
-    $("#shuffle-mp-figure").detach().appendTo('#'+scene+' .mp-figure');
-    shuffle.filter(filterItem);
+    // $("#shuffle-mp-figure").detach().appendTo('#'+scene+' .mp-figure');
+    // shuffle.filter(filterItem);
     currentMpBoxID = scene;
   });
 }
@@ -45,7 +45,7 @@ $( document ).ready(function() {
   let controller = new ScrollMagic.Controller();
 
 
-  for(let i=0; i<MP_LIST.length; i++){
-    setMpFilterAnimation(controller, sff, MP_LIST[i].scene, MP_LIST[i].key);
-  }
+  // for(let i=0; i<MP_LIST.length; i++){
+  //   setMpFilterAnimation(controller, sff, MP_LIST[i].scene, MP_LIST[i].key);
+  // }
 });
