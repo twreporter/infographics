@@ -18,6 +18,12 @@
   background: white;
   overflow-x: hidden;
 
+  h1 {
+    @media only screen and (max-width: $screen-xs-min) {
+      font-size: 30px;
+    }
+  }
+
   h2 {
     position: absolute;
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
@@ -43,6 +49,31 @@
     @media only screen and (max-width: $screen-xs-min) {
       font-size: 16px;
     }
+  }
+
+  .cloud {
+    position: absolute;
+    max-width: 15%;
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 20%;
+    }
+    transform: translate(-50%, -50%);
+  }
+  .cloud-left {
+    @extend .cloud;
+    left: 18%;
+    top: 60%;
+  }
+  .cloud-right-top {
+    @extend .cloud;
+    left: 70%;
+    top: 30%;
+  }
+  .cloud-right-bottom {
+    @extend .cloud;
+    max-width: 10%;
+    left: 80%;
+    top: 60%;
   }
 }
 
@@ -378,8 +409,110 @@
     }
     @media only screen and (max-width: $screen-xs-min) {
       top: 37%;
-      max-width: 80%;
+      max-width: 76%;
       max-height: 58%;
+      left: -8%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+  }
+}
+
+#slide8, #slide10 {
+  /* IE10+ */
+  background-image: -ms-radial-gradient(center, ellipse farthest-corner, #DEDEDE 0%, #FFFFFF 46%, #FFFFFF 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-radial-gradient(center, ellipse farthest-corner, #DEDEDE 0%, #FFFFFF 46%, #FFFFFF 100%);
+  /* Opera */
+  background-image: -o-radial-gradient(center, ellipse farthest-corner, #DEDEDE 0%, #FFFFFF 46%, #FFFFFF 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(radial, center center, 0, center center, 362, color-stop(0, #DEDEDE), color-stop(46, #FFFFFF), color-stop(100, #FFFFFF));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #DEDEDE 0%, #FFFFFF 46%, #FFFFFF 100%);
+  /* W3C Markup */
+  background-image: radial-gradient(ellipse farthest-corner at center, #DEDEDE 0%, #FFFFFF 46%, #FFFFFF 100%);
+
+  h2 {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+}
+
+#slide9 {
+  background-color: #7BAAAA;
+  /* IE10+ */
+  background-image: -ms-radial-gradient(right bottom, ellipse farthest-corner, #C1D1A9 0%, #7BAAAA 46%, #7BAAAA 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-radial-gradient(right bottom, ellipse farthest-corner, #C1D1A9 0%, #7BAAAA 46%, #7BAAAA 100%);
+  /* Opera */
+  background-image: -o-radial-gradient(right bottom, ellipse farthest-corner, #C1D1A9 0%, #7BAAAA 46%, #7BAAAA 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(radial, right bottom, 0, right bottom, 724, color-stop(0, #C1D1A9), color-stop(46, #7BAAAA), color-stop(100, #7BAAAA));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-radial-gradient(right bottom, ellipse farthest-corner, #C1D1A9 0%, #7BAAAA 46%, #7BAAAA 100%);
+  /* W3C Markup */
+  background-image: radial-gradient(ellipse farthest-corner at right bottom, #C1D1A9 0%, #7BAAAA 46%, #7BAAAA 100%);
+
+  .text-block {
+    position: absolute;
+    top: 46%;
+    left: 35%;
+    max-width: 36%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 22%;
+      width: 70%;
+      min-width: 60%;
+      left: 6%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 26%;
+      width: 70%;
+      min-width: 65%;
+      left: 5%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    h2 {
+      position: relative;
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    bottom: 0;
+    left: 70%;
+    transform: translate(-50%, 0);
+    width: 60%;
+    @media only screen and (max-width: $screen-sm-min) {
+      width: 72%;
+      left: 65%;
+    }
+  }
+
+  .sub-img {
+    position: absolute;
+    max-width: 60%;
+    max-height: 55%;
+    top: 46%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 11%;
+      max-width: 75%;
+      max-height: 60%;
+      left: -5%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 20%;
+      max-width: 88%;
+      max-height: 65%;
       left: -8%;
       transform: translate(0, 0);
       z-index: 5;
