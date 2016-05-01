@@ -13,7 +13,7 @@ $(function () { // wait for document ready
 		for (var i=0; i<slides.length; i++) {
 			new ScrollMagic.Scene({
 					triggerElement: slides[i],
-					duration: '160%'
+					duration: '130%'
 				})
 				.setPin(slides[i])
 				.addTo(controller);

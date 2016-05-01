@@ -1,1 +1,1 @@
-"use strict";$(function(){for(var e=new ScrollMagic.Controller({globalSceneOptions:{triggerHook:"onLeave"}}),o=document.querySelectorAll("section.scroll-panel"),l=0;l<o.length;l++)new ScrollMagic.Scene({triggerElement:o[l],duration:"160%"}).setPin(o[l]).addTo(e)});
+"use strict";$(function(){for(var e=new ScrollMagic.Controller({globalSceneOptions:{triggerHook:"onLeave"}}),o=document.querySelectorAll("section.scroll-panel"),l=0;l<o.length;l++)new ScrollMagic.Scene({triggerElement:o[l],duration:"130%"}).setPin(o[l]).addTo(e)});
