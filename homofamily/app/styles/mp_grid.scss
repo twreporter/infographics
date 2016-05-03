@@ -21,9 +21,23 @@
 
 .mp-overview-chart {
   margin-top: 1.5em;
-  
+
   hr {
     border-top: 3px solid #ecf0f1;
+  }
+}
+
+#scene-mp-intro {
+  background: #2C323E;
+  margin-top: 3em;
+  color: white;
+
+  blockquote {
+    color: #2C323E;
+  }
+
+  a {
+    color: #D4FFE7;
   }
 }
 

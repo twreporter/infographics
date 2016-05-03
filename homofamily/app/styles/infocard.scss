@@ -190,6 +190,7 @@
   .sub-img {
     position: absolute;
     max-width: 46%;
+    max-height: 76%;
     top: 10%;
     left: 5%;
   }
@@ -281,8 +282,11 @@
   h2 {
     top: 56%;
     left: 10%;
-    max-width: 38%;
+    max-width: 35%;
     transform: translate(0, -50%);
+    @media only screen and (max-width: $screen-md-max) {
+      max-width: 15em;
+    }
     @media only screen and (max-width: $screen-sm-min) {
       top: 50%;
       width: 70%;
@@ -305,6 +309,7 @@
     left: 60%;
     transform: translate(-50%, 0);
     width: 100%;
+    max-width: 80%;
     @media only screen and (max-width: $screen-sm-min) {
       max-width: 105%;
       left: 55%;
@@ -459,7 +464,7 @@
     position: absolute;
     top: 46%;
     left: 35%;
-    max-width: 36%;
+    max-width: 20em;
     transform: translate(-50%, -50%);
     @media only screen and (max-width: $screen-sm-min) {
       top: 22%;
@@ -527,7 +532,7 @@
     position: absolute;
     top: 46%;
     left: 43%;
-    max-width: 32%;
+    max-width: 22em;
     transform: translate(-50%, -50%);
     @media only screen and (max-width: $screen-sm-min) {
       top: 65%;
@@ -721,6 +726,10 @@
     left: 10%;
     max-width: 38%;
     transform: translate(0, -50%);
+    @media only screen and (min-width: $screen-md-max) {
+      max-width: 20em;
+    }
+
     @media only screen and (max-width: $screen-sm-min) {
       top: 65%;
       width: 70%;
