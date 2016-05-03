@@ -2,6 +2,34 @@
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+blockquote {
+  font-size: 1.1em !important;
+  line-height: 24px;
+  word-spacing: 12px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.0901961) 0px 30px 20px -20px, rgba(0, 0, 0, 0.0901961) 0px 0px 3px;
+  padding: 25px 5px;
+
+  @media (min-width: $screen-md-min) {
+    margin-left: -2em !important;
+    margin-right: -2em !important;
+  }
+
+  p {
+    margin-bottom: 2em !important;
+    line-height: 1.85 !important;
+  }
+
+  &::before {
+    content: none;
+  }
+}
+
+.article p {
+  margin-top: 1.85em;
+  line-height: 1.85;
+}
+
 .img-fit-width {
   display: block;
   width: 100%;
@@ -78,5 +106,19 @@
 .desktop-text-right {
   @media (min-width: $screen-xs-max) {
     text-align: right;
+  }
+}
+
+.sidebar-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 3px solid #D9D7D3;
+  padding: 1em;
+  margin: 2em 0;
+  font-weight: 700;
+
+  p {
+    margin-top: 0;
   }
 }

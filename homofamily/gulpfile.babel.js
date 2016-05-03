@@ -33,6 +33,11 @@ gulp.task('scripts', () => {
     .pipe(reload({stream: true}));
 });
 
+gulp.task('assets', () => {
+  return gulp.src('app/assets/**/*')
+    .pipe(gulp.dest('dist/assets'));
+});
+
 function lint(files, options) {
   // return () => {
   //   return gulp.src(files)
@@ -159,7 +164,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'assets', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
