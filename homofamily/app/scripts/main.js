@@ -25,27 +25,27 @@ function setMpFilterAnimation(controller, shuffle, scene, filterItem) {
   });
 }
 
-$( document ).ready(function() {
-  let Shuffle = window.shuffle;
-  let element = document.getElementById('shuffle-mp-figure');
-
-  // set min height for the fitst mp-figure
-  $('#first-mp-box').css('min-height', $('#shuffle-mp-figure').height());
-
-  // initiate shufflejs for the mp list
-  let sff = new Shuffle(element, {
-    itemSelector: '.mp-item'
-  });
-  // shufflejs finished moving
-  element.addEventListener(Shuffle.EventType.LAYOUT, function () {
-    $('#'+currentMpBoxID+' .mp-figure').css('min-height', $('#'+currentMpBoxID+' .mp-figure').height());
-  });
-
-  // initiate ScrollMagic
-  let controller = new ScrollMagic.Controller();
-
-
-  // for(let i=0; i<MP_LIST.length; i++){
-  //   setMpFilterAnimation(controller, sff, MP_LIST[i].scene, MP_LIST[i].key);
-  // }
-});
+// $( document ).ready(function() {
+//   let Shuffle = window.shuffle;
+//   let element = document.getElementById('shuffle-mp-figure');
+//
+//   // set min height for the fitst mp-figure
+//   $('#first-mp-box').css('min-height', $('#shuffle-mp-figure').height());
+//
+//   // initiate shufflejs for the mp list
+//   let sff = new Shuffle(element, {
+//     itemSelector: '.mp-item'
+//   });
+//   // shufflejs finished moving
+//   element.addEventListener(Shuffle.EventType.LAYOUT, function () {
+//     $('#'+currentMpBoxID+' .mp-figure').css('min-height', $('#'+currentMpBoxID+' .mp-figure').height());
+//   });
+//
+//   // initiate ScrollMagic
+//   let controller = new ScrollMagic.Controller();
+//
+//
+//   // for(let i=0; i<MP_LIST.length; i++){
+//   //   setMpFilterAnimation(controller, sff, MP_LIST[i].scene, MP_LIST[i].key);
+//   // }
+// });

@@ -19,6 +19,14 @@
   margin-top: 3em;
 }
 
+.mp-overview-chart {
+  margin-top: 1.5em;
+  
+  hr {
+    border-top: 3px solid #ecf0f1;
+  }
+}
+
 #scene-mp-sp {
   background: #D4FFE7;
 }
@@ -33,29 +41,30 @@
 }
 
 .position-line {
-  display: inline;
-  width: 0.6em;
-  height: 0;
-  padding: 0 0.5em;
-  margin: 0 0.1em;
-  font-size: small;
+  // display: inline;
+  display: none;
+  // width: 0.6em;
+  // height: 0;
+  // padding: 0 0.5em;
+  // margin: 0 0.1em;
+  // font-size: small;
 }
 
 .position-sp {
   @extend .position-line;
-  border-top: 3px solid #0ADECA;
+  // border-top: 3px solid #0ADECA;
 }
 .position-ps {
   @extend .position-line;
-  border-top: 3px solid #F9E819;
+  // border-top: 3px solid #F9E819;
 }
 .position-nt {
   @extend .position-line;
-  border-top: 3px solid #F36140;
+  // border-top: 3px solid #F36140;
 }
 .position-na {
   @extend .position-line;
-  border-top: 3px solid #71528E;
+  // border-top: 3px solid #71528E;
 }
 
 
