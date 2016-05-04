@@ -2,6 +2,26 @@
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+.content-container {
+  // visibility: hidden;
+  opacity: 0;
+}
+
+.content-show {
+  // visibility: visible;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.stay-fixed {
+  // visibility: visible;
+  position: fixed!important;
+  top: -1px!important;
+  width: 100%;
+  height: 100%;
+}
+
 .scroll-panel {
   top: auto;
   left: auto;
@@ -17,6 +37,7 @@
   padding-bottom: 0px;
   background: white;
   overflow-x: hidden;
+  overflow-y: hidden;
 
   h1 {
     @media only screen and (max-width: $screen-xs-min) {
@@ -724,10 +745,10 @@
   h2 {
     top: 56%;
     left: 10%;
-    max-width: 38%;
+    width: 38%;
     transform: translate(0, -50%);
-    @media only screen and (min-width: $screen-md-max) {
-      max-width: 20em;
+    @media only screen and (min-width: $screen-lg-min) {
+      max-width: 15em;
     }
 
     @media only screen and (max-width: $screen-sm-min) {
