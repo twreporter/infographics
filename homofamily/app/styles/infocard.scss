@@ -8,16 +8,17 @@
 }
 
 .content-show {
-  // visibility: visible;
-  position: fixed;
-  width: 100%;
-  height: 100%;
+  visibility: visible !important;
+  // position: fixed;
+  // width: 100%;
+  // height: 100%;
 }
 
 .stay-fixed {
   // visibility: visible;
-  position: fixed!important;
-  top: -1px!important;
+  position: fixed !important;
+  top: -1px !important;
+  visibility: hidden;
   width: 100%;
   height: 100%;
   z-index: 10000;
@@ -307,7 +308,10 @@
     max-width: 35%;
     transform: translate(0, -50%);
     @media only screen and (max-width: $screen-md-max) {
-      max-width: 15em;
+      max-width: 13em;
+    }
+    @media only screen and (max-width: $screen-md-min) {
+      max-width: 11em;
     }
     @media only screen and (max-width: $screen-sm-min) {
       top: 50%;
@@ -556,6 +560,9 @@
     left: 43%;
     max-width: 22em;
     transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-md-min) {
+      max-width: 18em;
+    }
     @media only screen and (max-width: $screen-sm-min) {
       top: 65%;
       width: 60%;
@@ -749,7 +756,7 @@
     width: 38%;
     transform: translate(0, -50%);
     @media only screen and (min-width: $screen-lg-min) {
-      max-width: 15em;
+      max-width: 14em;
     }
 
     @media only screen and (max-width: $screen-sm-min) {
