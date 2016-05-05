@@ -28,14 +28,14 @@ $(document).ready(function(){
 				if(excludedSlides.indexOf(curIndex) === -1){
 					var sAnimation = new TimelineMax()
 							 .fromTo("#slide" + curIndex + " .content-container", 2,  {opacity:0, scale: 0.8}, {opacity:1, scale: 1, ease:Sine.easeIn},  0)
-							 .fromTo("#slide" + (curIndex-1) + " .content-container", 3,  {opacity:0.8, scale: 0.6}, {opacity:0, scale: 0.5, ease:Power4.easeOut},  0)
+							 .fromTo("#slide" + (curIndex-1) + " .content-container", 3,  {opacity:0.8, scale: 0.75}, {opacity:0, scale: 0.5, ease:Power4.easeOut},  0)
 							 	.to("#slide" + curIndex + " .content-container", 3,  {css:{opacity:1, scale:1}, ease:Quad.easeInOut})
-								.to("#slide" + curIndex + " .content-container .main-img", 2,  {css:{y: '-50%', scale: 1.2}, ease:Quad.easeInOut})
-								.to("#slide" + curIndex + " .content-container", 2,  {css:{opacity:0.8, scale: 0.6}, ease:Quad.easeInOut});
+								.to("#slide" + curIndex + " .content-container .down-element", 2,  {css:{y: '90%', scale: 1.2, opacity:0}, ease:Quad.easeInOut})
+								.to("#slide" + curIndex + " .content-container", 3,  {css:{opacity:0.8, scale: 0.75}, ease:Quad.easeInOut});
 
 					new ScrollMagic.Scene({
 							triggerElement: "#slide" + curIndex,
-							duration: '150%',
+							duration: '180%',
 							triggerHook: 'onEnter',
 							// offset: '10%'
 						})
@@ -61,11 +61,11 @@ $(document).ready(function(){
 						 .fromTo("#slide" + (curIndex-1) + " .content-container", 3,  {opacity:0.8, scale: 0.6}, {opacity:0, scale: 0.5, ease:Power4.easeOut},  0)
 							.to("#slide" + curIndex + " .content-container", 3,  {css:{opacity:1, scale:1}, ease:Quad.easeInOut})
 							.to("#slide" + curIndex + " .content-container .sub-group, " +"#slide" + curIndex + " h2", 2,  {css:{y:"-20%", scale: 0.9}, ease:Quad.easeInOut})
-							.to("#slide" + curIndex + " .content-container", 1,  {css:{opacity:0.8, scale: 1}, ease:Quad.easeInOut});
+							.to("#slide" + curIndex + " .content-container", 2,  {css:{opacity:0.8, scale: 1}, ease:Quad.easeInOut});
 
 				new ScrollMagic.Scene({
 						triggerElement: "#slide" + curIndex,
-						duration: '150%',
+						duration: '180%',
 						triggerHook: 'onEnter',
 						// offset: '10%'
 					})
@@ -91,7 +91,7 @@ $(document).ready(function(){
 
 		new ScrollMagic.Scene({
 				triggerElement: "#slide14",
-				duration: '260%',
+				duration: '270%',
 				triggerHook: 'onLeave'
 			})
 			.setPin("#slide-end")
