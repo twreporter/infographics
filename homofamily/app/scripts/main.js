@@ -57,8 +57,40 @@ $( document ).ready(function() {
 //     $('#'+currentMpBoxID+' .mp-figure').css('min-height', $('#'+currentMpBoxID+' .mp-figure').height());
 //   });
 //
-//   // initiate ScrollMagic
-//   let controller = new ScrollMagic.Controller();
+
+  // initiate ScrollMagic
+  let controller = new ScrollMagic.Controller();
+  new ScrollMagic.Scene({
+      triggerElement: "#chapter-mp",
+      duration: '100%',
+      triggerHook: 'onEnter'
+    })
+    .on('start', function () {
+      ga('send', 'event', 'interactive', 'scroll', '#bottom-survey');
+    })
+    .addTo(controller);
+
+  new ScrollMagic.Scene({
+      triggerElement: "#section-progress",
+      duration: '100%',
+      triggerHook: 'onEnter'
+    })
+    .on('start', function () {
+      ga('send', 'event', 'interactive', 'scroll', '#section-progress');
+    })
+    .addTo(controller);
+
+  new ScrollMagic.Scene({
+      triggerElement: "#section-results",
+      duration: '100%',
+      triggerHook: 'onEnter'
+    })
+    .on('start', function () {
+      ga('send', 'event', 'interactive', 'scroll', '#section-results');
+    })
+    .addTo(controller);
+
+
 //
 //
 //   // for(let i=0; i<MP_LIST.length; i++){

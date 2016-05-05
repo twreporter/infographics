@@ -48,10 +48,11 @@ $(document).ready(function(){
 							duration: sDuration+'%',
 							triggerHook: 'onEnter'
 						})
-						.setPin("#slide" + curIndex)
+						.setPin('#slide' + curIndex)
 						.setTween(sAnimation)
 						.on('start', function () {
 							// console.log('#slide' + curIndex );
+							ga('send', 'event', 'interactive', 'scroll', '#slide' + curIndex);
 							$('#slide' + curIndex + ' .content-container').addClass('content-show');
 					  })
 						.addTo(controller);
@@ -63,7 +64,6 @@ $(document).ready(function(){
 		for (var i=0; i<excludedSlides.length; i++) {
 			(function(index) {
 				var curIndex = excludedSlides[index];
-				console.log('curIndex', curIndex);
 
 				var sAnimation = new TimelineMax()
 						 .fromTo("#slide" + curIndex + " .content-container", 2,  {opacity:0, scale: 0.8}, {opacity:1, scale: 1, ease:Sine.easeIn},  0)
@@ -81,6 +81,7 @@ $(document).ready(function(){
 					.setTween(sAnimation)
 					.on('start', function () {
 						// console.log('#slide' + curIndex );
+						ga('send', 'event', 'interactive', 'scroll', '#slide' + curIndex);
 						$('#slide' + curIndex + ' .content-container').addClass('content-show');
 					})
 					.addTo(controller);
@@ -105,6 +106,7 @@ $(document).ready(function(){
 			.setPin("#slide-end")
 			.setTween(endAnimation)
 			.on('start', function () {
+				ga('send', 'event', 'interactive', 'scroll', '#slide14');
 				$('#slide14' + ' .content-container').addClass('content-show');
 			})
 			.addTo(controller);
