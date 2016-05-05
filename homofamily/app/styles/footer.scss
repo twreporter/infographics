@@ -1,10 +1,12 @@
 .btm-footer {
-  height: 275px;
+  max-width: 100%;
+  height: auto !important;
   background-color: #e6e6e6;
   margin-bottom: 0px;
   padding-bottom: 0px;
 }
 .btm-footer .footer-container{
+  max-width: 100%;
   width: 712px;
   height: 195px;
   margin: 0px auto;
