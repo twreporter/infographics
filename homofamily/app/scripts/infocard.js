@@ -23,9 +23,9 @@ $(document).ready(function(){
 		var slides = document.querySelectorAll("section.scroll-panel");
 		var excludedSlides = [3, 6, 9];  // index of the excluded slides
 
-		var sDuration = 160;
+		var sDuration = 140;
 		if(isMobile()){
-			sDuration = 230;
+			sDuration = 170;
 		}
 
 		// create scene for every slide except for the first one, last two, and the excludedSlides
