@@ -1,4 +1,10 @@
-$(function () { // wait for document ready
+'use strict';
+
+$(document).ready(function(){
+
+		// scroll to top of the page
+		$(this).scrollTop(0);
+
 		// init
 		var controller = new ScrollMagic.Controller({
 			globalSceneOptions: {
@@ -26,13 +32,15 @@ $(function () { // wait for document ready
 
 					new ScrollMagic.Scene({
 							triggerElement: "#slide" + curIndex,
-							duration: '260%',
-							triggerHook: 'onLeave'
+							duration: '100%',
+							triggerHook: 'onEnter',
+							offset: '10%'
 						})
-						.setPin("#slide" + curIndex)
+						// .setPin("#slide" + curIndex)
 						.setTween(sAnimation)
 						.on('start', function () {
 							// $('#slide' + (index+1) + ' .content-container').removeClass('stay-fixed');
+							console.log('#slide' + curIndex );
 							$('#slide' + curIndex + ' .content-container').addClass('content-show');
 					  })
 						.addTo(controller);
@@ -48,20 +56,21 @@ $(function () { // wait for document ready
 
 				var sAnimation = new TimelineMax()
 						 .fromTo("#slide" + curIndex + " .content-container", 2,  {opacity:0, scale: 0.8}, {opacity:1, scale: 1, ease:Sine.easeIn},  0)
-						 .fromTo("#slide" + (curIndex-1) + " .content-container", 2,  {opacity:0.25, scale: 1}, {opacity:0, scale: 0.5, ease:Power4.easeOut},  0)
+						 .fromTo("#slide" + (curIndex-1) + " .content-container", 2,  {opacity:0.8, scale: 1}, {opacity:0, scale: 0.6, ease:Power4.easeOut},  0)
 							.to("#slide" + curIndex + " .content-container", 3,  {css:{opacity:1, scale:1}, ease:Quad.easeInOut})
-							.to("#slide" + curIndex + " .content-container .sub-group", 2,  {css:{y:"-10%", scale: 1.2}, ease:Quad.easeInOut})
-							.to("#slide" + curIndex + " .content-container", 1,  {css:{opacity:0.25, scale: 1}, ease:Quad.easeInOut});
+							.to("#slide" + curIndex + " .content-container .sub-group, " +"#slide" + curIndex + " h2", 2,  {css:{y:"-10%", scale: 0.8}, ease:Quad.easeInOut})
+							.to("#slide" + curIndex + " .content-container", 1,  {css:{opacity:0.8, scale: 1}, ease:Quad.easeInOut});
 
 				new ScrollMagic.Scene({
 						triggerElement: "#slide" + curIndex,
-						duration: '260%',
-						triggerHook: 'onLeave'
+						duration: '100%',
+						triggerHook: 'onEnter',
+						offset: '10%'
 					})
-					.setPin("#slide" + curIndex)
+					// .setPin("#slide" + curIndex)
 					.setTween(sAnimation)
 					.on('start', function () {
-						// $('#slide' + (index+1) + ' .content-container').removeClass('stay-fixed');
+						console.log('#slide' + curIndex );
 						$('#slide' + curIndex + ' .content-container').addClass('content-show');
 					})
 					.addTo(controller);
@@ -75,7 +84,7 @@ $(function () { // wait for document ready
 				 .fromTo("#slide14" + " .content-container", 2,  {opacity:0, scale: 0.8}, {opacity:1, scale: 1, ease:Sine.easeIn},  0)
 				 .fromTo("#slide13" + " .content-container", 2,  {opacity:0.25, scale: 0.5}, {opacity:0, scale: 0.5, ease:Power4.easeOut},  0)
 					.to("#slide14" + " .content-container", 3,  {css:{opacity:1, scale:1}, ease:Quad.easeInOut})
-					.to("#slide14" + " .content-container .main-img-overlay", 2,  {css:{y: '50%', scale: 1.2}, ease:Quad.easeInOut})
+					.to("#slide14" + " .content-container .main-img-overlay", 2,  {css:{y: '50%', scale: 1.3}, ease:Quad.easeInOut})
 					.to("#slide14" + " .content-container", 1,  {css:{opacity:0}, ease:Quad.easeInOut});
 
 		new ScrollMagic.Scene({
