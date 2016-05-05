@@ -54,6 +54,7 @@ $(document).ready(function(){
 							// console.log('#slide' + curIndex );
 							ga('send', 'event', 'interactive', 'scroll', '#slide' + curIndex);
 							$('#slide' + curIndex + ' .content-container').addClass('content-show');
+							$('.stay-fixed').css('display', 'block');  // make sure images are not hidden by ending scripts
 					  })
 						.addTo(controller);
 				}
@@ -103,11 +104,26 @@ $(document).ready(function(){
 				duration: '280%',
 				triggerHook: 'onLeave'
 			})
-			.setPin("#slide-end")
+			.setPin("#slide14")
 			.setTween(endAnimation)
 			.on('start', function () {
 				ga('send', 'event', 'interactive', 'scroll', '#slide14');
 				$('#slide14' + ' .content-container').addClass('content-show');
+				$('.stay-fixed').css('display', 'block');  // make sure images are not hidden by ending scripts
+			})
+			.on('end', function () {
+				$('.stay-fixed').css('display', 'block');  // make sure images are not hidden by ending scripts
+			})
+			.addTo(controller);
+
+		new ScrollMagic.Scene({
+				triggerElement: "#slide-end",
+				duration: '100%',
+				triggerHook: 'onLeave'
+			})
+			.on('start', function () {
+				ga('send', 'event', 'interactive', 'scroll', '#slide-end');
+				$('.stay-fixed').css('display', 'none');   // clear all hidden images
 			})
 			.addTo(controller);
 
