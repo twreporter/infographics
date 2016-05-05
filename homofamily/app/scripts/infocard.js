@@ -1,5 +1,10 @@
 'use strict';
 
+function isMobile() {
+  try{ document.createEvent("TouchEvent"); return true; }
+  catch(e){ return false; }
+}
+
 $(window).on('beforeunload', function(){
 	// scroll to top of the page
   $(window).scrollTop(0);
@@ -18,6 +23,11 @@ $(document).ready(function(){
 		var slides = document.querySelectorAll("section.scroll-panel");
 		var excludedSlides = [3, 6, 9];  // index of the excluded slides
 
+		var sDuration = 180;
+		if(isMobile()){
+			sDuration = 230;
+		}
+
 		// create scene for every slide except for the first one, last two, and the excludedSlides
 		for (var i=1; i<slides.length-2; i++) {
 
@@ -35,14 +45,13 @@ $(document).ready(function(){
 
 					new ScrollMagic.Scene({
 							triggerElement: "#slide" + curIndex,
-							duration: '180%',
-							triggerHook: 'onEnter',
-							// offset: '10%'
+							duration: sDuration+'%',
+							triggerHook: 'onEnter'
 						})
 						.setPin("#slide" + curIndex)
 						.setTween(sAnimation)
 						.on('start', function () {
-							console.log('#slide' + curIndex );
+							// console.log('#slide' + curIndex );
 							$('#slide' + curIndex + ' .content-container').addClass('content-show');
 					  })
 						.addTo(controller);
@@ -65,14 +74,13 @@ $(document).ready(function(){
 
 				new ScrollMagic.Scene({
 						triggerElement: "#slide" + curIndex,
-						duration: '180%',
-						triggerHook: 'onEnter',
-						// offset: '10%'
+						duration: sDuration+'%',
+						triggerHook: 'onEnter'
 					})
 					.setPin("#slide" + curIndex)
 					.setTween(sAnimation)
 					.on('start', function () {
-						console.log('#slide' + curIndex );
+						// console.log('#slide' + curIndex );
 						$('#slide' + curIndex + ' .content-container').addClass('content-show');
 					})
 					.addTo(controller);
