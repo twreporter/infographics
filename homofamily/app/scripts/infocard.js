@@ -23,7 +23,7 @@ $(document).ready(function(){
 		var slides = document.querySelectorAll("section.scroll-panel");
 		var excludedSlides = [3, 6, 9];  // index of the excluded slides
 
-		var sDuration = 180;
+		var sDuration = 160;
 		if(isMobile()){
 			sDuration = 230;
 		}
@@ -40,8 +40,8 @@ $(document).ready(function(){
 							 .fromTo("#slide" + curIndex + " .content-container", 2,  {opacity:0, scale: 0.8}, {opacity:1, scale: 1, ease:Sine.easeIn},  0)
 							 .fromTo("#slide" + (curIndex-1) + " .content-container", 3,  {opacity:0.8, scale: 0.75}, {opacity:0, scale: 0.5, ease:Power4.easeOut},  0)
 							 	.to("#slide" + curIndex + " .content-container", 3,  {css:{opacity:1, scale:1}, ease:Quad.easeInOut})
-								.to("#slide" + curIndex + " .content-container .down-element", 2,  {css:{y: '90%', scale: 1.2, opacity:0}, ease:Quad.easeInOut})
-								.to("#slide" + curIndex + " .content-container", 3,  {css:{opacity:0.8, scale: 0.75}, ease:Quad.easeInOut});
+								.to("#slide" + curIndex + " .content-container", 3,  {css:{opacity:0.8, scale: 0.75}, ease:Quad.easeInOut})
+								.to("#slide" + curIndex + " .content-container .down-element", 2,  {css:{y: '90%', scale: 1.2, opacity:0}, ease:Quad.easeInOut});
 
 					new ScrollMagic.Scene({
 							triggerElement: "#slide" + curIndex,
@@ -99,7 +99,7 @@ $(document).ready(function(){
 
 		new ScrollMagic.Scene({
 				triggerElement: "#slide14",
-				duration: '270%',
+				duration: '280%',
 				triggerHook: 'onLeave'
 			})
 			.setPin("#slide-end")
