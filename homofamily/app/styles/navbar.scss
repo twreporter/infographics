@@ -1,0 +1,46 @@
+.nav-icons {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.7rem;
+  z-index: 20;
+  width: 2.5rem;
+
+  a {
+    text-decoration: none;
+  }
+
+}
+.reporter-logo {
+  width: 100%;
+  margin-bottom: 2rem;
+
+  a {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.share-facebook, .share-twitter {
+  opacity: 0.3;
+  width: 100%;
+  margin-bottom: 0.6rem;
+}
+
+.cover-title {
+  font-size: 45px;
+  @media screen and (max-width: 567px) {
+    font-size: 34px;
+  }
+}
+
+.title-date {
+  display: inline-block;
+  font-size: 15px;
+  font-family: Times New Roman;
+  font-style: italic;
+  word-spacing: 20px;
+  padding-right: 0px;
+  text-align: right;
+}

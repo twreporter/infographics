@@ -1,0 +1,828 @@
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+.content-container {
+  // visibility: hidden;
+  opacity: 0;
+}
+
+.content-show {
+  visibility: visible !important;
+  // position: fixed;
+  // width: 100%;
+  // height: 100%;
+}
+
+.stay-fixed {
+  // visibility: visible;
+  position: fixed !important;
+  top: -1px !important;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+}
+
+.scroll-panel {
+  top: auto;
+  left: auto;
+  bottom: auto;
+  right: auto;
+  margin: 0px;
+  display: block;
+  position: relative;
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background: white;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  h1 {
+    @media only screen and (max-width: $screen-xs-min) {
+      font-size: 30px;
+    }
+  }
+
+  h2 {
+    position: absolute;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6);
+    font-size: 34px;
+
+    @media only screen and (max-width: $screen-sm-min) {
+      font-size: 32px;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      font-size: 20px;
+    }
+  }
+  h3 {
+    color: white;
+    position: absolute;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    font-size: 30px;
+    font-weight: 50%;
+
+    @media only screen and (max-width: $screen-sm-min) {
+      font-size: 28px;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      font-size: 16px;
+    }
+  }
+
+  .cloud {
+    position: absolute;
+    max-width: 15%;
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 20%;
+    }
+    transform: translate(-50%, -50%);
+  }
+  .cloud-left {
+    @extend .cloud;
+    left: 18%;
+    top: 60%;
+  }
+  .cloud-right-top {
+    @extend .cloud;
+    left: 70%;
+    top: 30%;
+  }
+  .cloud-right-bottom {
+    @extend .cloud;
+    max-width: 10%;
+    left: 80%;
+    top: 60%;
+  }
+}
+
+.rainbow-bg {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background: url(../images/rainbow-bg.svg);
+}
+
+.title-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -95%);
+  margin-top: 5px;
+
+  h1{
+    display: inline;
+    font-size: 56px;
+    font-weight: 900;
+    padding-top: 0.5em;
+    vertical-align: middle;
+    @media only screen and (min-width: $screen-md-max) {
+      font-size: 66px;
+    }
+    @media only screen and (max-width: $screen-sm-min) {
+      font-size: 42px;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      font-size: 30px;
+    }
+  }
+  img {
+    display: inline;
+    max-width: 40%;
+    @media only screen and (max-width: $screen-xs-min) {
+      max-width: 33%;
+    }
+  }
+
+  @media only screen and (max-width: $screen-sm-min) {
+    margin-top: 6px;
+    width: 100%;
+  }
+}
+
+#slide1 {
+  background: linear-gradient(to bottom, #ffffff 80%, #8a4199 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+#slide2 {
+  // Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffe4b7+3,ffc552+100
+  background: #ffe4b7; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #ffe4b7 3%, #ffc552 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, #ffe4b7 3%,#ffc552 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #ffe4b7 3%,#ffc552 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffe4b7', endColorstr='#ffc552',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  .main-img {
+    position: absolute;
+    height: 80%;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+  }
+
+  h2 {
+    top: 60%;
+    left: 10%;
+    max-width: 50%;
+    transform: translate(0, -50%);
+    @media only screen and (max-width: $screen-xs-min) {
+      max-width: 45%;
+      left: 5%;
+    }
+  }
+
+}
+
+#slide3 {
+  /* IE10+ */
+  background-image: -ms-radial-gradient(right bottom, ellipse farthest-corner, #BA832E 0%, #EDA83A 42%, #EDA83A 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-radial-gradient(right bottom, ellipse farthest-corner, #BA832E 0%, #EDA83A 42%, #EDA83A 100%);
+  /* Opera */
+  background-image: -o-radial-gradient(right bottom, ellipse farthest-corner, #BA832E 0%, #EDA83A 42%, #EDA83A 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(radial, right bottom, 0, right bottom, 724, color-stop(0, #BA832E), color-stop(42, #EDA83A), color-stop(100, #EDA83A));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-radial-gradient(right bottom, ellipse farthest-corner, #BA832E 0%, #EDA83A 42%, #EDA83A 100%);
+  /* W3C Markup */
+  background-image: radial-gradient(ellipse farthest-corner at right bottom, #BA832E 0%, #EDA83A 42%, #EDA83A 100%);
+
+  h2 {
+    top: 80%;
+    left: 5%;
+    max-width: 46%;
+    transform: translate(0, -50%);
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 76%;
+      max-width: 47%;
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    height: 66%;
+    bottom: 0;
+    left: 76%;
+    transform: translate(-50%, 0);
+  }
+
+  .sub-img {
+    position: absolute;
+    max-width: 46%;
+    max-height: 76%;
+    top: 10%;
+    left: 5%;
+  }
+}
+
+#slide4 {
+  background-color: #F47A5D;
+
+  h2 {
+    top: 56%;
+    left: 10%;
+    max-width: 46%;
+    transform: translate(0, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 76%;
+      max-width: 47%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 70%;
+      max-width: 47%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  h3 {
+    top: 66%;
+    left: 70%;
+    max-width: 46%;
+    transform: translate(0, -50%);
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 55%;
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    max-height: 110%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#slide5 {
+  background-color: #FFB9AB;
+
+  h2 {
+    top: 56%;
+    left: 10%;
+    max-width: 38%;
+    transform: translate(0, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 76%;
+      width: 70%;
+      min-width: 70%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 70%;
+      width: 85%;
+      min-width: 80%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    top: 50%;
+    left: 68%;
+    max-width: 100%;
+    max-height: 110%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 105%;
+      left: 55%;
+    }
+  }
+}
+
+#slide6 {
+  background-color: #C5E8EA;
+
+  h2 {
+    top: 56%;
+    left: 10%;
+    max-width: 35%;
+    transform: translate(0, -50%);
+    @media only screen and (max-width: $screen-md-max) {
+      max-width: 13em;
+    }
+    @media only screen and (max-width: $screen-md-min) {
+      max-width: 11em;
+    }
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 50%;
+      width: 70%;
+      min-width: 70%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 50%;
+      width: 85%;
+      min-width: 80%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    max-width: 80%;
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 105%;
+      left: 55%;
+    }
+  }
+
+  .sub-img {
+    position: absolute;
+    max-width: 50%;
+    max-height: 40%;
+    top: 5%;
+    left: 2%;
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 12%;
+      left: 5%;
+      max-width: 70%;
+      max-height: 50%;
+    }
+  }
+}
+
+#slide7 {
+  background-color: #7BAAAA;
+
+  .text-block {
+    position: absolute;
+    top: 66%;
+    left: 42%;
+    max-width: 38%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 45%;
+      width: 70%;
+      min-width: 70%;
+      left: 5%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 41%;
+      width: 70%;
+      min-width: 70%;
+      left: 2%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    h2 {
+      position: relative;
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    top: 45%;
+    left: 18%;
+    max-width: 80%;
+    max-height: 102%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 80%;
+      top: 0;
+      left: 2%;
+      transform: translate(0, 0);
+    }
+  }
+
+  .main-img-right {
+    position: absolute;
+    top: 45%;
+    left: 68%;
+    max-width: 80%;
+    max-height: 102%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 100%;
+      left: 76%;
+      top: 65%;
+      transform: translate(-50%, -50%);
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      max-width: 100%;
+      left: 76%;
+      top: 70%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .sub-img {
+    position: absolute;
+    max-width: 60%;
+    max-height: 55%;
+    top: 66%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 37%;
+      max-width: 65%;
+      max-height: 50%;
+      left: -5%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 37%;
+      max-width: 76%;
+      max-height: 58%;
+      left: -8%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+  }
+}
+
+#slide8, #slide10 {
+  /* IE10+ */
+  background-image: -ms-radial-gradient(center, ellipse farthest-corner, #DEDEDE 0%, #FFFFFF 46%, #FFFFFF 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-radial-gradient(center, ellipse farthest-corner, #DEDEDE 0%, #FFFFFF 46%, #FFFFFF 100%);
+  /* Opera */
+  background-image: -o-radial-gradient(center, ellipse farthest-corner, #DEDEDE 0%, #FFFFFF 46%, #FFFFFF 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(radial, center center, 0, center center, 362, color-stop(0, #DEDEDE), color-stop(46, #FFFFFF), color-stop(100, #FFFFFF));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #DEDEDE 0%, #FFFFFF 46%, #FFFFFF 100%);
+  /* W3C Markup */
+  background-image: radial-gradient(ellipse farthest-corner at center, #DEDEDE 0%, #FFFFFF 46%, #FFFFFF 100%);
+
+  h2 {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+}
+
+#slide9 {
+  background-color: #7BAAAA;
+  /* IE10+ */
+  background-image: -ms-radial-gradient(right bottom, ellipse farthest-corner, #C1D1A9 0%, #7BAAAA 46%, #7BAAAA 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-radial-gradient(right bottom, ellipse farthest-corner, #C1D1A9 0%, #7BAAAA 46%, #7BAAAA 100%);
+  /* Opera */
+  background-image: -o-radial-gradient(right bottom, ellipse farthest-corner, #C1D1A9 0%, #7BAAAA 46%, #7BAAAA 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(radial, right bottom, 0, right bottom, 724, color-stop(0, #C1D1A9), color-stop(46, #7BAAAA), color-stop(100, #7BAAAA));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-radial-gradient(right bottom, ellipse farthest-corner, #C1D1A9 0%, #7BAAAA 46%, #7BAAAA 100%);
+  /* W3C Markup */
+  background-image: radial-gradient(ellipse farthest-corner at right bottom, #C1D1A9 0%, #7BAAAA 46%, #7BAAAA 100%);
+
+  .text-block {
+    position: absolute;
+    top: 46%;
+    left: 35%;
+    max-width: 20em;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 22%;
+      width: 70%;
+      min-width: 60%;
+      left: 6%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 26%;
+      width: 70%;
+      min-width: 65%;
+      left: 5%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    h2 {
+      position: relative;
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    bottom: 0;
+    left: 70%;
+    transform: translate(-50%, 0);
+    width: 60%;
+    @media only screen and (max-width: $screen-sm-min) {
+      width: 72%;
+      left: 65%;
+    }
+  }
+
+  .sub-img {
+    position: absolute;
+    max-width: 60%;
+    max-height: 55%;
+    top: 46%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 11%;
+      max-width: 75%;
+      max-height: 60%;
+      left: -5%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 20%;
+      max-width: 88%;
+      max-height: 65%;
+      left: -8%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+  }
+}
+
+#slide11 {
+  background-color: #7BAAAA;
+
+  .text-block {
+    position: absolute;
+    top: 46%;
+    left: 43%;
+    max-width: 22em;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-md-min) {
+      max-width: 18em;
+    }
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 65%;
+      width: 60%;
+      min-width: 58%;
+      left: 5%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 32%;
+      min-width: 60%;
+      left: 2%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    h2 {
+      position: relative;
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    top: 67%;
+    left: 16%;
+    max-width: 38%;
+    max-height: 60%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 60%;
+      max-height: 50%;
+      top: 8%;
+      left: 2%;
+      transform: translate(0, 0);
+    }
+  }
+
+  .main-img-right {
+    position: absolute;
+    top: 58%;
+    left: 78%;
+    max-width: 50%;
+    max-height: 90%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 100%;
+      left: 76%;
+      bottom: 0;
+      transform: translate(-50%, -50%);
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      max-width: 80%;
+      left: 76%;
+      top: 80%;
+      transform: translate(-50%, -50%);
+      z-index: 80;
+    }
+  }
+
+  .sub-img {
+    position: absolute;
+    max-width: 70%;
+    max-height: 55%;
+    top: 46%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 57%;
+      max-width: 75%;
+      max-height: 50%;
+      left: -5%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 30%;
+      max-width: 76%;
+      max-height: 58%;
+      left: -8%;
+      transform: translate(0, 0);
+      z-index: 5;
+    }
+  }
+}
+
+
+#slide12 {
+  background-color: #FFE5B8;
+
+  h2 {
+    bottom: 5%;
+    left: 45%;
+    max-width: 78%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 76%;
+      width: 70%;
+      min-width: 70%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 70%;
+      width: 85%;
+      min-width: 80%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    top: 50%;
+    left: 58%;
+    max-width: 90%;
+    max-height: 100%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 105%;
+      left: 55%;
+    }
+  }
+}
+
+#slide13 {
+  /* IE10+ */
+  background-image: -ms-radial-gradient(right center, ellipse farthest-corner, #FFE4BD 0%, #FFCB80 56%, #FFCB80 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-radial-gradient(right center, ellipse farthest-corner, #FFE4BD 0%, #FFCB80 56%, #FFCB80 100%);
+  /* Opera */
+  background-image: -o-radial-gradient(right center, ellipse farthest-corner, #FFE4BD 0%, #FFCB80 56%, #FFCB80 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(radial, right center, 0, right center, 691, color-stop(0, #FFE4BD), color-stop(56, #FFCB80), color-stop(100, #FFCB80));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-radial-gradient(right center, ellipse farthest-corner, #FFE4BD 0%, #FFCB80 56%, #FFCB80 100%);
+  /* W3C Markup */
+  background-image: radial-gradient(ellipse farthest-corner at right center, #FFE4BD 0%, #FFCB80 56%, #FFCB80 100%);
+
+  h2 {
+    top: 56%;
+    left: 10%;
+    max-width: 38%;
+    transform: translate(0, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 76%;
+      width: 70%;
+      min-width: 70%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 75%;
+      width: 85%;
+      min-width: 80%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    top: 50%;
+    left: 68%;
+    max-width: 100%;
+    max-height: 90%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 90%;
+      left: 50%;
+      max-height: 50%;
+    }
+  }
+}
+
+#slide14 {
+  /* IE10+ */
+  background-image: -ms-radial-gradient(right center, ellipse farthest-corner, #FCCB5E 0%, #FFC543 56%, #FFC543 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-radial-gradient(right center, ellipse farthest-corner, #FCCB5E 0%, #FFC543 56%, #FFC543 100%);
+  /* Opera */
+  background-image: -o-radial-gradient(right center, ellipse farthest-corner, #FCCB5E 0%, #FFC543 56%, #FFC543 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(radial, right center, 0, right center, 691, color-stop(0, #FCCB5E), color-stop(56, #FFC543), color-stop(100, #FFC543));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-radial-gradient(right center, ellipse farthest-corner, #FCCB5E 0%, #FFC543 56%, #FFC543 100%);
+  /* W3C Markup */
+  background-image: radial-gradient(ellipse farthest-corner at right center, #FCCB5E 0%, #FFC543 56%, #FFC543 100%);
+
+  h2 {
+    top: 56%;
+    left: 10%;
+    width: 38%;
+    transform: translate(0, -50%);
+    @media only screen and (min-width: $screen-lg-min) {
+      max-width: 14em;
+    }
+
+    @media only screen and (max-width: $screen-sm-min) {
+      top: 70%;
+      width: 70%;
+      min-width: 70%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 65%;
+      width: 85%;
+      min-width: 80%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  .main-img {
+    position: absolute;
+    top: 50%;
+    left: 68%;
+    max-width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 90%;
+      left: 50%;
+      max-height: 50%;
+      top: 0;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  .main-img-overlay {
+    position: absolute;
+    top: 35%;
+    left: 68%;
+    width: 52%;
+    max-height: 100%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: $screen-sm-min) {
+      max-width: 90%;
+      left: 50%;
+      max-height: 50%;
+      top: 20%;
+    }
+  }
+}
+
+#slide-end {
+  background: linear-gradient(to bottom, #ffffff 80%, #8a4199 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  .title-box {
+    @media only screen and (max-width: $screen-xs-min) {
+      top: 51%;
+    }
+  }
+  .title-box img {
+    max-width: 100%;
+  }
+}
+
+#sec-article-list {
+  background: #8a4199;
+  min-height: 5em;
+}
