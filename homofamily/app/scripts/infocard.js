@@ -1,9 +1,11 @@
 'use strict';
 
-$(document).ready(function(){
+$(window).on('beforeunload', function(){
+	// scroll to top of the page
+  $(window).scrollTop(0);
+});
 
-		// scroll to top of the page
-		$(this).scrollTop(0);
+$(document).ready(function(){
 
 		// init
 		var controller = new ScrollMagic.Controller({
@@ -26,20 +28,20 @@ $(document).ready(function(){
 				if(excludedSlides.indexOf(curIndex) === -1){
 					var sAnimation = new TimelineMax()
 							 .fromTo("#slide" + curIndex + " .content-container", 2,  {opacity:0, scale: 0.8}, {opacity:1, scale: 1, ease:Sine.easeIn},  0)
-							 .fromTo("#slide" + (curIndex-1) + " .content-container", 2,  {opacity:0.25, scale: 0.5}, {opacity:0, scale: 0.5, ease:Power4.easeOut},  0)
+							 .fromTo("#slide" + (curIndex-1) + " .content-container", 3,  {opacity:0.8, scale: 0.6}, {opacity:0, scale: 0.5, ease:Power4.easeOut},  0)
 							 	.to("#slide" + curIndex + " .content-container", 3,  {css:{opacity:1, scale:1}, ease:Quad.easeInOut})
-								.to("#slide" + curIndex + " .content-container", 2,  {css:{opacity:0.25, scale: 0.5}, ease:Quad.easeInOut});
+								.to("#slide" + curIndex + " .content-container .main-img", 2,  {css:{y: '-50%', scale: 1.2}, ease:Quad.easeInOut})
+								.to("#slide" + curIndex + " .content-container", 2,  {css:{opacity:0.8, scale: 0.6}, ease:Quad.easeInOut});
 
 					new ScrollMagic.Scene({
 							triggerElement: "#slide" + curIndex,
-							duration: '100%',
+							duration: '150%',
 							triggerHook: 'onEnter',
-							offset: '10%'
+							// offset: '10%'
 						})
-						// .setPin("#slide" + curIndex)
+						.setPin("#slide" + curIndex)
 						.setTween(sAnimation)
 						.on('start', function () {
-							// $('#slide' + (index+1) + ' .content-container').removeClass('stay-fixed');
 							console.log('#slide' + curIndex );
 							$('#slide' + curIndex + ' .content-container').addClass('content-show');
 					  })
@@ -56,18 +58,18 @@ $(document).ready(function(){
 
 				var sAnimation = new TimelineMax()
 						 .fromTo("#slide" + curIndex + " .content-container", 2,  {opacity:0, scale: 0.8}, {opacity:1, scale: 1, ease:Sine.easeIn},  0)
-						 .fromTo("#slide" + (curIndex-1) + " .content-container", 2,  {opacity:0.8, scale: 1}, {opacity:0, scale: 0.6, ease:Power4.easeOut},  0)
+						 .fromTo("#slide" + (curIndex-1) + " .content-container", 3,  {opacity:0.8, scale: 0.6}, {opacity:0, scale: 0.5, ease:Power4.easeOut},  0)
 							.to("#slide" + curIndex + " .content-container", 3,  {css:{opacity:1, scale:1}, ease:Quad.easeInOut})
-							.to("#slide" + curIndex + " .content-container .sub-group, " +"#slide" + curIndex + " h2", 2,  {css:{y:"-10%", scale: 0.8}, ease:Quad.easeInOut})
+							.to("#slide" + curIndex + " .content-container .sub-group, " +"#slide" + curIndex + " h2", 2,  {css:{y:"-20%", scale: 0.9}, ease:Quad.easeInOut})
 							.to("#slide" + curIndex + " .content-container", 1,  {css:{opacity:0.8, scale: 1}, ease:Quad.easeInOut});
 
 				new ScrollMagic.Scene({
 						triggerElement: "#slide" + curIndex,
-						duration: '100%',
+						duration: '150%',
 						triggerHook: 'onEnter',
-						offset: '10%'
+						// offset: '10%'
 					})
-					// .setPin("#slide" + curIndex)
+					.setPin("#slide" + curIndex)
 					.setTween(sAnimation)
 					.on('start', function () {
 						console.log('#slide' + curIndex );
@@ -81,11 +83,11 @@ $(document).ready(function(){
 		// control the ending slide
 		$('#slide14 .content-container').addClass('stay-fixed');
 		var endAnimation = new TimelineMax()
-				 .fromTo("#slide14" + " .content-container", 2,  {opacity:0, scale: 0.8}, {opacity:1, scale: 1, ease:Sine.easeIn},  0)
+				 .fromTo("#slide14" + " .content-container", 2,  {opacity:0, scale: 0.8}, {opacity:1, scale: 1, background:'#FFC543', ease:Sine.easeIn},  0)
 				 .fromTo("#slide13" + " .content-container", 2,  {opacity:0.25, scale: 0.5}, {opacity:0, scale: 0.5, ease:Power4.easeOut},  0)
 					.to("#slide14" + " .content-container", 3,  {css:{opacity:1, scale:1}, ease:Quad.easeInOut})
-					.to("#slide14" + " .content-container .main-img-overlay", 2,  {css:{y: '50%', scale: 1.3}, ease:Quad.easeInOut})
-					.to("#slide14" + " .content-container", 1,  {css:{opacity:0}, ease:Quad.easeInOut});
+					.to("#slide14" + " .content-container .main-img-overlay", 2,  {css:{y: '50%', scale: 1.3, opacity: 0.6}, ease:Quad.easeInOut})
+					.to("#slide14" + " .content-container", 1,  {css:{opacity:0, background:'white'}, ease:Quad.easeInOut});
 
 		new ScrollMagic.Scene({
 				triggerElement: "#slide14",
