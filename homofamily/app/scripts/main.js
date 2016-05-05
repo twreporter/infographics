@@ -40,6 +40,18 @@ function enbaleSmoothScroll() {
   });
 }
 
+function sendGAScrollTracking(controller, sid) {
+  new ScrollMagic.Scene({
+      triggerElement: sid,
+      duration: '100%',
+      triggerHook: 'onEnter'
+    })
+    .on('start', function () {
+      ga('send', 'event', 'interactive', 'scroll', sid);
+    })
+    .addTo(controller);
+}
+
 $( document ).ready(function() {
   enbaleSmoothScroll();
 //   let Shuffle = window.shuffle;
@@ -60,39 +72,12 @@ $( document ).ready(function() {
 
   // initiate ScrollMagic
   let controller = new ScrollMagic.Controller();
-  new ScrollMagic.Scene({
-      triggerElement: "#chapter-mp",
-      duration: '100%',
-      triggerHook: 'onEnter'
-    })
-    .on('start', function () {
-      ga('send', 'event', 'interactive', 'scroll', '#bottom-survey');
-    })
-    .addTo(controller);
 
-  new ScrollMagic.Scene({
-      triggerElement: "#section-progress",
-      duration: '100%',
-      triggerHook: 'onEnter'
-    })
-    .on('start', function () {
-      ga('send', 'event', 'interactive', 'scroll', '#section-progress');
-    })
-    .addTo(controller);
-
-  new ScrollMagic.Scene({
-      triggerElement: "#section-results",
-      duration: '100%',
-      triggerHook: 'onEnter'
-    })
-    .on('start', function () {
-      ga('send', 'event', 'interactive', 'scroll', '#section-results');
-    })
-    .addTo(controller);
+  sendGAScrollTracking(controller, '#chapter-mp');
+  sendGAScrollTracking(controller, '#section-progress');
+  sendGAScrollTracking(controller, '#section-results');
 
 
-//
-//
 //   // for(let i=0; i<MP_LIST.length; i++){
 //   //   setMpFilterAnimation(controller, sff, MP_LIST[i].scene, MP_LIST[i].key);
 //   // }
