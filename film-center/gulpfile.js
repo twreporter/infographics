@@ -1,12 +1,31 @@
 // generated on 2016-06-30 using generator-webapp 2.1.0
-const gulp = require('gulp');
-const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync');
 const del = require('del');
+const ejs = require('gulp-ejs');
+const gulp = require('gulp');
+const gulpLoadPlugins = require('gulp-load-plugins');
+const markdown = require('gulp-markdown');
+const rename = require('gulp-rename');
 const wiredep = require('wiredep').stream;
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+
+gulp.task('converMds', () => {
+  return gulp.src('./app/markdowns/*.md')
+        .pipe(markdown())
+        .pipe(rename({ extname: '.ejs' }))
+        .pipe(gulp.dest('./app/partials/'));
+});
+
+gulp.task('generateContent', ['converMds'], () => {
+  return gulp.src('./app/views/*.ejs')
+        .pipe(ejs({
+          msg: 'Hello Gulp!'
+        }, {'ext': '.html'}
+        ))
+        .pipe(gulp.dest('./app/'));
+});
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -96,7 +115,7 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
+gulp.task('serve', ['generateContent', 'styles', 'scripts', 'fonts'], () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -165,7 +184,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['generateContent', 'lint', 'html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
