@@ -12,17 +12,18 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 gulp.task('converMds', () => {
-  return gulp.src('./app/markdowns/*.md')
+  return gulp.src('./app/data/*.md')
         .pipe(markdown())
         .pipe(rename({ extname: '.ejs' }))
         .pipe(gulp.dest('./app/partials/'));
 });
 
 gulp.task('generateContent', ['converMds'], () => {
+  const indexData = require('./app/data/index.json');
   return gulp.src('./app/views/*.ejs')
-        .pipe(ejs({
-          msg: 'Hello Gulp!'
-        }, {'ext': '.html'}
+        .pipe(ejs(
+          indexData
+        , {'ext': '.html'}
         ))
         .pipe(gulp.dest('./app/'));
 });
