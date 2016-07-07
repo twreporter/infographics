@@ -6,7 +6,8 @@
     "modernizr": "~2.8.1",
     "scrollmagic": "^2.0.5",
     "gsap": "^1.18.5",
-    "three.js": "threejs#*"
+    "three.js": "threejs#*",
+    "EaselJS": "^0.8.2"
   },
   "overrides": {
     "bootstrap-sass": {
