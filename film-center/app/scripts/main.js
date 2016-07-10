@@ -1,7 +1,10 @@
 console.log('\'Allo \'Allo!');
 
+// let canvideo = new CanvasVideo('testCanvas', 44, 40);
+// canvideo.playClip('./images/coin-sprite-animation-sprite-sheet.png', 10, 10, 5, false, null, null);
+
 let canvideo = new CanvasVideo('testCanvas', 1000, 563);
-canvideo.playClip('./images/myvideo.jpg', 6, 12, 15, false, null, null);
+canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, false, 1, null);
 
 // var stage = new createjs.Stage('myCanvas');
 // var shape = new createjs.Shape();
