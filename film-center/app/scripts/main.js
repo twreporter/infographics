@@ -4,7 +4,7 @@ console.log('\'Allo \'Allo!');
 // canvideo.playClip('./images/coin-sprite-animation-sprite-sheet.png', 10, 10, 5, false, null, null);
 
 let canvideo = new CanvasVideo('testCanvas', 1000, 563);
-canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, false, 1, null);
+canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, false, 0, ()=>{canvideo.drawImage('./images/endImage.jpg')});
 
 // var stage = new createjs.Stage('myCanvas');
 // var shape = new createjs.Shape();

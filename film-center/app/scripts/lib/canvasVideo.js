@@ -2,17 +2,21 @@
 
 class CanvasVideo {
     constructor(canvasId, width, height) {
-      console.log("canvasId", canvasId);  ///////
-// TODO: check parameters
       this.canvas = document.getElementById(canvasId);
       this.ctx = this.canvas.getContext('2d');
       this.cVideo = {
         width: width,
-        height: height
+        height: height,
+        isPlaying: false
       };
       this.canvas.width = width;
       this.canvas.height = height;
       this.canvas.classList.add('canvasVideo');
+    }
+
+    drawImage(src) {
+      this.cVideo.isPlaying = false;
+      this.playClip(src, 1, 1, 1, false, 0, null);
     }
 
     playClip(src, cols, frames, fps=15, isReverse=false, loops, onEnd){
@@ -20,7 +24,6 @@ class CanvasVideo {
       let spriteWidth = 100;
       let spriteHeight = 100;
       let curFrame = (isReverse ?  frames-1: 0);
-      let isPlaying = false;
       let delay = 60;
       let wait = 0;
       let loopCnt = 0;
@@ -31,10 +34,10 @@ class CanvasVideo {
 
       if(src && cols && frames>0) {
         delay = 60 / fps;
-        isPlaying = true;
 
         this.loadImage(src, function(err, image) {
           if (err) return console.warn('Error while loading the sprite image', err);
+          cVideo.isPlaying = true;
           spriteWidth = image.width / cols;
           spriteHeight = image.height / Math.ceil(frames / cols);
           img = image;
@@ -49,7 +52,6 @@ class CanvasVideo {
         if(wait === 0) {
           draw(curFrame);
 
-          console.log('before', curFrame);
           curFrame = (curFrame + (isReverse ? -1 : 1));
 
           if (curFrame < 0) {
@@ -61,7 +63,7 @@ class CanvasVideo {
           }
 
           if(loops!=null && loopCnt > loops){
-            isPlaying = false;
+            cVideo.isPlaying = false;
             if(isFunction(onEnd)) onEnd();
           }
 
@@ -70,7 +72,7 @@ class CanvasVideo {
         wait = (wait + 1) % delay;
 
         let requestAnimationFrame = requestAnimFrame();
-        if(isPlaying){
+        if(cVideo.isPlaying){
           requestAnimationFrame(updateFrame);
         }
 
