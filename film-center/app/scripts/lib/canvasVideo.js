@@ -10,6 +10,8 @@ class CanvasVideo {
         width: width,
         height: height
       };
+      this.canvas.width = width;
+      this.canvas.height = height;
       this.canvas.classList.add('canvasVideo');
     }
 
@@ -17,7 +19,7 @@ class CanvasVideo {
       let ctx = this.ctx;
       let spriteWidth = 100;
       let spriteHeight = 100;
-      let curFrame = 0;
+      let curFrame = (isReverse ?  frames-1: 0);
       let isPlaying = false;
       let delay = 60;
       let wait = 0;
@@ -36,6 +38,7 @@ class CanvasVideo {
           spriteWidth = image.width / cols;
           spriteHeight = image.height / Math.ceil(frames / cols);
           img = image;
+
           requestAnimationFrame(updateFrame);
 
         })
@@ -43,11 +46,12 @@ class CanvasVideo {
       }
 
       function updateFrame() {
-        console.log('updateFrame');
         if(wait === 0) {
           draw(curFrame);
 
+          console.log('before', curFrame);
           curFrame = (curFrame + (isReverse ? -1 : 1));
+
           if (curFrame < 0) {
             curFrame += frames;
             loopCnt += (isReverse ? 1 : 0);
@@ -85,7 +89,6 @@ class CanvasVideo {
       }
 
       function requestAnimFrame() {
-        console.log('requestAnimFrame');
         return  window.requestAnimationFrame       ||
                 window.webkitRequestAnimationFrame ||
                 window.mozRequestAnimationFrame    ||
