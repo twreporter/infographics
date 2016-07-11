@@ -2,6 +2,8 @@
 $bootstrap-sass-asset-helper: false !default;
 
 // project colors
+$white: #f2f2f2;
+$red: #c71b0a;
 $green:  #27FFC6;
 $green-darker: #42d1a5;
 $dark-green: #094745;
@@ -34,7 +36,7 @@ $five-inch-width: 380px;
 
 $gray-base:              #000 !default;
 $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
-$gray-dark:              #7b8a8b !default;   // #333
+$gray-dark:              #808080 !default;   // #333
 $gray:                   #95a5a6 !default; // #555
 $gray-light:             #b4bcc2 !default;   // #999
 $gray-lighter:           #ecf0f1 !default; // #eee
