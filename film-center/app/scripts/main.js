@@ -4,7 +4,22 @@ console.log('\'Allo \'Allo!');
 // canvideo.playClip('./images/coin-sprite-animation-sprite-sheet.png', 10, 10, 5, false, null, null);
 
 let canvideo = new CanvasVideo('testCanvas', 1000, 563);
-canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, false, 0, ()=>{canvideo.drawImage('./images/endImage.jpg')});
+canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, false, 0, () => {
+    canvideo.drawImage('./images/endImage.jpg')
+});
+
+let cvProcess1 = new CanvasVideo('process1', 1000, 563);
+cvProcess1.playClip('./images/process1.jpg', 6, 47, 15, false, null, null);
+
+
+let cvProcess2 = new CanvasVideo('process2', 1000, 563);
+cvProcess2.playClip('./images/process2.jpg', 6, 47, 15, false, null, null);
+
+let cvProcess3 = new CanvasVideo('process3', 1000, 563);
+cvProcess3.playClip('./images/process3.jpg', 6, 47, 15, false, null, null);
+
+let cvProcess4 = new CanvasVideo('process4', 1000, 563);
+cvProcess4.playClip('./images/process4.jpg', 6, 47, 15, false, null, null);
 
 // var stage = new createjs.Stage('myCanvas');
 // var shape = new createjs.Shape();
