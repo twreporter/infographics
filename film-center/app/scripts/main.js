@@ -3,6 +3,21 @@ console.log('\'Allo \'Allo!');
 // let canvideo = new CanvasVideo('testCanvas', 44, 40);
 // canvideo.playClip('./images/coin-sprite-animation-sprite-sheet.png', 10, 10, 5, false, null, null);
 
+let lastScrollTop = 0;
+let scrollDirection = 1;
+$(window).scroll(function(event) {
+    let st = $(this).scrollTop();
+    if (st > lastScrollTop) {
+        // downscroll code
+        scrollDirection = 1;
+    } else {
+        // upscroll code
+        scrollDirection = -1;
+    }
+    lastScrollTop = st;
+});
+
+
 let canvideo = new CanvasVideo('testCanvas', 2000, 1126);
 canvideo.drawImage('./images/daan.jpg');
 
@@ -44,10 +59,8 @@ new ScrollMagic.Scene({
     .reverse(true)
     .on('start', function() {
         console.log('on START!!!')
-
-        canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, false, 0, () => {
-            canvideo.drawImage('./images/taiwan.jpg')
-        });
+        let isReverse = (scrollDirection > 0) ? false : true;
+        canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, isReverse, 0, null);
         // canvideo.playClip('./images/daan_taiwan.jpg', 6, 43, 60, false, 0, () => {
         //     canvideo.drawImage('./images/taiwan.jpg')
         // });
