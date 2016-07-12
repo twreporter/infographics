@@ -21,13 +21,39 @@
         border-top: 1px solid $red;
         width: 3rem;
     }
+
+    .description {
+        @media only screen and (max-width: $screen-sm-min) {
+            width: 100%;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+        }
+    }
 }
 
 .restoration-container {
     .description {
         position: absolute;
-        bottom: 2rem;
+        top: 100%;
         left: 50%;
         transform: translate(-50%,0);
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+    }
+}
+
+
+#g-earth {
+    height: 260vh;
+
+    .description {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%,0);
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+
+        > div {
+            margin-bottom: 10rem;
+        }
     }
 }

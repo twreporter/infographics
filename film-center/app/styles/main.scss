@@ -16,6 +16,10 @@ $icon-font-path: '../fonts/';
   padding: 0.2em 0;
 }
 
+::selection {
+  background: $light-red;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,

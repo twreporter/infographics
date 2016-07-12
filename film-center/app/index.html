@@ -91,17 +91,27 @@ your browser, which means all your documents are automatically saved locally and
 
   </div>
 
-
-  <div class="fit-screen">
-    <canvas id="testCanvas" class="fit-canvas">
-      </canvas>
+  <div id="g-earth">
+    <div class="fit-screen">
+      <canvas id="testCanvas" class="fit-canvas"></canvas>
+      <div id="earth-description" class="container description">
+        <div>
+          <p>國影中心一年經費約 3600 萬，一年文化部預算補助修復 3–5部片。</p>
+          <p>就算不付租金、水電、員工薪水，一年也只能修復 10 部。</p>
+        </div>
+        <div>
+          <p>至 2015 年完成修復 12 部片。但 11 個片庫中，約有 14000–15000 部片。</p>
+          <p>換算成一個有趣的數字是：台北市大安區有 11.36 平方公里，約佔全台灣面積的 0.03%，這恰好就是國影中心數位修復的影片比例喔。</p>
+        </div>
+      </div> 
+    </div>
   </div>
-
 
   <div class="container">
     <div class="row marketing">
       <div class="col-lg-12">
-            <h4>Bootstrap</h4>
+            <small>影像來源： Google Earth</small>
+            
             <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
             <h4>Modernizr</h4>
             <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
@@ -110,32 +120,32 @@ your browser, which means all your documents are automatically saved locally and
   </div>
   
 
-  <div class="fit-screen restoration-container">
+  <div id="restorationBox1" class="fit-screen restoration-container">
     <canvas id="process1" class="fit-canvas"></canvas>
     <div class="container description">
-      <h4>影片修復步驟一</h4>
-      <span>戒嚴時期因涉匪諜案而被槍決的黃新華父親，無從追索也避免談論的一片空白，直到「看到那些字句，我才真正了解，他是個怎麼樣的人。」（黃新華提供）</span>
+      <h4>膠捲整飭</h4>
+      <span>膠卷因為搬運、保存的失當，經常有劣化問題，這都必須透過人眼去檢查磨損程度，進一步清潔、整理。</span>
     </div>  
   </div>
-  <div class="fit-screen restoration-container">
+  <div id="restorationBox2" class="fit-screen restoration-container">
     <canvas id="process2" class="fit-canvas"></canvas>
     <div class="container description">
-      <h4>影片修復步驟二</h4>
-      <span>戒嚴時期因涉匪諜案而被槍決的黃新華父親，無從追索也避免談論的一片空白，直到「看到那些字句，我才真正了解，他是個怎麼樣的人。」（黃新華提供）</span>
+      <h4>影像掃描</h4>
+      <span>一秒的影片有 24 格，整理後的膠捲，需要透過專業人員逐格掃瞄，影片有多長，就得花上同等的時間去處理。</span>
     </div>  
   </div>
-  <div class="fit-screen restoration-container">
+  <div id="restorationBox3" class="fit-screen restoration-container">
     <canvas id="process3" class="fit-canvas"></canvas>
     <div class="container description">
-      <h4>影片修復步驟三</h4>
-      <span>戒嚴時期因涉匪諜案而被槍決的黃新華父親，無從追索也避免談論的一片空白，直到「看到那些字句，我才真正了解，他是個怎麼樣的人。」（黃新華提供）</span>
+      <h4>聲音掃描</h4>
+      <span>在膠捲的世界裡，聲音與影像是一起被紀錄的，但是數位過程就得把聲軌轉成電子訊號再轉成數位訊號來重建，有得花上好大段時間。</span>
     </div>  
   </div>
-  <div class="fit-screen restoration-container">
+  <div id="restorationBox4" class="fit-screen restoration-container">
     <canvas id="process4" class="fit-canvas"></canvas>
     <div class="container description">
-      <h4>影片修復步驟四</h4>
-      <span>戒嚴時期因涉匪諜案而被槍決的黃新華父親，無從追索也避免談論的一片空白，直到「看到那些字句，我才真正了解，他是個怎麼樣的人。」（黃新華提供）</span>
+      <h4>聲音及影像修復</h4>
+      <span>數位修復的意義在於校正膠捲的缺失，像是刮傷、髒點、灰塵、閃爍、扭曲等，影像方面，由於每部電影約有 15 萬個畫格，先讓電腦處理不規則與異常元素，再手動進行逐格修復。</span>
     </div>  
   </div>
 
@@ -249,6 +259,14 @@ your browser, which means all your documents are automatically saved locally and
   <!-- endbower -->
   <!-- endbuild -->
 
+
+  <!-- build:js scripts/scrollmagic.js -->
+  <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+  <script src="/bower_components/gsap/src/minified/TweenMax.min.js"></script>
+  <script src="/bower_components/gsap/src/minified/TimelineMax.min.js"></script>
+  <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+  <!-- endbuild -->
+
   <!-- build:js scripts/plugins.js -->
   <!--
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
@@ -270,7 +288,6 @@ your browser, which means all your documents are automatically saved locally and
   <!-- build:js scripts/main.js -->
   <script src="scripts/lib/canvasVideo.js"></script>
   <script src="/bower_components/EaselJS/lib/easeljs-0.8.2.min.js"></script>
-  <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
   <script src="scripts/main.js"></script>
   <!-- endbuild -->
 </body>

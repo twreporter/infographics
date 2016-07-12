@@ -46,6 +46,15 @@ blockquote {
     top: -100%;
     bottom: -100%;
     margin: auto;
+
+    @media only screen and (max-width: $screen-sm-min) and (orientation:portrait) {
+      max-height: 100%;
+    }
+
+    @media only screen and (max-width: $screen-sm-min) and (orientation:landscape) {
+      max-width: 100%;
+    }
+
   }
 }
 
