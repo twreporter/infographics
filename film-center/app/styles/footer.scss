@@ -104,16 +104,8 @@ and (max-device-width : 799px) {
     display: inline-block;
     box-sizing: content-box
   }
-  .us-container .item:nth-child(odd) {
-    border-right: solid 1px;
-  }
   .us-container .item:nth-child(even) {
     border: none;
-  }
-  .us-container .item:nth-child(1) {
-    border-right-style: solid;
-    border-right-width: 1px;
-    border-left-width: 0px;
   }
   .us-container .item:nth-child(3n+0) {
     padding-top: 35px;
@@ -131,8 +123,6 @@ and (max-device-width : 799px) {
   }
   .footer .social-container .item .fb {
     padding-left: 0px;
-  }
-  .footer .social-container .item .ig {
   }
   .footer .open-source-container {
     width: 100%;

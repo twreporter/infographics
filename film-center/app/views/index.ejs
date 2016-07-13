@@ -38,8 +38,17 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-  <div clsas="cover-photo">
-    <img class="img-fit-width" src="https://atavist.com/data/files/organization/60826/image/derivative/scale~2000x0~imjw2213-1462513788-49.jpg">
+  <div class="nav-icons">
+    <div class="reporter-logo">
+      <a href="https://www.twreporter.org/"><img src="https://dh1rvgpokacch.cloudfront.net/atavist/60826/image/derivative/cropandscale~64x64x0x0~favicon-1450079771-87.png" class="img-shadow" /></a>
+    </div>
+  </div>
+
+  <div id="header" class="cover-photo">
+    <div class="gradient-overlay">
+      <h1 class="container"><%- articleTitle  %></h1>
+      <h2 class="container"><%= articleSubtitle  %></h3>
+    </div>
   </div>
 
   <!-- <canvas id="testCanvas" class="img-fit-width">
@@ -47,7 +56,6 @@
 
   <div class="container">
     <div class="header">
-      <h1 class="cover-title"><%= articleTitle  %></h1>
       <div class="row">
         <div class="col-md-9">
           <span><%= author %></span>

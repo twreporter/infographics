@@ -2,11 +2,11 @@ console.log('\'Allo \'Allo!');
 
 let panorama = new PANOLENS.ImagePanorama('images/PANO_20160708_135156-01.jpeg'); // test images
 
-let infospot = new PANOLENS.Infospot(350, PANOLENS.DataImage.Info);
-infospot.position.set(3957.4, -744.48, 2956.61);
-infospot.addHoverText('Test Info Spot');
+// let infospot = new PANOLENS.Infospot(350, PANOLENS.DataImage.Info);
+// infospot.position.set(3957.4, -744.48, 2956.61);
+// infospot.addHoverText('Test Info Spot');
 
-panorama.add(infospot);
+// panorama.add(infospot);
 
 let viewer = new PANOLENS.Viewer({
     container: document.body, // A DOM Element container. Default: document.body
