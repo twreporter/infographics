@@ -4,9 +4,17 @@
 
 @import "./variables.scss";
 
+.fixed {
+    > canvas {
+        position: fixed !important;
+    }
+    // margin-bottom: 100vh;
+}
+
 .article {
     background: $blue-dark;
     color: $white;
+    overflow: hidden;
 
     .gradient-overlay {
         width: 100%;
@@ -76,10 +84,11 @@
 .restoration-container {
     .description {
         position: absolute;
-        top: 100%;
+        bottom: 10%;
         left: 50%;
         transform: translate(-50%,0);
         text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+        z-index: 1000;
     }
 }
 

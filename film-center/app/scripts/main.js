@@ -1,10 +1,46 @@
-console.log('\'Allo \'Allo!');
-
-// let canvideo = new CanvasVideo('testCanvas', 44, 40);
-// canvideo.playClip('./images/coin-sprite-animation-sprite-sheet.png', 10, 10, 5, false, null, null);
-
 let lastScrollTop = 0;
 let scrollDirection = 1;
+
+let vpWidth = $(window).width();
+let vpHeight = $(window).height();
+
+// let canvideo = new CanvasVideo('testCanvas', 2000, 1126);
+// canvideo.drawImage('./images/daan.jpg');
+
+let canvideo = new CanvasVideo('testCanvas', 1000, 563);
+canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, false, 0, () => {
+    canvideo.drawImage('./images/endImage.jpg')
+});
+
+
+// let canvasWidth = 1000;
+// let canvasHeight = 563;
+let canvasWidth = 600;
+let canvasHeight = 338;
+
+let cvProcess1 = new CanvasVideo('process1', canvasWidth, canvasHeight);
+cvProcess1.playClip('./images/mobile/process1.jpg', 6, 47, 15, false, null, null);
+
+let cvProcess2 = new CanvasVideo('process2', canvasWidth, canvasHeight);
+cvProcess2.playClip('./images/mobile/process2.jpg', 6, 47, 15, false, null, null);
+
+let cvProcess3 = new CanvasVideo('process3', canvasWidth, canvasHeight);
+cvProcess3.playClip('./images/mobile/process3.jpg', 6, 47, 15, false, null, null);
+
+let cvProcess4 = new CanvasVideo('process4', canvasWidth, canvasHeight);
+cvProcess4.playClip('./images/mobile/process4.jpg', 6, 47, 15, false, null, null);
+
+
+let processTops = [];
+
+function getScrollPercentage(st, top) {
+    return Math.round((st - processTops[0]) * 100 / canvasHeight);
+}
+
+for (let i = 1; i <= 4; i++) {
+    processTops.push($('#restorationBox' + i).position().top);
+}
+
 $(window).scroll(function(event) {
     let st = $(this).scrollTop();
     if (st > lastScrollTop) {
@@ -14,30 +50,41 @@ $(window).scroll(function(event) {
         // upscroll code
         scrollDirection = -1;
     }
+
+    // if (st >= processTops[0] && st < processTops[0] + canvasHeight * 2) {
+    //     console.log('st >= processTops[0]', (st - processTops[0]), (st - processTops[0]) / canvasHeight);
+    //     $('#restorationBox1').addClass('fixed');
+    //     // $('#restorationBox1').css('margin-bottom', getReverseScrollPercentage(st, processTops[0]) + 'vh')
+    //     $('#restorationBox2').removeClass('fixed');
+    //     $('#restorationBox3').removeClass('fixed');
+    //     $('#restorationBox4 ').removeClass('fixed');
+    // } else if (st >= processTops[1] && st < processTops[1] + canvasHeight * 2) {
+    //     $('#restorationBox2 ').addClass('fixed');
+    //     $('#restorationBox1 ').removeClass('fixed');
+    //     $('#restorationBox3 ').removeClass('fixed');
+    //     $('#restorationBox4 ').removeClass('fixed');
+    // } else if (st >= processTops[2] && st < processTops[2] + canvasHeight * 2) {
+    //     $('#restorationBox3 ').addClass('fixed');
+    //     $('#restorationBox1 ').removeClass('fixed');
+    //     $('#restorationBox2 ').removeClass('fixed');
+    //     $('#restorationBox4 ').removeClass('fixed');
+    // } else if (st >= processTops[3] && st < processTops[3] + canvasHeight * 2) {
+    //     $('#restorationBox4 ').addClass('fixed');
+    //     $('#restorationBox1 ').removeClass('fixed');
+    //     $('#restorationBox2 ').removeClass('fixed');
+    //     $('#restorationBox3 ').removeClass('fixed');
+    // } else {
+    //     $('#restorationBox1 ').removeClass('fixed');
+    //     $('#restorationBox2 ').removeClass('fixed');
+    //     $('#restorationBox3 ').removeClass('fixed');
+    //     $('#restorationBox4 ').removeClass('fixed');
+    // }
+
+
     lastScrollTop = st;
 });
 
 
-let canvideo = new CanvasVideo('testCanvas', 2000, 1126);
-canvideo.drawImage('./images/daan.jpg');
-
-// let canvideo = new CanvasVideo('testCanvas', 1000, 563);
-// canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, false, 0, () => {
-//     canvideo.drawImage('./images/endImage.jpg')
-// });
-
-let cvProcess1 = new CanvasVideo('process1', 1000, 563);
-cvProcess1.playClip('./images/process1.jpg', 6, 47, 15, false, null, null);
-
-
-let cvProcess2 = new CanvasVideo('process2', 1000, 563);
-cvProcess2.playClip('./images/process2.jpg', 6, 47, 15, false, null, null);
-
-let cvProcess3 = new CanvasVideo('process3', 1000, 563);
-cvProcess3.playClip('./images/process3.jpg', 6, 47, 15, false, null, null);
-
-let cvProcess4 = new CanvasVideo('process4', 1000, 563);
-cvProcess4.playClip('./images/process4.jpg', 6, 47, 15, false, null, null);
 
 
 // init controller
@@ -70,50 +117,3 @@ new ScrollMagic.Scene({
         ease: Linear.easeNone
     })
     .addTo(controller);
-
-
-
-// build scenes for the restoration process
-for (let i = 1; i <= 4; i++) {
-    new ScrollMagic.Scene({
-            triggerElement: '#restorationBox' + i,
-            duration: '100%'
-        })
-        .setPin('#restorationBox' + i)
-        .setTween('#restorationBox' + i + ' > .description', {
-            top: '0%',
-            ease: Linear.easeNone
-        })
-        .addTo(controller);
-}
-
-
-
-// var stage = new createjs.Stage('myCanvas');
-// var shape = new createjs.Shape();
-// shape.graphics.beginFill('red').drawRect(0, 0, 1000, 563);
-// stage.addChild(shape);
-// stage.update();
-// var ss = new createjs.SpriteSheet({
-//     frames: {
-//         width: 1000,
-//         height: 563,
-//         numFrames: 12
-//     },
-//     animations: {
-//         run: [0, 50],
-//         jump: [12, 0, 'run']
-//     },
-//     images: ['./images/myvideo.jpg']
-// });
-//
-// var sprite = new createjs.Sprite(ss);
-// sprite.scaleY = sprite.scaleX = 0.2;
-// stage.addChild(sprite);
-// sprite.gotoAndPlay('run');
-//
-// sprite.on('click', function() {
-//     sprite.gotoAndPlay('run');
-// });
-//
-// createjs.Ticker.on('tick', stage);
