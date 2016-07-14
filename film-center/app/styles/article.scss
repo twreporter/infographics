@@ -83,6 +83,7 @@
 
     p {
         line-height: 1.85;
+        margin: 2rem 0;
     }
 
     .title-date {
@@ -174,4 +175,8 @@
         }
     }
 
+}
+
+.slick-dots li button:before {
+    color: white;
 }

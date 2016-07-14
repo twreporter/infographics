@@ -7,7 +7,8 @@
     "scrollmagic": "^2.0.5",
     "gsap": "^1.18.5",
     "three.js": "threejs#*",
-    "EaselJS": "^0.8.2"
+    "EaselJS": "^0.8.2",
+    "slick-carousel": "^1.6.0"
   },
   "overrides": {
     "bootstrap-sass": {

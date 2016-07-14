@@ -12,6 +12,9 @@
   <!-- favicon.ico -->
   <link href="https://www.twreporter.org/asset/favicon.png" rel="shortcut icon" />
 
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
   <!-- endbower -->
@@ -69,19 +72,10 @@
 
     </div>
 
-    <div class="row marketing">
+    <div class="row">
       <div class="col-lg-12">
+        <small>影像來源： 國家電影中心</small>
         <%- include ../partials/paragraph1 %>
-
-          <hr/>
-
-          <%- include ../partials/paragraph2 %>
-
-            <h4>Bootstrap</h4>
-            <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-            <h4>Modernizr</h4>
-            <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
-
       </div>
     </div>
 
@@ -112,17 +106,13 @@
   </div>
 
   <div class="container">
-    <div class="row marketing">
+    <div class="row">
+      <small>影像來源： Google Earth</small>
       <div class="col-lg-12">
-            <small>影像來源： Google Earth</small>
-            
-            <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-            <h4>Modernizr</h4>
-            <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
+        <%- include ../partials/paragraph2 %>
       </div>
     </div>
   </div>
-  
 
   <div id="restorationBox1" class="fit-screen restoration-container">
     <div class="canvas-box">
@@ -134,7 +124,6 @@
       <span><%= processDescription1 %></span>
     </div>  
   </div>
-  
   <div id="restorationBox2" class="fit-screen restoration-container">
     <div class="canvas-box">
        <canvas id="process2" class="fit-canvas"></canvas>
@@ -166,19 +155,33 @@
     </div>  
   </div>
 
+  <div class="container">
+    <%- include ../partials/ai2html %>
+  </div>
 
   <div class="container">
-    <div class="row marketing">
+    <div class="row">
       <div class="col-lg-12">
-            <h4>Bootstrap</h4>
-            <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-            <h4>Modernizr</h4>
-            <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
+        <%- include ../partials/paragraph3 %>
       </div>
     </div>
   </div>
   
+  <div id="photo-slick" class="container">
+    <div><img class="img-responsive" src="images/slideshow/01.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/02.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/03.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/04.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/05.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/06.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/07.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/08.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/09.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/10.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/11.jpg"></div>
+  </div>
 
+ <!-- 360 degree viewer -->
   <div class="container">
     <div class="row">
       <div class="col-lg-12" id="panolens-viewer">
@@ -279,12 +282,13 @@
 
   <!-- build:js scripts/scrollmagic.js -->
   <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
-  <script src="/bower_components/gsap/src/minified/TweenMax.min.js"></script>
-  <script src="/bower_components/gsap/src/minified/TimelineMax.min.js"></script>
-  <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+  <script src="/bower_components/slick-carousel/slick/slick.js"></script>
   <!-- endbuild -->
 
   <!-- build:js scripts/plugins.js -->
+  <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+  <script src="/bower_components/gsap/src/minified/TweenMax.min.js"></script> 
+  <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script> 
   <!--
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>

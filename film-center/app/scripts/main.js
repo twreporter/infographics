@@ -51,6 +51,15 @@ function getNormalizedValue(begin, end, base, number) {
     return Math.abs((number - base) / (end - begin));
 }
 
+// photo slider
+$('#photo-slick').slick({
+    lazyLoad: 'ondemand',
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    dots: true
+});
+
 $(window).scroll(function(event) {
     let st = $(this).scrollTop();
     if (st > lastScrollTop) {
@@ -76,7 +85,6 @@ $(window).scroll(function(event) {
         $('#g-earth').addClass('fixed');
         $('.description-box').addClass('fixed');
 
-        console.log(ratio, ratio * 10);
         if (0 < ratio && ratio < fadeRatio) {
             $('#earth-desc-1').css('opacity', getNormalizedValue(0, fadeRatio, 0, ratio));
             $('#earth-desc-2').css('opacity', 0);
