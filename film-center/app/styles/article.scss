@@ -5,16 +5,22 @@
 @import "./variables.scss";
 
 .fixed {
-    > canvas {
+    canvas {
         position: fixed !important;
+        z-index: -1;
     }
-    // margin-bottom: 100vh;
+    // margin-bottom: 200vh;
 }
 
 .article {
     background: $blue-dark;
     color: $white;
     overflow: hidden;
+
+    // .fit-screen {
+    //     background: $dark;
+    //     opacity: 0.5;
+    // }
 
     .gradient-overlay {
         width: 100%;
@@ -59,7 +65,6 @@
     }
 
     p {
-        margin-top: 1.85em;
         line-height: 1.85;
     }
 
@@ -94,17 +99,24 @@
 
 
 #g-earth {
-    height: 260vh;
+    height: 300vh;
 
     .description {
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%,0);
+        position: static;
+        // top: 20%;
+        // left: 50%;
+        // transform: translate(-50%,0);
         text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
 
         > div {
             margin-bottom: 10rem;
+            background-color: rgba($dark, 0.5);
+            font-size: $font-size-h4;
+            padding: 1rem 2rem;
         }
+    }
+
+    #earth-desc-2 {
+        margin-top: 80vh;
     }
 }

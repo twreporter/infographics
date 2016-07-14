@@ -7,8 +7,12 @@ class CanvasVideo {
         this.cVideo = {
             width: width,
             height: height,
+            src: null,
             isPlaying: false,
-            image: null
+            image: null,
+            curFrame: 0,
+            spriteWidth: 100,
+            spriteHeight: 100
         };
         this.canvas.width = width;
         this.canvas.height = height;
@@ -22,6 +26,11 @@ class CanvasVideo {
 
     stopVideo() {
         this.cVideo.isPlaying = false;
+    }
+
+    stopAndGetFrame() {
+        this.stopVideo();
+        return this.cVideo.curFrame;
     }
 
     isPlaying() {
@@ -38,30 +47,28 @@ class CanvasVideo {
         }
 
         let ctx = this.ctx;
-        let spriteWidth = 100;
-        let spriteHeight = 100;
         let framesCnt = Math.abs(endFrame - startFrame) + 1;
-        let curFrame = (isReverse ? framesCnt - 1 : startFrame);
         let delay = 60;
         let wait = 0;
         let loopCnt = 0;
         let cVideo = this.cVideo;
+        cVideo.curFrame = (isReverse ? framesCnt - 1 : startFrame);
 
         let requestAnimationFrame = requestAnimFrame();
 
         if (src && cols && frames > 0) {
             delay = 60 / fps;
 
-            if (cVideo.image && cVideo.image.src === src) {
+            if (cVideo.src === src) {
                 cVideo.isPlaying = true;
                 requestAnimationFrame(updateFrame);
             } else {
                 this.loadImage(src, function(err, image) {
-                    console.log(image.src);
                     if (err) return console.warn('Error while loading the sprite image', err);
+                    cVideo.src = src;
                     cVideo.isPlaying = true;
-                    spriteWidth = image.width / cols;
-                    spriteHeight = image.height / Math.ceil(frames / cols);
+                    cVideo.spriteWidth = image.width / cols;
+                    cVideo.spriteHeight = image.height / Math.ceil(frames / cols);
                     cVideo.image = image;
 
                     requestAnimationFrame(updateFrame);
@@ -75,15 +82,15 @@ class CanvasVideo {
 
         function updateFrame() {
             if (wait === 0) {
-                draw(curFrame);
+                draw(cVideo.curFrame);
 
-                curFrame = (curFrame + (isReverse ? -1 : 1));
+                cVideo.curFrame = (cVideo.curFrame + (isReverse ? -1 : 1));
 
-                if (curFrame < startFrame) {
-                    curFrame += framesCnt;
+                if (cVideo.curFrame < startFrame) {
+                    cVideo.curFrame += framesCnt;
                     loopCnt += (isReverse ? 1 : 0);
-                } else if (curFrame >= framesCnt) {
-                    curFrame = startFrame;
+                } else if (cVideo.curFrame >= framesCnt) {
+                    cVideo.curFrame = startFrame;
                     loopCnt += (isReverse ? 0 : 1);
                 }
 
@@ -108,11 +115,11 @@ class CanvasVideo {
         }
 
         function draw(fIndex) {
-            const fx = Math.floor(fIndex % cols) * spriteWidth;
-            const fy = Math.floor(fIndex / cols) * spriteHeight;
+            const fx = Math.floor(fIndex % cols) * cVideo.spriteWidth;
+            const fy = Math.floor(fIndex / cols) * cVideo.spriteHeight;
 
             ctx.clearRect(0, 0, cVideo.width, cVideo.height); // clear frame
-            ctx.drawImage(cVideo.image, fx, fy, spriteWidth, spriteHeight, 0, 0, cVideo.width, cVideo.height);
+            ctx.drawImage(cVideo.image, fx, fy, cVideo.spriteWidth, cVideo.spriteHeight, 0, 0, cVideo.width, cVideo.height);
         }
 
         function requestAnimFrame() {

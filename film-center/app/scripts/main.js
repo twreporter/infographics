@@ -1,5 +1,4 @@
 let lastScrollTop = 0;
-let scrollDirection = 1;
 
 let vpWidth = $(window).width();
 let vpHeight = $(window).height();
@@ -8,9 +7,9 @@ let vpHeight = $(window).height();
 // canvideo.drawImage('./images/daan.jpg');
 
 let canvideo = new CanvasVideo('testCanvas', 1000, 563);
-canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, false, 0, () => {
-    canvideo.drawImage('./images/endImage.jpg')
-});
+// canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, false, 0, () => {
+//     canvideo.drawImage('./images/endImage.jpg')
+// });
 
 
 // let canvasWidth = 1000;
@@ -31,24 +30,46 @@ let cvProcess4 = new CanvasVideo('process4', canvasWidth, canvasHeight);
 cvProcess4.playClip('./images/mobile/process4.jpg', 6, 47, 15, false, null, null);
 
 
-let processTops = [];
+// let processTops = [];
 
-function getScrollPercentage(st, top) {
-    return Math.round((st - processTops[0]) * 100 / canvasHeight);
+function getScrollRatio(st, top, height) {
+    let ret = (st - top) / height;
+    if (ret < 0) return 0;
+    if (ret > 1) return 0.9999999;
+    return ret;
 }
 
-for (let i = 1; i <= 4; i++) {
-    processTops.push($('#restorationBox' + i).position().top);
-}
+// for (let i = 1; i <= 4; i++) {
+//     processTops.push($('#restorationBox' + i).position().top);
+// }
+
+let earthTop = $('#g-earth').position().top;
+let earthFrameId = 0;
+let isReverse = false;
 
 $(window).scroll(function(event) {
     let st = $(this).scrollTop();
     if (st > lastScrollTop) {
         // downscroll code
-        scrollDirection = 1;
+        isReverse = false;
     } else {
         // upscroll code
-        scrollDirection = -1;
+        isReverse = true;
+    }
+
+    let earthScrollLength = canvasHeight * 6;
+    if (st >= earthTop && st < earthTop + earthScrollLength) {
+        let curFrame = Math.floor(43 * getScrollRatio(st, earthTop, earthScrollLength))
+        if (curFrame !== earthFrameId) {
+            // console.log(getScrollRatio(st, earthTop, earthScrollLength), curFrame);
+            canvideo.stopVideo();
+            canvideo.playFrames('./images/daan_taiwan.jpg', 6, 43, 5, 0, 0, earthFrameId, curFrame, null);
+            earthFrameId = curFrame;
+        }
+
+        $('#g-earth').addClass('fixed');
+    } else {
+        $('#g-earth').removeClass('fixed');
     }
 
     // if (st >= processTops[0] && st < processTops[0] + canvasHeight * 2) {
@@ -97,23 +118,40 @@ var controller = new ScrollMagic.Controller({
 });
 
 
-// google earth
-new ScrollMagic.Scene({
-        triggerElement: '#g-earth',
-        triggerHook: 'onLeave'
-    })
-    .setPin('#g-earth canvas')
-    .reverse(true)
-    .on('start', function() {
-        console.log('on START!!!')
-        let isReverse = (scrollDirection > 0) ? false : true;
-        canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, isReverse, 0, null);
-        // canvideo.playClip('./images/daan_taiwan.jpg', 6, 43, 60, false, 0, () => {
-        //     canvideo.drawImage('./images/taiwan.jpg')
-        // });
-    })
-    .setTween('#g-earth .description', {
-        top: '0%',
-        ease: Linear.easeNone
-    })
-    .addTo(controller);
+// // google earth
+// new ScrollMagic.Scene({
+//         triggerElement: '#g-earth',
+//         triggerHook: 'onLeave'
+//     })
+//     .setPin('#g-earth canvas')
+//     .reverse(true)
+//     .on('start', function() {
+//         console.log('on START!!!')
+//         let isReverse = (scrollDirection > 0) ? false : true;
+//         canvideo.playClip('./images/myvideo.jpg', 6, 12, 5, isReverse, 0, null);
+//         // canvideo.playClip('./images/daan_taiwan.jpg', 6, 43, 60, false, 0, () => {
+//         //     canvideo.drawImage('./images/taiwan.jpg')
+//         // });
+//     })
+//     .setTween('#g-earth .description', {
+//         top: '0%',
+//         ease: Linear.easeNone
+//     })
+//     .addTo(controller);
+
+// build scenes for the restoration process 
+for (let i = 1; i <= 4; i++) {
+    new ScrollMagic.Scene({
+            triggerElement: '#restorationBox' + i,
+            duration: '100%'
+        })
+        .setPin('#restorationBox' + i)
+        .setTween('#restorationBox' + i + ' > .description', {
+            top: '0%',
+            ease: Linear.easeNone
+        })
+        .addTo(controller);
+}
+
+
+// cvProcess1.playFrames('./images/mobile/process1.jpg', 6, 47, 15, false, 0, 5, 15, null);
