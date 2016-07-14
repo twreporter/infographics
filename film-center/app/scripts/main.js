@@ -47,6 +47,10 @@ let earthTop = $('#g-earth').position().top;
 let earthFrameId = 0;
 let isReverse = false;
 
+function getNormalizedValue(begin, end, base, number) {
+    return Math.abs((number - base) / (end - begin));
+}
+
 $(window).scroll(function(event) {
     let st = $(this).scrollTop();
     if (st > lastScrollTop) {
@@ -59,7 +63,9 @@ $(window).scroll(function(event) {
 
     let earthScrollLength = canvasHeight * 6;
     if (st >= earthTop && st < earthTop + earthScrollLength) {
-        let curFrame = Math.floor(43 * getScrollRatio(st, earthTop, earthScrollLength))
+        let ratio = getScrollRatio(st, earthTop, earthScrollLength);
+        let curFrame = Math.floor(43 * ratio);
+        let fadeRatio = 0.1;
         if (curFrame !== earthFrameId) {
             // console.log(getScrollRatio(st, earthTop, earthScrollLength), curFrame);
             canvideo.stopVideo();
@@ -68,8 +74,31 @@ $(window).scroll(function(event) {
         }
 
         $('#g-earth').addClass('fixed');
+        $('.description-box').addClass('fixed');
+
+        console.log(ratio, ratio * 10);
+        if (0 < ratio && ratio < fadeRatio) {
+            $('#earth-desc-1').css('opacity', getNormalizedValue(0, fadeRatio, 0, ratio));
+            $('#earth-desc-2').css('opacity', 0);
+        } else if (ratio >= fadeRatio && ratio < 0.5 - fadeRatio) {
+            $('#earth-desc-1').css('opacity', 1);
+            $('#earth-desc-2').css('opacity', 0);
+        } else if (ratio >= 0.5 - fadeRatio && ratio < 0.5) {
+            $('#earth-desc-1').css('opacity', getNormalizedValue(0.5 - fadeRatio, 0.5, ratio, 0.5));
+        } else if (ratio >= 0.5 && ratio < 0.5 + fadeRatio) {
+            $('#earth-desc-2').css('opacity', getNormalizedValue(0.5, 0.5 + fadeRatio, 0.5, ratio));
+        } else if (ratio >= 0.5 + fadeRatio && ratio < 1 - fadeRatio) {
+            $('#earth-desc-1').css('opacity', 0);
+            $('#earth-desc-2').css('opacity', 1);
+        } else if (ratio >= 1 - fadeRatio && ratio < 1) {
+            $('#earth-desc-1').css('opacity', 0);
+            $('#earth-desc-2').css('opacity', getNormalizedValue(1 - fadeRatio, 1, ratio, 1));
+        }
     } else {
         $('#g-earth').removeClass('fixed');
+        $('.description-box').removeClass('fixed');
+        $('#earth-desc-1').css('opacity', 0);
+        $('#earth-desc-2').css('opacity', 0);
     }
 
     // if (st >= processTops[0] && st < processTops[0] + canvasHeight * 2) {
