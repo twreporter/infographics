@@ -39,6 +39,9 @@ for year in [2016, 2012, 2008, 2004, 2000, 1996, 1992, 1988, 1984]:
         c.close()
         raw = re.findall(r"(<h2>.+?)<h2><span class=\"mw-headline\" id=\"References\">References</span>", nation_result, re.DOTALL)
         filename = str(year) + "_" + str(nation[1]) + ".txt"
-        f = open(filename, "w")
-        f.write(raw[0])
+        if (raw):
+            f = open(filename, "w")
+            f.write(raw[0])
+        else:
+            print filename + "doesn't exist"
 
