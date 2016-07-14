@@ -3,5 +3,4 @@ dist
 .tmp
 bower_components
 test/bower_components
-app/partials/*.ejs
 npm-debug.log
