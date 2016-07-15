@@ -108,5 +108,5 @@ for year in full_list:
     for nation in full_list[year]:
         for item in full_list[year][nation]:
             for athlete in full_list[year][nation][item]:
-                f.write(year + "," + nation + "," + item + "," + athlete["name"] + "," athlete["gender"])
+                f.write(year + "," + nation + "," + item + "," + athlete["name"] + "," + athlete["gender"])
 
