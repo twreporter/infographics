@@ -156,10 +156,6 @@
   </div>
 
   <div class="container">
-    <%- include ../partials/ai2html %>
-  </div>
-
-  <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <%- include ../partials/paragraph3 %>
@@ -180,6 +176,20 @@
     <div><img class="img-responsive" src="images/slideshow/10.jpg"></div>
     <div><img class="img-responsive" src="images/slideshow/11.jpg"></div>
   </div>
+
+  <div class="ai2html-container">
+    <%- include ../partials/ai2html %>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <%- include ../partials/paragraph4 %>
+      </div>
+    </div>
+  </div>
+
+  
 
  <!-- 360 degree viewer -->
   <div class="container">
@@ -283,6 +293,8 @@
   <!-- build:js scripts/scrollmagic.js -->
   <!-- bower:js -->
   <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+  <script src="/bower_components/gsap/src/minified/TweenMax.min.js"></script>
+  <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
