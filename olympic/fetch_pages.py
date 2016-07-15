@@ -15,7 +15,6 @@ sys.setdefaultencoding("utf-8")
 full_list = {}
 
 for year in [2016, 2012, 2008, 2004, 2000, 1996, 1992, 1988, 1984]:
-#for year in [2016, 2012]:
     print year
     wiki_url = "https://en.wikipedia.org/wiki/"+str(year)+"_Summer_Olympics"
     buffer = StringIO()
@@ -26,7 +25,7 @@ for year in [2016, 2012, 2008, 2004, 2000, 1996, 1992, 1988, 1984]:
     result = buffer.getvalue()
     c.close()
     full_list[year] = {}
-    nations = re.findall("<li><img .+?<a href=\"(.+?)\" title=\"\w+? at the \d+ Summer Olympics\">(.+?)</a>.+?\((\d+)\)</span></li>", result)
+    nations = re.findall("<li><img .+?<a href=\"(.+?)\" title=\"\w+? .+? at the \d+ Summer Olympics\">(.+?)</a>.+?\((\d+)\)</span></li>", result)
     for nation in nations:
         print "\t" + str(nation[1])
         nation_buffer = StringIO()
@@ -38,10 +37,10 @@ for year in [2016, 2012, 2008, 2004, 2000, 1996, 1992, 1988, 1984]:
         nation_result = nation_buffer.getvalue()
         c.close()
         raw = re.findall(r"(<h2>.+?)<h2><span class=\"mw-headline\" id=\"References\">References</span>", nation_result, re.DOTALL)
-        filename = str(year) + "_" + str(nation[1]) + ".txt"
+        filename = str(year) + "/" + str(nation[1]) + ".txt"
+        f = open(filename, "w")
         if (raw):
-            f = open(filename, "w")
             f.write(raw[0])
         else:
-            print filename + "doesn't exist"
+            f.write(nation_result)
 
