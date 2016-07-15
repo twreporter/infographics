@@ -103,7 +103,7 @@ for year in [2016, 2012, 2008, 2004, 2000, 1996, 1992, 1988, 1984]:
                         print "\t\tStep 4: complete the list"
         else:
             print "failed: " + nation
-f = open('athletes_full.json', w)
+f = open('athletes_full.json', 'w')
 for year in full_list:
     for nation in full_list[year]:
         for item in full_list[year][nation]:
