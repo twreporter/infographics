@@ -104,5 +104,9 @@ for year in [2016, 2012, 2008, 2004, 2000, 1996, 1992, 1988, 1984]:
         else:
             print "failed: " + nation
 f = open('athletes_full.json', w)
-f.write(json.dump(full_list))
+for year in full_list:
+    for nation in full_list[year]:
+        for item in full_list[year][nation]:
+            for athlete in full_list[year][nation][item]:
+                f.write(year + "," + nation + "," + item + "," + athlete["name"] + "," athlete["gender"])
 
