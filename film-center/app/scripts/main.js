@@ -1,5 +1,6 @@
 $(document).ready(function() {
     let lastScrollTop = 0;
+    let videoIsPlayed = false;
 
     let vpWidth = $(window).width();
     let vpHeight = $(window).height();
@@ -147,13 +148,27 @@ $(document).ready(function() {
 
 
     // init controller
-
     var controller = new ScrollMagic.Controller({
         globalSceneOptions: {
             triggerHook: 'onLeave',
             duration: '200%'
         }
     });
+
+
+    // full screen opening video
+    new ScrollMagic.Scene({
+            triggerElement: '#cover-video',
+            duration: '30%'
+        })
+        .on('start', function () {
+          // autoplay video
+          if(!videoIsPlayed) {
+            $('#video')[0].src += '&autoplay=1';
+            videoIsPlayed = true;
+          }
+        })
+        .addTo(controller);
 
 
     // build scenes for the restoration process
