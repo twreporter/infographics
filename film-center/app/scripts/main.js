@@ -158,13 +158,13 @@ $(document).ready(function() {
 
     // full screen opening video
     new ScrollMagic.Scene({
-            triggerElement: '#cover-video',
+            triggerElement: '#subtitle',
             duration: '30%'
         })
         .on('start', function () {
           // autoplay video
           if(!videoIsPlayed) {
-            $('#video')[0].src += '&autoplay=1';
+            $('#header')[0].src += '&autoplay=1';
             videoIsPlayed = true;
           }
         })

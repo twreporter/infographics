@@ -31,6 +31,13 @@ blockquote {
   height: auto;
 }
 
+.right {float : right;}
+.left {float: left;}
+
+.inline {
+  display: inline;
+}
+
 .fit-screen {
   position: relative;
   width: 100%;
@@ -51,7 +58,7 @@ blockquote {
       max-height: 100%;
     }
 
-    @media only screen and (max-width: $screen-sm-min) and (orientation:landscape) {
+    @media only screen and (max-width: $screen-xs-min) and (orientation:landscape) {
       max-width: 100%;
     }
 

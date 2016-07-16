@@ -1,17 +1,17 @@
 .nav-icons {
-  position: fixed;
-  top: 1.2rem;
-  right: 1.7rem;
   z-index: 20;
-  width: 2.5rem;
+  div{
+    width: 2.5rem;
+  }
 
   a {
     text-decoration: none;
   }
 
 }
-.reporter-logo {
-  width: 100%;
+
+.icon {
+  width: 2.5rem;
   margin-bottom: 2rem;
 
   a {
@@ -20,4 +20,18 @@
   img {
     width: 100%;
   }
+}
+
+.reporter-logo {
+  @extend .icon;
+  position: fixed;
+  top: 1.2rem;
+  right: 1.7rem;
+}
+
+.donation-icon {
+  @extend .icon;
+  position: absolute;
+  top: 1.2rem;
+  left: 1.7rem;
 }
