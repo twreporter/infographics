@@ -5,10 +5,20 @@ $(document).ready(function() {
     let vpWidth = $(window).width();
     let vpHeight = $(window).height();
 
-    // let canvideo = new CanvasVideo('testCanvas', 2000, 1126);
+    // let canvideo = new CanvasVideo('gEarthCanvas', 2000, 1126);
     // canvideo.drawImage('./images/daan.jpg');
 
-    let canvideo = new CanvasVideo('testCanvas', 1000, 563);
+    let gEarthHeight = vpHeight * 5;
+    $('#g-earth').css('height', gEarthHeight);
+
+    let earthBgImage = './images/earth-desktop.jpg';
+
+    if(vpWidth < 768) {
+      // mobile device
+      earthBgImage = './images/earth-mobile.jpg';
+    }
+
+    let canvideo = new CanvasVideo('gEarthCanvas', 1000, 563);
     // canvideo.playClip('./images/daan_taiwan.jpg', 6, 12, 5, false, 0, () => {
     //     canvideo.drawImage('./images/endImage.jpg')
     // });
@@ -18,18 +28,19 @@ $(document).ready(function() {
     // let canvasHeight = 563;
     let canvasWidth = 600;
     let canvasHeight = 338;
+    let cvProcess = [];
 
-    let cvProcess1 = new CanvasVideo('process1', canvasWidth, canvasHeight);
-    cvProcess1.playClip('./images/mobile/process1.jpg', 6, 47, 15, false, null, null);
+    for(let i=1; i<=4; i++) {
+      cvProcess[i] = initProcessVideo(i);
+    }
 
-    let cvProcess2 = new CanvasVideo('process2', canvasWidth, canvasHeight);
-    cvProcess2.playClip('./images/mobile/process2.jpg', 6, 47, 15, false, null, null);
+    console.log(cvProcess);
 
-    let cvProcess3 = new CanvasVideo('process3', canvasWidth, canvasHeight);
-    cvProcess3.playClip('./images/mobile/process3.jpg', 6, 47, 15, false, null, null);
-
-    let cvProcess4 = new CanvasVideo('process4', canvasWidth, canvasHeight);
-    cvProcess4.playClip('./images/mobile/process4.jpg', 6, 47, 15, false, null, null);
+    function initProcessVideo(index) {
+      let cVar = new CanvasVideo('process'+index, canvasWidth, canvasHeight);
+      cVar.playFrames('./images/process/process'+index+'.jpg', 6, 47, 15, false, 0, 1, 1, null);
+      return cVar;
+    }
 
 
     // let processTops = [];
@@ -46,6 +57,7 @@ $(document).ready(function() {
     // }
 
     let earthTop = $('#g-earth').position().top;
+    let earthEnd = $('#pre-process').position().top;
     let earthFrameId = 0;
     let isReverse = false;
 
@@ -72,15 +84,15 @@ $(document).ready(function() {
             isReverse = true;
         }
 
-        let earthScrollLength = canvasHeight * 7.5;
-        if (st >= earthTop && st < earthTop + earthScrollLength) {
+        let earthScrollLength = gEarthHeight;
+        if (st >= earthTop && st < earthEnd) {
             let ratio = getScrollRatio(st, earthTop, earthScrollLength);
             let curFrame = Math.floor(43 * ratio);
-            let fadeRatio = 0.1;
+            let fadeRatio = 0.2;
             if (curFrame !== earthFrameId) {
                 // console.log(getScrollRatio(st, earthTop, earthScrollLength), curFrame);
                 canvideo.stopVideo();
-                canvideo.playFrames('./images/earth-desktop.jpg', 6, 54, 5, 0, 0, earthFrameId, curFrame, null);
+                canvideo.playFrames(earthBgImage, 6, 54, 5, 0, 0, earthFrameId, curFrame, null);
                 earthFrameId = curFrame;
             }
 
@@ -90,56 +102,44 @@ $(document).ready(function() {
             if (0 < ratio && ratio < fadeRatio) {
                 $('#earth-desc-1').css('opacity', getNormalizedValue(0, fadeRatio, 0, ratio));
                 $('#earth-desc-2').css('opacity', 0);
-            } else if (ratio >= fadeRatio && ratio < 0.5 - fadeRatio) {
+                $('#g-earth-box').css('top', 0);
+            } else if (ratio >= fadeRatio && ratio < 0.5 - fadeRatio/2) {
                 $('#earth-desc-1').css('opacity', 1);
                 $('#earth-desc-2').css('opacity', 0);
-            } else if (ratio >= 0.5 - fadeRatio && ratio < 0.5) {
-                $('#earth-desc-1').css('opacity', getNormalizedValue(0.5 - fadeRatio, 0.5, ratio, 0.5));
-            } else if (ratio >= 0.5 && ratio < 0.5 + fadeRatio) {
-                $('#earth-desc-2').css('opacity', getNormalizedValue(0.5, 0.5 + fadeRatio, 0.5, ratio));
+                $('#g-earth-box').css('top', 0);
+            } else if (ratio >= 0.5 - fadeRatio/2 && ratio < 0.5) {
+                $('#earth-desc-1').css('opacity', getNormalizedValue(0.5 - fadeRatio/2, 0.5, ratio, 0.5));
+            } else if (ratio >= 0.5 && ratio < 0.5 + fadeRatio/2) {
+                $('#earth-desc-2').css({
+                  'opacity': getNormalizedValue(0.5, 0.5 + fadeRatio/2, 0.5, ratio),
+                  'top': '50%'
+                });
+                $('#g-earth-box').css('top', 0);
             } else if (ratio >= 0.5 + fadeRatio && ratio < 1 - fadeRatio) {
                 $('#earth-desc-1').css('opacity', 0);
-                $('#earth-desc-2').css('opacity', 1);
+                $('#earth-desc-2').css({
+                  'opacity': 1,
+                  'top': '50%'
+                });
+                $('#g-earth-box').css('top', 0);
             } else if (ratio >= 1 - fadeRatio && ratio < 1) {
+                let cPer = getNormalizedValue(1 - fadeRatio, 1, ratio, 1);
+                let cTop = Math.floor(100 * (cPer-1));
                 $('#earth-desc-1').css('opacity', 0);
-                $('#earth-desc-2').css('opacity', getNormalizedValue(1 - fadeRatio, 1, ratio, 1));
+                $('#earth-desc-2').css({
+                  'opacity': cPer,
+                  'top': (50+cTop)+'%'
+                });
+                $('#g-earth-box').css('top', cTop+'%');
             }
         } else {
+          console.log('else');
+
             $('#g-earth').removeClass('fixed');
             $('.description-box').removeClass('fixed');
             $('#earth-desc-1').css('opacity', 0);
             $('#earth-desc-2').css('opacity', 0);
         }
-
-        // if (st >= processTops[0] && st < processTops[0] + canvasHeight * 2) {
-        //     console.log('st >= processTops[0]', (st - processTops[0]), (st - processTops[0]) / canvasHeight);
-        //     $('#restorationBox1').addClass('fixed');
-        //     // $('#restorationBox1').css('margin-bottom', getReverseScrollPercentage(st, processTops[0]) + 'vh')
-        //     $('#restorationBox2').removeClass('fixed');
-        //     $('#restorationBox3').removeClass('fixed');
-        //     $('#restorationBox4 ').removeClass('fixed');
-        // } else if (st >= processTops[1] && st < processTops[1] + canvasHeight * 2) {
-        //     $('#restorationBox2 ').addClass('fixed');
-        //     $('#restorationBox1 ').removeClass('fixed');
-        //     $('#restorationBox3 ').removeClass('fixed');
-        //     $('#restorationBox4 ').removeClass('fixed');
-        // } else if (st >= processTops[2] && st < processTops[2] + canvasHeight * 2) {
-        //     $('#restorationBox3 ').addClass('fixed');
-        //     $('#restorationBox1 ').removeClass('fixed');
-        //     $('#restorationBox2 ').removeClass('fixed');
-        //     $('#restorationBox4 ').removeClass('fixed');
-        // } else if (st >= processTops[3] && st < processTops[3] + canvasHeight * 2) {
-        //     $('#restorationBox4 ').addClass('fixed');
-        //     $('#restorationBox1 ').removeClass('fixed');
-        //     $('#restorationBox2 ').removeClass('fixed');
-        //     $('#restorationBox3 ').removeClass('fixed');
-        // } else {
-        //     $('#restorationBox1 ').removeClass('fixed');
-        //     $('#restorationBox2 ').removeClass('fixed');
-        //     $('#restorationBox3 ').removeClass('fixed');
-        //     $('#restorationBox4 ').removeClass('fixed');
-        // }
-
 
         lastScrollTop = st;
     });
