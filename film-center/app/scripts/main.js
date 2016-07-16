@@ -1,12 +1,13 @@
 $(document).ready(function() {
     let lastScrollTop = 0;
     let videoIsPlayed = false;
+    let isMobile = false;
 
     let vpWidth = $(window).width();
     let vpHeight = $(window).height();
 
-    // let canvideo = new CanvasVideo('gEarthCanvas', 2000, 1126);
-    // canvideo.drawImage('./images/daan.jpg');
+    let canvasWidth = 600;
+    let canvasHeight = 338;
 
     let gEarthHeight = vpHeight * 5;
     $('#g-earth').css('height', gEarthHeight);
@@ -15,35 +16,31 @@ $(document).ready(function() {
 
     if(vpWidth < 768) {
       // mobile device
+      canvasWidth = 500;
+      canvasHeight = 282;
       earthBgImage = './images/earth-mobile.jpg';
+      isMobile = true;
     }
 
-    let canvideo = new CanvasVideo('gEarthCanvas', 1000, 563);
-    // canvideo.playClip('./images/daan_taiwan.jpg', 6, 12, 5, false, 0, () => {
-    //     canvideo.drawImage('./images/endImage.jpg')
-    // });
+    let canvideo = new CanvasVideo('gEarthCanvas', canvasWidth, canvasHeight);
+    canvideo.playFrames(earthBgImage, 6, 54, 5, 0, 0, 0, 0, null);
 
-
-    // let canvasWidth = 1000;
-    // let canvasHeight = 563;
-    let canvasWidth = 600;
-    let canvasHeight = 338;
     let cvProcess = [];
 
     for(let i=1; i<=4; i++) {
       cvProcess[i] = initProcessVideo(i);
     }
 
-    console.log(cvProcess);
-
     function initProcessVideo(index) {
       let cVar = new CanvasVideo('process'+index, canvasWidth, canvasHeight);
-      cVar.playFrames('./images/process/process'+index+'.jpg', 6, 47, 15, false, 0, 1, 1, null);
+      if(isMobile) {
+        // don't play progress video background on mobile
+        cVar.playFrames('./images/process/process'+index+'.jpg', 6, 47, 15, false, 0, 1, 1, null);
+      } else {
+        cVar.playClip('./images/process/process'+index+'.jpg', 6, 47, 15, false, null, null);
+      }
       return cVar;
     }
-
-
-    // let processTops = [];
 
     function getScrollRatio(st, top, height) {
         let ret = (st - top) / height;
@@ -51,10 +48,6 @@ $(document).ready(function() {
         if (ret > 1) return 0.9999999;
         return ret;
     }
-
-    // for (let i = 1; i <= 4; i++) {
-    //     processTops.push($('#restorationBox' + i).position().top);
-    // }
 
     let earthTop = $('#g-earth').position().top;
     let earthEnd = $('#pre-process').position().top;
@@ -145,9 +138,7 @@ $(document).ready(function() {
     });
 
 
-
-
-    // init controller
+    // init ScrollMagic controller
     var controller = new ScrollMagic.Controller({
         globalSceneOptions: {
             triggerHook: 'onLeave',
