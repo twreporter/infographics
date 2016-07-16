@@ -1,10 +1,30 @@
+let vpWidth = $(window).width();
+let vpHeight = $(window).height();
+
+let tag = document.createElement('script');
+
+tag.src = 'https://www.youtube.com/iframe_api';
+let firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// creates an <iframe> (and YouTube player) after the API code downloads
+let ytPlayer;
+function onYouTubeIframeAPIReady() {
+  ytPlayer = new YT.Player('player', {
+    videoId: 'zmtTBCqGNpw',
+    width: vpWidth,
+    height: 0.85 * vpHeight
+  });
+}
+
+
 $(document).ready(function() {
     let lastScrollTop = 0;
     let videoIsPlayed = false;
     let isMobile = false;
 
-    let vpWidth = $(window).width();
-    let vpHeight = $(window).height();
+    vpWidth = $(window).width();
+    vpHeight = $(window).height();
 
     let canvasWidth = 600;
     let canvasHeight = 338;
@@ -126,8 +146,6 @@ $(document).ready(function() {
                 $('#g-earth-box').css('top', cTop+'%');
             }
         } else {
-          console.log('else');
-
             $('#g-earth').removeClass('fixed');
             $('.description-box').removeClass('fixed');
             $('#earth-desc-1').css('opacity', 0);
@@ -150,13 +168,16 @@ $(document).ready(function() {
     // full screen opening video
     new ScrollMagic.Scene({
             triggerElement: '#subtitle',
-            duration: '30%'
+            duration: '50%'
         })
         .on('start', function () {
           // autoplay video
-          if(!videoIsPlayed) {
-            $('#header')[0].src += '&autoplay=1';
+          if(!videoIsPlayed && ytPlayer) {
+            // $('#header')[0].src += '&autoplay=1';
             videoIsPlayed = true;
+            // play Youtube
+            ytPlayer.playVideo();
+
           }
         })
         .addTo(controller);
