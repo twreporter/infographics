@@ -31,8 +31,14 @@ blockquote {
   height: auto;
 }
 
-.right {float : right;}
-.left {float: left;}
+.right {
+  padding-right: 20px;
+  float : right;
+}
+.left {
+  padding-left: 20px;
+  float: left;
+}
 
 .inline {
   display: inline;
@@ -69,8 +75,12 @@ blockquote {
   padding: 0.5em;
 }
 
+.margin-top {
+  margin-top: 1em;
+}
+
 .margin-v-small {
-  margin-top: 0.5em;
+  margin-top: 0.5em !important;
   margin-bottom: 1em;
 }
 
@@ -79,7 +89,11 @@ blockquote {
 }
 
 .pad-bottom-small {
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
+}
+
+.pad-bottom {
+  padding-bottom: 2rem;
 }
 
 .pad-v-mobile {

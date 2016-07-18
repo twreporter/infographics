@@ -98,9 +98,10 @@
   </div>
 
   <div id="pre-process" class="container margin-v">
-    <div class="row">
-      <small class="pad-small">影像來源： Google Earth</small>
-      <div class="col-lg-12">
+    <div class="row text-center">
+      <small class="pad-small pad-bottom">影像來源： Google Earth</small>
+      <br><br>
+      <div class="col-lg-12 margin-top">
         <%- include ../partials/paragraph2 %>
       </div>
     </div>
@@ -184,13 +185,13 @@
 
 
  <!-- 360 degree viewer -->
-  <div class="container margin-v">
+  <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center" id="panolens-viewer">
         <div class="embed-responsive embed-responsive-16by9">
           <iframe class="embed-responsive-item" src="panolens.html"></iframe>
         </div>
-        <p class="pad-small"><small><%= panoramaDescription %></small></p>
+        <p class="margin-v-small"><small><%= panoramaDescription %></small></p>
       </div>
     </div>
   </div>
