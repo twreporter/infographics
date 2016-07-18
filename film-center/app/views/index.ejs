@@ -1,0 +1,317 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    <%= browserTitle %>
+  </title>
+
+  <!-- favicon.ico -->
+  <link href="https://www.twreporter.org/asset/favicon.png" rel="shortcut icon" />
+
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <style type="text/css">
+    body,
+    html {
+      overflow-x: hidden;
+    }
+  </style>
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+
+<body class="article">
+  <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+  <div class="donation-icon">
+    <a href="https://twreporter.backme.tw:443/cashflow/checkout?project_id=175&reward_id=718" target="_blank"><img src="images/icon-donation.svg" class="img-shadow" /></a>
+  </div>
+
+  <div class="nav-icons">
+    <div class="reporter-logo">
+      <a href="https://www.twreporter.org/"><img src="https://dh1rvgpokacch.cloudfront.net/atavist/60826/image/derivative/cropandscale~64x64x0x0~favicon-1450079771-87.png" class="img-shadow" /></a>
+    </div>
+  </div>
+
+  <div id="header" class="cover-photo">
+    <div class="gradient-overlay">
+      <h1 class="container"><%- articleTitle  %></h1>
+      <h2 id="subtitle" class="container"><%= articleSubtitle  %></h3>
+    </div>
+  </div>
+
+  <div id="cover-video" class="fit-screen">
+    <!-- <iframe id="video" src="https://www.youtube.com/embed/zmtTBCqGNpw?rel=0" frameborder="0" allowfullscreen></iframe> -->
+    <div id="player"></div>
+    <div class="row text-center">
+      <small class="pad-small">封面圖片與影片來源： 國家電影中心</small>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 pad-bottom-small margin-v-small">
+        <%- include ../partials/paragraph1 %>
+      </div>
+    </div>
+  </div>
+
+  <div id="g-earth">
+    <div class="fit-screen">
+      <div id="g-earth-box" class="canvas-box">
+        <canvas id="gEarthCanvas" class="fit-canvas"></canvas>
+        <div class="gray-overlay"></div>
+      </div>
+    </div>
+    <div id="earth-description" class="description">
+        <div class="description-box" id="earth-desc-1">
+          <img src="images/earthIcon1.png" srcset="images/earthIcon1.png 1x, images/earthIcon1_large.png 2x">
+          <div class="container">
+            <p><%= earthText01 %></p>
+            <p><%= earthText02 %></p>
+          </div>
+        </div>
+        <div class="description-box" id="earth-desc-2">
+          <div class="container">
+            <p><%= earthText11 %></p>
+            <p><%= earthText12 %></p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div id="pre-process" class="container margin-v">
+    <div class="row">
+      <small class="pad-small">影像來源： Google Earth</small>
+      <div class="col-lg-12">
+        <%- include ../partials/paragraph2 %>
+      </div>
+    </div>
+  </div>
+
+  <div id="restorationBox1" class="fit-screen restoration-container">
+    <div class="canvas-box">
+       <canvas id="process1" class="fit-canvas"></canvas>
+      <div class="gray-overlay"></div>
+    </div>
+    <div class="container description">
+      <h4><%= processTitle1 %></h4>
+      <span><%= processDescription1 %></span>
+    </div>
+  </div>
+  <div id="restorationBox2" class="fit-screen restoration-container">
+    <div class="canvas-box">
+       <canvas id="process2" class="fit-canvas"></canvas>
+      <div class="gray-overlay"></div>
+    </div>
+    <div class="container description">
+      <h4><%= processTitle2 %></h4>
+      <span><%= processDescription2 %></span>
+    </div>
+  </div>
+  <div id="restorationBox3" class="fit-screen restoration-container">
+    <div class="canvas-box">
+       <canvas id="process3" class="fit-canvas"></canvas>
+      <div class="gray-overlay"></div>
+    </div>
+    <div class="container description">
+      <h4><%= processTitle3 %></h4>
+      <span><%= processDescription3 %></span>
+    </div>
+  </div>
+  <div id="restorationBox4" class="fit-screen restoration-container">
+    <div class="canvas-box">
+       <canvas id="process4" class="fit-canvas"></canvas>
+      <div class="gray-overlay"></div>
+    </div>
+    <div class="container description">
+      <h4><%= processTitle4 %></h4>
+      <span><%= processDescription4 %></span>
+    </div>
+  </div>
+
+  <div class="container margin-v">
+    <div class="row">
+      <div class="col-lg-12">
+        <%- include ../partials/paragraph3 %>
+      </div>
+    </div>
+  </div>
+
+  <div id="photo-slick" class="container margin-v">
+    <div><img class="img-responsive" src="images/slideshow/01.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/02.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/03.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/04.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/05.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/06.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/07.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/08.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/09.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/10.jpg"></div>
+    <div><img class="img-responsive" src="images/slideshow/11.jpg"></div>
+  </div>
+
+  <div class="ai2html-container">
+    <%- include ../partials/ai2html %>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <%- include ../partials/paragraph4 %>
+      </div>
+    </div>
+  </div>
+
+
+
+ <!-- 360 degree viewer -->
+  <div class="container margin-v">
+    <div class="row">
+      <div class="col-lg-12 text-center" id="panolens-viewer">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="panolens.html"></iframe>
+        </div>
+        <p class="pad-small"><small><%= panoramaDescription %></small></p>
+      </div>
+    </div>
+  </div>
+
+
+<footer class='footer btm-footer'>
+  <div class="container">
+
+    <div class="row text-center margin-v">
+      <div class="left">
+        <a href="https://twreporter.backme.tw:443/cashflow/checkout?project_id=175&reward_id=718" target="_blank">
+                    <img src="images/icon-donation.svg" class="img-shadow" />
+                      贊助我們
+                  </a>
+      </div>
+      <div class="right">
+        <div class="share-facebook inline" style="margin-top:15px;">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fa%2Ffilm-center" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;">
+            <img src="images/icon-facebook.svg" class="img-shadow" />
+          </a>
+        </div>
+        <div class="share-twitter inline" style="margin-top:15px;">
+          <a href="https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fa%2Ffilm-center">
+            <img src="images/icon-twitter.svg" class="img-shadow" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="row text-center margin-v">
+        <div class="col-md-12">
+          <div class='logo'>
+            <a href="https://www.twreporter.org/" target="_self">
+              <img class="logo-img" src='images/logo-mobile-dark.svg' /> </a>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-12">
+          <span class="grey"><%= publishDate %></span>
+        </div>
+        <div class="col-md-12">
+          <hr class="red-hr">
+          <span class="grey"><b>製作團隊</b> &nbsp; <%= author %></span>
+        </div>
+      </div>
+  </div>
+  <div class='open-source-container'>
+    <div class='items'>
+      <div class='item'>
+        <a href='http://creativecommons.org/licenses/by-nc-nd/3.0/tw/' rel="license" target='_blank'>
+          <img class="cc-logo img" src='https://www.twreporter.org/asset/cc.png' />
+          <span class="cc-license"> 除另有註明，網站內容皆採用創用CC姓名標示-非商業性-禁止改作授權條款</span>
+        </a>
+      </div>
+      <div class='item'>
+        <a href='https://github.com/twreporter' target='_blank'>
+          <img src='https://www.twreporter.org/asset/github.png' class='img' />
+          <span> github.com/twreporter</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-69336956-1', 'auto');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+
+     // facebook App ID
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '962589903815787',
+          xfbml      : true,
+          version    : 'v2.5'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+
+  <!-- build:js scripts/scrollmagic.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+  <script src="/bower_components/gsap/src/minified/TweenMax.min.js"></script>
+  <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/plugins.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/slick-carousel/slick/slick.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/lib/canvasVideo.js"></script>
+  <script src="/bower_components/EaselJS/lib/easeljs-0.8.2.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+blockquote {
+  font-size: 1.1em !important;
+  line-height: 24px;
+  word-spacing: 12px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.0901961) 0px 30px 20px -20px, rgba(0, 0, 0, 0.0901961) 0px 0px 3px;
+  padding: 25px 5px;
+
+  @media (min-width: $screen-md-min) {
+    margin-left: -2em !important;
+    margin-right: -2em !important;
+  }
+
+  p {
+    margin-bottom: 2em !important;
+    line-height: 1.85 !important;
+  }
+
+  &::before {
+    content: none;
+  }
+}
+
+.img-fit-width {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.right {float : right;}
+.left {float: left;}
+
+.inline {
+  display: inline;
+}
+
+.fit-screen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  .fit-canvas {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    margin: auto;
+
+    @media only screen and (max-width: $screen-sm-min) and (orientation:portrait) {
+      max-height: 100%;
+    }
+
+    @media only screen and (max-width: $screen-xs-min) and (orientation:landscape) {
+      max-width: 100%;
+    }
+
+  }
+}
+
+.pad-small {
+  padding: 0.5em;
+}
+
+.margin-v-small {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+.margin-v {
+  margin: 3.5rem 0;
+}
+
+.pad-bottom-small {
+  padding-bottom: 1em;
+}
+
+.pad-v-mobile {
+  @media (max-width: $screen-xs-max) {
+    margin-top: 3.8em;
+  }
+}
+
+.show-mobile {
+  @media (min-width: $screen-xs-min) {
+    display: none;
+  }
+}
+
+.no-pad-top {
+  @media (min-width: $screen-md-min) {
+    padding-top: 0 !important;
+  }
+}
+
+.pad-zero {
+  @media (max-width: $screen-md-min) {
+    padding: 0 !important;
+  }
+}
+
+.pad-for-nav {
+  @media (min-width: $screen-md-min) {
+    padding-right: 7em !important;
+  }
+}
+
+.hide-all {
+  display: none;
+}
+
+.max-fit {
+  max-width: 100%;
+}
+
+.disable-desktop-c {
+  &.container {
+    @media (min-width: $screen-sm-min) {
+      max-width: none;
+      width: 100%;
+    }
+    @media (min-width: $screen-md-min) {
+      width: 100%;
+    }
+    @media (min-width: $screen-lg-min) {
+      width: 100%;
+    }
+  }
+
+}
+
+.desktop-text-right {
+  @media (min-width: $screen-xs-max) {
+    text-align: right;
+  }
+}
+
+.sidebar-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 3px solid #D9D7D3;
+  padding: 1em;
+  margin: 2em 0;
+  font-weight: 700;
+
+  p {
+    margin-top: 0;
+  }
+}
+
+.white-text {
+  color: white;
+}
+
+.fb-like {
+  margin: 1em 0.5em;
+}
+
+.bs-calltoaction {
+  position: relative;
+  width: auto;
+  padding: 15px 25px;
+  border: 1px solid black;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  border-radius: 5px;
+}
+.bs-calltoaction > .row {
+  display: table;
+  width: calc(100% + 30px);
+}
+.bs-calltoaction > .row > [class*=" col-"],
+.bs-calltoaction > .row > [class^="col-"] {
+  float: none;
+  display: table-cell;
+  vertical-align: middle;
+}
+.cta-contents {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.cta-title {
+  margin: 0 auto 15px;
+  padding: 0;
+}
+.cta-desc {
+  padding: 0;
+}
+.cta-desc p:last-child {
+  margin-bottom: 0;
+}
+.cta-button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+@media (max-width: 991px) {
+  .bs-calltoaction > .row {
+    display: block;
+    width: auto;
+  }
+  .bs-calltoaction > .row > [class*=" col-"],
+  .bs-calltoaction > .row > [class^="col-"] {
+    float: none;
+    display: block;
+    vertical-align: middle;
+    position: relative;
+  }
+  .cta-contents {
+    text-align: center;
+  }
+}
+.bs-calltoaction.bs-calltoaction-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.bs-calltoaction.bs-calltoaction-danger .cta-button .btn,
+.bs-calltoaction.bs-calltoaction-info .cta-button .btn,
+.bs-calltoaction.bs-calltoaction-primary .cta-button .btn,
+.bs-calltoaction.bs-calltoaction-success .cta-button .btn,
+.bs-calltoaction.bs-calltoaction-warning .cta-button .btn {
+  border-color: #fff;
+}

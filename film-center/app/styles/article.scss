@@ -1,0 +1,202 @@
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import "./variables.scss";
+
+.fixed {
+    .canvas-box {
+        position: fixed !important;
+        z-index: -1;
+        top: 0;
+    }
+    // margin-bottom: 200vh;
+}
+
+.article {
+    background: $blue-dark;
+    color: $white;
+    overflow: hidden;
+
+    .container {
+        @media (max-width: $screen-sm-min) {
+            max-width: none;
+            width: 100%;
+        }
+    }
+
+    .ai2html-container {
+        width: 100%;
+        max-width: 1100px;
+        margin-top: 8rem;
+        margin-left: auto;
+        margin-right: auto;
+
+        .g-aiPstyle0 {
+          font-weight: 700;
+        }
+    }
+
+    .gradient-overlay {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: linear-gradient(to bottom, rgba(25,39,64,0) 0%, rgba(25,39,64,0) 76%, rgba(25,39,64,1) 100%);
+    }
+
+    .canvas-box {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .gray-overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba($dark, 0.3);
+        top: 0;
+        left: 0;
+    }
+
+    .cover-photo {
+        height: 100vh;
+        background: url('../images/cover.jpg') no-repeat center center;
+        background-size: cover;
+        background-position: center center;
+        overflow: hidden;
+        @media only screen and (min-width: $screen-md-min) {
+            background-attachment: fixed;
+        }
+
+        h1 {
+            position: absolute;
+            top: 20vh;
+            left: 50%;
+            font-size: 60px;
+            line-height: 1.25;
+            transform: translateX(-50%);
+            @media only screen and (max-width: $screen-sm-min) {
+                width: 80%;
+                font-size: 38px;
+            }
+        }
+
+        h2 {
+            position: absolute;
+            bottom: 10vh;
+            left: 50%;
+            font-size: 25px;
+            transform: translateX(-50%);
+            line-height: 1.5;
+            @media only screen and (max-width: $screen-sm-min) {
+                width: 80%;
+                font-size: 20px;
+            }
+        }
+    }
+
+    p {
+        line-height: 1.85;
+        margin: 2rem 0;
+    }
+
+    .grey {
+        color: $gray-dark;
+    }
+
+    .red-hr {
+        border-top: 1px solid $red;
+        width: 3rem;
+    }
+
+    .description {
+        @media only screen and (max-width: $screen-sm-min) {
+            width: 100%;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+        }
+    }
+
+    #player {
+      width: 100%;
+      height: 85vh;
+    }
+}
+
+.restoration-container {
+    .description {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translate(-50%,0);
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+        z-index: 1000;
+    }
+}
+
+
+#g-earth {
+    height: 400vh;
+
+    .description {
+        position: static;
+        // top: 20%;
+        // left: 50%;
+        // transform: translate(-50%,0);
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+
+        > div {
+            margin-bottom: 10rem;
+            font-size: $font-size-h4;
+            padding: 1rem 2rem;
+
+            @media (max-width: $screen-sm-min) {
+                font-size: $font-size-h5;
+            }
+        }
+
+        .description-box {
+            width: 100%;
+        }
+
+        .fixed {
+            position: fixed  !important;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+        }
+    }
+
+    #earth-desc-1 {
+        img {
+            width: 15rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    #earth-desc-2 {
+        width: 100%;
+        height: 100%;
+        background: url('../images/film-shelf.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: relative;
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+}
+
+.slick-dots li button:before {
+    color: white;
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= browserTitle %></title>
+
+    <!-- favicon.ico -->
+    <link href="https://www.twreporter.org/asset/favicon.png"  rel="shortcut icon" />
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <style type="text/css">
+      body, html {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/pano-main.js -->
+    <script src="/bower_components/three.js/build/three.js"></script>
+    <script src="scripts/lib/panolens.js"></script>
+    <script src="scripts/pano-viewer.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
