@@ -34,7 +34,7 @@ $(document).ready(function() {
 
     let earthBgImage = './images/earth-desktop.jpg';
 
-    if(vpWidth < 768) {
+    if(vpWidth <= 768) {
       // mobile device
       canvasWidth = 500;
       canvasHeight = 282;
