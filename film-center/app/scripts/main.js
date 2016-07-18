@@ -9,12 +9,13 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // creates an <iframe> (and YouTube player) after the API code downloads
 let ytPlayer;
+
 function onYouTubeIframeAPIReady() {
-  ytPlayer = new YT.Player('player', {
-    videoId: 'zmtTBCqGNpw',
-    width: vpWidth,
-    height: 0.85 * vpHeight
-  });
+    ytPlayer = new YT.Player('player', {
+        videoId: 'zmtTBCqGNpw',
+        width: vpWidth,
+        height: 0.85 * vpHeight
+    });
 }
 
 
@@ -32,14 +33,16 @@ $(document).ready(function() {
     let gEarthHeight = vpHeight * 5;
     $('#g-earth').css('height', gEarthHeight);
 
+    $('#img-slider').css('height', $('#img-slider').width() * 0.92);
+
     let earthBgImage = './images/earth-desktop.jpg';
 
-    if(vpWidth <= 768) {
-      // mobile device
-      canvasWidth = 500;
-      canvasHeight = 282;
-      earthBgImage = './images/earth-mobile.jpg';
-      isMobile = true;
+    if (vpWidth <= 768) {
+        // mobile device
+        canvasWidth = 500;
+        canvasHeight = 282;
+        earthBgImage = './images/earth-mobile.jpg';
+        isMobile = true;
     }
 
     let canvideo = new CanvasVideo('gEarthCanvas', canvasWidth, canvasHeight);
@@ -47,19 +50,19 @@ $(document).ready(function() {
 
     let cvProcess = [];
 
-    for(let i=1; i<=4; i++) {
-      cvProcess[i] = initProcessVideo(i);
+    for (let i = 1; i <= 4; i++) {
+        cvProcess[i] = initProcessVideo(i);
     }
 
     function initProcessVideo(index) {
-      let cVar = new CanvasVideo('process'+index, canvasWidth, canvasHeight);
-      if(isMobile) {
-        // don't play progress video background on mobile
-        cVar.playFrames('./images/process/process'+index+'.jpg', 6, 47, 15, false, 0, 1, 1, null);
-      } else {
-        cVar.playClip('./images/process/process'+index+'.jpg', 6, 47, 15, false, null, null);
-      }
-      return cVar;
+        let cVar = new CanvasVideo('process' + index, canvasWidth, canvasHeight);
+        if (isMobile) {
+            // don't play progress video background on mobile
+            cVar.playFrames('./images/process/process' + index + '.jpg', 6, 47, 15, false, 0, 1, 1, null);
+        } else {
+            cVar.playClip('./images/process/process' + index + '.jpg', 6, 47, 15, false, null, null);
+        }
+        return cVar;
     }
 
     function getScrollRatio(st, top, height) {
@@ -116,34 +119,34 @@ $(document).ready(function() {
                 $('#earth-desc-1').css('opacity', getNormalizedValue(0, fadeRatio, 0, ratio));
                 $('#earth-desc-2').css('opacity', 0);
                 $('#g-earth-box').css('top', 0);
-            } else if (ratio >= fadeRatio && ratio < 0.5 - fadeRatio/2) {
+            } else if (ratio >= fadeRatio && ratio < 0.5 - fadeRatio / 2) {
                 $('#earth-desc-1').css('opacity', 1);
                 $('#earth-desc-2').css('opacity', 0);
                 $('#g-earth-box').css('top', 0);
-            } else if (ratio >= 0.5 - fadeRatio/2 && ratio < 0.5) {
-                $('#earth-desc-1').css('opacity', getNormalizedValue(0.5 - fadeRatio/2, 0.5, ratio, 0.5));
-            } else if (ratio >= 0.5 && ratio < 0.5 + fadeRatio/2) {
+            } else if (ratio >= 0.5 - fadeRatio / 2 && ratio < 0.5) {
+                $('#earth-desc-1').css('opacity', getNormalizedValue(0.5 - fadeRatio / 2, 0.5, ratio, 0.5));
+            } else if (ratio >= 0.5 && ratio < 0.5 + fadeRatio / 2) {
                 $('#earth-desc-2').css({
-                  'opacity': getNormalizedValue(0.5, 0.5 + fadeRatio/2, 0.5, ratio),
-                  'top': '50%'
+                    'opacity': getNormalizedValue(0.5, 0.5 + fadeRatio / 2, 0.5, ratio),
+                    'top': '50%'
                 });
                 $('#g-earth-box').css('top', 0);
             } else if (ratio >= 0.5 + fadeRatio && ratio < 1 - fadeRatio) {
                 $('#earth-desc-1').css('opacity', 0);
                 $('#earth-desc-2').css({
-                  'opacity': 1,
-                  'top': '50%'
+                    'opacity': 1,
+                    'top': '50%'
                 });
                 $('#g-earth-box').css('top', 0);
             } else if (ratio >= 1 - fadeRatio && ratio < 1) {
                 let cPer = getNormalizedValue(1 - fadeRatio, 1, ratio, 1);
-                let cTop = Math.floor(100 * (cPer-1));
+                let cTop = Math.floor(100 * (cPer - 1));
                 $('#earth-desc-1').css('opacity', 0);
                 $('#earth-desc-2').css({
-                  'opacity': cPer,
-                  'top': (50+cTop)+'%'
+                    'opacity': cPer,
+                    'top': (50 + cTop) + '%'
                 });
-                $('#g-earth-box').css('top', cTop+'%');
+                $('#g-earth-box').css('top', cTop + '%');
             }
         } else {
             $('#g-earth').removeClass('fixed');
@@ -170,15 +173,15 @@ $(document).ready(function() {
             triggerElement: '#subtitle',
             duration: '50%'
         })
-        .on('start', function () {
-          // autoplay video
-          if(!videoIsPlayed && ytPlayer) {
-            // $('#header')[0].src += '&autoplay=1';
-            videoIsPlayed = true;
-            // play Youtube
-            ytPlayer.playVideo();
+        .on('start', function() {
+            // autoplay video
+            if (!videoIsPlayed && ytPlayer) {
+                // $('#header')[0].src += '&autoplay=1';
+                videoIsPlayed = true;
+                // play Youtube
+                ytPlayer.playVideo();
 
-          }
+            }
         })
         .addTo(controller);
 
