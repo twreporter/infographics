@@ -10,6 +10,9 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 // creates an <iframe> (and YouTube player) after the API code downloads
 let ytPlayer;
 
+let gEarthBegin = false;
+let gEarthEnd = false;
+
 function onYouTubeIframeAPIReady() {
     ytPlayer = new YT.Player('player', {
         videoId: 'zmtTBCqGNpw',
@@ -128,6 +131,12 @@ $(document).ready(function() {
                 $('#earth-desc-1').css('opacity', getNormalizedValue(0, fadeRatio, 0, ratio));
                 $('#earth-desc-2').css('opacity', 0);
                 $('#g-earth-box').css('top', 0);
+
+                if (!gEarthBegin) {
+                    gEarthBegin = true;
+                    ga('send', 'event', 'interactive', 'scroll', 'film-center-earth-begin');
+                }
+
             } else if (ratio >= fadeRatio && ratio < 0.5 - fadeRatio / 2) {
                 $('#earth-desc-1').css('opacity', 1);
                 $('#earth-desc-2').css('opacity', 0);
@@ -162,6 +171,11 @@ $(document).ready(function() {
             $('.description-box').removeClass('fixed');
             $('#earth-desc-1').css('opacity', 0);
             $('#earth-desc-2').css('opacity', 0);
+
+            if (!gEarthEnd) {
+                gEarthEnd = true;
+                ga('send', 'event', 'interactive', 'scroll', 'film-center-earth-end');
+            }
         }
 
         lastScrollTop = st;
@@ -190,6 +204,7 @@ $(document).ready(function() {
                 // play Youtube
                 ytPlayer.playVideo();
 
+                ga('send', 'event', 'interactive', 'scroll', 'film-center-video');
             }
         })
         .addTo(controller);
@@ -205,6 +220,9 @@ $(document).ready(function() {
             .setTween('#restorationBox' + i + ' > .description', {
                 top: '0%',
                 ease: Linear.easeNone
+            })
+            .on('start', function() {
+                ga('send', 'event', 'interactive', 'scroll', 'film-center-restore-' + i);
             })
             .addTo(controller);
     }

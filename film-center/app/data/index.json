@@ -1,6 +1,7 @@
 {
     "browserTitle": "國影中心 ／報導者",
     "articleTitle": "台灣電影的「陰濕路」",
+    "sharingTitle": "台灣電影的「陰濕路」 ／報導者",
     "articleSubtitle": "電影保存了時代景物、人的生活思想，但在台灣，膠卷卻因為不被重視，正默默死去。",
     "publishDate": "2016.7.15",
     "author": "汪宜儒、蔣宜婷、余志偉、黃禹禛、邱奕穎、王珣沛",
@@ -16,5 +17,7 @@
     "earthText02": "換算成一個有趣的數字是：國影中心數位修復的影片比例約是0.03%，就是台北市大安區佔全台灣的面積大小。",
     "earthText11": "國影中心一年經費約 3600 萬，一年文化部預算補助修復 3-5 部。",
     "earthText12": "如果不付租金水電員工薪水，一年也只能修復 10 部片。",
-    "panoramaDescription": "國影中心預定地 360 度環景圖"
+    "panoramaDescription": "國影中心預定地 360 度環景圖",
+    "url": "https://www.twreporter.org/a/film-center",
+    "coverPhoto": "https://www.twreporter.org/a/film-center/images/cover.jpg"
 }

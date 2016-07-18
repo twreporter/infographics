@@ -5,8 +5,20 @@
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="<%= sharingTitle %>"/>
+  <meta property="og:description" content="<%= articleSubtitle  %>"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="<%= url  %>" />
+  <meta property="og:image" content="<%= coverPhoto %>"/>
+  <meta property="og:site_name" content="報導者"/>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="<%= coverPhoto %>" />
+  <meta name="twitter:title" content="<%= sharingTitle %>" />
+  <meta name="twitter:description" content="<%= articleSubtitle  %>" />
+
   <title>
-    <%= browserTitle %>
+    <%= sharingTitle %>
   </title>
 
   <!-- favicon.ico -->
@@ -41,7 +53,7 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
   <div class="donation-icon">
-    <a href="https://twreporter.backme.tw:443/cashflow/checkout?project_id=175&reward_id=718" target="_blank"><img src="images/icon-donation.svg" class="img-shadow" /></a>
+    <a href="https://twreporter.backme.tw:443/cashflow/checkout?project_id=175&reward_id=718" onClick="ga('send', 'event', 'menu', 'click', 'film-center-donate-btn');" target="_blank"><img src="images/icon-donation.svg" class="img-shadow" /></a>
   </div>
 
   <div class="nav-icons">
