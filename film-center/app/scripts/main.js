@@ -30,6 +30,9 @@ $(document).ready(function() {
     let canvasWidth = 600;
     let canvasHeight = 338;
 
+    let earthCanvasWidth = canvasWidth;
+    let earthCanvasHeight = canvasHeight;
+
     let gEarthHeight = vpHeight * 5;
     $('#g-earth').css('height', gEarthHeight);
 
@@ -45,7 +48,13 @@ $(document).ready(function() {
         isMobile = true;
     }
 
-    let canvideo = new CanvasVideo('gEarthCanvas', canvasWidth, canvasHeight);
+    if (isMobile && vpWidth < vpHeight) {
+        earthCanvasWidth = 350;
+        earthCanvasHeight = 344;
+        earthBgImage = './images/earth-cropped.jpg';
+    }
+
+    let canvideo = new CanvasVideo('gEarthCanvas', earthCanvasWidth, earthCanvasHeight);
     canvideo.playFrames(earthBgImage, 6, 54, 5, 0, 0, 0, 0, null);
 
     let cvProcess = [];
