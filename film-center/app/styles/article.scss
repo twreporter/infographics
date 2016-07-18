@@ -61,11 +61,11 @@
 
     .cover-photo {
         height: 100vh;
-        background-image: url('../images/cover.jpg');
+        background: url('../images/cover.jpg') no-repeat center center;
         background-size: cover;
         background-position: center center;
         overflow: hidden;
-        @media only screen and (max-width: $screen-md-min) {
+        @media only screen and (min-width: $screen-md-min) {
             background-attachment: fixed;
         }
 
