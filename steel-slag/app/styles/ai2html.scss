@@ -9,6 +9,7 @@
   position:relative;
   overflow:hidden;
   float: left;
+  width: 100%;
   @media (max-width: $screen-md-min) {
     margin: 1em 1.2em 1em 0.2em;
     max-width: 440px;
