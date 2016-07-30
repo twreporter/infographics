@@ -1,5 +1,6 @@
 import React from 'react'
 import DocumentTitle from 'react-document-title'
+import {prefixLink} from 'gatsby-helpers'
 import { config } from 'config'
 
 import '../css/olympic.css'
@@ -41,9 +42,9 @@ module.exports = React.createClass({
     return (
       <div>
         <div className="header">
-          <div className="logo"><img src={data.logo} /></div>
-          <h1>{data.title}</h1>
-          <h3>{data.subtitle}</h3>
+          <div className="item_logo"><img src={prefixLink(data.logo)} /></div>
+          <div className="project">你所不知道的里約奧運大解密</div>
+          <div className="subtitle">獎落誰家決勝秘笈獨家公開</div>
         </div>
         <div className="olympic_item">
             {data.item}

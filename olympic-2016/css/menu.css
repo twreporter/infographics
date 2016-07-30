@@ -1,0 +1,14 @@
+.allitems {
+  width: 90%;
+  margin: 30px auto 30px auto;
+}
+
+.singleitem {
+  width: 20%;
+}
+
+@media only screen and (max-width: 768px) { 
+  .singleitem {
+    width: 25%;
+  }
+}
