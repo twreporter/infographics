@@ -1,0 +1,175 @@
+h1 {
+  width: 508px;
+  height: 40px;
+  font-family: SourceHanSansTWHK;
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 2.6px;
+  text-align: center;
+  color: #ffffff;
+}
+
+h3 {
+  width: 476px;
+  height: 24px;
+  font-family: SourceHanSansTWHK;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1.7px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.header {
+  width: 1024px;
+  height: 475px;
+  background-image: linear-gradient(to bottom, #00dd3f, #4d6deb 98%);
+}
+
+.olympic_item {
+  width: 1024px;
+  height: 48px;
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 48px;
+  font-weight: 400;
+  text-align: center;
+  color: #4a4a4a;
+  margin-top: 96px;
+}
+
+.intro {
+  width: 750px;
+  height: 70px;
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.94;
+  color: #000000;
+  margin: 65px auto 65px auto;
+}
+
+.history {
+  width: 750px;
+  height: 70px;
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.94;
+  color: #000000;
+}
+
+.title {
+  width: 750px;
+  height: 60px;
+  font-family: SourceHanSansTWHK;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #ffffff;
+  background-image: linear-gradient(275deg, #00dd3f, #4d6deb);
+  padding-top: 16px;
+  margin: 30px auto 30px auto;
+}
+
+.desc {
+  width: 423px;
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.67;
+  color: #4a4a4a;
+  margin-left: 137px;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.playerlist {
+  width: 700px;
+  margin: 0 auto 0 auto;
+}
+
+.player {
+  width: 700px;
+  margin-top: 33px;
+  margin-bottom: 33px;
+}
+
+.player_field {
+  margin: 15px 15px 15px 15px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  border-bottom: solid 1px #e6e6e6;
+}
+
+.player_left {
+  float: left;
+  width: 340px;
+}
+
+.player_right {
+  float: left;
+  width: 360px;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.3);
+  border: solid 1px #e6e6e6;
+}
+
+.player_texttitle {
+  font-family: SourceHanSansTWHK;
+  float: left;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 0.82;
+  color: #4a4a4a;
+  clear: left;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.player_item {
+  float: left;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.94;
+  text-align: center;
+}
+
+.player_experience {
+  float: left;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.94;
+  text-align: center;
+}
+
+.player_desc {
+  width: 360px;
+  height: 366.2px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.3);
+  border: solid 1px #e6e6e6;
+}
+
+.player_name {
+  width: 115px;
+  font-family: SourceHanSansTWHK;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #4a4a4a;
+  border-bottom: solid 3px #fead00;
+  padding-bottom: 15px;
+  margin: 0 auto 0 auto;
+}
+
+.player_intro {
+  width: 360px;
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.94;
+  color: #000000;
+  clear: left;
+  padding: 13px 15px 41px 15px;
+}
