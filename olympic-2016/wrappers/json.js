@@ -32,7 +32,7 @@ module.exports = React.createClass({
             </div>
             <div className="player_field">
               <div className="player_texttitle">奧運經驗</div>
-              <div className="player_experience">{experience}</div>
+              <div className="player_item">{experience}</div>
              </div>
              <div className="player_intro">{data.players[p].intro}</div>
           </div>
@@ -46,17 +46,34 @@ module.exports = React.createClass({
           <div className="project">你所不知道的里約奧運大解密</div>
           <div className="subtitle">獎落誰家決勝秘笈獨家公開</div>
         </div>
+        <div className="header_rect" />
         <div className="olympic_item">
             {data.item}
         </div>
+        <div className="item_line" />
         <div className="intro">{data.intro}</div>
+        <div className="index_group">
+          <div className="index_line" />
+          <div className="index_line_gray" />
+          <div className="index_line_gray" />
+        </div>
         <div className="title">{data.maptitle}</div>
         <div className="map">{data.map}</div>
         <div className="desc">{data.mapdesc}</div>
+        <div className="index_group">
+          <div className="index_line" />
+          <div className="index_line" />
+          <div className="index_line_gray" />
+        </div>
         <div className="title">{data.historytitle}</div>
         <div className="intro">{data.history}</div>
         <div className="historyiframe">{data.historyiframe}</div>
         <div className="desc">{data.historydesc}</div>
+        <div className="index_group">
+          <div className="index_line" />
+          <div className="index_line" />
+          <div className="index_line" />
+        </div>
         <div className="title">2016年台灣參賽選手</div>
         <div className="playerlist">
           { divs }
