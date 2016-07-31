@@ -6,10 +6,24 @@
   letter-spacing: 2.6px;
   line-height: 1.25;
   color: #ffffff;
-  margin: 0px auto 0px auto;
+  margin: 25px auto 0px auto;
   text-align: center;
   padding-top: 40px;
   padding-bottom: 10px;
+}
+
+.header {
+  width: 100%;
+  height: 475px;
+  margin-top: 25px;
+  background-image: linear-gradient(to bottom, #00dd3f, #4d6deb 98%);
+}
+
+.item_logo {
+  height: 216px;
+  width: 151px;
+  margin: 0 auto 0 auto;
+  padding-top: 57px;
 }
 
 .header_rect {
@@ -29,21 +43,6 @@
   text-align: center;
   color: #ffffff;
   margin: 10px auto 0px auto;
-  padding-top: 10px;
-  padding-bottom: 40px;
-}
-
-.item_logo {
-  width: 20%;
-  margin: 0 auto 0 auto;
-  padding-top: 20px;
-}
-
-.header {
-  width: 100%;
-  height: 475px;
-  margin-top: 0px;
-  background-image: linear-gradient(to bottom, #00dd3f, #4d6deb 98%);
 }
 
 .olympic_item {
@@ -125,13 +124,14 @@
 }
 
 .desc {
-  width: 423px;
+  width: 460px;
   font-family: SourceHanSansTWHK-Normal;
   font-size: 15px;
   font-weight: 400;
   line-height: 1.67;
   color: #4a4a4a;
   margin: 10px auto 10px auto;
+  padding: 15px 20px 15px 20px;
   background-color: #f5f5f5;
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
 }
@@ -143,6 +143,7 @@
 
 .player {
   width: 700px;
+  height: auto;
   margin-top: 33px;
   margin-bottom: 33px;
 }
