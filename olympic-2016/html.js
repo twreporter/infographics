@@ -30,7 +30,7 @@ module.exports = React.createClass({
             name="viewport"
             content="width=device-width, initial-scale=1.0 maximum-scale=1.0"
           />
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, initial-scale=1" />
         <meta property="og:title" content="你所不知道的里約奧運大解密／報導者"/>
         <meta property="og:description" content="你所不知道的里約奧運大解密 獎落誰家決勝秘笈獨家公開"/>

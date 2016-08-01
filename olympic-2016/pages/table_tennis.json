@@ -6,46 +6,46 @@
   "intro": "台灣曾有兩次獲得桌球奧運獎牌，選手陳靜以女子單打項目分別於1996年獲得銀牌、2000年獲得銅牌。今年共有6位選手參加桌球項目，分別為男子單打、男子團體、女子單打、女子團體。",
   "historytitle":"歷年桌球得牌更迭",
   "history":"從1988年開始，中國一直是桌球運動的翹楚，至今已贏得24面金牌，歷屆金牌得主幾乎一面紅，總積分甚至高於第二名的南韓以及第三名的德國3、4倍之多。",
-  "historyiframe":"",
+  "historyiframe":"https://plotdb.io/v/chart/10053",
   "historydesc":"針對不同運動項目，我們將獎牌種類加權計分（金牌乘以3，銀牌乘以2，銅牌乘以1），來看出該類運動各國得牌實力的更迭。並將總積分前三名以紅線標出，我們從各競賽項目首次出現獎牌的年份開始計算，因此每項運動的起始時間會不一。",
   "maptitle":"誰是世界桌球強國？",
-  "map":"",
+  "map":"https://plotdb.io/v/chart/10018",
   "mapdesc":"為了找出哪些國家是各項奧運競賽的強者，我們統計了1986年到2012年各項競賽獲得金牌的國家，並用地圖標示，以圓圈大小來代表得獎數多寡。",
   "playertitle":"2016年台灣參賽選手",
   "players":{
     "陳建安":{ 
       "item":"男子單打、男子團體",
-      "picture":"",
+      "picture":"/assets/athletes_photos/table_tennis/tt_cca.png",
       "experience": "首度參加",
       "intro":"曾於2013年與莊智淵搭擋，代表台灣在桌球頂級賽事「世界桌球錦標賽」拿下男雙冠軍。個人世界最佳排名為第17名，現為合庫桌球隊選手。"
     },
     "莊智淵":{
       "item":"男子單打、男子團體",
-      "picture":"",
+      "picture":"/assets/athletes_photos/table_tennis/tt_chuang.png",
       "experience": "2004年雅典奧運|2008年北京奧運|2012年倫敦奧運",
       "intro":"綽號「台灣桌球教父」的莊智淵，個人世界最佳排名為第3名，目前為合庫桌球隊選手。現年35歲的他征戰過亞運、亞錦等世界比賽，里約奧運為莊智淵第四次參加奧運比賽。"
     },
     "江宏傑":{ 
       "item":"男子單打、男子團體",
-      "picture":"",
+      "picture":"/assets/athletes_photos/table_tennis/tt_chiang.png",
       "experience": "首度參加",
       "intro":"曾參與國內外大小型比賽，曾於2014年仁川亞運、世錦賽獲男子團體賽第3名。個人世界最佳排名為47名，現為為合庫桌球隊選手。"
     },
     "陳思羽":{ 
       "item":"女子單打、女子團體",
-      "picture":"",
+      "picture":"/assets/athletes_photos/table_tennis/tt_csy.png",
       "experience": "2012年倫敦奧運",
       "intro":"曾於全大運拿過3面桌球女單金牌，今年剛獲得首面全大運女雙金牌，今年與鄭怡靜搭檔奪下世錦賽女子組季軍。個人世界最佳排名為27名，現為國泰桌球隊選手。"
     },
     "鄭怡靜":{ 
       "item":"女子單打、女子團體",
-      "picture":"",
+      "picture":"/assets/athletes_photos/table_tennis/tt_cheng.png",
       "experience": "首度參加",
       "intro":"14歲就成為桌球國手，曾經參與世錦賽獲、奧地利公開賽等比賽，今年與陳思羽搭檔奪下世錦賽女子組季軍。個人最佳世界排名為12名，現為合庫桌球隊選手。"
     },
     "黃怡樺":{ 
       "item":"女子團體",
-      "picture":"",
+      "picture":"/assets/athletes_photos/table_tennis/tt_huang.png",
       "experience": "2004年雅典奧運|2008年北京奧運|2012年倫敦奧運",
       "intro":"台灣史上首位連4屆奧運出賽的女子選手，前三年為女子單打，今年首度挑戰女子團體賽。個人最佳世界排名為17名，現為合庫桌球隊選手。"
     }

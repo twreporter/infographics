@@ -194,7 +194,6 @@ module.exports = React.createClass({
               <img className="singleitem" src={prefixLink('/assets/icon_Wrestling.svg')} />
             </Link>
         </div>
-        </Container>
         <div className='footer'>
               <div className='footer-container'>
                   <div className='logo-container'>
@@ -255,6 +254,7 @@ module.exports = React.createClass({
                   </div>
               </div>
           </div>
+        </Container>
       </div>
     )
   },
