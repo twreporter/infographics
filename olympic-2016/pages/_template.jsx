@@ -20,14 +20,14 @@ module.exports = React.createClass({
       <div>
         <Container
           style={{
-            maxWidth: 1024,
+            maxWidth: '100%',
           }}
         >
           {this.props.children}
         </Container>
         <Container
             style={{
-              maxWidth: 1024,
+              maxWidth: '100%',
             }}
           >
         <div className="allitems">

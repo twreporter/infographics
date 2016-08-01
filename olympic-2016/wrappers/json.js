@@ -43,8 +43,8 @@ module.exports = React.createClass({
       <div>
         <div className="header">
           <div className="item_logo"><img src={prefixLink(data.logo)} /></div>
-          <div className="project">你所不知道的里約奧運大解密</div>
-          <div className="subtitle">獎落誰家決勝秘笈獨家公開</div>
+          <div className="project">里約奧運看門道</div>
+          <div className="subtitle">誰是史上大贏家</div>
           <div className="header_triangle" />
         </div>
           <div className="header_rect" />
@@ -66,7 +66,7 @@ module.exports = React.createClass({
           </div>
         </div>
         <div className="title">{data.maptitle}</div>
-        <div className="map"><iframe src={data.map} width="100%" height="600px" frameborder="0"></iframe></div>
+        <div className="map"><div className="wrapper"><iframe src={data.map} /></div></div>
         <div className="desc">{data.mapdesc}</div>
         <div className="index_group">
           <div className="index_seq">
@@ -82,7 +82,7 @@ module.exports = React.createClass({
         </div>
         <div className="title">{data.historytitle}</div>
         <div className="intro">{data.history}</div>
-        <div className="historyiframe"><iframe src={data.historyiframe} width="100%" height="600px" frameborder="0"></iframe></div>
+        <div className="map"><div className="wrapper"><iframe src={data.historyiframe} /></div></div>
         <div className="desc">{data.historydesc}</div>
         <div className="index_group">
           <div className="index_seq">
