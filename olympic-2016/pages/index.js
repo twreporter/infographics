@@ -14,6 +14,22 @@ module.exports = React.createClass({
     }
   },
   render () {
+    let share = []
+    share.push(
+        <div style={{position:'fixed', top:8, right:15, zIndex:10}}>
+          <div className="reporter-logo">
+            <a style={{textDecoration: 'none'}} href="https://www.twreporter.org/"><img src="https://dh1rvgpokacch.cloudfront.net/atavist/60826/image/derivative/cropandscale~64x64x0x0~favicon-1450079771-87.png" className="img-shadow" /></a>
+          </div>
+          <div className="facebook" style={{marginTop:15}}>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fa%2Fhomofamily-legislation" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;">
+                <img src="https://www.twreporter.org/i/draw-taiwaness-recognition/img/facebook.png" className="img-shadow" style={{opacity:.1,cursor:'pointer'}} />
+            </a>
+          </div>
+          <div className="twitter" style={{marginTop:15}}>
+            <a style={{textDecoration:'none'}} href="https://twitter.com/home?status=https%3a%2f%2fwww.twreporter.org%2fa%2fi/draw-taiwaness-recognition/index.html"><img src="https://www.twreporter.org/i/draw-taiwaness-recognition/img/twitter.png" className="img-shadow" style={{opacity:.1}} /></a>
+          </div>
+        </div>
+    )
     return (
       <div>
         <Container
@@ -21,6 +37,7 @@ module.exports = React.createClass({
             maxWidth: "100%",
           }}
         >
+          {share}
           {this.props.children}
         </Container>
         <Container
