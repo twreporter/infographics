@@ -1,4 +1,5 @@
 {
+ "url":"https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic%2Fgolf%2F",
  "logo":"/assets/icon_Golf_shadow.svg",
  "title": "里約奧運看門道",
  "subtitle": "誰是史上大贏家",
@@ -15,25 +16,25 @@
  "players":{
    "林文堂":{
      "item":"男子個人",
-     "picture":"",
+     "picture":"/assets/athletes_photos/golf/lin.png",
      "experience": "首度參加",
      "intro":"42歲的林文堂出身高爾夫球世家。1996年轉入職業，1998年首次獲得台豐公開賽冠軍，2006、2007、2008年分別獲得台灣高爾夫公開賽冠軍及3項亞洲高爾夫球巡迴賽冠軍。"
    },
    "潘政琮":{
      "item":"男子個人",
-     "picture":"",
+     "picture":"/assets/athletes_photos/golf/pan.png",
      "experience": "首度參加",
      "intro":"潘政琮就讀華盛頓大學時奪得8座大學高爾夫賽事冠軍。2013年6月在世界業餘高球排名站上第一名，也成為台灣首位業餘晉級年度4大賽（美國公開賽）的選手，2015年轉職業。"
    },
    "龔怡萍":{
      "item":"女子個人",
-     "picture":"",
+     "picture":"/assets/athletes_photos/golf/gong.png",
      "experience": "首度參加",
      "intro":"34歲旅美高球好手龔怡萍，2002年加入LPGA，生涯贏過4冠。2016年美國女子職業高爾夫巡迴賽阿肯色錦標賽，以總桿數低於標準桿14桿的199桿並列第2。"
    },
    "盧曉晴":{
      "item":"女子個人",
-     "picture":"",
+     "picture":"/assets/athletes_photos/golf/lu.png",
      "experience": "首度參加",
      "intro":"我國旅日好手盧曉晴2006年轉入職業，於2013年美津濃菁英賽獲得冠軍，為台灣第5位奪得美國女子高爾夫球巡迴賽冠軍高爾夫球員。生涯世界排名最高第19。"
    }

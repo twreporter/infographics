@@ -1,4 +1,5 @@
 {
+ "url":"https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic%2Fgymnastics%2F",
  "logo":"/assets/icon_Gymnastics_shadow.svg",
  "title": "里約奧運看門道",
 "subtitle": "誰是史上大贏家",
@@ -15,7 +16,7 @@
  "players":{
    "李智凱":{
      "item":"男子競技體操",
-     "picture":"",
+     "picture":"/assets/athletes_photos/gymnastics/lee.png",
      "experience": "首度參加",
      "intro":"電影《翻滾吧！男孩》裡的「菜市場凱」，成功翻滾進奧運。卻在練習時意外受傷，右腳打2根鋼釘，他表示將把重點放在鞍馬，不會放棄這個睽違16年的奧運盛事。"
    }

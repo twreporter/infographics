@@ -1,4 +1,5 @@
 {
+ "url":"https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic%2Ftaekwondo",
  "logo":"/assets/icon_Taekwondo_shadow.svg",
  "title": "里約奧運看門道",
  "subtitle": "誰是史上大贏家",
@@ -15,25 +16,19 @@
  "players":{
    "劉威廷":{
      "item":"男子80公斤級",
-     "picture":"",
+     "picture":"/assets/athletes_photos/taekwondo/liu.png",
      "experience": "首度參加",
      "intro":"台灣第1位以第3量級出征奧運的選手，最佳成績為2016年亞錦賽第二名，目前為台灣體育大學學生。"
    },
    "黃懷萱":{
      "item":"女子49公斤級",
-     "picture":"",
+     "picture":"/assets/athletes_photos/taekwondo/huang.png",
      "experience": "首度參加",
      "intro":"年僅18歲的黃懷萱，2年前南京青年奧運，奪得台灣首面青奧跆拳道金牌。今年由於女將黃韻文因身體因素退出競賽，黃懷萱將首度征戰里約奧運。"
    },
    "莊佳佳":{
      "item":"女子67公斤級",
-     "picture":"",
-     "experience": "首度參加",
-     "intro":"莊佳容是來自高雄的雙打選手，目前拿下19座WTA雙打冠軍、17座亞軍，2007年與詹詠然拿下澳網雙打亞軍。2012年倫敦奧運與謝淑薇女雙組合莊佳容止步八強，是台灣奧運女網雙打最佳成績。"
-   },
-   "詹皓晴":{
-     "item":"女子雙打",
-     "picture":"",
+     "picture":"/assets/athletes_photos/taekwondo/chuang.png",
      "experience": "首度參加",
      "intro":"擁有國際各大跆拳道競賽的豐富經驗，首度征戰奧運，在女子67公斤級積分排行榜名列第二。她曾獲2015年世錦賽第一名2014、2016年亞錦賽第一名，被視為此次奧運奪金機率最高的選手。"
    }

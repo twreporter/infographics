@@ -1,4 +1,5 @@
 {
+ "url":"https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic%2Farchery%2F",
  "logo":"/assets/icon_Archery_shadow.svg",
  "title": "里約奧運看門道",
 "subtitle": "誰是史上大贏家",
@@ -15,37 +16,37 @@
  "players":{
    "高浩文":{
      "item":"男子個人、男子團體",
-     "picture":"",
+     "picture":"/assets/athletes_photos/archery/kao.png",
      "experience": "首度參加",
      "intro":"高浩文來自花蓮秀林鄉，有太魯閣族血統，中學時曾獲選世青國手。2009年越級參加波蘭世界室內射箭錦標賽，拿下男團體銀牌，創台灣箭壇最年輕奪牌紀錄。"
    },
    "魏均珩":{
      "item":"男子個人、男子團體",
-     "picture":"",
+     "picture":"/assets/athletes_photos/archery/wei.png",
      "experience": "首度參加",
      "intro":"魏均珩就讀台師大競技系，2015年光州世大運拿下個人與混雙2面銀牌，同年亞洲射箭錦標賽打敗南韓取得混雙金牌，2016世界射箭大獎賽上海站則射下個人銅牌。"
    },
    "余冠燐":{
      "item":"男子個人、男子團體",
-     "picture":"",
+     "picture":"/assets/athletes_photos/archery/yu.png",
      "experience": "首度參加",
      "intro":"余冠燐在2016哥本哈根世錦賽男團奪得銅牌，拿到奧運門票。曾於2011年世大錦標賽拿下男團金牌，2014年世大運奪得男團銀牌。"
    },
    "雷千瑩":{
      "item":"女子個人、女子團體",
-     "picture":"",
+     "picture":"/assets/athletes_photos/archery/lei.png",
      "experience": "2012年倫敦奧運",
      "intro":"「雷母」雷千瑩第二度取得奧運門票。他從2008年開始站上世界舞台，曾獲得2010世大錦標賽混雙銅牌、團體銀牌，並在2015年於墨西哥大獎賽年終賽、亞錦賽連獲個人、混雙銅牌。"
    },
    "林詩嘉":{
      "item":"女子個人、女子團體",
-     "picture":"",
+     "picture":"/assets/athletes_photos/archery/lin.png",
      "experience": "首度參加",
      "intro":"林詩嘉近年表現突出。2015年連拿世大運女子團體射箭金牌、世界錦標賽女子射箭銀牌，更進一步在2016年世界射箭大獎賽拿下女子團體金牌。"
    },
    "譚雅婷":{
      "item":"女子個人、女子團體",
-     "picture":"",
+     "picture":"/assets/athletes_photos/archery/tan.png",
      "experience": "2012年倫敦奧運",
      "intro":"譚雅婷二度參加奧運賽。過去獲獎數多，2015年接連在世大運獲得團體金牌、世界盃女子團體金牌，並在奧運測試賽拿下女子個人銀牌。"
    }

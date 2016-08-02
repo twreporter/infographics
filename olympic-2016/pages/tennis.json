@@ -1,4 +1,5 @@
 {
+ "url":"https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic%2Ftennis%2F",
  "logo":"/assets/icon_Tennis_shadow.svg",
  "title": "里約奧運看門道",
  "subtitle": "誰是史上大贏家",
@@ -15,31 +16,31 @@
  "players":{
    "盧彥勳":{
      "item":"男子單打",
-     "picture":"",
+     "picture":"/assets/athletes_photos/tennis/lu.png",
      "experience": "2004雅典奧運|2008年北京奧運|2012年倫敦奧運",
      "intro":"32歲的盧彥勳此次挑戰生涯第4次奧運，他曾在2008年北京奧運打到第3輪。2010年溫布頓賽事打敗「重砲手」Andy Roddick，闖進8強，該場比賽被美國職業網球巡迴賽（ATP）選為2010年最爆冷的比賽。"
    },
    "謝淑薇":{
      "item":"女子單打、女子雙打",
-     "picture":"",
+     "picture":"/assets/athletes_photos/tennis/hsieh.png",
      "experience": "2004雅典奧運|2008年北京奧運|2012年倫敦奧運",
      "intro":"謝淑薇目前坐擁兩座WTA單打冠軍，2013年拿下溫布頓女雙冠軍，為臺灣首座座大滿貫冠軍。2014年世界雙打排名第一，單打最高排名第23名，為台灣選手最高紀錄，同年獲法網公開賽女雙冠軍。"
    },
    "莊佳容":{
      "item":"女子雙打",
-     "picture":"",
+     "picture":"/assets/athletes_photos/tennis/chuang.png",
      "experience": "2008年北京奧運|2012年倫敦奧運",
      "intro":"莊佳容是來自高雄的雙打選手，目前拿下19座WTA雙打冠軍、17座亞軍，2007年與詹詠然拿下澳網雙打亞軍。2012年倫敦奧運與謝淑薇女雙組合莊佳容止步八強，是台灣奧運女網雙打最佳成績。"
    },
    "詹皓晴":{
      "item":"女子雙打",
-     "picture":"",
+     "picture":"/assets/athletes_photos/tennis/jhc.png",
      "experience": "首度參加",
      "intro":"網壇好手詹皓晴，與姊姊詹詠然合體以來攜手拿下7座WTA冠軍。詹皓晴在2014年溫布頓網球賽首次晉級大滿貫決賽，便拿下混雙亞軍，是台灣首位打進溫網混雙決賽的選手。"
    },
    "詹詠然":{
      "item":"女子雙打",
-     "picture":"",
+     "picture":"/assets/athletes_photos/tennis/jyj.png",
      "experience": "2008年北京奧運",
      "intro":"詹詠然從小即綻露光芒，青少年時代單打世界排名第二，雙打排名第一。曾拿過多次大滿貫賽亞軍，包括2007年澳網雙打、美網雙打，以及2011年澳網混雙。目前WTA雙打冠軍累計17座。"
    }

@@ -1,4 +1,5 @@
 {
+ "url":"https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic%2Frowing%2F",
  "logo":"/assets/icon_Rowing_shadow.svg",
  "title": "里約奧運看門道",
  "subtitle": "誰是史上大贏家",
@@ -15,7 +16,7 @@
  "players":{
    "黃義婷":{
      "item":"女子單人雙槳",
-     "picture":"",
+     "picture":"/assets/athletes_photos/rowing/huang.png",
      "experience": "首度參加",
      "intro":"黃義婷曾在2009年勇奪4人單槳亞洲盃、東亞運銀牌，2010年車禍後重新出發，在2016亞大區奧運單人雙槳划船資格賽在決賽A組獲得第3，划進里約奧運。"
    }

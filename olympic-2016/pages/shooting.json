@@ -1,4 +1,5 @@
 {
+ "url":"https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic%2Fshooting%2F",
  "logo":"/assets/icon_Shooting_shadow.svg",
  "title": "里約奧運看門道",
  "subtitle": "誰是史上大贏家",
@@ -15,25 +16,25 @@
  "players":{
    "楊昆弼":{
      "item":"男子不定向飛靶",
-     "picture":"",
+     "picture":"/assets/athletes_photos/shooting/yang.png",
      "experience": "首度參加",
      "intro":"8月才將滿18歲的楊昆弼，在奧運資格賽一路過關斬將奪得第2名。繼1996年奧運射擊名將黃義介取得第6名佳績後，我國再有選手挺進奧運射擊男子飛靶項目。"
    },
    "林怡君":{
      "item":"女子不定向飛靶",
-     "picture":"",
+     "picture":"/assets/athletes_photos/shooting/lin.png",
      "experience": "2000年雪梨奧運│2004年雅典奧運│2012年倫敦奧運",
      "intro":"林怡君是台灣射擊元老、全國不定向飛靶紀錄保持人，目前亞洲排名第一，世界排名第9，曾代表台灣參加過五屆亞運和三屆奧運，奧運最佳成績是第四名。"
    },
    "吳佳穎":{
      "item":"10公尺空氣手槍",
-     "picture":"",
+     "picture":"/assets/athletes_photos/shooting/wu.png",
      "experience": "首度參加",
      "intro":"有「最美證件妹」美稱的吳佳穎，2014年仁川亞運奪銀，同年於世界射擊錦標賽再摘銅牌，為台灣射下首張前進2016里約奧運門票。"
    },
    "余艾玟":{
      "item":"10公尺空氣手槍",
-     "picture":"",
+     "picture":"/assets/athletes_photos/shooting/yu.png",
      "experience": "2012年倫敦奧運",
      "intro":"余艾玟國中時便在射壇嶄露頭角，16歲首度參加奧運，2015年世界盃美國站取得里約奧運資格，這次的目標是進入決賽。"
    }

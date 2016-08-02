@@ -21,12 +21,12 @@ module.exports = React.createClass({
             <a style={{textDecoration: 'none'}} href="https://www.twreporter.org/"><img src="https://dh1rvgpokacch.cloudfront.net/atavist/60826/image/derivative/cropandscale~64x64x0x0~favicon-1450079771-87.png" className="img-shadow" /></a>
           </div>
           <div className="facebook" style={{marginTop:15}}>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fa%2Fhomofamily-legislation" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;">
                 <img src="https://www.twreporter.org/i/draw-taiwaness-recognition/img/facebook.png" className="img-shadow" style={{opacity:.1,cursor:'pointer'}} />
             </a>
           </div>
           <div className="twitter" style={{marginTop:15}}>
-            <a style={{textDecoration:'none'}} href="https://twitter.com/home?status=https%3a%2f%2fwww.twreporter.org%2fa%2fi/draw-taiwaness-recognition/index.html"><img src="https://www.twreporter.org/i/draw-taiwaness-recognition/img/twitter.png" className="img-shadow" style={{opacity:.1}} /></a>
+            <a style={{textDecoration:'none'}} href="https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic"><img src="https://www.twreporter.org/i/draw-taiwaness-recognition/img/twitter.png" className="img-shadow" style={{opacity:.1}} /></a>
           </div>
         </div>
     )
@@ -46,6 +46,17 @@ module.exports = React.createClass({
             }}
           >
         </Container>
+        <div className="landing_header">
+           <img src="/assets/langding_svg.svg" />
+           <div className="landing_headerbox">
+               <div className="landing_title">
+                 里約奧運看門道
+               </div>
+               <div className="landing_subtitle">
+                 誰是史上大贏家
+               </div>
+           </div>
+        </div>
         <div className="intro">
            2016里約奧運將在8月5日登場，準備好為中華隊加油了嗎！台灣突破以往奧運參賽紀錄，共有58位運動員競逐18項賽事。除了大家熟知的戴資穎、盧彥勳、雷千瑩、謝淑薇、蕭美玉、許淑淨、莊智淵、周天成等各界好手，還有36位首度參加奧運的體育新星，其中女子拳擊、女子角力、馬術都是台灣史上第一人，馬術選手汪亦岫更是首位贏得奧運馬術資格賽的華人。
         </div>

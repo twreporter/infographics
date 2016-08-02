@@ -16,6 +16,7 @@ module.exports = React.createClass({
     const data = this.props.route.page.data
     let divs = []
     let loop = 1
+    let share_url = "https://www.facebook.com/sharer/sharer.php?u=" + data.url
     let share = []
     share.push(
         <div style={{position:'fixed', top:8, right:15, zIndex:10}}>
@@ -23,12 +24,12 @@ module.exports = React.createClass({
             <a style={{textDecoration: 'none'}} href="https://www.twreporter.org/"><img src="https://dh1rvgpokacch.cloudfront.net/atavist/60826/image/derivative/cropandscale~64x64x0x0~favicon-1450079771-87.png" className="img-shadow" /></a>
           </div>
           <div className="facebook" style={{marginTop:15}}>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fa%2Fhomofamily-legislation" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;">
-                <img src="https://www.twreporter.org/i/draw-taiwaness-recognition/img/facebook.png" className="img-shadow" style={{opacity:.1,cursor:'pointer'}} />
+            <a href={share_url} onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;">
+                <img src="/assets/facebook.png" className="img-shadow" style={{opacity:.1,cursor:'pointer'}} />
             </a>
           </div>
           <div className="twitter" style={{marginTop:15}}>
-            <a style={{textDecoration:'none'}} href="https://twitter.com/home?status=https%3a%2f%2fwww.twreporter.org%2fa%2fi/draw-taiwaness-recognition/index.html"><img src="https://www.twreporter.org/i/draw-taiwaness-recognition/img/twitter.png" className="img-shadow" style={{opacity:.1}} /></a>
+            <a style={{textDecoration:'none'}} href="https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic"><img src="/assets/twitter.png" className="img-shadow" style={{opacity:.1}} /></a>
           </div>
         </div>
     )
@@ -137,7 +138,8 @@ module.exports = React.createClass({
         </div>
         <div className="item_line" />
         <div className="data_source">
-           本專題資料來源為維基百科，透過程式爬梳後以人工校對產生，並以開源方式釋出於 <a href="https://github.com/twreporter-data/olympic">Github</a> 任何人皆可檢視下載。如有誤植，歡迎共同協作更正，協助我們產出更正確的資訊。
+           <p>本專題資料來源為維基百科，透過程式爬梳後以人工校對產生，並以開源方式釋出於 <a href="https://github.com/twreporter-data/olympic">Github</a> 任何人皆可檢視下載。如有誤植，歡迎共同協作更正，協助我們產出更正確的資訊。</p>
+           <p>照片資料來源：維基百科、國家運動訓練中心、選手Facebook、2017世大運粉絲專頁、台灣職業高爾夫協會。</p>
         </div>
         <div className="team">
           <div className="team_title">製作團隊</div>

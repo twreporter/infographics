@@ -1,4 +1,5 @@
 {
+ "url":"https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic%2Fathletics%2F",
  "logo":"/assets/icon_athletics_shadow.svg",
  "title": "里約奧運看門道",
 "subtitle": "誰是史上大贏家",
@@ -15,37 +16,37 @@
  "players":{
    "陳傑":{
      "item":"男子400M跨欄",
-     "picture":"",
+     "picture":"/assets/athletes_photos/athletics/chen.png",
      "experience": "2012年倫敦奧運",
      "intro":"陳傑是全國400公尺紀錄保持人。在400公尺跨欄項目也不斷挑戰自我，曾在亞錦賽2度奪牌，今年以49秒05的成績取得奧運門票，比2012年取得奧運資格的秒數更快。"
    },
    "何盡平":{
      "item":"男子馬拉松",
-     "picture":"",
+     "picture":"/assets/athletes_photos/athletics/ho.png",
      "experience": "首度參加",
      "intro":"台灣第5位跑進奧運的男子馬拉松選手，2015年日本琵琶湖賽事2小時17分42秒的成績不只改寫個人記錄，也成為台灣史上第四快。"
    },
    "陳宇璿":{
      "item":"女子馬拉松",
-     "picture":"",
+     "picture":"/assets/athletes_photos/athletics/cty.png",
      "experience": "首度參加",
      "intro":"曾2度參加IAAF世界田徑錦標賽女子馬拉松賽事，個人最佳成績為2小時55分21秒。今年首次踏上奧運殿堂，陳宇璿目標是完賽、挑戰個人紀錄。"
    },
    "謝千鶴":{
      "item":"女子馬拉松",
-     "picture":"",
+     "picture":"/assets/athletes_photos/athletics/hsieh.png",
      "experience": "2012年倫敦奧運",
      "intro":"全國女子半馬賽紀錄保持人。謝千鶴大學時被診斷出「腔室症候群」，經歷4次開刀終於重返跑道，以雙重達標獲取里約奧運資格後，她這次將全力奔向夢想。"
    },
    "向俊賢":{
      "item":"男子跳高",
-     "picture":"",
+     "picture":"/assets/athletes_photos/athletics/hsian.png",
      "experience": "首度參加",
      "intro":"全國紀錄保持人向俊賢在2015年四度刷新自己紀錄，達到里約參賽標準2公尺29。這是台灣跳高選手相隔32年後再次前進奧運，上一次已經是1984年洛杉磯奧運。"
    },
    "黃士峰":{
      "item":"男子標槍",
-     "picture":"",
+     "picture":"/assets/athletes_photos/athletics/huang.png",
      "experience": "首度參加",
      "intro":"在2016世界田徑挑戰賽中擲出個人最佳成績83公尺82，奪銅牌、進軍里約奧運。黃士峰目前在男子標槍世界排名第4，也是32年後、台灣第2位前進奧運的標槍選手。"
    }

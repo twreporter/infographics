@@ -1,4 +1,5 @@
 {
+ "url":"https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic%2Fboxing%2F",
  "logo":"/assets/icon_Boxing_shadow.svg",
  "title": "里約奧運看門道",
  "subtitle": "誰是史上大贏家",
@@ -15,13 +16,13 @@
  "players":{
    "賴主恩":{
      "item":"男子60公斤級",
-     "picture":"",
+     "picture":"/assets/athletes_photos/boxing/lai.png",
      "experience": "首度參加",
      "intro":"排灣族戰士賴主恩在亞塞拜然舉行的世界區資格賽男子60公斤級打進4強，最後獲得銅牌，是繼1996亞特蘭大奧運蔡池修後再度打進奧運的男子拳擊選手。"
    },
    "陳念琴":{
      "item":"女子75公斤級",
-     "picture":"",
+     "picture":"/assets/athletes_photos/boxing/chen.png",
      "experience": "首度參加",
      "intro":"年僅19歲的陳念琴是台灣參加奧運女子拳擊史上第1人。曾奪得2013、2015年塞爾維亞金拳套拳擊錦標賽金牌，2016年世界女子拳擊錦標賽擊敗奧運測試賽冠軍，取得奧運參賽資格。"
    }

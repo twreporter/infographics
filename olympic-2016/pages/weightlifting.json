@@ -1,4 +1,5 @@
 {
+ "url":"https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic%2Fweightlifting%2F",
  "logo":"/assets/icon_Weightlifting_shadow.svg",
  "title": "里約奧運看門道",
  "subtitle": "誰是史上大贏家",
@@ -15,43 +16,43 @@
  "players":{
    "唐啟中":{
      "item":"男子56公斤級",
-     "picture":"",
+     "picture":"/assets/athletes_photos/weightlifting/tang.png",
      "experience": "首度參加",
      "intro":"唐啟中國三就開始練舉重，這位排灣族戰士曾在2010年世界大學舉重錦標賽勇奪三金，2011年為台灣摘下深圳世大運首面獎牌。"
    },
    "潘建宏":{
      "item":"男子69公斤級",
-     "picture":"",
+     "picture":"/assets/athletes_photos/weightlifting/pan.png",
      "experience": "首度參加",
      "intro":"潘建宏是全國男子69公斤級抓舉和挺舉、77公斤級抓舉三項紀錄保持人。曾參加亞洲青少年舉重賽奪金，成人級國際賽中最佳成績是亞錦賽銅牌。"
    },
    "陳士杰":{
      "item":"男子105公斤以上級",
-     "picture":"",
+     "picture":"/assets/athletes_photos/weightlifting/csj.png",
      "experience": "2012年倫敦奧運",
      "intro":"「大力士」陳士杰是台灣第一位挑戰奧運舉重男子105公斤以上級的選手，2015年泰國亞錦賽以總和438公斤穿金戴銀，也刷破個人最佳成績，接近世界前3，有機會拼奪奧運獎牌。"
    },
    "陳葦綾":{
      "item":"女子48公斤級",
-     "picture":"",
+     "picture":"/assets/athletes_photos/weightlifting/chen.png",
      "experience": "2004年雅典奧運│2008年北京奧運",
      "intro":"健力選手出身、綽號「超人」，陳葦綾是刻苦型的選手。2004年首度參加奧運時排名第11，4年後在北京奧運摘下銅牌。"
    },
    "許淑淨":{
      "item":"女子53公斤級",
-     "picture":"",
+     "picture":"/assets/athletes_photos/weightlifting/hsu.png",
      "experience": "2012年倫敦奧運",
      "intro":"個人世界最佳排名為第1名（2014），2012年倫敦奧運一舉奪銀（後遞補為金牌），2014年仁川亞洲運動會摘金，締造總和233公斤世界紀錄，也是她目前最佳成績。"
    },
    "郭婞淳":{
      "item":"女子58公斤級",
-     "picture":"",
+     "picture":"/assets/athletes_photos/weightlifting/kuo.png",
      "experience": "首度參加",
      "intro":"郭婞淳在2013年包辦亞洲舉重錦標賽、世界舉重錦標賽及喀山世大運3座冠軍，2014年曾因壓傷導致肌肉80%斷裂，復健重回舞台後，旋即在2016年亞錦賽打敗中國勁敵奪金。"
    },
    "林子琦":{
      "item":"女子63公斤級",
-     "picture":"",
+     "picture":"/assets/athletes_photos/weightlifting/lin.png",
      "experience": "首度參加",
      "intro":"2014年仁川亞運女子63公斤級賽事上，以抓舉116公斤、挺舉145公斤，總和261公斤的成績獲得金牌，締造該量級挺舉與總和成績的世界紀錄。（挺舉紀錄於2015年世錦賽上，被中國選手鄧薇以146公斤打破。）"
    }
