@@ -30,16 +30,19 @@ module.exports = React.createClass({
           >
         </Container>
         <div className="intro">
-          2016里約奧運即將登場！台灣突破以往奧運參賽紀錄，共有58位運動員參加，競逐18項賽事。今年首度踏上奧運殿堂的選手計有36位，其中女子拳擊、女子角力、馬術都是我國首次參與的奧運項目，馬術選手汪亦岫，更是第一位贏得奧運馬術資格賽的華人。國際知名的桌球好手莊智淵、網球強將盧彥勳、謝淑薇、羽球一哥周天成等也都代表我國參賽。
+           2016里約奧運將在8月5日登場，準備好為中華隊加油了嗎！台灣突破以往奧運參賽紀錄，共有58位運動員競逐18項賽事。除了大家熟知的戴資穎、盧彥勳、雷千瑩、謝淑薇、蕭美玉、許淑淨、莊智淵、周天成等各界好手，還有36位首度參加奧運的體育新星，其中女子拳擊、女子角力、馬術都是台灣史上第一人，馬術選手汪亦岫更是首位贏得奧運馬術資格賽的華人。
         </div>
         <div className="intro">
-想替選手加油打氣，但又不熟悉運動項目嗎?沒關係，我們幫你整理了各項目的大補貼，讓你一目了然誰是射擊大國?誰又是桌球界霸主?台灣真的是跆拳道強國嗎?此外，還可以看台灣在歷年奧運中，得牌數是否在世界上佔有一席之地，還是只能在後面當小弟?
+          想知道現代奧運舉辦120年來，運動列強有哪些嗎？《報導者》帶你解密奧運看門道。透過大數據分析告訴你：哪一國超級射手最多？誰搶了俄羅斯的體操王冕？誰又是桌球霸主？還有，台灣真的是跆拳道強國嗎？歷年奧運中，台灣得牌數是否在世界上佔有一席之地，還是只能在後面當小弟?
         </div>
         <div className="item_line" />
-        <div className="allitems">
-            <div className="item_title">
-                看看其他台灣參賽之運動項目
-            </div>
+        <div className="index_items">
+        <div className="index_items">
+            台灣人必看！
+        </div>
+            你不可錯過的18項賽事
+        </div>
+        <div className="allitems_color">
             <div className="items_block">
                 <Link
                   to={prefixLink('/archery/')}
@@ -123,7 +126,7 @@ module.exports = React.createClass({
                   <img className="singleitem" src={prefixLink('/assets/icon_Judo.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/rowling/')}
+                  to={prefixLink('/rowing/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',

@@ -44,9 +44,9 @@
   border-width: 1px;
 }
 .footer .open-source-container {
-  height: 40px;
+  height: 60px;
   background-color: #ccc;
-  padding: 5px 0;
+  padding: 15px 0;
 }
 .open-source-container .items {
   width: 712px;

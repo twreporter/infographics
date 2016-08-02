@@ -129,7 +129,7 @@ module.exports = React.createClass({
         </div> 
         <div className="allitems">
             <div className="item_title">
-                看看其他台灣參賽之運動項目
+                快來看更多台灣參賽項目
             </div>
             <div className="items_block">
                 <Link
@@ -214,7 +214,7 @@ module.exports = React.createClass({
                   <img className="singleitem" src={prefixLink('/assets/icon_Judo.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/rowling/')}
+                  to={prefixLink('/rowing/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
