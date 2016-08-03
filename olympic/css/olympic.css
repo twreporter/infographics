@@ -503,7 +503,7 @@ iframe {
   .landing_headerbox {
     position: relative;
     margin: 0px auto 40px auto;
-    width: 100%;
+    width: 90%;
     height: 156px;
     background-color: #ffffff;
     box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.5);
