@@ -47,7 +47,7 @@ module.exports = React.createClass({
           >
         </Container>
         <div className="landing_header">
-           <img className="leading_img" src="/assets/langding_svg.svg" />
+           <img className="leading_img" src="/infographics/olympic-2016/assets/langding_svg.svg" />
            <div className="landing_headerbox">
                <div className="landing_title">
                  里約奧運看門道
@@ -73,25 +73,25 @@ module.exports = React.createClass({
         <div className="allitems_color">
             <div className="items_block">
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//archery/')}
+                  to={prefixLink('/infographics/olympic-2016/archery/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Archery.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016/assets/icon_Archery.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//athletics/')}
+                  to={prefixLink('/infographics/olympic-2016/athletics/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Athletics.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016/assets/icon_Athletics.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//badminton/')}
+                  to={prefixLink('/infographics/olympic-2016/badminton/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
