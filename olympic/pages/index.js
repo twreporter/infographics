@@ -73,166 +73,166 @@ module.exports = React.createClass({
         <div className="allitems_color">
             <div className="items_block">
                 <Link
-                  to={prefixLink('/archery/')}
+                  to={prefixLink('/infographics/olympic-2016//archery/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Archery.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Archery.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/athletics/')}
+                  to={prefixLink('/infographics/olympic-2016//athletics/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Athletics.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Athletics.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/badminton/')}
+                  to={prefixLink('/infographics/olympic-2016//badminton/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Badminton.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Badminton.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/boxing/')}
+                  to={prefixLink('/infographics/olympic-2016//boxing/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Boxing.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Boxing.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/cycling/')}
+                  to={prefixLink('/infographics/olympic-2016//cycling/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Cycling.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Cycling.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/equestrian/')}
+                  to={prefixLink('/infographics/olympic-2016//equestrian/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Equestrian.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Equestrian.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/golf/')}
+                  to={prefixLink('/infographics/olympic-2016//golf/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Golf.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Golf.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/gymnastics/')}
+                  to={prefixLink('/infographics/olympic-2016//gymnastics/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Gymnastics.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Gymnastics.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/judo/')}
+                  to={prefixLink('/infographics/olympic-2016//judo/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Judo.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Judo.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/rowing/')}
+                  to={prefixLink('/infographics/olympic-2016//rowing/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Rowing.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Rowing.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/sailing/')}
+                  to={prefixLink('/infographics/olympic-2016//sailing/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Sailing.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Sailing.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/shooting/')}
+                  to={prefixLink('/infographics/olympic-2016//shooting/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Shooting.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Shooting.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/swimming/')}
+                  to={prefixLink('/infographics/olympic-2016//swimming/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Swimming.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Swimming.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/table_tennis/')}
+                  to={prefixLink('/infographics/olympic-2016//table_tennis/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Table_tennis.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Table_tennis.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/taekwodo/')}
+                  to={prefixLink('/infographics/olympic-2016//taekwodo/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Taekwondo.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Taekwondo.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/tennis/')}
+                  to={prefixLink('/infographics/olympic-2016//tennis/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Tennis.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Tennis.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/weightlifting/')}
+                  to={prefixLink('/infographics/olympic-2016//weightlifting/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Weightlifting.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Weightlifting.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/wrestling/')}
+                  to={prefixLink('/infographics/olympic-2016//wrestling/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/assets/icon_Wrestling.svg')} />
+                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Wrestling.svg')} />
                 </Link>
             </div>
         </div>
