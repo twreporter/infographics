@@ -32,17 +32,17 @@ module.exports = React.createClass({
           />
         <meta httpEquiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, initial-scale=1" />
-        <meta property="og:title" content="你所不知道的里約奧運大解密／報導者"/>
-        <meta property="og:description" content="你所不知道的里約奧運大解密 獎落誰家決勝秘笈獨家公開"/>
+        <meta property="og:title" content="里約奧運看門道／報導者"/>
+        <meta property="og:description" content="里約奧運看門道 誰是史上大贏家"/>
         <meta property="og:type" content="article"/>
-        <meta property="og:url" content="https://www.twreporter.org/i/olympic-2016/index.html" />
-        <meta property="og:image" content="https://www.twreporter.org/i/olympic-2016/img/cover.jpg"/>
+        <meta property="og:url" content="https://www.twreporter.org/i/olympic-2016/" />
+        <meta property="og:image" content="https://www.twreporter.org/i/olympic-2016/assets/olympic-og.png"/>
         <meta property="og:site_name" content="報導者"/>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://www.twreporter.org/i/dolympic-2016/img/cover.jpg" />
-        <meta name="twitter:title" content="你所不知道的里約奧運大解密／報導者" />
-        <meta name="twitter:description" content="你所不知道的里約奧運大解密 獎落誰家決勝秘笈獨家公開。" />
+        <meta name="twitter:image" content="https://www.twreporter.org/i/olympic-2016/assets/olympic-og.png" />
+        <meta name="twitter:title" content="里約奧運看門道／報導者" />
+        <meta name="twitter:description" content="里約奧運看門道 誰是史上大贏家。" />
           <title>{title}</title>
           <link rel="shortcut icon" href={this.props.favicon} />
           <TypographyStyle typography={typography} />
