@@ -16,6 +16,7 @@ module.exports = React.createClass({
     const data = this.props.route.page.data
     let divs = []
     let loop = 1
+    let logo_url = "/infographics/olympic-2016/" + data.logo
     let share_url = "https://www.facebook.com/sharer/sharer.php?u=" + data.url
     let share = []
     share.push(
@@ -81,12 +82,13 @@ module.exports = React.createClass({
 
     for(let p in data.players) {
         let experience = data.players[p].experience.split("|")
+        let player_picture = "/infographics/olympic-2016/" + data.players[p].picture;
         experience = experience.map(function (element, index, array) {
                                         return (<div>{element}</div>)}) 
         divs.push(
         <div className="player" key={loop}>
           <div className="player_left">
-            <div className="player_picture"><img className="player_picture" src={prefixLink(data.players[p].picture)} /></div>
+            <div className="player_picture"><img className="player_picture" src={prefixLink(player_picture)} /></div>
             <div className="player_name">{p}</div>
           </div>
           <div className="player_right">
@@ -107,7 +109,7 @@ module.exports = React.createClass({
       <div>
         {share}
         <div className="header">
-          <div className="item_logo"><img src={prefixLink(data.logo)} /></div>
+          <div className="item_logo"><img src={prefixLink(logo_url)} /></div>
           <div className="project">里約奧運看門道</div>
           <div className="subtitle">誰是史上大贏家</div>
           <div className="header_triangle" />
