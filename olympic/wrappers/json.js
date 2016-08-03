@@ -26,11 +26,11 @@ module.exports = React.createClass({
           </div>
           <div className="facebook" style={{marginTop:15}}>
             <a href={share_url} onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;">
-                <img src="/assets/facebook.png" className="img-shadow" style={{opacity:.1,cursor:'pointer'}} />
+                <img src="/infographics/olympic-2016/assets/facebook.png" className="img-shadow" style={{opacity:.1,cursor:'pointer'}} />
             </a>
           </div>
           <div className="twitter" style={{marginTop:15}}>
-            <a style={{textDecoration:'none'}} href="https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic"><img src="/assets/twitter.png" className="img-shadow" style={{opacity:.1}} /></a>
+            <a style={{textDecoration:'none'}} href="https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic"><img src="/infographics/olympic-2016/assets/twitter.png" className="img-shadow" style={{opacity:.1}} /></a>
           </div>
         </div>
     )
