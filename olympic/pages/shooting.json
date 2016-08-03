@@ -1,0 +1,43 @@
+{
+ "url":"https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic%2Fshooting%2F",
+ "logo":"/assets/icon_Shooting_shadow.svg",
+ "title": "里約奧運看門道",
+ "subtitle": "誰是史上大贏家",
+ "item": "射擊 | Shooting",
+ "intro": "台灣射擊好手於1996年開始參加奧運，曾獲男子雙不定向飛靶第6名、女子雙不定向飛靶第4名。今年將參加男子不定向飛靶、女子不定向飛靶、女子10公尺空氣手槍3項目。",
+ "historytitle":"歷年射擊得牌更迭",
+ "history":"射擊運動不受年齡與體型限制，奧運史上最高齡參賽者是瑞典射擊選手Oscar Swahn，他在72歲時射下銀牌，但瑞典近年表現較不突出，中國雖然1980年後才崛起，但無論積分或金牌數都僅次於美國。",
+ "historyiframe":"https://plotdb.io/v/chart/10045",
+ "historydesc":"透過「金牌*3，銀牌*2，銅牌*1」的加權計分方式，我們嘗試檢視各國在奧運不同競賽的實力更迭，其中總積分前三名標註為紅線，台灣則標為藍線。因為成為奧運正式項目的時間不同，各項運動的起始時間會有所差異。",
+ "maptitle":"誰是世界射擊強國？",
+ "map":"https://plotdb.io/v/chart/10071",
+ "mapdesc":"《報導者》統計1986年至2012年間，各國在單項奧運競賽中獲得的金牌數量，並在地圖上以圓圈大小呈現金牌多寡。不只能看出誰是該項運動強國，也能比拚五大洲的奪牌戰力。",
+ "playertitle":"2016年台灣參賽選手",
+ "players":{
+   "楊昆弼":{
+     "item":"男子不定向飛靶",
+     "picture":"/assets/athletes_photos/shooting/yang.png",
+     "experience": "首度參加",
+     "intro":"8月才將滿18歲的楊昆弼，在奧運資格賽一路過關斬將奪得第2名。繼1996年奧運射擊名將黃義介取得第6名佳績後，我國再有選手挺進奧運射擊男子飛靶項目。"
+   },
+   "林怡君":{
+     "item":"女子不定向飛靶",
+     "picture":"/assets/athletes_photos/shooting/lin.png",
+     "experience": "2000年雪梨奧運│2004年雅典奧運│2012年倫敦奧運",
+     "intro":"林怡君是台灣射擊元老、全國不定向飛靶紀錄保持人，目前亞洲排名第一，世界排名第9，曾代表台灣參加過五屆亞運和三屆奧運，奧運最佳成績是第四名。"
+   },
+   "吳佳穎":{
+     "item":"10公尺空氣手槍",
+     "picture":"/assets/athletes_photos/shooting/wu.png",
+     "experience": "首度參加",
+     "intro":"有「最美證件妹」美稱的吳佳穎，2014年仁川亞運奪銀，同年於世界射擊錦標賽再摘銅牌，為台灣射下首張前進2016里約奧運門票。"
+   },
+   "余艾玟":{
+     "item":"10公尺空氣手槍",
+     "picture":"/assets/athletes_photos/shooting/yu.png",
+     "experience": "2012年倫敦奧運",
+     "intro":"余艾玟國中時便在射壇嶄露頭角，16歲首度參加奧運，2015年世界盃美國站取得里約奧運資格，這次的目標是進入決賽。"
+   }
+ }
+}
+

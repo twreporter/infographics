@@ -1,5 +1,5 @@
 # infographics
 
-To put some static pages here with the infographic. And we can embed the pages to the twreporter site.
+The statics pages for the Olympic 2015 by Reporter.
 
 
