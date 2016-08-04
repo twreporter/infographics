@@ -10,8 +10,8 @@ iframe {
 .wrapper {
   position:relative;
   height:0;
-  overflor:hidden;
-  padding-bottom:75%;
+  overflow:hidden;
+  padding-bottom:55%;
 }
 
 .project {
@@ -89,7 +89,7 @@ iframe {
 }
 
 .intro {
-  width: 750px;
+  width: 70%;
   font-family: SourceHanSansTWHK-Normal;
   font-size: 18px;
   font-weight: 400;
@@ -168,7 +168,7 @@ iframe {
 }
 
 .desc {
-  width: 460px;
+  width: 750px;
   font-family: SourceHanSansTWHK-Normal;
   font-size: 15px;
   font-weight: 400;
@@ -236,6 +236,7 @@ iframe {
 .player_item {
   width: 60%;
   display: inline-block;
+  font-family: SourceHanSansTWHK;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.94;
@@ -341,11 +342,12 @@ iframe {
   background-image: linear-gradient(to bottom, #00dd3f, #4d6deb);
   box-shadow: 0 0 70px 0 rgba(0, 0, 0, 0.2);
   border: solid 0.7px #979797;
+  margin-bottom: 80px;
 }
 
 .landing_headerbox {
   position: relative;
-  margin: -60px auto -60px auto;
+  margin: -8% auto -60px auto;
   width: 490px;
   height: 156px;
   background-color: #ffffff;
@@ -354,7 +356,8 @@ iframe {
 }
 
 .leading_img {
-  margin: 0px;
+  margin: 0px auto;
+  display: block;
 }
 
 .landing_title {
@@ -368,6 +371,7 @@ iframe {
 }
 
 .landing_subtitle {
+  font-family: SourceHanSansTWHK;
   font-size: 36px;
   font-weight: 400;
   letter-spacing: 2.6px;
@@ -381,7 +385,7 @@ iframe {
     width: 550px;
   }
   .intro {
-    width: 550px;
+    width: 70%;
   }
   .history {
     width: 550px;
@@ -423,7 +427,7 @@ iframe {
     font-weight: 400;
   }
   .desc {
-    width: 300px;
+    width: 90%;
     margin: 15px auto 15px auto;
   }
   .playerlist {
@@ -469,7 +473,7 @@ iframe {
     margin: 20px auto;
   }
   .data_source {
-    width: 280px;
+    width: 90%;
     height: auto;
     font-size: 15px;
     color: #9b9b9b;
@@ -502,7 +506,7 @@ iframe {
 
   .landing_headerbox {
     position: relative;
-    margin: 0px auto 40px auto;
+    margin: 3% auto 40px auto;
     width: 90%;
     height: 156px;
     background-color: #ffffff;

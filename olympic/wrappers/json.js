@@ -53,7 +53,7 @@ module.exports = React.createClass({
         </div>
         <div className="title">{data.maptitle}</div>
         <div className="map"><div className="wrapper"><iframe src={data.map} /></div></div>
-        <div className="desc">{data.mapdesc}</div>
+        <div className="desc">備註：《報導者》統計1986年至2012年間，各國在單項奧運競賽中獲得的金牌數量，並在地圖上以色階呈現金牌多寡。不只能看出誰是該項運動強國，也能比拚五大洲的奪牌戰力。</div>
         </div>
       )
     }
@@ -75,7 +75,7 @@ module.exports = React.createClass({
             <div className="title">{data.historytitle}</div>
             <div className="intro">{data.history}</div>
             <div className="map"><div className="wrapper"><iframe src={data.historyiframe} /></div></div>
-            <div className="desc">{data.historydesc}</div>
+            <div className="desc">透過「金牌*3，銀牌*2，銅牌*1」的加權計分方式，我們嘗試檢視各國在奧運不同競賽的實力更迭，其中總積分前三名標註為綠線，台灣則標為藍線。因為成為奧運正式項目的時間不同，各項運動的起始時間會有所差異。</div>
         </div>
       )
     }

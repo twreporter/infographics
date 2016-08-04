@@ -64,10 +64,12 @@ module.exports = React.createClass({
         </div>
         <div className="item_line" />
         <div className="index_items">
-        <div className="index_items">
-            台灣人必看！
-        </div>
-            你不可錯過的18項賽事
+            <div className="index_item">
+                台灣人必看！
+            </div>
+            <div className="index_item">
+                你不可錯過的18項賽事
+            </div>
         </div>
         <div className="allitems_color">
             <div className="items_block">
