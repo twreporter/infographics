@@ -10,8 +10,8 @@ iframe {
 .wrapper {
   position:relative;
   height:0;
-  overflor:hidden;
-  padding-bottom:75%;
+  overflow:hidden;
+  padding-bottom:55%;
 }
 
 .project {
@@ -168,7 +168,7 @@ iframe {
 }
 
 .desc {
-  width: 460px;
+  width: 750px;
   font-family: SourceHanSansTWHK-Normal;
   font-size: 15px;
   font-weight: 400;
@@ -236,6 +236,7 @@ iframe {
 .player_item {
   width: 60%;
   display: inline-block;
+  font-family: SourceHanSansTWHK;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.94;
@@ -426,7 +427,7 @@ iframe {
     font-weight: 400;
   }
   .desc {
-    width: 300px;
+    width: 90%;
     margin: 15px auto 15px auto;
   }
   .playerlist {
@@ -472,7 +473,7 @@ iframe {
     margin: 20px auto;
   }
   .data_source {
-    width: 280px;
+    width: 90%;
     height: auto;
     font-size: 15px;
     color: #9b9b9b;
