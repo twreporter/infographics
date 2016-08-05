@@ -156,7 +156,7 @@ module.exports = React.createClass({
             </div>
             <div className="item_line" />
             <div className="data_source">
-               <p>本專題資料來源為維基百科，透過程式爬梳後以人工校對產生，並以開源方式釋出於 <a href="https://github.com/twreporter-data/olympic">Github</a> 任何人皆可檢視下載。如有誤植，歡迎共同協作更正，協助我們產出更正確的資訊。</p>
+               <p>本專題資料來源為維基百科，透過程式爬梳後以人工校對產生，並以開源方式釋出於 <a href="https://github.com/twreporter-data/olympic" style={{color: "#000"}}>Github</a> 任何人皆可檢視下載。如有誤植，歡迎共同協作更正，協助我們產出更正確的資訊。</p>
                <p>照片資料來源：維基百科、國家運動訓練中心、選手Facebook、2017世大運粉絲專頁、台灣職業高爾夫協會。</p>
             </div>
             <div className="team">
