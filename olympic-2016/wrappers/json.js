@@ -132,207 +132,209 @@ module.exports = React.createClass({
         loop++
     }
     return (
-      <div>
-        {share}
-        <div className="header">
-          <div className="item_logo"><img src={prefixLink(logo_url)} /></div>
-          <div className="project">里約奧運看門道</div>
-          <div className="subtitle">誰是史上大贏家</div>
-          <div className="header_triangle" />
-        </div>
-          <div className="header_rect" />
-        <div className="olympic_item">
-            {data.item}
-        </div>
-        <div className="item_line" />
-        <div className="intro">{data.intro}</div>
-        {map}
-        {history}
-        {pline}
-        <div className="title">2016年台灣參賽選手</div>
-        <div className="playerlist">
-          { divs }
-        </div>
-        <div className="item_line" />
-        <div className="data_source">
-           <p>本專題資料來源為維基百科，透過程式爬梳後以人工校對產生，並以開源方式釋出於 <a href="https://github.com/twreporter-data/olympic">Github</a> 任何人皆可檢視下載。如有誤植，歡迎共同協作更正，協助我們產出更正確的資訊。</p>
-           <p>照片資料來源：維基百科、國家運動訓練中心、選手Facebook、2017世大運粉絲專頁、台灣職業高爾夫協會。</p>
-        </div>
-        <div className="team">
-          <div className="team_title">製作團隊</div>
-          <div className="team_members">簡信昌、陳貞樺、賴子歆、陳思樺、吳政達</div>
-          <div className="publish_date">2016.08.04</div>
-        </div> 
-        <div className="allitems">
-            <div className="item_title">
-                <a href="https://www.twreporter.org/a/olympic-2016">快來看更多台灣參賽項目</a>
+      <DocumentTitle title={data.item}>
+          <div>
+            {share}
+            <div className="header">
+              <div className="item_logo"><img src={prefixLink(logo_url)} /></div>
+              <div className="project">里約奧運看門道</div>
+              <div className="subtitle">誰是史上大贏家</div>
+              <div className="header_triangle" />
             </div>
-            <div className="items_block">
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016//archery/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Archery.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/athletics/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Athletics.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/badminton/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Badminton.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/boxing/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Boxing.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/cycling/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Cycling.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/equestrian/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Equestrian.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/golf/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Golf.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/gymnastics/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Gymnastics.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/judo/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Judo.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/rowing/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Rowing.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/sailing/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Sailing.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/shooting/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Shooting.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/swimming/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Swimming.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/table_tennis/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Table_tennis.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/taekwodo/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Taekwondo.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/tennis/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Tennis.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/weightlifting/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Weightlifting.svg')} />
-                </Link>
-                <Link
-                  to={prefixLink('https://www.twreporter.org/a/olympic-2016/wrestling/')}
-                  style={{
-                    color: 'black',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Wrestling.svg')} />
-                </Link>
+              <div className="header_rect" />
+            <div className="olympic_item">
+                {data.item}
             </div>
-        </div>
-      </div>
+            <div className="item_line" />
+            <div className="intro">{data.intro}</div>
+            {map}
+            {history}
+            {pline}
+            <div className="title">2016年台灣參賽選手</div>
+            <div className="playerlist">
+              { divs }
+            </div>
+            <div className="item_line" />
+            <div className="data_source">
+               <p>本專題資料來源為維基百科，透過程式爬梳後以人工校對產生，並以開源方式釋出於 <a href="https://github.com/twreporter-data/olympic">Github</a> 任何人皆可檢視下載。如有誤植，歡迎共同協作更正，協助我們產出更正確的資訊。</p>
+               <p>照片資料來源：維基百科、國家運動訓練中心、選手Facebook、2017世大運粉絲專頁、台灣職業高爾夫協會。</p>
+            </div>
+            <div className="team">
+              <div className="team_title">製作團隊</div>
+              <div className="team_members">簡信昌、陳貞樺、賴子歆、陳思樺、吳政達</div>
+              <div className="publish_date">2016.08.04</div>
+            </div> 
+            <div className="allitems">
+                <div className="item_title">
+                    <a href="https://www.twreporter.org/a/olympic-2016">快來看更多台灣參賽項目</a>
+                </div>
+                <div className="items_block">
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016//archery/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Archery.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/athletics/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Athletics.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/badminton/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Badminton.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/boxing/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Boxing.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/cycling/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Cycling.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/equestrian/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Equestrian.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/golf/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Golf.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/gymnastics/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Gymnastics.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/judo/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Judo.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/rowing/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Rowing.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/sailing/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Sailing.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/shooting/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Shooting.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/swimming/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Swimming.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/table_tennis/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Table_tennis.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/taekwodo/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Taekwondo.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/tennis/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Tennis.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/weightlifting/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Weightlifting.svg')} />
+                    </Link>
+                    <Link
+                      to={prefixLink('https://www.twreporter.org/a/olympic-2016/wrestling/')}
+                      style={{
+                        color: 'black',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <img className="singleitem" src={prefixLink('https://www.twreporter.org/a/olympic-2016/assets/icon_Wrestling.svg')} />
+                    </Link>
+                </div>
+            </div>
+          </div>
+      </DocumentTitle>
     )
   },
 })
