@@ -16,7 +16,7 @@ module.exports = React.createClass({
     const data = this.props.route.page.data
     let divs = []
     let loop = 1
-    let logo_url = "/infographics/olympic-2016/" + data.logo
+    let logo_url = "https://www.twreporter.org/i/olympic-2016/" + data.logo
     let share_url = "https://www.facebook.com/sharer/sharer.php?u=" + data.url
     let share = []
     share.push(
@@ -26,11 +26,11 @@ module.exports = React.createClass({
           </div>
           <div className="facebook" style={{marginTop:15}}>
             <a href={share_url} onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=600'); return false;">
-                <img src="/infographics/olympic-2016/assets/facebook.png" className="img-shadow" style={{opacity:.1,cursor:'pointer'}} />
+                <img src="https://www.twreporter.org/i/olympic-2016/assets/facebook.png" className="img-shadow" style={{opacity:.1,cursor:'pointer'}} />
             </a>
           </div>
           <div className="twitter" style={{marginTop:15}}>
-            <a style={{textDecoration:'none'}} href="https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic"><img src="/infographics/olympic-2016/assets/twitter.png" className="img-shadow" style={{opacity:.1}} /></a>
+            <a style={{textDecoration:'none'}} href="https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fi%2Folympic"><img src="https://www.twreporter.org/i/olympic-2016/assets/twitter.png" className="img-shadow" style={{opacity:.1}} /></a>
           </div>
         </div>
     )
@@ -82,7 +82,7 @@ module.exports = React.createClass({
 
     for(let p in data.players) {
         let experience = data.players[p].experience.split("|")
-        let player_picture = "/infographics/olympic-2016/" + data.players[p].picture;
+        let player_picture = "https://www.twreporter.org/i/olympic-2016/" + data.players[p].picture;
         experience = experience.map(function (element, index, array) {
                                         return (<div>{element}</div>)}) 
         divs.push(
@@ -154,166 +154,166 @@ module.exports = React.createClass({
             </div>
             <div className="items_block">
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//archery/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016//archery/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Archery.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Archery.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//athletics/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/athletics/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Athletics.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Athletics.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//badminton/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/badminton/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Badminton.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Badminton.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//boxing/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/boxing/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Boxing.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Boxing.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//cycling/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/cycling/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Cycling.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Cycling.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//equestrian/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/equestrian/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Equestrian.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Equestrian.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//golf/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/golf/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Golf.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Golf.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//gymnastics/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/gymnastics/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Gymnastics.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Gymnastics.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//judo/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/judo/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Judo.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Judo.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//rowing/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/rowing/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Rowing.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Rowing.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//sailing/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/sailing/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Sailing.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Sailing.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//shooting/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/shooting/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Shooting.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Shooting.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//swimming/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/swimming/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Swimming.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Swimming.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//table_tennis/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/table_tennis/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Table_tennis.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Table_tennis.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//taekwodo/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/taekwodo/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Taekwondo.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Taekwondo.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//tennis/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/tennis/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Tennis.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Tennis.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//weightlifting/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/weightlifting/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Weightlifting.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Weightlifting.svg')} />
                 </Link>
                 <Link
-                  to={prefixLink('/infographics/olympic-2016//wrestling/')}
+                  to={prefixLink('https://www.twreporter.org/i/olympic-2016/wrestling/')}
                   style={{
                     color: 'black',
                     textDecoration: 'none',
                   }}
                 >
-                  <img className="singleitem" src={prefixLink('/infographics/olympic-2016//assets/icon_Wrestling.svg')} />
+                  <img className="singleitem" src={prefixLink('https://www.twreporter.org/i/olympic-2016/assets/icon_Wrestling.svg')} />
                 </Link>
             </div>
         </div>
