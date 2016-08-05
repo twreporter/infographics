@@ -15,6 +15,7 @@ module.exports = React.createClass({
   render () {
     const data = this.props.route.page.data
     let divs = []
+    let pline = []
     let loop = 1
     let logo_url = "https://www.twreporter.org/a/olympic-2016/" + data.logo
     let share_url = "https://www.facebook.com/sharer/sharer.php?u=" + data.url
@@ -56,6 +57,20 @@ module.exports = React.createClass({
         <div className="desc">備註：《報導者》統計1986年至2012年間，各國在單項奧運競賽中獲得的金牌數量，並在地圖上以色階呈現金牌多寡。不只能看出誰是該項運動強國，也能比拚五大洲的奪牌戰力。</div>
         </div>
       )
+      pline.push(
+        <div className="index_group">
+          <div className="index_seq">
+            <div className="index_line" />
+          </div>
+          <div className="index_seq">
+            <div className="index_line" />
+          </div>
+          <div className="index_seq">
+            <div className="index_line" />
+            <div className="index_point" />
+          </div>
+        </div>
+      )
     }
     if (data.historytitle) {
       history.push(
@@ -81,15 +96,26 @@ module.exports = React.createClass({
     }
 
     for(let p in data.players) {
+        let remark
+        let mark = []
+        if (data.players[p].remark) {
+            remark = "#F0F0F0"
+            if (data.players[p].remark == 'quit') {
+                mark.push(<div className="quit">因「相忍為國」爭議，本屆已確定退賽</div>)
+            } else {
+                mark.push(<div className="quit">因「相忍為國」爭議，是否出賽尚未確定</div>)
+            }    
+        }
         let experience = data.players[p].experience.split("|")
         let player_picture = "https://www.twreporter.org/a/olympic-2016/" + data.players[p].picture;
         experience = experience.map(function (element, index, array) {
                                         return (<div>{element}</div>)}) 
         divs.push(
-        <div className="player" key={loop}>
+        <div className="player" key={loop} style={{backgroundColor: remark}}>
           <div className="player_left">
             <div className="player_picture"><img className="player_picture" src={prefixLink(player_picture)} /></div>
             <div className="player_name">{p}</div>
+            {mark}
           </div>
           <div className="player_right">
             <div className="player_field">
@@ -122,18 +148,7 @@ module.exports = React.createClass({
         <div className="intro">{data.intro}</div>
         {map}
         {history}
-        <div className="index_group">
-          <div className="index_seq">
-            <div className="index_line" />
-          </div>
-          <div className="index_seq">
-            <div className="index_line" />
-          </div>
-          <div className="index_seq">
-            <div className="index_line" />
-            <div className="index_point" />
-          </div>
-        </div>
+        {pline}
         <div className="title">2016年台灣參賽選手</div>
         <div className="playerlist">
           { divs }
@@ -150,7 +165,7 @@ module.exports = React.createClass({
         </div> 
         <div className="allitems">
             <div className="item_title">
-                快來看更多台灣參賽項目
+                <a href="https://www.twreporter.org/a/olympic-2016">快來看更多台灣參賽項目</a>
             </div>
             <div className="items_block">
                 <Link
