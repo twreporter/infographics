@@ -1,3 +1,17 @@
+a:link {
+  text-decoration: none;
+  color: #FFF;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #FFF;
+}
+
+a:hover {
+    color: #FF5050;
+}
+
 iframe {
   border: 0;
   position:absolute;
@@ -188,8 +202,8 @@ iframe {
 .player {
   width: 700px;
   height: auto;
-  margin-top: 33px;
-  margin-bottom: 33px;
+  margin: 16px;
+  padding: 16px;
 }
 
 .player_field {
@@ -204,6 +218,19 @@ iframe {
   width: 45%;
   vertical-align: top;
   display: inline-block;
+}
+
+.quit {
+  width: 190px;
+  font-family: SourceHanSansTWHK;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 35px;
+  color: #4D6DEB;  
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  border: solid 3px;
 }
 
 .player_right {
@@ -435,7 +462,7 @@ iframe {
     margin: 0 auto 0 auto;
   }
   .player {
-    width: 94%;
+    width: 100%;
     margin: 0 auto 0 auto;
   }
   .player_name {
@@ -443,11 +470,11 @@ iframe {
     margin: 0 auto 0 auto;
   }
   .player_left {
-    width: 300px;
+    width: 100%;
     margin: 10px auto 10px auto;
   }
   .player_right {
-    width: 300px;
+    width: 100%;
     margin: 10px auto 10px auto;
   }
   .player_texttitle {
@@ -455,7 +482,7 @@ iframe {
     width: 35%;
   }
   .player_intro {
-    width: 300px;
+    width: 100%;
   }
   .player_field {
     margin: 2px auto 2px auto;
@@ -535,6 +562,9 @@ iframe {
     text-align: center;
     color: #fead00;
     margin-top: 40px;
+  }
+  .wrapper {
+    padding-bottom: 70%;
   }
 
 }

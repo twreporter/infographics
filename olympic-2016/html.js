@@ -53,6 +53,7 @@ module.exports = React.createClass({
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           <script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`)} />
+          <script src={prefixLink("https://www.twreporter.org/ga.js")} />
         </body>
       </html>
     )
