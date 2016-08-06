@@ -44,7 +44,7 @@ module.exports = React.createClass({
         <meta name="twitter:image" content="https://www.twreporter.org/a/olympic-2016/assets/olympic-og.png" />
         <meta name="twitter:title" content="里約奧運看門道 誰是史上大贏家／報導者" />
         <meta name="twitter:description" content="里約奧運看門道 誰是史上大贏家。" />
-          <title>報導者</title>
+          <title>里約奧運看門道誰是史上大贏家－報導者</title>
           <link rel="shortcut icon" href="https://www.twreporter.org/asset/favicon.png" />
           <TypographyStyle typography={typography} />
           <GoogleFont typography={typography} />
