@@ -89,6 +89,6 @@
   },
   "dependencies": {
     "html-loader": "^0.4.4",
-    "markdown-loader": "^0.1.7"
+    "react-markdown": "^2.4.2"
   }
 }

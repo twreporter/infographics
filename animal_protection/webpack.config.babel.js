@@ -2,7 +2,7 @@ import path from "path"
 
 import webpack from "webpack"
 import ExtractTextPlugin from "extract-text-webpack-plugin"
-import { phenomicLoader } from "phenomic"
+import { phenomicLoader, phenomicLoaderPlugins, phenomicLoaderPresets } from "phenomic"
 
 import pkg from "./package.json"
 
@@ -96,12 +96,6 @@ export const makeConfig = (config = {}) => {
               "postcss-loader",
             ].join("!"),
           ),
-        },
-        {
-          test: /\.md$/,
-          exclude: /\.global\.md$/,
-          include: path.resolve(__dirname, "web_modules"),
-          loader: "html!markdown?gfm=false",
         },
         // ! \\
         // If you want global CSS only, just remove the 2 sections above

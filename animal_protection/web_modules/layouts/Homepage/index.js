@@ -4,18 +4,14 @@ import enhanceCollection from "phenomic/lib/enhance-collection"
 import Page from "../Page"
 import PagesList from "../../PagesList"
 
-import markdownFile from "../../mds/markdown.md"
+import Markdown from "react-markdown"
+import { firstContent } from "./content"
 
 const numberOfLatestPosts = 6
 
 export default class Homepage extends Component {
   static contextTypes = {
     collection: PropTypes.array.isRequired,
-  }
-
-  rawMarkup() {
-    console.log(markdownFile)
-    return { __html: markdownFile }
   }
 
   render() {
@@ -29,7 +25,7 @@ export default class Homepage extends Component {
     return (
       <Page { ...this.props }>
         <h2>{ "Latest Posts" }</h2>
-        <div dangerouslySetInnerHTML={ this.rawMarkup() } />
+        <Markdown source={ firstContent } />
         <PagesList pages={ latestPosts } />
       </Page>
     )
