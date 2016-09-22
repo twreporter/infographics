@@ -7,6 +7,7 @@ import Page from "../Page"
 import PagesList from "../../PagesList"
 
 import Markdown from "react-markdown"
+import Img from "react-image-holder"
 import { firstContent } from "./content"
 let velocity
 if (typeof window !== "undefined") {
@@ -46,6 +47,7 @@ export default class Homepage extends Component {
         <div ref={ (ref) => this.block = ref }>
           VelocityExample
         </div>
+        <Img src="" width="800" height="500" usePlaceholder />
         {
           // window ? 
           // <VelocityTransitionGroup 

@@ -90,6 +90,7 @@
   "dependencies": {
     "html-loader": "^0.4.4",
     "react-holder": "^1.0.0",
+    "react-image-holder": "^2.0.1",
     "react-markdown": "^2.4.2",
     "velocity-animate": "^1.2.3"
   }
