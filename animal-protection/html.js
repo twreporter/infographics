@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
 import DocumentTitle from 'react-document-title'
 
 import { prefixLink } from 'gatsby-helpers'
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from './utils/typography'
+import { VelocityTransitionGroup } from 'velocity-react'
+import 'velocity-animate/velocity.ui'
 
 const BUILD_TIME = new Date().getTime()
 
-module.exports = React.createClass({
-  propTypes() {
-    return {
-      body: React.PropTypes.string
+// module.exports = React.createClass({
+export default class HTML extends Component {  
+  constructor(props) {
+    super(props)
+    this.state = {
+      showSubComponent: true,
     }
-  },
+  }
+
   render() {
     const title = DocumentTitle.rewind()
 
@@ -36,11 +41,26 @@ module.exports = React.createClass({
           {css}
         </head>
         <body>
-          
+          <VelocityTransitionGroup 
+            enter={ { animation: "slideDown" } } 
+            leave={ { animation: "slideUp" } }
+            runOnMount={ this.state.showSubComponent }
+          >
+            {
+              this.state.showSubComponent ?
+              <div>
+              </div> : undefined
+            }
+          </VelocityTransitionGroup>
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           <script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`) } />
         </body>
       </html>
     )
   }
-})
+}
+
+HTML.propTypes = 
+{
+  body: React.PropTypes.string
+}

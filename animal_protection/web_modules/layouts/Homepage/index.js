@@ -4,7 +4,7 @@ import enhanceCollection from "phenomic/lib/enhance-collection"
 import Page from "../Page"
 import PagesList from "../../PagesList"
 
-import Holder from "react-holder"
+import Holder from "react-holder" 
 
 import Markdown from "react-markdown"
 import { firstContent } from "./content"
@@ -36,22 +36,27 @@ export default class Homepage extends Component {
     return (
       <Page { ...this.props }>
         <h2>{ "Latest Posts" }</h2>
-        <VelocityTransitionGroup 
-          enter={ { animation: "slideDown" } } 
-          leave={ { animation: "slideUp" } }
-          runOnMount={ this.state.showSubComponent }
-        >
-          {
-            this.state.showSubComponent ?
-            <div>
-              <Holder
-                // width and height can be a number or a string
-                width="100%"
-                height="500px" 
-              />
-            </div> : undefined
-          }
-        </VelocityTransitionGroup>
+        {
+          window ? 
+          <VelocityTransitionGroup 
+            enter={ { animation: "slideDown" } } 
+            leave={ { animation: "slideUp" } }
+            runOnMount={ this.state.showSubComponent }
+          >
+            {
+              this.state.showSubComponent ?
+              <div>
+                <Holder 
+                  // width and height can be a number or a string 
+                  width="100%" 
+                  height="500px"  
+                /> 
+              </div> : undefined
+            }
+          </VelocityTransitionGroup>
+          
+          : null
+        }
         <Markdown source={ firstContent } />
         <PagesList pages={ latestPosts } />
       </Page>
