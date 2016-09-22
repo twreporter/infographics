@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-bind, react/jsx-no-literals */
+
 import React, { Component, PropTypes } from "react"
 import enhanceCollection from "phenomic/lib/enhance-collection"
 
@@ -6,8 +8,10 @@ import PagesList from "../../PagesList"
 
 import Markdown from "react-markdown"
 import { firstContent } from "./content"
-// import { VelocityTransitionGroup } from "velocity-react"
-// import "velocity-animate/velocity.ui"
+let velocity
+if (typeof window !== "undefined") {
+  velocity = require("velocity-animate")
+} 
 
 const numberOfLatestPosts = 6
 
@@ -23,6 +27,11 @@ export default class Homepage extends Component {
     }
   }
 
+  componentDidMount() {
+    velocity(this.block, { scale: 2 }, 500)
+      .then(() => console.log("animation complete"))
+  }
+
   render() {
     const latestPosts = enhanceCollection(this.context.collection, {
       filter: { layout: "Post" },
@@ -34,6 +43,9 @@ export default class Homepage extends Component {
     return (
       <Page { ...this.props }>
         <h2>{ "Latest Posts" }</h2>
+        <div ref={ (ref) => this.block = ref }>
+          VelocityExample
+        </div>
         {
           // window ? 
           // <VelocityTransitionGroup 
