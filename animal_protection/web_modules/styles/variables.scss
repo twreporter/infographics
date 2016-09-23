@@ -1,0 +1,17 @@
+$pink: #f472a5;
+$blue: #1168d9;
+$light-blue: #acd1f2;
+$light-gray: #fffffd;
+$dark-gray: #2c3e50;
+
+@mixin linear-gradient($direction, $color-stops...) {
+  // Direction has been omitted and happens to be a color-stop
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}

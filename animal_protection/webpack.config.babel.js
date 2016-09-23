@@ -94,6 +94,7 @@ export const makeConfig = (config = {}) => {
                 : "[path][name]--[local]--[hash:base64:5]"
               }`,
               "postcss-loader",
+              "sass-loader",
             ].join("!"),
           ),
         },

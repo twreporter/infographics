@@ -30,8 +30,8 @@ export default class OpeningSec1 extends Component {
     return (
       <div className={ classnames(styles.container, 
         commonStyles["text-center"]) }
+        ref={ (ref) => this.container = ref }
       >
-        <h2>{ "Latest Posts" }</h2>
         <div ref={ (ref) => this.block = ref }>
           Opening Section 1
         </div>
