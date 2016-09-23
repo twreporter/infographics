@@ -5,7 +5,7 @@ import Helmet from "react-helmet"
 import "./index.global.css"
 import styles from "./index.css"
 
-import Header from "../Header"
+// import Header from "../Header"
 import Footer from "../Footer"
 
 export default class Layout extends Component {
@@ -47,7 +47,7 @@ export default class Layout extends Component {
         />
         <style>{ "@-ms-viewport { width: device-width; }" }</style>
 
-        <Header />
+        {/* <Header /> */}
         <div className={ styles.content }>
           { this.props.children }
         </div>

@@ -9,6 +9,10 @@ import PagesList from "../../PagesList"
 import Markdown from "react-markdown"
 import Img from "react-image-holder"
 import { firstContent } from "./content"
+import OpeningSec1 from "./Opening/OpeningSec1"
+
+import commonStyles from "../../styles/common.scss"
+
 let velocity
 if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
@@ -41,36 +45,24 @@ export default class Homepage extends Component {
     })
     .slice(0, numberOfLatestPosts)
 
+    console.log("***this.props", this.props)
+
     return (
-      <Page { ...this.props }>
-        <h2>{ "Latest Posts" }</h2>
-        <div ref={ (ref) => this.block = ref }>
-          VelocityExample
+      <Page { ...this.props } className={ commonStyles["center-block"] }>
+        <div className={ commonStyles.content }>
+          <h2>{ "Latest Posts" }</h2>
+          <div ref={ (ref) => this.block = ref }>
+            VelocityExample
+          </div>
+          <Img src="" width="800" height="500" usePlaceholder />
         </div>
-        <Img src="" width="800" height="500" usePlaceholder />
-        {
-          // window ? 
-          // <VelocityTransitionGroup 
-          //   enter={ { animation: "slideDown" } } 
-          //   leave={ { animation: "slideUp" } }
-          //   runOnMount={ this.state.showSubComponent }
-          // >
-          //   {
-          //     this.state.showSubComponent ?
-          //     <div>
-          //       <Holder 
-          //         // width and height can be a number or a string 
-          //         width="100%" 
-          //         height="500px"  
-          //       /> 
-          //     </div> : undefined
-          //   }
-          // </VelocityTransitionGroup>
-          
-          // : null
-        }
-        <Markdown source={ firstContent } />
-        <PagesList pages={ latestPosts } />
+
+        <OpeningSec1 />
+        <div className={ commonStyles.content }>
+          <Markdown source={ firstContent } />
+          <PagesList pages={ latestPosts } />
+        </div>
+        
       </Page>
     )
   }
