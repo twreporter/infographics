@@ -1,4 +1,6 @@
 /* stylelint-disable block-closing-brace-newline-before */
+@import "variables.scss";
+
 .content {
   max-width: 60rem;
   margin: auto;
@@ -13,4 +15,23 @@
 
 .text-center {
   text-align: center;
+}
+
+.content-outer {
+  width: $outer-width;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto !important;
+}
+
+.fixedCenter {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
