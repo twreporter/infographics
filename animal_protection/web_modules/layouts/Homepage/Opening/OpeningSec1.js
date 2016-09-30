@@ -12,7 +12,12 @@ import commonStyles from "../../../styles/common.scss"
 let velocity
 if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
-} 
+}
+
+const debounceTime = {
+  threshold: 10,
+  maxWait: 30,
+}
 
 export default class OpeningSec1 extends Component {  
   constructor(props) {
@@ -20,12 +25,13 @@ export default class OpeningSec1 extends Component {
     this.state = {
       showSubComponent: true,
       isIn: false,
+      pinTopY: 0,
     }
     this.pItemHeight = 100
     this._handleScroll = this._handleScroll.bind(this)
     this.debouncedScroll = _.debounce(() => { 
       this._handleScroll() 
-    }, 30, { "maxWait": 90 })
+    }, debounceTime.threshold, { "maxWait": debounceTime.maxWait })
   }
 
   componentDidMount() {
@@ -51,11 +57,16 @@ export default class OpeningSec1 extends Component {
     const node = ReactDOM.findDOMNode(this.container)
     const rect = node.getBoundingClientRect()
     const vpHeight = window.innerHeight
-    if (rect.bottom > (vpHeight / 2 + this.pItemHeight / 2) && 
+    if (rect.bottom > vpHeight && rect.bottom && 
         rect.top < (vpHeight / 2 - this.pItemHeight / 2)) {
       console.log("***Into View")
-      this.setState({ isIn: true })
+      this.setState({ isIn: true, pinTopY: vpHeight / 2 })
     } 
+    else if (rect.bottom < vpHeight && rect.bottom > 0 &&
+        rect.top < (vpHeight / 2 - this.pItemHeight / 2)) {
+      console.log("***Going out of View", vpHeight, rect.bottom)
+      this.setState({ pinTopY: rect.bottom - vpHeight / 2 })
+    }
     else {
       this.setState({ isIn: false })
     }
@@ -73,6 +84,7 @@ export default class OpeningSec1 extends Component {
         <div className={ commonStyles["content-outer"] }>
           <div 
             className={ classnames(commonStyles["content-outer"], centerClass) }
+            style={ { top: this.state.pinTopY } }
             ref={ (ref) => this.pinnedItem = ref }
           >
             <h1>Opening Section 1</h1>
