@@ -16,7 +16,7 @@ if (typeof window !== "undefined") {
 
 const debounceTime = {
   threshold: 10,
-  maxWait: 30,
+  maxWait: 20,
 }
 
 export default class OpeningSec1 extends Component {  
@@ -26,6 +26,7 @@ export default class OpeningSec1 extends Component {
       showSubComponent: true,
       isIn: false,
       pinTopY: 0,
+      scrollRatio: -1,
     }
     this.pItemHeight = 100
     this._handleScroll = this._handleScroll.bind(this)
@@ -56,21 +57,28 @@ export default class OpeningSec1 extends Component {
     const scrollPos = window.scrollY
     const node = ReactDOM.findDOMNode(this.container)
     const rect = node.getBoundingClientRect()
+    const { top, bottom } = rect
     const vpHeight = window.innerHeight
-    if (rect.bottom > vpHeight && rect.bottom && 
-        rect.top < (vpHeight / 2 - this.pItemHeight / 2)) {
+    if (bottom > vpHeight && bottom && 
+        top < (vpHeight / 2 - this.pItemHeight / 2)) {
       console.log("***Into View")
       this.setState({ isIn: true, pinTopY: vpHeight / 2 })
     } 
-    else if (rect.bottom < vpHeight && rect.bottom > 0 &&
-        rect.top < (vpHeight / 2 - this.pItemHeight / 2)) {
-      console.log("***Going out of View", vpHeight, rect.bottom)
-      this.setState({ pinTopY: rect.bottom - vpHeight / 2 })
+    else if (bottom < vpHeight && bottom > 0 &&
+        top < (vpHeight / 2 - this.pItemHeight / 2)) {
+      console.log("***Going out of View", vpHeight, bottom)
+      this.setState({ pinTopY: bottom - vpHeight / 2 })
     }
     else {
       this.setState({ isIn: false })
     }
-    console.log("***scrollPos", scrollPos, node.getBoundingClientRect(), node.scrollTop, this.pItemHeight)
+
+    if (top < vpHeight && bottom > 0)
+      this.setState({ scrollRatio: Math.abs((top - vpHeight) / (bottom - top + vpHeight)) })
+    else 
+      this.setState({ scrollRatio: -1 })
+
+    console.log("***scrollPos", scrollPos, node.getBoundingClientRect(), this.state.scrollRatio)
   }
 
   render() {

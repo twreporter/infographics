@@ -55,6 +55,8 @@ export default class Homepage extends Component {
             VelocityExample
           </div>
           <Img src="" width="800" height="500" usePlaceholder />
+          <Img src="" width="800" height="500" usePlaceholder />
+          <Img src="" width="800" height="500" usePlaceholder />
         </div>
 
         <OpeningSec1 />
