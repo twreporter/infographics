@@ -30,7 +30,7 @@ export default class OpeningStardust extends Component {
       showSubComponent: true,
       isIn: false,
       pinTopY: 0,
-      scrollRatio: -1,
+      scrollRatio: 0,
     }
     this.pItemHeight = 100
     this._handleScroll = this._handleScroll.bind(this)
@@ -79,14 +79,24 @@ export default class OpeningStardust extends Component {
       }
     }
 
-    if (top < vpHeight && bottom > 0)
-      this.setState({ scrollRatio: Math.abs((top - vpHeight) / (bottom - top + vpHeight)) })
-    else 
-      this.setState({ scrollRatio: -1 })
+    if (top < vpHeight && bottom > 0) {
+      // if user is viewing the content of the container
+      const sRatio = Math.abs((top - vpHeight) / (bottom - top + vpHeight))
+      this.setState({ scrollRatio: sRatio })
+      velocity(this.petImgs, { translateZ: "-" + Math.abs(sRatio * 2000) + "px" }, 10)
+      
+    } 
+    else if (bottom < 0)
+      this.setState({ scrollRatio: 1 })
+    else
+      this.setState({ scrollRatio: 0 })
   }
 
   render() {
+    const { scrollRatio } = this.state
+
     const centerClass = (this.state.isIn) ? commonStyles["fixedCenter"] : null
+    console.log("scrollRatio:", scrollRatio)
 
     return (
       <div className={ classnames(styles.container, 
@@ -99,35 +109,40 @@ export default class OpeningStardust extends Component {
             style={ { top: this.state.pinTopY } }
             ref={ (ref) => this.pinnedItem = ref }
           >
-            <div className={ styles["pet-container"] }>
-              <div className={ styles["pet-item"] }>
-                <img src={ pet1 } />
-              </div>
-              <div className={ styles["pet-item"] }>
-                <img src={ pet2 } />
-              </div>
-              <div className={ styles["pet-item"] }>
-                <img src={ pet3 } />
-              </div>
-              <div className={ styles["pet-item"] }>
-                <img src={ pet4 } />
-              </div>
-              <div className={ styles["pet-item"] }>
-                <img src={ pet1 } />
-              </div>
-              <div className={ styles["pet-item"] }>
-                <img src={ pet2 } />
-              </div>
-              <div className={ styles["pet-item"] }>
-                <img src={ pet3 } />
-              </div>
-              <div className={ styles["pet-item"] }>
-                <img src={ pet4 } />
-              </div>
-              <div className={ styles["pet-item"] }>
-                <img src={ pet1 } />
+            <div className={ styles["dots-container"] }>
+              <div className={ styles["pet-container"] }
+                ref={ (ref) => this.petImgs = ref }
+              >
+                <div className={ styles["pet-item"] }>
+                  <img src={ pet1 } />
+                </div>
+                <div className={ styles["pet-item"] }>
+                  <img src={ pet2 } />
+                </div>
+                <div className={ styles["pet-item"] }>
+                  <img src={ pet3 } />
+                </div>
+                <div className={ styles["pet-item"] }>
+                  <img src={ pet4 } />
+                </div>
+                <div className={ styles["pet-item"] }>
+                  <img src={ pet1 } />
+                </div>
+                <div className={ styles["pet-item"] }>
+                  <img src={ pet2 } />
+                </div>
+                <div className={ styles["pet-item"] }>
+                  <img src={ pet3 } />
+                </div>
+                <div className={ styles["pet-item"] }>
+                  <img src={ pet4 } />
+                </div>
+                <div className={ styles["pet-item"] }>
+                  <img src={ pet1 } />
+                </div>
               </div>
             </div>
+            
             <p>還有更多的狗狗與憂憂面對相似的命運</p>
           </div>
         </div>

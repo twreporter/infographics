@@ -6,6 +6,11 @@ $dark-gray: #2c3e50;
 
 $outer-width : 800px;
 
+$width-xs: 544px;   // Small devices (landscape phones, 544px and up)
+$width-sm: 768px;   // Medium devices (tablets, 768px and up)
+$width-md: 992px;   // Large devices (desktops, 992px and up)
+$width-lg: 1200px;  // Extra large devices (large desktops, 1200px and up)
+
 @mixin linear-gradient($direction, $color-stops...) {
   // Direction has been omitted and happens to be a color-stop
   @if is-direction($direction) == false {

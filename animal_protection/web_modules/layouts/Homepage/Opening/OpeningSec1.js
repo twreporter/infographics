@@ -9,10 +9,10 @@ import classnames from "classnames"
 import styles from "./OpeningSec1.scss"
 import commonStyles from "../../../styles/common.scss"
 
-let velocity
-if (typeof window !== "undefined") {
-  velocity = require("velocity-animate")
-}
+// let velocity
+// if (typeof window !== "undefined") {
+//   velocity = require("velocity-animate")
+// }
 
 const debounceTime = {
   threshold: 10,
