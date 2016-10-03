@@ -1,0 +1,34 @@
+/* stylelint-disable function-comma-space-after, block-closing-brace-newline-before, indentation, rule-non-nested-empty-line-before */
+@import "../../../styles/variables.scss";
+
+.container {
+  height: 200vh;
+  color: white;
+  background: linear-gradient(to bottom,$pink 0%,$blue 100%);
+}
+
+.pet-container {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.pet-item {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+
+  img {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+  }
+}

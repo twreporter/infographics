@@ -4,10 +4,14 @@ import _ from "lodash"
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
 
-import Img from "react-image-holder"
 import classnames from "classnames"
-import styles from "./OpeningSec1.scss"
+import styles from "./OpeningStardust.scss"
 import commonStyles from "../../../styles/common.scss"
+
+import pet1 from "../../../../content/assets/dog01.jpg"
+import pet2 from "../../../../content/assets/dog02.jpg"
+import pet3 from "../../../../content/assets/dog03.jpg"
+import pet4 from "../../../../content/assets/dog04.jpg"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -19,7 +23,7 @@ const debounceTime = {
   maxWait: 20,
 }
 
-export default class OpeningSec1 extends Component {  
+export default class OpeningStardust extends Component {  
   constructor(props) {
     super(props)
     this.state = {
@@ -36,7 +40,9 @@ export default class OpeningSec1 extends Component {
   }
 
   componentDidMount() {
+    console.log("***componentDidMount")
     const pinNode = ReactDOM.findDOMNode(this.pinnedItem)
+    console.log("***pinNode", pinNode)
     if (pinNode) {
       this.pItemHeight = pinNode.clientHeight || 100
     }
@@ -44,8 +50,8 @@ export default class OpeningSec1 extends Component {
     // detect sroll position
     window.addEventListener("scroll", this.debouncedScroll)
 
-    // velocity(this.block, { scale: 2 }, 500)
-    //   .then(() => console.log("animation complete"))
+    velocity(this.block, { scale: 2 }, 500)
+      .then(() => console.log("animation complete"))
 
   }
 
@@ -93,11 +99,36 @@ export default class OpeningSec1 extends Component {
             style={ { top: this.state.pinTopY } }
             ref={ (ref) => this.pinnedItem = ref }
           >
-            <h1>Opening Section 1</h1>
-            <Img src="" width="800"
-              className={ classnames(commonStyles["img-responsive"]) }
-              height="500" placeholder={ { theme: "sky" } } usePlaceholder
-            />
+            <div className={ styles["pet-container"] }>
+              <div className={ styles["pet-item"] }>
+                <img src={ pet1 } />
+              </div>
+              <div className={ styles["pet-item"] }>
+                <img src={ pet2 } />
+              </div>
+              <div className={ styles["pet-item"] }>
+                <img src={ pet3 } />
+              </div>
+              <div className={ styles["pet-item"] }>
+                <img src={ pet4 } />
+              </div>
+              <div className={ styles["pet-item"] }>
+                <img src={ pet1 } />
+              </div>
+              <div className={ styles["pet-item"] }>
+                <img src={ pet2 } />
+              </div>
+              <div className={ styles["pet-item"] }>
+                <img src={ pet3 } />
+              </div>
+              <div className={ styles["pet-item"] }>
+                <img src={ pet4 } />
+              </div>
+              <div className={ styles["pet-item"] }>
+                <img src={ pet1 } />
+              </div>
+            </div>
+            <p>還有更多的狗狗與憂憂面對相似的命運</p>
           </div>
         </div>
       </div>
@@ -105,4 +136,4 @@ export default class OpeningSec1 extends Component {
   }
 }
 
-OpeningSec1.propTypes = {}
+OpeningStardust.propTypes = {}

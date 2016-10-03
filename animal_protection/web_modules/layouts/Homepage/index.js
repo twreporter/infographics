@@ -10,6 +10,7 @@ import Markdown from "react-markdown"
 import Img from "react-image-holder"
 import { firstContent } from "./content"
 import OpeningSec1 from "./Opening/OpeningSec1"
+import OpeningStardust from "./Opening/OpeningStardust"
 
 import commonStyles from "../../styles/common.scss"
 
@@ -45,8 +46,6 @@ export default class Homepage extends Component {
     })
     .slice(0, numberOfLatestPosts)
 
-    console.log("***this.props", this.props)
-
     return (
       <Page { ...this.props } className={ commonStyles["center-block"] }>
         <div className={ commonStyles.content }>
@@ -60,6 +59,8 @@ export default class Homepage extends Component {
         </div>
 
         <OpeningSec1 />
+        <div>test</div>
+        <OpeningStardust />
         <div className={ commonStyles.content }>
           <Markdown source={ firstContent } />
           <PagesList pages={ latestPosts } />
