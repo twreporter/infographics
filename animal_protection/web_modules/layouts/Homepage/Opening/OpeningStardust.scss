@@ -12,7 +12,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
+  width: 400%;
+  margin-left: -150%;
+  padding-top: 10vh;
 }
 
 .dots-container {
@@ -20,15 +22,16 @@
 }
 
 .pet-item {
-  width: 200px;
-  height: 200px;
-  margin: 20px;
+  width: 350px;
+  height: 350px;
+  margin: 60px;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
   @media (max-width: $width-xs) {
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 180px;
+    margin: 30px;
   }
   img {
     position: absolute;

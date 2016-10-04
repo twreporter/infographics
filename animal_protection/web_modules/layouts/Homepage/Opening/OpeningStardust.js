@@ -13,6 +13,8 @@ import pet2 from "../../../../content/assets/dog02.jpg"
 import pet3 from "../../../../content/assets/dog03.jpg"
 import pet4 from "../../../../content/assets/dog04.jpg"
 
+const pets = [ pet1, pet2, pet3, pet4 ]
+
 let velocity
 if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
@@ -79,11 +81,15 @@ export default class OpeningStardust extends Component {
       }
     }
 
-    if (top < vpHeight && bottom > 0) {
+    if (top < vpHeight/2 && bottom > vpHeight/2) {
       // if user is viewing the content of the container
-      const sRatio = Math.abs((top - vpHeight) / (bottom - top + vpHeight))
+      const sRatio = Math.abs((top - vpHeight/2) / (bottom - top))
       this.setState({ scrollRatio: sRatio })
-      velocity(this.petImgs, { translateZ: "-" + Math.abs(sRatio * 2000) + "px" }, 10)
+      velocity(this.petImgs, { 
+        translateY: "-" + Math.abs(sRatio * 2500) + "px",
+        translateZ: "-" + Math.abs(sRatio * 3000) + "px",
+        opacity: Math.abs(1 - sRatio),
+      }, 5)
       
     } 
     else if (bottom < 0)
@@ -98,6 +104,13 @@ export default class OpeningStardust extends Component {
     const centerClass = (this.state.isIn) ? commonStyles["fixedCenter"] : null
     console.log("scrollRatio:", scrollRatio)
 
+    let petItems = []
+    for (let i=0; i<36; i++) {
+      petItems.push(<div className={ styles["pet-item"] }>
+                  <img src={ pets[i%4] } />
+                </div>)
+    }
+
     return (
       <div className={ classnames(styles.container, 
         commonStyles["text-center"]) }
@@ -105,7 +118,7 @@ export default class OpeningStardust extends Component {
       >
         <div className={ commonStyles["content-outer"] }>
           <div 
-            className={ classnames(commonStyles["content-outer"], centerClass) }
+            className={ classnames(centerClass) }
             style={ { top: this.state.pinTopY } }
             ref={ (ref) => this.pinnedItem = ref }
           >
@@ -113,37 +126,13 @@ export default class OpeningStardust extends Component {
               <div className={ styles["pet-container"] }
                 ref={ (ref) => this.petImgs = ref }
               >
-                <div className={ styles["pet-item"] }>
-                  <img src={ pet1 } />
-                </div>
-                <div className={ styles["pet-item"] }>
-                  <img src={ pet2 } />
-                </div>
-                <div className={ styles["pet-item"] }>
-                  <img src={ pet3 } />
-                </div>
-                <div className={ styles["pet-item"] }>
-                  <img src={ pet4 } />
-                </div>
-                <div className={ styles["pet-item"] }>
-                  <img src={ pet1 } />
-                </div>
-                <div className={ styles["pet-item"] }>
-                  <img src={ pet2 } />
-                </div>
-                <div className={ styles["pet-item"] }>
-                  <img src={ pet3 } />
-                </div>
-                <div className={ styles["pet-item"] }>
-                  <img src={ pet4 } />
-                </div>
-                <div className={ styles["pet-item"] }>
-                  <img src={ pet1 } />
-                </div>
+                { petItems }
               </div>
             </div>
             
-            <p>還有更多的狗狗與憂憂面對相似的命運</p>
+            <div className={ commonStyles["content-outer"] }>
+              <p>還有更多的狗狗與憂憂面對相似的命運</p>
+            </div>
           </div>
         </div>
       </div>
