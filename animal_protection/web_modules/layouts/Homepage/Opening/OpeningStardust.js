@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-bind, react/jsx-no-literals, max-len */
+/* eslint-disable react/jsx-no-bind, react/jsx-no-literals, max-len, react/jsx-closing-bracket-location  */
 
 import _ from "lodash"
 import React, { Component } from "react"
@@ -91,8 +91,12 @@ export default class OpeningStardust extends Component {
         opacity: Math.abs(1 - sRatio),
       }, 5)
       velocity(this.dots, { 
-        translateY: "-" + Math.abs(sRatio * 2500) + "px",
-        translateZ: (500 - Math.abs(sRatio * 3000)) + "px",
+        translateY: "-" + Math.abs(sRatio * 2600) + "px",
+        translateZ: (1200 - Math.abs(sRatio * 3000)) + "px",
+      }, 5)
+      velocity(this.secondDots, { 
+        translateY: "-" + Math.abs(sRatio * 2600-300) + "px",
+        translateZ: (2200 - Math.abs(sRatio * 3000)) + "px",
       }, 5)
       
     } 
@@ -110,6 +114,7 @@ export default class OpeningStardust extends Component {
 
     let petItems = []
     let dotsItems = []
+    let secondDotsItems = []
     for (let i=0; i<36; i++) {
       petItems.push(<div className={ styles["pet-item"] }>
                   <img src={ pets[i%4] } />
@@ -119,7 +124,13 @@ export default class OpeningStardust extends Component {
     const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"] ]
     for (let i=0; i<300; i++) {
       dotsItems.push(<div className={ classnames(styles["dot"], colors[i%4]) } 
-        style={ { top: (i*i*2%1000)/10+"%", left:(((i+3)*i%2200)-1100)/10+"%" } }
+        style={ { top: (i*i*7%1000)/10+"%", left:(((i+3)*i%2200)-1100)/10+"%" } }
+                     ></div>)
+    }
+
+    for (let i=0; i<300; i++) {
+      secondDotsItems.push(<div className={ classnames(styles["dot"], colors[i%4]) } 
+        style={ { top: (i*i*3%1000)/10+"%", left:(((i+5)*i%1800)-1100)/10+"%" } }
                      ></div>)
     }
 
@@ -145,6 +156,11 @@ export default class OpeningStardust extends Component {
                 ref={ (ref) => this.dots = ref }
               >
                 { dotsItems }
+              </div>
+              <div className={ styles["overlay-dots-container"] }
+                ref={ (ref) => this.secondDots = ref }
+              >
+                { secondDotsItems }
               </div>
             </div>
             
