@@ -5,6 +5,7 @@
   height: 300vh;
   color: white;
   background: linear-gradient(to bottom,$pink 0%,$blue 100%);
+  overflow: hidden;
 }
 
 .pet-container {
@@ -41,4 +42,32 @@
     top: 0;
     left: 0;
   }
+}
+
+.overlay-dots-container {
+  position: absolute;
+  top: 10vh;
+  width: 600%;
+  height: 400vh;
+}
+
+.dot {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+}
+
+.blue {
+  background-color: rgba($light-blue, 0.7);
+}
+.pink {
+  background-color: rgba($pink, 0.6);
+  width: 70px;
+  height: 70px;
+}
+.white {
+  width: 60px;
+  height: 60px;
+  background-color: rgba($light-gray, 0.2);
 }

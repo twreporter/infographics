@@ -90,6 +90,10 @@ export default class OpeningStardust extends Component {
         translateZ: "-" + Math.abs(sRatio * 3000) + "px",
         opacity: Math.abs(1 - sRatio),
       }, 5)
+      velocity(this.dots, { 
+        translateY: "-" + Math.abs(sRatio * 2500) + "px",
+        translateZ: (500 - Math.abs(sRatio * 3000)) + "px",
+      }, 5)
       
     } 
     else if (bottom < 0)
@@ -105,10 +109,18 @@ export default class OpeningStardust extends Component {
     console.log("scrollRatio:", scrollRatio)
 
     let petItems = []
+    let dotsItems = []
     for (let i=0; i<36; i++) {
       petItems.push(<div className={ styles["pet-item"] }>
                   <img src={ pets[i%4] } />
                 </div>)
+    }
+
+    const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"] ]
+    for (let i=0; i<300; i++) {
+      dotsItems.push(<div className={ classnames(styles["dot"], colors[i%4]) } 
+        style={ { top: (i*i*2%1000)/10+"%", left:(((i+3)*i%2200)-1100)/10+"%" } }
+                     ></div>)
     }
 
     return (
@@ -127,6 +139,12 @@ export default class OpeningStardust extends Component {
                 ref={ (ref) => this.petImgs = ref }
               >
                 { petItems }
+              </div>
+
+              <div className={ styles["overlay-dots-container"] }
+                ref={ (ref) => this.dots = ref }
+              >
+                { dotsItems }
               </div>
             </div>
             
