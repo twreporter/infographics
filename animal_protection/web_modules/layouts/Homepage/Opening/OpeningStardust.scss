@@ -2,7 +2,7 @@
 @import "../../../styles/variables.scss";
 
 .container {
-  height: 300vh;
+  height: 180vh;
   color: white;
   background: linear-gradient(to bottom,$pink 0%,$blue 100%);
   overflow: hidden;
@@ -13,12 +13,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 400%;
-  margin-left: -150%;
+  width: 1200%;
+  margin-left: -500%;
+  margin-top: -30%;
 }
 
 .dots-container {
   perspective: 600px;
+  margin-top: 30vh;
 }
 
 .pet-item {
@@ -48,12 +50,13 @@
   top: 20vh;
   width: 600%;
   height: 400vh;
+  margin-top: 30vh;
 }
 
 .dot {
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 55px;
+  height: 55px;
   position: absolute;
 }
 
@@ -61,12 +64,12 @@
   background-color: rgba($light-blue, 0.7);
 }
 .pink {
-  background-color: rgba($pink, 0.6);
-  width: 70px;
-  height: 70px;
+  background-color: rgba($pink, 0.7);
+  width: 55px;
+  height: 55px;
 }
 .white {
-  width: 70px;
-  height: 70px;
-  background-color: rgba($light-gray, 0.2);
+  width: 50px;
+  height: 50px;
+  background-color: rgba($light-gray, 0.5);
 }

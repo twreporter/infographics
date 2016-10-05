@@ -12,6 +12,7 @@ import pet1 from "../../../../content/assets/dog01.jpg"
 import pet2 from "../../../../content/assets/dog02.jpg"
 import pet3 from "../../../../content/assets/dog03.jpg"
 import pet4 from "../../../../content/assets/dog04.jpg"
+import petDesktop from "../../../../content/assets/dog_bg_desktop_s.png"
 
 const pets = [ pet1, pet2, pet3, pet4 ]
 
@@ -61,6 +62,11 @@ export default class OpeningStardust extends Component {
     window.removeEventListener("scroll", this.debouncedScroll)
   }
 
+  _getRatio(_val) {
+    const val = Math.abs(_val)
+    return (val > 1) ? 1 : val
+  }
+
   _handleScroll() {
     const node = ReactDOM.findDOMNode(this.container)
     const rect = node.getBoundingClientRect()
@@ -83,20 +89,23 @@ export default class OpeningStardust extends Component {
 
     if (top < vpHeight/2 && bottom > vpHeight/2) {
       // if user is viewing the content of the container
-      const sRatio = Math.abs((top - vpHeight/2) / (bottom - top))
+      let sRatio = Math.abs((top - vpHeight/2) / (bottom - top))
+      sRatio = Math.round(sRatio * 1000) / 1000
       this.setState({ scrollRatio: sRatio })
       velocity(this.petImgs, { 
-        translateY: "-" + Math.abs(sRatio * 2500) + "px",
-        translateZ: "-" + Math.abs(sRatio * 3000) + "px",
-        opacity: Math.abs(1 - sRatio),
+        translateY: "-" + Math.abs(sRatio * 6500) + "px",
+        translateZ: "-" + Math.abs(sRatio * 16000) + "px",
+        opacity: this._getRatio((1.6 - sRatio) * (1.1 - sRatio) * (1 - sRatio)),
       }, 5)
       velocity(this.dots, { 
-        translateY: "-" + Math.abs(sRatio * 2600) + "px",
-        translateZ: (1200 - Math.abs(sRatio * 3000)) + "px",
+        translateY: "-" + Math.abs(sRatio * 4000) + "px",
+        translateZ: (1000 - Math.abs(sRatio * 6000)) + "px",
+        opacity: this._getRatio(1.5 - sRatio),
       }, 5)
       velocity(this.secondDots, { 
-        translateY: "-" + Math.abs(sRatio * 2600-300) + "px",
-        translateZ: (2200 - Math.abs(sRatio * 3000)) + "px",
+        translateY: "-" + Math.abs(sRatio * 2000-400) + "px",
+        translateZ: (2000 - Math.abs(sRatio * 6000)) + "px",
+        opacity: this._getRatio(1.9 - sRatio),
       }, 5)
       
     } 
@@ -116,20 +125,20 @@ export default class OpeningStardust extends Component {
     let dotsItems = []
     let secondDotsItems = []
     for (let i=0; i<36; i++) {
-      petItems.push(<div className={ styles["pet-item"] }>
+      petItems.push(<div className={ styles["pet-item"] }> key={ i }
                   <img src={ pets[i%4] } />
                 </div>)
     }
 
-    const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"] ]
-    for (let i=0; i<300; i++) {
-      dotsItems.push(<div className={ classnames(styles["dot"], colors[i%4]) } 
-        style={ { top: (i*i*7%1000)/10+"%", left:(((i+3)*i%2200)-1100)/10+"%" } }
+    const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"], styles["white"] ]
+    for (let i=0; i<200; i++) {
+      dotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
+        style={ { top: (i*i*7%1000)/10+"%", left:(((i+7)*i%2200)-1100)/10+"%" } }
                      ></div>)
     }
 
-    for (let i=0; i<300; i++) {
-      secondDotsItems.push(<div className={ classnames(styles["dot"], colors[i%4]) } 
+    for (let i=0; i<350; i++) {
+      secondDotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
         style={ { top: (i*i*3%1000)/10+"%", left:(((i+5)*i%1800)-1100)/10+"%" } }
                      ></div>)
     }
