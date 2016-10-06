@@ -72,7 +72,7 @@ export default class OpeningStardust extends Component {
       this.pItemHeight = pinNode.clientHeight || 100
     }
 
-        // detect sroll position
+    // detect sroll position
     window.addEventListener("scroll", this.debouncedScroll)
 
     velocity(this.block, { scale: 2 }, 500)
@@ -121,11 +121,11 @@ export default class OpeningStardust extends Component {
       let sRatio = Math.abs((top - vpHeight / 2) / (bottom - top))
       sRatio = Math.round(sRatio * 20) / 20
       this.setState({ scrollRatio: sRatio })
-      // velocity(this.petImgs, {
-      //   translateY: "-" + Math.abs(sRatio * 3000) + "px",
-      //   translateZ: (300 - sRatio * 2000) + "px",
-      //   opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
-      // }, 5)
+      velocity(this.petImgs, {
+        translateY: "-" + Math.abs(sRatio * 3000) + "px",
+        translateZ: (300 - sRatio * 2000) + "px",
+        opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
+      }, 5)
       velocity(this.dots, {
         translateY: "-" + Math.abs(sRatio * 6000) + "px",
         translateZ: (1200 - Math.abs(sRatio * 6100)) + "px",
@@ -162,11 +162,11 @@ export default class OpeningStardust extends Component {
             ref={ (ref) => this.pinnedItem = ref }
           >
             <div className={ styles["dots-container"] }>
-              {/* <div className={ styles["pet-container"] }
+              <div className={ styles["pet-container"] }
                 ref={ (ref) => this.petImgs = ref }
               >
                 <img src={ petDesktop } />
-              </div>*/}
+              </div>
 
               <div className={ styles["overlay-dots-container"] }
                 ref={ (ref) => this.dots = ref }
