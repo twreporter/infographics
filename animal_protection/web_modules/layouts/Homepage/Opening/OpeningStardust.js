@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-bind, react/jsx-no-literals, max-len, react/jsx-closing-bracket-location  */
+/* eslint-disable react/jsx-no-bind, react/jsx-no-literals, max-len, react/no-multi-comp, react/jsx-closing-bracket-location  */
 
 import _ from "lodash"
 import React, { Component } from "react"
@@ -16,8 +16,36 @@ if (typeof window !== "undefined") {
 }
 
 const debounceTime = {
-  threshold: 10,
-  maxWait: 20,
+  threshold: 15,
+  maxWait: 45,
+}
+
+const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"], styles["white"] ]
+
+let DotsItems = () => {
+  let dotsItems = []
+  for (let i=0; i<130; i++) {
+    dotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
+      style={ { top: (i*i*7%1100)/10+"%", left:(((i+7)*i%2100)-1100)/10+"%" } }
+                    ></div>)
+  }
+
+  return (
+    <div>{ dotsItems }</div>
+  )
+}
+
+let OverlayDotsItems = () => {
+  let secondDotsItems = []
+  for (let i=0; i<150; i++) {
+    secondDotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
+      style={ { top: (i*i*3%1100)/10+"%", left:(((i+5)*i%2200)-1100)/10+"%" } }
+                    ></div>)
+  }
+
+  return (
+    <div>{ secondDotsItems }</div>
+  )
 }
 
 export default class OpeningStardust extends Component {
@@ -52,6 +80,13 @@ export default class OpeningStardust extends Component {
 
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextState.scrollRatio!==this.state.scrollRatio) {
+      return true
+    }
+    return false
+  }
+
   componentWillUnmount() {
     window.removeEventListener("scroll", this.debouncedScroll)
   }
@@ -84,13 +119,13 @@ export default class OpeningStardust extends Component {
     if (top < vpHeight / 2 && bottom > vpHeight / 2) {
             // if user is viewing the content of the container
       let sRatio = Math.abs((top - vpHeight / 2) / (bottom - top))
-      sRatio = Math.round(sRatio * 1000) / 1000
+      sRatio = Math.round(sRatio * 20) / 20
       this.setState({ scrollRatio: sRatio })
-      velocity(this.petImgs, {
-        translateY: "-" + Math.abs(sRatio * 3000) + "px",
-        translateZ: (300 - sRatio * 2000) + "px",
-        opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
-      }, 5)
+      // velocity(this.petImgs, {
+      //   translateY: "-" + Math.abs(sRatio * 3000) + "px",
+      //   translateZ: (300 - sRatio * 2000) + "px",
+      //   opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
+      // }, 5)
       velocity(this.dots, {
         translateY: "-" + Math.abs(sRatio * 6000) + "px",
         translateZ: (1200 - Math.abs(sRatio * 6100)) + "px",
@@ -114,23 +149,7 @@ export default class OpeningStardust extends Component {
 
     const centerClass = (this.state.isIn) ? commonStyles["fixedCenter"] : null
     console.log("scrollRatio:", scrollRatio)
-
-    let dotsItems = []
-    let secondDotsItems = []
-
-    const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"], styles["white"] ]
-    for (let i=0; i<400; i++) {
-      dotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
-        style={ { top: (i*i*7%1100)/10+"%", left:(((i+7)*i%2200)-1100)/10+"%" } }
-                     ></div>)
-    }
-
-    for (let i=0; i<500; i++) {
-      secondDotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
-        style={ { top: (i*i*3%1100)/10+"%", left:(((i+5)*i%2300)-1100)/10+"%" } }
-                     ></div>)
-    }
-
+    
     return (
       <div className={ classnames(styles.container, 
         commonStyles["text-center"]) }
@@ -143,21 +162,21 @@ export default class OpeningStardust extends Component {
             ref={ (ref) => this.pinnedItem = ref }
           >
             <div className={ styles["dots-container"] }>
-              <div className={ styles["pet-container"] }
+              {/* <div className={ styles["pet-container"] }
                 ref={ (ref) => this.petImgs = ref }
               >
                 <img src={ petDesktop } />
-              </div>
+              </div>*/}
 
               <div className={ styles["overlay-dots-container"] }
                 ref={ (ref) => this.dots = ref }
               >
-                { dotsItems }
+                <DotsItems />
               </div>
               <div className={ styles["overlay-dots-container"] }
                 ref={ (ref) => this.secondDots = ref }
               >
-                { secondDotsItems }
+                <OverlayDotsItems />
               </div>
             </div>
             <div className={ commonStyles["content-outer"] }></div>
@@ -175,3 +194,4 @@ export default class OpeningStardust extends Component {
 }
 
 OpeningStardust.propTypes = {}
+

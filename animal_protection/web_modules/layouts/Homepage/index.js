@@ -59,7 +59,6 @@ export default class Homepage extends Component {
         </div>
 
         <OpeningSec1 />
-        <div>test</div>
         <OpeningStardust />
         <div className={ commonStyles.content }>
           <Markdown source={ firstContent } />
