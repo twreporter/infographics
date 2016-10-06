@@ -9,18 +9,20 @@
 }
 
 .pet-container {
-  display: -webkit-flex;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 1200%;
-  margin-left: -500%;
-  margin-top: -30%;
+  position: absolute;
+  width: 300%;
+  margin-left: -125%;
+  margin-top: 15vh;
+  
+  >img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .dots-container {
   perspective: 600px;
-  margin-top: 30vh;
+  margin-top: 0;
 }
 
 .pet-item {
@@ -47,7 +49,7 @@
 
 .overlay-dots-container {
   position: absolute;
-  top: 20vh;
+  top: 15vh;
   width: 600%;
   height: 400vh;
   margin-top: 30vh;
@@ -72,4 +74,8 @@
   width: 50px;
   height: 50px;
   background-color: rgba($light-gray, 0.5);
+}
+
+.des-text {
+  padding-top: 120vh;
 }
