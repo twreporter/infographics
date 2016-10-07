@@ -137,7 +137,7 @@ export default class OpeningStardust extends Component {
         opacity: this._getRatio(1.5 - sRatio),
       }, 1)
       velocity(this.secondDots, {
-        translateY: "-" + Math.abs(sRatio * 3800 - 400) + "px",
+        translateY: "-" + Math.abs(sRatio * 3800 - 500) + "px",
         translateZ: (2200 - Math.abs(sRatio * 5700)) + "px",
         opacity: this._getRatio(1.9 - sRatio),
       }, 1)
