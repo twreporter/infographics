@@ -125,7 +125,8 @@ export default class OpeningStardust extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
-    const frames = this.state.isMobile ? 12 : 120
+    const frames = this.state.isMobile ? 4 : 120
+    const imgSpeed = this.state.isMobile ? 350 : 1
 
     if (this.pItemHeight) {
       if (bottom > vpHeight && bottom > 0 &&
@@ -159,7 +160,7 @@ export default class OpeningStardust extends Component {
           translateY: "-" + Math.abs(sRatio * petTransY) + "px",
           translateZ: (300 - sRatio * 2200) + "px",
           opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
-        }, 1)
+        }, imgSpeed)
         if (!this.state.isMobile) {
           velocity(this.dots, {
             translateY: "-" + Math.abs(sRatio * 7200) + "px",
