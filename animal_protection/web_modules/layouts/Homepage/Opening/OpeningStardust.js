@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-bind, react/jsx-no-literals, max-len, react/no-multi-comp, react/jsx-closing-bracket-location  */
+/* eslint-disable react/jsx-no-bind, react/jsx-no-literals, max-len, react/prop-types, react/no-multi-comp, react/jsx-closing-bracket-location  */
 
 import _ from "lodash"
 import React, { Component } from "react"
@@ -25,11 +25,13 @@ const MOBILE_WIDTH = 768
 
 const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"], styles["white"] ]
 
-let DotsItems = () => {
+let DotsItems = (props) => {
+  const dotsCnt = props.isMobile ? 120 : 300
+  const cWidth = props.isMobile ? 600 : 800
   let dotsItems = []
-  for (let i=0; i<250; i++) {
+  for (let i=0; i<dotsCnt; i++) {
     dotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
-      style={ { top: (i*i*7%1100)/10+"%", left:(((i*i+7)*i%2100)-1100)/10+"%" } }
+      style={ { top: (i*i*7%1300)/10+"%", left:(((i*i+7)*i%cWidth)-cWidth/2)/10+"%" } }
                     ></div>)
   }
 
@@ -38,11 +40,13 @@ let DotsItems = () => {
   )
 }
 
-let OverlayDotsItems = () => {
+let OverlayDotsItems = (props) => {
+  const dotsCnt = props.isMobile ? 120 : 350
+  const cWidth = props.isMobile ? 800 : 1200
   let secondDotsItems = []
-  for (let i=0; i<250; i++) {
+  for (let i=0; i<dotsCnt; i++) {
     secondDotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
-      style={ { top: (i*i*3%1100)/10+"%", left:(((i+5)*i%2200)-1100)/10+"%" } }
+      style={ { top: (i*i*3%1200)/10+"%", left:(((i+5)*i%cWidth)-cWidth/2+10)/10+"%" } }
                     ></div>)
   }
 
@@ -122,20 +126,22 @@ export default class OpeningStardust extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
+    const frames = this.state.isMobile ? 12 : 120
 
     if (this.pItemHeight) {
-      if (bottom > vpHeight && bottom &&
+      if (bottom > vpHeight && bottom > 0 &&
                 top < (vpHeight / 2 - this.pItemHeight / 2)) {
         this.setState({ isIn: true, pinTopY: vpHeight / 2 })
       } 
       else if (bottom < vpHeight && bottom > 0 &&
                 top < (vpHeight / 2 - this.pItemHeight / 2)) {
-        const topY = Math.round(bottom - vpHeight / 2)
-        this.setState({ pinTopY: topY })
-        console.log("pinTopY: ", topY)
-        velocity(this.pinnedItem, {
-          top: topY,
-        }, 1)
+        const topY = Math.round((bottom - vpHeight / 2) * frames) / frames
+        if (this.state.pinTopY !== topY) {
+          this.setState({ pinTopY: topY })
+          velocity(this.pinnedItem, {
+            top: topY,
+          }, 1)
+        }
       } 
       else {
         this.setState({ isIn: false })
@@ -143,26 +149,30 @@ export default class OpeningStardust extends Component {
     }
 
     if (top < vpHeight / 2 && bottom > vpHeight / 2) {
-            // if user is viewing the content of the container
+      // if user is viewing the content of the container
+      const petTransY = this.state.isMobile ? 1600 : 2800
       let sRatio = Math.abs((top - vpHeight / 2) / (bottom - top))
-      sRatio = Math.round(sRatio * 100) / 100
-      this.setState({ scrollRatio: sRatio })
-      velocity(this.petImgs, {
-        translateY: "-" + Math.abs(sRatio * 3000) + "px",
-        translateZ: (300 - sRatio * 2000) + "px",
-        opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
-      }, 1)
-      velocity(this.dots, {
-        translateY: "-" + Math.abs(sRatio * 6200) + "px",
-        translateZ: (1600 - Math.abs(sRatio * 6100)) + "px",
-        opacity: this._getRatio(1.5 - sRatio),
-      }, 1)
-      velocity(this.secondDots, {
-        translateY: "-" + Math.abs(sRatio * 3800 - 600) + "px",
-        translateZ: (2300 - Math.abs(sRatio * 5700)) + "px",
-        opacity: this._getRatio(1.9 - sRatio),
-      }, 1)
-
+      sRatio = Math.round(sRatio * frames) / frames
+      if (this.state.scrollRatio !== sRatio) {
+        this.setState({ scrollRatio: sRatio })
+        velocity(this.petImgs, {
+          translateY: "-" + Math.abs(sRatio * petTransY) + "px",
+          translateZ: (300 - sRatio * 2200) + "px",
+          opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
+        }, 1)
+        if (this.state.isMobile) {
+          velocity(this.dots, {
+            translateY: "-" + Math.abs(sRatio * 7200) + "px",
+            translateZ: (1500 - Math.abs(sRatio * 6600)) + "px",
+            opacity: this._getRatio(1.5 - sRatio),
+          }, 1)
+        }
+        velocity(this.secondDots, {
+          translateY: "-" + Math.abs(sRatio * 4000 - 600) + "px",
+          translateZ: (2300 - Math.abs(sRatio * 5900)) + "px",
+          opacity: this._getRatio(1.9 - sRatio),
+        }, 1)
+      }
     } 
     else if (bottom < 0)
       this.setState({ scrollRatio: 1 })
@@ -175,39 +185,42 @@ export default class OpeningStardust extends Component {
 
     const centerClass = isIn ? commonStyles["fixedCenter"] : null
     const petBg = isMobile ? petMobile : petDesktop
-    console.log("rerender")
+    const fitDotsLayer = isMobile ? null : <div className={ styles["overlay-dots-container"] }
+      ref={ (ref) => this.dots = ref }
+            >
+              <DotsItems />
+            </div>
     
     return (
       <div className={ classnames(styles.container, 
         commonStyles["text-center"]) }
         ref={ (ref) => this.container = ref }
       >
-        <div className={ commonStyles["content-outer"] }>
-          <div 
-            className={ classnames(centerClass) }
-            ref={ (ref) => this.pinnedItem = ref }
-          >
-            <div className={ styles["dots-container"] }>
-              <div className={ styles["pet-container"] }
-                ref={ (ref) => this.petImgs = ref }
-              >
-                <img src={ petBg } />
-              </div>
-
-              <div className={ styles["overlay-dots-container"] }
-                ref={ (ref) => this.dots = ref }
-              >
-                <DotsItems />
-              </div>
-              <div className={ styles["overlay-dots-container"] }
-                ref={ (ref) => this.secondDots = ref }
-              >
-                <OverlayDotsItems />
-              </div>
+        
+        <div 
+          className={ classnames(centerClass, styles["outer"]) }
+          ref={ (ref) => this.pinnedItem = ref }
+        >
+          <div className={ styles["dots-container"] }>
+            <div className={ styles["pet-container"] }
+              ref={ (ref) => this.petImgs = ref }
+            >
+              <img src={ petBg } />
             </div>
-            <div className={ commonStyles["content-outer"] }></div>
+
+            { fitDotsLayer }
             
+            <div className={ styles["overlay-dots-container"] }
+              ref={ (ref) => this.secondDots = ref }
+            >
+              <OverlayDotsItems isMobile={ isMobile } />
+            </div>
           </div>
+          <div className={ commonStyles["content-outer"] }></div>
+          
+        </div>
+
+        <div className={ commonStyles["content-outer"] }>
 
           <div className={ commonStyles["content-outer"] }>
             <p className={ styles["des-text"] }>還有更多的狗狗與憂憂面對相似的命運</p>

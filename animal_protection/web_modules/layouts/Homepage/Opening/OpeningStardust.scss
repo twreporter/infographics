@@ -8,17 +8,20 @@
   overflow: hidden;
 }
 
+.outer {
+  width: 100%;
+}
+
 .pet-container {
   position: absolute;
-  width: 300%;
-  margin-left: -125%;
-  margin-top: 15vh;
-  transform: translateZ(300px);
+  width: 150%;
+  margin-left: -25%;
+  padding-top: 15vh;
 
-  @media (max-width: $width-sm) {
-    width: 200%;
-    margin-left: -50%;
-  }
+  // @media (max-width: $width-sm) {
+  //   width: 150%;
+  //   margin-left: -25%;
+  // }
   
   >img {
     width: 100%;
@@ -63,9 +66,14 @@
 
 .dot {
   border-radius: 50%;
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   position: absolute;
+
+  @media (max-width: $width-xs) {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .blue {
@@ -73,12 +81,20 @@
 }
 .pink {
   background-color: rgba($pink, 0.7);
-  width: 55px;
-  height: 55px;
-}
-.white {
   width: 50px;
   height: 50px;
+  @media (max-width: $width-xs) {
+    width: 30px;
+    height: 30px;
+  }
+}
+.white {
+  width: 45px;
+  height: 45px;
+  @media (max-width: $width-xs) {
+    width: 25px;
+    height: 25px;
+  }
   background-color: rgba($light-gray, 0.5);
 }
 
