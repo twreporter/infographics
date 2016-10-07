@@ -41,12 +41,13 @@ let DotsItems = (props) => {
 }
 
 let OverlayDotsItems = (props) => {
-  const dotsCnt = props.isMobile ? 150 : 350
+  const dotsCnt = props.isMobile ? 100 : 350
   const cWidth = props.isMobile ? 900 : 1200
+  const yPercent = props.isMobile ? 600 : 1200
   let secondDotsItems = []
   for (let i=0; i<dotsCnt; i++) {
     secondDotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
-      style={ { top: (i*i*3%1200)/10+"%", left:(((i+5)*i%cWidth)-cWidth/2+20)/10+"%" } }
+      style={ { top: (i*i*3%yPercent)/10+"%", left:(((i+5)*i%cWidth)-cWidth/2+20)/10+"%" } }
                     ></div>)
   }
 
@@ -153,23 +154,24 @@ export default class OpeningStardust extends Component {
       sRatio = Math.round(sRatio * frames) / frames
       if (this.state.scrollRatio !== sRatio) {
         this.setState({ scrollRatio: sRatio })
+
+        velocity(this.petImgs, {
+          translateY: "-" + Math.abs(sRatio * petTransY) + "px",
+          translateZ: (300 - sRatio * 2200) + "px",
+          opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
+        }, 1)
         if (!this.state.isMobile) {
-          velocity(this.petImgs, {
-            translateY: "-" + Math.abs(sRatio * petTransY) + "px",
-            translateZ: (300 - sRatio * 2200) + "px",
-            opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
-          }, 1)
           velocity(this.dots, {
             translateY: "-" + Math.abs(sRatio * 7200) + "px",
             translateZ: (1500 - Math.abs(sRatio * 6600)) + "px",
             opacity: this._getRatio(1.5 - sRatio),
           }, 5)
+          velocity(this.secondDots, {
+            translateY: "-" + Math.abs(sRatio * 4000 - 600) + "px",
+            translateZ: (2300 - Math.abs(sRatio * 5900)) + "px",
+            opacity: this._getRatio(1.9 - sRatio),
+          }, 1)
         }
-        velocity(this.secondDots, {
-          translateY: "-" + Math.abs(sRatio * 4000 - 600) + "px",
-          translateZ: (2300 - Math.abs(sRatio * 5900)) + "px",
-          opacity: this._getRatio(1.9 - sRatio),
-        }, 1)
       }
     } 
     else if (bottom < 0)
@@ -196,34 +198,44 @@ export default class OpeningStardust extends Component {
         >
           <div className={ styles["dots-container"] }>
 
-            { (isMobile) ? null :
-            <div>  
-              <div className={ styles["pet-container"] }
-                ref={ (ref) => this.petImgs = ref }
-              >
-                <img src={ petBg } />
-              </div>
+            <div className={ styles["pet-container"] }
+              ref={ (ref) => this.petImgs = ref }
+            >
+              <img src={ petBg } />
+            </div>
 
+            { (isMobile) ? 
+              <div className={ styles["overlay-dots-container"] }
+                style={ { transform: "translate3d(0, -1000px, -1500px)" } }
+              >
+                <OverlayDotsItems isMobile={ isMobile } />
+              </div>
+              :
+            <div>  
               <div className={ styles["overlay-dots-container"] }
                 ref={ (ref) => this.dots = ref }
               >
                 <DotsItems /> 
               </div>
+
+              <div className={ styles["overlay-dots-container"] }
+                ref={ (ref) => this.secondDots = ref }
+              >
+                <OverlayDotsItems isMobile={ isMobile } />
+              </div>
             </div>
             }
             
-            <div className={ styles["overlay-dots-container"] }
-              ref={ (ref) => this.secondDots = ref }
-            >
-              <OverlayDotsItems isMobile={ isMobile } />
-            </div>
           </div>
           <div className={ commonStyles["content-outer"] }></div>
           
         </div>
 
-        <div className={ commonStyles["content-outer"] }>
-
+        <div>
+          { (isMobile) ? 
+              null
+              : null
+          }
           <div className={ commonStyles["content-outer"] }>
             <p className={ styles["des-text"] }>還有更多的狗狗與憂憂面對相似的命運</p>
           </div>
