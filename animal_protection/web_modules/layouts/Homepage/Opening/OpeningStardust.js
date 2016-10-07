@@ -9,6 +9,7 @@ import styles from "./OpeningStardust.scss"
 import commonStyles from "../../../styles/common.scss"
 
 import petDesktop from "../../../../content/assets/dog_bg_desktop_s.png"
+import petMobile from "../../../../content/assets/dog_bg_mobile.png"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -19,6 +20,8 @@ const debounceTime = {
   threshold: 15,
   maxWait: 45,
 }
+
+const MOBILE_WIDTH = 768
 
 const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"], styles["white"] ]
 
@@ -54,10 +57,16 @@ export default class OpeningStardust extends Component {
     this.state = {
       showSubComponent: true,
       isIn: false,
+      isMobile: false,
       pinTopY: 0,
       scrollRatio: 0,
     }
     this.pItemHeight = 100
+    this._handleResize = this._handleResize.bind(this)
+    this.handleResize = _.debounce(() => {
+      this._handleResize()
+    }, debounceTime.threshold, { "maxWait": debounceTime.maxWait })
+
     this._handleScroll = this._handleScroll.bind(this)
     this.debouncedScroll = _.debounce(() => {
       this._handleScroll()
@@ -72,6 +81,10 @@ export default class OpeningStardust extends Component {
       this.pItemHeight = pinNode.clientHeight || 100
     }
 
+    // detect window width
+    window.addEventListener("resize", this.handleResize)
+    this.handleResize()
+
     // detect sroll position
     window.addEventListener("scroll", this.debouncedScroll)
 
@@ -81,19 +94,27 @@ export default class OpeningStardust extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.isIn!==this.state.isIn) {
+    if (nextState.isIn!==this.state.isIn || nextState.isMobile!==this.state.isMobile) {
       return true
     }
     return false
   }
 
   componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize)
     window.removeEventListener("scroll", this.debouncedScroll)
   }
 
   _getRatio(_val) {
     const val = Math.abs(_val)
     return (val > 1) ? 1 : val
+  }
+
+  _handleResize() {
+    if (window.innerWidth > MOBILE_WIDTH)
+      this.setState({ isMobile: false })
+    else
+      this.setState({ isMobile: true })
   }
 
   _handleScroll() {
@@ -132,13 +153,13 @@ export default class OpeningStardust extends Component {
         opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
       }, 1)
       velocity(this.dots, {
-        translateY: "-" + Math.abs(sRatio * 6000) + "px",
-        translateZ: (1500 - Math.abs(sRatio * 6100)) + "px",
+        translateY: "-" + Math.abs(sRatio * 6200) + "px",
+        translateZ: (1600 - Math.abs(sRatio * 6100)) + "px",
         opacity: this._getRatio(1.5 - sRatio),
       }, 1)
       velocity(this.secondDots, {
-        translateY: "-" + Math.abs(sRatio * 3800 - 500) + "px",
-        translateZ: (2200 - Math.abs(sRatio * 5700)) + "px",
+        translateY: "-" + Math.abs(sRatio * 3800 - 600) + "px",
+        translateZ: (2300 - Math.abs(sRatio * 5700)) + "px",
         opacity: this._getRatio(1.9 - sRatio),
       }, 1)
 
@@ -150,9 +171,10 @@ export default class OpeningStardust extends Component {
   }
 
   render() {
-    const { isIn } = this.state
+    const { isIn, isMobile } = this.state
 
-    const centerClass = (isIn) ? commonStyles["fixedCenter"] : null
+    const centerClass = isIn ? commonStyles["fixedCenter"] : null
+    const petBg = isMobile ? petMobile : petDesktop
     console.log("rerender")
     
     return (
@@ -169,7 +191,7 @@ export default class OpeningStardust extends Component {
               <div className={ styles["pet-container"] }
                 ref={ (ref) => this.petImgs = ref }
               >
-                <img src={ petDesktop } />
+                <img src={ petBg } />
               </div>
 
               <div className={ styles["overlay-dots-container"] }

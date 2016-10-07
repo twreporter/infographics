@@ -13,6 +13,12 @@
   width: 300%;
   margin-left: -125%;
   margin-top: 15vh;
+  transform: translateZ(300px);
+
+  @media (max-width: $width-sm) {
+    width: 200%;
+    margin-left: -50%;
+  }
   
   >img {
     width: 100%;
