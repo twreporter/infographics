@@ -26,12 +26,12 @@ const MOBILE_WIDTH = 768
 const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"], styles["white"] ]
 
 let DotsItems = (props) => {
-  const dotsCnt = props.isMobile ? 120 : 300
+  const dotsCnt = props.isMobile ? 150 : 300
   const cWidth = props.isMobile ? 600 : 800
   let dotsItems = []
   for (let i=0; i<dotsCnt; i++) {
     dotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
-      style={ { top: (i*i*7%1300)/10+"%", left:(((i*i+7)*i%cWidth)-cWidth/2)/10+"%" } }
+      style={ { top: (i*i*7%1300)/10+"%", left:(((i*i+7)*i%cWidth)-cWidth/2+5)/10+"%" } }
                     ></div>)
   }
 
@@ -41,12 +41,12 @@ let DotsItems = (props) => {
 }
 
 let OverlayDotsItems = (props) => {
-  const dotsCnt = props.isMobile ? 120 : 350
-  const cWidth = props.isMobile ? 800 : 1200
+  const dotsCnt = props.isMobile ? 150 : 350
+  const cWidth = props.isMobile ? 900 : 1200
   let secondDotsItems = []
   for (let i=0; i<dotsCnt; i++) {
     secondDotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
-      style={ { top: (i*i*3%1200)/10+"%", left:(((i+5)*i%cWidth)-cWidth/2+10)/10+"%" } }
+      style={ { top: (i*i*3%1200)/10+"%", left:(((i+5)*i%cWidth)-cWidth/2+20)/10+"%" } }
                     ></div>)
   }
 
@@ -78,9 +78,7 @@ export default class OpeningStardust extends Component {
   }
 
   componentDidMount() {
-    console.log("***componentDidMount")
     const pinNode = ReactDOM.findDOMNode(this.pinnedItem)
-    console.log("***pinNode", pinNode)
     if (pinNode) {
       this.pItemHeight = pinNode.clientHeight || 100
     }
@@ -155,17 +153,17 @@ export default class OpeningStardust extends Component {
       sRatio = Math.round(sRatio * frames) / frames
       if (this.state.scrollRatio !== sRatio) {
         this.setState({ scrollRatio: sRatio })
-        velocity(this.petImgs, {
-          translateY: "-" + Math.abs(sRatio * petTransY) + "px",
-          translateZ: (300 - sRatio * 2200) + "px",
-          opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
-        }, 1)
-        if (this.state.isMobile) {
+        if (!this.state.isMobile) {
+          velocity(this.petImgs, {
+            translateY: "-" + Math.abs(sRatio * petTransY) + "px",
+            translateZ: (300 - sRatio * 2200) + "px",
+            opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
+          }, 1)
           velocity(this.dots, {
             translateY: "-" + Math.abs(sRatio * 7200) + "px",
             translateZ: (1500 - Math.abs(sRatio * 6600)) + "px",
             opacity: this._getRatio(1.5 - sRatio),
-          }, 1)
+          }, 5)
         }
         velocity(this.secondDots, {
           translateY: "-" + Math.abs(sRatio * 4000 - 600) + "px",
@@ -185,12 +183,7 @@ export default class OpeningStardust extends Component {
 
     const centerClass = isIn ? commonStyles["fixedCenter"] : null
     const petBg = isMobile ? petMobile : petDesktop
-    const fitDotsLayer = isMobile ? null : <div className={ styles["overlay-dots-container"] }
-      ref={ (ref) => this.dots = ref }
-            >
-              <DotsItems />
-            </div>
-    
+            
     return (
       <div className={ classnames(styles.container, 
         commonStyles["text-center"]) }
@@ -202,13 +195,22 @@ export default class OpeningStardust extends Component {
           ref={ (ref) => this.pinnedItem = ref }
         >
           <div className={ styles["dots-container"] }>
-            <div className={ styles["pet-container"] }
-              ref={ (ref) => this.petImgs = ref }
-            >
-              <img src={ petBg } />
-            </div>
 
-            { fitDotsLayer }
+            { (isMobile) ? null :
+            <div>  
+              <div className={ styles["pet-container"] }
+                ref={ (ref) => this.petImgs = ref }
+              >
+                <img src={ petBg } />
+              </div>
+
+              <div className={ styles["overlay-dots-container"] }
+                ref={ (ref) => this.dots = ref }
+              >
+                <DotsItems /> 
+              </div>
+            </div>
+            }
             
             <div className={ styles["overlay-dots-container"] }
               ref={ (ref) => this.secondDots = ref }
