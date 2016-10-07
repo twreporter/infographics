@@ -24,9 +24,9 @@ const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"]
 
 let DotsItems = () => {
   let dotsItems = []
-  for (let i=0; i<130; i++) {
+  for (let i=0; i<250; i++) {
     dotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
-      style={ { top: (i*i*7%1100)/10+"%", left:(((i+7)*i%2100)-1100)/10+"%" } }
+      style={ { top: (i*i*7%1100)/10+"%", left:(((i*i+7)*i%2100)-1100)/10+"%" } }
                     ></div>)
   }
 
@@ -37,7 +37,7 @@ let DotsItems = () => {
 
 let OverlayDotsItems = () => {
   let secondDotsItems = []
-  for (let i=0; i<150; i++) {
+  for (let i=0; i<250; i++) {
     secondDotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) } 
       style={ { top: (i*i*3%1100)/10+"%", left:(((i+5)*i%2200)-1100)/10+"%" } }
                     ></div>)
@@ -81,7 +81,7 @@ export default class OpeningStardust extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.scrollRatio!==this.state.scrollRatio) {
+    if (nextState.isIn!==this.state.isIn) {
       return true
     }
     return false
@@ -109,7 +109,12 @@ export default class OpeningStardust extends Component {
       } 
       else if (bottom < vpHeight && bottom > 0 &&
                 top < (vpHeight / 2 - this.pItemHeight / 2)) {
-        this.setState({ pinTopY: bottom - vpHeight / 2 })
+        const topY = Math.round(bottom - vpHeight / 2)
+        this.setState({ pinTopY: topY })
+        console.log("pinTopY: ", topY)
+        velocity(this.pinnedItem, {
+          top: topY,
+        }, 1)
       } 
       else {
         this.setState({ isIn: false })
@@ -119,23 +124,23 @@ export default class OpeningStardust extends Component {
     if (top < vpHeight / 2 && bottom > vpHeight / 2) {
             // if user is viewing the content of the container
       let sRatio = Math.abs((top - vpHeight / 2) / (bottom - top))
-      sRatio = Math.round(sRatio * 20) / 20
+      sRatio = Math.round(sRatio * 100) / 100
       this.setState({ scrollRatio: sRatio })
       velocity(this.petImgs, {
         translateY: "-" + Math.abs(sRatio * 3000) + "px",
         translateZ: (300 - sRatio * 2000) + "px",
         opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
-      }, 5)
+      }, 1)
       velocity(this.dots, {
         translateY: "-" + Math.abs(sRatio * 6000) + "px",
-        translateZ: (1200 - Math.abs(sRatio * 6100)) + "px",
+        translateZ: (1500 - Math.abs(sRatio * 6100)) + "px",
         opacity: this._getRatio(1.5 - sRatio),
-      }, 5)
+      }, 1)
       velocity(this.secondDots, {
         translateY: "-" + Math.abs(sRatio * 3800 - 400) + "px",
-        translateZ: (2000 - Math.abs(sRatio * 5700)) + "px",
+        translateZ: (2200 - Math.abs(sRatio * 5700)) + "px",
         opacity: this._getRatio(1.9 - sRatio),
-      }, 5)
+      }, 1)
 
     } 
     else if (bottom < 0)
@@ -145,10 +150,10 @@ export default class OpeningStardust extends Component {
   }
 
   render() {
-    const { scrollRatio } = this.state
+    const { isIn } = this.state
 
-    const centerClass = (this.state.isIn) ? commonStyles["fixedCenter"] : null
-    console.log("scrollRatio:", scrollRatio)
+    const centerClass = (isIn) ? commonStyles["fixedCenter"] : null
+    console.log("rerender")
     
     return (
       <div className={ classnames(styles.container, 
@@ -158,7 +163,6 @@ export default class OpeningStardust extends Component {
         <div className={ commonStyles["content-outer"] }>
           <div 
             className={ classnames(centerClass) }
-            style={ { top: this.state.pinTopY } }
             ref={ (ref) => this.pinnedItem = ref }
           >
             <div className={ styles["dots-container"] }>
@@ -183,8 +187,7 @@ export default class OpeningStardust extends Component {
             
           </div>
 
-          <div className={ commonStyles["content-outer"] } 
-            style={ { opacity: scrollRatio } } >
+          <div className={ commonStyles["content-outer"] }>
             <p className={ styles["des-text"] }>還有更多的狗狗與憂憂面對相似的命運</p>
           </div>
         </div>
