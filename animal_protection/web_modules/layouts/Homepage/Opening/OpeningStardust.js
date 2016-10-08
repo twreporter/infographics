@@ -125,7 +125,7 @@ export default class OpeningStardust extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
-    const frames = this.state.isMobile ? 4 : 60
+    const frames = this.state.isMobile ? 4 : 55
     const imgSpeed = this.state.isMobile ? 350 : 1
 
     if (this.pItemHeight) {

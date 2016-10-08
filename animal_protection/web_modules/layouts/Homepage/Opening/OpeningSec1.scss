@@ -3,16 +3,21 @@
 
 .container {
   position: relative;
-  height: 200vh;
+  height: 120vh;
   color: white;
   background: linear-gradient(to bottom, $blue 0%, $pink 100%);
 }
 
+.yoyo-des {
+  padding-top: 1rem;
+}
+
 .pet-item {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   margin: 20px;
   position: absolute;
+  transform: translate(-50%, -50%);
   overflow: hidden;
   border-radius: 50%;
 
@@ -29,5 +34,31 @@
 
 .pet1 {
   top: 83%;
-  left: 5%;
+  left: calc(28% - 80px);
+}
+
+.pet2 {
+  top: 90%;
+  left: 47%;
+}
+
+.pet3 {
+  width: 100px;
+  height: 100px;
+  top: 80%;
+  left: calc(70% + 100px);
+}
+
+.pet4 {
+  width: 70px;
+  height: 70px;
+  top: 55%;
+  left: calc(22% - 70px);
+}
+
+.pet5 {
+  width: 70px;
+  height: 70px;
+  top: 60%;
+  left: calc(70% + 70px);
 }

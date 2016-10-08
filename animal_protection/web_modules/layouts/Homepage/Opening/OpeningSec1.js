@@ -9,6 +9,9 @@ import styles from "./OpeningSec1.scss"
 import commonStyles from "../../../styles/common.scss"
 import yoyoImg from "../../../../content/assets/cold.svg"
 import pet1 from "../../../../content/assets/dog01.jpg"
+import pet2 from "../../../../content/assets/dog02.jpg"
+import pet3 from "../../../../content/assets/dog03.jpg"
+import pet4 from "../../../../content/assets/dog04.jpg"
 
 // let velocity
 // if (typeof window !== "undefined") {
@@ -92,13 +95,25 @@ export default class OpeningSec1 extends Component {
           <div className={ classnames(styles["pet-item"], styles["pet1"]) }>
             <img src={ pet1 } />
           </div>
+          <div className={ classnames(styles["pet-item"], styles["pet2"]) }>
+            <img src={ pet2 } />
+          </div>
+          <div className={ classnames(styles["pet-item"], styles["pet3"]) }>
+            <img src={ pet3 } />
+          </div>
+          <div className={ classnames(styles["pet-item"], styles["pet4"]) }>
+            <img src={ pet4 } />
+          </div>
+          <div className={ classnames(styles["pet-item"], styles["pet5"]) }>
+            <img src={ pet1 } />
+          </div>
           <div
             className={ classnames(commonStyles["content-outer"], centerClass) }
             style={ { top: this.state.pinTopY } }
             ref={ (ref) => this.pinnedItem = ref }
           >
             <span className={ classnames(commonStyles["img-responsive"]) } dangerouslySetInnerHTML={ { __html: yoyoImg } } />
-            <h1>憂憂只是一隻狗</h1>
+            <h1 className={ styles["yoyo-des"] }>憂憂只是一隻狗</h1>
           </div>
         </div>
       </div>
