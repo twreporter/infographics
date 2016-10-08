@@ -1,8 +1,33 @@
-/* stylelint-disable function-comma-space-after, block-closing-brace-newline-before */
+/* stylelint-disable function-comma-space-after, rule-non-nested-empty-line-before, indentation, block-closing-brace-newline-before */
 @import "../../../styles/variables.scss";
 
 .container {
+  position: relative;
   height: 200vh;
   color: white;
   background: linear-gradient(to bottom, $blue 0%, $pink 100%);
+}
+
+.pet-item {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 50%;
+
+  img {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+  }
+}
+
+.pet1 {
+  top: 83%;
+  left: 5%;
 }

@@ -4,10 +4,11 @@ import _ from "lodash"
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
 
-import Img from "react-image-holder"
 import classnames from "classnames"
 import styles from "./OpeningSec1.scss"
 import commonStyles from "../../../styles/common.scss"
+import yoyoImg from "../../../../content/assets/cold.svg"
+import pet1 from "../../../../content/assets/dog01.jpg"
 
 // let velocity
 // if (typeof window !== "undefined") {
@@ -19,7 +20,7 @@ const debounceTime = {
   maxWait: 20,
 }
 
-export default class OpeningSec1 extends Component {  
+export default class OpeningSec1 extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -30,8 +31,8 @@ export default class OpeningSec1 extends Component {
     }
     this.pItemHeight = 100
     this._handleScroll = this._handleScroll.bind(this)
-    this.debouncedScroll = _.debounce(() => { 
-      this._handleScroll() 
+    this.debouncedScroll = _.debounce(() => {
+      this._handleScroll()
     }, debounceTime.threshold, { "maxWait": debounceTime.maxWait })
   }
 
@@ -60,10 +61,10 @@ export default class OpeningSec1 extends Component {
     const vpHeight = window.innerHeight
 
     if (this.pItemHeight) {
-      if (bottom > vpHeight && bottom && 
+      if (bottom > vpHeight && bottom &&
           top < (vpHeight / 2 - this.pItemHeight / 2)) {
         this.setState({ isIn: true, pinTopY: vpHeight / 2 })
-      } 
+      }
       else if (bottom < vpHeight && bottom > 0 &&
           top < (vpHeight / 2 - this.pItemHeight / 2)) {
         this.setState({ pinTopY: bottom - vpHeight / 2 })
@@ -75,7 +76,7 @@ export default class OpeningSec1 extends Component {
 
     if (top < vpHeight && bottom > 0)
       this.setState({ scrollRatio: Math.abs((top - vpHeight) / (bottom - top + vpHeight)) })
-    else 
+    else
       this.setState({ scrollRatio: -1 })
   }
 
@@ -83,21 +84,21 @@ export default class OpeningSec1 extends Component {
     const centerClass = (this.state.isIn) ? commonStyles["fixedCenter"] : null
 
     return (
-      <div className={ classnames(styles.container, 
+      <div className={ classnames(styles.container,
         commonStyles["text-center"]) }
         ref={ (ref) => this.container = ref }
       >
         <div className={ commonStyles["content-outer"] }>
-          <div 
+          <div className={ classnames(styles["pet-item"], styles["pet1"]) }>
+            <img src={ pet1 } />
+          </div>
+          <div
             className={ classnames(commonStyles["content-outer"], centerClass) }
             style={ { top: this.state.pinTopY } }
             ref={ (ref) => this.pinnedItem = ref }
           >
-            <h1>Opening Section 1</h1>
-            <Img src="" width="800"
-              className={ classnames(commonStyles["img-responsive"]) }
-              height="500" placeholder={ { theme: "sky" } } usePlaceholder
-            />
+            <span className={ classnames(commonStyles["img-responsive"]) } dangerouslySetInnerHTML={ { __html: yoyoImg } } />
+            <h1>憂憂只是一隻狗</h1>
           </div>
         </div>
       </div>
