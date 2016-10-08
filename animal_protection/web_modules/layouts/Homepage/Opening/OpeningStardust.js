@@ -41,7 +41,7 @@ let DotsItems = (props) => {
 }
 
 let OverlayDotsItems = (props) => {
-  const dotsCnt = props.isMobile ? 100 : 350
+  const dotsCnt = props.isMobile ? 200 : 350
   const cWidth = props.isMobile ? 900 : 1200
   const yPercent = props.isMobile ? 600 : 1200
   let secondDotsItems = []
@@ -125,7 +125,7 @@ export default class OpeningStardust extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
-    const frames = this.state.isMobile ? 4 : 55
+    const frames = this.state.isMobile ? 4 : 70
     const imgSpeed = this.state.isMobile ? 350 : 1
 
     if (this.pItemHeight) {
@@ -150,14 +150,13 @@ export default class OpeningStardust extends Component {
 
     if (top < vpHeight / 2 && bottom > vpHeight / 2) {
       // if user is viewing the content of the container
-      const petTransY = this.state.isMobile ? 1600 : 2800
       let sRatio = Math.abs((top - vpHeight / 2) / (bottom - top))
       sRatio = Math.round(sRatio * frames) / frames
       if (this.state.scrollRatio !== sRatio) {
         this.setState({ scrollRatio: sRatio })
         if (!this.state.isMobile) {
           velocity(this.petImgs, {
-            translateY: "-" + Math.abs(sRatio * petTransY) + "px",
+            translateY: "-" + Math.abs(sRatio * 2770) + "px",
             translateZ: (300 - sRatio * 2200) + "px",
             opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
           }, imgSpeed)

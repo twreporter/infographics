@@ -6,6 +6,9 @@
   color: white;
   background: linear-gradient(to bottom,$pink 0%,$blue 100%);
   overflow: hidden;
+  @media (max-width: $width-md) {
+    height: 120vh;
+  }
 }
 
 .outer {
@@ -78,7 +81,7 @@
 }
 
 .blue {
-  background-color: rgba($light-blue, 0.6);
+  background-color: rgba($light-blue, 0.5);
 }
 .pink {
   background-color: rgba($pink, 0.6);
@@ -96,9 +99,12 @@
     width: 20px;
     height: 20px;
   }
-  background-color: rgba($light-gray, 0.5);
+  background-color: rgba($light-gray, 0.4);
 }
 
 .des-text {
-  padding-top: 120vh;
+  padding-top: 110vh;
+  @media (max-width: $width-md) {
+    padding-top: 40vh;
+  }
 }

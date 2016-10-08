@@ -19,8 +19,8 @@ import pet4 from "../../../../content/assets/dog04.jpg"
 // }
 
 const debounceTime = {
-  threshold: 10,
-  maxWait: 20,
+  threshold: 15,
+  maxWait: 45,
 }
 
 export default class OpeningSec1 extends Component {
@@ -107,12 +107,24 @@ export default class OpeningSec1 extends Component {
           <div className={ classnames(styles["pet-item"], styles["pet5"]) }>
             <img src={ pet1 } />
           </div>
+          <div className={ classnames(styles["pet-item"], styles["pet6"]) }>
+            <img src={ pet1 } />
+          </div>
+          <div className={ classnames(styles["pet-item"], styles["pet7"]) }>
+            <img src={ pet2 } />
+          </div>
+          <div className={ classnames(styles["pet-item"], styles["pet8"]) }>
+            <img src={ pet3 } />
+          </div>
+          <div className={ classnames(styles["pet-item"], styles["pet9"]) }>
+            <img src={ pet3 } />
+          </div>
           <div
             className={ classnames(commonStyles["content-outer"], centerClass) }
             style={ { top: this.state.pinTopY } }
             ref={ (ref) => this.pinnedItem = ref }
           >
-            <span className={ classnames(commonStyles["img-responsive"]) } dangerouslySetInnerHTML={ { __html: yoyoImg } } />
+            <div className={ classnames(commonStyles["img-responsive"], styles["yoyo"]) } dangerouslySetInnerHTML={ { __html: yoyoImg } } />
             <h1 className={ styles["yoyo-des"] }>憂憂只是一隻狗</h1>
           </div>
         </div>

@@ -1,4 +1,4 @@
-/* stylelint-disable function-comma-space-after, rule-non-nested-empty-line-before, indentation, block-closing-brace-newline-before */
+/* stylelint-disable function-comma-space-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
 @import "../../../styles/variables.scss";
 
 .container {
@@ -8,8 +8,15 @@
   background: linear-gradient(to bottom, $blue 0%, $pink 100%);
 }
 
+.yoyo {
+  >svg {
+    width: 100%;
+    height: 30vh;
+  }
+}
+
 .yoyo-des {
-  padding-top: 1rem;
+  padding-top: 2.5rem;
 }
 
 .pet-item {
@@ -20,6 +27,18 @@
   transform: translate(-50%, -50%);
   overflow: hidden;
   border-radius: 50%;
+  @media (max-width: $width-xs) {
+    width: 55px;
+    height: 55px;
+  }
+  @media (min-width: $width-md) {
+    width: 90px;
+    height: 90px;
+  }
+  @media (min-width: $width-lg) {
+    width: 110px;
+    height: 110px;
+  }
 
   img {
     position: absolute;
@@ -38,8 +57,21 @@
 }
 
 .pet2 {
-  top: 90%;
-  left: 47%;
+  top: 96%;
+  left: 58%;
+  opacity: 0.7;
+  @media (max-width: $width-xs) {
+    top: 93%;
+    left: calc(31%);
+  }
+  @media (min-width: $width-md) {
+    width: 80px;
+    height: 80px;
+  }
+  @media (min-width: $width-lg) {
+    width: 90px;
+    height: 90px;
+  }
 }
 
 .pet3 {
@@ -47,6 +79,20 @@
   height: 100px;
   top: 80%;
   left: calc(70% + 100px);
+  @media (max-width: $width-xs) {
+    left: calc(55% + 100px);
+    width: 65px;
+    height: 65px;
+  }
+  @media (min-width: $width-md) {
+    left: calc(70% + 130px);
+    width: 130px;
+    height: 130px;
+  }
+  @media (min-width: $width-lg) {
+    width: 170px;
+    height: 170px;
+  }
 }
 
 .pet4 {
@@ -54,6 +100,19 @@
   height: 70px;
   top: 55%;
   left: calc(22% - 70px);
+  @media (max-width: $width-xs) {
+    left: calc(22% - 70px);
+    width: 40px;
+    height: 40px;
+  }
+  @media (min-width: $width-md) {
+    width: 100px;
+    height: 100px;
+  }
+  @media (min-width: $width-lg) {
+    width: 140px;
+    height: 140px;
+  }
 }
 
 .pet5 {
@@ -61,4 +120,65 @@
   height: 70px;
   top: 60%;
   left: calc(70% + 70px);
+  @media (max-width: $width-xs) {
+    width: 60px;
+    height: 60px;
+  }
+  @media (min-width: $width-md) {
+    width: 100px;
+    height: 100px;
+  }
+  @media (min-width: $width-lg) {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.pet6 {
+  display: none;
+  width: 70px;
+  height: 70px;
+  top: 80%;
+  left: calc(60% + 70px);
+  @media (min-width: $width-md) {
+    display: block;
+  }
+}
+
+.pet7 {
+  display: none;
+  width: 80px;
+  height: 80px;
+  top: 70%;
+  left: calc(5% + 80px);
+  @media (min-width: $width-md) {
+    display: block;
+  }
+}
+
+.pet8 {
+  width: 60px;
+  height: 60px;
+  top: 86%;
+  left: calc(32% + 60px);
+  opacity: 0.8;
+  @media (max-width: $width-xs) {
+    top: 90%;
+  }
+  @media (min-width: $width-md) {
+    width: 80px;
+    height: 80px;
+    top: 92%;
+  }
+}
+
+.pet9 {
+  display: none;
+  width: 55px;
+  height: 55px;
+  top: 80%;
+  left: calc(3%);
+  @media (min-width: $width-sm) {
+    display: block;
+  }
 }
