@@ -6,6 +6,7 @@ import enhanceCollection from "phenomic/lib/enhance-collection"
 import Page from "../Page"
 import PagesList from "../../PagesList"
 
+import classnames from "classnames"
 import Markdown from "react-markdown"
 import Img from "react-image-holder"
 import { firstContent } from "./content"
@@ -14,6 +15,7 @@ import OpeningStardust from "./Opening/OpeningStardust"
 import Tnr from "./TNR/TNR"
 
 import commonStyles from "../../styles/common.scss"
+import styles from "./Home.scss"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -48,8 +50,12 @@ export default class Homepage extends Component {
     .slice(0, numberOfLatestPosts)
 
     return (
-      <Page { ...this.props } className={ commonStyles["center-block"] }>
-        <div className={ commonStyles.content }>
+      <Page { ...this.props } className={
+          commonStyles["center-block"] }
+      >
+        <div className={ classnames(commonStyles.content,
+            styles["container"]) }
+        >
           <h2>{ "Latest Posts" }</h2>
           <div ref={ (ref) => this.block = ref }>
             VelocityExample
@@ -61,11 +67,11 @@ export default class Homepage extends Component {
 
         <OpeningSec1 />
         <OpeningStardust />
+        <Tnr />
         <div className={ commonStyles.content }>
           <Markdown source={ firstContent } />
           <PagesList pages={ latestPosts } />
         </div>
-        <Tnr />
 
       </Page>
     )

@@ -5,9 +5,8 @@ import React, { Component } from "react"
 import ReactDOM from "react-dom"
 
 import classnames from "classnames"
-import styles from "./TNR.scss"
+import styles from "./Tnr.scss"
 import commonStyles from "../../../styles/common.scss"
-import yoyoImg from "../../../../content/assets/cold.svg"
 
 // let velocity
 // if (typeof window !== "undefined") {
@@ -80,14 +79,21 @@ export default class Tnr extends Component {
   }
 
   render() {
-    const centerClass = (this.state.isIn) ? commonStyles["fixedCenter"] : null
-
     return (
       <div className={ classnames(styles.container,
         commonStyles["text-center"]) }
         ref={ (ref) => this.container = ref }
       >
-        
+      <div className={ classnames(styles["left-nav"]) }>
+
+      </div>
+
+      <div className={ classnames(styles["right-content"]) }>
+        <div className={ classnames(styles["content-box"]) }>
+          TNR 是什麼？
+        </div>
+      </div>
+
       </div>
     )
   }
