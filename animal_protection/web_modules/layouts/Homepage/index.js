@@ -11,17 +11,18 @@ import Img from "react-image-holder"
 import { firstContent } from "./content"
 import OpeningSec1 from "./Opening/OpeningSec1"
 import OpeningStardust from "./Opening/OpeningStardust"
+import Tnr from "./TNR/TNR"
 
 import commonStyles from "../../styles/common.scss"
 
 let velocity
 if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
-} 
+}
 
 const numberOfLatestPosts = 6
 
-export default class Homepage extends Component {  
+export default class Homepage extends Component {
   static contextTypes = {
     collection: PropTypes.array.isRequired,
   }
@@ -64,7 +65,8 @@ export default class Homepage extends Component {
           <Markdown source={ firstContent } />
           <PagesList pages={ latestPosts } />
         </div>
-        
+        <Tnr />
+
       </Page>
     )
   }

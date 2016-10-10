@@ -125,7 +125,7 @@ export default class OpeningStardust extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
-    const frames = this.state.isMobile ? 4 : 70
+    const frames = this.state.isMobile ? 4 : 50
     const imgSpeed = this.state.isMobile ? 350 : 1
 
     if (this.pItemHeight) {
@@ -156,9 +156,9 @@ export default class OpeningStardust extends Component {
         this.setState({ scrollRatio: sRatio })
         if (!this.state.isMobile) {
           velocity(this.petImgs, {
-            translateY: "-" + Math.abs(sRatio * 2770) + "px",
+            translateY: "-" + Math.abs(sRatio * (1+sRatio) * 1550) + "px",
             translateZ: (300 - sRatio * 2200) + "px",
-            opacity: this._getRatio((1.6 - sRatio) * (1 - sRatio) * (1 - sRatio)),
+            opacity: this._getRatio((1.45 - sRatio) * (1 - sRatio) * (1 - sRatio)),
           }, imgSpeed)
           velocity(this.dots, {
             translateY: "-" + Math.abs(sRatio * 7200) + "px",
