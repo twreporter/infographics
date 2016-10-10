@@ -53,16 +53,16 @@ export default class Homepage extends Component {
       <Page { ...this.props } className={
           commonStyles["center-block"] }
       >
-        <div className={ classnames(commonStyles.content,
-            styles["container"]) }
-        >
-          <h2>{ "Latest Posts" }</h2>
-          <div ref={ (ref) => this.block = ref }>
-            VelocityExample
+        <div className={ styles["container"] }>
+          <div className={ classnames(commonStyles.content) }>
+            <h2>{ "Latest Posts" }</h2>
+            <div ref={ (ref) => this.block = ref }>
+              VelocityExample
+            </div>
+            <Img src="" width="800" height="500" usePlaceholder />
+            <Img src="" width="800" height="500" usePlaceholder />
+            <Img src="" width="800" height="500" usePlaceholder />
           </div>
-          <Img src="" width="800" height="500" usePlaceholder />
-          <Img src="" width="800" height="500" usePlaceholder />
-          <Img src="" width="800" height="500" usePlaceholder />
         </div>
 
         <OpeningSec1 />
