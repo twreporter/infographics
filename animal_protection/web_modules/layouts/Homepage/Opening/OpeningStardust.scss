@@ -19,7 +19,7 @@
   position: absolute;
   width: 150%;
   margin-left: -25%;
-  padding-top: 18vh;
+  padding-top: 30px;
   transform: translateZ(300px);
 
   // @media (max-width: $width-sm) {
@@ -103,7 +103,7 @@
 }
 
 .des-text {
-  padding-top: 110vh;
+  padding-top: 125vh;
   @media (max-width: $width-md) {
     padding-top: 40vh;
   }

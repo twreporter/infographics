@@ -9,20 +9,23 @@
 }
 
 .left-nav {
+  display: none;
   float: left;
   width: 32%;
   max-width: 500px;
   background: $sidenav-blue;
   height: 100%;
+  @media (min-width: $width-md) {
+    display: block;
+  }
 }
 
 .right-content {
-  display: none;
   float: left;
-  min-width: 68%;
+  width: 100%;
   @media (min-width: $width-md) {
-    display: block;
-    max-width: calc(100% - 500px);
+    min-width: 68%;
+    width: calc(100% - 500px);
   }
 }
 
