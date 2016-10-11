@@ -1,3 +1,4 @@
+/* eslint-disable no-undef, no-empty */
 import React, { Component, PropTypes } from "react"
 import Helmet from "react-helmet"
 
@@ -17,6 +18,13 @@ export default class Layout extends Component {
   static contextTypes = {
     metadata: PropTypes.object.isRequired,
   };
+
+  componentDidMount() {
+    try {
+      Typekit.load({ async: true })
+    }
+    catch (e) {}
+  }
 
   render() {
     const {
@@ -52,6 +60,7 @@ export default class Layout extends Component {
           { this.props.children }
         </div>
         <Footer />
+        <script src="https://use.typekit.net/ckp5jxu.js"></script>
       </div>
     )
   }

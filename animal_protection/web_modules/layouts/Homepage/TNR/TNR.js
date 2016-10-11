@@ -85,12 +85,21 @@ export default class Tnr extends Component {
         ref={ (ref) => this.container = ref }
       >
       <div className={ classnames(styles["left-nav"]) }>
-
+        <ul>
+          <li>
+            <span>01</span>
+            <span>公立收容所面臨什麼困境？</span>
+          </li>
+        </ul>
       </div>
 
       <div className={ classnames(styles["right-content"]) }>
         <div className={ classnames(styles["content-box"]) }>
-          TNR 是什麼？
+          在TNR是國外用來控制狂犬病的一種作法，目前在台灣則是被當成「流浪狗口控制」的方式。
+
+「繁殖」是流浪動物不斷增加的原因之一，因此TNR被許多民間團體提倡，為取代撲殺、減少流浪動物數量的方法。將結紮後的流浪動物回置到原棲地，讓人類學習與他們共存。
+
+但要達到數量控制的目的，TNR有其限制，除了必須在封閉地形內實行，強度和持續性都是必須考量的因素，回置後續也會產生一些問題。
         </div>
       </div>
 
