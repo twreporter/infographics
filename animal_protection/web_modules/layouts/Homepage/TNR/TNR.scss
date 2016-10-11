@@ -2,10 +2,9 @@
 @import "../../../styles/variables.scss";
 
 .container {
-  position: relative;
-  height: 120vh;
   color: white;
   background: $content-bg;
+  padding: 2rem 1rem;
 }
 
 .left-nav {
@@ -32,8 +31,7 @@
 .content-box {
   background: $white;
   box-shadow: $c-box-shadow;
-  width: calc(100% - 40px);
-  margin: 20px;
   padding: 1.5rem;
   color: $text-blue;
+  text-align: left;
 }

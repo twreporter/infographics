@@ -1,20 +1,17 @@
 /* eslint-disable react/jsx-no-bind, react/jsx-no-literals, max-len */
 
 import React, { Component } from "react"
-import Markdown from "react-markdown"
 
 import classnames from "classnames"
-import styles from "./Tnr.scss"
+import styles from "./OpeningLast.scss"
 import commonStyles from "../../../styles/common.scss"
-
-import { topBox } from "./text"
 
 // let velocity
 // if (typeof window !== "undefined") {
 //   velocity = require("velocity-animate")
 // }
 
-export default class Tnr extends Component {
+export default class OpeningLast extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -31,7 +28,6 @@ export default class Tnr extends Component {
       >
       <div className={ commonStyles["content-outer"] }>
         <div className={ classnames(styles["content-box"]) }>
-          <Markdown source={ topBox } />
         </div>
       </div>
 
@@ -40,4 +36,4 @@ export default class Tnr extends Component {
   }
 }
 
-Tnr.propTypes = {}
+OpeningLast.propTypes = {}

@@ -41,7 +41,7 @@ let DotsItems = (props) => {
 }
 
 let OverlayDotsItems = (props) => {
-  const dotsCnt = props.isMobile ? 200 : 350
+  const dotsCnt = props.isMobile ? 200 : 420
   const cWidth = props.isMobile ? 900 : 1200
   const yPercent = props.isMobile ? 600 : 1200
   let secondDotsItems = []
@@ -166,8 +166,8 @@ export default class OpeningStardust extends Component {
             opacity: this._getRatio(1.5 - sRatio),
           }, 5)
           velocity(this.secondDots, {
-            translateY: "-" + Math.abs(sRatio * 4000 - 600) + "px",
-            translateZ: (2300 - Math.abs(sRatio * 5900)) + "px",
+            translateY: "-" + Math.abs(sRatio * 3500 - 800) + "px",
+            translateZ: (2700 - Math.abs(sRatio * 5850)) + "px",
             opacity: this._getRatio(1.9 - sRatio),
           }, 1)
         }

@@ -12,6 +12,7 @@ import Img from "react-image-holder"
 import { firstContent } from "./content"
 import OpeningSec1 from "./Opening/OpeningSec1"
 import OpeningStardust from "./Opening/OpeningStardust"
+import OpeningLast from "./Opening/OpeningLast"
 import Tnr from "./TNR/TNR"
 
 import commonStyles from "../../styles/common.scss"
@@ -65,6 +66,7 @@ export default class Homepage extends Component {
 
         <OpeningSec1 />
         <OpeningStardust />
+        <OpeningLast />
         <Tnr />
         <div className={ commonStyles.content }>
           <Markdown source={ firstContent } />
