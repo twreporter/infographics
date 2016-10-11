@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-bind, react/jsx-no-literals, max-len */
+/* eslint-disable react/jsx-no-bind, react/jsx-no-literals, max-len, react/prop-types, react/no-multi-comp, react/jsx-closing-bracket-location  */
 
 import React, { Component } from "react"
 import Markdown from "react-markdown"
@@ -27,27 +27,31 @@ export default class Tnr extends Component {
 
   }
 
+  componentDidMount() {
+    console.log("*******TNR")
+  }
+
   render() {
+    console.log("hello")
     return (
       <div className={ classnames(styles.container,
         commonStyles["text-center"]) }
-        ref={ (ref) => this.container = ref }
       >
-      <div className={ commonStyles["content-outer"] }>
-        <div className={ classnames(styles["content-box"]) }>
-          <Markdown source={ topBox } />
+        <div className={ commonStyles["content-outer"] }>
+          <div className={ classnames(styles["content-box"]) }>
+            <Markdown source={ topBox } />
+          </div>
+          <Subsection curSec={ 2 } titles={ titles } subIndex={ 0 }>
+            <VisibleSensor>
+              <div className={ classnames(commonStyles["img-responsive"], styles["yoyo"]) } dangerouslySetInnerHTML={ { __html: tnrT } } />
+              捕捉 TRAP
+            </VisibleSensor>
+          </Subsection>
+          <Subsection curSec={ 2 } titles={ titles } subIndex={ 1 }>
+            this is a subsection
+            <div></div>
+          </Subsection>
         </div>
-        <Subsection curSec={ 2 } titles={ titles } subIndex={ 0 }>
-          <VisibleSensor handleVisible={ ()=> {console.log("***visible")} }>
-            <div className={ classnames(commonStyles["img-responsive"], styles["yoyo"]) } dangerouslySetInnerHTML={ { __html: tnrT } } />
-            捕捉 TRAP
-          </VisibleSensor>
-        </Subsection>
-        <Subsection curSec={ 2 } titles={ titles } subIndex={ 1 }>
-          this is a subsection
-          <div></div>
-        </Subsection>
-      </div>
 
       </div>
     )

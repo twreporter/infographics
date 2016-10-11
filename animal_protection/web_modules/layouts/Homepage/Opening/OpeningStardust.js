@@ -90,10 +90,6 @@ export default class OpeningStardust extends Component {
 
     // detect sroll position
     window.addEventListener("scroll", this.debouncedScroll)
-
-    velocity(this.block, { scale: 2 }, 500)
-            .then(() => console.log("animation complete"))
-
   }
 
   shouldComponentUpdate(nextProps, nextState) {

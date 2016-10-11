@@ -39,7 +39,7 @@ export default class VisibleSensor extends Component {
   }
 
   _handleScroll() {
-    const node = ReactDOM.findDOMNode(this.container)
+    const node = ReactDOM.findDOMNode(this.vContainer)
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
@@ -60,7 +60,7 @@ export default class VisibleSensor extends Component {
     const { children } = this.props
 
     return (
-      <div ref={ (ref) => this.container = ref }>
+      <div ref={ (ref) => this.vContainer = ref }>
         { children }
       </div>
     )

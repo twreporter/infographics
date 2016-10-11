@@ -63,11 +63,11 @@ export default class Homepage extends Component {
             <Img src="" width="800" height="500" usePlaceholder />
           </div>
         </div>
-
         <OpeningSec1 />
         <OpeningStardust />
         <OpeningLast />
         <Tnr />
+
         <div className={ commonStyles.content }>
           <Markdown source={ firstContent } />
           <PagesList pages={ latestPosts } />
