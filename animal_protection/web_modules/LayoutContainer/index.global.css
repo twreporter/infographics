@@ -33,11 +33,12 @@ html {
 }
 
 body {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 18px;
+  line-height: 1.85;
+  letter-spacing: 0.4px;
 
-  /* system font https://medium.com/designing-medium/system-shock-6b1dc6d6596f */
   font-family: source-han-sans-traditional, Noto Sans TC, PingFang TC, Apple LiGothic Medium, Roboto, Microsoft JhengHei, Lucida Grande, Lucida Sans Unicode, sans-serif;
+  font-weight: 300;
 }
 
 /*

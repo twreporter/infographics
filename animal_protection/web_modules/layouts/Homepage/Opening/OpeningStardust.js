@@ -27,11 +27,11 @@ const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"]
 
 let DotsItems = (props) => {
   const dotsCnt = props.isMobile ? 150 : 300
-  const cWidth = props.isMobile ? 600 : 800
+  const cWidth = props.isMobile ? 600 : 750
   let dotsItems = []
   for (let i=0; i<dotsCnt; i++) {
     dotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) }
-      style={ { top: (i*i*7%1300)/10+"%", left:(((i*i+7)*i%cWidth)-cWidth/2+5)/10+"%" } }
+      style={ { top: (i*i*7%1400)/10+"%", left:(((i*i+7)*i%cWidth)-cWidth/2+5)/10+"%" } }
                     ></div>)
   }
 
@@ -43,7 +43,7 @@ let DotsItems = (props) => {
 let OverlayDotsItems = (props) => {
   const dotsCnt = props.isMobile ? 200 : 420
   const cWidth = props.isMobile ? 900 : 1200
-  const yPercent = props.isMobile ? 600 : 1200
+  const yPercent = props.isMobile ? 600 : 1260
   let secondDotsItems = []
   for (let i=0; i<dotsCnt; i++) {
     secondDotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) }
@@ -162,12 +162,12 @@ export default class OpeningStardust extends Component {
           }, imgSpeed)
           velocity(this.dots, {
             translateY: "-" + Math.abs(sRatio * 7200) + "px",
-            translateZ: (1500 - Math.abs(sRatio * 6600)) + "px",
+            translateZ: (1600 - Math.abs(sRatio * 6600)) + "px",
             opacity: this._getRatio(1.5 - sRatio),
           }, 5)
           velocity(this.secondDots, {
             translateY: "-" + Math.abs(sRatio * 3500 - 800) + "px",
-            translateZ: (2700 - Math.abs(sRatio * 5850)) + "px",
+            translateZ: (2800 - Math.abs(sRatio * 5850)) + "px",
             opacity: this._getRatio(1.9 - sRatio),
           }, 1)
         }

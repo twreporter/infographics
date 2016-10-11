@@ -1,0 +1,53 @@
+/* stylelint-disable function-comma-space-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+
+.container {
+  margin: 4.2rem 0;
+  h2 {
+    text-align: left;
+    display: table;
+    padding-left: 5rem;
+    @media (max-width: $width-xs) {
+      padding-left: 0;
+    }
+  }
+}
+
+.left {
+  display: table-cell;
+  white-space: nowrap;
+  font-size: 30px;
+  font-weight: $font-bold;
+  >span {
+    margin-right: 1.8rem;
+    background-color: $text-blue;
+    color: $white;
+    padding: 0.2rem 0.45rem 0 0.5rem;
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.2);
+    @media (max-width: $width-xs) {
+      margin-right: 0.8rem;
+      font-size: 20px;
+    }
+  }
+}
+
+.right {
+  display: table-cell;
+  font-size: 38px;
+  font-weight: $font-bold;
+  letter-spacing: 0.6px;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+  @media (max-width: $width-xs) {
+    font-size: 31px;
+    line-height: 1.35;
+  }
+}
+
+.ending-dot {
+  width: 15px;
+  height: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 2px 1px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  margin: 2rem auto;
+}
