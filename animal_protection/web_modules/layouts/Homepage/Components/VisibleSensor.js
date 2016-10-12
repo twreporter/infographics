@@ -3,10 +3,11 @@
 import _ from "lodash"
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
+import raf from "raf" // requestAnimationFrame polyfill
 
 const debounceTime = {
-  threshold: 200,
-  maxWait: 600,
+  threshold: 150,
+  maxWait: 450,
 }
 
 export default class VisibleSensor extends Component {
@@ -19,23 +20,39 @@ export default class VisibleSensor extends Component {
     this.debouncedScroll = _.debounce(() => {
       this._handleScroll()
     }, debounceTime.threshold, { "maxWait": debounceTime.maxWait })
+    this._onScroll = this._onScroll.bind(this)
+
+    // for requestAnimationFrame
+    this._ticking = false
   }
   componentDidMount() {
     // detect sroll position
-    window.addEventListener("scroll", this.debouncedScroll)
-    console.log("***componentDidMount")
+    window.addEventListener("scroll", this._onScroll)
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.isIn!==this.state.isIn && this.state.isIn) {
-      this.props.handleVisible()
-      return true
+    const { handleVisible } = this.props
+    if (handleVisible && !this.state.isIn && nextState.isIn) {
+      handleVisible()
     }
     return false
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.debouncedScroll)
+    window.removeEventListener("scroll", this._onScroll)
+    this._ticking = false
+    this.clearRAF()
+  }
+
+  _onScroll() {
+    this._requestTick()
+  }
+
+  _requestTick() {
+    if (!this._ticking) {
+      this._raf = raf(this.debouncedScroll)
+      this._ticking = true
+    }
   }
 
   _handleScroll() {
@@ -43,17 +60,22 @@ export default class VisibleSensor extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
-    console.log("***scroll")
+    const pItemHeight = node.clientHeight || 100
 
-    if (this.pItemHeight) {
-      if (bottom > 0 &&
-          top < (vpHeight / 2 - this.pItemHeight / 2)) {
-        this.setState({ isIn: true })
+    if (node) {
+      if (bottom > -pItemHeight && bottom < vpHeight+pItemHeight &&
+          top < vpHeight+pItemHeight && top > -pItemHeight) {
+        if (!this.state.isIn) {
+          this.setState({ isIn: true })
+        }
       }
       else {
         this.setState({ isIn: false })
       }
     }
+
+    // reset the tick to capture the next onScroll
+    this._ticking = false
   }
 
   render() {

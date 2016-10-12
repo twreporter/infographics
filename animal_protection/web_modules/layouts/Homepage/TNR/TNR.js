@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-bind, react/jsx-no-literals, max-len, react/prop-types, react/no-multi-comp, react/jsx-closing-bracket-location  */
+/* eslint-disable react/jsx-no-bind, no-empty, react/jsx-no-literals, max-len, react/prop-types, react/no-multi-comp, react/jsx-closing-bracket-location  */
 
 import React, { Component } from "react"
 import Markdown from "react-markdown"
@@ -13,10 +13,10 @@ import tnrT from "../../../../content/assets/TNR-T.svg"
 
 import { topBox, titles } from "./text"
 
-// let velocity
-// if (typeof window !== "undefined") {
-//   velocity = require("velocity-animate")
-// }
+let velocity
+if (typeof window !== "undefined") {
+  velocity = require("velocity-animate")
+}
 
 export default class Tnr extends Component {
   constructor(props) {
@@ -27,12 +27,17 @@ export default class Tnr extends Component {
 
   }
 
-  componentDidMount() {
-    console.log("*******TNR")
+  _handleAnimationT() {
+    try {
+      const tLeft = document.getElementById("tLeft")
+      const tRight = document.getElementById("tRight")
+      velocity(tLeft, { translateX: [ 0, -50 ], opacity: [ 1, 0.8 ] }, 700)
+      velocity(tRight, { scale: [ 1, 1.1 ], opacity: [ 1, 0.8 ] }, 800)
+    }
+    catch (e) {}
   }
 
   render() {
-    console.log("hello")
     return (
       <div className={ classnames(styles.container,
         commonStyles["text-center"]) }
@@ -42,8 +47,12 @@ export default class Tnr extends Component {
             <Markdown source={ topBox } />
           </div>
           <Subsection curSec={ 2 } titles={ titles } subIndex={ 0 }>
-            <VisibleSensor>
-              <div className={ classnames(commonStyles["img-responsive"], styles["yoyo"]) } dangerouslySetInnerHTML={ { __html: tnrT } } />
+            <VisibleSensor handleVisible={ this._handleAnimationT }>
+              <div className={ classnames(commonStyles["img-responsive"],
+                styles["yoyo"], commonStyles["overlay-svg"]) }
+                dangerouslySetInnerHTML={ { __html: tnrT } }
+                ref={ (ref) => this.chartT = ref }
+              />
               捕捉 TRAP
             </VisibleSensor>
           </Subsection>

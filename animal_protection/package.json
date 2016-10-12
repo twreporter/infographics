@@ -92,6 +92,7 @@
     "classnames": "^2.2.5",
     "html-loader": "^0.4.4",
     "lodash": "^4.16.2",
+    "raf": "^3.3.0",
     "react-holder": "^1.0.0",
     "react-image-holder": "^2.0.1",
     "react-markdown": "^2.4.2",
