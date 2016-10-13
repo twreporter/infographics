@@ -43,4 +43,8 @@
   &:hover {
     background: linear-gradient(-60deg, rgba($blue,0.8) 0%, rgba($pink,0.5) 100%);
   }
+  @media (max-width: $width-xs) {
+    font-size: $xs-large-font-size;
+    padding: 0.3rem 3.2rem;
+  }
 }

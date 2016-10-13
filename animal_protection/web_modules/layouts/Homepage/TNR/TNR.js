@@ -32,8 +32,8 @@ export default class Tnr extends Component {
       const tLeft = document.getElementById("tLeft")
       const tRight = document.getElementById("tRight")
       if (tLeft && tRight) {
-        velocity(tLeft, { translateX: [ 0, -50 ], opacity: [ 1, 0.8 ] }, 700)
-        velocity(tRight, { scale: [ 1, 1.1 ], opacity: [ 1, 0.8 ] }, 800)
+        velocity(tLeft, { translateX: [ 0, -50 ], opacity: [ 1, 0.8 ] }, { delay: 200, duration: 700 })
+        velocity(tRight, { scale: [ 1, 1.1 ], opacity: [ 1, 0.8 ] }, { delay: 200, duration: 800 })
       }
     }
     catch (e) {}

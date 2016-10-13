@@ -1,0 +1,93 @@
+/* stylelint-disable function-comma-space-after, selector-list-comma-newline-after, selector-pseudo-element-colon-notation, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+
+.container {
+  color: white;
+  background: $game-bg;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,0);
+  z-index: 1000;
+
+  h2 {
+    font-size: $large-font-size;
+    margin-bottom: 5vh;
+    @media (max-width: $width-xs) {
+      font-size: $xs-large-font-size;
+    }
+  }
+}
+
+.close-button {
+  $size: 50px;
+  height: $size;
+  width: $size;
+  box-sizing: border-box;
+  line-height: $size;
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  top: 5rem;
+  right: 5rem;
+
+  &:before, &:after {
+    $width: 60px;
+    $height: 10px;
+    transform: rotate(-45deg);
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -$height/2;
+    margin-left: -$width/2;
+    display: block;
+    height: $height;
+    width: $width;
+    background-color: #fff;
+    transition: all 0.25s ease-out;
+  }
+
+  &:after {
+    transform: rotate(-135deg);
+  }
+
+  &:hover {
+    &:before {
+        transform: rotate(0deg);
+    }
+    &:after {
+        transform: rotate(-180deg);
+    }
+  }
+}
+
+.center-dog {
+  max-width: 18rem;
+  @media (max-width: $width-xs) {
+    max-width: 12rem;
+  }
+}
+
+.intro {
+  padding: 4rem;
+}
+
+.inner {
+  cursor: pointer;
+  margin: 0 auto;
+  max-width: 20rem;
+}
+
+.start-btn {
+  color: white;
+  font-size: $large-font-size;
+  border: 3px white solid;
+  padding: 0.6rem 4.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.5s;
+  &:hover {
+    background: linear-gradient(-60deg, rgba($blue,0.8) 0%, rgba($pink,0.5) 100%);
+  }
+}

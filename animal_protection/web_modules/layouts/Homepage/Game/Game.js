@@ -1,11 +1,13 @@
 /* eslint-disable react/jsx-no-bind, no-empty, react/jsx-no-literals, max-len, react/prop-types, react/no-multi-comp, react/jsx-closing-bracket-location  */
 
 import React, { Component } from "react"
+import ReactDOM from "react-dom"
 
 import classnames from "classnames"
 import styles from "./Game.scss"
 import commonStyles from "../../../styles/common.scss"
 import VisibleSensor from "../Components/VisibleSensor"
+import GamePlayer from "./GamePlayer"
 
 import gameIcon from "../../../../content/assets/game_start_icon.svg"
 
@@ -18,9 +20,13 @@ export default class Game extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showSubComponent: true,
+      isPlaying: false,
+      width: 500,
+      height: 500,
+      top: 100,
     }
-
+    this.handlePlayerClose = this.handlePlayerClose.bind(this)
+    this.handleGameStart = this.handleGameStart.bind(this)
   }
 
   _handleAnimation() {
@@ -47,22 +53,36 @@ export default class Game extends Component {
     catch (e) {}
   }
 
-  _handleGameStart() {
-    console.log("*****clicked")
+  handlePlayerClose() {
+    this.setState({ isPlaying: false })
+  }
+
+  handleGameStart() {
+    // show the popup for users to play the game
+    if (!this.state.isPlaying) {
+      const node = ReactDOM.findDOMNode(this.container)
+      const rect = node.getBoundingClientRect()
+      this.setState({ isPlaying: true, width: node.clientWidth, height: node.clientHeight, top: rect.top })
+    }
   }
 
   render() {
+    const { isPlaying, width, height, top } = this.state
+
+    const gameContainer = isPlaying ?
+      <GamePlayer outerWidth={ width } outerHeight={ height } outerTop={ top } onClose={ this.handlePlayerClose } /> : null
+
     return (
-      <div className={ classnames(styles.container) }
-      >
+      <div className={ classnames(styles.container) }>
         <div className={ classnames(styles["intro"],
           commonStyles["text-center"], commonStyles["content-outer"]) }
+          ref={ (ref) => this.container = ref }
         >
           <VisibleSensor handleVisible={ this._handleAnimation }
             handleInvisible={ this._handleLeave }
           >
             <h2>點選狗狗圖示執行 TNR！</h2>
-            <div className={ styles["inner"] } onClick={ this._handleGameStart }>
+            <div className={ styles["inner"] } onClick={ this.handleGameStart }>
               <div className={ classnames(commonStyles["img-responsive"], commonStyles["overlay-svg"], styles["center-dog"]) }
                 dangerouslySetInnerHTML={ { __html: gameIcon } }
               />
@@ -70,6 +90,7 @@ export default class Game extends Component {
             </div>
           </VisibleSensor>
         </div>
+        { gameContainer }
       </div>
     )
   }
