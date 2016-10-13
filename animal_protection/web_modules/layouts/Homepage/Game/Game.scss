@@ -1,0 +1,46 @@
+/* stylelint-disable function-comma-space-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+
+.container {
+  color: white;
+  background: $content-bg;
+
+  h2 {
+    font-size: $large-font-size;
+    margin-bottom: 5vh;
+    @media (max-width: $width-xs) {
+      font-size: $xs-large-font-size;
+    }
+  }
+}
+
+.center-dog {
+  max-width: 18rem;
+  @media (max-width: $width-xs) {
+    max-width: 12rem;
+  }
+}
+
+.intro {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 4rem;
+}
+
+.inner {
+  cursor: pointer;
+  margin: 0 auto;
+  max-width: 20rem;
+}
+
+.start-btn {
+  color: white;
+  font-size: $large-font-size;
+  border: 3px white solid;
+  padding: 0.6rem 4.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.5s;
+  &:hover {
+    background: linear-gradient(-60deg, rgba($blue,0.8) 0%, rgba($pink,0.5) 100%);
+  }
+}

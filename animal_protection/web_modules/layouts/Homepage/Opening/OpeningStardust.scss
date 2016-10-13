@@ -2,7 +2,7 @@
 @import "../../../styles/variables.scss";
 
 .container {
-  height: 200vh;
+  height: 210vh;
   color: white;
   background: linear-gradient(to bottom,$pink 0%,$blue 100%);
   overflow: hidden;
@@ -103,7 +103,7 @@
 }
 
 .des-text {
-  padding-top: 155vh;
+  padding-top: 165vh;
   @media (max-width: $width-md) {
     padding-top: 40vh;
   }

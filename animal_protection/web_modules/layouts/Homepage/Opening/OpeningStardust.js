@@ -31,7 +31,7 @@ let DotsItems = (props) => {
   let dotsItems = []
   for (let i=0; i<dotsCnt; i++) {
     dotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) }
-      style={ { top: (i*i*7%1400)/10+"%", left:(((i*i+7)*i%cWidth)-cWidth/2+5)/10+"%" } }
+      style={ { top: (i*i*i*7%1400)/10+"%", left:(((i*i+7)*i%cWidth)-cWidth/2+5)/10+"%" } }
                     ></div>)
   }
 
@@ -47,7 +47,7 @@ let OverlayDotsItems = (props) => {
   let secondDotsItems = []
   for (let i=0; i<dotsCnt; i++) {
     secondDotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) }
-      style={ { top: (i*i*3%yPercent)/10+"%", left:(((i+5)*i%cWidth)-cWidth/2+20)/10+"%" } }
+      style={ { top: (i*i*i*3%yPercent)/10+"%", left:(((i+5)*i%cWidth)-cWidth/2+20)/10+"%" } }
                     ></div>)
   }
 
@@ -162,8 +162,8 @@ export default class OpeningStardust extends Component {
             opacity: this._getRatio(1.5 - sRatio),
           }, 5)
           velocity(this.secondDots, {
-            translateY: "-" + Math.abs(sRatio * 3500 - 800) + "px",
-            translateZ: (2800 - Math.abs(sRatio * 5850)) + "px",
+            translateY: "-" + Math.abs(sRatio * 3750 - 800) + "px",
+            translateZ: (2850 - Math.abs(sRatio * 5860)) + "px",
             opacity: this._getRatio(1.9 - sRatio),
           }, 1)
         }

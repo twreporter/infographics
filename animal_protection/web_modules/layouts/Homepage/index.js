@@ -14,6 +14,7 @@ import OpeningSec1 from "./Opening/OpeningSec1"
 import OpeningStardust from "./Opening/OpeningStardust"
 import OpeningLast from "./Opening/OpeningLast"
 import Tnr from "./TNR/TNR"
+import Game from "./Game/Game"
 
 import commonStyles from "../../styles/common.scss"
 import styles from "./Home.scss"
@@ -67,6 +68,7 @@ export default class Homepage extends Component {
         <OpeningStardust />
         <OpeningLast />
         <Tnr />
+        <Game />
 
         <div className={ commonStyles.content }>
           <Markdown source={ firstContent } />

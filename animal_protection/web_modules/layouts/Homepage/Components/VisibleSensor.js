@@ -31,9 +31,12 @@ export default class VisibleSensor extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    const { handleVisible } = this.props
+    const { handleVisible, handleInvisible } = this.props
     if (handleVisible && !this.state.isIn && nextState.isIn) {
       handleVisible()
+    }
+    else if (handleInvisible && this.state.isIn && !nextState.isIn) {
+      handleInvisible()
     }
     return false
   }
@@ -92,4 +95,5 @@ export default class VisibleSensor extends Component {
 VisibleSensor.propTypes = {
   children: React.PropTypes.node,
   handleVisible: React.PropTypes.func,
+  handleInvisible: React.PropTypes.func,
 }
