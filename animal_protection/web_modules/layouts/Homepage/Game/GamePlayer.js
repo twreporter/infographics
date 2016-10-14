@@ -13,6 +13,12 @@ if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
 }
 
+let GameFooter = (props) => {
+  return (
+    <div>/ { props.num } 隻流浪犬隻</div>
+  )
+}
+
 export default class GamePlayer extends Component {
   constructor(props) {
     super(props)
@@ -58,6 +64,7 @@ export default class GamePlayer extends Component {
             </div>
           </div>
         </div>
+        <GameFooter num={ 50 } />
       </div>
     )
   }
