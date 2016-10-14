@@ -29,6 +29,11 @@ export default class Game extends Component {
     this.handleGameStart = this.handleGameStart.bind(this)
   }
 
+  componentDidUpdate() {
+    const { isPlaying  } = this.state
+    this._checkIfPopupShown(isPlaying)
+  }
+
   _handleAnimation() {
     try {
       const gameTail = document.getElementById("gameTail")
@@ -51,6 +56,16 @@ export default class Game extends Component {
       }
     }
     catch (e) {}
+  }
+
+  _checkIfPopupShown(isOpen) {
+    // disable the page scrolling function if the Topic popup is being open
+    if (isOpen) {
+      document.getElementsByTagName("html")[0].style.overflow = "hidden"
+    }
+    else {
+      document.getElementsByTagName("html")[0].style.overflow = "auto"
+    }
   }
 
   handlePlayerClose() {

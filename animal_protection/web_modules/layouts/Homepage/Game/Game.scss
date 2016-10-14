@@ -39,6 +39,7 @@
   padding: 0.6rem 4.2rem;
   border-radius: 5px;
   cursor: pointer;
+  background: transparent;
   transition: background 0.5s;
   &:hover {
     background: linear-gradient(-60deg, rgba($blue,0.8) 0%, rgba($pink,0.5) 100%);
