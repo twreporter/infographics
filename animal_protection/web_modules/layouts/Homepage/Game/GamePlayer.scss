@@ -26,6 +26,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
+  width: 100%;
 
   .game-container {
     background: $white;
@@ -35,6 +36,14 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width: $width-md) {
+      width: 100%;
+      height: 78vh;
+      margin-top: 2rem;
+    }
+
     .dog {
       width: 20%;
       img {
@@ -128,6 +137,7 @@
   top: 0.6rem;
   right: 0.9rem;
   padding: 2.5rem;
+  z-index: 1010;
 
   @media (max-width: $width-xs) {
     $size: 2rem;
