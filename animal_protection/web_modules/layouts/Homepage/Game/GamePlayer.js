@@ -100,9 +100,8 @@ export default class GamePlayer extends Component {
 
           <div className={ styles["game-outer"] }>
             { gameContainer }
+            <GameFooter num={ 50 } />
           </div>
-
-          <GameFooter num={ 50 } />
         </div>
       </div>
     )

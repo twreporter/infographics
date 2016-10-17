@@ -30,7 +30,7 @@
   .game-container {
     background: $white;
     width: 960px;
-    height: 520px;
+    height: 510px;
     background-image: url('../../../../content/assets/gameBg-horizontal.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -45,7 +45,7 @@
 }
 
 .footer {
-  position: absolute;
+  // position: absolute;
   width: 100%;
   bottom: 6vh;
   left: 0;
@@ -53,6 +53,7 @@
   padding: 0 1rem 0.5rem;
   @include fade-in(4s);
   font-weight: $font-bold;
+  margin-top: 0.5rem;
 
   .time-des {
     margin-left: 2.5rem;
