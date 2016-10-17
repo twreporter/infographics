@@ -6,6 +6,8 @@
   color: white;
   background: linear-gradient(to bottom,$pink 0%,$blue 100%);
   overflow: hidden;
+  margin-top: -1px;
+  margin-bottom: -1px;
   @media (max-width: $width-md) {
     height: 120vh;
   }

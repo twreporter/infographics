@@ -6,7 +6,7 @@ import classnames from "classnames"
 import styles from "./GamePlayer.scss"
 import commonStyles from "../../../styles/common.scss"
 
-import gameIcon from "../../../../content/assets/game_start_icon.svg"
+import gameIcon from "../../../../content/assets/game_cnt_icon.svg"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -16,12 +16,18 @@ if (typeof window !== "undefined") {
 let GameFooter = (props) => {
   return (
     <div className={ classnames(styles["footer"]) }>
-      <div>
-        / { props.num } 隻流浪犬隻
-      </div>
-      <div>
+      <span>
+        <div className={ classnames(commonStyles["img-responsive"], styles["dog-cnt-icon"]) }
+          dangerouslySetInnerHTML={ { __html: gameIcon } }
+        />
+        <span className={ styles["dog-cnt"] }>{ props.num }</span> 隻流浪犬
+      </span>
+      <span className={ styles["time-des"] }>
         現在時間是
-      </div>
+      </span>
+      <span className={ styles["time-now"] }>
+        2016.10
+      </span>
     </div>
   )
 }
@@ -59,19 +65,19 @@ export default class GamePlayer extends Component {
         ref={ (ref) => this.container = ref }
       >
         <div className={ classnames(styles["intro"],
-          commonStyles["text-center"], commonStyles["content-outer"]) }
+          commonStyles["text-center"], commonStyles["content-outer"], closingClass) }
         >
-          <span className={ classnames(styles["close-button"], closingClass) } onClick={ this.handleClose }></span>
+          <span className={ classnames(styles["close-button"]) } onClick={ this.handleClose }></span>
           <div className={ introClass }>
             <h2>點選狗狗圖示執行 TNR！</h2>
             <div className={ styles["inner"] }>
               <div className={ classnames(commonStyles["img-responsive"], commonStyles["overlay-svg"], styles["center-dog"]) }
-                dangerouslySetInnerHTML={ { __html: gameIcon } }
-              />
+                dangerouslySetInnerHTML={ { __html: gameIcon } } />
             </div>
           </div>
+
+          <GameFooter num={ 50 } />
         </div>
-        <GameFooter num={ 50 } />
       </div>
     )
   }
