@@ -20,14 +20,38 @@
   }
 }
 
+.game-outer {
+  @include fade-in(4s);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+
+  .game-container {
+    background: $white;
+    width: 960px;
+    height: 520px;
+    background-image: url('../../../../content/assets/gameBg-horizontal.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    .dog {
+      width: 20%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
 .footer {
   position: absolute;
   width: 100%;
-  bottom: 0;
+  bottom: 6vh;
   left: 0;
   text-align: center;
-  padding: 0 1rem 2rem;
-  @include fade-in(2s);
+  padding: 0 1rem 0.5rem;
+  @include fade-in(4s);
   font-weight: $font-bold;
 
   .time-des {
