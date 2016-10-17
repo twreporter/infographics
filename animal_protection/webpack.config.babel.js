@@ -3,6 +3,8 @@ import path from "path"
 import webpack from "webpack"
 import ExtractTextPlugin from "extract-text-webpack-plugin"
 import { phenomicLoader, phenomicLoaderPlugins, phenomicLoaderPresets } from "phenomic"
+import PhenomicLoaderFeedWebpackPlugin
+  from "phenomic/lib/loader-feed-webpack-plugin"
 
 import pkg from "./package.json"
 
@@ -21,12 +23,11 @@ export const makeConfig = (config = {}) => {
         // *.md => consumed via phenomic special webpack loader
         // allow to generate collection and rss feed.
         {
-          // phenomic requirement
           test: /\.md$/,
           loader: phenomicLoader,
-          // config is in `phenomic` section later in the file
-          // so you can use functions (and not just JSON) due to a restriction
-          // of webpack that serialize/deserialize loader `query` option.
+          query: {
+            context: path.join(config.cwd, config.source),
+          }
         },
 
         // *.json => like in node, return json
@@ -143,22 +144,22 @@ export const makeConfig = (config = {}) => {
 
     phenomic: {
       context: path.join(__dirname, config.source),
-      // plugins: [ ...phenomicLoaderPresets.markdown ]
-      // see https://phenomic.io/docs/usage/plugins/
-      feedsOptions: {
-        title: pkg.name,
-        site_url: pkg.homepage,
-      },
-      feeds: {
-        "feed.xml": {
-          collectionOptions: {
-            filter: { layout: "Post" },
-            sort: "date",
-            reverse: true,
-            limit: 20,
-          },
-        },
-      },
+      // // plugins: [ ...phenomicLoaderPresets.markdown ]
+      // // see https://phenomic.io/docs/usage/plugins/
+      // feedsOptions: {
+      //   title: pkg.name,
+      //   site_url: pkg.homepage,
+      // },
+      // feeds: {
+      //   "feed.xml": {
+      //     collectionOptions: {
+      //       filter: { layout: "Post" },
+      //       sort: "date",
+      //       reverse: true,
+      //       limit: 20,
+      //     },
+      //   },
+      // },
     },
 
     postcss: () => [
@@ -178,6 +179,30 @@ export const makeConfig = (config = {}) => {
           { compress: { warnings: false } }
         ),
       ],
+      new PhenomicLoaderFeedWebpackPlugin({
+        // here you define generic metadata for your feed
+        feedsOptions: {
+          title: pkg.name,
+          site_url: pkg.homepage,
+        },
+        feeds: {
+          // here we define one feed, but you can generate multiple, based
+          // on different filters
+          "feed.xml": {
+
+            // here you can define options for the feed
+            title: pkg.name + ": Latest Posts",
+
+            // this special key allows to filter the collection
+            collectionOptions: {
+              filter: { layout: "Post" },
+              sort: "date",
+              reverse: true,
+              limit: 20,
+            },
+          },
+        },
+      }),
     ],
 
     output: {
