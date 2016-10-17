@@ -20,6 +20,11 @@
   }
 }
 
+.footer {
+  text-align: center;
+  margin: 0 2rem;
+}
+
 .hide {
   @include fade-out(1.5s);
 }

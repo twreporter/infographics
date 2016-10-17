@@ -15,7 +15,14 @@ if (typeof window !== "undefined") {
 
 let GameFooter = (props) => {
   return (
-    <div>/ { props.num } 隻流浪犬隻</div>
+    <div className={ classnames(styles["footer"]) }>
+      <div>
+        / { props.num } 隻流浪犬隻
+      </div>
+      <div>
+        現在時間是
+      </div>
+    </div>
   )
 }
 
