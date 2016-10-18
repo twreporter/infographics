@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-bind, no-empty, brace-style, prefer-const, react/jsx-no-literals, max-len, react/prop-types, react/no-multi-comp, react/jsx-closing-bracket-location  */
+/* eslint-disable react/jsx-no-bind, no-empty, no-unused-vars, brace-style, prefer-const, react/jsx-no-literals, max-len, react/prop-types, react/no-multi-comp, react/jsx-closing-bracket-location  */
 import _ from "lodash"
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
@@ -54,12 +54,14 @@ export default class GamePlayer extends Component {
       gHeight: 300,   // height of the game container
       dogWidth: 60,   // width of a single dog
       dogHeight: 60,  // height of a single dog
+      posList: [],    // list to store possible positions to place dogs
     }
     this.handleClose = this.handleClose.bind(this)
     this._handleDialogOpened = this._handleDialogOpened.bind(this)
     this.handleDogClick = this.handleDogClick.bind(this)
     this.handleResize = this.handleResize.bind(this)
     this.handleGameStart = this.handleGameStart.bind(this)
+    this._generateDogPositions = this._generateDogPositions.bind(this)
     this.debouncedResize = _.debounce(() => { this.handleResize() }, 150, { "maxWait": 450 })
   }
 
@@ -82,7 +84,34 @@ export default class GamePlayer extends Component {
   }
 
   handleGameStart() {
+    // detect window size
     this.debouncedResize()
+
+  }
+
+  _generateDogPositions() {
+    const { gWidth, gHeight, dogWidth, dogHeight } = this.state
+    let iMax = 5
+    let jMax = 10
+    if (gWidth < gHeight) {
+      iMax = 10
+      jMax = 5
+    }
+    const xStep = (gWidth) / jMax
+    const yStep = (gHeight) / iMax
+    console.log("yStep = (gHeight - dogHeight) / jMax", yStep, gHeight, dogHeight, jMax)
+    let posList = []
+    for (let i=0; i<iMax; i++) {
+      for (let j=0; j<jMax; j++) {
+        posList.push({ top: i*yStep + dogHeight/2, left: j*xStep + dogWidth/2 })
+      }
+    }
+    for (let i=0; i<iMax+1; i++) {
+      for (let j=0; j<jMax+1; j++) {
+        posList.push({ top: i*yStep, left: j*xStep })
+      }
+    }
+    this.setState({ posList: posList })
   }
 
   handleResize() {
@@ -94,7 +123,9 @@ export default class GamePlayer extends Component {
       dogWidth: dog.clientWidth,
       dogHeight: dog.clientHeight,
     })
-    console.log("***elem.clientWidth", game.clientWidth, game.clientHeight, dog.clientWidth, dog.clientHeight)
+
+    // re-calculate the positions of dogs
+    this._generateDogPositions()
   }
 
   handleClose() {
@@ -104,8 +135,8 @@ export default class GamePlayer extends Component {
       .then(() => this.props.onClose())
   }
 
-  handleDogClick() {
-    console.log("***dogIClicked")
+  handleDogClick(dogId, event) {
+    console.log("***dogIClicked", dogId)
     this.setState({ dogIClicked: true })
   }
 
@@ -119,16 +150,32 @@ export default class GamePlayer extends Component {
     }
     const xStep = (gWidth) / jMax
     const yStep = (gHeight) / iMax
+    let dogId = 0
     console.log("yStep = (gHeight - dogHeight) / jMax", yStep, gHeight, dogHeight, jMax)
     let dogsList = []
+    let posList = []
     for (let i=0; i<iMax; i++) {
       for (let j=0; j<jMax; j++) {
         dogsList.push(
-        <div key={ `${i}-${j}` } className={ styles["dog"] }
+        <div key={ dogId } className={ styles["dog"] }
           style={ { top: i*yStep + dogHeight/2, left: j*xStep + dogWidth/2 } }
-          onClick={ this.handleDogClick }>
+          onClick={ this.handleDogClick.bind(event, dogId) }>
           <Dog />
         </div>)
+        dogId++
+        posList.push({ top: i*yStep + dogHeight/2, left: j*xStep + dogWidth/2 })
+      }
+    }
+    for (let i=0; i<iMax+1; i++) {
+      for (let j=0; j<jMax+1; j++) {
+        dogsList.push(
+        <div key={ dogId } className={ styles["dog"] }
+          style={ { top: i*yStep, left: j*xStep } }
+          onClick={ this.handleDogClick.bind(event, dogId) }>
+          <Dog />
+        </div>)
+        dogId++
+        posList.push({ top: i*yStep, left: j*xStep })
       }
     }
     return dogsList
