@@ -27,8 +27,12 @@
   transform: translate(-50%, -50%);
   position: absolute;
   width: 100%;
+  @media (max-width: $width-md) {
+    margin-top: 2rem;
+  }
 
   .game-container {
+    position: relative;
     background: $white;
     width: 960px;
     height: 510px;
@@ -41,11 +45,24 @@
     @media (max-width: $width-md) {
       width: 100%;
       height: 78vh;
-      margin-top: 2rem;
     }
 
     .dog {
-      width: 20%;
+      position: absolute;
+      width: 8%;
+      cursor: pointer;
+      transform: translate(-50%,-50%);
+      transition: all 0.2s;
+      &:hover {
+        width: 9%;
+        margin-top: -5px;
+      }
+      @media (max-width: $width-md) {
+        width: 11%;
+      }
+      @media (max-width: $width-xs) {
+        width: 15%;
+      }
       img {
         width: 100%;
       }
@@ -122,6 +139,10 @@
 
 .hide-fast {
   @include fade-out(0.8s);
+}
+
+.hide-visible {
+  visibility: hidden;
 }
 
 .close-button {

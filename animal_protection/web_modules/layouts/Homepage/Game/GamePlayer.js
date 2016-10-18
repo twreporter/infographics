@@ -1,13 +1,14 @@
-/* eslint-disable react/jsx-no-bind, no-empty, react/jsx-no-literals, max-len, react/prop-types, react/no-multi-comp, react/jsx-closing-bracket-location  */
-
+/* eslint-disable react/jsx-no-bind, no-empty, brace-style, prefer-const, react/jsx-no-literals, max-len, react/prop-types, react/no-multi-comp, react/jsx-closing-bracket-location  */
+import _ from "lodash"
 import React, { Component } from "react"
+import ReactDOM from "react-dom"
 
 import classnames from "classnames"
 import styles from "./GamePlayer.scss"
 import commonStyles from "../../../styles/common.scss"
 
 import dogAnimated from "../../../../content/assets/dog_animated.gif"
-// import dogCaptured from "../../../../content/assets/dog_captured.gif"
+import dogCaptured from "../../../../content/assets/dog_captured.gif"
 import gameIcon from "../../../../content/assets/game_cnt_icon.svg"
 
 let velocity
@@ -34,11 +35,10 @@ let GameFooter = (props) => {
   )
 }
 
-const Dog = () => {
+const Dog = (props) => {
+  let dogImg = (props.isCaptured) ? dogCaptured : dogAnimated
   return (
-    <div className={ styles["dog"] }>
-      <img src={ dogAnimated } />
-    </div>
+    <img src={ dogImg } />
   )
 }
 
@@ -49,9 +49,18 @@ export default class GamePlayer extends Component {
       isIntoHidden: true,
       isOpened: false,
       isClosing: false,
+      dogIClicked: false,
+      gWidth: 300,    // width of the game container
+      gHeight: 300,   // height of the game container
+      dogWidth: 60,   // width of a single dog
+      dogHeight: 60,  // height of a single dog
     }
     this.handleClose = this.handleClose.bind(this)
     this._handleDialogOpened = this._handleDialogOpened.bind(this)
+    this.handleDogClick = this.handleDogClick.bind(this)
+    this.handleResize = this.handleResize.bind(this)
+    this.handleGameStart = this.handleGameStart.bind(this)
+    this.debouncedResize = _.debounce(() => { this.handleResize() }, 150, { "maxWait": 450 })
   }
 
   componentDidMount() {
@@ -59,10 +68,33 @@ export default class GamePlayer extends Component {
     velocity(this.container, { width: [ "100%", outerWidth ], height: [ "100%", outerHeight ],
       top: [ 0, outerTop ], translateX: [ "-50%", "-50%" ] }, { duration: 1000, easing: "easeInOutSine" })
       .then(this._handleDialogOpened())
+    window.addEventListener("resize", this.debouncedResize)
+    this.debouncedResize()
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.debouncedResize)
   }
 
   _handleDialogOpened() {
     this.setState({ isOpened: true })
+    setTimeout(this.handleGameStart, 3000)
+  }
+
+  handleGameStart() {
+    this.debouncedResize()
+  }
+
+  handleResize() {
+    const game = ReactDOM.findDOMNode(this.game)
+    const dog = ReactDOM.findDOMNode(this.exampleDog)
+    this.setState({
+      gWidth: game.clientWidth,
+      gHeight: game.clientHeight,
+      dogWidth: dog.clientWidth,
+      dogHeight: dog.clientHeight,
+    })
+    console.log("***elem.clientWidth", game.clientWidth, game.clientHeight, dog.clientWidth, dog.clientHeight)
   }
 
   handleClose() {
@@ -72,14 +104,44 @@ export default class GamePlayer extends Component {
       .then(() => this.props.onClose())
   }
 
+  handleDogClick() {
+    console.log("***dogIClicked")
+    this.setState({ dogIClicked: true })
+  }
+
+  getDogs() {
+    const { gWidth, gHeight, dogWidth, dogHeight } = this.state
+    let iMax = 5
+    let jMax = 10
+    if (gWidth < gHeight) {
+      iMax = 10
+      jMax = 5
+    }
+    const xStep = (gWidth) / jMax
+    const yStep = (gHeight) / iMax
+    console.log("yStep = (gHeight - dogHeight) / jMax", yStep, gHeight, dogHeight, jMax)
+    let dogsList = []
+    for (let i=0; i<iMax; i++) {
+      for (let j=0; j<jMax; j++) {
+        dogsList.push(
+        <div key={ `${i}-${j}` } className={ styles["dog"] }
+          style={ { top: i*yStep + dogHeight/2, left: j*xStep + dogWidth/2 } }
+          onClick={ this.handleDogClick }>
+          <Dog />
+        </div>)
+      }
+    }
+    return dogsList
+  }
+
   render() {
-    const { isIntoHidden, isOpened, isClosing } = this.state
+    const { isIntoHidden, isOpened, isClosing, dogIClicked } = this.state
     const introClass = isIntoHidden ? styles["hide"] : null
     const closingClass = isClosing ? styles["hide-fast"] : null
 
     const gameContainer = isOpened ?
-      <div className={ styles["game-container"] }>
-        <Dog />
+      <div className={ styles["dog"] } onClick={ this.handleDogClick }>
+        <Dog isCaptured={ dogIClicked } />
       </div> : null
 
     return (
@@ -99,7 +161,13 @@ export default class GamePlayer extends Component {
           </div>
 
           <div className={ styles["game-outer"] }>
-            { gameContainer }
+            <div className={ styles["game-container"] } ref={ (ref) => this.game = ref }>
+              { gameContainer }
+              { this.getDogs() }
+              <div className={ classnames(styles["dog"], styles["hide-visible"]) } ref={ (ref) => this.exampleDog = ref }>
+                <Dog isCaptured={ false } />
+              </div>
+            </div>
             <GameFooter num={ 50 } />
           </div>
         </div>
