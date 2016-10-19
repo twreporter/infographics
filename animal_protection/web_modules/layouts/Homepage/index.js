@@ -73,6 +73,7 @@ export default class Homepage extends Component {
         <div className={ commonStyles.content }>
           <Markdown source={ firstContent } />
           <PagesList pages={ latestPosts } />
+          地圖資料來源： CartoDB
         </div>
 
       </Page>

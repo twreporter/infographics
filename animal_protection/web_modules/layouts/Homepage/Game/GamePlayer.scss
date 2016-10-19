@@ -50,12 +50,12 @@
 
     .dog {
       position: absolute;
-      width: 8%;
+      width: 9%;
       cursor: pointer;
       transform: translate(-50%,-50%);
       transition: all 0.2s;
       &:hover {
-        width: 9%;
+        width: 9.5%;
         margin-top: -5px;
       }
       @media (max-width: $width-md) {
@@ -144,6 +144,7 @@
 
 .hide-visible {
   visibility: hidden;
+  z-index: 0;
 }
 
 .close-button {
