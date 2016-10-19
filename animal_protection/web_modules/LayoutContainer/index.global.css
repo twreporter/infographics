@@ -24,6 +24,11 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  color: white;
+  background: #ff8d8d;
+}
+
 /*
  * page styles
  */
