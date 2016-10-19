@@ -84,9 +84,8 @@ export default class GamePlayer extends Component {
       dogHeight: 60,  // height of a single dog
       posList: [],    // list to store possible positions to place dogs
       freePos: [],
-      disappearingDog: -1,
       disappearDogs: [],
-      totalDog: 0,
+      totalDogs: 0,
     }
     this.handleClose = this.handleClose.bind(this)
     this._handleDialogOpened = this._handleDialogOpened.bind(this)
@@ -130,40 +129,37 @@ export default class GamePlayer extends Component {
 
   _placeDog() {
     // place a dog in a random position
-    let { posList, freePos, totalDog } = this.state
+    let { posList, freePos, totalDogs } = this.state
     let selIndex = 0
     if (freePos.length > 0) {
       const splicePos = Math.floor(Math.random()*freePos.length)
       selIndex = freePos[splicePos]
-      freePos.splice(selIndex, 1)
+      freePos.splice(splicePos, 1)
     }
     else {
       // add to an existing position if there is no space
       selIndex = Math.floor(Math.random()*posList.length)
     }
     posList[selIndex].dogs.push(false)
-    totalDog++
-    console.log(totalDog, posList, freePos)
-    this.setState({ totalDog: totalDog, posList: posList, freePos: freePos })
+    totalDogs++
+    console.log(totalDogs, freePos, freePos.length)
+    this.setState({ totalDogs: totalDogs, posList: posList, freePos: freePos })
   }
 
   _removeDog(posIdx) {
     // remove a dog in the selected position
-    let { posList, freePos, totalDog, disappearDogs } = this.state
-    posList[posIdx].dogs[0] = true  // set as dissapearing
+    let { posList, freePos, totalDogs, disappearDogs } = this.state
+    posList[posIdx].dogs[0] = true  // set as disapearing
     disappearDogs.push(posIdx)
-    // setTimeout(() => {
-    //   this.setState({ disappearDogs: _.remove(disappearDogs, posIdx) })
-    // }, 2000)
     setTimeout(() => {
+      let { posList, freePos, totalDogs, disappearDogs } = this.state
       posList[posIdx].dogs.shift()
       if (posList[posIdx].dogs.length === 0) {
         freePos.push(posIdx)
       }
-      totalDog--
-      this.setState({ totalDog: totalDog, posList: posList, freePos: freePos, disappearingDog: posIdx })
+      totalDogs--
+      this.setState({ totalDogs: totalDogs, posList: posList, freePos: freePos })
     }, 300)
-
     this.setState({ disappearDogs: disappearDogs, posList: posList })
   }
 
@@ -234,54 +230,26 @@ export default class GamePlayer extends Component {
   }
 
   handleDogClick(dogId, event) {
+    let { posList, freePos, totalDogs, disappearDogs } = this.state
     console.log("***dogIClicked", dogId)
     event.stopPropagation()
-    this._removeDog(dogId)
+    const dogs = posList[dogId].dogs
+    let shouldRemove = false
+    if (dogs) {
+      for (let i=0; i<dogs.length; i++) {
+        if (!dogs[i]) {
+          shouldRemove = true
+          break
+        }
+      }
+    }
+    if (shouldRemove) {
+      this._removeDog(dogId)
+    }
   }
 
-  // getDogs() {
-  //   const { gWidth, gHeight, dogWidth, dogHeight } = this.state
-  //   let iMax = 5
-  //   let jMax = 10
-  //   if (gWidth < gHeight) {
-  //     iMax = 10
-  //     jMax = 5
-  //   }
-  //   const xStep = (gWidth) / jMax
-  //   const yStep = (gHeight) / iMax
-  //   let dogId = 0
-  //   console.log("yStep = (gHeight - dogHeight) / jMax", yStep, gHeight, dogHeight, jMax)
-  //   let dogsList = []
-  //   let posList = []
-  //   for (let i=0; i<iMax; i++) {
-  //     for (let j=0; j<jMax; j++) {
-  //       dogsList.push(
-  //       <div key={ dogId } className={ styles["dog"] }
-  //         style={ { top: i*yStep + dogHeight/2, left: j*xStep + dogWidth/2 } }
-  //         onClick={ this.handleDogClick.bind(event, dogId) }>
-  //         <Dog />
-  //       </div>)
-  //       dogId++
-  //       posList.push({ top: i*yStep + dogHeight/2, left: j*xStep + dogWidth/2 })
-  //     }
-  //   }
-  //   for (let i=0; i<iMax+1; i++) {
-  //     for (let j=0; j<jMax+1; j++) {
-        // dogsList.push(
-        // <div key={ dogId } className={ styles["dog"] }
-        //   style={ { top: i*yStep, left: j*xStep } }
-        //   onClick={ this.handleDogClick.bind(event, dogId) }>
-        //   <Dog />
-        // </div>)
-  //       dogId++
-  //       posList.push({ top: i*yStep, left: j*xStep })
-  //     }
-  //   }
-  //   return dogsList
-  // }
-
   getDogs() {
-    const { posList, disappearingDog, disappearDogs } = this.state
+    const { posList, disappearDogs } = this.state
     let dogsList = []
     for (let i=0; i<posList.length; i++) {
       const dogs = posList[i].dogs
@@ -296,20 +264,11 @@ export default class GamePlayer extends Component {
         }
       }
     }
-    // for (let i=0; i<disappearDogs.length; i++) {
-    //   const dIdx = disappearDogs[i]
-    //   dogsList.push(
-    //     <div key={ dIdx } className={ styles["dog"] }
-    //       style={ { top: posList[dIdx].top, left: posList[dIdx].left } }>
-    //       <Dog isCaptured isCapturing={ dIdx===disappearingDog } />
-    //     </div>)
-    // }
-    console.log("disappearingDog", disappearingDog)
     return dogsList
   }
 
   render() {
-    const { isIntoHidden, isOpened, isClosing } = this.state
+    const { isIntoHidden, isOpened, isClosing, totalDogs } = this.state
     const introClass = isIntoHidden ? styles["hide"] : null
     const closingClass = isClosing ? styles["hide-fast"] : null
 
@@ -336,7 +295,7 @@ export default class GamePlayer extends Component {
                 <Dog isCaptured={ false } />
               </div>
             </div>
-            <GameFooter num={ 50 } />
+            <GameFooter num={ totalDogs } />
           </div>
         </div>
       </div>
