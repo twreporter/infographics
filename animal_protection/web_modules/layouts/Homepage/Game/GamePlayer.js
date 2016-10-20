@@ -9,6 +9,7 @@ import commonStyles from "../../../styles/common.scss"
 
 import dogAnimated from "../../../../content/assets/dog_animated.gif"
 import dogCaptured from "../../../../content/assets/dog_captured.gif"
+import dogDeath from "../../../../content/assets/dog_death.gif"
 import gameIcon from "../../../../content/assets/game_cnt_icon.svg"
 
 let velocity
@@ -23,6 +24,16 @@ const MAX_CAPACITY = 100
 const MALE_DEATH_RATE = 0.45
 const FEMALE_DEATH_RATE = 0.15
 const NEWBORN_COEFFICIENT = 3.074
+
+const M_NOTCAPTURED = -3
+const F_NOTCAPTURED = -2
+const M_DEATH = -1
+const F_DEATH = 0
+const M_CAPTURED = 1
+const F_CAPTURED = 2
+
+const A_YEAR = 5000           // use how many ms to represent a year
+const TOTAL_YEARS = 20
 
 let GameFooter = (props) => {
   return (
@@ -43,37 +54,14 @@ let GameFooter = (props) => {
   )
 }
 
-// class Dog extends Component {
-//   constructor(props) {
-//     super(props)
-//     this.state = {
-//       isCaptured: !props.isCapturing && props.isCaptured,
-//     }
-//     this.handleCaptured = this.handleCaptured.bind(this)
-//   }
-//   componentDidMount() {
-//     if (this.props.isCapturing) {
-//       setTimeout(this.handleCaptured, 100)
-//     }
-//   }
-//   handleCaptured() {
-//     this.setState({ isCaptured: true })
-//   }
-//   render() {
-//     console.log(this.props.isCapturing)
-//     let dogImg = (this.state.isCaptured) ? null: dogAnimated
-//     if (this.props.isCapturing) {
-//       dogImg = dogCaptured
-//     }
-//     return (
-//       <img src={ dogImg } />
-//     )
-//   }
-//
-// }
-
 const Dog = (props) => {
-  let dogImg = (props.isCaptured) ? dogCaptured : dogAnimated
+  let dogImg = dogAnimated
+  if (props.status === M_CAPTURED || props.status === F_CAPTURED) {
+    console.log("M_CAPTURED")
+    dogImg = dogCaptured
+  } else if (props.status === M_DEATH || props.status === F_DEATH) {
+    dogImg = dogDeath
+  }
   return (
     <img src={ dogImg } />
   )
@@ -141,14 +129,17 @@ export default class GamePlayer extends Component {
     this.debouncedResize()
 
     // start playing the game
-    for (let i=0; i<20; i++) {
-      this._placeDog()
+    for (let i=0; i<10; i++) {
+      this._placeDog(M_NOTCAPTURED)
+    }
+    for (let i=0; i<10; i++) {
+      this._placeDog(F_NOTCAPTURED)
     }
 
   }
 
-  _placeDog() {
-    // place a dog in a random position
+  _placeDog(gender) {
+    // place a dog in a random position, and return the randomly selected position
     let { posList, freePos, totalDogs } = this.state
     let selIndex = 0
     if (freePos.length > 0) {
@@ -160,16 +151,23 @@ export default class GamePlayer extends Component {
       // add to an existing position if there is no space
       selIndex = Math.floor(Math.random()*posList.length)
     }
-    posList[selIndex].dogs.push(false)
+    posList[selIndex].dogs.push(gender)
     totalDogs++
     console.log(totalDogs, freePos, freePos.length)
     this.setState({ totalDogs: totalDogs, posList: posList, freePos: freePos })
+    return selIndex
   }
 
   _removeDog(posIdx) {
     // remove a dog in the selected position
     let { posList, freePos, totalDogs, disappearDogs } = this.state
-    posList[posIdx].dogs[0] = true  // set as disapearing
+    // set as disapearing
+    if (posList[posIdx].dogs[0] === M_NOTCAPTURED) {
+      posList[posIdx].dogs[0] = M_CAPTURED
+    } else {
+      posList[posIdx].dogs[0] = F_CAPTURED
+    }
+
     disappearDogs.push(posIdx)
     setTimeout(() => {
       let { posList, freePos, totalDogs, disappearDogs } = this.state
@@ -257,7 +255,7 @@ export default class GamePlayer extends Component {
     let shouldRemove = false
     if (dogs) {
       for (let i=0; i<dogs.length; i++) {
-        if (!dogs[i]) {
+        if (dogs[i]===M_NOTCAPTURED || dogs[i]===F_NOTCAPTURED) {
           shouldRemove = true
           break
         }
@@ -280,7 +278,7 @@ export default class GamePlayer extends Component {
             <div key={ `${i}-${j}` } className={ styles["dog"] }
               style={ { top: posList[i].top, left: posList[i].left } }
               onClick={ this.handleDogClick.bind(event, i) }>
-              <Dog isCaptured={ dogs[j] } />
+              <Dog status={ dogs[j] } />
             </div>)
         }
       }
@@ -313,7 +311,7 @@ export default class GamePlayer extends Component {
             <div className={ styles["game-container"] } ref={ (ref) => this.game = ref }>
               { this.getDogs() }
               <div className={ classnames(styles["dog"], styles["hide-visible"]) } ref={ (ref) => this.exampleDog = ref }>
-                <Dog isCaptured={ false } />
+                <Dog status={ M_NOTCAPTURED } />
               </div>
             </div>
             <GameFooter num={ totalDogs } />
