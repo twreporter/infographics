@@ -16,6 +16,14 @@ if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
 }
 
+const INITIAL_ANIMALS = 20
+const NEWLY_ABANDONED = 2
+const MULTIPLE = 50           //  number of existing animals = total number on screen * MULTIPLE
+const MAX_CAPACITY = 100
+const MALE_DEATH_RATE = 0.45
+const FEMALE_DEATH_RATE = 0.15
+const NEWBORN_COEFFICIENT = 3.074
+
 let GameFooter = (props) => {
   return (
     <div className={ classnames(styles["footer"]) }>
@@ -86,6 +94,18 @@ export default class GamePlayer extends Component {
       freePos: [],
       disappearDogs: [],
       totalDogs: 0,
+      calculator: {
+        notNeuteredM: 0,
+        notNeuteredF: 0,
+        deathM: 0,
+        deathF: 0,
+        isNeuteredM: 0,
+        isNeuteredF: 0,
+        abandonedM: 0,
+        abandonedF: 0,
+        newBornM: 0,
+        newBornF: 0,
+      },
     }
     this.handleClose = this.handleClose.bind(this)
     this._handleDialogOpened = this._handleDialogOpened.bind(this)
@@ -249,6 +269,7 @@ export default class GamePlayer extends Component {
   }
 
   getDogs() {
+    // render dogs on the canvas
     const { posList, disappearDogs } = this.state
     let dogsList = []
     for (let i=0; i<posList.length; i++) {
