@@ -54,6 +54,8 @@
       cursor: pointer;
       transform: translate(-50%,-50%);
       transition: all 0.2s;
+      user-select: none;
+      @include fade-in(0.5s);
       &:hover {
         width: 9.5%;
         margin-top: -5px;
@@ -66,7 +68,13 @@
       }
       img {
         width: 100%;
+        user-select: none;
       }
+    }
+
+    .dog-neutered {
+      @extend .dog;
+      cursor: default;
     }
   }
 }

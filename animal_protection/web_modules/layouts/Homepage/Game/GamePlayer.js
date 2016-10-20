@@ -8,6 +8,7 @@ import styles from "./GamePlayer.scss"
 import commonStyles from "../../../styles/common.scss"
 
 import dogAnimated from "../../../../content/assets/dog_animated.gif"
+import dogNeutered from "../../../../content/assets/dog_neutered.gif"
 import dogCaptured from "../../../../content/assets/dog_captured.gif"
 import dogDeath from "../../../../content/assets/dog_death.gif"
 import gameIcon from "../../../../content/assets/game_cnt_icon.svg"
@@ -67,6 +68,13 @@ const Dog = (props) => {
   )
 }
 
+const NeuteredDog = (props) => {
+  let dogImg = props.isAlive ? dogNeutered : dogDeath
+  return (
+    <img src={ dogImg } />
+  )
+}
+
 export default class GamePlayer extends Component {
   constructor(props) {
     super(props)
@@ -82,6 +90,8 @@ export default class GamePlayer extends Component {
       freePos: [],
       disappearDogs: [],
       totalDogs: 0,
+      neuteredM: [],  // list of the neutured male dogs     => {position: , isAlive: }
+      neuteredF: [],  // list of the neutured female dogs   => {position: , isAlive: }
       calculator: {
         notNeuteredM: 0,
         notNeuteredF: 0,
@@ -169,16 +179,28 @@ export default class GamePlayer extends Component {
     }
 
     disappearDogs.push(posIdx)
+    this.setState({ disappearDogs: disappearDogs, posList: posList })
+
+    // after the disappearing animation terminates
     setTimeout(() => {
-      let { posList, freePos, totalDogs, disappearDogs } = this.state
+      let { posList, freePos, totalDogs, disappearDogs, neuteredM, neuteredF } = this.state
+      // move the dog into neutered list
+      if (posList[posIdx].dogs[0] === M_CAPTURED) {
+        neuteredM.push({ position: posIdx, isAlive: true })
+      } else {
+        neuteredF.push({ position: posIdx, isAlive: true })
+      }
+
+      // remove the dog from the unneutered list
       posList[posIdx].dogs.shift()
       if (posList[posIdx].dogs.length === 0) {
         freePos.push(posIdx)
       }
       totalDogs--
-      this.setState({ totalDogs: totalDogs, posList: posList, freePos: freePos })
+      this.setState({ totalDogs: totalDogs, posList: posList, freePos: freePos,
+        neuteredM: neuteredM, neuteredF: neuteredF })
     }, 300)
-    this.setState({ disappearDogs: disappearDogs, posList: posList })
+
   }
 
   _generateDogPositions() {
@@ -268,7 +290,7 @@ export default class GamePlayer extends Component {
 
   getDogs() {
     // render dogs on the canvas
-    const { posList, disappearDogs } = this.state
+    const { posList } = this.state
     let dogsList = []
     for (let i=0; i<posList.length; i++) {
       const dogs = posList[i].dogs
@@ -284,6 +306,24 @@ export default class GamePlayer extends Component {
       }
     }
     return dogsList
+  }
+
+  getNeuteredDogs() {
+    // render dogs on the background
+    const { neuteredM, neuteredF, posList } = this.state
+    let nDogsList = []
+    const neutered = neuteredM.concat(neuteredF)
+    for (let i=0; i<neutered.length; i++) {
+      const dog = neutered[i]
+      const dogPos = dog.position
+      nDogsList.push(
+        <div key={ `n${dogPos}` } className={ styles["dog-neutered"] }
+          style={ { top: posList[dogPos].top, left: posList[dogPos].left } }
+        >
+          <NeuteredDog isAlive={ dog.isAlive } />
+        </div>)
+    }
+    return nDogsList
   }
 
   render() {
@@ -309,6 +349,7 @@ export default class GamePlayer extends Component {
 
           <div className={ styles["game-outer"] }>
             <div className={ styles["game-container"] } ref={ (ref) => this.game = ref }>
+              { this.getNeuteredDogs() }
               { this.getDogs() }
               <div className={ classnames(styles["dog"], styles["hide-visible"]) } ref={ (ref) => this.exampleDog = ref }>
                 <Dog status={ M_NOTCAPTURED } />
