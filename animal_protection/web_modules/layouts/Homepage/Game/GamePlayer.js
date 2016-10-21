@@ -274,13 +274,14 @@ export default class GamePlayer extends Component {
   _removeDog(posIdx, isDeath) {
     // remove a dog in the selected position
     let { posList, freePos, totalDogs, unneuteredM, unneuteredF } = this.state
+    console.log("posList[posIdx].dogs[0]", posIdx, posList[posIdx].dogs[0], isDeath)
     // set as disapearing
     if (posList[posIdx].dogs[0] === M_NOTCAPTURED) {
       posList[posIdx].dogs[0] = isDeath ? M_DEATH : M_CAPTURED
-      unneuteredM.splice(_.findIndex(unneuteredM, posIdx), 1)
+      unneuteredM.splice(_.indexOf(unneuteredM, posIdx), 1)
     } else if (posList[posIdx].dogs[0] === F_NOTCAPTURED) {
       posList[posIdx].dogs[0] = isDeath ? F_DEATH : F_CAPTURED
-      unneuteredF.splice(_.findIndex(unneuteredF, posIdx), 1)
+      unneuteredF.splice(_.indexOf(unneuteredF, posIdx), 1)
     }
     if (isDeath) {
       totalDogs--
