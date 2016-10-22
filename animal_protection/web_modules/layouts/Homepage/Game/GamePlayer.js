@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-bind, no-empty, no-unused-vars, brace-style, prefer-const, react/jsx-no-literals, max-len, react/prop-types, react/no-multi-comp, react/jsx-closing-bracket-location  */
+/* eslint-disable react/jsx-no-bind, no-unexpected-multiline, no-empty, no-unused-vars, brace-style, prefer-const, react/jsx-no-literals, max-len, react/prop-types, react/no-multi-comp, react/jsx-closing-bracket-location  */
 import _ from "lodash"
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
@@ -19,7 +19,7 @@ if (typeof window !== "undefined") {
 }
 
 const INITIAL_ANIMALS = 20
-const NEWLY_ABANDONED = 2
+const NEWLY_ABANDONED = 5
 const MULTIPLE = 50           //  number of existing animals = total number on screen * MULTIPLE
 const MAX_CAPACITY = 100
 const MALE_DEATH_RATE = 0.4
@@ -34,8 +34,8 @@ const F_DEATH = 0
 const M_CAPTURED = 1
 const F_CAPTURED = 2
 
-const A_YEAR = 5000           // use how many ms to represent a year
-const TOTAL_YEARS = 2
+const A_YEAR = 3000           // use how many ms to represent a year
+const TOTAL_YEARS = 10
 
 let GameFooter = (props) => {
   return (
@@ -164,7 +164,13 @@ export default class GamePlayer extends Component {
     console.log("Initial", this.state.unneuteredM, this.state.unneuteredF)
 
     this.setState({ calculator: calculator })
-    setTimeout(this._simulateAfterAYear , A_YEAR)
+    let self = this
+    for (let i=0; i<TOTAL_YEARS; i++) {
+      (function(y) {
+        // setTimeout(()=>{console.log("y * A_YEAR",y, y * A_YEAR)} , y * A_YEAR)
+        setTimeout(self._simulateAfterAYear, y * A_YEAR)
+      }(i))
+    }
   }
 
   _getRandomIndices(list, count) {
@@ -191,11 +197,9 @@ export default class GamePlayer extends Component {
     const fUDeathIndices = this._getRandomIndices(unneuteredF, fUDeaths)
     console.log("1. mUDeaths, fUDeaths", mUDeaths, fUDeaths)
     for (let i=0; i<mUDeaths; i++) {
-      console.log("unneuteredM[mUDeathIndices[i]]", mUDeathIndices[i], i, mUDeathIndices, unneuteredM)
       this._removeDog(mUDeathIndices[i], true)
     }
     for (let i=0; i<fUDeaths; i++) {
-      console.log("unneuteredF[fUDeathIndices[i]]", fUDeathIndices[i], i, fUDeathIndices)
       this._removeDog(fUDeathIndices[i], true)
     }
 
@@ -205,19 +209,36 @@ export default class GamePlayer extends Component {
     const fDeaths =  Math.floor(FEMALE_DEATH_RATE * neuteredDisplayF.length)
     const fDeathIndices = this._getRandomIndices(neuteredDisplayF, fDeaths)
     console.log("2. mDeaths, fDeaths", mDeaths, fDeaths, mDeathIndices, fDeathIndices)
-    // *** TODO: Avoid generating the same ID
     for (let i=0; i<mDeaths; i++) {
-      console.log("_removeNeuteredDog")
       this._removeNeuteredDog("M", mDeathIndices[i])
     }
     for (let i=0; i<fDeaths; i++) {
-      console.log("_removeNeuteredDog")
       this._removeNeuteredDog("F", fDeathIndices[i])
     }
 
     // 3. calculate and place the new borns
+    const multi = (this.state.totalDogs > MAX_CAPACITY) ? 0 :
+                 NEWBORN_COEFFICIENT * (1-this.state.totalDogs/MAX_CAPACITY) / 4
+    const newBornM = Math.floor(unneuteredM.length * multi)
+    const newBornF = Math.floor(unneuteredF.length * multi)
+    console.log("newBornM", "newBornF", newBornM, newBornF,this.state.totalDogs, 1-this.state.totalDogs/MAX_CAPACITY)
+
+    // ***TODO: exceed max capacity
+
+    for (let i=0; i<newBornM; i++) {
+      this._placeDog(M_NOTCAPTURED)
+    }
+    for (let i=0; i<newBornF; i++) {
+      this._placeDog(F_NOTCAPTURED)
+    }
 
     // 4. add newly abandoned
+    for (let i=0; i<NEWLY_ABANDONED; i++) {
+      this._placeDog(M_NOTCAPTURED)
+    }
+    for (let i=0; i<NEWLY_ABANDONED; i++) {
+      this._placeDog(F_NOTCAPTURED)
+    }
 
     this.setState({ currentYear: currentYear+1 })
   }
