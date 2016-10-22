@@ -92,8 +92,8 @@ export default class GamePlayer extends Component {
       posList: [],    // list to store possible positions to place dogs
       freePos: [],
       totalDogs: 0,
-      neuteredM: [],    // list of the neutured male dogs     => {position: , isAlive: }
-      neuteredF: [],    // list of the neutured female dogs   => {position: , isAlive: }
+      neuteredDisplayM: [],    // list of the neutured male dogs     => {position: , isAlive: }
+      neuteredDisplayF: [],    // list of the neutured female dogs   => {position: , isAlive: }
       unneuteredM: [],  // list of the unneutured male dogs     => [3, 5 ,6, ...]
       unneuteredF: [],  // list of the unneutured female dogs   => [7, 8, ...]
       // calculator: deal with the real numbers of animals (totalDogs * MULTIPLE)
@@ -173,12 +173,16 @@ export default class GamePlayer extends Component {
       indices.push(i)
     }
     indices = _.shuffle(indices)
+    for (let i=0; i<indices.length; i++) {
+      indices[i] = list[i]
+    }
+    console.log("*** indices", indices)
     return indices.slice(0, count)
   }
 
   _simulateAfterAYear() {
     console.log("_simulateAfterAYear")
-    const { currentYear, unneuteredM, unneuteredF, neuteredM, neuteredF } = this.state
+    const { currentYear, unneuteredM, unneuteredF, neuteredDisplayM, neuteredDisplayF } = this.state
 
     // 1. deal with deaths of unneutered dogs
     const mUDeaths =  Math.floor(MALE_DEATH_RATE * unneuteredM.length)
@@ -187,17 +191,19 @@ export default class GamePlayer extends Component {
     const fUDeathIndices = this._getRandomIndices(unneuteredF, fUDeaths)
     console.log("1. mUDeaths, fUDeaths", mUDeaths, fUDeaths)
     for (let i=0; i<mUDeaths; i++) {
-      this._removeDog(unneuteredM[mUDeathIndices[i]], true)
+      console.log("unneuteredM[mUDeathIndices[i]]", mUDeathIndices[i], i, mUDeathIndices, unneuteredM)
+      this._removeDog(mUDeathIndices[i], true)
     }
     for (let i=0; i<fUDeaths; i++) {
-      this._removeDog(unneuteredF[fUDeathIndices[i]], true)
+      console.log("unneuteredF[fUDeathIndices[i]]", fUDeathIndices[i], i, fUDeathIndices)
+      this._removeDog(fUDeathIndices[i], true)
     }
 
     // 2. deal with deaths of neutered dogs
-    const mDeaths =  Math.floor(MALE_DEATH_RATE * neuteredM.length)
-    const mDeathIndices = this._getRandomIndices(neuteredM, mDeaths)
-    const fDeaths =  Math.floor(FEMALE_DEATH_RATE * neuteredF.length)
-    const fDeathIndices = this._getRandomIndices(neuteredF, fDeaths)
+    const mDeaths =  Math.floor(MALE_DEATH_RATE * neuteredDisplayM.length)
+    const mDeathIndices = this._getRandomIndices(neuteredDisplayM, mDeaths)
+    const fDeaths =  Math.floor(FEMALE_DEATH_RATE * neuteredDisplayF.length)
+    const fDeathIndices = this._getRandomIndices(neuteredDisplayF, fDeaths)
     console.log("2. mDeaths, fDeaths", mDeaths, fDeaths, mDeathIndices, fDeathIndices)
     // *** TODO: Avoid generating the same ID
     for (let i=0; i<mDeaths; i++) {
@@ -216,29 +222,29 @@ export default class GamePlayer extends Component {
     this.setState({ currentYear: currentYear+1 })
   }
 
-  _removeNeuteredDog(gender, index) {
-    const { neuteredM, neuteredF, totalDogs } = this.state
-    let position = -1
+  _removeNeuteredDog(gender, pos) {
+    const { neuteredDisplayM, neuteredDisplayF, totalDogs } = this.state
+    let index = -1
     if (gender==="M") {
-      console.log("_removeNeuteredDog - M", index, neuteredM[index])
-      neuteredM[index].isAlive = false
-      position = neuteredM[index].position
-      this.setState({ neuteredM: neuteredM, totalDogs: totalDogs-1 })
+      index = _.findIndex(neuteredDisplayM, pos)
+      console.log("_removeNeuteredDog - M", pos.position, neuteredDisplayM, index, neuteredDisplayM[index])
+      neuteredDisplayM[index].isAlive = false
+      this.setState({ neuteredDisplayM: neuteredDisplayM, totalDogs: totalDogs-1 })
     } else {
-      console.log("_removeNeuteredDog - F")
-      neuteredF[index].isAlive = false
-      position = neuteredF[index].position
-      this.setState({ neuteredF: neuteredF, totalDogs: totalDogs-1 })
+      index = _.findIndex(neuteredDisplayF, pos)
+      console.log("_removeNeuteredDog - F", pos.position, neuteredDisplayF, index, neuteredDisplayF[index])
+      neuteredDisplayF[index].isAlive = false
+      this.setState({ neuteredDisplayF: neuteredDisplayF, totalDogs: totalDogs-1 })
     }
 
     setTimeout(() => {
-      const { neuteredM, neuteredF } = this.state
+      const { neuteredDisplayM, neuteredDisplayF } = this.state
       if (gender==="M") {
-        neuteredM.splice(_.findIndex(neuteredM, { position: position, isAlive: false }), 1)
-        this.setState({ neuteredM: neuteredM })
+        neuteredDisplayM.splice(_.findIndex(neuteredDisplayM, { position: pos.position, isAlive: false }), 1)
+        this.setState({ neuteredDisplayM: neuteredDisplayM })
       } else {
-        neuteredF.splice(_.findIndex(neuteredF, { position: position, isAlive: false }), 1)
-        this.setState({ neuteredF: neuteredF })
+        neuteredDisplayF.splice(_.findIndex(neuteredDisplayF, { position: pos.position, isAlive: false }), 1)
+        this.setState({ neuteredDisplayF: neuteredDisplayF })
       }
     }, 300)
   }
@@ -274,6 +280,7 @@ export default class GamePlayer extends Component {
   _removeDog(posIdx, isDeath) {
     // remove a dog in the selected position
     let { posList, freePos, totalDogs, unneuteredM, unneuteredF } = this.state
+    console.log(posIdx, posList[posIdx])
     console.log("posList[posIdx].dogs[0]", posIdx, posList[posIdx].dogs[0], isDeath)
     // set as disapearing
     if (posList[posIdx].dogs[0] === M_NOTCAPTURED) {
@@ -291,16 +298,16 @@ export default class GamePlayer extends Component {
     this.setState({ posList: posList,
     unneuteredM: unneuteredM, unneuteredF: unneuteredF, totalDogs: totalDogs  })
 
-    console.log("isDeath:",isDeath, posIdx, "unneutered: ", unneuteredM, unneuteredF, "total=", totalDogs, this.state.neuteredM, this.state.neuteredF)
+    console.log("isDeath:",isDeath, posIdx, "unneutered: ", unneuteredM, unneuteredF, "total=", totalDogs, this.state.neuteredDisplayM, this.state.neuteredDisplayF)
 
     // after the disappearing animation terminates
     setTimeout(() => {
-      let { posList, freePos, neuteredM, neuteredF } = this.state
+      let { posList, freePos, neuteredDisplayM, neuteredDisplayF } = this.state
       // move the dog into neutered list
       if (posList[posIdx].dogs[0] === M_CAPTURED) {
-        neuteredM.push({ position: posIdx, isAlive: true })
+        neuteredDisplayM.push({ position: posIdx, isAlive: true })
       } else if (posList[posIdx].dogs[0] === F_CAPTURED) {
-        neuteredF.push({ position: posIdx, isAlive: true })
+        neuteredDisplayF.push({ position: posIdx, isAlive: true })
       }
 
       // remove the dog from the unneutered list
@@ -311,8 +318,8 @@ export default class GamePlayer extends Component {
         freePos.push(posIdx)
       }
       this.setState({ posList: posList, freePos: freePos,
-        neuteredM: neuteredM, neuteredF: neuteredF })
-      console.log("timeout", this.state.unneuteredM, this.state.unneuteredF, this.state.neuteredM, this.state.neuteredF)
+        neuteredDisplayM: neuteredDisplayM, neuteredDisplayF: neuteredDisplayF })
+      console.log("timeout", this.state.unneuteredM, this.state.unneuteredF, this.state.neuteredDisplayM, this.state.neuteredDisplayF)
     }, 300)
 
   }
@@ -423,9 +430,9 @@ export default class GamePlayer extends Component {
 
   getNeuteredDogs() {
     // render dogs on the background
-    const { neuteredM, neuteredF, posList } = this.state
+    const { neuteredDisplayM, neuteredDisplayF, posList } = this.state
     let nDogsList = []
-    const neutered = neuteredM.concat(neuteredF)
+    const neutered = neuteredDisplayM.concat(neuteredDisplayF)
     for (let i=0; i<neutered.length; i++) {
       const dog = neutered[i]
       const dogPos = dog.position
