@@ -1,0 +1,61 @@
+/* stylelint-disable function-comma-space-after, selector-list-comma-newline-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+
+.container {
+  color: white;
+  background: $content-bg;
+  padding: 0;
+  width: 100%;
+  // height: 100vh;
+}
+.slide {
+  width: 100%;
+  height: 100vh;
+  padding: 2rem 1rem;
+  position: relative;
+}
+.odd {
+  background: $blue;
+}
+.even {
+  background: $pink;
+}
+.des-box {
+  width: 100%;
+  max-width: 350px;
+  position: absolute;
+  right: 3.5rem;
+  bottom: 3rem;
+  @media (max-width: $width-xs) {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+
+  }
+}
+.title {
+  font-size: 28px;
+}
+.tooltip {
+  background-color: $tooltip-gray;
+  padding: 1rem;
+  padding: 0.6rem 0.8rem;
+  display: inline-block;
+}
+.oval {
+  width: 15px;
+  height: 15px;
+  border: solid 2px $white;
+  display: inline-block;
+  margin-right: 0.8rem;
+  border-radius: 50%;
+}
+.oval-blue {
+  @extend .oval;
+  background-color: $text-blue;
+}
+.oval-pink {
+  @extend .oval;
+  background-color: $text-pink;
+}

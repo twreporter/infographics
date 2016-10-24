@@ -18,13 +18,13 @@ if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
 }
 
-const INITIAL_ANIMALS = 20
-const NEWLY_ABANDONED = 5
+const INITIAL_ANIMALS = 10
+const NEWLY_ABANDONED = 1
 const MULTIPLE = 50           //  number of existing animals = total number on screen * MULTIPLE
 const MAX_CAPACITY = 100
 const MALE_DEATH_RATE = 0.4
 const FEMALE_DEATH_RATE = 0.1
-const NEWBORN_COEFFICIENT = 10
+const NEWBORN_COEFFICIENT = 6
 
 // status code for dogs
 const M_NOTCAPTURED = -3
@@ -34,7 +34,7 @@ const F_DEATH = 0
 const M_CAPTURED = 1
 const F_CAPTURED = 2
 
-const A_YEAR = 3000           // use how many ms to represent a year
+const A_YEAR = 5000           // use how many ms to represent a year
 const TOTAL_YEARS = 10
 
 let GameFooter = (props) => {
@@ -292,7 +292,7 @@ export default class GamePlayer extends Component {
 
     posList[selIndex].dogs.push(gender)
     totalDogs++
-    console.log(totalDogs, freePos, freePos.length)
+    console.log("*freePos", totalDogs, freePos, freePos.length)
     this.setState({ totalDogs: totalDogs, posList: posList, freePos: freePos,
       unneuteredM: unneuteredM, unneuteredF: unneuteredF })
     return selIndex

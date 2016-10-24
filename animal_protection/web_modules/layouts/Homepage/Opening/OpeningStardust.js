@@ -8,6 +8,8 @@ import classnames from "classnames"
 import styles from "./OpeningStardust.scss"
 import commonStyles from "../../../styles/common.scss"
 
+import { MOBILE_WIDTH } from "../config"
+
 import petDesktop from "../../../../content/assets/dog_bg_desktop_s.png"
 import petMobile from "../../../../content/assets/dog_bg_mobile.png"
 
@@ -20,8 +22,6 @@ const debounceTime = {
   threshold: 15,
   maxWait: 45,
 }
-
-const MOBILE_WIDTH = 768
 
 const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"], styles["white"] ]
 

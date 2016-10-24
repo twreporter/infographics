@@ -15,6 +15,7 @@ import OpeningStardust from "./Opening/OpeningStardust"
 import OpeningLast from "./Opening/OpeningLast"
 import Tnr from "./TNR/TNR"
 import Game from "./Game/Game"
+import FullPageMap from "./FullPageMap/FullPageMap"
 
 import commonStyles from "../../styles/common.scss"
 import styles from "./Home.scss"
@@ -75,6 +76,8 @@ export default class Homepage extends Component {
           <PagesList pages={ latestPosts } />
           地圖資料來源： CartoDB
         </div>
+
+        <FullPageMap />
 
       </Page>
     )

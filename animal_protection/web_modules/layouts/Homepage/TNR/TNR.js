@@ -36,7 +36,9 @@ export default class Tnr extends Component {
         velocity(tRight, { scale: [ 1, 1.1 ], opacity: [ 1, 0.8 ] }, { delay: 200, duration: 800 })
       }
     }
-    catch (e) {}
+    catch (e) {
+      console.log("error playing animations")
+    }
   }
 
   render() {

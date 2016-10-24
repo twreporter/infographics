@@ -21,6 +21,10 @@ export default class Layout extends Component {
 
   componentDidMount() {
     try {
+      // deal with Microsoft Edge
+      const msEdgeMatch = /Edge\/([0-9]+)/i.exec(navigator.userAgent)
+      if (msEdgeMatch) document.documentMode = parseInt(msEdgeMatch[1])
+
       Typekit.load({ async: true })
     }
     catch (e) {}

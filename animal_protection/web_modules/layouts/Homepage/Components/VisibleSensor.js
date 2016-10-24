@@ -47,6 +47,10 @@ export default class VisibleSensor extends Component {
     this.clearRAF()
   }
 
+  clearRAF() {
+    raf.cancel(this._raf)
+  }
+
   _onScroll() {
     this._requestTick()
   }
