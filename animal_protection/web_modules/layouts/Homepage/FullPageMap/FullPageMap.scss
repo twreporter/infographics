@@ -36,6 +36,12 @@
 }
 .title {
   font-size: 28px;
+  font-weight: $font-bold;
+}
+.year {
+  @media (min-width: $width-xs) {
+    font-size: 80px;
+  }
 }
 .tooltip {
   background-color: $tooltip-gray;

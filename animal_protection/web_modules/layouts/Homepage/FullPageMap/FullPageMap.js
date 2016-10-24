@@ -11,10 +11,10 @@ import commonStyles from "../../../styles/common.scss"
 
 import { MOBILE_WIDTH } from "../config"
 
-// let velocity
-// if (typeof window !== "undefined") {
-//   velocity = require("velocity-animate")
-// }
+let velocity
+if (typeof window !== "undefined") {
+  velocity = require("velocity-animate")
+}
 
 const debounceTime = {
   threshold: 150,
@@ -26,6 +26,8 @@ export default class FullPageMap extends Component {
     super(props)
     this.state = {
       showSubComponent: true,
+      isMobile: false,
+      isScrolling: false,
     }
 
     this._handleScroll = this._handleScroll.bind(this)
@@ -38,6 +40,7 @@ export default class FullPageMap extends Component {
     this.handleResize = _.debounce(() => {
       this._handleResize()
     }, debounceTime.threshold, { "maxWait": debounceTime.maxWait })
+    this._EnterFirst = this._EnterFirst.bind(this)
   }
 
   componentDidMount() {
@@ -57,10 +60,10 @@ export default class FullPageMap extends Component {
   }
 
   _handleResize() {
+    let isMobile = true
     if (window.innerWidth > MOBILE_WIDTH)
-      this.setState({ isMobile: false })
-    else
-      this.setState({ isMobile: true })
+      isMobile = false
+    this.setState({ isMobile: isMobile })
   }
 
   _onScroll() {
@@ -78,24 +81,39 @@ export default class FullPageMap extends Component {
     }
   }
 
+  _EnterFirst(sLength) {
+    const { isScrolling } = this.state
+    if (!isScrolling) {
+      this.setState({ isScrolling: true })
+      const htmlSel = document.getElementsByTagName("html")[0]
+      velocity(htmlSel, "scroll", { offset: -1*sLength+"px" })
+        .then(() => this.setState({ isScrolling: false }))
+    }
+  }
+
   _handleScroll() {
     const node = ReactDOM.findDOMNode(this.container)
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
+    const { isMobile } = this.state
     const vpHeight = window.innerHeight
     const pItemHeight = node.clientHeight || 100
 
-    console.log(top, bottom)
+    console.log(top, bottom, isMobile, vpHeight)
 
     if (node) {
-      if (bottom > -pItemHeight && bottom < vpHeight+pItemHeight &&
-          top < vpHeight+pItemHeight && top > -pItemHeight) {
-        if (!this.state.isIn) {
-          this.setState({ isIn: true })
-        }
-      }
-      else {
-        this.setState({ isIn: false })
+      // if (bottom > -pItemHeight && bottom < vpHeight+pItemHeight &&
+      //     top < vpHeight+pItemHeight && top > -pItemHeight) {
+      //   if (!this.state.isIn) {
+      //     this.setState({ isIn: true })
+      //   }
+      // }
+      // else {
+      //   this.setState({ isIn: false })
+      // }
+
+      if (top < pItemHeight/3 && top > 0) {
+        this._EnterFirst(top)
       }
     }
 
@@ -113,7 +131,7 @@ export default class FullPageMap extends Component {
         <div className={ classnames(styles.slide, styles.odd) }>
           slide 01
           <div className={ styles["des-box"] }>
-            <h4 className={ styles["title"] }>2016 現今</h4>
+            <h4 className={ styles["title"] }><span className={ styles["year"] }>2016</span> 現今</h4>
             <p>
               現今的收容所多由原本環保單位留下來的收容所設備改建。除非刻意，否則一般民眾不易前往。
             </p>
