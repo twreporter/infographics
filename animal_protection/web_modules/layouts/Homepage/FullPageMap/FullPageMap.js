@@ -17,9 +17,10 @@ if (typeof window !== "undefined") {
 }
 
 const debounceTime = {
-  threshold: 150,
-  maxWait: 450,
+  threshold: 200,
+  maxWait: 400,
 }
+const SLIDEIN_DURATION = 450
 
 export default class FullPageMap extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ export default class FullPageMap extends Component {
       showSubComponent: true,
       isMobile: false,
       isScrolling: false,
+      pageOffset: 500,
     }
 
     this._handleScroll = this._handleScroll.bind(this)
@@ -63,11 +65,18 @@ export default class FullPageMap extends Component {
     let isMobile = true
     if (window.innerWidth > MOBILE_WIDTH)
       isMobile = false
-    this.setState({ isMobile: isMobile })
+    this.setState({ isMobile: isMobile, pageOffset: window.scrollY })
   }
 
-  _onScroll() {
-    this._requestTick()
+  _onScroll(e) {
+    if (this.state.isScrolling) {
+      console.log("===isScrolling")
+      e.preventDefault()
+    }
+    else {
+      console.log("===_requestTick")
+      this._requestTick(e)
+    }
   }
 
   clearRAF() {
@@ -85,8 +94,30 @@ export default class FullPageMap extends Component {
     const { isScrolling } = this.state
     if (!isScrolling) {
       this.setState({ isScrolling: true })
-      const htmlSel = document.getElementsByTagName("html")[0]
-      velocity(htmlSel, "scroll", { offset: -1*sLength+"px" })
+      // const htmlSel = document.getElementsByTagName("html")[0]
+
+      const slide1 = ReactDOM.findDOMNode(this.slide1)
+
+      console.log("offset:", -1*sLength+"px", slide1.getBoundingClientRect())
+
+      velocity(slide1, "scroll", { offset: 0, duration: SLIDEIN_DURATION })
+        .then(() =>
+          setTimeout(() => this.setState({ isScrolling: false }), 600)
+        )
+    }
+  }
+
+  _EnterSecond(sLength) {
+    const { isScrolling } = this.state
+    if (!isScrolling) {
+      this.setState({ isScrolling: true })
+      // const htmlSel = document.getElementsByTagName("html")[0]
+
+      const slide2 = ReactDOM.findDOMNode(this.slide2)
+
+      console.log("offset:", -1*sLength+"px", slide2.getBoundingClientRect())
+
+      velocity(slide2, "scroll", { offset: 0, duration: SLIDEIN_DURATION })
         .then(() => this.setState({ isScrolling: false }))
     }
   }
@@ -94,14 +125,16 @@ export default class FullPageMap extends Component {
   _handleScroll() {
     const node = ReactDOM.findDOMNode(this.container)
     const rect = node.getBoundingClientRect()
-    const { top, bottom } = rect
-    const { isMobile } = this.state
+    const { top, bottom, isScrolling } = rect
+    const { isMobile, pageOffset } = this.state
     const vpHeight = window.innerHeight
-    const pItemHeight = node.clientHeight || 100
+    const currentOffset = window.scrollY
+    const moveOffset = Math.abs(currentOffset - pageOffset)
+    const isDown = (currentOffset > pageOffset) ? true : false
 
-    console.log(top, bottom, isMobile, vpHeight)
+    console.log(moveOffset, currentOffset, pageOffset,  top, bottom, isMobile, vpHeight)
 
-    if (node) {
+    if (node && !isScrolling) {
       // if (bottom > -pItemHeight && bottom < vpHeight+pItemHeight &&
       //     top < vpHeight+pItemHeight && top > -pItemHeight) {
       //   if (!this.state.isIn) {
@@ -112,11 +145,21 @@ export default class FullPageMap extends Component {
       //   this.setState({ isIn: false })
       // }
 
-      if (top < pItemHeight/3 && top > 0) {
+      if (isDown && (top < vpHeight/3 && top > 0)) {
         this._EnterFirst(top)
+      }
+      else if (isDown && moveOffset<100 && (top<0  && top > -vpHeight/3)) {
+        this._EnterFirst(top)
+      }
+      else if (!isDown && moveOffset<100 && (top<0  && top > -vpHeight/3)) {
+        this._EnterFirst(top)
+      }
+      else if (isDown && moveOffset>=100 && (top<0  && top > -vpHeight/3)) {
+        this._EnterSecond(top)
       }
     }
 
+    this.setState({ pageOffset: currentOffset })
     // reset the tick to capture the next onScroll
     this._ticking = false
   }
@@ -128,7 +171,9 @@ export default class FullPageMap extends Component {
         commonStyles["text-center"]) }
         ref={ (ref) => this.container = ref }
       >
-        <div className={ classnames(styles.slide, styles.odd) }>
+        <div className={ classnames(styles.slide, styles.odd) }
+          ref={ (ref) => this.slide1 = ref }
+        >
           slide 01
           <div className={ styles["des-box"] }>
             <h4 className={ styles["title"] }><span className={ styles["year"] }>2016</span> 現今</h4>
@@ -141,7 +186,9 @@ export default class FullPageMap extends Component {
             </div>
           </div>
         </div>
-        <div className={ classnames(styles.slide, styles.even) }>
+        <div className={ classnames(styles.slide, styles.even) }
+          ref={ (ref) => this.slide2 = ref }
+        >
           slide 02
         </div>
         <div className={ classnames(styles.slide, styles.odd) }>
