@@ -11,6 +11,9 @@ import commonStyles from "../../../styles/common.scss"
 
 import { MOBILE_WIDTH } from "../config"
 
+import oldMap from "../../../../content/assets/map_1998.png"
+// import newMap from "../../../../content/assets/map_2016.png"
+
 let velocity
 if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
@@ -215,6 +218,9 @@ export default class FullPageMap extends Component {
         >
           slide 01
           <div className={ styles["des-box"] }>
+            <div className={ styles["map"] }>
+              <img src={ oldMap } />
+            </div>
             <h4 className={ styles["title"] }><span className={ styles["year"] }>1998</span> 以前</h4>
             <p>
               收容所和留置所的位置都位於偏遠的郊區，交通不易到達。有些地方甚至無法得知路名，只能依靠經緯度大概定位。
