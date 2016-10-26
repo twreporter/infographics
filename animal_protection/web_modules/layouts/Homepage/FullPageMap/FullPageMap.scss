@@ -1,5 +1,6 @@
 /* stylelint-disable function-comma-space-after, selector-list-comma-newline-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
 @import "../../../styles/variables.scss";
+@import "../../../styles/animation.scss";
 
 .container {
   color: white;
@@ -22,10 +23,11 @@
 }
 .des-box {
   width: 100%;
-  max-width: 350px;
+  max-width: 360px;
   position: absolute;
   right: 3.5rem;
   bottom: 3rem;
+  padding: 0 1rem;
   @media (max-width: $width-xs) {
     margin-left: auto;
     margin-right: auto;
@@ -34,9 +36,29 @@
 
   }
 }
+.indicator {
+  @include fade-in(0.5s);
+  position: fixed;
+  top: 50%;
+  left: 1rem;
+}
+.bar {
+  width: 12px;
+  height: 4px;
+  margin: 8px 0;
+  background: rgba($white, 0.3);
+  transition: background 0.3s;
+}
+.active {
+  background: rgba($white, 0.8);
+}
 .title {
-  font-size: 28px;
+  font-size: 35px;
   font-weight: $font-bold;
+  margin-bottom: 0;
+  @media (max-width: $width-md) {
+    font-size: 28px;
+  }
 }
 .year {
   @media (min-width: $width-xs) {
@@ -46,8 +68,11 @@
 .tooltip {
   background-color: $tooltip-gray;
   padding: 1rem;
-  padding: 0.6rem 0.8rem;
+  padding: 0.5rem;
   display: inline-block;
+  p {
+    margin: 0.2rem 0.5rem;
+  }
 }
 .oval {
   width: 15px;

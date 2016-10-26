@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-bind, react/jsx-no-literals */
+/* eslint-disable react/jsx-no-bind, react/jsx-no-literals, no-unused-vars */
 
 import React, { Component, PropTypes } from "react"
 import enhanceCollection from "phenomic/lib/enhance-collection"
