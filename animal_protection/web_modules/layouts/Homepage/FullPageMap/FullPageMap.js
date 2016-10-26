@@ -20,9 +20,10 @@ const debounceTime = {
   threshold: 200,
   maxWait: 400,
 }
-const SLIDE_TIMEOUT = 800
-const SLIDEIN_LONG = 250
-const SLIDEIN_SHORT = 50
+const SLIDE_TIMEOUT = 920
+const SLIDEIN_LONG = 150
+const SLIDEIN_SHORT = 30
+const SLIDE_THRESHOLD = 30
 
 export default class FullPageMap extends Component {
   constructor(props) {
@@ -53,12 +54,12 @@ export default class FullPageMap extends Component {
     this.handleResize()
 
     // detect sroll position
-    window.addEventListener("scroll", this._onScroll)
+    window.addEventListener("mousewheel", this._onScroll)
   }
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.handleResize)
-    window.removeEventListener("scroll", this._onScroll)
+    window.removeEventListener("mousewheel", this._onScroll)
     this._ticking = false
     this.clearRAF()
   }
@@ -71,14 +72,17 @@ export default class FullPageMap extends Component {
   }
 
   _onScroll(e) {
-    // if (this.state.isScrolling) {
-    //   console.log("===isScrolling")
-    //   // e.preventDefault()
-    // }
-    // else {
-    console.log("===_requestTick")
-    this._requestTick(e)
-    // }
+    if (this.state.isScrolling) {
+      console.log("===isScrolling")
+      this.setState({ pageOffset: window.scrollY })
+      e.preventDefault()
+      e.stopPropagation()
+      // e.returnValue = false
+    }
+    else {
+      console.log("===_requestTick")
+      this._requestTick(e)
+    }
   }
 
   clearRAF() {
@@ -92,7 +96,7 @@ export default class FullPageMap extends Component {
     }
   }
 
-  _EnterFirst(sLength, sDuration) {
+  _EnterFirst(cTop, sDuration) {
     const { isScrolling } = this.state
     if (!isScrolling) {
       this.setState({ isScrolling: true })
@@ -100,18 +104,20 @@ export default class FullPageMap extends Component {
 
       const slide1 = ReactDOM.findDOMNode(this.slide1)
 
-      console.log("offset:", -1*sLength+"px", slide1.getBoundingClientRect())
+      console.log("cTop", cTop, "offset:", slide1.getBoundingClientRect())
 
       velocity(slide1, "scroll", { offset: 0, duration: sDuration })
         .then(() =>
           setTimeout(() => {
+            window.scrollTo(0, cTop)
             this.setState({ isScrolling: false })
+            console.log("SCROLLING STOP")
           }, SLIDE_TIMEOUT)
         )
     }
   }
 
-  _EnterSecond(sLength, sDuration) {
+  _EnterSecond(cTop, sDuration) {
     const { isScrolling } = this.state
     if (!isScrolling) {
       this.setState({ isScrolling: true })
@@ -119,12 +125,14 @@ export default class FullPageMap extends Component {
 
       const slide2 = ReactDOM.findDOMNode(this.slide2)
 
-      console.log("offset:", -1*sLength+"px", slide2.getBoundingClientRect())
+      console.log("cTop", cTop, "offset:", slide2.getBoundingClientRect())
 
       velocity(slide2, "scroll", { offset: 0, duration: sDuration })
         .then(() =>
           setTimeout(() => {
+            window.scrollTo(0, cTop)
             this.setState({ isScrolling: false })
+            console.log("SCROLLING STOP")
           }, SLIDE_TIMEOUT)
         )
     }
@@ -139,8 +147,9 @@ export default class FullPageMap extends Component {
     const currentOffset = window.scrollY
     const moveOffset = Math.abs(currentOffset - pageOffset)
     const isDown = (currentOffset > pageOffset) ? true : false
+    const cTop = node.offsetTop
 
-    console.log(moveOffset, currentOffset, pageOffset,  top, bottom, isMobile, vpHeight)
+    console.log(cTop, moveOffset, currentOffset, pageOffset,  top, bottom, isMobile, vpHeight)
 
     if (node && !isScrolling) {
       // if (bottom > -pItemHeight && bottom < vpHeight+pItemHeight &&
@@ -155,23 +164,23 @@ export default class FullPageMap extends Component {
 
       if (isDown && (top < 2*vpHeight/5 && top > 0)) {
         console.log("1.")
-        this._EnterFirst(top, SLIDEIN_LONG)
+        this._EnterFirst(cTop, SLIDEIN_LONG)
       }
-      else if (moveOffset<50 && (top<0  && top > -vpHeight)) {
+      else if (moveOffset<SLIDE_THRESHOLD && (top<0  && top > -vpHeight)) {
         console.log("2.")
-        this._EnterFirst(top, SLIDEIN_SHORT)
+        this._EnterFirst(cTop, SLIDEIN_SHORT)
       }
-      else if (!isDown && moveOffset<50 && (top<0  && top > -vpHeight/2)) {
+      else if (!isDown && moveOffset<SLIDE_THRESHOLD && (top<0  && top > -vpHeight/2)) {
         console.log("3.")
-        this._EnterFirst(top, SLIDEIN_SHORT)
+        this._EnterFirst(cTop, SLIDEIN_SHORT)
       }
-      else if (isDown && moveOffset>=50 && (top<0  && top > -vpHeight)) {
+      else if (isDown && moveOffset>=SLIDE_THRESHOLD && (top<0  && top > -vpHeight)) {
         console.log("4.")
-        this._EnterSecond(top, SLIDEIN_LONG)
+        this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
       }
-      else if (!isDown && moveOffset>=50 && (top<=-vpHeight/2  && top > -3*vpHeight/2)) {
+      else if (!isDown && moveOffset>=SLIDE_THRESHOLD && (top<=-vpHeight/2  && top > -3*vpHeight/2)) {
         console.log("5.")
-        this._EnterFirst(top, SLIDEIN_SHORT)
+        this._EnterFirst(cTop, SLIDEIN_SHORT)
       }
     }
 
@@ -192,7 +201,7 @@ export default class FullPageMap extends Component {
         >
           slide 01
           <div className={ styles["des-box"] }>
-            <h4 className={ styles["title"] }><span className={ styles["year"] }>2016</span> 現今</h4>
+            <h4 className={ styles["title"] }><span className={ styles["year"] }>1998</span> 以前</h4>
             <p>
               現今的收容所多由原本環保單位留下來的收容所設備改建。除非刻意，否則一般民眾不易前往。
             </p>
@@ -206,6 +215,16 @@ export default class FullPageMap extends Component {
           ref={ (ref) => this.slide2 = ref }
         >
           slide 02
+          <div className={ styles["des-box"] }>
+            <h4 className={ styles["title"] }><span className={ styles["year"] }>2016</span> 現今</h4>
+            <p>
+              現今的收容所多由原本環保單位留下來的收容所設備改建。除非刻意，否則一般民眾不易前往。
+            </p>
+            <div className={ styles["tooltip"] }>
+              <div className={ styles["oval-pink"] }></div>
+              現今的收容所位置
+            </div>
+          </div>
         </div>
         <div className={ classnames(styles.slide, styles.odd) }>
           slide 03
