@@ -20,7 +20,9 @@ const debounceTime = {
   threshold: 200,
   maxWait: 400,
 }
-const SLIDEIN_DURATION = 450
+const SLIDE_TIMEOUT = 800
+const SLIDEIN_LONG = 250
+const SLIDEIN_SHORT = 50
 
 export default class FullPageMap extends Component {
   constructor(props) {
@@ -69,14 +71,14 @@ export default class FullPageMap extends Component {
   }
 
   _onScroll(e) {
-    if (this.state.isScrolling) {
-      console.log("===isScrolling")
-      e.preventDefault()
-    }
-    else {
-      console.log("===_requestTick")
-      this._requestTick(e)
-    }
+    // if (this.state.isScrolling) {
+    //   console.log("===isScrolling")
+    //   // e.preventDefault()
+    // }
+    // else {
+    console.log("===_requestTick")
+    this._requestTick(e)
+    // }
   }
 
   clearRAF() {
@@ -90,7 +92,7 @@ export default class FullPageMap extends Component {
     }
   }
 
-  _EnterFirst(sLength) {
+  _EnterFirst(sLength, sDuration) {
     const { isScrolling } = this.state
     if (!isScrolling) {
       this.setState({ isScrolling: true })
@@ -100,14 +102,16 @@ export default class FullPageMap extends Component {
 
       console.log("offset:", -1*sLength+"px", slide1.getBoundingClientRect())
 
-      velocity(slide1, "scroll", { offset: 0, duration: SLIDEIN_DURATION })
+      velocity(slide1, "scroll", { offset: 0, duration: sDuration })
         .then(() =>
-          setTimeout(() => this.setState({ isScrolling: false }), 600)
+          setTimeout(() => {
+            this.setState({ isScrolling: false })
+          }, SLIDE_TIMEOUT)
         )
     }
   }
 
-  _EnterSecond(sLength) {
+  _EnterSecond(sLength, sDuration) {
     const { isScrolling } = this.state
     if (!isScrolling) {
       this.setState({ isScrolling: true })
@@ -117,8 +121,12 @@ export default class FullPageMap extends Component {
 
       console.log("offset:", -1*sLength+"px", slide2.getBoundingClientRect())
 
-      velocity(slide2, "scroll", { offset: 0, duration: SLIDEIN_DURATION })
-        .then(() => this.setState({ isScrolling: false }))
+      velocity(slide2, "scroll", { offset: 0, duration: sDuration })
+        .then(() =>
+          setTimeout(() => {
+            this.setState({ isScrolling: false })
+          }, SLIDE_TIMEOUT)
+        )
     }
   }
 
@@ -145,17 +153,25 @@ export default class FullPageMap extends Component {
       //   this.setState({ isIn: false })
       // }
 
-      if (isDown && (top < vpHeight/3 && top > 0)) {
-        this._EnterFirst(top)
+      if (isDown && (top < 2*vpHeight/5 && top > 0)) {
+        console.log("1.")
+        this._EnterFirst(top, SLIDEIN_LONG)
       }
-      else if (isDown && moveOffset<100 && (top<0  && top > -vpHeight/3)) {
-        this._EnterFirst(top)
+      else if (moveOffset<50 && (top<0  && top > -vpHeight)) {
+        console.log("2.")
+        this._EnterFirst(top, SLIDEIN_SHORT)
       }
-      else if (!isDown && moveOffset<100 && (top<0  && top > -vpHeight/3)) {
-        this._EnterFirst(top)
+      else if (!isDown && moveOffset<50 && (top<0  && top > -vpHeight/2)) {
+        console.log("3.")
+        this._EnterFirst(top, SLIDEIN_SHORT)
       }
-      else if (isDown && moveOffset>=100 && (top<0  && top > -vpHeight/3)) {
-        this._EnterSecond(top)
+      else if (isDown && moveOffset>=50 && (top<0  && top > -vpHeight)) {
+        console.log("4.")
+        this._EnterSecond(top, SLIDEIN_LONG)
+      }
+      else if (!isDown && moveOffset>=50 && (top<=-vpHeight/2  && top > -3*vpHeight/2)) {
+        console.log("5.")
+        this._EnterFirst(top, SLIDEIN_SHORT)
       }
     }
 
