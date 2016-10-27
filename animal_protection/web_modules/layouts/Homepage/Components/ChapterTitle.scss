@@ -1,0 +1,19 @@
+/* stylelint-disable function-comma-space-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+
+.container {
+  margin: 4.2rem 0;
+  h2 {
+    text-align: left;
+    display: table;
+    padding-left: 5rem;
+    @media (max-width: $width-xs) {
+      padding-left: 0;
+    }
+  }
+}
+
+.title {
+  font-size: 26px;
+  color: $tooltip-gray;
+}

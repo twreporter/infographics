@@ -94,7 +94,6 @@ export default class FullPageMap extends Component {
 
   _onScroll(e) {
     if (this.state.isScrolling) {
-      console.log("===isScrolling")
       this.setState({ pageOffset: window.scrollY })
       e.preventDefault()
       e.stopPropagation()
@@ -102,7 +101,6 @@ export default class FullPageMap extends Component {
       e.returnValue = false
     }
     else {
-      console.log("===_requestTick")
       this._requestTick(e)
     }
   }
@@ -140,7 +138,6 @@ export default class FullPageMap extends Component {
     const slide1 = ReactDOM.findDOMNode(this.slide1)
     const isFixed = (this.state.curSlide > 0) ? true : false
     this.setState({ curSlide: 1, isFixed: isFixed })
-    console.log("this.state.curSlide", this.state.curSlide)
     this._EnterSlide(cTop, slide1, sDuration)
     // set the background map
     const oldM1 = ReactDOM.findDOMNode(this.oldM1)
@@ -156,7 +153,6 @@ export default class FullPageMap extends Component {
   _EnterSecond(cTop, sDuration) {
     const slide2 = ReactDOM.findDOMNode(this.slide2)
     const isFixed = (this.state.curSlide > 0) ? true : false
-    console.log("_EnterSecond => this.state.curSlide", this.state.curSlide, (this.state.curSlide > 0))
     this.setState({ curSlide: 2, isFixed: isFixed })
     this._EnterSlide(cTop, slide2, sDuration)
     // set the background map
@@ -173,31 +169,24 @@ export default class FullPageMap extends Component {
   _handleScroll() {
     const node = ReactDOM.findDOMNode(this.container)
     const rect = node.getBoundingClientRect()
-    const { top, bottom, isScrolling } = rect
-    const { isMobile, pageOffset } = this.state
+    const { top, isScrolling } = rect
+    const { pageOffset } = this.state
     const vpHeight = window.innerHeight
     const currentOffset = window.scrollY
-    const moveOffset = Math.abs(currentOffset - pageOffset)
     const isDown = (currentOffset > pageOffset) ? true : false
     const cTop = node.offsetTop
 
-    console.log(cTop, isDown, moveOffset, currentOffset, pageOffset, "/",   top, bottom, isMobile, vpHeight)
-
     if (node && !isScrolling) {
       if (isDown && (top < 1*vpHeight/2 && top > 0)) {
-        console.log("1.")
         this._EnterFirst(cTop, SLIDEIN_LONG)
       }
       else if  (isDown && (top <= 0 && top > -1*vpHeight/2)) {
-        console.log("2.")
         this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
       }
       else if (!isDown && (top<= -3*vpHeight/2  && top > -2*vpHeight)) {
-        console.log("3.")
         this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
       }
       else if (!isDown && (top<= -1*vpHeight/2  && top > -3*vpHeight/2)) {
-        console.log("4.")
         this._EnterFirst(cTop, SLIDEIN_LONG)
       }
       else if (top>vpHeight/2+10 || top < -vpHeight-10) {

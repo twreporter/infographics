@@ -6,12 +6,13 @@ import Markdown from "react-markdown"
 import classnames from "classnames"
 import styles from "./Tnr.scss"
 import Subsection from "../Components/Subsection"
+import ChapterTitle from "../Components/ChapterTitle"
 import VisibleSensor from "../Components/VisibleSensor"
 import commonStyles from "../../../styles/common.scss"
 
 import tnrT from "../../../../content/assets/TNR-T.svg"
 
-import { topBox, titles } from "./text"
+import { chapter, topBox, titles } from "./text"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -46,6 +47,7 @@ export default class Tnr extends Component {
       <div className={ classnames(styles.container,
         commonStyles["text-center"]) }
       >
+        <ChapterTitle chapterId={ chapter.id } title={ chapter.title } />
         <div className={ commonStyles["content-outer"] }>
           <div className={ classnames(styles["content-box"]) }>
             <Markdown source={ topBox } />
