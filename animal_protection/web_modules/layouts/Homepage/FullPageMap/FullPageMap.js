@@ -20,13 +20,13 @@ if (typeof window !== "undefined") {
 }
 
 const debounceTime = {
-  threshold: 30,
-  maxWait: 60,
+  threshold: 60,
+  maxWait: 120,
 }
-const SLIDE_TIMEOUT = 550
-const SLIDEIN_LONG = 400
-const SLIDEIN_SHORT = 200
-const SLIDE_THRESHOLD = 1
+const SLIDE_TIMEOUT = 300
+const SLIDEIN_LONG = 350
+// const SLIDEIN_SHORT = 100
+// const SLIDE_THRESHOLD = 1
 
 export default class FullPageMap extends Component {
   constructor(props) {
@@ -58,13 +58,15 @@ export default class FullPageMap extends Component {
     this.handleResize()
 
     // detect sroll position
+    window.addEventListener("touchmove", this._onScroll)
     window.addEventListener("touchstart", this._onScroll)
-    window.addEventListener("touchstop", this._onScroll)
+    window.addEventListener("touchend", this._onScroll)
+    window.addEventListener("scrollstop", this._onScroll)
     window.addEventListener("wheel", this._onScroll)
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (this.state.curSlide !== nextState.curSlide) {
+    if (this.state.curSlide !== nextState.curSlide || this.state.isFixed !== nextState.isFixed) {
       return true
     }
     return false
@@ -72,8 +74,10 @@ export default class FullPageMap extends Component {
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.handleResize)
-    window.removeEventListener("touchstart", this._onScroll)
-    window.addEventListener("touchstop", this._onScroll)
+    window.removeEventListener("touchmove", this._onScroll)
+    window.addEventListener("touchstart", this._onScroll)
+    window.addEventListener("touchend", this._onScroll)
+    window.addEventListener("scrollstop", this._onScroll)
     window.removeEventListener("wheel", this._onScroll)
     this._ticking = false
     this.clearRAF()
@@ -90,9 +94,10 @@ export default class FullPageMap extends Component {
     if (this.state.isScrolling) {
       console.log("===isScrolling")
       this.setState({ pageOffset: window.scrollY })
-      e.preventDefault()
-      e.stopPropagation()
-      // e.returnValue = false
+      // e.preventDefault()
+      // e.stopPropagation()
+      e.stopImmediatePropagation()
+      e.returnValue = false
     }
     else {
       console.log("===_requestTick")
@@ -119,13 +124,15 @@ export default class FullPageMap extends Component {
       console.log("cTop", cTop, "offset:", slide.getBoundingClientRect())
 
       velocity(slide, "scroll", { offset: 0, duration: sDuration })
-        .then(() =>
+        .then(() => {
+          window.scrollTo(0, cTop)
+          this.setState({ pageOffset: window.scrollY })
           setTimeout(() => {
             window.scrollTo(0, cTop)
-            this.setState({ isScrolling: false, isFixed: false })
+            this.setState({ isScrolling: false, isFixed: true })
             console.log("SCROLLING STOP")
           }, SLIDE_TIMEOUT)
-        )
+        })
     }
   }
 
@@ -134,12 +141,14 @@ export default class FullPageMap extends Component {
     console.log("this.state.curSlide", this.state.curSlide, (this.state.curSlide > 0))
     const isFixed = (this.state.curSlide > 0) ? true : false
     this.setState({ curSlide: 1, isFixed: isFixed })
+    console.log("this.state.curSlide", this.state.curSlide)
     this._EnterSlide(cTop, slide1, sDuration)
   }
 
   _EnterSecond(cTop, sDuration) {
     const slide2 = ReactDOM.findDOMNode(this.slide2)
     const isFixed = (this.state.curSlide > 0) ? true : false
+    console.log("_EnterSecond => this.state.curSlide", this.state.curSlide, (this.state.curSlide > 0))
     this.setState({ curSlide: 2, isFixed: isFixed })
     this._EnterSlide(cTop, slide2, sDuration)
   }
@@ -155,36 +164,50 @@ export default class FullPageMap extends Component {
     const isDown = (currentOffset > pageOffset) ? true : false
     const cTop = node.offsetTop
 
-    console.log(cTop, moveOffset, currentOffset, pageOffset,  top, bottom, isMobile, vpHeight)
+    console.log(cTop, isDown, moveOffset, currentOffset, pageOffset, "/",   top, bottom, isMobile, vpHeight)
 
     if (node && !isScrolling) {
       if (isDown && (top < 1*vpHeight/2 && top > 0)) {
         console.log("1.")
         this._EnterFirst(cTop, SLIDEIN_LONG)
       }
-      else if (isDown && moveOffset<SLIDE_THRESHOLD && (top<0  && top > -vpHeight)) {
+      else if  (isDown && (top <= 0 && top > -1*vpHeight/2)) {
         console.log("2.")
-        this._EnterFirst(cTop, SLIDEIN_SHORT)
+        this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
       }
-      else if (!isDown && moveOffset<SLIDE_THRESHOLD && (top<0  && top > -vpHeight/2)) {
+      else if (!isDown && (top<= -3*vpHeight/2  && top > -2*vpHeight)) {
         console.log("3.")
-        this._EnterFirst(cTop, SLIDEIN_SHORT)
+        this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
       }
-      else if (isDown && moveOffset>=SLIDE_THRESHOLD && (top<0  && top > -vpHeight)) {
+      else if (!isDown && (top<= -1*vpHeight/2  && top > -3*vpHeight/2)) {
         console.log("4.")
-        this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
+        this._EnterFirst(cTop, SLIDEIN_LONG)
       }
-      else if (!isDown && moveOffset>=SLIDE_THRESHOLD && (top<= -3*vpHeight/2  && top > -2*vpHeight)) {
-        console.log("5.")
-        this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
+      else if (top>vpHeight/2+10 || top < -vpHeight-10) {
+        this.setState({ curSlide: -1, isFixed: false })
       }
-      else if (!isDown && moveOffset>=SLIDE_THRESHOLD && (top<=-vpHeight/2  && top > -3*vpHeight/2)) {
-        console.log("6.")
-        this._EnterFirst(cTop, SLIDEIN_SHORT)
-      }
-      else if (top>0 || top < -vpHeight) {
-        this.setState({ curSlide: -1 })
-      }
+
+      // else if (moveOffset<SLIDE_THRESHOLD && (top<vpHeight/2  && top > -vpHeight)) {
+      //   console.log("2.")
+      //   this._EnterFirst(cTop, SLIDEIN_SHORT)
+      // }
+      // else if (!isDown && moveOffset<SLIDE_THRESHOLD && (top<0  && top > -vpHeight/2)) {
+      //   console.log("3.")
+      //   this._EnterFirst(cTop, SLIDEIN_SHORT)
+      // }
+      // else if (isDown && moveOffset>=SLIDE_THRESHOLD && (top<0  && top > -vpHeight)) {
+      //   console.log("4.")
+      //   this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
+      // }
+      // else if (!isDown && moveOffset>=SLIDE_THRESHOLD && (top<= -3*vpHeight/2  && top > -2*vpHeight)) {
+      //   console.log("5.")
+      //   this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
+      // }
+      // else if (!isDown && moveOffset>=SLIDE_THRESHOLD && (top<=-vpHeight/2  && top > -3*vpHeight/2)) {
+      //   console.log("6.")
+      //   this._EnterFirst(cTop, SLIDEIN_SHORT)
+      // }
+
     }
 
     this.setState({ pageOffset: currentOffset })
@@ -221,11 +244,11 @@ export default class FullPageMap extends Component {
             </p>
             <div className={ styles["tooltip"] }>
               <p>
-                <div className={ styles["oval-blue"] }></div>
+                <i className={ styles["oval-blue"] }></i>
                 當時的留置所位置
               </p>
               <p>
-                <div className={ styles["oval-pink"] }></div>
+                <i className={ styles["oval-pink"] }></i>
                 當時的收容所位置
               </p>
             </div>
@@ -244,7 +267,7 @@ export default class FullPageMap extends Component {
             </p>
             <div className={ styles["tooltip"] }>
               <p>
-                <div className={ styles["oval-pink"] }></div>
+                <i className={ styles["oval-pink"] }></i>
                 現今的收容所位置
               </p>
             </div>

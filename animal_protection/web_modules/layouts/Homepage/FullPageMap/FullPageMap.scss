@@ -45,16 +45,20 @@ $img-bgcolor: #cdd2d4;
   max-width: 360px;
   position: absolute;
   right: 3.5rem;
-  bottom: 3rem;
+  bottom: 3.5rem;
   padding: 0 1rem;
   z-index: 500;
   color: $tooltip-gray;
+  font-weight: $font-bold;
   @media (max-width: $width-xs) {
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
-
+  }
+  @media (min-width: $width-lg) {
+    right: 5.5rem;
+    bottom: 5.5rem;
   }
 }
 .indicator {
@@ -67,9 +71,14 @@ $img-bgcolor: #cdd2d4;
 .bar {
   width: 12px;
   height: 4px;
-  margin: 8px 0;
-  background: rgba($dark-gray, 0.3);
+  margin: 10px 0;
+  background: rgba($dark-gray, 0.2);
   transition: background 0.3s;
+  @media (min-width: $width-md) {
+    margin: 13px 0;
+    width: 16px;
+    height: 5px;
+  }
 }
 .active {
   background: rgba($dark-gray, 0.8);
