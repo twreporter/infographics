@@ -20,13 +20,13 @@ if (typeof window !== "undefined") {
 }
 
 const debounceTime = {
-  threshold: 100,
-  maxWait: 200,
+  threshold: 30,
+  maxWait: 60,
 }
 const SLIDE_TIMEOUT = 550
 const SLIDEIN_LONG = 400
-const SLIDEIN_SHORT = 10
-const SLIDE_THRESHOLD = 2
+const SLIDEIN_SHORT = 200
+const SLIDE_THRESHOLD = 1
 
 export default class FullPageMap extends Component {
   constructor(props) {
@@ -131,14 +131,15 @@ export default class FullPageMap extends Component {
 
   _EnterFirst(cTop, sDuration) {
     const slide1 = ReactDOM.findDOMNode(this.slide1)
-    const isFixed = (this.state.curSlide === 2) ? true : false
+    console.log("this.state.curSlide", this.state.curSlide, (this.state.curSlide > 0))
+    const isFixed = (this.state.curSlide > 0) ? true : false
     this.setState({ curSlide: 1, isFixed: isFixed })
     this._EnterSlide(cTop, slide1, sDuration)
   }
 
   _EnterSecond(cTop, sDuration) {
     const slide2 = ReactDOM.findDOMNode(this.slide2)
-    const isFixed = (this.state.curSlide === 1) ? true : false
+    const isFixed = (this.state.curSlide > 0) ? true : false
     this.setState({ curSlide: 2, isFixed: isFixed })
     this._EnterSlide(cTop, slide2, sDuration)
   }
