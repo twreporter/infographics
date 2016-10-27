@@ -12,7 +12,7 @@ import commonStyles from "../../../styles/common.scss"
 import { MOBILE_WIDTH } from "../config"
 
 import oldMap from "../../../../content/assets/map_1998.png"
-// import newMap from "../../../../content/assets/map_2016.png"
+import newMap from "../../../../content/assets/map_2016.png"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -20,8 +20,8 @@ if (typeof window !== "undefined") {
 }
 
 const debounceTime = {
-  threshold: 150,
-  maxWait: 300,
+  threshold: 100,
+  maxWait: 200,
 }
 const SLIDE_TIMEOUT = 550
 const SLIDEIN_LONG = 400
@@ -35,6 +35,7 @@ export default class FullPageMap extends Component {
       showSubComponent: true,
       isMobile: false,
       isScrolling: false,
+      isFixed: false,
       pageOffset: 500,
       curSlide: -1,
     }
@@ -57,9 +58,9 @@ export default class FullPageMap extends Component {
     this.handleResize()
 
     // detect sroll position
-    window.addEventListener("touchmove", this._onScroll)
+    window.addEventListener("touchstart", this._onScroll)
     window.addEventListener("touchstop", this._onScroll)
-    window.addEventListener("mousewheel", this._onScroll)
+    window.addEventListener("wheel", this._onScroll)
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -71,9 +72,9 @@ export default class FullPageMap extends Component {
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.handleResize)
-    window.removeEventListener("touchmove", this._onScroll)
+    window.removeEventListener("touchstart", this._onScroll)
     window.addEventListener("touchstop", this._onScroll)
-    window.removeEventListener("mousewheel", this._onScroll)
+    window.removeEventListener("wheel", this._onScroll)
     this._ticking = false
     this.clearRAF()
   }
@@ -121,7 +122,7 @@ export default class FullPageMap extends Component {
         .then(() =>
           setTimeout(() => {
             window.scrollTo(0, cTop)
-            this.setState({ isScrolling: false })
+            this.setState({ isScrolling: false, isFixed: false })
             console.log("SCROLLING STOP")
           }, SLIDE_TIMEOUT)
         )
@@ -130,14 +131,16 @@ export default class FullPageMap extends Component {
 
   _EnterFirst(cTop, sDuration) {
     const slide1 = ReactDOM.findDOMNode(this.slide1)
+    const isFixed = (this.state.curSlide === 2) ? true : false
+    this.setState({ curSlide: 1, isFixed: isFixed })
     this._EnterSlide(cTop, slide1, sDuration)
-    this.setState({ curSlide: 1 })
   }
 
   _EnterSecond(cTop, sDuration) {
     const slide2 = ReactDOM.findDOMNode(this.slide2)
+    const isFixed = (this.state.curSlide === 1) ? true : false
+    this.setState({ curSlide: 2, isFixed: isFixed })
     this._EnterSlide(cTop, slide2, sDuration)
-    this.setState({ curSlide: 2 })
   }
 
   _handleScroll() {
@@ -154,16 +157,6 @@ export default class FullPageMap extends Component {
     console.log(cTop, moveOffset, currentOffset, pageOffset,  top, bottom, isMobile, vpHeight)
 
     if (node && !isScrolling) {
-      // if (bottom > -pItemHeight && bottom < vpHeight+pItemHeight &&
-      //     top < vpHeight+pItemHeight && top > -pItemHeight) {
-      //   if (!this.state.isIn) {
-      //     this.setState({ isIn: true })
-      //   }
-      // }
-      // else {
-      //   this.setState({ isIn: false })
-      // }
-
       if (isDown && (top < 1*vpHeight/2 && top > 0)) {
         console.log("1.")
         this._EnterFirst(cTop, SLIDEIN_LONG)
@@ -199,10 +192,11 @@ export default class FullPageMap extends Component {
   }
 
   render() {
-    const { curSlide } = this.state
+    const { curSlide, isFixed } = this.state
     const indClass = (curSlide < 0) ? commonStyles["hide"] : null
     const ind1 = (curSlide === 1) ? styles["active"] : null
     const ind2 = (curSlide === 2) ? styles["active"] : null
+    const mapClass = isFixed ? styles["map-fixed"] : null
 
     return (
       <div className={ classnames(styles.container,
@@ -216,11 +210,10 @@ export default class FullPageMap extends Component {
         <div className={ classnames(styles.slide) }
           ref={ (ref) => this.slide1 = ref }
         >
-          slide 01
+          <div className={ classnames(styles["map"], mapClass) }>
+            <img src={ oldMap } />
+          </div>
           <div className={ styles["des-box"] }>
-            <div className={ styles["map"] }>
-              <img src={ oldMap } />
-            </div>
             <h4 className={ styles["title"] }><span className={ styles["year"] }>1998</span> 以前</h4>
             <p>
               收容所和留置所的位置都位於偏遠的郊區，交通不易到達。有些地方甚至無法得知路名，只能依靠經緯度大概定位。
@@ -240,7 +233,9 @@ export default class FullPageMap extends Component {
         <div className={ classnames(styles.slide) }
           ref={ (ref) => this.slide2 = ref }
         >
-          slide 02
+          <div className={ classnames(styles["map"], mapClass) }>
+            <img src={ newMap } />
+          </div>
           <div className={ styles["des-box"] }>
             <h4 className={ styles["title"] }><span className={ styles["year"] }>2016</span> 現今</h4>
             <p>
