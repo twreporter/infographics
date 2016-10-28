@@ -25,10 +25,11 @@ const debounceTime = {
   threshold: 60,
   maxWait: 120,
 }
-const SLIDE_TIMEOUT = 450
-const SLIDEIN_LONG = 400
+const SLIDE_TIMEOUT = 400
+const SLIDEIN_LONG = 450
 
-const FADE_TIME = 750
+const FADEOUT_SETTINGS = { duration: 1000, easing: "easeInSine" }
+const FADEIN_SETTINGS = { duration: 550, easing: "easeOutSine" }
 
 export default class FullPageMap extends Component {
   constructor(props) {
@@ -60,9 +61,6 @@ export default class FullPageMap extends Component {
     this.handleResize()
 
     // detect sroll position
-    // window.addEventListener("touchmove", this._onScroll)
-    // window.addEventListener("touchstart", this._onScroll)
-    // window.addEventListener("touchend", this._onScroll)
     window.addEventListener("touchmove", this._onScroll)
     window.addEventListener("wheel", this._onScroll)
   }
@@ -76,9 +74,6 @@ export default class FullPageMap extends Component {
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.handleResize)
-    // window.removeEventListener("touchmove", this._onScroll)
-    // window.addEventListener("touchstart", this._onScroll)
-    // window.addEventListener("touchend", this._onScroll)
     window.addEventListener("touchmove", this._onScroll)
     window.removeEventListener("wheel", this._onScroll)
     this._ticking = false
@@ -144,10 +139,10 @@ export default class FullPageMap extends Component {
     const newM1 = ReactDOM.findDOMNode(this.newM1)
     const oldM2 = ReactDOM.findDOMNode(this.oldM2)
     const newM2 = ReactDOM.findDOMNode(this.newM2)
-    velocity(oldM1, { opacity: 1 }, FADE_TIME)
-    velocity(newM1, { opacity: 0 }, FADE_TIME)
-    velocity(oldM2, { opacity: 1 }, FADE_TIME)
-    velocity(newM2, { opacity: 0 }, FADE_TIME)
+    velocity(oldM1, { opacity: 1 }, FADEIN_SETTINGS)
+    velocity(newM1, { opacity: 0 }, FADEOUT_SETTINGS)
+    velocity(oldM2, { opacity: 1 }, FADEIN_SETTINGS)
+    velocity(newM2, { opacity: 0 }, FADEOUT_SETTINGS)
   }
 
   _EnterSecond(cTop, sDuration) {
@@ -160,10 +155,10 @@ export default class FullPageMap extends Component {
     const newM1 = ReactDOM.findDOMNode(this.newM1)
     const oldM2 = ReactDOM.findDOMNode(this.oldM2)
     const newM2 = ReactDOM.findDOMNode(this.newM2)
-    velocity(oldM1, { opacity: 0 }, FADE_TIME)
-    velocity(newM1, { opacity: 1 }, FADE_TIME)
-    velocity(oldM2, { opacity: 0 }, FADE_TIME)
-    velocity(newM2, { opacity: 1 }, FADE_TIME)
+    velocity(oldM1, { opacity: 0 }, FADEOUT_SETTINGS)
+    velocity(newM1, { opacity: 1 }, FADEIN_SETTINGS)
+    velocity(oldM2, { opacity: 0 }, FADEOUT_SETTINGS)
+    velocity(newM2, { opacity: 1 }, FADEIN_SETTINGS)
   }
 
   _handleScroll() {
@@ -189,7 +184,7 @@ export default class FullPageMap extends Component {
       else if (!isDown && (top<= -1*vpHeight/2  && top > -3*vpHeight/2)) {
         this._EnterFirst(cTop, SLIDEIN_LONG)
       }
-      else if (top>vpHeight/2+10 || top < -vpHeight-10) {
+      else if (top>vpHeight/2+10 || top < -vpHeight-10 || (!isDown && top > 10)) {
         this.setState({ curSlide: -1, isFixed: false })
       }
     }
