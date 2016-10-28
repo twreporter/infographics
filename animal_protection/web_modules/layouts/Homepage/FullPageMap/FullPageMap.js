@@ -22,10 +22,10 @@ if (typeof window !== "undefined") {
 }
 
 const debounceTime = {
-  threshold: 60,
-  maxWait: 120,
+  threshold: 15,
+  maxWait: 30,
 }
-const SLIDE_TIMEOUT = 400
+const SLIDE_TIMEOUT = 550
 const SLIDEIN_LONG = 450
 
 const FADEOUT_SETTINGS = { duration: 1000, easing: "easeInSine" }
@@ -171,7 +171,7 @@ export default class FullPageMap extends Component {
     const isDown = (currentOffset > pageOffset) ? true : false
     const cTop = node.offsetTop
 
-    if (node && !isScrolling) {
+    if (node && !isScrolling && !(currentOffset === pageOffset)) {
       if (isDown && (top < 1*vpHeight/2 && top > 0)) {
         this._EnterFirst(cTop, SLIDEIN_LONG)
       }
