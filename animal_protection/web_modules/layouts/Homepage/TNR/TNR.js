@@ -8,11 +8,13 @@ import styles from "./Tnr.scss"
 import Subsection from "../Components/Subsection"
 import ChapterTitle from "../Components/ChapterTitle"
 import VisibleSensor from "../Components/VisibleSensor"
+import Game from "../Game/Game"
 import commonStyles from "../../../styles/common.scss"
 
 import tnrT from "../../../../content/assets/TNR-T.svg"
+import rInfoImg from "../../../../content/assets/info-box-icon.svg"
 
-import { chapter, topBox, titles } from "./text"
+import { chapter, topBox, titles, research } from "./text"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -67,6 +69,13 @@ export default class Tnr extends Component {
               this is a subsection
               <div></div>
             </Subsection>
+            <Game />
+            <div className={ classnames(styles["research-des"]) }>
+            <div className={ classnames(styles["yoyo"], commonStyles["overlay-svg"]) }
+              dangerouslySetInnerHTML={ { __html: rInfoImg } } />
+            <div className={ styles["r-title"] }>{ research.title }</div>
+              <Markdown source={ research.des } />
+            </div>
           </div>
         </div>
       </div>

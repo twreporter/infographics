@@ -39,3 +39,24 @@
     padding: 0.2rem 1.3rem;
   }
 }
+
+.research-des {
+  color: $tooltip-gray;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+  padding: 1rem 2rem;
+  margin-top: 6rem;
+  border-top: $yellow 8px solid;
+  text-align: justify;
+  @media (max-width: $width-xs) {
+    padding: 1rem;
+  }
+  .r-title {
+    display: inline-block;
+    background-color: $text-blue;
+    font-size: 28px;
+    font-weight: $font-bold;
+    color: $white;
+    padding: 0.2rem 1rem;
+  }
+}
