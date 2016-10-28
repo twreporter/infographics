@@ -1,9 +1,7 @@
 /*eslint-disable */
 export const chapter = {
   id: "II",
-  title: `棄養不解決
-
-  TNvR將白忙一場！`
+  title: `棄養不解決<br/>TNvR將白忙一場！`
 }
 export const topBox = `
 在TNR是國外用來控制狂犬病的一種作法，目前在台灣則是被當成「流浪狗口控制」的方式。

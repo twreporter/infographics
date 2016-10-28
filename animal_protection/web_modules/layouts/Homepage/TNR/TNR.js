@@ -44,30 +44,31 @@ export default class Tnr extends Component {
 
   render() {
     return (
-      <div className={ classnames(styles.container,
-        commonStyles["text-center"]) }
-      >
+      <div>
         <ChapterTitle chapterId={ chapter.id } title={ chapter.title } />
-        <div className={ commonStyles["content-outer"] }>
-          <div className={ classnames(styles["content-box"]) }>
-            <Markdown source={ topBox } />
+        <div className={ classnames(styles.container,
+          commonStyles["text-center"]) }
+        >
+          <div className={ commonStyles["content-outer"] }>
+            <div className={ classnames(styles["content-box"]) }>
+              <Markdown source={ topBox } />
+            </div>
+            <Subsection curSec={ 2 } titles={ titles } subIndex={ 0 }>
+              <VisibleSensor handleVisible={ this._handleAnimationT }>
+                <div className={ classnames(commonStyles["img-responsive"],
+                  styles["yoyo"], commonStyles["overlay-svg"]) }
+                  dangerouslySetInnerHTML={ { __html: tnrT } }
+                  ref={ (ref) => this.chartT = ref }
+                />
+                捕捉 TRAP
+              </VisibleSensor>
+            </Subsection>
+            <Subsection curSec={ 2 } titles={ titles } subIndex={ 1 }>
+              this is a subsection
+              <div></div>
+            </Subsection>
           </div>
-          <Subsection curSec={ 2 } titles={ titles } subIndex={ 0 }>
-            <VisibleSensor handleVisible={ this._handleAnimationT }>
-              <div className={ classnames(commonStyles["img-responsive"],
-                styles["yoyo"], commonStyles["overlay-svg"]) }
-                dangerouslySetInnerHTML={ { __html: tnrT } }
-                ref={ (ref) => this.chartT = ref }
-              />
-              捕捉 TRAP
-            </VisibleSensor>
-          </Subsection>
-          <Subsection curSec={ 2 } titles={ titles } subIndex={ 1 }>
-            this is a subsection
-            <div></div>
-          </Subsection>
         </div>
-
       </div>
     )
   }
