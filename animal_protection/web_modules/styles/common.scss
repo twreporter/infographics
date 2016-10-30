@@ -1,4 +1,4 @@
-/* stylelint-disable block-closing-brace-newline-before, rule-non-nested-empty-line-before, indentation */
+/* stylelint-disable block-closing-brace-newline-before, at-rule-empty-line-before, rule-non-nested-empty-line-before, indentation */
 @import "variables.scss";
 
 .content {
@@ -49,4 +49,44 @@
 
 .hide {
   display: none;
+}
+
+.c-grid {
+  background-color: $deco-blue;
+  padding: 1.5rem 1rem;
+  >div {
+    position: relative;
+    padding-bottom: 3rem;
+  }
+}
+
+.wrap-grids {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @media (max-width: $width-xs) {
+    margin: 0 -5px;
+  }
+}
+
+.grid-50 {
+  width: calc(50% - 14px);
+  margin: 14px 7px;
+  @media (max-width: $width-xs) {
+    margin: 10px 0;
+    width: 100%;
+  }
+}
+
+.g-btm-text {
+  font-size: 28px;
+  font-weight: $font-bold;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%,0);
 }

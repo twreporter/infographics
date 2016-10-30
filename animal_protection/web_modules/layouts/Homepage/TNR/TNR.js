@@ -14,7 +14,7 @@ import commonStyles from "../../../styles/common.scss"
 import tnrT from "../../../../content/assets/TNR-T.svg"
 import rInfoImg from "../../../../content/assets/info-box-icon.svg"
 
-import { chapter, topBox, titles, research } from "./text"
+import { chapter, topBox, titles, research, tnvrStrings } from "./text"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -56,14 +56,49 @@ export default class Tnr extends Component {
               <Markdown source={ topBox } />
             </div>
             <Subsection curSec={ 2 } titles={ titles } subIndex={ 0 }>
-              <VisibleSensor handleVisible={ this._handleAnimationT }>
-                <div className={ classnames(commonStyles["img-responsive"],
-                  styles["yoyo"], commonStyles["overlay-svg"]) }
-                  dangerouslySetInnerHTML={ { __html: tnrT } }
-                  ref={ (ref) => this.chartT = ref }
-                />
-                捕捉 TRAP
-              </VisibleSensor>
+              <div className={ commonStyles["wrap-grids"] }>
+                <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
+                  <VisibleSensor handleVisible={ this._handleAnimationT }>
+                    <div className={ classnames(commonStyles["img-responsive"],
+                      styles["yoyo"], commonStyles["overlay-svg"]) }
+                      dangerouslySetInnerHTML={ { __html: tnrT } }
+                      ref={ (ref) => this.chartT = ref }
+                    />
+                  <p className={ commonStyles["g-btm-text"] }>{ tnvrStrings[0] }</p>
+                  </VisibleSensor>
+                </div>
+                <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
+                  <VisibleSensor handleVisible={ this._handleAnimationN }>
+                    <div className={ classnames(commonStyles["img-responsive"],
+                      styles["yoyo"], commonStyles["overlay-svg"]) }
+                      dangerouslySetInnerHTML={ { __html: tnrT } }
+                      ref={ (ref) => this.chartN = ref }
+                    />
+                  <p className={ commonStyles["g-btm-text"] }>{ tnvrStrings[1] }</p>
+                  </VisibleSensor>
+                </div>
+                <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
+                  <VisibleSensor handleVisible={ this._handleAnimationV }>
+                    <div className={ classnames(commonStyles["img-responsive"],
+                      styles["yoyo"], commonStyles["overlay-svg"]) }
+                      dangerouslySetInnerHTML={ { __html: tnrT } }
+                      ref={ (ref) => this.chartV = ref }
+                    />
+                  <p className={ commonStyles["g-btm-text"] }>{ tnvrStrings[2] }</p>
+                  </VisibleSensor>
+                </div>
+                <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
+                  <VisibleSensor handleVisible={ this._handleAnimationR }>
+                    <div className={ classnames(commonStyles["img-responsive"],
+                      styles["yoyo"], commonStyles["overlay-svg"]) }
+                      dangerouslySetInnerHTML={ { __html: tnrT } }
+                      ref={ (ref) => this.chartR = ref }
+                    />
+                  <p className={ commonStyles["g-btm-text"] }>{ tnvrStrings[3] }</p>
+                  </VisibleSensor>
+                </div>
+              </div>
+
             </Subsection>
             <Subsection curSec={ 2 } titles={ titles } subIndex={ 1 }>
               this is a subsection

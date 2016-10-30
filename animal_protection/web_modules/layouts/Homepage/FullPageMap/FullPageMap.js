@@ -63,6 +63,11 @@ export default class FullPageMap extends Component {
     // detect sroll position
     window.addEventListener("touchmove", this._onScroll)
     window.addEventListener("wheel", this._onScroll)
+    // this.intervalId = setInterval(()=> {
+    //   if (!this.state.isScrolling) {
+    //     this._onScroll()
+    //   }
+    // }, 100)
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -73,8 +78,9 @@ export default class FullPageMap extends Component {
   }
 
   componentWillUnmount() {
+    // clearInterval(this.intervalId)
     window.removeEventListener("resize", this.handleResize)
-    window.addEventListener("touchmove", this._onScroll)
+    window.removeEventListener("touchmove", this._onScroll)
     window.removeEventListener("wheel", this._onScroll)
     this._ticking = false
     this.clearRAF()
@@ -90,13 +96,15 @@ export default class FullPageMap extends Component {
   _onScroll(e) {
     if (this.state.isScrolling) {
       this.setState({ pageOffset: window.scrollY })
-      e.preventDefault()
-      e.stopPropagation()
-      // e.stopImmediatePropagation()
-      e.returnValue = false
+      if (e) {
+        e.preventDefault()
+        e.stopPropagation()
+        // e.stopImmediatePropagation()
+        e.returnValue = false
+      }
     }
     else {
-      this._requestTick(e)
+      this._requestTick()
     }
   }
 
@@ -117,6 +125,7 @@ export default class FullPageMap extends Component {
       this.setState({ isScrolling: true })
 
       velocity(slide, "scroll", { offset: 0, duration: sDuration })
+      // velocity(document.body, { scrollTop: cTop }, { duration: sDuration })
         .then(() => {
           window.scrollTo(0, cTop)
           this.setState({ pageOffset: window.scrollY })

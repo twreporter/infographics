@@ -11,6 +11,7 @@ export const topBox = `
 但要達到數量控制的目的，TNR有其限制，除了必須在封閉地形內實行，強度和持續性都是必須考量的因素，回置後續也會產生一些問題。
 `
 export const titles = [`TNR是什麼？`, `動物回置後的生活誰來顧？`]
+export const tnvrStrings = [`捕捉 TRAP`, `結紮 NEUTER`, `狂犬病疫苗施打 VACCINATION`, `原地回置 RETERN`]
 export const research = {
   title: '賴奕德的研究模型',
   des: `生命科學專家賴亦德撰文指出，根據國外一篇族群動物模擬的論文，TNR要發揮效果，必須做到每年TNR數量佔流浪動物族群50%以上，才能夠讓動物數量在25年後明顯下降。一旦有移入（棄養）個體，即使是每年TNR整個族群的10%左右，還是沒有辦法讓流浪動物數量下降。
