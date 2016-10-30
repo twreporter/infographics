@@ -41,15 +41,30 @@
 }
 
 .research-des {
+  position: relative;
   color: $tooltip-gray;
   background-color: rgba(255, 255, 255, 0.8);
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
   padding: 1rem 2rem;
-  margin-top: 6rem;
+  margin-top: 8rem;
   border-top: $yellow 8px solid;
   text-align: justify;
   @media (max-width: $width-xs) {
+    margin-top: 12rem;
     padding: 1rem;
+  }
+  .title-box {
+    position: absolute;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    top: -1.3rem;
+    width: 100%;
+    text-align: center;
+    @media (max-width: $width-xs) {
+      left: 50%;
+      transform: translate(-50%, -100%);
+      top: 1.1rem;
+    }
   }
   .r-title {
     display: inline-block;
@@ -58,5 +73,25 @@
     font-weight: $font-bold;
     color: $white;
     padding: 0.2rem 1rem;
+    vertical-align: bottom;
+    @media (max-width: $width-xs) {
+      display: table;
+      margin: 0 auto;
+    }
+  }
+  .yoyo {
+    display: inline-block;
+    margin-right: 1.5rem;
+    width: 5rem;
+    vertical-align: bottom;
+    svg {
+      width: 100%;
+      margin-bottom: -0.9rem;
+    }
+    @media (max-width: $width-xs) {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1rem;
+    }
   }
 }

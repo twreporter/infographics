@@ -71,9 +71,11 @@ export default class Tnr extends Component {
             </Subsection>
             <Game />
             <div className={ classnames(styles["research-des"]) }>
-            <div className={ classnames(styles["yoyo"], commonStyles["overlay-svg"]) }
-              dangerouslySetInnerHTML={ { __html: rInfoImg } } />
-            <div className={ styles["r-title"] }>{ research.title }</div>
+              <div className={ classnames(styles["title-box"]) }>
+                <div className={ classnames(styles["yoyo"], commonStyles["overlay-svg"]) }
+                  dangerouslySetInnerHTML={ { __html: rInfoImg } } />
+                <div className={ styles["r-title"] }>{ research.title }</div>
+              </div>
               <Markdown source={ research.des } />
             </div>
           </div>
