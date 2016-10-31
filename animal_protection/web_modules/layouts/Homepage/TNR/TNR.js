@@ -283,7 +283,19 @@ export default class Tnr extends Component {
                 <Markdown className={ commonStyles["inner-text"] } source={ sec3Des } />
               </div>
               <div className={ classnames(commonStyles["c-grid"]) }>
-                <div className={ classnames(commonStyles["white-box"]) }>
+                <div className={ classnames(commonStyles["content-outer"], commonStyles["pad-content"], commonStyles["white-box"]) }>
+                  <h4> 105年至8月止累計案件數 </h4>
+                  <div className={ commonStyles["wrap-grids"] }>
+                    <div className={ classnames(commonStyles["grid-33"], styles["case-number"], styles["case-blue"]) }>
+                      檢舉 <br /> <span className={ commonStyles["super-text"] }>260</span> 件
+                    </div>
+                    <div className={ classnames(commonStyles["grid-33"], styles["case-number"], styles["case-pink"]) }>
+                      緝查 <br /> <span className={ commonStyles["super-text"] }>123</span> 件
+                    </div>
+                    <div className={ classnames(commonStyles["grid-33"], styles["case-number"], styles["case-dark"]) }>
+                      勸導 <br /> <span className={ commonStyles["super-text"] }>127</span> 件
+                    </div>
+                  </div>
                 </div>
               </div>
             </Subsection>

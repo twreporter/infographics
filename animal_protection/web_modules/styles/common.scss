@@ -13,6 +13,10 @@
   margin-right: auto;
 }
 
+.super-text {
+  font-size: 50px;
+}
+
 .pad-content {
   padding: 0.5rem;
 }
@@ -84,6 +88,15 @@
   }
 }
 
+.grid-33 {
+  width: calc(33% - 14px);
+  margin: 14px 7px;
+  @media (max-width: $width-xs) {
+    margin: 10px 0;
+    width: 100%;
+  }
+}
+
 .g-btm-text {
   font-size: 28px;
   font-weight: $font-bold;
@@ -100,4 +113,9 @@
 .white-box {
   background-color: $white;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+  h4 {
+    font-size: 28px;
+    color: $tooltip-gray;
+    font-weight: $font-bold;
+  }
 }

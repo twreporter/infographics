@@ -1,4 +1,4 @@
-/* stylelint-disable function-comma-space-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+/* stylelint-disable function-comma-space-after, selector-list-comma-newline-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
 @import "../../../styles/variables.scss";
 
 .container {
@@ -94,4 +94,37 @@
       margin-bottom: 1rem;
     }
   }
+}
+
+.case-number {
+  color: $tooltip-gray;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: $font-bold;
+  font-size: 28px;
+}
+
+.case-bg {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  background-position-y: 50%;
+}
+
+.case-blue {
+  @extend .case-bg;
+  color: $text-blue;
+  background-image: url('../../../../content/assets/report-transparent.png');
+}
+
+.case-pink {
+  @extend .case-bg;
+  color: $text-pink;
+  background-image: url('../../../../content/assets/check-transparent.png');
+}
+
+.case-dark {
+  @extend .case-bg;
+  background-image: url('../../../../content/assets/advise-transparent.png');
 }
