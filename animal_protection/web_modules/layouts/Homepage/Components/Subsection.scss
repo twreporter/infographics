@@ -6,10 +6,6 @@
   h2 {
     text-align: left;
     display: table;
-    padding-left: 5rem;
-    @media (max-width: $width-xs) {
-      padding-left: 0;
-    }
   }
 }
 
