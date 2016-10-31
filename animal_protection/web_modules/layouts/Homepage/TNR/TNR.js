@@ -182,12 +182,12 @@ export default class Tnr extends Component {
         <div className={ classnames(styles.container,
           commonStyles["text-center"]) }
         >
-          <div className={ commonStyles["content-outer"] }>
-            <div className={ classnames(styles["content-box"]) }>
+          <div>
+            <div className={ classnames(commonStyles["content-outer"], styles["content-box"]) }>
               <Markdown source={ topBox } />
             </div>
             <Subsection curSec={ 2 } titles={ titles } subIndex={ 0 }>
-              <div className={ commonStyles["wrap-grids"] }>
+              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"], commonStyles["wrap-grids"]) }>
                 <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
                   <VisibleSensor handleVisible={ this._handleAnimationT }>
                     <div className={ classnames(commonStyles["img-responsive"],
@@ -231,64 +231,74 @@ export default class Tnr extends Component {
               </div>
             </Subsection>
             <Subsection curSec={ 2 } titles={ titles } subIndex={ 1 }>
-              <Markdown className={ commonStyles["inner-text"] } source={ sec2Des } />
-              <div className={ commonStyles["wrap-grids"] }>
-                <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
-                  <VisibleSensor handleVisible={ this._handleProblem1 }>
-                    <div className={ classnames(commonStyles["img-responsive"],
-                      styles["yoyo"], commonStyles["overlay-svg"]) }
-                      style={ { marginTop: "-12%", marginLeft: "-10%", width: "120%", maxWidth:"120%" } }
-                      dangerouslySetInnerHTML={ { __html: problem1 } }
-                      ref={ (ref) => this.p1G = ref }
-                    />
-                  <p className={ commonStyles["g-btm-text"] } style={ { marginBottom: "-12%" } } ref={ (ref) => this.p1Text = ref }>{ problemStrings[0] }</p>
-                  </VisibleSensor>
-                </div>
-                <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
-                  <VisibleSensor handleVisible={ this._handleProblem2 }>
-                    <div className={ classnames(commonStyles["img-responsive"],
-                      styles["yoyo"], commonStyles["overlay-svg"]) }
-                      dangerouslySetInnerHTML={ { __html: problem2 } }
-                      ref={ (ref) => this.p2G = ref }
-                    />
-                  <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.p2Text = ref }>{ problemStrings[1] }</p>
-                  </VisibleSensor>
-                </div>
-                <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
-                  <VisibleSensor handleVisible={ this._handleProblem3 }>
-                    <div className={ classnames(commonStyles["img-responsive"],
-                      styles["yoyo"], commonStyles["overlay-svg"]) }
-                      dangerouslySetInnerHTML={ { __html: problem3 } }
-                      ref={ (ref) => this.p3G = ref }
-                    />
-                  <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.p3Text = ref }>{ problemStrings[2] }</p>
-                  </VisibleSensor>
-                </div>
-                <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
-                  <VisibleSensor handleVisible={ this._handleProblem4 }>
-                    <div className={ classnames(commonStyles["img-responsive"],
-                      styles["yoyo"], commonStyles["overlay-svg"]) }
-                      dangerouslySetInnerHTML={ { __html: problem4 } }
-                      ref={ (ref) => this.p4G = ref }
-                    />
-                  <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.p4Text = ref }>{ problemStrings[3] }</p>
-                  </VisibleSensor>
+              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) }>
+                <Markdown className={ commonStyles["inner-text"] } source={ sec2Des } />
+                <div className={ commonStyles["wrap-grids"] }>
+                  <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
+                    <VisibleSensor handleVisible={ this._handleProblem1 }>
+                      <div className={ classnames(commonStyles["img-responsive"],
+                        styles["yoyo"], commonStyles["overlay-svg"]) }
+                        style={ { marginTop: "-12%", marginLeft: "-10%", width: "120%", maxWidth:"120%" } }
+                        dangerouslySetInnerHTML={ { __html: problem1 } }
+                        ref={ (ref) => this.p1G = ref }
+                      />
+                    <p className={ commonStyles["g-btm-text"] } style={ { marginBottom: "-12%" } } ref={ (ref) => this.p1Text = ref }>{ problemStrings[0] }</p>
+                    </VisibleSensor>
+                  </div>
+                  <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
+                    <VisibleSensor handleVisible={ this._handleProblem2 }>
+                      <div className={ classnames(commonStyles["img-responsive"],
+                        styles["yoyo"], commonStyles["overlay-svg"]) }
+                        dangerouslySetInnerHTML={ { __html: problem2 } }
+                        ref={ (ref) => this.p2G = ref }
+                      />
+                    <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.p2Text = ref }>{ problemStrings[1] }</p>
+                    </VisibleSensor>
+                  </div>
+                  <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
+                    <VisibleSensor handleVisible={ this._handleProblem3 }>
+                      <div className={ classnames(commonStyles["img-responsive"],
+                        styles["yoyo"], commonStyles["overlay-svg"]) }
+                        dangerouslySetInnerHTML={ { __html: problem3 } }
+                        ref={ (ref) => this.p3G = ref }
+                      />
+                    <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.p3Text = ref }>{ problemStrings[2] }</p>
+                    </VisibleSensor>
+                  </div>
+                  <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
+                    <VisibleSensor handleVisible={ this._handleProblem4 }>
+                      <div className={ classnames(commonStyles["img-responsive"],
+                        styles["yoyo"], commonStyles["overlay-svg"]) }
+                        dangerouslySetInnerHTML={ { __html: problem4 } }
+                        ref={ (ref) => this.p4G = ref }
+                      />
+                    <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.p4Text = ref }>{ problemStrings[3] }</p>
+                    </VisibleSensor>
+                  </div>
                 </div>
               </div>
             </Subsection>
-            <Subsection curSec={ 3 } titles={ titles } subIndex={ 2 }>
-              <Markdown className={ commonStyles["inner-text"] } source={ sec3Des } />
-            </Subsection>
-            <Subsection curSec={ 4 } titles={ titles } subIndex={ 3 }>
-              <Markdown className={ commonStyles["inner-text"] } source={ sec4Des } />
-              <Game />
-              <div className={ classnames(styles["research-des"]) }>
-                <div className={ classnames(styles["title-box"]) }>
-                  <div className={ classnames(styles["yoyo"], commonStyles["overlay-svg"]) }
-                    dangerouslySetInnerHTML={ { __html: rInfoImg } } />
-                  <div className={ styles["r-title"] }>{ research.title }</div>
+            <Subsection curSec={ 2 } titles={ titles } subIndex={ 2 }>
+              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) }>
+                <Markdown className={ commonStyles["inner-text"] } source={ sec3Des } />
+              </div>
+              <div className={ classnames(commonStyles["c-grid"]) }>
+                <div className={ classnames(commonStyles["white-box"]) }>
                 </div>
-                <Markdown source={ research.des } />
+              </div>
+            </Subsection>
+            <Subsection curSec={ 2 } titles={ titles } subIndex={ 3 }>
+              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) }>
+                <Markdown className={ commonStyles["inner-text"] } source={ sec4Des } />
+                <Game />
+                <div className={ classnames(styles["research-des"]) }>
+                  <div className={ classnames(styles["title-box"]) }>
+                    <div className={ classnames(styles["yoyo"], commonStyles["overlay-svg"]) }
+                      dangerouslySetInnerHTML={ { __html: rInfoImg } } />
+                    <div className={ styles["r-title"] }>{ research.title }</div>
+                  </div>
+                  <Markdown source={ research.des } />
+                </div>
               </div>
             </Subsection>
           </div>

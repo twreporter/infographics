@@ -3,9 +3,10 @@
 
 .container {
   margin: 4.2rem 0;
-  h2 {
+  h3 {
     text-align: left;
-    display: table;
+    display: block;
+    padding: 0.2rem;
   }
 }
 
@@ -14,6 +15,8 @@
   white-space: nowrap;
   font-size: 30px;
   font-weight: $font-bold;
+  width: 3rem;
+  padding-left: 0.3rem;
   >span {
     margin-right: 1.8rem;
     background-color: $text-blue;
