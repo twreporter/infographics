@@ -25,7 +25,7 @@ import problem4 from "../../../../content/assets/wild-animal.svg"
 import { chapter, topBox, titles, research, tnvrStrings,
   sec2Des, sec3Des, sec4Des, problemStrings } from "./text"
 
-const SLIDEIN_EFFECT = { translateX: [ "-50%", "-50%" ], translateY: [ "0%", "60%" ], opacity: [ 1, 0.5 ] }
+const SLIDEIN_EFFECT = { translateX: [ "-50%", "-50%" ], translateY: [ "0%", "-60%" ], opacity: [ 1, 0.5 ] }
 
 let velocity
 if (typeof window !== "undefined") {
@@ -166,7 +166,7 @@ export default class Tnr extends Component {
       if (tLeft && tRight) {
         velocity(tLeft, { translateX: [ 0, -50 ], opacity: [ 1, 0.8 ] }, { delay: 300, duration: 900 })
         velocity(tRight, { scale: [ 1, 1.1 ], opacity: [ 1, 0.8 ] }, { delay: 300, duration: 1000 })
-        velocity(tTop, { scale: [ 1, 1.1 ], translateY: [ 0, -20 ] }, { delay: 300, duration: 1000 })
+        velocity(tTop, { scale: [ 1, 1.05 ], translateY: [ 0, -10 ] }, { delay: 300, duration: 1000 })
         velocity(this.p4Text, SLIDEIN_EFFECT, { delay: 300, duration: 1000 })
       }
     }

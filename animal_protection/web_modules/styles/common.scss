@@ -18,7 +18,10 @@
 }
 
 .pad-content {
-  padding: 0.5rem;
+  padding: 0.7rem;
+  @media (max-width: $width-xs) {
+    padding: 0.6rem;
+  }
 }
 
 .text-center {

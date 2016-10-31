@@ -13,7 +13,11 @@ import { firstContent } from "./content"
 import OpeningSec1 from "./Opening/OpeningSec1"
 import OpeningStardust from "./Opening/OpeningStardust"
 import OpeningLast from "./Opening/OpeningLast"
-import Tnr from "./TNR/TNR"
+import Chapter01 from "./Chapter01/Chapter01"
+import Tnr from "./Chapter02_TNR/TNR"
+import Chapter03 from "./Chapter03/Chapter03"
+import Chapter04 from "./Chapter04/Chapter04"
+
 import FullPageMap from "./FullPageMap/FullPageMap"
 
 import commonStyles from "../../styles/common.scss"
@@ -67,7 +71,10 @@ export default class Homepage extends Component {
         <OpeningSec1 />
         <OpeningStardust />
         <OpeningLast />
+        <Chapter01 />
         <Tnr />
+        <Chapter03 />
+        <Chapter04 />
 
         <div className={ commonStyles.content }>
           <Markdown source={ firstContent } />
