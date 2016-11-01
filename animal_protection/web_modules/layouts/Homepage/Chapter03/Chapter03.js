@@ -21,7 +21,6 @@ import { chapter, topBox, titles, sec1Des, sec2Des, sec3Des, problem1, problem2 
 
 const LegiBox = (props) => {
   const { list } = props
-  console.log(props, list)
   let legiList = []
 
   for (let i=0; i<list.length; i++) {

@@ -67,7 +67,8 @@ export default class VisibleSensor extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
-    const pItemHeight = node.clientHeight || 100
+    let pItemHeight = node.clientHeight - 200 || 100
+    pItemHeight = (pItemHeight>0) ?  pItemHeight : node.clientHeight
 
     if (node) {
       if (bottom > -pItemHeight && bottom < vpHeight+pItemHeight &&

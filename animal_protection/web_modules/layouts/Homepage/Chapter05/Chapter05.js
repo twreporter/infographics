@@ -9,7 +9,7 @@ import styles from "./Chapter05.scss"
 import ChapterTitle from "../Components/ChapterTitle"
 import commonStyles from "../../../styles/common.scss"
 
-import { chapter, topBox } from "./text"
+import { chapter, topBox, sec1Des } from "./text"
 
 // let velocity
 // if (typeof window !== "undefined") {
@@ -34,6 +34,9 @@ export default class Chapter05 extends Component {
           <div>
             <div className={ classnames(commonStyles["content-outer"], commonStyles["content-box"]) }>
               <Markdown source={ topBox } />
+            </div>
+            <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) } style={ { paddingBottom: "3.5rem" } }>
+              <Markdown className={ commonStyles["inner-text"] }  source={ sec1Des } />
             </div>
           </div>
         </div>
