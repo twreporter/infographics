@@ -11,7 +11,7 @@ TNvR被許多民間團體倡導，他們認為把結紮後的流浪動物回至�
 
 但是，諸多問題讓這美好景象不可能到來！
 `
-export const titles = [`TNvR是什麼？`, `放回街頭的狗狗，真的比較幸福嗎？`, `人狗衝突將會越來越嚴重！`, `集中強度，TNvR才可能有效`]
+export const titles = [`收容所地處偏僻，民眾參訪意願低，難以提高認養率`, `公立收容所的軟硬體亟需更新`, `公立收容所獸醫的困境`]
 
 export const tnvrStrings = [`捕捉 TRAP`, `結紮 NEUTER`, `狂犬病疫苗施打 VACCINATION`, `原地回置 RETERN`]
 

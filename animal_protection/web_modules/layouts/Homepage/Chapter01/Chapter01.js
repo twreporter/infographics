@@ -36,7 +36,17 @@ export default class Chapter01 extends Component {
             <div className={ classnames(commonStyles["content-outer"], styles["content-box"]) }>
               <Markdown source={ topBox } />
             </div>
-            <Subsection curSec={ 2 } titles={ titles } subIndex={ 0 }>
+            <Subsection curSec={ 1 } titles={ titles } subIndex={ 0 }>
+              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"], commonStyles["wrap-grids"]) }>
+
+              </div>
+            </Subsection>
+            <Subsection curSec={ 1 } titles={ titles } subIndex={ 1 }>
+              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"], commonStyles["wrap-grids"]) }>
+
+              </div>
+            </Subsection>
+            <Subsection curSec={ 1 } titles={ titles } subIndex={ 2 }>
               <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"], commonStyles["wrap-grids"]) }>
 
               </div>

@@ -5,19 +5,18 @@ import React, { Component } from "react"
 import Markdown from "react-markdown"
 
 import classnames from "classnames"
-import styles from "./Chapter04.scss"
-import Subsection from "../Components/Subsection"
+import styles from "./Chapter05.scss"
 import ChapterTitle from "../Components/ChapterTitle"
 import commonStyles from "../../../styles/common.scss"
 
-import { chapter, topBox, titles } from "./text"
+import { chapter, topBox } from "./text"
 
 // let velocity
 // if (typeof window !== "undefined") {
 //   velocity = require("velocity-animate")
 // }
 
-export default class Chapter04 extends Component {
+export default class Chapter05 extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -36,16 +35,6 @@ export default class Chapter04 extends Component {
             <div className={ classnames(commonStyles["content-outer"], styles["content-box"]) }>
               <Markdown source={ topBox } />
             </div>
-            <Subsection curSec={ 4 } titles={ titles } subIndex={ 0 }>
-              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"], commonStyles["wrap-grids"]) }>
-
-              </div>
-            </Subsection>
-            <Subsection curSec={ 4 } titles={ titles } subIndex={ 1 }>
-              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"], commonStyles["wrap-grids"]) }>
-
-              </div>
-            </Subsection>
           </div>
         </div>
       </div>
@@ -53,4 +42,4 @@ export default class Chapter04 extends Component {
   }
 }
 
-Chapter04.propTypes = {}
+Chapter05.propTypes = {}
