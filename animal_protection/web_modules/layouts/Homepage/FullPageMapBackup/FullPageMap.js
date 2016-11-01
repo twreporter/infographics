@@ -143,7 +143,6 @@ export default class FullPageMap extends Component {
     const isFixed = (this.state.curSlide > 0) ? true : false
     this.setState({ curSlide: 1, isFixed: isFixed })
     this._EnterSlide(cTop, slide1, sDuration)
-
     // set the background map
     const oldM1 = ReactDOM.findDOMNode(this.oldM1)
     const newM1 = ReactDOM.findDOMNode(this.newM1)
@@ -160,10 +159,6 @@ export default class FullPageMap extends Component {
     const isFixed = (this.state.curSlide > 0) ? true : false
     this.setState({ curSlide: 2, isFixed: isFixed })
     this._EnterSlide(cTop, slide2, sDuration)
-
-    const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
-    velocity(slideOuter, { scrollTop: 1000 }, { duration: sDuration })
-
     // set the background map
     const oldM1 = ReactDOM.findDOMNode(this.oldM1)
     const newM1 = ReactDOM.findDOMNode(this.newM1)
@@ -220,62 +215,56 @@ export default class FullPageMap extends Component {
         commonStyles["text-center"]) }
         ref={ (ref) => this.container = ref }
       >
-        <div className={ classnames(styles["fix-outer"]) }>
-          <Swipeable onSwiping={ this._onScroll } onSwiped={ this._onScroll }>
-            <div className={ classnames(styles.indicator, indClass) }>
-              <div className={ classnames(styles["bar"], ind1) }></div>
-              <div className={ classnames(styles["bar"], ind2) }></div>
-            </div>
-
-            <div className={ classnames(styles["map"], mapClass) }>
-              <img src={ oldMap } ref={ (ref) => this.oldM2 = ref } />
-              <img src={ newMap } ref={ (ref) => this.newM2 = ref } />
-            </div>
-
-            <div className={ classnames(styles["slide-outer"]) }
-              ref={ (ref) => this.slideOuter = ref }
-            >
-              <div className={ classnames(styles.slide) }
-                ref={ (ref) => this.slide1 = ref }
-              >
-                <div className={ styles["des-box"] }>
-                  <h4 className={ styles["title"] }><span className={ styles["year"] }>1998</span> 以前</h4>
-                  <p>
-                    收容所和留置所的位置都位於偏遠的郊區，交通不易到達。有些地方甚至無法得知路名，只能依靠經緯度大概定位。
-                  </p>
-                  <div className={ styles["tooltip"] }>
-                    <p>
-                      <i className={ styles["oval-blue"] }></i>
-                      當時的留置所位置
-                    </p>
-                    <p>
-                      <i className={ styles["oval-pink"] }></i>
-                      當時的收容所位置
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className={ classnames(styles.slide) }
-                ref={ (ref) => this.slide2 = ref }
-              >
-                <div className={ styles["des-box"] }>
-                  <h4 className={ styles["title"] }><span className={ styles["year"] }>2016</span> 現今</h4>
-                  <p>
-                    現今的收容所多由原本環保單位留下來的收容所設備改建。除非刻意，否則一般民眾不易前往。
-                  </p>
-                  <div className={ styles["tooltip"] }>
-                    <p>
-                      <i className={ styles["oval-pink"] }></i>
-                      現今的收容所位置
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Swipeable>
-
+        <Swipeable onSwiping={ this._onScroll } onSwiped={ this._onScroll }>
+        <div className={ classnames(styles.indicator, indClass) }>
+          <div className={ classnames(styles["bar"], ind1) }></div>
+          <div className={ classnames(styles["bar"], ind2) }></div>
         </div>
-
+        <div className={ classnames(styles.slide) }
+          ref={ (ref) => this.slide1 = ref }
+        >
+          <div className={ classnames(styles["map"], mapClass) }>
+            <img src={ newMap } ref={ (ref) => this.newM1 = ref } />
+            <img src={ oldMap } ref={ (ref) => this.oldM1 = ref } />
+          </div>
+          <div className={ styles["des-box"] }>
+            <h4 className={ styles["title"] }><span className={ styles["year"] }>1998</span> 以前</h4>
+            <p>
+              收容所和留置所的位置都位於偏遠的郊區，交通不易到達。有些地方甚至無法得知路名，只能依靠經緯度大概定位。
+            </p>
+            <div className={ styles["tooltip"] }>
+              <p>
+                <i className={ styles["oval-blue"] }></i>
+                當時的留置所位置
+              </p>
+              <p>
+                <i className={ styles["oval-pink"] }></i>
+                當時的收容所位置
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className={ classnames(styles.slide) }
+          ref={ (ref) => this.slide2 = ref }
+        >
+          <div className={ classnames(styles["map"], mapClass) }>
+            <img src={ oldMap } ref={ (ref) => this.oldM2 = ref } />
+            <img src={ newMap } ref={ (ref) => this.newM2 = ref } />
+          </div>
+          <div className={ styles["des-box"] }>
+            <h4 className={ styles["title"] }><span className={ styles["year"] }>2016</span> 現今</h4>
+            <p>
+              現今的收容所多由原本環保單位留下來的收容所設備改建。除非刻意，否則一般民眾不易前往。
+            </p>
+            <div className={ styles["tooltip"] }>
+              <p>
+                <i className={ styles["oval-pink"] }></i>
+                現今的收容所位置
+              </p>
+            </div>
+          </div>
+        </div>
+        </Swipeable>
       </div>
     )
   }

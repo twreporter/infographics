@@ -9,18 +9,7 @@ $img-bgcolor: #cdd2d4;
   background: $img-bgcolor;
   padding: 0;
   width: 100%;
-  height: 200vh;
-}
-.fix-outer {
-  position: relative;
-  >div{
-    position: relative;
-  }
-}
-.slide-outer {
-  position: absolute;
-  height: 100vh;
-  overflow-y: hidden;
+  // height: 100vh;
 }
 .slide {
   width: 100%;
