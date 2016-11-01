@@ -25,7 +25,7 @@ import problem4 from "../../../../content/assets/wild-animal.svg"
 import { chapter, topBox, titles, research, tnvrStrings,
   sec2Des, sec3Des, sec4Des, problemStrings } from "./text"
 
-const SLIDEIN_EFFECT = { translateX: [ "-50%", "-50%" ], translateY: [ "0%", "-60%" ], opacity: [ 1, 0.5 ] }
+const SLIDEIN_EFFECT = { translateX: [ "-50%", "-50%" ], translateY: [ "0%", "50%" ], opacity: [ 1, 0.5 ] }
 
 let velocity
 if (typeof window !== "undefined") {

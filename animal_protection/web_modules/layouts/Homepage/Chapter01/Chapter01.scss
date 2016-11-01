@@ -27,27 +27,37 @@
   background-color: $deco-blue;
   padding: 1.5rem 1rem;
   text-align: left;
-  display: table;
   >div {
     position: relative;
+  }
+  @media (min-width: $width-xs) {
+    display: flex;
   }
 }
 
 .c-left {
-  display: table-cell;
   vertical-align: middle;
   @media (min-width: $width-xs) {
+    flex: 1;
+    align-items: stretch;
+    margin-top: auto;
+    margin-bottom: auto;
     width: 50%;
-    float: left;
+    height: 100%;
+    order: 1;
   }
 }
 
 .c-right {
-  display: table-cell;
   vertical-align: middle;
   @media (min-width: $width-xs) {
+    flex: 1;
+    align-items: stretch;
+    margin-top: auto;
+    margin-bottom: auto;
     width: 50%;
-    float: right;
+    height: 100%;
+    order: 2;
   }
 }
 
