@@ -183,7 +183,7 @@ export default class Tnr extends Component {
           commonStyles["text-center"]) }
         >
           <div>
-            <div className={ classnames(commonStyles["content-outer"], styles["content-box"]) }>
+            <div className={ classnames(commonStyles["content-outer"], commonStyles["content-box"]) }>
               <Markdown source={ topBox } />
             </div>
             <Subsection curSec={ 2 } titles={ titles } subIndex={ 0 }>

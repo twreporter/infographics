@@ -19,8 +19,6 @@ import Chapter03 from "./Chapter03/Chapter03"
 import Chapter04 from "./Chapter04/Chapter04"
 import Chapter05 from "./Chapter05/Chapter05"
 
-import FullPageMap from "./FullPageMap/FullPageMap"
-
 import commonStyles from "../../styles/common.scss"
 import styles from "./Home.scss"
 
@@ -83,8 +81,6 @@ export default class Homepage extends Component {
           <PagesList pages={ latestPosts } />
           地圖資料來源： CartoDB
         </div>
-
-        <FullPageMap />
 
       </Page>
     )

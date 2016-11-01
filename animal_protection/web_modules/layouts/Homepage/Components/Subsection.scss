@@ -2,7 +2,7 @@
 @import "../../../styles/variables.scss";
 
 .container {
-  margin: 4.2rem 0;
+  margin: 4.8rem 0;
   h3 {
     text-align: left;
     display: block;
@@ -36,6 +36,7 @@
   font-weight: $font-bold;
   letter-spacing: 0.6px;
   text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+  line-height: 1.4;
   @media (max-width: $width-xs) {
     font-size: 31px;
     line-height: 1.35;

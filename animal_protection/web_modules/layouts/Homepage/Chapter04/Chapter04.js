@@ -33,7 +33,7 @@ export default class Chapter04 extends Component {
           commonStyles["text-center"]) }
         >
           <div>
-            <div className={ classnames(commonStyles["content-outer"], styles["content-box"]) }>
+            <div className={ classnames(commonStyles["content-outer"], commonStyles["content-box"]) }>
               <Markdown source={ topBox } />
             </div>
             <Subsection curSec={ 4 } titles={ titles } subIndex={ 0 }>

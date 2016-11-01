@@ -264,9 +264,6 @@ export default class FullPageMap extends Component {
             </div>
           </div>
         </div>
-        <div className={ classnames(styles.slide) }>
-          slide 03
-        </div>
         </Swipeable>
       </div>
     )

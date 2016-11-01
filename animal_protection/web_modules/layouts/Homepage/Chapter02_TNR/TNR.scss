@@ -28,18 +28,6 @@
   }
 }
 
-.content-box {
-  background: $white;
-  box-shadow: $c-box-shadow;
-  padding: 0.5rem 1.8rem;
-  color: $text-blue;
-  text-align: left;
-  font-size: $brief-font-size;
-  @media (max-width: $width-xs) {
-    padding: 0.2rem 1.3rem;
-  }
-}
-
 .research-des {
   position: relative;
   color: $tooltip-gray;
