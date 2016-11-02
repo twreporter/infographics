@@ -22,6 +22,9 @@ import problem2 from "../../../../content/assets/cold.svg"
 import problem3 from "../../../../content/assets/poison.svg"
 import problem4 from "../../../../content/assets/wild-animal.svg"
 
+import ai2htmlMobile from "../../../../content/assets/tnr-animal-ai2html-_____1.png"
+import ai2htmlDesktop from "../../../../content/assets/tnr-animal-ai2html-_____2.png"
+
 import { chapter, topBox, titles, research, tnvrStrings,
   sec2Des, sec3Des, sec4Des, problemStrings } from "./text"
 
@@ -179,7 +182,7 @@ export default class Tnr extends Component {
 
   getLineChart() {
     console.log(lineChart)
-    return { __html: lineChart }
+    return { __html: lineChart(ai2htmlMobile, ai2htmlDesktop) }
   }
 
   render() {
@@ -291,7 +294,7 @@ export default class Tnr extends Component {
               </div>
               <div className={ classnames(commonStyles["c-grid"]) }>
 
-                <div className={ classnames(commonStyles["img-responsive"]) }
+                <div className={ classnames(commonStyles["content-outer"]) }
                   dangerouslySetInnerHTML={ this.getLineChart() }
                 />
 

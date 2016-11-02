@@ -25,8 +25,8 @@ const debounceTime = {
   threshold: 5,
   maxWait: 15,
 }
-const SLIDE_TIMEOUT = 300
-const SLIDEIN_LONG = 450
+const SLIDE_TIMEOUT = 350
+const SLIDEIN_LONG = 500
 
 const FADEOUT_SETTINGS = { duration: 800, easing: "easeInQuad" }
 const FADEIN_SETTINGS = { duration: 550, easing: "easeOutCubic" }
@@ -131,6 +131,7 @@ export default class FullPageMap extends Component {
         .then(() => {
           window.scrollTo(0, cTop)
           this.setState({ pageOffset: window.scrollY })
+          this._handlePinning()
           setTimeout(() => {
             // stop controlling scroll of the page
             window.scrollTo(0, cTop)
