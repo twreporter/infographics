@@ -14,6 +14,11 @@ import rInfoImg from "../../../../content/assets/d-attention.svg"
 
 import { chapter, topBox, titles, sec1Des, sec2Des, sec3Des, problem1, problem2 } from "./text"
 
+import ai2htmlMobile from "../../../../content/assets/3-bar-animal-2-ai2html-_____1.png"
+import ai2htmlDesktop from "../../../../content/assets/3-bar-animal-2-ai2html-_____1___.png"
+
+import { barChart } from "./ai2html"
+
 // let velocity
 // if (typeof window !== "undefined") {
 //   velocity = require("velocity-animate")
@@ -77,6 +82,11 @@ export default class Chapter03 extends Component {
             <Subsection curSec={ 3 } titles={ titles } subIndex={ 1 }>
               <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) }>
                 <Markdown className={ commonStyles["inner-text"] }  source={ sec2Des } />
+              </div>
+              <div className={ classnames(commonStyles["c-grid"]) }>
+                <div className={ classnames(commonStyles["content-outer"]) }
+                  dangerouslySetInnerHTML={ { __html: barChart(ai2htmlMobile, ai2htmlDesktop) } }
+                />
               </div>
             </Subsection>
             <Subsection curSec={ 3 } titles={ titles } subIndex={ 2 }>

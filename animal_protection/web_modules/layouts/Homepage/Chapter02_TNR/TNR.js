@@ -181,7 +181,6 @@ export default class Tnr extends Component {
   }
 
   getLineChart() {
-    console.log(lineChart)
     return { __html: lineChart(ai2htmlMobile, ai2htmlDesktop) }
   }
 
