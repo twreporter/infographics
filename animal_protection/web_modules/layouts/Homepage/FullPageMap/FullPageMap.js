@@ -26,7 +26,7 @@ const debounceTime = {
   maxWait: 15,
 }
 const SLIDE_TIMEOUT = 300
-const SLIDEIN_LONG = 350
+const SLIDEIN_LONG = 450
 
 const FADEOUT_SETTINGS = { duration: 800, easing: "easeInQuad" }
 const FADEIN_SETTINGS = { duration: 550, easing: "easeOutCubic" }
@@ -206,7 +206,7 @@ export default class FullPageMap extends Component {
 
     // control slides
     if (node && !isScrolling && !(currentOffset === pageOffset)) {
-      if (isDown && (top < 1*vpHeight/2 && top > 0)) {
+      if (isDown && (top < 1*vpHeight/3 && top > 0)) {
         this._EnterFirst(cTop, SLIDEIN_LONG)
       }
       else if  (isDown && (top <= 0 && top > -1*vpHeight/2)) {
