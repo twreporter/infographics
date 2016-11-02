@@ -10,6 +10,8 @@ const debounceTime = {
   maxWait: 450,
 }
 
+const OFFSET = 50
+
 export default class VisibleSensor extends Component {
   constructor(props) {
     super(props)
@@ -67,7 +69,7 @@ export default class VisibleSensor extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
-    let pItemHeight = node.clientHeight - 100 || 100
+    let pItemHeight = node.clientHeight - OFFSET || 100
     pItemHeight = (pItemHeight>0) ?  pItemHeight : node.clientHeight
 
     if (node) {

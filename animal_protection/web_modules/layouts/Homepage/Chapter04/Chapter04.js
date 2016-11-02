@@ -25,8 +25,8 @@ if (typeof window !== "undefined") {
 
 const SLIDEIN_EFFECT = { translateY: [ "0%", "10%" ], opacity: [ 1, 0.8 ] }
 const SLIDEIN_TEXT_EFFECT = { translateY: [ "0%", "12%" ], opacity: [ 1, 0.6 ] }
-const SLIDETIME =  { delay: 50, duration: 1000 }
-const SLIDETIME_TEXT =  { delay: 50, duration: 1200 }
+const SLIDETIME =  { delay: 10, duration: 1000 }
+const SLIDETIME_TEXT =  { delay: 10, duration: 1200 }
 
 export default class Chapter04 extends Component {
   constructor(props) {

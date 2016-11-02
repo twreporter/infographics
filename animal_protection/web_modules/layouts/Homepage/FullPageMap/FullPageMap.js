@@ -13,8 +13,8 @@ import commonStyles from "../../../styles/common.scss"
 
 import { MOBILE_WIDTH } from "../config"
 
-import oldMap from "../../../../content/assets/map_1998.png"
-import newMap from "../../../../content/assets/map_2016.png"
+// import oldMap from "../../../../content/assets/map_1998.png"
+// import newMap from "../../../../content/assets/map_2016.png"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -22,14 +22,14 @@ if (typeof window !== "undefined") {
 }
 
 const debounceTime = {
-  threshold: 15,
-  maxWait: 30,
+  threshold: 5,
+  maxWait: 15,
 }
-const SLIDE_TIMEOUT = 550
-const SLIDEIN_LONG = 450
+const SLIDE_TIMEOUT = 300
+const SLIDEIN_LONG = 350
 
-const FADEOUT_SETTINGS = { duration: 1000, easing: "easeInSine" }
-const FADEIN_SETTINGS = { duration: 550, easing: "easeOutSine" }
+const FADEOUT_SETTINGS = { duration: 800, easing: "easeInQuad" }
+const FADEIN_SETTINGS = { duration: 550, easing: "easeOutCubic" }
 
 export default class FullPageMap extends Component {
   constructor(props) {
@@ -41,6 +41,8 @@ export default class FullPageMap extends Component {
       isFixed: false,
       pageOffset: 500,
       curSlide: -1,
+      isIn: false,
+      isEnding: false,
     }
 
     this._handleScroll = this._handleScroll.bind(this)
@@ -50,6 +52,7 @@ export default class FullPageMap extends Component {
     this._onScroll = this._onScroll.bind(this)
 
     this._handleResize = this._handleResize.bind(this)
+    this._handlePinning = this._handlePinning.bind(this)
     this.handleResize = _.debounce(() => {
       this._handleResize()
     }, debounceTime.threshold, { "maxWait": debounceTime.maxWait })
@@ -61,17 +64,14 @@ export default class FullPageMap extends Component {
     this.handleResize()
 
     // detect sroll position
+    // window.addEventListener("scroll", this._onScroll)
     window.addEventListener("touchmove", this._onScroll)
     window.addEventListener("wheel", this._onScroll)
-    // this.intervalId = setInterval(()=> {
-    //   if (!this.state.isScrolling) {
-    //     this._onScroll()
-    //   }
-    // }, 100)
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (this.state.curSlide !== nextState.curSlide || this.state.isFixed !== nextState.isFixed) {
+    if (nextState.isIn!==this.state.isIn || nextState.isEnding!==this.state.isEnding ||
+      this.state.curSlide !== nextState.curSlide || this.state.isFixed !== nextState.isFixed) {
       return true
     }
     return false
@@ -80,6 +80,7 @@ export default class FullPageMap extends Component {
   componentWillUnmount() {
     // clearInterval(this.intervalId)
     window.removeEventListener("resize", this.handleResize)
+    // window.removeEventListener("scroll", this._onScroll)
     window.removeEventListener("touchmove", this._onScroll)
     window.removeEventListener("wheel", this._onScroll)
     this._ticking = false
@@ -94,6 +95,7 @@ export default class FullPageMap extends Component {
   }
 
   _onScroll(e) {
+    this._handlePinning()
     if (this.state.isScrolling) {
       this.setState({ pageOffset: window.scrollY })
       if (e) {
@@ -133,6 +135,7 @@ export default class FullPageMap extends Component {
             // stop controlling scroll of the page
             window.scrollTo(0, cTop)
             this.setState({ isScrolling: false, isFixed: true })
+            this._handlePinning()
           }, SLIDE_TIMEOUT)
         })
     }
@@ -144,15 +147,14 @@ export default class FullPageMap extends Component {
     this.setState({ curSlide: 1, isFixed: isFixed })
     this._EnterSlide(cTop, slide1, sDuration)
 
+    const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
+    velocity(slideOuter, { marginTop: 0 }, { duration: sDuration })
+
     // set the background map
     const oldM1 = ReactDOM.findDOMNode(this.oldM1)
     const newM1 = ReactDOM.findDOMNode(this.newM1)
-    const oldM2 = ReactDOM.findDOMNode(this.oldM2)
-    const newM2 = ReactDOM.findDOMNode(this.newM2)
     velocity(oldM1, { opacity: 1 }, FADEIN_SETTINGS)
     velocity(newM1, { opacity: 0 }, FADEOUT_SETTINGS)
-    velocity(oldM2, { opacity: 1 }, FADEIN_SETTINGS)
-    velocity(newM2, { opacity: 0 }, FADEOUT_SETTINGS)
   }
 
   _EnterSecond(cTop, sDuration) {
@@ -162,17 +164,34 @@ export default class FullPageMap extends Component {
     this._EnterSlide(cTop, slide2, sDuration)
 
     const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
-    velocity(slideOuter, { scrollTop: 1000 }, { duration: sDuration })
+    velocity(slideOuter, { marginTop: -1 *window.innerHeight }, { duration: sDuration })
 
     // set the background map
     const oldM1 = ReactDOM.findDOMNode(this.oldM1)
     const newM1 = ReactDOM.findDOMNode(this.newM1)
-    const oldM2 = ReactDOM.findDOMNode(this.oldM2)
-    const newM2 = ReactDOM.findDOMNode(this.newM2)
     velocity(oldM1, { opacity: 0 }, FADEOUT_SETTINGS)
     velocity(newM1, { opacity: 1 }, FADEIN_SETTINGS)
-    velocity(oldM2, { opacity: 0 }, FADEOUT_SETTINGS)
-    velocity(newM2, { opacity: 1 }, FADEIN_SETTINGS)
+  }
+
+  _handlePinning() {
+    const node = ReactDOM.findDOMNode(this.container)
+    const rect = node.getBoundingClientRect()
+    const { top, bottom } = rect
+    const vpHeight = window.innerHeight
+
+    // determine the postition of the pinned map
+    if (top > 10) {
+      this.setState({ isIn: false, isEnding: false })
+    }
+    else if (bottom > vpHeight && top < 10) {
+      this.setState({ isIn: true, isEnding: false })
+    }
+    else if (bottom < vpHeight && bottom > -50 &&  top < 0) {
+      this.setState({ isIn: false, isEnding: true })
+    }
+    else {
+      this.setState({ isIn: false, isEnding: true })
+    }
   }
 
   _handleScroll() {
@@ -185,6 +204,7 @@ export default class FullPageMap extends Component {
     const isDown = (currentOffset > pageOffset) ? true : false
     const cTop = node.offsetTop
 
+    // control slides
     if (node && !isScrolling && !(currentOffset === pageOffset)) {
       if (isDown && (top < 1*vpHeight/2 && top > 0)) {
         this._EnterFirst(cTop, SLIDEIN_LONG)
@@ -192,11 +212,11 @@ export default class FullPageMap extends Component {
       else if  (isDown && (top <= 0 && top > -1*vpHeight/2)) {
         this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
       }
-      else if (!isDown && (top<= -3*vpHeight/2  && top > -2*vpHeight)) {
-        this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
-      }
-      else if (!isDown && (top<= -1*vpHeight/2  && top > -3*vpHeight/2)) {
+      else if (!isDown && (top<= -1*vpHeight/2  && top > -vpHeight)) {
         this._EnterFirst(cTop, SLIDEIN_LONG)
+      }
+      else if (!isDown && (top<= -vpHeight && top > -3*vpHeight/2)) {
+        this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
       }
       else if (top>vpHeight/2+10 || top < -vpHeight-10 || (!isDown && top > 10)) {
         this.setState({ curSlide: -1, isFixed: false })
@@ -209,29 +229,31 @@ export default class FullPageMap extends Component {
   }
 
   render() {
-    const { curSlide, isFixed } = this.state
+    const { curSlide, isIn, isEnding } = this.state
     const indClass = (curSlide < 0) ? commonStyles["hide"] : null
     const ind1 = (curSlide === 1) ? styles["active"] : null
     const ind2 = (curSlide === 2) ? styles["active"] : null
-    const mapClass = isFixed ? styles["map-fixed"] : null
+    const mapClass = isIn ? styles["map-fixed"] : null
+    const endingClass = isEnding ? styles["map-ending"] : null
 
     return (
       <div className={ classnames(styles.container,
         commonStyles["text-center"]) }
         ref={ (ref) => this.container = ref }
       >
+        <div className={ classnames(styles["map"], mapClass, endingClass) }
+          ref={ (ref) => this.pinnedItem = ref }
+        >
         <div className={ classnames(styles["fix-outer"]) }>
           <Swipeable onSwiping={ this._onScroll } onSwiped={ this._onScroll }>
             <div className={ classnames(styles.indicator, indClass) }>
               <div className={ classnames(styles["bar"], ind1) }></div>
               <div className={ classnames(styles["bar"], ind2) }></div>
             </div>
-
-            <div className={ classnames(styles["map"], mapClass) }>
-              <img src={ oldMap } ref={ (ref) => this.oldM2 = ref } />
-              <img src={ newMap } ref={ (ref) => this.newM2 = ref } />
-            </div>
-
+              {/* <img src={ oldMap } ref={ (ref) => this.oldM2 = ref } /> */}
+              <div className={ styles["oldMap"] } ref={ (ref) => this.oldM1 = ref } ></div>
+              <div className={ styles["newMap"] } ref={ (ref) => this.newM1 = ref } ></div>
+              {/* <img src={ newMap } ref={ (ref) => this.newM2 = ref } /> */}
             <div className={ classnames(styles["slide-outer"]) }
               ref={ (ref) => this.slideOuter = ref }
             >
@@ -274,6 +296,7 @@ export default class FullPageMap extends Component {
             </div>
           </Swipeable>
 
+        </div>
         </div>
 
       </div>
