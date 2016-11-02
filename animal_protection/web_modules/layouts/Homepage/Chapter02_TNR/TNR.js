@@ -25,6 +25,8 @@ import problem4 from "../../../../content/assets/wild-animal.svg"
 import { chapter, topBox, titles, research, tnvrStrings,
   sec2Des, sec3Des, sec4Des, problemStrings } from "./text"
 
+import { lineChart } from "./ai2html"
+
 const SLIDEIN_EFFECT = { translateX: [ "-50%", "-50%" ], translateY: [ "0%", "50%" ], opacity: [ 1, 0.5 ] }
 
 let velocity
@@ -175,6 +177,11 @@ export default class Tnr extends Component {
     }
   }
 
+  getLineChart() {
+    console.log(lineChart)
+    return { __html: lineChart }
+  }
+
   render() {
     return (
       <div>
@@ -283,6 +290,11 @@ export default class Tnr extends Component {
                 <Markdown className={ commonStyles["inner-text"] } source={ sec3Des } />
               </div>
               <div className={ classnames(commonStyles["c-grid"]) }>
+
+                <div className={ classnames(commonStyles["img-responsive"]) }
+                  dangerouslySetInnerHTML={ this.getLineChart() }
+                />
+
                 <div className={ classnames(commonStyles["content-outer"], commonStyles["pad-content"], commonStyles["white-box"]) }>
                   <h4> 105年至8月止累計案件數 </h4>
                   <div className={ commonStyles["wrap-grids"] }>
