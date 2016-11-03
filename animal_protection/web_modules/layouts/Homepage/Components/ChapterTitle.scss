@@ -48,6 +48,11 @@
   }
 }
 
+.title-box {
+  transform: translate(0, -15%);
+  opacity: 0.5;
+}
+
 .title {
   font-size: 26px;
   color: $tooltip-gray;
