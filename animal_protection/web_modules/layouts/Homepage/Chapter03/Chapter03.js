@@ -9,6 +9,7 @@ import styles from "./Chapter03.scss"
 import Subsection from "../Components/Subsection"
 import ChapterTitle from "../Components/ChapterTitle"
 import commonStyles from "../../../styles/common.scss"
+import FullPageGov from "../FullPageGov/FullPageGov"
 
 import rInfoImg from "../../../../content/assets/d-attention.svg"
 import labourImg from "../../../../content/assets/labour-shortage.svg"
@@ -110,6 +111,7 @@ export default class Chapter03 extends Component {
               <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) }>
                 <Markdown className={ commonStyles["inner-text"] }  source={ sec3Des } />
               </div>
+              <FullPageGov />
             </Subsection>
           </div>
         </div>
