@@ -93,8 +93,8 @@ export function lineChart(mobile, desktop) {
 					margin:0;
 				}
 				#g-animal-ai2html-_____1 .g-aiPstyle0 {
-					font-size:25px;
-					line-height:44px;
+					font-size: 22px;
+					line-height: 25px;
           font-weight: 700;
           text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
 					letter-spacing:0.02916666666667em;
@@ -107,26 +107,26 @@ export function lineChart(mobile, desktop) {
 					color:#ffffff;
 				}
 				#g-animal-ai2html-_____1 .g-aiPstyle2 {
-					font-size:15px;
-					line-height:28px;
+					font-size: 15px;
+					line-height: 22px;
 					letter-spacing:0.02416666666667em;
 					color:#4e91ff;
 				}
 				#g-animal-ai2html-_____1 .g-aiPstyle3 {
-					font-size:15px;
-					line-height:28px;
+					font-size: 15px;
+					line-height: 22px;
 					letter-spacing:0.02416666666667em;
 					color:#ff6496;
 				}
 				#g-animal-ai2html-_____1 .g-aiPstyle4 {
-					font-size:15px;
-					line-height:28px;
+					font-size: 15px;
+					line-height: 22px;
 					letter-spacing:0.02416666666667em;
 					color:#4d4d4d;
 				}
 				#g-animal-ai2html-_____1 .g-aiPstyle5 {
-					font-size:12px;
-					line-height:24px;
+					font-size: 11px;
+					line-height: 13px;
 					letter-spacing:0.02416666666667em;
 					color:#ffffff;
 				}
@@ -143,19 +143,19 @@ export function lineChart(mobile, desktop) {
 					class='g-aiImg'
 					src='${mobile}'
 					/>
-				<div id='g-ai0-1' class='g-___1 g-aiAbs' style='top:5.2813%;left:10.9081%;'>
+				<div id='g-ai0-1' class='g-___1 g-aiAbs' style='top:5.2813%;left:5.5%;width:88%;'>
 					<p class='g-aiPstyle0'>全台動物侵害他人案件數</p>
 				</div>
 				<div id='g-ai0-2' class='g-___1 g-aiAbs' style='top:16.992%;left:10.9081%;'>
 					<p class='g-aiPstyle1'>資料來源：農委會 ｜ 單位：件數</p>
 				</div>
-				<div id='g-ai0-3' class='g-___1 g-aiAbs' style='top:26.9805%;left:22.9628%;'>
+				<div id='g-ai0-3' class='g-___1 g-aiAbs' style='top:26.9805%;left:21.1%;width: 27%;'>
 					<p class='g-aiPstyle2'>檢舉案件數</p>
 				</div>
-				<div id='g-ai0-4' class='g-___1 g-aiAbs' style='top:26.9805%;left:59.896%;'>
+				<div id='g-ai0-4' class='g-___1 g-aiAbs' style='top:26.9805%;left:58.1%;width: 27%;'>
 					<p class='g-aiPstyle3'>稽查案件數</p>
 				</div>
-				<div id='g-ai0-5' class='g-___1 g-aiAbs' style='top:34.3284%;left:41.4293%;'>
+				<div id='g-ai0-5' class='g-___1 g-aiAbs' style='top:34.3284%;left:39.4%;width: 27%;'>
 					<p class='g-aiPstyle4'>勸導案件數</p>
 				</div>
 				<div id='g-ai0-6' class='g-___1 g-aiAbs' style='top:36.6246%;left:74.0023%;'>
@@ -250,7 +250,7 @@ export function lineChart(mobile, desktop) {
 				}
 				#g-animal-ai2html-_____2 .g-aiPstyle5 {
 					font-size:17px;
-					line-height:20px;
+					line-height:25px;
 					letter-spacing:0.02416666666667em;
 					color:#4e91ff;
 				}
@@ -274,7 +274,7 @@ export function lineChart(mobile, desktop) {
 				}
 				#g-animal-ai2html-_____2 .g-aiPstyle9 {
 					font-size:17px;
-					line-height:20px;
+					line-height:25px;
 					letter-spacing:0.02416666666667em;
 					color:#ff6496;
 				}
@@ -286,7 +286,7 @@ export function lineChart(mobile, desktop) {
 				}
 				#g-animal-ai2html-_____2 .g-aiPstyle11 {
 					font-size:17px;
-					line-height:20px;
+					line-height:25px;
 					letter-spacing:0.02416666666667em;
 					color:#4d4d4d;
 				}
@@ -304,9 +304,6 @@ export function lineChart(mobile, desktop) {
 					src='${desktop}'
 					/>
 				<div id='g-ai1-1' class='g-___1 g-aiAbs' style='top:12.9249%;left:19.8242%;'>
-					<p class='g-aiPstyle0'>全台動物侵害他人案件數</p>
-				</div>
-				<div id='g-ai1-2' class='g-___1 g-aiAbs' style='top:12.9249%;left:19.8242%;'>
 					<p class='g-aiPstyle0'>全台動物侵害他人案件數</p>
 				</div>
 				<div id='g-ai1-3' class='g-___1 g-aiAbs' style='top:12.9249%;left:75.1953%;'>

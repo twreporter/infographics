@@ -31,12 +31,12 @@ export function barChart(mobile, desktop) {
     		font-size: 10px !important;
 			}
 			#g-animal-2-ai2html-_____1___ .g-aiPstyle2 {
-		    font-size: 60px !important;
-				line-height: 75px !important;
+				font-size: 50px !important;
+				line-height: 65px !important;
 			}
 			#g-animal-2-ai2html-_____1___ .g-aiPstyle6 {
-		    font-size: 45px !important;
-		    line-height: 60px !important;
+				font-size: 40px !important;
+    		line-height: 52px !important;
 			}
 			#g-animal-2-ai2html-_____1___ .g-aiPstyle11 {
     		font-size: 16px !important;
@@ -258,10 +258,10 @@ export function barChart(mobile, desktop) {
 			<div id='g-ai0-39' class='g-___1 g-aiAbs' style='top:82.8702%;left:7.2619%;'>
 				<p class='g-aiPstyle9'>190</p>
 			</div>
-			<div id='g-ai0-40' class='g-___1 g-aiAbs' style='top:82.8702%;left:32.5932%;'>
+			<div id='g-ai0-40' class='g-___1 g-aiAbs' style='top:82.8702%;left:31.2%;'>
 				<p class='g-aiPstyle9'>145</p>
 			</div>
-			<div id='g-ai0-41' class='g-___1 g-aiAbs' style='top:82.8702%;left:57.2526%;'>
+			<div id='g-ai0-41' class='g-___1 g-aiAbs' style='top:82.8702%;left:56.3%;'>
 				<p class='g-aiPstyle9'>140</p>
 			</div>
 			<div id='g-ai0-42' class='g-___1 g-aiAbs' style='top:82.8702%;left:81%;'>
@@ -282,10 +282,10 @@ export function barChart(mobile, desktop) {
 			<div id='g-ai0-47' class='g-___1 g-aiAbs' style='top:88.3969%;left:7.5086%;'>
 				<p class='g-aiPstyle9'>122</p>
 			</div>
-			<div id='g-ai0-48' class='g-___1 g-aiAbs' style='top:88.3969%;left:31.8896%;'>
+			<div id='g-ai0-48' class='g-___1 g-aiAbs' style='top:88.3969%;left:31.2%;'>
 				<p class='g-aiPstyle9'>100</p>
 			</div>
-			<div id='g-ai0-49' class='g-___1 g-aiAbs' style='top:88.3969%;left:58.8882%;'>
+			<div id='g-ai0-49' class='g-___1 g-aiAbs' style='top:88.3969%;left:58%;'>
 				<p class='g-aiPstyle9'>93</p>
 			</div>
 			<div id='g-ai0-50' class='g-___1 g-aiAbs' style='top:88.3969%;left:82.5%;'>
@@ -388,8 +388,8 @@ export function barChart(mobile, desktop) {
 				color:#ffffff;
 			}
 			#g-animal-2-ai2html-_____1___ .g-aiPstyle8 {
-				font-size:40px;
-				line-height:48px;
+				font-size: 32px;
+    		line-height: 40px;
 				letter-spacing:0.02416666666667em;
 				color:#ffffff;
 			}
@@ -622,8 +622,8 @@ export function pieChart(mobile, desktop) {
 					line-height: 16px !important;
 				}
 				#g-animal-3-ai2html-_____1___ .g-aiPstyle3 {
-			    font-size: 24px !important;
-			    line-height: 30px !important;
+			    font-size: 20px !important;
+			    line-height: 25px !important;
 				}
 				#g-animal-3-ai2html-_____1___ .g-aiPstyle4 {
 			    font-size: 14px !important;

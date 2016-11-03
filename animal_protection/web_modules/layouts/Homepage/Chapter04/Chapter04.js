@@ -18,6 +18,11 @@ import problem02 from "../../../../content/assets/5p-02.svg"
 import problem03 from "../../../../content/assets/5p-03.svg"
 import problem04 from "../../../../content/assets/5p-04.svg"
 
+import ai2htmlMobile from "../../../../content/assets/OWNERS-Artboard_1_copy.png"
+import ai2htmlDesktop from "../../../../content/assets/OWNERS-Artboard_1.png"
+
+import { barChart } from "./ai2html"
+
 let velocity
 if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
@@ -164,8 +169,13 @@ export default class Chapter04 extends Component {
               <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) } style={ { paddingBottom: "3.5rem" } }>
                 <Markdown className={ commonStyles["inner-text"] }  source={ sec2Des } />
               </div>
-              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) } style={ { paddingBottom: "3.5rem" } }>
-                <Markdown className={ commonStyles["inner-text"] }  source={ sec2Note } />
+              <div className={ classnames(commonStyles["c-grid"]) }>
+                <div className={ classnames(commonStyles["content-outer"]) }
+                  dangerouslySetInnerHTML={ { __html: barChart(ai2htmlMobile, ai2htmlDesktop) } }
+                />
+                <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) } style={ { paddingBottom: "3.5rem" } }>
+                  <Markdown className={ commonStyles["inner-text"] }  source={ sec2Note } />
+                </div>
               </div>
               <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) } style={ { paddingBottom: "3.5rem" } }>
                 <Markdown className={ commonStyles["inner-text"] }  source={ sec2End } />

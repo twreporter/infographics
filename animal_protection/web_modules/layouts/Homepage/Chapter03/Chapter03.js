@@ -92,10 +92,11 @@ export default class Chapter03 extends Component {
                   dangerouslySetInnerHTML={ { __html: barChart(ai2htmlMobile, ai2htmlDesktop) } }
                 />
               </div>
-              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) }>
+              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) }
+                style={ { paddingTop: "2.7rem", paddingBottom: "2.5rem" } }
+              >
                 <div className={ classnames(styles["yoyo"], commonStyles["overlay-svg"]) }
                   dangerouslySetInnerHTML={ { __html: labourImg } }
-                  style={ { padding: "2.5rem 0" } }
                 />
                 <Markdown className={ commonStyles["inner-text"] }  source={ barChartDes } />
               </div>

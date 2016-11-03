@@ -74,7 +74,7 @@ $img-bgcolor: $content-bg;
 .oldMap {
   @extend .bgImage;
   background-image: url("../../../../content/assets/map1.png");
-  @media (max-width: $width-xs) {
+  @media screen and (orientation:portrait) {
     background-image: url("../../../../content/assets/map1-m.png");
   }
 }
@@ -82,7 +82,7 @@ $img-bgcolor: $content-bg;
 .newMap {
   @extend .bgImage;
   background-image: url("../../../../content/assets/map2.png");
-  @media (max-width: $width-xs) {
+  @media screen and (orientation:portrait) {
     background-image: url("../../../../content/assets/map2-m.png");
   }
 }
