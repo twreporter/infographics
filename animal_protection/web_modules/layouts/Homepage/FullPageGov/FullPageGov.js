@@ -152,10 +152,10 @@ export default class FullPageGov extends Component {
     velocity(slideOuter, { marginTop: 0 }, { duration: sDuration })
 
     // set the background map
-    const oldM1 = ReactDOM.findDOMNode(this.oldM1)
-    const newM1 = ReactDOM.findDOMNode(this.newM1)
-    velocity(oldM1, { opacity: 1 }, FADEIN_SETTINGS)
-    velocity(newM1, { opacity: 0 }, FADEOUT_SETTINGS)
+    const hierarchy1 = ReactDOM.findDOMNode(this.hierarchy1)
+    const hierarchy2 = ReactDOM.findDOMNode(this.hierarchy2)
+    velocity(hierarchy1, { opacity: 1 }, FADEIN_SETTINGS)
+    velocity(hierarchy2, { opacity: 0 }, FADEOUT_SETTINGS)
   }
 
   _EnterSecond(cTop, sDuration) {
@@ -168,10 +168,10 @@ export default class FullPageGov extends Component {
     velocity(slideOuter, { marginTop: -1 *window.innerHeight }, { duration: sDuration })
 
     // set the background map
-    const oldM1 = ReactDOM.findDOMNode(this.oldM1)
-    const newM1 = ReactDOM.findDOMNode(this.newM1)
-    velocity(oldM1, { opacity: 0 }, FADEOUT_SETTINGS)
-    velocity(newM1, { opacity: 1 }, FADEIN_SETTINGS)
+    const hierarchy1 = ReactDOM.findDOMNode(this.hierarchy1)
+    const hierarchy2 = ReactDOM.findDOMNode(this.hierarchy2)
+    velocity(hierarchy1, { opacity: 0 }, FADEOUT_SETTINGS)
+    velocity(hierarchy2, { opacity: 1 }, FADEIN_SETTINGS)
   }
 
   _handlePinning() {
@@ -251,10 +251,8 @@ export default class FullPageGov extends Component {
               <div className={ classnames(styles["bar"], ind1) }></div>
               <div className={ classnames(styles["bar"], ind2) }></div>
             </div>
-              {/* <img src={ oldMap } ref={ (ref) => this.oldM2 = ref } /> */}
-              <div className={ styles["oldMap"] } ref={ (ref) => this.oldM1 = ref } ></div>
-              <div className={ styles["newMap"] } ref={ (ref) => this.newM1 = ref } ></div>
-              {/* <img src={ newMap } ref={ (ref) => this.newM2 = ref } /> */}
+              <div className={ styles["hierarchy1"] } ref={ (ref) => this.hierarchy1 = ref } ></div>
+              <div className={ styles["hierarchy2"] } ref={ (ref) => this.hierarchy2 = ref } ></div>
             <div className={ classnames(styles["slide-outer"]) }
               ref={ (ref) => this.slideOuter = ref }
             >
@@ -262,19 +260,13 @@ export default class FullPageGov extends Component {
                 ref={ (ref) => this.slide1 = ref }
               >
                 <div className={ styles["des-box"] }>
-                  <h4 className={ styles["title"] }><span className={ styles["year"] }>1998</span> 以前</h4>
+                  <h4 className={ styles["title"] }>1998 年動保法實施後</h4>
                   <p>
                     收容所和留置所的位置都位於偏遠的郊區，交通不易到達。有些地方甚至無法得知路名，只能依靠經緯度大概定位。
                   </p>
-                  <div className={ styles["tooltip"] }>
-                    <p>
-                      <i className={ styles["oval-blue"] }></i>
-                      當時的留置所位置
-                    </p>
-                    <p>
-                      <i className={ styles["oval-pink"] }></i>
-                      當時的收容所位置
-                    </p>
+                  <div className={ styles["note-box"] }>
+                    <p>畜牧行政科員額：9人<br />
+                    業務：畜牧生產政策與法規訂定、畜牧場管理之策畫與督導、畜牧發展基金之督導管理、畜牧團體之指導及監督、推動畜牧國際合作及人才交流與訓練計畫等，以及與動物保護相關的業務。</p>
                   </div>
                 </div>
               </div>
@@ -282,16 +274,10 @@ export default class FullPageGov extends Component {
                 ref={ (ref) => this.slide2 = ref }
               >
                 <div className={ styles["des-box"] }>
-                  <h4 className={ styles["title"] }><span className={ styles["year"] }>2016</span> 現今</h4>
+                  <h4 className={ styles["title"] }>2009-2016 年</h4>
                   <p>
                     現今的收容所多由原本環保單位留下來的收容所設備改建。除非刻意，否則一般民眾不易前往。
                   </p>
-                  <div className={ styles["tooltip"] }>
-                    <p>
-                      <i className={ styles["oval-pink"] }></i>
-                      現今的收容所位置
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>

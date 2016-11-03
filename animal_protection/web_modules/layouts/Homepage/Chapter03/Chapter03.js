@@ -108,7 +108,9 @@ export default class Chapter03 extends Component {
               </div>
             </Subsection>
             <Subsection curSec={ 3 } titles={ titles } subIndex={ 2 }>
-              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) }>
+              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) }
+                style={ { paddingBottom: "3rem" } }
+              >
                 <Markdown className={ commonStyles["inner-text"] }  source={ sec3Des } />
               </div>
               <FullPageGov />
