@@ -154,11 +154,14 @@ export default class FullPageGov extends Component {
     // set the background map
     const hierarchy1 = ReactDOM.findDOMNode(this.hierarchy1)
     const hierarchy2 = ReactDOM.findDOMNode(this.hierarchy2)
+    const hierarchy3 = ReactDOM.findDOMNode(this.hierarchy3)
     velocity(hierarchy1, { opacity: 1 }, FADEIN_SETTINGS)
     velocity(hierarchy2, { opacity: 0 }, FADEOUT_SETTINGS)
+    velocity(hierarchy3, { opacity: 0 }, FADEOUT_SETTINGS)
   }
 
   _EnterSecond(cTop, sDuration) {
+    console.log("_EnterSecond")
     const slide2 = ReactDOM.findDOMNode(this.slide2)
     const isFixed = (this.state.curSlide > 0) ? true : false
     this.setState({ curSlide: 2, isFixed: isFixed })
@@ -170,8 +173,29 @@ export default class FullPageGov extends Component {
     // set the background map
     const hierarchy1 = ReactDOM.findDOMNode(this.hierarchy1)
     const hierarchy2 = ReactDOM.findDOMNode(this.hierarchy2)
+    const hierarchy3 = ReactDOM.findDOMNode(this.hierarchy3)
     velocity(hierarchy1, { opacity: 0 }, FADEOUT_SETTINGS)
     velocity(hierarchy2, { opacity: 1 }, FADEIN_SETTINGS)
+    velocity(hierarchy3, { opacity: 0 }, FADEOUT_SETTINGS)
+  }
+
+  _EnterThird(cTop, sDuration) {
+    console.log("_EnterThird")
+    const slide3 = ReactDOM.findDOMNode(this.slide3)
+    const isFixed = (this.state.curSlide > 0) ? true : false
+    this.setState({ curSlide: 3, isFixed: isFixed })
+    this._EnterSlide(cTop, slide3, sDuration)
+
+    const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
+    velocity(slideOuter, { marginTop: -2 *window.innerHeight }, { duration: sDuration })
+
+    // set the background map
+    const hierarchy1 = ReactDOM.findDOMNode(this.hierarchy1)
+    const hierarchy2 = ReactDOM.findDOMNode(this.hierarchy2)
+    const hierarchy3 = ReactDOM.findDOMNode(this.hierarchy3)
+    velocity(hierarchy1, { opacity: 0 }, FADEOUT_SETTINGS)
+    velocity(hierarchy2, { opacity: 0 }, FADEOUT_SETTINGS)
+    velocity(hierarchy3, { opacity: 1 }, FADEIN_SETTINGS)
   }
 
   _handlePinning() {
@@ -179,6 +203,8 @@ export default class FullPageGov extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
+
+    console.log(top, bottom)
 
     // determine the postition of the pinned map
     if (top > 10) {
@@ -206,20 +232,34 @@ export default class FullPageGov extends Component {
     const cTop = node.offsetTop
 
     // control slides
+    console.log(top)
     if (node && !isScrolling && !(currentOffset === pageOffset)) {
       if (isDown && (top < 1*vpHeight/3 && top > 0)) {
+        console.log("0")
         this._EnterFirst(cTop, SLIDEIN_LONG)
       }
       else if  (isDown && (top <= 0 && top > -1*vpHeight/2)) {
+        console.log("1")
         this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
+      }
+      else if  (isDown && (top <= -2*vpHeight/2 && top > -3*vpHeight/2)) {
+        console.log("2")
+        this._EnterThird(cTop+2*vpHeight, SLIDEIN_LONG)
       }
       else if (!isDown && (top<= -1*vpHeight/2  && top > -vpHeight)) {
+        console.log("3")
         this._EnterFirst(cTop, SLIDEIN_LONG)
       }
-      else if (!isDown && (top<= -vpHeight && top > -3*vpHeight/2)) {
+      else if (!isDown && (top<= -vpHeight && top > -4*vpHeight/2)) {
+        console.log("4")
         this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
       }
-      else if (top>vpHeight/2+10 || top < -vpHeight-10 || (!isDown && top > 10)) {
+      else if (!isDown && (top<= -5*vpHeight/2 && top > -8*vpHeight/3)) {
+        console.log("5")
+        this._EnterThird(cTop+2*vpHeight, SLIDEIN_LONG)
+      }
+      else if (top>vpHeight/2+10 || top < -vpHeight*2-10 || (!isDown && top > 10)) {
+        console.log("-1")
         this.setState({ curSlide: -1, isFixed: false })
       }
     }
@@ -234,6 +274,7 @@ export default class FullPageGov extends Component {
     const indClass = (curSlide < 0) ? commonStyles["hide"] : null
     const ind1 = (curSlide === 1) ? styles["active"] : null
     const ind2 = (curSlide === 2) ? styles["active"] : null
+    const ind3 = (curSlide === 3) ? styles["active"] : null
     const mapClass = isIn ? styles["map-fixed"] : null
     const endingClass = isEnding ? styles["map-ending"] : null
 
@@ -245,45 +286,64 @@ export default class FullPageGov extends Component {
         <div className={ classnames(styles["map"], mapClass, endingClass) }
           ref={ (ref) => this.pinnedItem = ref }
         >
-        <div className={ classnames(styles["fix-outer"]) }>
-          <Swipeable onSwiping={ this._onScroll } onSwiped={ this._onScroll }>
-            <div className={ classnames(styles.indicator, indClass) }>
-              <div className={ classnames(styles["bar"], ind1) }></div>
-              <div className={ classnames(styles["bar"], ind2) }></div>
-            </div>
-              <div className={ styles["hierarchy1"] } ref={ (ref) => this.hierarchy1 = ref } ></div>
-              <div className={ styles["hierarchy2"] } ref={ (ref) => this.hierarchy2 = ref } ></div>
-            <div className={ classnames(styles["slide-outer"]) }
-              ref={ (ref) => this.slideOuter = ref }
-            >
-              <div className={ classnames(styles.slide) }
-                ref={ (ref) => this.slide1 = ref }
+          <div className={ classnames(styles["fix-outer"]) }>
+            <Swipeable onSwiping={ this._onScroll } onSwiped={ this._onScroll }>
+              <div className={ classnames(styles.indicator, indClass) }>
+                <div className={ classnames(styles["bar"], ind1) }></div>
+                <div className={ classnames(styles["bar"], ind2) }></div>
+                <div className={ classnames(styles["bar"], ind3) }></div>
+              </div>
+                <div className={ styles["hierarchy1"] } ref={ (ref) => this.hierarchy1 = ref } ></div>
+                <div className={ styles["hierarchy2"] } ref={ (ref) => this.hierarchy2 = ref } ></div>
+                <div className={ styles["hierarchy3"] } ref={ (ref) => this.hierarchy3 = ref } ></div>
+              <div className={ classnames(styles["slide-outer"]) }
+                ref={ (ref) => this.slideOuter = ref }
               >
-                <div className={ styles["des-box"] }>
-                  <h4 className={ styles["title"] }>1998 年動保法實施後</h4>
-                  <p>
-                    收容所和留置所的位置都位於偏遠的郊區，交通不易到達。有些地方甚至無法得知路名，只能依靠經緯度大概定位。
-                  </p>
-                  <div className={ styles["note-box"] }>
-                    <p>畜牧行政科員額：9人<br />
-                    業務：畜牧生產政策與法規訂定、畜牧場管理之策畫與督導、畜牧發展基金之督導管理、畜牧團體之指導及監督、推動畜牧國際合作及人才交流與訓練計畫等，以及與動物保護相關的業務。</p>
+                <div className={ classnames(styles.slide) }
+                  ref={ (ref) => this.slide1 = ref }
+                >
+                  <div className={ styles["des-box"] }>
+                    <h4 className={ styles["title"] }>1998 年動保法實施後</h4>
+                    <p>
+                      收容所和留置所的位置都位於偏遠的郊區，交通不易到達。有些地方甚至無法得知路名，只能依靠經緯度大概定位。
+                    </p>
+                    <div className={ styles["note-box"] }>
+                      <p>畜牧行政科員額：9人<br />
+                      業務：畜牧生產政策與法規訂定、畜牧場管理之策畫與督導、畜牧發展基金之督導管理、畜牧團體之指導及監督、推動畜牧國際合作及人才交流與訓練計畫等，以及與動物保護相關的業務。</p>
+                    </div>
+                  </div>
+                </div>
+                <div className={ classnames(styles.slide) }
+                  ref={ (ref) => this.slide2 = ref }
+                >
+                  <div className={ styles["des-box"] }>
+                    <h4 className={ styles["title"] }>2009-2016 年</h4>
+                    <p>
+                      現今的收容所多由原本環保單位留下來的收容所設備改建。除非刻意，否則一般民眾不易前往。
+                    </p>
+                    <div className={ styles["note-box"] }>
+                      <p>畜牧行政科員額：9人<br />
+                      業務：寵物管理、實驗動物人道管理、經濟動物福利政策、動物收容管理、動物保護政策與法規、動物保護團體輔導及監督、動物管制業務、動物保護國際合作、人才交流及訓練事宜之推動等。</p>
+                    </div>
+                  </div>
+                </div>
+                <div className={ classnames(styles.slide) }
+                  ref={ (ref) => this.slide3 = ref }
+                >
+                  <div className={ styles["des-box"] }>
+                    <h4 className={ styles["title"] }>未來推動方向</h4>
+                    <p>
+                      動保團體要求新增動保司，將畜牧動保業務分開。農委會回應未來將設立「動物保護會」的常態性任務編組，下設兩個科，直接管理動保相關業務。但目前因「農業組織法」草案未審查通過，尚未設立。
+                    </p>
+                    <p>
+                      動物保護會員額：下設動物保護和寵物福利兩個科，員額尚未確定。
+                    </p>
                   </div>
                 </div>
               </div>
-              <div className={ classnames(styles.slide) }
-                ref={ (ref) => this.slide2 = ref }
-              >
-                <div className={ styles["des-box"] }>
-                  <h4 className={ styles["title"] }>2009-2016 年</h4>
-                  <p>
-                    現今的收容所多由原本環保單位留下來的收容所設備改建。除非刻意，否則一般民眾不易前往。
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Swipeable>
+            </Swipeable>
 
-        </div>
+          </div>
         </div>
 
       </div>

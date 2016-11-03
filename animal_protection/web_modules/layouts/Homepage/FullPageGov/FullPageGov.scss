@@ -6,7 +6,7 @@ $img-bgcolor: $deco-blue;
 
 .container {
   color: white;
-  // background: $img-bgcolor;
+  background: $img-bgcolor;
   padding: 0;
   width: 100%;
   height: 300vh;
@@ -40,7 +40,7 @@ $img-bgcolor: $deco-blue;
 }
 .map-ending {
   position: absolute !important;
-  top: 100vh !important;
+  top: 200vh !important;
 }
 .map {
   position: absolute;
@@ -88,6 +88,13 @@ $img-bgcolor: $deco-blue;
   background-image: url("../../../../content/assets/Group64.png");
   @media only screen and (min-device-pixel-ratio: 1.5){
     background-image: url("../../../../content/assets/Group64_2x.png");
+  }
+}
+.hierarchy3 {
+  @extend .bgImage;
+  background-image: url("../../../../content/assets/Group65.png");
+  @media only screen and (min-device-pixel-ratio: 1.5){
+    background-image: url("../../../../content/assets/Group65_2x.png");
   }
 }
 .des-box {
