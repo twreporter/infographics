@@ -11,13 +11,17 @@ import ChapterTitle from "../Components/ChapterTitle"
 import commonStyles from "../../../styles/common.scss"
 
 import rInfoImg from "../../../../content/assets/d-attention.svg"
+import labourImg from "../../../../content/assets/labour-shortage.svg"
 
-import { chapter, topBox, titles, sec1Des, sec2Des, sec3Des, problem1, problem2 } from "./text"
+import { chapter, topBox, titles, sec1Des, sec2Des, sec3Des, problem1, problem2, barChartDes } from "./text"
 
 import ai2htmlMobile from "../../../../content/assets/3-bar-animal-2-ai2html-_____1.png"
 import ai2htmlDesktop from "../../../../content/assets/3-bar-animal-2-ai2html-_____1___.png"
 
-import { barChart } from "./ai2html"
+import pieMobile from "../../../../content/assets/3-pie-animal-3-ai2html-_____1.png"
+import pieDesktop from "../../../../content/assets/3-pie-animal-3-ai2html-_____1___.png"
+
+import { barChart, pieChart } from "./ai2html"
 
 // let velocity
 // if (typeof window !== "undefined") {
@@ -86,6 +90,18 @@ export default class Chapter03 extends Component {
               <div className={ classnames(commonStyles["c-grid"]) }>
                 <div className={ classnames(commonStyles["content-outer"]) }
                   dangerouslySetInnerHTML={ { __html: barChart(ai2htmlMobile, ai2htmlDesktop) } }
+                />
+              </div>
+              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) }>
+                <div className={ classnames(styles["yoyo"], commonStyles["overlay-svg"]) }
+                  dangerouslySetInnerHTML={ { __html: labourImg } }
+                  style={ { padding: "2.5rem 0" } }
+                />
+                <Markdown className={ commonStyles["inner-text"] }  source={ barChartDes } />
+              </div>
+              <div className={ classnames(commonStyles["c-grid"]) }>
+                <div className={ classnames(commonStyles["content-outer"]) }
+                  dangerouslySetInnerHTML={ { __html: pieChart(pieMobile, pieDesktop) } }
                 />
               </div>
             </Subsection>

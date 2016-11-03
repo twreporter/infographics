@@ -9,16 +9,67 @@ export function lineChart(mobile, desktop) {
 			.g-artboard {
 				margin:0 auto;
 			}
-			@media screen and (max-width: 544px) {
+      @media screen and (max-width: 544px) {
 		    #g-animal-ai2html-_____2 {
 		      display: none;
 		    }
 			}
-			@media screen and (min-width: 544px) {
+			@media screen and (min-width: 545px) {
 		    #g-animal-ai2html-_____1 {
 		      display: none;
 		    }
 			}
+      @media screen and (max-width: 768px) and (min-width: 545px) {
+        #g-animal-ai2html-_____2 p{
+					font-size:13px;
+					line-height:18px;
+					margin:0;
+				}
+				#g-animal-ai2html-_____2 .g-aiPstyle0 {
+					line-height: 24px !important;
+				}
+				#g-animal-ai2html-_____2 .g-aiPstyle1 {
+          font-size: 35px !important;
+          line-height: 35px !important;
+				}
+				#g-animal-ai2html-_____2 .g-aiPstyle2 {
+          font-size: 18px !important;
+          line-height: 15px !important;
+				}
+				#g-animal-ai2html-_____2 .g-aiPstyle4 {
+          font-size: 16px !important;
+          line-height: 18px !important;
+				}
+				#g-animal-ai2html-_____2 .g-aiPstyle5 {
+          font-size: 12px !important;
+          line-height: 17px !important;
+				}
+				#g-animal-ai2html-_____2 .g-aiPstyle6 {
+          font-size: 35px !important;
+          line-height: 35px !important;
+				}
+				#g-animal-ai2html-_____2 .g-aiPstyle7 {
+          font-size: 18px !important;
+          line-height: 15px !important;
+				}
+				#g-animal-ai2html-_____2 .g-aiPstyle8 {
+          font-size: 35px !important;
+          line-height: 36px !important;
+				}
+				#g-animal-ai2html-_____2 .g-aiPstyle9 {
+          font-size: 12px !important;
+          line-height: 17px !important;
+				}
+				#g-animal-ai2html-_____2 .g-aiPstyle10 {
+          font-size: 18px !important;
+          line-height: 15px !important;
+				}
+				#g-animal-ai2html-_____2 .g-aiPstyle11 {
+          font-size: 12px !important;
+          line-height: 17px !important;
+				}
+				}
+      }
 		</style>
 
 
@@ -44,6 +95,8 @@ export function lineChart(mobile, desktop) {
 				#g-animal-ai2html-_____1 .g-aiPstyle0 {
 					font-size:25px;
 					line-height:44px;
+          font-weight: 700;
+          text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
 					letter-spacing:0.02916666666667em;
 					color:#ffffff;
 				}
@@ -166,6 +219,8 @@ export function lineChart(mobile, desktop) {
 				#g-animal-ai2html-_____2 .g-aiPstyle0 {
 					font-size:28px;
 					line-height:34px;
+          font-weight: 700;
+          text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
 					letter-spacing:0.02916666666667em;
 					color:#ffffff;
 				}

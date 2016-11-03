@@ -13,10 +13,33 @@ export function barChart(mobile, desktop) {
 			#g-animal-2-ai2html-_____1___-graphic {
 				display: none;
 			}
+			#g-animal-2-ai2html-_____1-graphic {
+				margin-bottom: -1px;
+			}
 		}
-		@media screen and (min-width: 544px) {
+		@media screen and (min-width: 545px) {
 			#g-animal-2-ai2html-_____1 {
 				display: none;
+			}
+		}
+		@media screen and (max-width: 768px) and (min-width: 545px) {
+			#g-animal-2-ai2html-_____1___ .g-aiPstyle1 {
+		    font-size: 19px !important;
+		    line-height: 20px !important;
+			}
+			#g-animal-2-ai2html-_____1___ .g-aiPstyle4, #g-animal-2-ai2html-_____1___ .g-aiPstyle3 {
+    		font-size: 10px !important;
+			}
+			#g-animal-2-ai2html-_____1___ .g-aiPstyle2 {
+		    font-size: 60px !important;
+				line-height: 75px !important;
+			}
+			#g-animal-2-ai2html-_____1___ .g-aiPstyle6 {
+		    font-size: 45px !important;
+		    line-height: 60px !important;
+			}
+			#g-animal-2-ai2html-_____1___ .g-aiPstyle11 {
+    		font-size: 16px !important;
 			}
 		}
 	</style>
@@ -37,12 +60,14 @@ export function barChart(mobile, desktop) {
 				width:100% !important;
 			}
 			#g-animal-2-ai2html-_____1 p{
-				font-family:nyt-franklin,arial,helvetica,sans-serif;
 				font-size:13px;
 				line-height:18px;
 				margin:0;
 			}
 			#g-animal-2-ai2html-_____1 .g-aiPstyle0 {
+				font-weight: 700;
+				line-height: 15px !important;
+				text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
 				font-size:27px;
 				line-height:42px;
 				letter-spacing:0.02916666666667em;
@@ -97,13 +122,14 @@ export function barChart(mobile, desktop) {
 				color:#ffffff;
 			}
 			#g-animal-2-ai2html-_____1 .g-aiPstyle9 {
-				font-size:18px;
+				font-size:21px;
 				line-height:41px;
+				text-align: center;
 				letter-spacing:0.02416666666667em;
 				color:#4d4d4d;
 			}
 			#g-animal-2-ai2html-_____1 .g-aiPstyle10 {
-				font-size:15px;
+				font-size:16px;
 				line-height:35px;
 				letter-spacing:0.02416666666667em;
 				color:#4d4d4d;
@@ -124,7 +150,7 @@ export function barChart(mobile, desktop) {
 			<div id='g-ai0-3' class='g-___1 g-aiAbs' style='top:3.9686%;left:3.1249%;'>
 				<p class='g-aiPstyle0'>一人須承接案件數</p>
 			</div>
-			<div id='g-ai0-4' class='g-___1 g-aiAbs' style='top:7.6726%;left:19.4053%;'>
+			<div id='g-ai0-4' class='g-___1 g-aiAbs' style='top:7.6726%;left:10%;'>
 				<p class='g-aiPstyle1'>資料來源： 農委會動保科</p>
 			</div>
 			<div id='g-ai0-5' class='g-___1 g-aiAbs' style='top:7.6726%;left:80.9078%;'>
@@ -238,10 +264,10 @@ export function barChart(mobile, desktop) {
 			<div id='g-ai0-41' class='g-___1 g-aiAbs' style='top:82.8702%;left:57.2526%;'>
 				<p class='g-aiPstyle9'>140</p>
 			</div>
-			<div id='g-ai0-42' class='g-___1 g-aiAbs' style='top:82.8702%;left:82.5714%;'>
+			<div id='g-ai0-42' class='g-___1 g-aiAbs' style='top:82.8702%;left:81%;'>
 				<p class='g-aiPstyle9'>129</p>
 			</div>
-			<div id='g-ai0-43' class='g-___1 g-aiAbs' style='top:84.4871%;left:4.3748%;'>
+			<div id='g-ai0-43' class='g-___1 g-aiAbs' style='top:84.4871%;left:5.5%;'>
 				<p class='g-aiPstyle10'>新北市</p>
 			</div>
 			<div id='g-ai0-44' class='g-___1 g-aiAbs' style='top:84.4871%;left:29.3751%;'>
@@ -262,10 +288,10 @@ export function barChart(mobile, desktop) {
 			<div id='g-ai0-49' class='g-___1 g-aiAbs' style='top:88.3969%;left:58.8882%;'>
 				<p class='g-aiPstyle9'>93</p>
 			</div>
-			<div id='g-ai0-50' class='g-___1 g-aiAbs' style='top:88.3969%;left:83.8948%;'>
+			<div id='g-ai0-50' class='g-___1 g-aiAbs' style='top:88.3969%;left:82.5%;'>
 				<p class='g-aiPstyle9'>57</p>
 			</div>
-			<div id='g-ai0-51' class='g-___1 g-aiAbs' style='top:90.0137%;left:4.3748%;'>
+			<div id='g-ai0-51' class='g-___1 g-aiAbs' style='top:90.0137%;left:5.5%;'>
 				<p class='g-aiPstyle10'>連江縣</p>
 			</div>
 			<div id='g-ai0-52' class='g-___1 g-aiAbs' style='top:90.0137%;left:29.3751%;'>
@@ -277,10 +303,10 @@ export function barChart(mobile, desktop) {
 			<div id='g-ai0-54' class='g-___1 g-aiAbs' style='top:90.0137%;left:79.3755%;'>
 				<p class='g-aiPstyle10'>嘉義市</p>
 			</div>
-			<div id='g-ai0-55' class='g-___1 g-aiAbs' style='top:93.9529%;left:34.4411%;'>
+			<div id='g-ai0-55' class='g-___1 g-aiAbs' style='top:93.9529%;left:33.5%;'>
 				<p class='g-aiPstyle9'>21</p>
 			</div>
-			<div id='g-ai0-56' class='g-___1 g-aiAbs' style='top:93.9529%;left:59.4946%;'>
+			<div id='g-ai0-56' class='g-___1 g-aiAbs' style='top:93.9529%;left:58%;'>
 				<p class='g-aiPstyle9'>14</p>
 			</div>
 			<div id='g-ai0-57' class='g-___1 g-aiAbs' style='top:95.5698%;left:29.3751%;'>
@@ -307,7 +333,6 @@ export function barChart(mobile, desktop) {
 				width:100% !important;
 			}
 			#g-animal-2-ai2html-_____1___ p{
-				font-family:nyt-franklin,arial,helvetica,sans-serif;
 				font-size:13px;
 				line-height:18px;
 				margin:0;
@@ -319,6 +344,8 @@ export function barChart(mobile, desktop) {
 				color:#ffffff;
 			}
 			#g-animal-2-ai2html-_____1___ .g-aiPstyle1 {
+				font-weight: 700;
+				text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
 				font-size:28px;
 				line-height:34px;
 				letter-spacing:0.02916666666667em;
@@ -562,4 +589,508 @@ export function barChart(mobile, desktop) {
 	<!-- End ai2html - 2016-11-01 - 17:41 -->
 </div>
 	`
+}
+
+
+export function pieChart(mobile, desktop) {
+	return `
+	<div id='g-animal-3-ai2html-box' class='ai2html'>
+		<!-- Generated by ai2html v0.61 - 2016-11-03 - 14:04 -->
+		<!-- ai file: animal-3-ai2html -->
+
+		<style type='text/css' media='screen,print'>
+			.g-artboard {
+				margin:0 auto;
+			}
+			@media screen and (max-width: 544px) {
+		    #g-animal-3-ai2html-_____1___ {
+		      display: none;
+		    }
+			}
+			@media screen and (min-width: 545px) {
+		    #g-animal-3-ai2html-_____1 {
+		      display: none;
+		    }
+			}
+			@media screen and (max-width: 768px) and (min-width: 545px) {
+				#g-animal-3-ai2html-_____1___ .g-aiPstyle0 {
+			    font-size: 25px !important;
+			    line-height: 25px !important;
+				}
+				#g-animal-3-ai2html-_____1___ .g-aiPstyle1 {
+					font-size: 12px !important;
+					line-height: 16px !important;
+				}
+				#g-animal-3-ai2html-_____1___ .g-aiPstyle3 {
+			    font-size: 24px !important;
+			    line-height: 30px !important;
+				}
+				#g-animal-3-ai2html-_____1___ .g-aiPstyle4 {
+			    font-size: 14px !important;
+			    line-height: 15px !important;
+				}
+			}
+		</style>
+
+		<!-- Artboard: _____1 -->
+		<div id='g-animal-3-ai2html-_____1' class='g-artboard g-artboard-v3 ' data-min-width='544' data-max-width='1023'>
+			<style type='text/css' media='screen,print'>
+				#g-animal-3-ai2html-_____1{
+					position:relative;
+					overflow:hidden;
+				}
+				.g-aiAbs{
+					position:absolute;
+				}
+				.g-aiImg{
+					display:block;
+					width:100% !important;
+				}
+				#g-animal-3-ai2html-_____1 p{
+					font-size:13px;
+					line-height:18px;
+					margin:0;
+				}
+				#g-animal-3-ai2html-_____1 .g-aiPstyle0 {
+					font-weight: 700;
+					text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+					font-size: 27px;
+    			line-height: 28px;
+					letter-spacing:0.02916666666667em;
+					color:#ffffff;
+				}
+				#g-animal-3-ai2html-_____1 .g-aiPstyle1 {
+					font-size: 17px;
+    			line-height: 18px;
+					text-align:center;
+					letter-spacing:0.02416666666667em;
+					color:#ffffff;
+				}
+				#g-animal-3-ai2html-_____1 .g-aiPstyle2 {
+					font-size: 17px;
+    			line-height: 18px;
+					letter-spacing:0.02416666666667em;
+					color:#ffffff;
+				}
+				#g-animal-3-ai2html-_____1 .g-aiPstyle3 {
+					font-size:28px;
+					line-height:25px;
+					text-align:center;
+					letter-spacing:0.02416666666667em;
+					color:#ffffff;
+				}
+				#g-animal-3-ai2html-_____1 .g-aiPstyle4 {
+					font-size:28px;
+					line-height:32px;
+					text-align:center;
+					letter-spacing:0.02916666666667em;
+					color:#ffffff;
+				}
+				.g-aiPtransformed p { white-space: nowrap; }
+			</style>
+			<div id='g-animal-3-ai2html-_____1-graphic'>
+				<img id='g-ai0-0'
+					class='g-aiImg'
+					src='${mobile}'
+					/>
+				<div id='g-ai0-1' class='g-___1 g-aiAbs' style='top:1.7213%;left:3.1046%;'>
+					<p class='g-aiPstyle0'>動保員兼職人數大於專</p>
+				</div>
+				<div id='g-ai0-2' class='g-___1 g-aiAbs' style='top:1.7213%;left:3.1046%;'>
+					<p class='g-aiPstyle0'>動保員兼職人數大於專</p>
+				</div>
+				<div id='g-ai0-3' class='g-___1 g-aiAbs' style='top:1.7213%;left:93.7692%;'>
+					<p class='g-aiPstyle0'> </p>
+				</div>
+				<div id='g-ai0-4' class='g-___1 g-aiAbs' style='top:1.7213%;left:93.7692%;'>
+					<p class='g-aiPstyle0'> </p>
+				</div>
+				<div id='g-ai0-5' class='g-___1 g-aiAbs' style='top:3.7978%;left:3.1046%;'>
+					<p class='g-aiPstyle0'>職人數的12縣市</p>
+				</div>
+				<div id='g-ai0-6' class='g-___1 g-aiAbs' style='top:3.7978%;left:3.1046%;'>
+					<p class='g-aiPstyle0'>職人數的12縣市</p>
+				</div>
+				<div id='g-ai0-7' class='g-___1 g-aiAbs' style='top:7.1858%;left:50.0771%;width:120.3172%;margin-left:-60.1586%;'>
+					<p class='g-aiPstyle1'>資料來源：農委會動保科</p>
+				</div>
+				<div id='g-ai0-8' class='g-___1 g-aiAbs' style='top:7.1858%;left:80.2476%;'>
+					<p class='g-aiPstyle2'> </p>
+				</div>
+				<div id='g-ai0-9' class='g-___1 g-aiAbs' style='top:8.6612%;left:60.0751%;'>
+					<p class='g-aiPstyle2'>兼職人數佔比</p>
+				</div>
+				<div id='g-ai0-10' class='g-___1 g-aiAbs' style='top:8.6885%;left:12.2811%;'>
+					<p class='g-aiPstyle2'>專職人數佔比           </p>
+				</div>
+				<div id='g-ai0-11' class='g-___1 g-aiAbs' style='top:11.8033%;left:24.4878%;width:30.6002%;margin-left:-15.3001%;'>
+					<p class='g-aiPstyle3'>100%</p>
+				</div>
+				<div id='g-ai0-12' class='g-___1 g-aiAbs' style='top:11.8033%;left:74.1421%;width:30.6002%;margin-left:-15.3001%;'>
+					<p class='g-aiPstyle3'>100%</p>
+				</div>
+				<div id='g-ai0-13' class='g-___1 g-aiAbs' style='top:19.0437%;left:24.9399%;width:54.3613%;margin-left:-27.1807%;'>
+					<p class='g-aiPstyle4'>新竹縣</p>
+				</div>
+				<div id='g-ai0-14' class='g-___1 g-aiAbs' style='top:19.0437%;left:74.9617%;width:54.3611%;margin-left:-27.1806%;'>
+					<p class='g-aiPstyle4'>嘉義市</p>
+				</div>
+				<div id='g-ai0-15' class='g-___1 g-aiAbs' style='top:21.0383%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>專職0人</p>
+				</div>
+				<div id='g-ai0-16' class='g-___1 g-aiAbs' style='top:21.0383%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>專職0人</p>
+				</div>
+				<div id='g-ai0-17' class='g-___1 g-aiAbs' style='top:22.5137%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>兼職1人</p>
+				</div>
+				<div id='g-ai0-18' class='g-___1 g-aiAbs' style='top:22.5137%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>兼職1人</p>
+				</div>
+				<div id='g-ai0-19' class='g-___1 g-aiAbs' style='top:26.5847%;left:25.9867%;width:23.8224%;margin-left:-11.9112%;'>
+					<p class='g-aiPstyle3'>90%</p>
+				</div>
+				<div id='g-ai0-20' class='g-___1 g-aiAbs' style='top:26.5847%;left:75.9313%;width:23.8224%;margin-left:-11.9112%;'>
+					<p class='g-aiPstyle3'>83%</p>
+				</div>
+				<div id='g-ai0-21' class='g-___1 g-aiAbs' style='top:33.8251%;left:24.9399%;width:54.3613%;margin-left:-27.1807%;'>
+					<p class='g-aiPstyle4'>桃園市</p>
+				</div>
+				<div id='g-ai0-22' class='g-___1 g-aiAbs' style='top:33.8251%;left:74.9617%;width:54.3611%;margin-left:-27.1806%;'>
+					<p class='g-aiPstyle4'>金門縣</p>
+				</div>
+				<div id='g-ai0-23' class='g-___1 g-aiAbs' style='top:35.8197%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>專職1人</p>
+				</div>
+				<div id='g-ai0-24' class='g-___1 g-aiAbs' style='top:35.8197%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>專職1人</p>
+				</div>
+				<div id='g-ai0-25' class='g-___1 g-aiAbs' style='top:37.2951%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>兼職9人</p>
+				</div>
+				<div id='g-ai0-26' class='g-___1 g-aiAbs' style='top:37.2951%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>兼職5人</p>
+				</div>
+				<div id='g-ai0-27' class='g-___1 g-aiAbs' style='top:41.3661%;left:26.2431%;width:23.8224%;margin-left:-11.9112%;'>
+					<p class='g-aiPstyle3'>82%</p>
+				</div>
+				<div id='g-ai0-28' class='g-___1 g-aiAbs' style='top:41.3661%;left:75.9003%;width:23.8224%;margin-left:-11.9112%;'>
+					<p class='g-aiPstyle3'>80%</p>
+				</div>
+				<div id='g-ai0-29' class='g-___1 g-aiAbs' style='top:48.6066%;left:24.9399%;width:54.3613%;margin-left:-27.1807%;'>
+					<p class='g-aiPstyle4'>新北市</p>
+				</div>
+				<div id='g-ai0-30' class='g-___1 g-aiAbs' style='top:48.6066%;left:74.9617%;width:54.3611%;margin-left:-27.1806%;'>
+					<p class='g-aiPstyle4'>彰化縣</p>
+				</div>
+				<div id='g-ai0-31' class='g-___1 g-aiAbs' style='top:50.6011%;left:25.7212%;width:38.4369%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>專職4人</p>
+				</div>
+				<div id='g-ai0-32' class='g-___1 g-aiAbs' style='top:50.6011%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>專職1人</p>
+				</div>
+				<div id='g-ai0-33' class='g-___1 g-aiAbs' style='top:52.0765%;left:25.7213%;width:44.0598%;margin-left:-22.0299%;'>
+					<p class='g-aiPstyle1'>兼職18人</p>
+				</div>
+				<div id='g-ai0-34' class='g-___1 g-aiAbs' style='top:52.0765%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>兼職4人</p>
+				</div>
+				<div id='g-ai0-35' class='g-___1 g-aiAbs' style='top:56.1475%;left:25.9336%;width:23.8224%;margin-left:-11.9112%;'>
+					<p class='g-aiPstyle3'>80%</p>
+				</div>
+				<div id='g-ai0-36' class='g-___1 g-aiAbs' style='top:56.1475%;left:76.1503%;width:23.8224%;margin-left:-11.9112%;'>
+					<p class='g-aiPstyle3'>73%</p>
+				</div>
+				<div id='g-ai0-37' class='g-___1 g-aiAbs' style='top:63.3607%;left:24.9399%;width:54.3613%;margin-left:-27.1807%;'>
+					<p class='g-aiPstyle4'>台東縣</p>
+				</div>
+				<div id='g-ai0-38' class='g-___1 g-aiAbs' style='top:63.3607%;left:74.9617%;width:54.3611%;margin-left:-27.1806%;'>
+					<p class='g-aiPstyle4'>宜蘭縣</p>
+				</div>
+				<div id='g-ai0-39' class='g-___1 g-aiAbs' style='top:65.3552%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>專職1人</p>
+				</div>
+				<div id='g-ai0-40' class='g-___1 g-aiAbs' style='top:65.3552%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>專職3人</p>
+				</div>
+				<div id='g-ai0-41' class='g-___1 g-aiAbs' style='top:66.8579%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>兼職4人</p>
+				</div>
+				<div id='g-ai0-42' class='g-___1 g-aiAbs' style='top:66.8579%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>兼職8人</p>
+				</div>
+				<div id='g-ai0-43' class='g-___1 g-aiAbs' style='top:70.929%;left:26.1993%;width:23.8224%;margin-left:-11.9112%;'>
+					<p class='g-aiPstyle3'>69%</p>
+				</div>
+				<div id='g-ai0-44' class='g-___1 g-aiAbs' style='top:70.929%;left:76.0193%;width:23.8224%;margin-left:-11.9112%;'>
+					<p class='g-aiPstyle3'>67%</p>
+				</div>
+				<div id='g-ai0-45' class='g-___1 g-aiAbs' style='top:78.1421%;left:24.9399%;width:54.3613%;margin-left:-27.1807%;'>
+					<p class='g-aiPstyle4'>台南市</p>
+				</div>
+				<div id='g-ai0-46' class='g-___1 g-aiAbs' style='top:78.1421%;left:74.9617%;width:54.3611%;margin-left:-27.1806%;'>
+					<p class='g-aiPstyle4'>苗栗縣</p>
+				</div>
+				<div id='g-ai0-47' class='g-___1 g-aiAbs' style='top:80.1366%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>專職4人</p>
+				</div>
+				<div id='g-ai0-48' class='g-___1 g-aiAbs' style='top:80.1366%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>專職1人</p>
+				</div>
+				<div id='g-ai0-49' class='g-___1 g-aiAbs' style='top:81.6393%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>兼職9人</p>
+				</div>
+				<div id='g-ai0-50' class='g-___1 g-aiAbs' style='top:81.6393%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>兼職2人</p>
+				</div>
+				<div id='g-ai0-51' class='g-___1 g-aiAbs' style='top:85.7104%;left:26.365%;width:23.8224%;margin-left:-11.9112%;'>
+					<p class='g-aiPstyle3'>67%</p>
+				</div>
+				<div id='g-ai0-52' class='g-___1 g-aiAbs' style='top:85.7104%;left:76.2941%;width:23.8224%;margin-left:-11.9112%;'>
+					<p class='g-aiPstyle3'>63%</p>
+				</div>
+				<div id='g-ai0-53' class='g-___1 g-aiAbs' style='top:92.9235%;left:24.9399%;width:54.3613%;margin-left:-27.1807%;'>
+					<p class='g-aiPstyle4'>連江縣</p>
+				</div>
+				<div id='g-ai0-54' class='g-___1 g-aiAbs' style='top:92.9235%;left:74.9617%;width:54.3611%;margin-left:-27.1806%;'>
+					<p class='g-aiPstyle4'>高雄市</p>
+				</div>
+				<div id='g-ai0-55' class='g-___1 g-aiAbs' style='top:94.918%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>專職1人</p>
+				</div>
+				<div id='g-ai0-56' class='g-___1 g-aiAbs' style='top:94.918%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>專職3人</p>
+				</div>
+				<div id='g-ai0-57' class='g-___1 g-aiAbs' style='top:96.4208%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>兼職2人</p>
+				</div>
+				<div id='g-ai0-58' class='g-___1 g-aiAbs' style='top:96.4208%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
+					<p class='g-aiPstyle1'>兼職5人</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Artboard: _____1___ -->
+		<div id='g-animal-3-ai2html-_____1___' class='g-artboard g-artboard-v3 ' data-min-width='1024'>
+			<style type='text/css' media='screen,print'>
+				#g-animal-3-ai2html-_____1___{
+					position:relative;
+					overflow:hidden;
+				}
+				.g-aiAbs{
+					position:absolute;
+				}
+				.g-aiImg{
+					display:block;
+					width:100% !important;
+				}
+				#g-animal-3-ai2html-_____1___ p{
+					font-size:13px;
+					line-height:18px;
+					margin:0;
+				}
+				#g-animal-3-ai2html-_____1___ .g-aiPstyle0 {
+					font-weight: 700;
+					text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+					font-size:32px;
+					line-height:34px;
+					letter-spacing:0.02916666666667em;
+					color:#ffffff;
+				}
+				#g-animal-3-ai2html-_____1___ .g-aiPstyle1 {
+					font-size:17px;
+					line-height:20px;
+					letter-spacing:0.02416666666667em;
+					color:#ffffff;
+				}
+				#g-animal-3-ai2html-_____1___ .g-aiPstyle2 {
+					font-size:20px;
+					line-height:24px;
+					text-align:center;
+					letter-spacing:0.02416666666667em;
+					color:#ffffff;
+				}
+				#g-animal-3-ai2html-_____1___ .g-aiPstyle3 {
+					font-size:28px;
+					line-height:34px;
+					text-align:center;
+					letter-spacing:0.02916666666667em;
+					color:#ffffff;
+				}
+				#g-animal-3-ai2html-_____1___ .g-aiPstyle4 {
+					font-size:17px;
+					line-height:20px;
+					text-align:center;
+					letter-spacing:0.02416666666667em;
+					color:#ffffff;
+				}
+				.g-aiPtransformed p { white-space: nowrap; }
+			</style>
+			<div id='g-animal-3-ai2html-_____1___-graphic'>
+				<img id='g-ai1-0'
+					class='g-aiImg'
+					src='${desktop}'
+					/>
+				<div id='g-ai1-1' class='g-___1 g-aiAbs' style='top:8.6034%;left:20.5%;'>
+					<p class='g-aiPstyle0'>動保員兼職人數大於專職人數的12縣市</p>
+				</div>
+				<div id='g-ai1-3' class='g-___1 g-aiAbs' style='top:16.8715%;left:24.2484%;'>
+					<p class='g-aiPstyle1'>    資料來源：農委會動保科 ｜                 </p>
+				</div>
+				<div id='g-ai1-4' class='g-___1 g-aiAbs' style='top:16.9832%;left:48.988%;'>
+					<p class='g-aiPstyle1'>專職人數佔比</p>
+				</div>
+				<div id='g-ai1-5' class='g-___1 g-aiAbs' style='top:16.9832%;left:63.8968%;'>
+					<p class='g-aiPstyle1'>兼職人數佔比</p>
+				</div>
+				<div id='g-ai1-6' class='g-___1 g-aiAbs' style='top:26.257%;left:10.699%;width:9.5583%;margin-left:-4.7791%;'>
+					<p class='g-aiPstyle2'>100%</p>
+				</div>
+				<div id='g-ai1-7' class='g-___1 g-aiAbs' style='top:26.257%;left:26.324%;width:9.5583%;margin-left:-4.7791%;'>
+					<p class='g-aiPstyle2'>100%</p>
+				</div>
+				<div id='g-ai1-8' class='g-___1 g-aiAbs' style='top:26.257%;left:42.066%;width:7.4411%;margin-left:-3.7206%;'>
+					<p class='g-aiPstyle2'>90%</p>
+				</div>
+				<div id='g-ai1-9' class='g-___1 g-aiAbs' style='top:26.257%;left:57.7138%;width:7.4413%;margin-left:-3.7207%;'>
+					<p class='g-aiPstyle2'>83%</p>
+				</div>
+				<div id='g-ai1-10' class='g-___1 g-aiAbs' style='top:26.257%;left:73.2148%;width:7.4413%;margin-left:-3.7207%;'>
+					<p class='g-aiPstyle2'>82%</p>
+				</div>
+				<div id='g-ai1-11' class='g-___1 g-aiAbs' style='top:26.257%;left:88.9613%;width:7.4413%;margin-left:-3.7207%;'>
+					<p class='g-aiPstyle2'>80%</p>
+				</div>
+				<div id='g-ai1-12' class='g-___1 g-aiAbs' style='top:43.6872%;left:10.699%;width:16.9804%;margin-left:-8.4902%;'>
+					<p class='g-aiPstyle3'>新竹縣</p>
+				</div>
+				<div id='g-ai1-13' class='g-___1 g-aiAbs' style='top:43.6872%;left:26.324%;width:16.9804%;margin-left:-8.4902%;'>
+					<p class='g-aiPstyle3'>嘉義市</p>
+				</div>
+				<div id='g-ai1-14' class='g-___1 g-aiAbs' style='top:43.6872%;left:42.066%;width:16.9806%;margin-left:-8.4903%;'>
+					<p class='g-aiPstyle3'>桃園市</p>
+				</div>
+				<div id='g-ai1-15' class='g-___1 g-aiAbs' style='top:43.6872%;left:57.7137%;width:16.9806%;margin-left:-8.4903%;'>
+					<p class='g-aiPstyle3'>金門縣</p>
+				</div>
+				<div id='g-ai1-16' class='g-___1 g-aiAbs' style='top:43.6872%;left:73.2148%;width:16.9804%;margin-left:-8.4902%;'>
+					<p class='g-aiPstyle3'>新北市</p>
+				</div>
+				<div id='g-ai1-17' class='g-___1 g-aiAbs' style='top:43.6872%;left:88.9614%;width:16.9806%;margin-left:-8.4903%;'>
+					<p class='g-aiPstyle3'>彰化縣</p>
+				</div>
+				<div id='g-ai1-18' class='g-___1 g-aiAbs' style='top:48.4916%;left:10.699%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>專職0人</p>
+				</div>
+				<div id='g-ai1-19' class='g-___1 g-aiAbs' style='top:48.4916%;left:26.324%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>專職0人</p>
+				</div>
+				<div id='g-ai1-20' class='g-___1 g-aiAbs' style='top:48.4916%;left:42.066%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>專職1人</p>
+				</div>
+				<div id='g-ai1-21' class='g-___1 g-aiAbs' style='top:48.4916%;left:57.7137%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>專職1人</p>
+				</div>
+				<div id='g-ai1-22' class='g-___1 g-aiAbs' style='top:48.4916%;left:73.2148%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>專職4人</p>
+				</div>
+				<div id='g-ai1-23' class='g-___1 g-aiAbs' style='top:48.4916%;left:88.9613%;width:12.0064%;margin-left:-6.0032%;'>
+					<p class='g-aiPstyle4'>專職1人</p>
+				</div>
+				<div id='g-ai1-24' class='g-___1 g-aiAbs' style='top:52.067%;left:10.699%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>兼職1人</p>
+				</div>
+				<div id='g-ai1-25' class='g-___1 g-aiAbs' style='top:52.067%;left:26.324%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>兼職1人</p>
+				</div>
+				<div id='g-ai1-26' class='g-___1 g-aiAbs' style='top:52.067%;left:42.066%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>兼職9人</p>
+				</div>
+				<div id='g-ai1-27' class='g-___1 g-aiAbs' style='top:52.067%;left:57.7137%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>兼職5人</p>
+				</div>
+				<div id='g-ai1-28' class='g-___1 g-aiAbs' style='top:52.067%;left:73.2148%;width:13.7627%;margin-left:-6.8813%;'>
+					<p class='g-aiPstyle4'>兼職18人</p>
+				</div>
+				<div id='g-ai1-29' class='g-___1 g-aiAbs' style='top:52.067%;left:88.9613%;width:12.0064%;margin-left:-6.0032%;'>
+					<p class='g-aiPstyle4'>兼職4人</p>
+				</div>
+				<div id='g-ai1-30' class='g-___1 g-aiAbs' style='top:63.352%;left:11.0072%;width:7.4413%;margin-left:-3.7207%;'>
+					<p class='g-aiPstyle2'>80%</p>
+				</div>
+				<div id='g-ai1-31' class='g-___1 g-aiAbs' style='top:63.352%;left:26.6762%;width:7.4413%;margin-left:-3.7207%;'>
+					<p class='g-aiPstyle2'>73%</p>
+				</div>
+				<div id='g-ai1-32' class='g-___1 g-aiAbs' style='top:63.352%;left:42.278%;width:7.4413%;margin-left:-3.7207%;'>
+					<p class='g-aiPstyle2'>69%</p>
+				</div>
+				<div id='g-ai1-33' class='g-___1 g-aiAbs' style='top:63.352%;left:57.9159%;width:7.4411%;margin-left:-3.7206%;'>
+					<p class='g-aiPstyle2'>67%</p>
+				</div>
+				<div id='g-ai1-34' class='g-___1 g-aiAbs' style='top:63.352%;left:73.5409%;width:7.4411%;margin-left:-3.7206%;'>
+					<p class='g-aiPstyle2'>67%</p>
+				</div>
+				<div id='g-ai1-35' class='g-___1 g-aiAbs' style='top:63.352%;left:89.1874%;width:7.4411%;margin-left:-3.7206%;'>
+					<p class='g-aiPstyle2'>63%</p>
+				</div>
+				<div id='g-ai1-36' class='g-___1 g-aiAbs' style='top:80.7821%;left:11.0073%;width:16.9806%;margin-left:-8.4903%;'>
+					<p class='g-aiPstyle3'>台東縣</p>
+				</div>
+				<div id='g-ai1-37' class='g-___1 g-aiAbs' style='top:80.7821%;left:26.6762%;width:16.9804%;margin-left:-8.4902%;'>
+					<p class='g-aiPstyle3'>宜蘭縣</p>
+				</div>
+				<div id='g-ai1-38' class='g-___1 g-aiAbs' style='top:80.7821%;left:42.278%;width:16.9804%;margin-left:-8.4902%;'>
+					<p class='g-aiPstyle3'>台南市</p>
+				</div>
+				<div id='g-ai1-39' class='g-___1 g-aiAbs' style='top:80.7821%;left:57.9159%;width:16.9806%;margin-left:-8.4903%;'>
+					<p class='g-aiPstyle3'>苗栗縣</p>
+				</div>
+				<div id='g-ai1-40' class='g-___1 g-aiAbs' style='top:80.7821%;left:73.5409%;width:16.9806%;margin-left:-8.4903%;'>
+					<p class='g-aiPstyle3'>連江縣</p>
+				</div>
+				<div id='g-ai1-41' class='g-___1 g-aiAbs' style='top:80.7821%;left:89.1874%;width:16.9804%;margin-left:-8.4902%;'>
+					<p class='g-aiPstyle3'>高雄市</p>
+				</div>
+				<div id='g-ai1-42' class='g-___1 g-aiAbs' style='top:85.5866%;left:11.0072%;width:12.0064%;margin-left:-6.0032%;'>
+					<p class='g-aiPstyle4'>專職1人</p>
+				</div>
+				<div id='g-ai1-43' class='g-___1 g-aiAbs' style='top:85.5866%;left:26.6762%;width:12.0064%;margin-left:-6.0032%;'>
+					<p class='g-aiPstyle4'>專職3人</p>
+				</div>
+				<div id='g-ai1-44' class='g-___1 g-aiAbs' style='top:85.5866%;left:42.278%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>專職4人</p>
+				</div>
+				<div id='g-ai1-45' class='g-___1 g-aiAbs' style='top:85.5866%;left:57.9159%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>專職1人</p>
+				</div>
+				<div id='g-ai1-46' class='g-___1 g-aiAbs' style='top:85.5866%;left:73.5409%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>專職1人</p>
+				</div>
+				<div id='g-ai1-47' class='g-___1 g-aiAbs' style='top:85.5866%;left:89.1874%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>專職3人</p>
+				</div>
+				<div id='g-ai1-48' class='g-___1 g-aiAbs' style='top:89.162%;left:11.0072%;width:12.0064%;margin-left:-6.0032%;'>
+					<p class='g-aiPstyle4'>兼職4人</p>
+				</div>
+				<div id='g-ai1-49' class='g-___1 g-aiAbs' style='top:89.162%;left:26.6762%;width:12.0064%;margin-left:-6.0032%;'>
+					<p class='g-aiPstyle4'>兼職8人</p>
+				</div>
+				<div id='g-ai1-50' class='g-___1 g-aiAbs' style='top:89.162%;left:42.278%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>兼職9人</p>
+				</div>
+				<div id='g-ai1-51' class='g-___1 g-aiAbs' style='top:89.162%;left:57.9159%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>兼職2人</p>
+				</div>
+				<div id='g-ai1-52' class='g-___1 g-aiAbs' style='top:89.162%;left:73.5409%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>兼職2人</p>
+				</div>
+				<div id='g-ai1-53' class='g-___1 g-aiAbs' style='top:89.162%;left:89.1874%;width:12.0062%;margin-left:-6.0031%;'>
+					<p class='g-aiPstyle4'>兼職5人</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- End ai2html - 2016-11-03 - 14:04 -->
+	</div>
+`
 }
