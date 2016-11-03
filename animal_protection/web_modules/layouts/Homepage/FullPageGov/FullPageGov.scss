@@ -2,7 +2,7 @@
 @import "../../../styles/variables.scss";
 @import "../../../styles/animation.scss";
 
-$img-bgcolor: $content-bg;
+$img-bgcolor: $deco-blue;
 
 .container {
   color: white;
@@ -62,28 +62,33 @@ $img-bgcolor: $content-bg;
 .bgImage {
   width: 100%;
   height: 100vh;
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-position-x: 0;
-  background-position-y: 0;
   position: absolute;
   top: 0;
   left: 0;
+  background-repeat: no-repeat;
+  background-size: 45% auto;
+  background-position-x: 1rem;
+  background-position-y: center;
+  @media screen and (orientation:portrait) {
+    background-size: 90% auto;
+    background-position-y: 5rem;
+    background-position-x: center;
+  }
 }
 
 .oldMap {
   @extend .bgImage;
-  background-image: url("../../../../content/assets/map1.png");
-  @media screen and (orientation:portrait) {
-    background-image: url("../../../../content/assets/map1-m.png");
+  background-image: url("../../../../content/assets/Group63.png");
+  @media only screen and (min-device-pixel-ratio: 1.5){
+    background-image: url("../../../../content/assets/Group63_2x.png");
   }
 }
 
 .newMap {
   @extend .bgImage;
-  background-image: url("../../../../content/assets/map2.png");
-  @media screen and (orientation:portrait) {
-    background-image: url("../../../../content/assets/map2-m.png");
+  background-image: url("../../../../content/assets/Group64.png");
+  @media only screen and (min-device-pixel-ratio: 1.5){
+    background-image: url("../../../../content/assets/Group64_2x.png");
   }
 }
 
