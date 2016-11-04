@@ -61,9 +61,10 @@ $img-bgcolor: $deco-blue;
 
 .bgImage {
   width: 50%;
-  max-width: 500px;
+  max-width: 700px;
   height: 100vh;
   position: absolute;
+  margin: 0 -2rem;
   top: 0;
   right: 50%;
   background-repeat: no-repeat;
@@ -72,7 +73,7 @@ $img-bgcolor: $deco-blue;
 
   @media screen and (orientation:portrait) {
     background-position-y: 2rem;
-    width: 90%;
+    width: 100%;
     left: 0;
     right: 0;
     margin-left: auto;
