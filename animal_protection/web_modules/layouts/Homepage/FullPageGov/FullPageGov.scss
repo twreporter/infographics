@@ -82,6 +82,7 @@ $img-bgcolor: $deco-blue;
   @media only screen and (min-device-pixel-ratio: 1.5){
     background-image: url("../../../../content/assets/Group63_2x.png");
   }
+  opacity: 1;
 }
 .hierarchy2 {
   @extend .bgImage;
@@ -89,6 +90,7 @@ $img-bgcolor: $deco-blue;
   @media only screen and (min-device-pixel-ratio: 1.5){
     background-image: url("../../../../content/assets/Group64_2x.png");
   }
+  opacity: 0;
 }
 .hierarchy3 {
   @extend .bgImage;
@@ -96,6 +98,7 @@ $img-bgcolor: $deco-blue;
   @media only screen and (min-device-pixel-ratio: 1.5){
     background-image: url("../../../../content/assets/Group65_2x.png");
   }
+  opacity: 0;
 }
 .des-box {
   position: absolute;
