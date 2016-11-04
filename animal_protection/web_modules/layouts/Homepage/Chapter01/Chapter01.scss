@@ -66,3 +66,155 @@
     padding: 0 2rem;
   }
 }
+
+.p-grid {
+  text-align: left;
+  >div {
+    position: relative;
+    @media (min-width: $width-xs) {
+      padding: 1rem;
+    }
+  }
+  @media (min-width: $width-md) {
+    display: flex;
+  }
+}
+.p-full {
+  vertical-align: middle;
+  @media (min-width: $width-md) {
+    flex: 1;
+    align-items: stretch;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    height: 100%;
+    order: 1;
+  }
+}
+.p-left {
+  vertical-align: middle;
+  @media (min-width: $width-md) {
+    flex: 1;
+    align-items: stretch;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 50%;
+    height: 100%;
+    order: 1;
+  }
+}
+.p-right {
+  vertical-align: middle;
+  @media (min-width: $width-md) {
+    flex: 1;
+    align-items: stretch;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 50%;
+    height: 100%;
+    order: 2;
+  }
+}
+
+.photography {
+  background-color: rgba(0, 0, 0, 0.85);
+  width: 100%;
+  padding-bottom: 1rem;
+  display: table;
+}
+
+.photography-last {
+  width: 100%;
+  display: table;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+}
+
+.photo-overlay-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20%;
+  transform: translateY(-50%);
+  font-weight: $font-bold;
+  font-size: 20px;
+  text-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  padding: 0 2.5rem;
+  @media screen and (orientation:portrait) and (max-width: $width-md) {
+    bottom: 8%;
+  }
+}
+
+.photo {
+  width: 100%;
+  height: 0;
+  padding-top: 66.64%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  position: relative;
+  @media screen and (orientation:portrait) and (max-width: $width-md) {
+    padding-top: 156%;
+  }
+}
+
+.photo-description {
+  font-size: $small-font-size;
+  margin-top: 0.3rem;
+  margin-bottom: 2.5rem;
+  @media screen and (orientation:portrait) and (max-width: $width-md) {
+    padding: 0 0.8rem;
+  }
+}
+
+.p-v-space {
+  margin-top: 12rem;
+  margin-bottom: 8rem;
+  @media screen and (orientation:portrait) and (max-width: $width-md) {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.photo-1 {
+  @extend .photo;
+  width: 100%;
+  background-image: url('../../../../content/assets/001.jpg');
+  @media screen and (orientation:portrait) and (max-width: $width-md) {
+    background-image: url('../../../../content/assets/001_m.jpg');
+  }
+}
+
+.photo-3a {
+  @extend .photo;
+  width: 100%;
+  background-image: url('../../../../content/assets/003a.jpg');
+  @media screen and (orientation:portrait) and (max-width: $width-md) {
+    background-image: url('../../../../content/assets/003a_m.jpg');
+  }
+}
+
+.photo-3b {
+  @extend .photo;
+  width: 100%;
+  background-image: url('../../../../content/assets/003b.jpg');
+  @media screen and (orientation:portrait) and (max-width: $width-md) {
+    background-image: url('../../../../content/assets/003b_m.jpg');
+  }
+}
+
+.photo-5a {
+  @extend .photo;
+  width: 100%;
+  background-image: url('../../../../content/assets/005a.jpg');
+  @media screen and (orientation:portrait) and (max-width: $width-md) {
+    background-image: url('../../../../content/assets/005a_m.jpg');
+  }
+}
+
+.photo-5b {
+  @extend .photo;
+  width: 100%;
+  background-image: url('../../../../content/assets/005b.jpg');
+  @media screen and (orientation:portrait) and (max-width: $width-md) {
+    background-image: url('../../../../content/assets/005b_m.jpg');
+  }
+}
