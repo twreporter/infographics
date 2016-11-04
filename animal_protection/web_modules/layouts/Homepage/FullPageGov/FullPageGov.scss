@@ -73,7 +73,10 @@ $img-bgcolor: $deco-blue;
   @media screen and (orientation:portrait) {
     background-position-y: 2rem;
     width: 90%;
-    transform: translate(50%, 0);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .hierarchy1 {
@@ -118,6 +121,10 @@ $img-bgcolor: $deco-blue;
     max-width: 100%;
     left: 0;
     transform: translate(0,0);
+  }
+  @media (max-width: $width-xs) {
+    line-height: 1.55;
+    font-size: 15.5px;
   }
 }
 .note-box {

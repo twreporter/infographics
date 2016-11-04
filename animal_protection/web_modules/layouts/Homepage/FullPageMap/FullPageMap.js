@@ -25,8 +25,8 @@ const debounceTime = {
   threshold: 5,
   maxWait: 15,
 }
-const SLIDE_TIMEOUT = 350
-const SLIDEIN_LONG = 500
+const SLIDE_TIMEOUT = 10
+const SLIDEIN_LONG = 850
 
 const FADEOUT_SETTINGS = { duration: 800, easing: "easeInQuad" }
 const FADEIN_SETTINGS = { duration: 550, easing: "easeOutCubic" }
@@ -126,7 +126,7 @@ export default class FullPageMap extends Component {
     if (!isScrolling) {
       this.setState({ isScrolling: true })
 
-      velocity(slide, "scroll", { offset: 0, duration: sDuration })
+      velocity(slide, "scroll", { offset: 0, duration: sDuration, easing: "easeOut" })
       // velocity(document.body, { scrollTop: cTop }, { duration: sDuration })
         .then(() => {
           window.scrollTo(0, cTop)
@@ -149,7 +149,7 @@ export default class FullPageMap extends Component {
     this._EnterSlide(cTop, slide1, sDuration)
 
     const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
-    velocity(slideOuter, { marginTop: 0 }, { duration: sDuration })
+    velocity(slideOuter, { marginTop: 0 }, { duration: sDuration, easing: "easeInOutQuart" })
 
     // set the background map
     const oldM1 = ReactDOM.findDOMNode(this.oldM1)
@@ -165,7 +165,7 @@ export default class FullPageMap extends Component {
     this._EnterSlide(cTop, slide2, sDuration)
 
     const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
-    velocity(slideOuter, { marginTop: -1 *window.innerHeight }, { duration: sDuration })
+    velocity(slideOuter, { marginTop: -1 *window.innerHeight }, { duration: sDuration, easing: "easeInOutQuart" })
 
     // set the background map
     const oldM1 = ReactDOM.findDOMNode(this.oldM1)

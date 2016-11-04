@@ -25,8 +25,8 @@ const debounceTime = {
   threshold: 5,
   maxWait: 15,
 }
-const SLIDE_TIMEOUT = 350
-const SLIDEIN_LONG = 500
+const SLIDE_TIMEOUT = 10
+const SLIDEIN_LONG = 850
 
 const FADEOUT_SETTINGS = { duration: 800, easing: "easeInQuad" }
 const FADEIN_SETTINGS = { duration: 550, easing: "easeOutCubic" }
@@ -126,7 +126,7 @@ export default class FullPageGov extends Component {
     if (!isScrolling) {
       this.setState({ isScrolling: true })
 
-      velocity(slide, "scroll", { offset: 0, duration: sDuration })
+      velocity(slide, "scroll", { offset: 0, duration: sDuration, easing: "easeOut" })
       // velocity(document.body, { scrollTop: cTop }, { duration: sDuration })
         .then(() => {
           window.scrollTo(0, cTop)
@@ -149,7 +149,7 @@ export default class FullPageGov extends Component {
     this._EnterSlide(cTop, slide1, sDuration)
 
     const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
-    velocity(slideOuter, { marginTop: 0 }, { duration: sDuration })
+    velocity(slideOuter, { marginTop: 0 }, { duration: sDuration, easing: "easeInOutQuart" })
 
     // set the background map
     const hierarchy1 = ReactDOM.findDOMNode(this.hierarchy1)
@@ -161,14 +161,13 @@ export default class FullPageGov extends Component {
   }
 
   _EnterSecond(cTop, sDuration) {
-    console.log("_EnterSecond")
     const slide2 = ReactDOM.findDOMNode(this.slide2)
     const isFixed = (this.state.curSlide > 0) ? true : false
     this.setState({ curSlide: 2, isFixed: isFixed })
     this._EnterSlide(cTop, slide2, sDuration)
 
     const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
-    velocity(slideOuter, { marginTop: -1 *window.innerHeight }, { duration: sDuration })
+    velocity(slideOuter, { marginTop: -1 *window.innerHeight }, { duration: sDuration, easing: "easeInOutQuart" })
 
     // set the background map
     const hierarchy1 = ReactDOM.findDOMNode(this.hierarchy1)
@@ -180,14 +179,13 @@ export default class FullPageGov extends Component {
   }
 
   _EnterThird(cTop, sDuration) {
-    console.log("_EnterThird")
     const slide3 = ReactDOM.findDOMNode(this.slide3)
     const isFixed = (this.state.curSlide > 0) ? true : false
     this.setState({ curSlide: 3, isFixed: isFixed })
     this._EnterSlide(cTop, slide3, sDuration)
 
     const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
-    velocity(slideOuter, { marginTop: -2 *window.innerHeight }, { duration: sDuration })
+    velocity(slideOuter, { marginTop: -2 *window.innerHeight }, { duration: sDuration, easing: "easeInOutQuart" })
 
     // set the background map
     const hierarchy1 = ReactDOM.findDOMNode(this.hierarchy1)
@@ -203,8 +201,6 @@ export default class FullPageGov extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
-
-    console.log(top, bottom)
 
     // determine the postition of the pinned map
     if (top > 10) {
@@ -232,34 +228,26 @@ export default class FullPageGov extends Component {
     const cTop = node.offsetTop
 
     // control slides
-    console.log(top)
     if (node && !isScrolling && !(currentOffset === pageOffset)) {
       if (isDown && (top < 1*vpHeight/3 && top > 0)) {
-        console.log("0")
         this._EnterFirst(cTop, SLIDEIN_LONG)
       }
       else if  (isDown && (top <= 0 && top > -1*vpHeight/2)) {
-        console.log("1")
         this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
       }
       else if  (isDown && (top <= -2*vpHeight/2 && top > -3*vpHeight/2)) {
-        console.log("2")
         this._EnterThird(cTop+2*vpHeight, SLIDEIN_LONG)
       }
       else if (!isDown && (top<= -1*vpHeight/2  && top > -vpHeight)) {
-        console.log("3")
         this._EnterFirst(cTop, SLIDEIN_LONG)
       }
       else if (!isDown && (top<= -vpHeight && top > -4*vpHeight/2)) {
-        console.log("4")
         this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
       }
-      else if (!isDown && (top<= -5*vpHeight/2 && top > -8*vpHeight/3)) {
-        console.log("5")
+      else if (!isDown && (top<= -4*vpHeight/2 && top > -5*vpHeight/2)) {
         this._EnterThird(cTop+2*vpHeight, SLIDEIN_LONG)
       }
       else if (top>vpHeight/2+10 || top < -vpHeight*2-10 || (!isDown && top > 10)) {
-        console.log("-1")
         this.setState({ curSlide: -1, isFixed: false })
       }
     }
