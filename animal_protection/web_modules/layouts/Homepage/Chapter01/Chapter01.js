@@ -100,49 +100,51 @@ export default class Chapter01 extends Component {
               <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) } style={ { paddingBottom: "4rem" } }>
                 <Markdown className={ commonStyles["inner-text"] } source={ sec2Des } />
               </div>
-              <div className={  classnames(styles["photography"]) }>
-                <div className={  classnames(styles["photo-1"]) }>
-                  <p className={ styles["photo-overlay-text"] }>{ photoText[0] }</p>
-                </div>
-                <div className={  classnames(commonStyles["content-outer"]) }>
-                  <div className={ classnames(styles["p-grid"], styles["p-v-space"]) }>
-                    <div className={ styles["p-left"] }>
-                      <img className={ commonStyles["img-responsive"] } src={ photo02a } srcSet={ `${photo02a} 1200w, ${photo02aM} 600w` } alt={ photoText[1] } />
-                      <p className={ styles["photo-description"] }>{ photoText[1] }</p>
-                    </div>
-                    <div className={ styles["p-right"] }>
-                      <img className={ commonStyles["img-responsive"] } src={ photo02b } srcSet={ `${photo02b} 1200w, ${photo02bM} 600w` } alt={ photoText[2] } />
-                      <p className={ styles["photo-description"] }>{ photoText[2] }</p>
+              <div className={ styles["photography-wrapper"] }>
+                <div className={  classnames(styles["photography"]) }>
+                  <div className={  classnames(styles["photo-1"]) }>
+                    <p className={ styles["photo-overlay-text"] }>{ photoText[0] }</p>
+                  </div>
+                  <div className={  classnames(commonStyles["content-outer"]) }>
+                    <div className={ classnames(styles["p-grid"], styles["p-v-space"]) }>
+                      <div className={ styles["p-left"] }>
+                        <img className={ commonStyles["img-responsive"] } src={ photo02a } srcSet={ `${photo02a} 1200w, ${photo02aM} 600w` } alt={ photoText[1] } />
+                        <p className={ styles["photo-description"] }>{ photoText[1] }</p>
+                      </div>
+                      <div className={ styles["p-right"] }>
+                        <img className={ commonStyles["img-responsive"] } src={ photo02b } srcSet={ `${photo02b} 1200w, ${photo02bM} 600w` } alt={ photoText[2] } />
+                        <p className={ styles["photo-description"] }>{ photoText[2] }</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className={  classnames(styles["photo-3a"]) }>
-                  <p className={ styles["photo-overlay-text"] }>{ photoText[3] }</p>
-                </div>
-                <div className={  classnames(styles["photo-3b"]) }>
-                  <p className={ styles["photo-overlay-text"] }>{ photoText[4] }</p>
-                </div>
-                <div className={  classnames(commonStyles["content-outer"]) }>
-                  <div className={ classnames(styles["p-grid"], styles["p-v-space"]) }>
-                    <div className={ styles["p-full"] }>
-                      <img className={ commonStyles["img-responsive"] } src={ photo04 } srcSet={ `${photo04} 1200w, ${photo04M} 600w` } alt={ photoText[5] } />
-                      <p className={ styles["photo-description"] }>{ photoText[5] }</p>
+                  <div className={  classnames(styles["photo-3a"]) }>
+                    <p className={ styles["photo-overlay-text"] }>{ photoText[3] }</p>
+                  </div>
+                  <div className={  classnames(styles["photo-3b"]) }>
+                    <p className={ styles["photo-overlay-text"] }>{ photoText[4] }</p>
+                  </div>
+                  <div className={  classnames(commonStyles["content-outer"]) }>
+                    <div className={ classnames(styles["p-grid"], styles["p-v-space"]) }>
+                      <div className={ styles["p-full"] }>
+                        <img className={ commonStyles["img-responsive"] } src={ photo04 } srcSet={ `${photo04} 1200w, ${photo04M} 600w` } alt={ photoText[5] } />
+                        <p className={ styles["photo-description"] }>{ photoText[5] }</p>
+                      </div>
                     </div>
                   </div>
+                  <div className={  classnames(styles["photo-5a"]) }>
+                    <p className={ styles["photo-overlay-text"] }>{ photoText[6] }</p>
+                  </div>
+                  <div className={  classnames(styles["photo-5b"]) }>
+                    <p className={ styles["photo-overlay-text"] }>{ photoText[7] }</p>
+                  </div>
                 </div>
-                <div className={  classnames(styles["photo-5a"]) }>
-                  <p className={ styles["photo-overlay-text"] }>{ photoText[6] }</p>
-                </div>
-                <div className={  classnames(styles["photo-5b"]) }>
-                  <p className={ styles["photo-overlay-text"] }>{ photoText[7] }</p>
-                </div>
-              </div>
-              <div className={ styles["photography-last"] }>
-                <div className={  classnames(commonStyles["content-outer"]) }>
-                  <div className={ classnames(styles["p-grid"], styles["p-v-space"]) }>
-                    <div className={ styles["p-full"] }>
-                      <img className={ commonStyles["img-responsive"] } src={ photo06 } srcSet={ `${photo06} 1200w, ${photo06M} 600w` } alt={ photoText[8] } />
-                      <p className={ styles["photo-description"] }>{ photoText[8] }</p>
+                <div className={ styles["photography-last"] }>
+                  <div className={  classnames(commonStyles["content-outer"]) }>
+                    <div className={ classnames(styles["p-grid"], styles["p-v-space"]) }>
+                      <div className={ styles["p-full"] }>
+                        <img className={ commonStyles["img-responsive"] } src={ photo06 } srcSet={ `${photo06} 1200w, ${photo06M} 600w` } alt={ photoText[8] } />
+                        <p className={ styles["photo-description"] }>{ photoText[8] }</p>
+                      </div>
                     </div>
                   </div>
                 </div>

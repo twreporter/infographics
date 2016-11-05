@@ -117,16 +117,18 @@
 }
 
 .photography {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: #111318;
   width: 100%;
   padding-bottom: 1rem;
-  display: table;
 }
 
 .photography-last {
   width: 100%;
-  display: table;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to bottom, #111318, $content-bg);
+}
+
+.photography-wrapper {
+  background-color: #111318;
 }
 
 .photo-overlay-text {
