@@ -1,0 +1,228 @@
+/* stylelint-disable function-comma-space-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+
+.container {
+  position: relative;
+  height: 700vh;
+  color: white;
+  background: linear-gradient(to bottom, $blue 0%, $pink 100%);
+}
+
+.overlay-box {
+  width: 100%;
+  height: 100vh;
+}
+
+.text-wrapper {
+  position: relative;
+  background: $pink;
+  width: 100%;
+  height: 100vh;
+}
+
+.title-box {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: $small-font-size;
+  h1 {
+    font-size: $font-bold;
+    font-size: 48px;
+    line-height: 1.55;
+    @media (max-width: $width-md) {
+      font-size: 40px;
+    }
+    @media (max-width: $width-xs) {
+      font-size: 33px;
+    }
+  }
+
+  @media (max-width: $width-md) {
+    font-size: 15px;
+  }
+}
+
+.yoyo {
+  >svg {
+    width: 100%;
+    height: 30vh;
+  }
+}
+
+.yoyo-des {
+  padding-top: 2.5rem;
+}
+
+.pet-item {
+  width: 80px;
+  height: 80px;
+  margin: 20px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  border-radius: 50%;
+  @media (max-width: $width-xs) {
+    width: 55px;
+    height: 55px;
+  }
+  @media (min-width: $width-md) {
+    width: 90px;
+    height: 90px;
+  }
+  @media (min-width: $width-lg) {
+    width: 110px;
+    height: 110px;
+  }
+
+  img {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+  }
+}
+
+.pet1 {
+  top: 83%;
+  left: calc(28% - 80px);
+  opacity: 0.8;
+}
+
+.pet2 {
+  top: 96%;
+  left: 58%;
+  opacity: 0.7;
+  @media (max-width: $width-xs) {
+    top: 93%;
+    left: calc(31%);
+  }
+  @media (min-width: $width-md) {
+    width: 80px;
+    height: 80px;
+  }
+  @media (min-width: $width-lg) {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.pet3 {
+  width: 100px;
+  height: 100px;
+  top: 80%;
+  left: calc(70% + 100px);
+  opacity: 0.9;
+  @media (max-width: $width-xs) {
+    left: calc(55% + 100px);
+    width: 65px;
+    height: 65px;
+  }
+  @media (min-width: $width-md) {
+    left: calc(70% + 130px);
+    width: 130px;
+    height: 130px;
+  }
+  @media (min-width: $width-lg) {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+.pet4 {
+  width: 70px;
+  height: 70px;
+  top: 55%;
+  left: calc(22% - 70px);
+  opacity: 0.8;
+  @media (max-width: $width-xs) {
+    left: calc(22% - 70px);
+    width: 40px;
+    height: 40px;
+  }
+  @media (min-width: $width-md) {
+    width: 100px;
+    height: 100px;
+  }
+  @media (min-width: $width-lg) {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.pet5 {
+  width: 70px;
+  height: 70px;
+  top: 60%;
+  left: calc(70% + 70px);
+  opacity: 0.8;
+  @media (max-width: $width-xs) {
+    width: 60px;
+    height: 60px;
+  }
+  @media (min-width: $width-md) {
+    width: 100px;
+    height: 100px;
+  }
+  @media (min-width: $width-lg) {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.pet6 {
+  display: none;
+  width: 70px;
+  height: 70px;
+  top: 80%;
+  left: calc(60% + 70px);
+  opacity: 0.7;
+  @media (min-width: $width-md) {
+    display: block;
+  }
+}
+
+.pet7 {
+  display: none;
+  width: 80px;
+  height: 80px;
+  top: 70%;
+  left: calc(5% + 80px);
+  opacity: 0.8;
+  @media (min-width: $width-md) {
+    display: block;
+  }
+}
+
+.pet8 {
+  width: 60px;
+  height: 60px;
+  top: 86%;
+  left: calc(32% + 60px);
+  opacity: 0.6;
+  @media (max-width: $width-xs) {
+    top: 90%;
+  }
+  @media (min-width: $width-md) {
+    width: 80px;
+    height: 80px;
+    top: 92%;
+  }
+}
+
+.pet9 {
+  display: none;
+  width: 55px;
+  height: 55px;
+  top: 80%;
+  left: calc(3%);
+  opacity: 0.8;
+  @media (min-width: $width-sm) {
+    display: block;
+  }
+}

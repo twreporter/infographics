@@ -25,7 +25,7 @@ export default class ChapterTitle extends Component {
   _handleTitleVisible() {
     if (!this.state.isPlaying) {
       this.setState({ isPlaying: true })
-      velocity(this.titleBox, { translateX: [ "0", "0" ], translateY: [ "0%", "15%" ], opacity: [ 1, 0.5 ] }, { delay: 50, duration: 900, easing: "easeInQuad" })
+      velocity(this.titleBox, { translateX: [ "0", "0" ], translateY: [ "0%", "15%" ], opacity: [ 1, 0.5 ] }, { delay: 50, duration: 900, easing: "easeInOut" })
       .then(() => {
         this.setState({ isPlaying: false })
       })

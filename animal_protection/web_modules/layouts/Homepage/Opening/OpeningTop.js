@@ -3,15 +3,14 @@
 import _ from "lodash"
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
-
+import Markdown from "react-markdown"
 import classnames from "classnames"
-import styles from "./OpeningSec1.scss"
+import styles from "./OpeningTop.scss"
 import commonStyles from "../../../styles/common.scss"
 import yoyoImg from "../../../../content/assets/cold-top.svg"
-import pet1 from "../../../../content/assets/dog01.jpg"
-import pet2 from "../../../../content/assets/dog02.jpg"
-import pet3 from "../../../../content/assets/dog03.jpg"
-import pet4 from "../../../../content/assets/dog04.jpg"
+
+import { titlePart1, titlePart2, description, authorText,
+  publishDate, authorSeparator, authorList } from "./text"
 
 // let velocity
 // if (typeof window !== "undefined") {
@@ -23,7 +22,7 @@ const debounceTime = {
   maxWait: 45,
 }
 
-export default class OpeningSec1 extends Component {
+export default class OpeningTop extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -84,53 +83,38 @@ export default class OpeningSec1 extends Component {
   }
 
   render() {
+    let authorItems = []
     const centerClass = (this.state.isIn) ? commonStyles["fixedCenter"] : null
+    for (let i=0; i<authorList.length; i++) {
+      const separator = (i===authorList.length-1) ? "" : authorSeparator
+      authorItems.push(<span itemProp="author">{ authorList[i] + separator }</span>)
+    }
 
     return (
       <div className={ classnames(styles.container,
         commonStyles["text-center"]) }
         ref={ (ref) => this.container = ref }
       >
-        <div className={ commonStyles["content-outer"] }>
-          <div className={ classnames(styles["pet-item"], styles["pet1"]) }>
-            <img src={ pet1 } />
+        <div className={ styles["text-wrapper"] }>
+          <div className={ styles["title-box"] }>
+            <div className={ classnames(commonStyles["content-outer"]) }>
+              <h1 itemProp="headline"> { titlePart1 } <br /> { titlePart2 } </h1>
+              <p itemProp="description"><Markdown source={ description } /></p>
+              <p>{ authorText } { authorItems } &nbsp; | &nbsp; <span itemProp="datePublished">{ publishDate }</span></p>
+            </div>
           </div>
-          <div className={ classnames(styles["pet-item"], styles["pet2"]) }>
-            <img src={ pet2 } />
-          </div>
-          <div className={ classnames(styles["pet-item"], styles["pet3"]) }>
-            <img src={ pet3 } />
-          </div>
-          <div className={ classnames(styles["pet-item"], styles["pet4"]) }>
-            <img src={ pet4 } />
-          </div>
-          <div className={ classnames(styles["pet-item"], styles["pet5"]) }>
-            <img src={ pet1 } />
-          </div>
-          <div className={ classnames(styles["pet-item"], styles["pet6"]) }>
-            <img src={ pet1 } />
-          </div>
-          <div className={ classnames(styles["pet-item"], styles["pet7"]) }>
-            <img src={ pet2 } />
-          </div>
-          <div className={ classnames(styles["pet-item"], styles["pet8"]) }>
-            <img src={ pet3 } />
-          </div>
-          <div className={ classnames(styles["pet-item"], styles["pet9"]) }>
-            <img src={ pet3 } />
-          </div>
-          <div
-            className={ classnames(commonStyles["content-outer"], centerClass) }
-            style={ { top: this.state.pinTopY } }
-            ref={ (ref) => this.pinnedItem = ref }
-          >
-            <div className={ classnames(commonStyles["img-responsive"], styles["yoyo"]) } dangerouslySetInnerHTML={ { __html: yoyoImg } } />
-            <h1 className={ styles["yoyo-des"] }>憂憂只是一隻狗</h1>
-          </div>
+        </div>
+
+        <div
+          className={ classnames(styles["overlay-box"], centerClass) }
+          style={ { top: this.state.pinTopY } }
+          ref={ (ref) => this.pinnedItem = ref }
+        >
+          <div className={ classnames(commonStyles["img-responsive"], styles["yoyo"]) } dangerouslySetInnerHTML={ { __html: yoyoImg } } />
         </div>
       </div>
     )
   }
 }
 
-OpeningSec1.propTypes = {}
+OpeningTop.propTypes = {}

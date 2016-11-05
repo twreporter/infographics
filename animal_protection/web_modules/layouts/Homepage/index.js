@@ -10,7 +10,8 @@ import classnames from "classnames"
 import Markdown from "react-markdown"
 import Img from "react-image-holder"
 import { firstContent } from "./content"
-import OpeningSec1 from "./Opening/OpeningSec1"
+import OpeningTop from "./Opening/OpeningTop"
+import OpeningOneDog from "./Opening/OpeningOneDog"
 import OpeningStardust from "./Opening/OpeningStardust"
 import OpeningLast from "./Opening/OpeningLast"
 import Chapter01 from "./Chapter01/Chapter01"
@@ -58,7 +59,7 @@ export default class Homepage extends Component {
       <Page { ...this.props } className={
           commonStyles["center-block"] }
       >
-        <div className={ styles["container"] }>
+        {/* <div className={ styles["container"] }>
           <div className={ classnames(commonStyles.content) }>
             <h2>{ "Latest Posts" }</h2>
             <div ref={ (ref) => this.block = ref }>
@@ -66,20 +67,23 @@ export default class Homepage extends Component {
             </div>
             <Img src="" width="800" height="500" usePlaceholder />
           </div>
-        </div>
-        <OpeningSec1 />
-        <OpeningStardust />
-        <OpeningLast />
-        <Chapter01 />
-        <Tnr />
-        <Chapter03 />
-        <Chapter04 />
-        <Chapter05 />
+        </div> */}
+        <div itemScope itemType="http://schema.org/ScholarlyArticle">
+          <OpeningTop />
+          <OpeningOneDog />
+          <OpeningStardust />
+          <OpeningLast />
+          <Chapter01 />
+          <Tnr />
+          <Chapter03 />
+          <Chapter04 />
+          <Chapter05 />
 
-        <div className={ commonStyles.content }>
-          <Markdown source={ firstContent } />
-          <PagesList pages={ latestPosts } />
-          地圖資料來源： CartoDB
+          <div className={ commonStyles.content }>
+            <Markdown source={ firstContent } />
+            <PagesList pages={ latestPosts } />
+            地圖資料來源： CartoDB
+          </div>
         </div>
 
       </Page>
