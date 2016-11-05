@@ -23,10 +23,10 @@ import Chapter05 from "./Chapter05/Chapter05"
 import commonStyles from "../../styles/common.scss"
 import styles from "./Home.scss"
 
-let velocity
-if (typeof window !== "undefined") {
-  velocity = require("velocity-animate")
-}
+// let velocity
+// if (typeof window !== "undefined") {
+//   velocity = require("velocity-animate")
+// }
 
 const numberOfLatestPosts = 6
 
@@ -43,8 +43,8 @@ export default class Homepage extends Component {
   }
 
   componentDidMount() {
-    velocity(this.block, { scale: 2 }, 500)
-      .then(() => console.log("animation complete"))
+    // velocity(this.block, { scale: 2 }, 500)
+    //   .then(() => console.log("animation complete"))
   }
 
   render() {

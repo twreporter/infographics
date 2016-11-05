@@ -7,15 +7,20 @@ import Markdown from "react-markdown"
 import classnames from "classnames"
 import styles from "./OpeningTop.scss"
 import commonStyles from "../../../styles/common.scss"
-import yoyoImg from "../../../../content/assets/cold-top.svg"
+import yoyoImg from "../../../../content/assets/yoyo-opening.svg"
+import houseImg from "../../../../content/assets/houses.svg"
+import moonImg from "../../../../content/assets/moon.svg"
+import cloudImg from "../../../../content/assets/cloud.svg"
 
 import { titlePart1, titlePart2, description, authorText,
   publishDate, authorSeparator, authorList } from "./text"
 
-// let velocity
-// if (typeof window !== "undefined") {
-//   velocity = require("velocity-animate")
-// }
+let velocity
+if (typeof window !== "undefined") {
+  velocity = require("velocity-animate")
+}
+
+const CLOUD_DURATION = 8000
 
 const debounceTime = {
   threshold: 15,
@@ -27,8 +32,7 @@ export default class OpeningTop extends Component {
     super(props)
     this.state = {
       showSubComponent: true,
-      isIn: false,
-      pinTopY: 0,
+      isIn: true,
       scrollRatio: -1,
     }
     this.pItemHeight = 100
@@ -47,13 +51,19 @@ export default class OpeningTop extends Component {
     // detect sroll position
     window.addEventListener("scroll", this.debouncedScroll)
 
-    // velocity(this.block, { scale: 2 }, 500)
-    //   .then(() => console.log("animation complete"))
+    velocity(this.clouds, { left: "-100%" }, { duration: CLOUD_DURATION, easing: "linear" })
+    velocity(this.clouds, "reverse", { duration: 1 })
+    this.cloudInterval = setInterval(()=>{
+      console.log(CLOUD_DURATION)
+      velocity(this.clouds, { left: "-100%" }, { duration: CLOUD_DURATION, easing: "linear" })
+      velocity(this.clouds, "reverse", { duration: 1 })
+    }, CLOUD_DURATION)
 
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.debouncedScroll)
+    clearInterval(this.cloudInterval)
   }
 
   _handleScroll() {
@@ -62,14 +72,12 @@ export default class OpeningTop extends Component {
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
 
+    console.log(top, bottom)
+
     if (this.pItemHeight) {
-      if (bottom > vpHeight && bottom &&
-          top < (vpHeight / 2 - this.pItemHeight / 2)) {
-        this.setState({ isIn: true, pinTopY: vpHeight / 2 })
-      }
-      else if (bottom < vpHeight && bottom > 0 &&
-          top < (vpHeight / 2 - this.pItemHeight / 2)) {
-        this.setState({ pinTopY: bottom - vpHeight / 2 })
+      if (top >=(-4 * this.pItemHeight) &&
+          top <= 0) {
+        this.setState({ isIn: true })
       }
       else {
         this.setState({ isIn: false })
@@ -84,10 +92,10 @@ export default class OpeningTop extends Component {
 
   render() {
     let authorItems = []
-    const centerClass = (this.state.isIn) ? commonStyles["fixedCenter"] : null
+    const centerClass = (this.state.isIn) ? commonStyles["fixedCenter"] : styles["night-container"]
     for (let i=0; i<authorList.length; i++) {
       const separator = (i===authorList.length-1) ? "" : authorSeparator
-      authorItems.push(<span itemProp="author">{ authorList[i] + separator }</span>)
+      authorItems.push(<span key={ i } itemProp="author">{ authorList[i] + separator }</span>)
     }
 
     return (
@@ -99,7 +107,7 @@ export default class OpeningTop extends Component {
           <div className={ styles["title-box"] }>
             <div className={ classnames(commonStyles["content-outer"]) }>
               <h1 itemProp="headline"> { titlePart1 } <br /> { titlePart2 } </h1>
-              <p itemProp="description"><Markdown source={ description } /></p>
+              <div itemProp="description"><Markdown source={ description } /></div>
               <p>{ authorText } { authorItems } &nbsp; | &nbsp; <span itemProp="datePublished">{ publishDate }</span></p>
             </div>
           </div>
@@ -107,9 +115,19 @@ export default class OpeningTop extends Component {
 
         <div
           className={ classnames(styles["overlay-box"], centerClass) }
-          style={ { top: this.state.pinTopY } }
           ref={ (ref) => this.pinnedItem = ref }
         >
+          <div className={ classnames(styles["moon"]) } dangerouslySetInnerHTML={ { __html: moonImg } } />
+          <div className={ classnames(styles["cloud"]) } ref={ (ref) => this.clouds = ref }>
+            <div dangerouslySetInnerHTML={ { __html: cloudImg } } />
+            <div className={ classnames(styles["subcloud2"]) } dangerouslySetInnerHTML={ { __html: cloudImg } } />
+          </div>
+        </div>
+        <div
+          className={ classnames(styles["overlay-box"], centerClass, styles["top-dog-outer"]) }
+          ref={ (ref) => this.pinnedItem = ref }
+        >
+          <div className={ classnames(styles["house"]) } dangerouslySetInnerHTML={ { __html: houseImg } } />
           <div className={ classnames(commonStyles["img-responsive"], styles["yoyo"]) } dangerouslySetInnerHTML={ { __html: yoyoImg } } />
         </div>
       </div>

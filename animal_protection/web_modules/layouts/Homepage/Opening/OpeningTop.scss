@@ -13,16 +13,82 @@
   height: 100vh;
 }
 
+.top-dog-outer {
+  z-index: 50;
+}
+
+.night-container {
+  position: absolute;
+  top: 400vh;
+  left: 0;
+  width: 100%;
+}
+
 .text-wrapper {
   position: relative;
-  background: $pink;
   width: 100%;
   height: 100vh;
+  z-index: 10;
+}
+
+.cloud {
+  position: absolute;
+  width: 200%;
+  top: 18%;
+  left: 0;
+  >div {
+    display: inline-block;
+    width: 50%;
+  }
+}
+
+.subcloud2 {
+  @media screen and (orientation:portrait) {
+    display: none;
+  }
+}
+
+.moon {
+  position: absolute;
+  width: 6.5%;
+  top: 18%;
+  left: 16%;
+  @media screen and (orientation:portrait) {
+    width: 11%;
+    top: 25%;
+    left: 15%;
+  }
+  @media screen and (max-width: $width-xs) and (orientation:portrait) {
+    width: 15%;
+  }
+}
+
+.house {
+  position: absolute;
+  bottom: -0.8rem;
+  width: 100%;
+  svg {
+    width: 100%;
+  }
+  @media (max-width: 1600) {
+    width: 110%;
+    left: -5%;
+  }
+  @media (max-width: $width-lg) {
+    width: 120%;
+    left: -10%;
+  }
+  @media (max-width: $width-xs) {
+    width: 200%;
+    left: -56%;
+    bottom: -1.2rem;
+  }
+
 }
 
 .title-box {
   position: absolute;
-  top: 20%;
+  top: 18%;
   left: 0;
   right: 0;
   padding-left: 1rem;
@@ -36,19 +102,35 @@
       font-size: 40px;
     }
     @media (max-width: $width-xs) {
-      font-size: 33px;
+      font-size: 30px;
     }
   }
 
   @media (max-width: $width-md) {
     font-size: 15px;
   }
+  @media (max-width: $width-xs) {
+    top: 12%;
+  }
 }
 
 .yoyo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translate(5%, 23%);
+  z-index: 20;
+  @media screen and (orientation:portrait) {
+    transform: translate(10%, 23%);
+  }
+
   >svg {
     width: 100%;
-    height: 30vh;
+    height: 45vh;
+    @media screen and (orientation:portrait) {
+      height: 40vh;
+    }
   }
 }
 

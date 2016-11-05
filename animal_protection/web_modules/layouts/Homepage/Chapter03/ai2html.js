@@ -346,7 +346,7 @@ export function barChart(mobile, desktop) {
 			#g-animal-2-ai2html-_____1___ .g-aiPstyle1 {
 				font-weight: 700;
 				text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
-				font-size:28px;
+				font-size:27px;
 				line-height:34px;
 				letter-spacing:0.02916666666667em;
 				color:#ffffff;
