@@ -40,6 +40,7 @@ export default class OpeningTop extends Component {
       isLoveIn: false,
       isYoyoCentered: false,
       isBoxed: false,
+      isCaged: false,
       scrollRatio: -1,
     }
     this.pItemHeight = 100
@@ -77,7 +78,7 @@ export default class OpeningTop extends Component {
     const node = ReactDOM.findDOMNode(this.container)
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
-    const { isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed } = this.state
+    const { isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed, isCaged } = this.state
     const vpHeight = window.innerHeight
 
     console.log(top, bottom)
@@ -129,23 +130,31 @@ export default class OpeningTop extends Component {
       this.setState({ isYoyoCentered: false })
     }
 
-    if (!isBoxed && top < -vpHeight * 5.8) {
+    if (!isBoxed && top < -vpHeight * 5.8 && top > -vpHeight * 6.9) {
       this.setState({ isBoxed: true })
     }
-    else if (isBoxed && top > -vpHeight * 5.8) {
+    else if (isBoxed && (top > -vpHeight * 5.8 || top < -vpHeight * 6.9)) {
       this.setState({ isBoxed: false })
+    }
+
+    if (!isCaged && top < -vpHeight * 6.95) {
+      this.setState({ isCaged: true })
+    }
+    else if (isCaged && top > -vpHeight * 6.95) {
+      this.setState({ isCaged: false })
     }
 
   }
 
   render() {
     let authorItems = []
-    const { isIn, isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed } = this.state
+    const { isIn, isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed, isCaged } = this.state
     const moonClass = isMoonIn ? styles["moon-center"] : styles["moon"]
     const doorClass = isDoorIn ? styles["door"] : styles["door-hidden"]
     const loveClass = isLoveIn ? styles["door-love"] : null
     const centerClass = isIn ? commonStyles["fixedCenter"] : styles["night-container"]
     const boxedClass = isBoxed ? styles["yoyo-boxed"] : null
+    const cagedClass = isCaged ? styles["yoyo-caged"] : null
     const yoyoPositionClass = isYoyoCentered ? styles["yoyo-centered"] : null
     for (let i=0; i<authorList.length; i++) {
       const separator = (i===authorList.length-1) ? "" : authorSeparator
@@ -174,7 +183,6 @@ export default class OpeningTop extends Component {
             </div>
           </div>
         </div>
-
         <div className={ styles["text-wrapper"] }>
           <div className={ styles["story-box"] }>
             <div className={ classnames(commonStyles["content-outer"]) }>
@@ -182,7 +190,6 @@ export default class OpeningTop extends Component {
             </div>
           </div>
         </div>
-
         <div className={ styles["text-wrapper"] }>
           <div className={ styles["story-box"] }>
             <div className={ classnames(commonStyles["content-outer"]) }>
@@ -190,7 +197,6 @@ export default class OpeningTop extends Component {
             </div>
           </div>
         </div>
-
         <div className={ styles["text-wrapper"] }>
           <div className={ styles["story-box"] }>
             <div className={ classnames(commonStyles["content-outer"]) }>
@@ -198,14 +204,12 @@ export default class OpeningTop extends Component {
             </div>
           </div>
         </div>
-
         <div className={ styles["text-wrapper"] }>
           <div className={ styles["story-box"] }>
             <div className={ classnames(commonStyles["content-outer"]) }>
             </div>
           </div>
         </div>
-
         <div className={ styles["text-wrapper"] }>
           <div className={ styles["story-box"] }>
             <div className={ classnames(commonStyles["content-outer"]) }>
@@ -213,7 +217,6 @@ export default class OpeningTop extends Component {
             </div>
           </div>
         </div>
-
         <div className={ styles["text-wrapper"] }>
           <div className={ styles["story-box"] }>
             <div className={ classnames(commonStyles["content-outer"]) }>
@@ -243,7 +246,9 @@ export default class OpeningTop extends Component {
         >
           <div className={ classnames(styles["house"]) } dangerouslySetInnerHTML={ { __html: houseImg } } />
         </div>
-        <div className={ classnames(commonStyles["img-responsive"], styles["yoyo"], yoyoPositionClass, boxedClass) } dangerouslySetInnerHTML={ { __html: yoyoImg } } />
+        <div className={ classnames(commonStyles["img-responsive"],
+          styles["yoyo"], yoyoPositionClass, boxedClass, cagedClass) } dangerouslySetInnerHTML={ { __html: yoyoImg } }
+        />
       </div>
     )
   }
