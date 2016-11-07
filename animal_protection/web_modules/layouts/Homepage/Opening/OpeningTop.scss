@@ -5,7 +5,8 @@
   position: relative;
   height: 700vh;
   color: white;
-  background: linear-gradient(to bottom, $blue 0%, $pink 100%);
+  background: linear-gradient(to bottom,
+    #133166 0%, #b38fd4 12%, #7a6ead 35%, $pink 100%);
 }
 
 .overlay-box {
@@ -36,14 +37,21 @@
   width: 200%;
   top: 18%;
   left: 0;
-  >div {
-    display: inline-block;
-    width: 50%;
+  opacity: 0.9;
+}
+
+.subcloud {
+  display: inline-block;
+  width: 50%;
+  @media screen and (orientation:portrait) {
+    display: none;
   }
 }
 
-.subcloud2 {
-  @media screen and (orientation:portrait) {
+.subcloud-mobile {
+  display: inline-block;
+  width: 50%;
+  @media screen and (orientation:landscape) {
     display: none;
   }
 }
@@ -53,6 +61,7 @@
   width: 6.5%;
   top: 18%;
   left: 16%;
+  transition: all 1.5s ease-out;
   @media screen and (orientation:portrait) {
     width: 11%;
     top: 25%;
@@ -60,6 +69,29 @@
   }
   @media screen and (max-width: $width-xs) and (orientation:portrait) {
     width: 15%;
+  }
+  g > g {
+    transition: all 1s;
+  }
+}
+
+.moon-center {
+  position: absolute;
+  max-width: 20rem;
+  width: 20%;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: all 1.5s ease-out;
+  @media screen and (orientation:portrait) {
+    width: 33%;
+    top: 15%;
+  }
+  @media screen and (max-width: $width-xs) and (orientation:portrait) {
+    width: 45%;
+  }
+  g > g {
+    opacity: 1;
   }
 }
 
@@ -98,6 +130,7 @@
     font-size: $font-bold;
     font-size: 48px;
     line-height: 1.55;
+    text-shadow: 0 3px 0 $tooltip-gray;
     @media (max-width: $width-md) {
       font-size: 40px;
     }
@@ -111,6 +144,20 @@
   }
   @media (max-width: $width-xs) {
     top: 12%;
+  }
+}
+
+.story-box {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+
+  p {
+    margin: 0.5rem 0;
   }
 }
 

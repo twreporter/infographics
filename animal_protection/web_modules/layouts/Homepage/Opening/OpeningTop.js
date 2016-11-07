@@ -11,9 +11,10 @@ import yoyoImg from "../../../../content/assets/yoyo-opening.svg"
 import houseImg from "../../../../content/assets/houses.svg"
 import moonImg from "../../../../content/assets/moon.svg"
 import cloudImg from "../../../../content/assets/cloud.svg"
+import cloudMobileImg from "../../../../content/assets/cloud_mobile.svg"
 
 import { titlePart1, titlePart2, description, authorText,
-  publishDate, authorSeparator, authorList } from "./text"
+  publishDate, authorSeparator, authorList, paragraphs } from "./text"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -33,6 +34,7 @@ export default class OpeningTop extends Component {
     this.state = {
       showSubComponent: true,
       isIn: true,
+      isMoonIn: false,
       scrollRatio: -1,
     }
     this.pItemHeight = 100
@@ -70,6 +72,7 @@ export default class OpeningTop extends Component {
     const node = ReactDOM.findDOMNode(this.container)
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
+    const { isMoonIn } = this.state
     const vpHeight = window.innerHeight
 
     console.log(top, bottom)
@@ -88,11 +91,20 @@ export default class OpeningTop extends Component {
       this.setState({ scrollRatio: Math.abs((top - vpHeight) / (bottom - top + vpHeight)) })
     else
       this.setState({ scrollRatio: -1 })
+
+    if (!isMoonIn && top < -vpHeight * 1.2) {
+      this.setState({ isMoonIn: true })
+    }
+    else if (isMoonIn && top > -vpHeight * 1.2) {
+      this.setState({ isMoonIn: false })
+    }
   }
 
   render() {
     let authorItems = []
-    const centerClass = (this.state.isIn) ? commonStyles["fixedCenter"] : styles["night-container"]
+    const { isIn, isMoonIn } = this.state
+    const moonClass = isMoonIn ? styles["moon-center"] : styles["moon"]
+    const centerClass = isIn ? commonStyles["fixedCenter"] : styles["night-container"]
     for (let i=0; i<authorList.length; i++) {
       const separator = (i===authorList.length-1) ? "" : authorSeparator
       authorItems.push(<span key={ i } itemProp="author">{ authorList[i] + separator }</span>)
@@ -113,14 +125,32 @@ export default class OpeningTop extends Component {
           </div>
         </div>
 
+        <div className={ styles["text-wrapper"] }>
+          <div className={ styles["story-box"] }>
+            <div className={ classnames(commonStyles["content-outer"]) }>
+              <div itemProp="description"><Markdown source={ paragraphs[0] } /></div>
+            </div>
+          </div>
+        </div>
+
+        <div className={ styles["text-wrapper"] }>
+          <div className={ styles["story-box"] }>
+            <div className={ classnames(commonStyles["content-outer"]) }>
+              <div itemProp="description"><Markdown source={ paragraphs[1] } /></div>
+            </div>
+          </div>
+        </div>
+
         <div
           className={ classnames(styles["overlay-box"], centerClass) }
           ref={ (ref) => this.pinnedItem = ref }
         >
-          <div className={ classnames(styles["moon"]) } dangerouslySetInnerHTML={ { __html: moonImg } } />
+          <div className={ classnames(moonClass) } dangerouslySetInnerHTML={ { __html: moonImg } } />
           <div className={ classnames(styles["cloud"]) } ref={ (ref) => this.clouds = ref }>
-            <div dangerouslySetInnerHTML={ { __html: cloudImg } } />
-            <div className={ classnames(styles["subcloud2"]) } dangerouslySetInnerHTML={ { __html: cloudImg } } />
+            <div className={ classnames(styles["subcloud"]) } dangerouslySetInnerHTML={ { __html: cloudImg } } />
+            <div className={ classnames(styles["subcloud"]) } dangerouslySetInnerHTML={ { __html: cloudImg } } />
+            <div className={ classnames(styles["subcloud-mobile"]) } dangerouslySetInnerHTML={ { __html: cloudMobileImg } } />
+            <div className={ classnames(styles["subcloud-mobile"]) } dangerouslySetInnerHTML={ { __html: cloudMobileImg } } />
           </div>
         </div>
         <div
