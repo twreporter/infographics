@@ -174,7 +174,7 @@
     font-size: $font-bold;
     font-size: 48px;
     line-height: 1.55;
-    text-shadow: 0 3px 0 $tooltip-gray;
+    text-shadow: 1px 1px 11px rgba(0, 0, 0, 0.8);
     @media (max-width: $width-md) {
       font-size: 40px;
     }
@@ -198,10 +198,13 @@
   right: 0;
   padding-left: 1rem;
   padding-right: 1rem;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
-
+  text-shadow: 1px 1px 11px rgba(0, 0, 0, 0.85);
+  font-weight: $font-bold;
   p {
     margin: 0.5rem 0;
+    @media (min-width: $width-md) {
+      font-size: 19px;
+    }
   }
 }
 
@@ -220,17 +223,32 @@
   >svg {
     width: 100%;
     height: 45vh;
+    overflow: visible;
     @media screen and (orientation:portrait) {
       height: 40vh;
     }
+  }
+
+  svg > g > g:nth-of-type(3), svg > g > g:nth-of-type(1) {
+    transition: all 0.5s ease-in;
+    opacity: 0 !important;
+    transform: translate(0, 10rem);
   }
 }
 
 .yoyo-centered {
   position: fixed;
   top: 2vh;
-  transition: all 1s ease-in;
+  transition: all 0.8s ease-in;
   z-index: 5;
+}
+
+.yoyo-boxed {
+  svg > g > g:nth-of-type(3), svg > g > g:nth-of-type(1) {
+    transition: all 0.8s ease-in-out;
+    opacity: 1 !important;
+    transform: translate(0, 0);
+  }
 }
 
 .yoyo-des {
