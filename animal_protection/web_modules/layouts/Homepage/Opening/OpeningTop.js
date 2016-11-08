@@ -13,6 +13,7 @@ import moonImg from "../../../../content/assets/moon.svg"
 import cloudImg from "../../../../content/assets/cloud.svg"
 import cloudMobileImg from "../../../../content/assets/cloud_mobile.svg"
 import doorImg from "../../../../content/assets/moon-door.svg"
+import grassImg from "../../../../content/assets/grass_overlay.svg"
 
 import { titlePart1, titlePart2, description, authorText,
   publishDate, authorSeparator, authorList, paragraphs } from "./text"
@@ -130,17 +131,17 @@ export default class OpeningTop extends Component {
       this.setState({ isYoyoCentered: false })
     }
 
-    if (!isBoxed && top < -vpHeight * 5.8 && top > -vpHeight * 6.9) {
+    if (!isBoxed && top < -vpHeight * 5.8 && top > -vpHeight * 7.1) {
       this.setState({ isBoxed: true })
     }
-    else if (isBoxed && (top > -vpHeight * 5.8 || top < -vpHeight * 6.9)) {
+    else if (isBoxed && (top > -vpHeight * 5.8 || top < -vpHeight * 7.1)) {
       this.setState({ isBoxed: false })
     }
 
-    if (!isCaged && top < -vpHeight * 6.95) {
+    if (!isCaged && top < -vpHeight * 7.4) {
       this.setState({ isCaged: true })
     }
-    else if (isCaged && top > -vpHeight * 6.95) {
+    else if (isCaged && top > -vpHeight * 7.4) {
       this.setState({ isCaged: false })
     }
 
@@ -153,9 +154,12 @@ export default class OpeningTop extends Component {
     const doorClass = isDoorIn ? styles["door"] : styles["door-hidden"]
     const loveClass = isLoveIn ? styles["door-love"] : null
     const centerClass = isIn ? commonStyles["fixedCenter"] : styles["night-container"]
+    const cloudClass = isIn ? styles["cloud"] : styles["cloud-middle"]
     const boxedClass = isBoxed ? styles["yoyo-boxed"] : null
     const cagedClass = isCaged ? styles["yoyo-caged"] : null
-    const yoyoPositionClass = isYoyoCentered ? styles["yoyo-centered"] : null
+    let yoyoPositionClass = isYoyoCentered ? styles["yoyo-centered"] : null
+    yoyoPositionClass = isCaged ? styles["yoyo-center-bottom"] : yoyoPositionClass
+    const cloudEndingClass = isCaged ? styles["cloud-ending"] : null
     for (let i=0; i<authorList.length; i++) {
       const separator = (i===authorList.length-1) ? "" : authorSeparator
       authorItems.push(<span key={ i } itemProp="author">{ authorList[i] + separator }</span>)
@@ -225,6 +229,15 @@ export default class OpeningTop extends Component {
           </div>
         </div>
 
+        <div className={ classnames(styles["grass"]) } dangerouslySetInnerHTML={ { __html: grassImg } } />
+
+        <div className={ classnames(cloudClass, cloudEndingClass) } ref={ (ref) => this.clouds = ref }>
+          <div className={ classnames(styles["subcloud"]) } dangerouslySetInnerHTML={ { __html: cloudImg } } />
+          <div className={ classnames(styles["subcloud"]) } dangerouslySetInnerHTML={ { __html: cloudImg } } />
+          <div className={ classnames(styles["subcloud-mobile"]) } dangerouslySetInnerHTML={ { __html: cloudMobileImg } } />
+          <div className={ classnames(styles["subcloud-mobile"]) } dangerouslySetInnerHTML={ { __html: cloudMobileImg } } />
+        </div>
+
         <div
           className={ classnames(styles["overlay-box"], centerClass) }
           ref={ (ref) => this.pinnedItem = ref }
@@ -232,12 +245,6 @@ export default class OpeningTop extends Component {
           <div className={ classnames(moonClass) }>
             <div dangerouslySetInnerHTML={ { __html: moonImg } } />
             <div className={ classnames(doorClass, loveClass) } dangerouslySetInnerHTML={ { __html: doorImg } } />
-          </div>
-          <div className={ classnames(styles["cloud"]) } ref={ (ref) => this.clouds = ref }>
-            <div className={ classnames(styles["subcloud"]) } dangerouslySetInnerHTML={ { __html: cloudImg } } />
-            <div className={ classnames(styles["subcloud"]) } dangerouslySetInnerHTML={ { __html: cloudImg } } />
-            <div className={ classnames(styles["subcloud-mobile"]) } dangerouslySetInnerHTML={ { __html: cloudMobileImg } } />
-            <div className={ classnames(styles["subcloud-mobile"]) } dangerouslySetInnerHTML={ { __html: cloudMobileImg } } />
           </div>
         </div>
         <div

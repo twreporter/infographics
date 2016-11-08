@@ -33,12 +33,36 @@
   z-index: 10;
 }
 
-.cloud {
+.cloud-middle {
   position: absolute;
+  top: 400vh;
+  left: 0;
+  width: 200%;
+  opacity: 0.9;
+}
+
+.cloud {
+  position: fixed;
   width: 200%;
   top: 18%;
   left: 0;
   opacity: 0.9;
+}
+
+.cloud-ending {
+  position: absolute;
+  top: 800vh;
+  left: 0;
+  opacity: 0.8;
+  svg > g > path {
+    fill: #d3d2ad !important;
+  }
+  @media screen and (max-width: $width-xs) and (orientation:portrait) {
+    top: 815vh;
+  }
+  @media screen and (min-width: $width-lg) {
+    top: 790vh;
+  }
 }
 
 .subcloud {
@@ -163,6 +187,32 @@
 
 }
 
+.grass {
+  position: absolute;
+  top: 825vh;
+  width: 100%;
+  svg {
+    width: 100%;
+  }
+  @media (max-width: 1600) {
+    width: 110%;
+    left: -5%;
+  }
+  @media (max-width: $width-lg) {
+    top: 835vh;
+    width: 120%;
+    left: -10%;
+  }
+  @media (max-width: $width-md) {
+    top: 850vh;
+  }
+  @media (max-width: $width-xs) {
+    top: 855vh;
+    width: 200%;
+    left: -56%;
+  }
+}
+
 .title-box {
   position: absolute;
   top: 18%;
@@ -199,12 +249,15 @@
   right: 0;
   padding-left: 1rem;
   padding-right: 1rem;
-  text-shadow: 1px 1px 11px rgba(0, 0, 0, 0.85);
+  text-shadow: 2px 1px 13px rgba(0, 0, 0, 0.9);
   font-weight: $font-bold;
   p {
     margin: 0.5rem 0;
-    @media (min-width: $width-md) {
+    @media (min-width: $width-xs) {
       font-size: 19px;
+    }
+    @media (min-width: $width-md) {
+      font-size: 20px;
     }
   }
 }
@@ -230,8 +283,8 @@
     }
   }
 
-  svg > g > g:nth-of-type(2), svg > g > g:nth-of-type(4),
-  svg > g > g:nth-of-type(1), svg > g > g:nth-of-type(5) {
+  svg > g > g:nth-of-type(1), svg > g > g:nth-of-type(3),
+  svg > g > g:nth-of-type(4) {
     transition: all 0.5s ease-in;
     opacity: 0 !important;
     transform: translate(0, 10rem);
@@ -245,8 +298,15 @@
   z-index: 5;
 }
 
+.yoyo-center-bottom {
+  position: fixed;
+  top: 20vh;
+  transition: all 0.8s ease-in;
+  z-index: 5;
+}
+
 .yoyo-boxed {
-  svg > g > g:nth-of-type(2), svg > g > g:nth-of-type(4) {
+  svg > g > g:nth-of-type(1), svg > g > g:nth-of-type(3) {
     transition: all 0.85s ease-in-out;
     opacity: 1 !important;
     transform: translate(0, 0);
@@ -254,7 +314,7 @@
 }
 
 .yoyo-caged {
-  svg > g > g:nth-of-type(1), svg > g > g:nth-of-type(5) {
+  svg > g > g:nth-of-type(4) {
     transition: all 0.85s ease-in-out;
     opacity: 1 !important;
     transform: translate(0, 0);
