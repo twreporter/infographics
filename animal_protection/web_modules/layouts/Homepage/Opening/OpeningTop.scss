@@ -1,13 +1,21 @@
 /* stylelint-disable function-comma-space-after, selector-list-comma-newline-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
 @import "../../../styles/variables.scss";
 
-.container {
+.container-yoyo-story {
   position: relative;
   height: 900vh;
   color: white;
   background: linear-gradient(to bottom,
     #133166 0%, #b38fd4 12%, #7a6ead 35%,
-    $pink 43%, #000 80%, #deae77 90%, #b36667 100%);
+    $pink 43%, #000 80%, #deae77 90%, #b36667 97%, #b36667 97.7%, $content-bg 97.9%, $content-bg 100%);
+}
+
+.container-one-dog {
+  position: relative;
+  height: 90vh;
+  color: white;
+  background: linear-gradient(to bottom,
+    $content-bg 0%, $content-bg 40%, $pink 100%);
 }
 
 .overlay-box {
@@ -278,6 +286,7 @@
     width: 100%;
     height: 45vh;
     overflow: visible;
+    transition: height 0.8s ease-out;
     @media screen and (orientation:portrait) {
       height: 40vh;
     }
@@ -314,10 +323,26 @@
 }
 
 .yoyo-caged {
+  transition: width 0.8s ease-in;
   svg > g > g:nth-of-type(4) {
     transition: all 0.85s ease-in-out;
     opacity: 1 !important;
     transform: translate(0, 0);
+  }
+}
+
+.yoyo-one-dog {
+  transition: width 0.8s ease-in;
+  position: absolute;
+  top: 920vh;
+  svg {
+    transition: height 0.8s ease-out;
+    width: 70%;
+    height: 40vh;
+    overflow: visible;
+    @media screen and (orientation:portrait) {
+      height: 35vh;
+    }
   }
 }
 

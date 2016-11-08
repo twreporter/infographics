@@ -15,6 +15,11 @@ import cloudMobileImg from "../../../../content/assets/cloud_mobile.svg"
 import doorImg from "../../../../content/assets/moon-door.svg"
 import grassImg from "../../../../content/assets/grass_overlay.svg"
 
+import pet1 from "../../../../content/assets/dog01.jpg"
+import pet2 from "../../../../content/assets/dog02.jpg"
+import pet3 from "../../../../content/assets/dog03.jpg"
+import pet4 from "../../../../content/assets/dog04.jpg"
+
 import { titlePart1, titlePart2, description, authorText,
   publishDate, authorSeparator, authorList, paragraphs } from "./text"
 
@@ -42,6 +47,7 @@ export default class OpeningTop extends Component {
       isYoyoCentered: false,
       isBoxed: false,
       isCaged: false,
+      isOneDog: false,
       scrollRatio: -1,
     }
     this.pItemHeight = 100
@@ -79,7 +85,7 @@ export default class OpeningTop extends Component {
     const node = ReactDOM.findDOMNode(this.container)
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
-    const { isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed, isCaged } = this.state
+    const { isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed, isCaged, isOneDog } = this.state
     const vpHeight = window.innerHeight
 
     console.log(top, bottom)
@@ -145,11 +151,18 @@ export default class OpeningTop extends Component {
       this.setState({ isCaged: false })
     }
 
+    if (!isOneDog && top < -vpHeight * 9.05) {
+      this.setState({ isOneDog: true })
+    }
+    else if (isOneDog && top > -vpHeight * 9.05) {
+      this.setState({ isOneDog: false })
+    }
+
   }
 
   render() {
     let authorItems = []
-    const { isIn, isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed, isCaged } = this.state
+    const { isIn, isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed, isCaged, isOneDog } = this.state
     const moonClass = isMoonIn ? styles["moon-center"] : styles["moon"]
     const doorClass = isDoorIn ? styles["door"] : styles["door-hidden"]
     const loveClass = isLoveIn ? styles["door-love"] : null
@@ -157,6 +170,7 @@ export default class OpeningTop extends Component {
     const cloudClass = isIn ? styles["cloud"] : styles["cloud-middle"]
     const boxedClass = isBoxed ? styles["yoyo-boxed"] : null
     const cagedClass = isCaged ? styles["yoyo-caged"] : null
+    const oneDogClass = isOneDog ? styles["yoyo-one-dog"] : null
     let yoyoPositionClass = isYoyoCentered ? styles["yoyo-centered"] : null
     yoyoPositionClass = isCaged ? styles["yoyo-center-bottom"] : yoyoPositionClass
     const cloudEndingClass = isCaged ? styles["cloud-ending"] : null
@@ -166,96 +180,139 @@ export default class OpeningTop extends Component {
     }
 
     return (
-      <div className={ classnames(styles.container,
-        commonStyles["text-center"]) }
+      <div className={ classnames(commonStyles["text-center"]) }
         ref={ (ref) => this.container = ref }
       >
-        <div className={ styles["text-wrapper"] }>
-          <div className={ styles["title-box"] }>
-            <div className={ classnames(commonStyles["content-outer"]) }>
-              <h1 itemProp="headline"> { titlePart1 } <br /> { titlePart2 } </h1>
-              <div itemProp="description"><Markdown source={ description } /></div>
-              <p>{ authorText } { authorItems } &nbsp; | &nbsp; <span itemProp="datePublished">{ publishDate }</span></p>
+        <div className={ styles["container-yoyo-story"] }>
+          <div className={ styles["text-wrapper"] }>
+            <div className={ styles["title-box"] }>
+              <div className={ classnames(commonStyles["content-outer"]) }>
+                <h1 itemProp="headline"> { titlePart1 } <br /> { titlePart2 } </h1>
+                <div itemProp="description"><Markdown source={ description } /></div>
+                <p>{ authorText } { authorItems } &nbsp; | &nbsp; <span itemProp="datePublished">{ publishDate }</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div className={ styles["text-wrapper"] }>
+            <div className={ styles["story-box"] }>
+              <div className={ classnames(commonStyles["content-outer"]) }>
+                <div itemProp="description"><Markdown source={ paragraphs[0] } /></div>
+              </div>
+            </div>
+          </div>
+          <div className={ styles["text-wrapper"] }>
+            <div className={ styles["story-box"] }>
+              <div className={ classnames(commonStyles["content-outer"]) }>
+                <div itemProp="description"><Markdown source={ paragraphs[1] } /></div>
+              </div>
+            </div>
+          </div>
+          <div className={ styles["text-wrapper"] }>
+            <div className={ styles["story-box"] }>
+              <div className={ classnames(commonStyles["content-outer"]) }>
+                <div itemProp="description"><Markdown source={ paragraphs[2] } /></div>
+              </div>
+            </div>
+          </div>
+          <div className={ styles["text-wrapper"] }>
+            <div className={ styles["story-box"] }>
+              <div className={ classnames(commonStyles["content-outer"]) }>
+                <div itemProp="description"><Markdown source={ paragraphs[3] } /></div>
+              </div>
+            </div>
+          </div>
+          <div className={ styles["text-wrapper"] }>
+            <div className={ styles["story-box"] }>
+              <div className={ classnames(commonStyles["content-outer"]) }>
+              </div>
+            </div>
+          </div>
+          <div className={ styles["text-wrapper"] }>
+            <div className={ styles["story-box"] }>
+              <div className={ classnames(commonStyles["content-outer"]) }>
+                <div itemProp="description"><Markdown source={ paragraphs[4] } /></div>
+              </div>
+            </div>
+          </div>
+          <div className={ styles["text-wrapper"] }>
+            <div className={ styles["story-box"] }>
+              <div className={ classnames(commonStyles["content-outer"]) }>
+                <div itemProp="description"><Markdown source={ paragraphs[5] } /></div>
+              </div>
+            </div>
+          </div>
+
+          <div className={ classnames(styles["grass"]) } dangerouslySetInnerHTML={ { __html: grassImg } } />
+
+          <div className={ classnames(cloudClass, cloudEndingClass) } ref={ (ref) => this.clouds = ref }>
+            <div className={ classnames(styles["subcloud"]) } dangerouslySetInnerHTML={ { __html: cloudImg } } />
+            <div className={ classnames(styles["subcloud"]) } dangerouslySetInnerHTML={ { __html: cloudImg } } />
+            <div className={ classnames(styles["subcloud-mobile"]) } dangerouslySetInnerHTML={ { __html: cloudMobileImg } } />
+            <div className={ classnames(styles["subcloud-mobile"]) } dangerouslySetInnerHTML={ { __html: cloudMobileImg } } />
+          </div>
+
+          <div
+            className={ classnames(styles["overlay-box"], centerClass) }
+            ref={ (ref) => this.pinnedItem = ref }
+          >
+            <div className={ classnames(moonClass) }>
+              <div dangerouslySetInnerHTML={ { __html: moonImg } } />
+              <div className={ classnames(doorClass, loveClass) } dangerouslySetInnerHTML={ { __html: doorImg } } />
+            </div>
+          </div>
+          <div
+            className={ classnames(styles["overlay-box"], centerClass, styles["top-dog-outer"]) }
+            ref={ (ref) => this.pinnedItem = ref }
+          >
+            <div className={ classnames(styles["house"]) } dangerouslySetInnerHTML={ { __html: houseImg } } />
+          </div>
+        </div>
+
+        <div className={ styles["container-one-dog"] }>
+          <div className={ commonStyles["content-outer"] }>
+            <div className={ classnames(styles["pet-item"], styles["pet1"]) }>
+              <img src={ pet1 } />
+            </div>
+            <div className={ classnames(styles["pet-item"], styles["pet2"]) }>
+              <img src={ pet2 } />
+            </div>
+            <div className={ classnames(styles["pet-item"], styles["pet3"]) }>
+              <img src={ pet3 } />
+            </div>
+            <div className={ classnames(styles["pet-item"], styles["pet4"]) }>
+              <img src={ pet4 } />
+            </div>
+            <div className={ classnames(styles["pet-item"], styles["pet5"]) }>
+              <img src={ pet1 } />
+            </div>
+            <div className={ classnames(styles["pet-item"], styles["pet6"]) }>
+              <img src={ pet1 } />
+            </div>
+            <div className={ classnames(styles["pet-item"], styles["pet7"]) }>
+              <img src={ pet2 } />
+            </div>
+            <div className={ classnames(styles["pet-item"], styles["pet8"]) }>
+              <img src={ pet3 } />
+            </div>
+            <div className={ classnames(styles["pet-item"], styles["pet9"]) }>
+              <img src={ pet3 } />
+            </div>
+
+            <div className={ styles["text-wrapper"] }>
+              <div className={ styles["story-box"] }>
+                <div className={ classnames(commonStyles["content-outer"]) }>
+                  <div itemProp="description"><Markdown source={ paragraphs[6] } /></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className={ styles["text-wrapper"] }>
-          <div className={ styles["story-box"] }>
-            <div className={ classnames(commonStyles["content-outer"]) }>
-              <div itemProp="description"><Markdown source={ paragraphs[0] } /></div>
-            </div>
-          </div>
-        </div>
-        <div className={ styles["text-wrapper"] }>
-          <div className={ styles["story-box"] }>
-            <div className={ classnames(commonStyles["content-outer"]) }>
-              <div itemProp="description"><Markdown source={ paragraphs[1] } /></div>
-            </div>
-          </div>
-        </div>
-        <div className={ styles["text-wrapper"] }>
-          <div className={ styles["story-box"] }>
-            <div className={ classnames(commonStyles["content-outer"]) }>
-              <div itemProp="description"><Markdown source={ paragraphs[2] } /></div>
-            </div>
-          </div>
-        </div>
-        <div className={ styles["text-wrapper"] }>
-          <div className={ styles["story-box"] }>
-            <div className={ classnames(commonStyles["content-outer"]) }>
-              <div itemProp="description"><Markdown source={ paragraphs[3] } /></div>
-            </div>
-          </div>
-        </div>
-        <div className={ styles["text-wrapper"] }>
-          <div className={ styles["story-box"] }>
-            <div className={ classnames(commonStyles["content-outer"]) }>
-            </div>
-          </div>
-        </div>
-        <div className={ styles["text-wrapper"] }>
-          <div className={ styles["story-box"] }>
-            <div className={ classnames(commonStyles["content-outer"]) }>
-              <div itemProp="description"><Markdown source={ paragraphs[4] } /></div>
-            </div>
-          </div>
-        </div>
-        <div className={ styles["text-wrapper"] }>
-          <div className={ styles["story-box"] }>
-            <div className={ classnames(commonStyles["content-outer"]) }>
-              <div itemProp="description"><Markdown source={ paragraphs[5] } /></div>
-            </div>
-          </div>
-        </div>
-
-        <div className={ classnames(styles["grass"]) } dangerouslySetInnerHTML={ { __html: grassImg } } />
-
-        <div className={ classnames(cloudClass, cloudEndingClass) } ref={ (ref) => this.clouds = ref }>
-          <div className={ classnames(styles["subcloud"]) } dangerouslySetInnerHTML={ { __html: cloudImg } } />
-          <div className={ classnames(styles["subcloud"]) } dangerouslySetInnerHTML={ { __html: cloudImg } } />
-          <div className={ classnames(styles["subcloud-mobile"]) } dangerouslySetInnerHTML={ { __html: cloudMobileImg } } />
-          <div className={ classnames(styles["subcloud-mobile"]) } dangerouslySetInnerHTML={ { __html: cloudMobileImg } } />
-        </div>
-
-        <div
-          className={ classnames(styles["overlay-box"], centerClass) }
-          ref={ (ref) => this.pinnedItem = ref }
-        >
-          <div className={ classnames(moonClass) }>
-            <div dangerouslySetInnerHTML={ { __html: moonImg } } />
-            <div className={ classnames(doorClass, loveClass) } dangerouslySetInnerHTML={ { __html: doorImg } } />
-          </div>
-        </div>
-        <div
-          className={ classnames(styles["overlay-box"], centerClass, styles["top-dog-outer"]) }
-          ref={ (ref) => this.pinnedItem = ref }
-        >
-          <div className={ classnames(styles["house"]) } dangerouslySetInnerHTML={ { __html: houseImg } } />
-        </div>
         <div className={ classnames(commonStyles["img-responsive"],
-          styles["yoyo"], yoyoPositionClass, boxedClass, cagedClass) } dangerouslySetInnerHTML={ { __html: yoyoImg } }
+          styles["yoyo"], yoyoPositionClass, boxedClass, cagedClass, oneDogClass) } dangerouslySetInnerHTML={ { __html: yoyoImg } }
         />
+
       </div>
     )
   }

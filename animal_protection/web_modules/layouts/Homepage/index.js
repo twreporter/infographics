@@ -11,7 +11,6 @@ import Markdown from "react-markdown"
 import Img from "react-image-holder"
 import { firstContent } from "./content"
 import OpeningTop from "./Opening/OpeningTop"
-import OpeningOneDog from "./Opening/OpeningOneDog"
 import OpeningStardust from "./Opening/OpeningStardust"
 import OpeningLast from "./Opening/OpeningLast"
 import Chapter01 from "./Chapter01/Chapter01"
@@ -70,7 +69,6 @@ export default class Homepage extends Component {
         </div> */}
         <div itemScope itemType="http://schema.org/ScholarlyArticle">
           <OpeningTop />
-          <OpeningOneDog />
           <OpeningStardust />
           <OpeningLast />
           <Chapter01 />
