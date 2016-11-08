@@ -81,7 +81,9 @@ export default class Homepage extends Component {
             <Markdown source={ firstContent } />
             <PagesList pages={ latestPosts } />
             地圖資料來源： CartoDB
+            開頭照片來源：桃園新屋收容所
           </div>
+
         </div>
 
       </Page>

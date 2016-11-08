@@ -12,7 +12,7 @@
 
 .container-one-dog {
   position: relative;
-  height: 90vh;
+  height: 120vh;
   color: white;
   background: linear-gradient(to bottom,
     $content-bg 0%, $content-bg 40%, $pink 100%);
@@ -334,7 +334,7 @@
 .yoyo-one-dog {
   transition: width 0.8s ease-in;
   position: absolute;
-  top: 920vh;
+  top: 945vh;
   svg {
     transition: height 0.8s ease-out;
     width: 70%;

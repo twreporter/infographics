@@ -137,24 +137,24 @@ export default class OpeningTop extends Component {
       this.setState({ isYoyoCentered: false })
     }
 
-    if (!isBoxed && top < -vpHeight * 5.8 && top > -vpHeight * 7.1) {
+    if (!isBoxed && top < -vpHeight * 5.8 && top > -vpHeight * 7.4) {
       this.setState({ isBoxed: true })
     }
-    else if (isBoxed && (top > -vpHeight * 5.8 || top < -vpHeight * 7.1)) {
+    else if (isBoxed && (top > -vpHeight * 5.8 || top < -vpHeight * 7.4)) {
       this.setState({ isBoxed: false })
     }
 
-    if (!isCaged && top < -vpHeight * 7.4) {
+    if (!isCaged && top < -vpHeight * 7.7) {
       this.setState({ isCaged: true })
     }
-    else if (isCaged && top > -vpHeight * 7.4) {
+    else if (isCaged && top > -vpHeight * 7.7) {
       this.setState({ isCaged: false })
     }
 
-    if (!isOneDog && top < -vpHeight * 9.05) {
+    if (!isOneDog && top < -vpHeight * 9.2) {
       this.setState({ isOneDog: true })
     }
-    else if (isOneDog && top > -vpHeight * 9.05) {
+    else if (isOneDog && top > -vpHeight * 9.2) {
       this.setState({ isOneDog: false })
     }
 
@@ -242,6 +242,13 @@ export default class OpeningTop extends Component {
               </div>
             </div>
           </div>
+          <div className={ styles["text-wrapper"] }>
+            <div className={ styles["story-box"] }>
+              <div className={ classnames(commonStyles["content-outer"]) }>
+                <div itemProp="description"><Markdown source={ paragraphs[6] } /></div>
+              </div>
+            </div>
+          </div>
 
           <div className={ classnames(styles["grass"]) } dangerouslySetInnerHTML={ { __html: grassImg } } />
 
@@ -300,9 +307,16 @@ export default class OpeningTop extends Component {
             </div>
 
             <div className={ styles["text-wrapper"] }>
-              <div className={ styles["story-box"] }>
+              <div className={ styles["story-box"] } >
                 <div className={ classnames(commonStyles["content-outer"]) }>
-                  <div itemProp="description"><Markdown source={ paragraphs[6] } /></div>
+                  <div itemProp="description"><Markdown source={ paragraphs[7] } /></div>
+                </div>
+              </div>
+            </div>
+            <div className={ styles["text-wrapper"] } style={ { marginTop: "-10vh" } }>
+              <div className={ styles["story-box"] } >
+                <div className={ classnames(commonStyles["content-outer"]) }>
+                  <div itemProp="description"><Markdown source={ paragraphs[8] } /></div>
                 </div>
               </div>
             </div>
