@@ -185,7 +185,7 @@ export default class OpeningTop extends Component {
     }
 
     return (
-      <div className={ classnames(commonStyles["text-center"]) }
+      <div className={ classnames(commonStyles["text-center"], styles.container) }
         ref={ (ref) => this.container = ref }
       >
         <div className={ styles["container-yoyo-story"] }>

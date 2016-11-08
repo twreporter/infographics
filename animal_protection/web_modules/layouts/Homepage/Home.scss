@@ -2,5 +2,6 @@
 @import "../../styles/variables.scss";
 
 .container {
-  background: $blue;
+  width: 100%;
+  overflow-x: hidden;
 }

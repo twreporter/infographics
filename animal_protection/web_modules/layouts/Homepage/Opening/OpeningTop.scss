@@ -1,6 +1,12 @@
 /* stylelint-disable function-comma-space-after, selector-list-comma-newline-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
 @import "../../../styles/variables.scss";
 
+.container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
 .container-yoyo-story {
   position: relative;
   width: 100%;
@@ -96,7 +102,9 @@
   width: 6.5%;
   top: 18%;
   left: 16%;
-  transition: all 1s ease-out;
+  transition-property: left, top, width;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
   @media screen and (orientation:portrait) {
     width: 11%;
     top: 25%;
@@ -117,7 +125,9 @@
   top: 5.8%;
   left: 50%;
   transform: translate(-50%, 0);
-  transition: all 1s ease-out;
+  transition-property: left, top, width;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
   @media screen and (orientation:portrait) {
     width: 33%;
     top: 15%;
@@ -199,7 +209,7 @@
 
 .grass {
   position: absolute;
-  top: 825vh;
+  top: 830vh;
   width: 100%;
   svg {
     width: 100%;

@@ -149,7 +149,7 @@ export default class FullPageMap extends Component {
     this._EnterSlide(cTop, slide1, sDuration)
 
     const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
-    velocity(slideOuter, { marginTop: 0 }, { duration: sDuration, easing: "easeInOutQuart" })
+    velocity(slideOuter, { marginTop: 0 }, { duration: sDuration, easing: "easeInOutCubic" })
 
     // set the background map
     const oldM1 = ReactDOM.findDOMNode(this.oldM1)
@@ -165,7 +165,7 @@ export default class FullPageMap extends Component {
     this._EnterSlide(cTop, slide2, sDuration)
 
     const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
-    velocity(slideOuter, { marginTop: -1 *window.innerHeight }, { duration: sDuration, easing: "easeInOutQuart" })
+    velocity(slideOuter, { marginTop: -1 *window.innerHeight }, { duration: sDuration, easing: "easeInOutCubic" })
 
     // set the background map
     const oldM1 = ReactDOM.findDOMNode(this.oldM1)

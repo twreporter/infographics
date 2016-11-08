@@ -149,7 +149,7 @@ export default class FullPageGov extends Component {
     this._EnterSlide(cTop, slide1, sDuration)
 
     const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
-    velocity(slideOuter, { marginTop: 0 }, { duration: sDuration, easing: "easeInOutQuart" })
+    velocity(slideOuter, { marginTop: 0 }, { duration: sDuration, easing: "easeInOutCubic" })
 
     // set the background map
     const hierarchy1 = ReactDOM.findDOMNode(this.hierarchy1)
@@ -167,7 +167,7 @@ export default class FullPageGov extends Component {
     this._EnterSlide(cTop, slide2, sDuration)
 
     const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
-    velocity(slideOuter, { marginTop: -1 *window.innerHeight }, { duration: sDuration, easing: "easeInOutQuart" })
+    velocity(slideOuter, { marginTop: -1 *window.innerHeight }, { duration: sDuration, easing: "easeInOutCubic" })
 
     // set the background map
     const hierarchy1 = ReactDOM.findDOMNode(this.hierarchy1)
@@ -185,7 +185,7 @@ export default class FullPageGov extends Component {
     this._EnterSlide(cTop, slide3, sDuration)
 
     const slideOuter = ReactDOM.findDOMNode(this.slideOuter)
-    velocity(slideOuter, { marginTop: -2 *window.innerHeight }, { duration: sDuration, easing: "easeInOutQuart" })
+    velocity(slideOuter, { marginTop: -2 *window.innerHeight }, { duration: sDuration, easing: "easeInOutCubic" })
 
     // set the background map
     const hierarchy1 = ReactDOM.findDOMNode(this.hierarchy1)

@@ -5,4 +5,5 @@
   font-family: source-han-sans-traditional, Noto Sans TC, PingFang TC, Apple LiGothic Medium, Roboto, Microsoft JhengHei, Lucida Grande, Lucida Sans Unicode, sans-serif;
   font-weight: 300;
   width: 100%;
+  overflow-x: hidden;
 }
