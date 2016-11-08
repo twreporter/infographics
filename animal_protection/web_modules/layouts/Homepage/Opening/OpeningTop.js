@@ -19,6 +19,11 @@ import pet1 from "../../../../content/assets/dog01.jpg"
 import pet2 from "../../../../content/assets/dog02.jpg"
 import pet3 from "../../../../content/assets/dog03.jpg"
 import pet4 from "../../../../content/assets/dog04.jpg"
+import pet5 from "../../../../content/assets/dog05.jpg"
+import pet6 from "../../../../content/assets/dog06.jpg"
+import pet7 from "../../../../content/assets/dog07.jpg"
+import pet8 from "../../../../content/assets/dog08.jpg"
+import pet9 from "../../../../content/assets/dog09.jpg"
 
 import { titlePart1, titlePart2, description, authorText,
   publishDate, authorSeparator, authorList, paragraphs } from "./text"
@@ -291,19 +296,19 @@ export default class OpeningTop extends Component {
               <img src={ pet4 } />
             </div>
             <div className={ classnames(styles["pet-item"], styles["pet5"]) }>
-              <img src={ pet1 } />
+              <img src={ pet5 } />
             </div>
             <div className={ classnames(styles["pet-item"], styles["pet6"]) }>
-              <img src={ pet1 } />
+              <img src={ pet6 } />
             </div>
             <div className={ classnames(styles["pet-item"], styles["pet7"]) }>
-              <img src={ pet2 } />
+              <img src={ pet7 } />
             </div>
             <div className={ classnames(styles["pet-item"], styles["pet8"]) }>
-              <img src={ pet3 } />
+              <img src={ pet8 } />
             </div>
             <div className={ classnames(styles["pet-item"], styles["pet9"]) }>
-              <img src={ pet3 } />
+              <img src={ pet9 } />
             </div>
 
             <div className={ styles["text-wrapper"] }>
@@ -313,7 +318,7 @@ export default class OpeningTop extends Component {
                 </div>
               </div>
             </div>
-            <div className={ styles["text-wrapper"] } style={ { marginTop: "-10vh" } }>
+            <div className={ styles["text-wrapper"] } style={ { marginTop: "-20vh" } }>
               <div className={ styles["story-box"] } >
                 <div className={ classnames(commonStyles["content-outer"]) }>
                   <div itemProp="description"><Markdown source={ paragraphs[8] } /></div>
