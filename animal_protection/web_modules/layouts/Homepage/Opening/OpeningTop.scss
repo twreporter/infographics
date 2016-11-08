@@ -3,6 +3,7 @@
 
 .container-yoyo-story {
   position: relative;
+  width: 100%;
   height: 900vh;
   color: white;
   background: linear-gradient(to bottom,
@@ -12,6 +13,7 @@
 
 .container-one-dog {
   position: relative;
+  width: 100%;
   height: 120vh;
   color: white;
   background: linear-gradient(to bottom,
@@ -383,7 +385,7 @@
 }
 
 .pet1 {
-  top: 83%;
+  top: 82%;
   left: calc(28% - 80px);
   opacity: 0.85;
 }
@@ -394,7 +396,7 @@
   opacity: 0.75;
   @media (max-width: $width-xs) {
     top: 93%;
-    left: calc(31%);
+    left: 27%;
   }
   @media (min-width: $width-md) {
     width: 80px;
@@ -435,7 +437,7 @@
   left: calc(28% - 70px);
   opacity: 1;
   @media (max-width: $width-xs) {
-    left: calc(22% - 70px);
+    left: calc(25% - 70px);
     width: 40px;
     height: 40px;
   }
@@ -500,7 +502,8 @@
   left: calc(32% + 60px);
   opacity: 0.75;
   @media (max-width: $width-xs) {
-    top: 90%;
+    left: calc(38% + 60px);
+    top: 91%;
   }
   @media (min-width: $width-md) {
     width: 80px;

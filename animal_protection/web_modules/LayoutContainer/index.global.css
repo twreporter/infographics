@@ -21,7 +21,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 ::selection {
@@ -44,6 +44,7 @@ body {
 
   font-family: source-han-sans-traditional, Noto Sans TC, PingFang TC, Apple LiGothic Medium, Roboto, Microsoft JhengHei, Lucida Grande, Lucida Sans Unicode, sans-serif;
   font-weight: 300;
+  overflow-x: hidden;
 }
 
 /*

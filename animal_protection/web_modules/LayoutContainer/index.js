@@ -1,4 +1,4 @@
-/* eslint-disable no-undef, no-empty */
+/* eslint-disable no-undef, no-empty, max-len */
 import React, { Component, PropTypes } from "react"
 import Helmet from "react-helmet"
 
@@ -58,8 +58,14 @@ export default class Layout extends Component {
         { /* meta viewport safari/chrome/edge */ }
         <Helmet
           meta={ [ {
-            name: "viewport", content: "width=device-width, initial-scale=1",
-          } ] }
+            name: "viewport",
+            content: "width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no",
+          },
+          // {
+          //   name: "theme-color",
+          //   content: "#E30B20",
+          // }
+          ] }
         />
         <style>{ "@-ms-viewport { width: device-width; }" }</style>
 
