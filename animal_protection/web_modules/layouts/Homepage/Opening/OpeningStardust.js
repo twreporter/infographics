@@ -3,7 +3,7 @@
 import _ from "lodash"
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
-import { Layer, Circle, Stage } from "react-konva"
+// import { Layer, Circle, Stage } from "react-konva"
 
 import classnames from "classnames"
 import styles from "./OpeningStardust.scss"
@@ -15,8 +15,15 @@ import petDesktop from "../../../../content/assets/dog_bg_desktop_s.png"
 import petMobile from "../../../../content/assets/dog_bg_mobile.png"
 
 let velocity
+let Layer
+let Circle
+let Stage
 if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
+  const Konva = require("react-konva")
+  Layer = Konva.Layer
+  Circle = Konva.Circle
+  Stage = Konva.Stage
 }
 
 const debounceTime = {
@@ -161,19 +168,34 @@ export default class OpeningStardust extends Component {
     const dotsRadius = isMobile ? 7 : 10
     let dotsItems = []
     let overlayDotsItems = []
-    for (let i=0; i<dotsCnt; i++) {
-      dotsItems.push(<Circle key={ i }
-        radius={ dotsRadius }
-        fill={ colorArr[i%4] }
-        x={ (i*i*i*37%1960 + 40)/1000*wWidth }
-        y={ (((i+17)*i)%1960 + 40)/1000*wHeight } />)
-    }
-    for (let i=0; i<overlayDotsCnt; i++) {
-      overlayDotsItems.push(<Circle key={ i }
-        radius={ dotsRadius }
-        fill={ colorArr[i%4] }
-        x={ (i*i*37%1960 + 40)/1000*wWidth }
-        y={ (((i+37)*i)*i%1460 + 40)/1000*wHeight } />)
+    let dotsCanvas
+    let overlayDotsCanvas
+    if (typeof window !== "undefined") {
+      for (let i=0; i<dotsCnt; i++) {
+        dotsItems.push(<Circle key={ i }
+          radius={ dotsRadius }
+          fill={ colorArr[i%4] }
+          x={ (i*i*i*37%1960 + 40)/1000*wWidth }
+          y={ (((i+17)*i)%1960 + 40)/1000*wHeight } />)
+      }
+      for (let i=0; i<overlayDotsCnt; i++) {
+        overlayDotsItems.push(<Circle key={ i }
+          radius={ dotsRadius }
+          fill={ colorArr[i%4] }
+          x={ (i*i*37%1960 + 40)/1000*wWidth }
+          y={ (((i+37)*i)*i%1460 + 40)/1000*wHeight } />)
+      }
+      dotsCanvas = (<Stage width={ wWidth*2 } height={ wHeight*2 }>
+           <Layer>
+              { dotsItems }
+            </Layer>
+          </Stage>)
+      overlayDotsCanvas = (<Stage width={ wWidth*2 } height={ wHeight*1.5 }>
+            <Layer>
+              { overlayDotsItems }
+            </Layer>
+          </Stage>)
+
     }
 
     return (
@@ -197,21 +219,13 @@ export default class OpeningStardust extends Component {
               <div className={ styles["overlay-dots-container"] }
                 ref={ (ref) => this.dots = ref }
               >
-                <Stage width={ wWidth*2 } height={ wHeight*2 }>
-                  <Layer>
-                    { dotsItems }
-                  </Layer>
-                </Stage>
+                { dotsCanvas }
               </div>
 
               <div className={ styles["overlay-dots-container2"] }
                 ref={ (ref) => this.secondDots = ref }
               >
-                <Stage width={ wWidth*2 } height={ wHeight*1.5 }>
-                  <Layer>
-                    { overlayDotsItems }
-                  </Layer>
-                </Stage>
+                { overlayDotsCanvas }
               </div>
             </div>
 
