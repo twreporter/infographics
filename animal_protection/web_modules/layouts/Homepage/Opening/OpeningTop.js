@@ -74,7 +74,6 @@ export default class OpeningTop extends Component {
     velocity(this.clouds, { left: "-100%" }, { duration: CLOUD_DURATION, easing: "linear" })
     velocity(this.clouds, "reverse", { duration: 1 })
     this.cloudInterval = setInterval(()=>{
-      console.log(CLOUD_DURATION)
       velocity(this.clouds, { left: "-100%" }, { duration: CLOUD_DURATION, easing: "linear" })
       velocity(this.clouds, "reverse", { duration: 1 })
     }, CLOUD_DURATION)
@@ -92,8 +91,6 @@ export default class OpeningTop extends Component {
     const { top, bottom } = rect
     const { isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed, isCaged, isOneDog } = this.state
     const vpHeight = window.innerHeight
-
-    console.log(top, bottom)
 
     if (this.pItemHeight) {
       if (top >=(-4 * this.pItemHeight) &&
@@ -156,10 +153,10 @@ export default class OpeningTop extends Component {
       this.setState({ isCaged: false })
     }
 
-    if (!isOneDog && top < -vpHeight * 9.2) {
+    if (!isOneDog && top < -vpHeight * 9.13) {
       this.setState({ isOneDog: true })
     }
-    else if (isOneDog && top > -vpHeight * 9.2) {
+    else if (isOneDog && top > -vpHeight * 9.13) {
       this.setState({ isOneDog: false })
     }
 
@@ -318,7 +315,7 @@ export default class OpeningTop extends Component {
                 </div>
               </div>
             </div>
-            <div className={ styles["text-wrapper"] } style={ { marginTop: "-20vh" } }>
+            <div className={ styles["text-wrapper"] } style={ { marginTop: "-22vh" } }>
               <div className={ styles["story-box"] } >
                 <div className={ classnames(commonStyles["content-outer"]) }>
                   <div itemProp="description"><Markdown source={ paragraphs[8] } /></div>

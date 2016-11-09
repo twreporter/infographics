@@ -335,7 +335,9 @@
 }
 
 .yoyo-caged {
-  transition: width 0.8s ease-in;
+  transition-property: width, left;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
   svg > g > g:nth-of-type(4) {
     transition: all 0.85s ease-in-out;
     opacity: 1 !important;
@@ -344,9 +346,15 @@
 }
 
 .yoyo-one-dog {
-  transition: width 0.8s ease-in;
+  transition-property: width, left;
+  transition-duration: 0.6s;
+  transition-timing-function: ease-out;
   position: absolute;
   top: 938vh;
+  left: -1%;
+  @media screen and (orientation:portrait) {
+    left: -3%;
+  }
   svg {
     transition: height 0.8s ease-out;
     width: 70%;
@@ -401,8 +409,8 @@
 }
 
 .pet2 {
-  top: 96%;
-  left: 58%;
+  top: 88%;
+  left: 62%;
   opacity: 0.75;
   @media (max-width: $width-xs) {
     top: 93%;
@@ -413,6 +421,8 @@
     height: 80px;
   }
   @media (min-width: $width-lg) {
+    top: 91%;
+    left: 53%;
     width: 90px;
     height: 90px;
   }
@@ -422,21 +432,21 @@
   width: 100px;
   height: 100px;
   top: 80%;
-  left: calc(70% + 100px);
+  left: calc(73% + 100px);
   opacity: 0.95;
-  @media (max-width: $width-xs) {
-    left: calc(55% + 100px);
-    width: 65px;
-    height: 65px;
-  }
   @media (min-width: $width-md) {
-    left: calc(70% + 130px);
+    left: calc(72% + 130px);
     width: 130px;
     height: 130px;
   }
   @media (min-width: $width-lg) {
     width: 170px;
     height: 170px;
+  }
+  @media (max-width: $width-xs) {
+    left: calc(55% + 100px);
+    width: 60px;
+    height: 60px;
   }
 }
 
@@ -447,9 +457,10 @@
   left: calc(28% - 70px);
   opacity: 1;
   @media (max-width: $width-xs) {
+    top: 62%;
     left: calc(25% - 70px);
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
   }
   @media (min-width: $width-md) {
     width: 100px;
@@ -465,11 +476,13 @@
   width: 70px;
   height: 70px;
   top: 60%;
-  left: calc(70% + 70px);
+  left: calc(74% + 70px);
   opacity: 0.85;
   @media (max-width: $width-xs) {
-    width: 60px;
-    height: 60px;
+    top: 70%;
+    left: calc(68% + 70px);
+    width: 45px;
+    height: 45px;
   }
   @media (min-width: $width-md) {
     width: 100px;

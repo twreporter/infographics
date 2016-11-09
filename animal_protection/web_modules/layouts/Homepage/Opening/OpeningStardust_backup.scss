@@ -22,7 +22,7 @@
   width: 150%;
   margin-left: -25%;
   padding-top: 35px;
-  transform: translateZ(5px);
+  transform: translateZ(300px);
 
   // @media (max-width: $width-sm) {
   //   width: 150%;
@@ -36,7 +36,7 @@
 }
 
 .dots-container {
-  perspective: 60px;
+  perspective: 600px;
   margin-top: 0;
 }
 
@@ -64,17 +64,7 @@
 
 .overlay-dots-container {
   position: absolute;
-  top: 5vh;
-  left: -50%;
-  width: 600%;
-  height: 400vh;
-  margin-top: 30vh;
-}
-
-.overlay-dots-container2 {
-  position: absolute;
-  top: 80vh;
-  left: -50%;
+  top: 20vh;
   width: 600%;
   height: 400vh;
   margin-top: 30vh;

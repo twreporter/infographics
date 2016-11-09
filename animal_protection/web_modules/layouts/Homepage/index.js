@@ -11,7 +11,7 @@ import Markdown from "react-markdown"
 import Img from "react-image-holder"
 import { firstContent } from "./content"
 import OpeningTop from "./Opening/OpeningTop"
-// import OpeningStardust from "./Opening/OpeningStardust"
+import OpeningStardust from "./Opening/OpeningStardust"
 import OpeningLast from "./Opening/OpeningLast"
 import Chapter01 from "./Chapter01/Chapter01"
 import Tnr from "./Chapter02_TNR/TNR"
@@ -69,7 +69,7 @@ export default class Homepage extends Component {
         </div> */}
         <div itemScope itemType="http://schema.org/ScholarlyArticle">
           <OpeningTop />
-          {/* <OpeningStardust /> */}
+          <OpeningStardust />
           <OpeningLast />
           <Chapter01 />
           <Tnr />

@@ -3,10 +3,9 @@
 import _ from "lodash"
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
-import { Layer, Circle, Stage } from "react-konva"
 
 import classnames from "classnames"
-import styles from "./OpeningStardust.scss"
+import styles from "./OpeningStardust_backup.scss"
 import commonStyles from "../../../styles/common.scss"
 
 import { MOBILE_WIDTH } from "../config"
@@ -24,9 +23,38 @@ const debounceTime = {
   maxWait: 45,
 }
 
-// const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"], styles["white"] ]
-const colorArr = [ "rgba(17, 104, 217, 0.5)", "rgba(244, 114, 165, 0.6)",
-   "rgba(255, 255, 255, 0.4)", "rgba(17, 104, 217, 0.5)", "rgba(255, 255, 255, 0.4)" ]
+const colors = [ styles["blue"], styles["pink"], styles["white"], styles["blue"], styles["white"] ]
+
+let DotsItems = (props) => {
+  const dotsCnt = props.isMobile ? 150 : 300
+  const cWidth = props.isMobile ? 600 : 750
+  let dotsItems = []
+  for (let i=0; i<dotsCnt; i++) {
+    dotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) }
+      style={ { top: (i*i*i*7%1400)/10+"%", left:(((i*i+7)*i%cWidth)-cWidth/2+5)/10+"%" } }
+                    ></div>)
+  }
+
+  return (
+    <div>{ dotsItems }</div>
+  )
+}
+
+let OverlayDotsItems = (props) => {
+  const dotsCnt = props.isMobile ? 200 : 420
+  const cWidth = props.isMobile ? 900 : 1200
+  const yPercent = props.isMobile ? 600 : 1260
+  let secondDotsItems = []
+  for (let i=0; i<dotsCnt; i++) {
+    secondDotsItems.push(<div key={ i } className={ classnames(styles["dot"], colors[i%4]) }
+      style={ { top: (i*i*i*3%yPercent)/10+"%", left:(((i+5)*i%cWidth)-cWidth/2+20)/10+"%" } }
+                    ></div>)
+  }
+
+  return (
+    <div>{ secondDotsItems }</div>
+  )
+}
 
 export default class OpeningStardust extends Component {
   constructor(props) {
@@ -36,8 +64,6 @@ export default class OpeningStardust extends Component {
       isIn: false,
       isMobile: false,
       pinTopY: 0,
-      wWidth: 800,
-      wHeight: 800,
       scrollRatio: 0,
     }
     this.pItemHeight = 100
@@ -60,15 +86,14 @@ export default class OpeningStardust extends Component {
 
     // detect window width
     window.addEventListener("resize", this.handleResize)
-    this._handleResize()
+    this.handleResize()
 
     // detect sroll position
     window.addEventListener("scroll", this.debouncedScroll)
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.isMobile!==this.state.isMobile
-    || nextState.wWidth!==this.state.wWidth) {
+    if (nextState.isIn!==this.state.isIn || nextState.isMobile!==this.state.isMobile) {
       return true
     }
     return false
@@ -85,7 +110,6 @@ export default class OpeningStardust extends Component {
   }
 
   _handleResize() {
-    this.setState({ wWidth: window.innerWidth, wHeight: window.innerHeight })
     if (window.innerWidth > MOBILE_WIDTH)
       this.setState({ isMobile: false })
     else
@@ -97,7 +121,8 @@ export default class OpeningStardust extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
-    const frames = this.state.isMobile ? 50 : 50
+    const frames = this.state.isMobile ? 4 : 50
+    const imgSpeed = this.state.isMobile ? 350 : 1
 
     if (this.pItemHeight) {
       if (bottom > vpHeight && bottom > 0 &&
@@ -125,22 +150,23 @@ export default class OpeningStardust extends Component {
       sRatio = Math.round(sRatio * frames) / frames
       if (this.state.scrollRatio !== sRatio) {
         this.setState({ scrollRatio: sRatio })
-        // if (!this.state.isMobile) {
-        velocity(this.petImgs, {
-          translateY: Math.abs(sRatio * 15) + "vh",
-          translateZ: (5 - sRatio * (1+sRatio)* (1+sRatio) * 50) + "px",
-          opacity: this._getRatio((1.45 - sRatio) * (1.3 - sRatio) * (1 - sRatio)),
-        }, 1)
-        velocity(this.dots, {
-          translateY: Math.abs(sRatio * 12) + "vh",
-          translateZ: (120 - Math.abs(sRatio * 280)) + "px",
-          opacity: this._getRatio(1.3 - sRatio),
-        }, 5)
-        velocity(this.secondDots, {
-          translateZ: (160 - Math.abs(sRatio * 300)) + "px",
-          opacity: this._getRatio(1.6 - sRatio),
-        }, 1)
-        // }
+        if (!this.state.isMobile) {
+          velocity(this.petImgs, {
+            translateY: "-" + Math.abs(sRatio * (1+sRatio) * 1550) + "px",
+            translateZ: (300 - sRatio * 2200) + "px",
+            opacity: this._getRatio((1.45 - sRatio) * (1 - sRatio) * (1 - sRatio)),
+          }, imgSpeed)
+          velocity(this.dots, {
+            translateY: "-" + Math.abs(sRatio * 7200) + "px",
+            translateZ: (1600 - Math.abs(sRatio * 6600)) + "px",
+            opacity: this._getRatio(1.5 - sRatio),
+          }, 5)
+          velocity(this.secondDots, {
+            translateY: "-" + Math.abs(sRatio * 3750 - 800) + "px",
+            translateZ: (2850 - Math.abs(sRatio * 5860)) + "px",
+            opacity: this._getRatio(1.9 - sRatio),
+          }, 1)
+        }
       }
     }
     else if (bottom < 0)
@@ -150,43 +176,30 @@ export default class OpeningStardust extends Component {
   }
 
   render() {
-    const { isMobile, wWidth, wHeight } = this.state
+    const { isIn, isMobile } = this.state
 
-    console.log("render")
-
+    const centerClass = isIn ? commonStyles["fixedCenter"] : null
     const petBg = isMobile ? petMobile : petDesktop
-
-    const dotsCnt = isMobile ? 350 : 450
-    const overlayDotsCnt = isMobile ? 100 : 300
-    const dotsRadius = isMobile ? 7 : 10
-    let dotsItems = []
-    let overlayDotsItems = []
-    for (let i=0; i<dotsCnt; i++) {
-      dotsItems.push(<Circle key={ i }
-        radius={ dotsRadius }
-        fill={ colorArr[i%4] }
-        x={ (i*i*i*37%1960 + 40)/1000*wWidth }
-        y={ (((i+17)*i)%1960 + 40)/1000*wHeight } />)
-    }
-    for (let i=0; i<overlayDotsCnt; i++) {
-      overlayDotsItems.push(<Circle key={ i }
-        radius={ dotsRadius }
-        fill={ colorArr[i%4] }
-        x={ (i*i*37%1960 + 40)/1000*wWidth }
-        y={ (((i+37)*i)*i%1460 + 40)/1000*wHeight } />)
-    }
 
     return (
       <div className={ classnames(styles.container,
-      commonStyles["text-center"]) }
+        commonStyles["text-center"]) }
         ref={ (ref) => this.container = ref }
       >
 
         <div
-          className={ classnames(styles["outer"]) }
+          className={ classnames(centerClass, styles["outer"]) }
           ref={ (ref) => this.pinnedItem = ref }
         >
           <div className={ styles["dots-container"] }>
+
+            { (isMobile) ?
+              <div className={ styles["overlay-dots-container"] }
+                style={ { transform: "translate3d(0, -1000px, -1500px)" } }
+              >
+                <OverlayDotsItems isMobile={ isMobile } />
+              </div>
+              :
             <div>
               <div className={ styles["pet-container"] }
                 ref={ (ref) => this.petImgs = ref }
@@ -197,23 +210,16 @@ export default class OpeningStardust extends Component {
               <div className={ styles["overlay-dots-container"] }
                 ref={ (ref) => this.dots = ref }
               >
-                <Stage width={ wWidth*2 } height={ wHeight*2 }>
-                  <Layer>
-                    { dotsItems }
-                  </Layer>
-                </Stage>
+                <DotsItems />
               </div>
 
-              <div className={ styles["overlay-dots-container2"] }
+              <div className={ styles["overlay-dots-container"] }
                 ref={ (ref) => this.secondDots = ref }
               >
-                <Stage width={ wWidth*2 } height={ wHeight*1.5 }>
-                  <Layer>
-                    { overlayDotsItems }
-                  </Layer>
-                </Stage>
+                <OverlayDotsItems isMobile={ isMobile } />
               </div>
             </div>
+            }
 
           </div>
           <div className={ commonStyles["content-outer"] }></div>
