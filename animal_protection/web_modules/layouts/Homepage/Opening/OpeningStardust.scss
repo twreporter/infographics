@@ -9,7 +9,7 @@
   margin-top: -1px;
   margin-bottom: -1px;
   @media (max-width: $width-md) {
-    height: 120vh;
+    height: 180vh;
   }
 }
 
@@ -20,10 +20,9 @@
 .pet-container {
   position: absolute;
   width: 150%;
-  margin-left: -25%;
+  left: 50%;
   padding-top: 35px;
-  transform: translateZ(5px);
-
+  transform: translateX(-50%) translateZ(5px);
   // @media (max-width: $width-sm) {
   //   width: 150%;
   //   margin-left: -25%;
@@ -65,7 +64,8 @@
 .overlay-dots-container {
   position: absolute;
   top: 5vh;
-  left: -50%;
+  left: 250%;
+  transform: translateX("-50%");
   width: 600%;
   height: 400vh;
   margin-top: 30vh;
@@ -73,8 +73,9 @@
 
 .overlay-dots-container2 {
   position: absolute;
-  top: 80vh;
-  left: -50%;
+  top: 45vh;
+  left: 250%;
+  transform: translateX("-50%");
   width: 600%;
   height: 400vh;
   margin-top: 30vh;

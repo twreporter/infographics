@@ -104,7 +104,8 @@ export default class OpeningStardust extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
-    const frames = this.state.isMobile ? 50 : 50
+    const frames = this.state.isMobile ? 40 : 20
+    const scaleFactor = this.state.isMobile ? 0.5 : 1
 
     if (this.pItemHeight) {
       if (bottom > vpHeight && bottom > 0 &&
@@ -132,22 +133,23 @@ export default class OpeningStardust extends Component {
       sRatio = Math.round(sRatio * frames) / frames
       if (this.state.scrollRatio !== sRatio) {
         this.setState({ scrollRatio: sRatio })
-        // if (!this.state.isMobile) {
         velocity(this.petImgs, {
+          translateX: "-50%",
           translateY: Math.abs(sRatio * 15) + "vh",
-          translateZ: (5 - sRatio * (1+sRatio)* (1+sRatio) * 50) + "px",
+          translateZ: (5 - sRatio * (1+sRatio)* (1+sRatio) * 50) * scaleFactor + "px",
           opacity: this._getRatio((1.45 - sRatio) * (1.3 - sRatio) * (1 - sRatio)),
         }, 1)
         velocity(this.dots, {
-          translateY: Math.abs(sRatio * 12) + "vh",
-          translateZ: (120 - Math.abs(sRatio * 280)) + "px",
-          opacity: this._getRatio(1.3 - sRatio),
+          translateX: "-50%",
+          translateY: Math.abs(sRatio * 14) + "vh",
+          translateZ: (120 - Math.abs(sRatio * 270)) * scaleFactor + "px",
+          opacity: this._getRatio(1.5 - sRatio),
         }, 5)
         velocity(this.secondDots, {
-          translateZ: (160 - Math.abs(sRatio * 300)) + "px",
-          opacity: this._getRatio(1.6 - sRatio),
+          translateX: "-50%",
+          translateZ: (180 - Math.abs(sRatio * 300)) * scaleFactor + "px",
+          opacity: this._getRatio(1.65 - sRatio),
         }, 1)
-        // }
       }
     }
     else if (bottom < 0)
@@ -163,8 +165,8 @@ export default class OpeningStardust extends Component {
 
     const petBg = isMobile ? petMobile : petDesktop
 
-    const dotsCnt = isMobile ? 350 : 450
-    const overlayDotsCnt = isMobile ? 100 : 300
+    const dotsCnt = isMobile ? 230 : 450
+    const overlayDotsCnt = isMobile ? 100 : 350
     const dotsRadius = isMobile ? 7 : 10
     let dotsItems = []
     let overlayDotsItems = []
@@ -175,15 +177,15 @@ export default class OpeningStardust extends Component {
         dotsItems.push(<Circle key={ i }
           radius={ dotsRadius }
           fill={ colorArr[i%4] }
-          x={ (i*i*i*37%1960 + 40)/1000*wWidth }
-          y={ (((i+17)*i)%1960 + 40)/1000*wHeight } />)
+          x={ (i*i*i*37%1950 + 50)/1000*wWidth }
+          y={ (((i+17)*i)%1950 + 50)/1000*wHeight } />)
       }
       for (let i=0; i<overlayDotsCnt; i++) {
         overlayDotsItems.push(<Circle key={ i }
           radius={ dotsRadius }
           fill={ colorArr[i%4] }
-          x={ (i*i*37%1960 + 40)/1000*wWidth }
-          y={ (((i+37)*i)*i%1460 + 40)/1000*wHeight } />)
+          x={ (i*i*37%1950 + 50)/1000*wWidth }
+          y={ (((i+37)*i)*i%1550 + 50)/1000*wHeight } />)
       }
       dotsCanvas = (<Stage width={ wWidth*2 } height={ wHeight*2 }>
            <Layer>
