@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-bind, react/jsx-no-literals, no-unused-vars */
+/* eslint-disable react/jsx-no-bind, max-len, react/jsx-no-literals, no-unused-vars */
 
 import React, { Component, PropTypes } from "react"
 import enhanceCollection from "phenomic/lib/enhance-collection"
@@ -21,6 +21,11 @@ import Chapter05 from "./Chapter05/Chapter05"
 
 import commonStyles from "../../styles/common.scss"
 import styles from "./Home.scss"
+
+import reporterIcon from "../../../content/assets/twreporter-icon.svg"
+import donationIcon from "../../../content/assets/icon-donation.svg"
+import fbIcon from "../../../content/assets/icon-share-facebook.svg"
+import twitterIcon from "../../../content/assets/icon-share-twitter.svg"
 
 // let velocity
 // if (typeof window !== "undefined") {
@@ -82,6 +87,29 @@ export default class Homepage extends Component {
             <PagesList pages={ latestPosts } />
             地圖資料來源： CartoDB
             開頭照片來源：桃園新屋收容所
+          </div>
+
+        </div>
+
+        <div className={ styles.header }>
+          <div className={ styles["index-box"] }>
+            index box
+          </div>
+
+          <div className={ styles["share-box"] }>
+            share box
+            <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
+              dangerouslySetInnerHTML={ { __html: reporterIcon } }
+            />
+            <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
+              dangerouslySetInnerHTML={ { __html: donationIcon } }
+            />
+            <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
+              dangerouslySetInnerHTML={ { __html: fbIcon } }
+            />
+            <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
+              dangerouslySetInnerHTML={ { __html: twitterIcon } }
+            />
           </div>
 
         </div>
