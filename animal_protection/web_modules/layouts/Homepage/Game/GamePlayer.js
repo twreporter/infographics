@@ -13,6 +13,7 @@ import dogCaptured from "../../../../content/assets/dog_captured.gif"
 import dogDeath from "../../../../content/assets/dog_death.gif"
 import dogNeuteredDeath from "../../../../content/assets/dog_neutered_dead.gif"
 import gameIcon from "../../../../content/assets/game_cnt_icon.svg"
+import gameNeuteredIcon from "../../../../content/assets/pink-dog-icon.svg"
 import alertIcon from "../../../../content/assets/alert-icon.svg"
 
 let velocity
@@ -42,20 +43,40 @@ const TOTAL_YEARS = 10
 let timeoutsArr = []
 let yearTimeoutArr = []
 
-let GameFooter = (props) => {
+let GameHeader = (props) => {
   return (
-    <div className={ classnames(styles["footer"]) }>
-      <span>
-        <div className={ classnames(commonStyles["img-responsive"], styles["dog-cnt-icon"]) }
-          dangerouslySetInnerHTML={ { __html: gameIcon } }
-        />
-        <span className={ styles["dog-cnt"] }>{ props.num }</span> 隻流浪犬
-      </span>
+    <div className={ classnames(styles["header"]) }>
       <span className={ styles["time-des"] }>
         現在時間是
       </span>
       <span className={ styles["time-now"] }>
         { props.currentYear }.{ props.currentMonth }
+      </span>
+    </div>
+  )
+}
+
+let GameFooter = () => {
+  return (
+    <div className={ classnames(styles["footer"]) }>
+      <nobr>
+        <span>
+          <div className={ classnames(commonStyles["img-responsive"], styles["dog-cnt-icon"]) }
+            dangerouslySetInnerHTML={ { __html: gameIcon } }
+          />
+          未結紮犬隻
+        </span>
+      </nobr>
+      <nobr>
+        <span>
+          <div className={ classnames(commonStyles["img-responsive"], styles["dog-cnt-icon"]) }
+            dangerouslySetInnerHTML={ { __html: gameNeuteredIcon } }
+          />
+          結紮犬隻
+        </span>
+      </nobr>
+      <span>
+        <nobr>時間：10年</nobr>
       </span>
     </div>
   )
@@ -97,10 +118,13 @@ export default class GamePlayer extends Component {
       posList: [],    // list to store possible positions to place dogs
       freePos: [],
       totalDogs: 0,
+      totalNeutered: 0,
       neuteredDisplayM: [],    // list of the neutured male dogs     => {position: , isAlive: }
       neuteredDisplayF: [],    // list of the neutured female dogs   => {position: , isAlive: }
       unneuteredM: [],  // list of the unneutured male dogs     => [3, 5 ,6, ...]
       unneuteredF: [],  // list of the unneutured female dogs   => [7, 8, ...]
+      isExceedMax: false,
+      isEnded: false,
       // calculator: deal with the real numbers of animals (totalDogs * MULTIPLE)
       calculator: {
         totalAlive: 0,
@@ -184,6 +208,11 @@ export default class GamePlayer extends Component {
         yearTimeoutArr.push(timoutId)
       }(i))
     }
+
+    // to show the game ending results
+    timeoutsArr.push(setTimeout(()=>{
+      this.setState({ isEnded: true })
+    }, (TOTAL_YEARS+0.5) * A_YEAR))
   }
 
   _getRandomIndices(list, count) {
@@ -201,10 +230,15 @@ export default class GamePlayer extends Component {
 
   checkIfExceedMax() {
     if (this.state.totalDogs >= MAX_CAPACITY) {
-      console.log("***GAME OVER***")
       for (let i=0; i<yearTimeoutArr.length; i++) {
         clearTimeout(yearTimeoutArr[i])
       }
+      this.setState({ isExceedMax: true })
+
+      // to show the game ending results
+      timeoutsArr.push(setTimeout(()=>{
+        this.setState({ isEnded: true })
+      }, 3000))
     }
   }
 
@@ -437,7 +471,7 @@ export default class GamePlayer extends Component {
   }
 
   handleDogClick(dogId, event) {
-    let { posList, freePos } = this.state
+    let { posList, freePos, totalNeutered } = this.state
     console.log("***dogIClicked", dogId)
     event.stopPropagation()
     const dogs = posList[dogId].dogs
@@ -452,6 +486,7 @@ export default class GamePlayer extends Component {
     }
     if (shouldRemove) {
       this._removeDog(dogId, false)
+      this.setState({ totalNeutered: totalNeutered+1 })
     }
   }
 
@@ -494,9 +529,12 @@ export default class GamePlayer extends Component {
   }
 
   render() {
-    const { isIntoHidden, isOpened, isClosing, totalDogs, currentYear, currentMonth } = this.state
+    const { isIntoHidden, isOpened, isClosing, totalDogs, currentYear,
+      currentMonth, totalNeutered, unneuteredM, unneuteredF, isExceedMax, isEnded } = this.state
     const introClass = isIntoHidden ? styles["hide"] : null
     const closingClass = isClosing ? styles["hide-fast"] : null
+    const exceedClass = isExceedMax ? styles["game-over-box"] : commonStyles["hide"]
+    const endingClass = isEnded ? styles["game-results-box"] : commonStyles["hide"]
 
     return (
       <div className={ classnames(styles.container) }
@@ -515,6 +553,7 @@ export default class GamePlayer extends Component {
           </div>
 
           <div className={ styles["game-outer"] }>
+            <GameHeader num={ totalDogs } currentYear={ currentYear } currentMonth={ currentMonth } />
             <div className={ styles["game-container"] } ref={ (ref) => this.game = ref }>
               { this.getNeuteredDogs() }
               { this.getDogs() }
@@ -522,7 +561,7 @@ export default class GamePlayer extends Component {
                 <Dog status={ M_NOTCAPTURED } />
               </div>
 
-              <div className={ classnames(styles["game-over-box"]) }>
+              <div className={ exceedClass }>
                 <div>
                   <div className={ classnames(commonStyles["img-responsive"], commonStyles["overlay-svg"]) }
                     dangerouslySetInnerHTML={ { __html: alertIcon } } />
@@ -531,8 +570,16 @@ export default class GamePlayer extends Component {
                 </div>
               </div>
 
+              <div className={ endingClass }>
+                <div>
+                  <p>你總共執行了<b>{ totalNeutered }</b>次TNR</p>
+                  <p>共結紮了<b>{ totalNeutered*50 }</b>隻狗狗</p>
+                  <p>此區域還有<b>{ (unneuteredM.length + unneuteredF.length) * 50 }</b>隻狗狗沒有結紮。</p>
+                </div>
+              </div>
+
             </div>
-            <GameFooter num={ totalDogs } currentYear={ currentYear } currentMonth={ currentMonth } />
+            <GameFooter />
           </div>
         </div>
       </div>

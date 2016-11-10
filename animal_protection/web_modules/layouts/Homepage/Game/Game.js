@@ -96,7 +96,7 @@ export default class Game extends Component {
           <VisibleSensor handleVisible={ this._handleAnimation }
             handleInvisible={ this._handleLeave }
           >
-            <h2>點選狗狗圖示執行 TNR！</h2>
+            <h2>點擊狗狗圖示施行TNR <br /> 減少新生狗狗數量！</h2>
             <div className={ styles["inner"] } onClick={ this.handleGameStart }>
               <div className={ classnames(commonStyles["img-responsive"], commonStyles["overlay-svg"], styles["center-dog"]) }
                 dangerouslySetInnerHTML={ { __html: gameIcon } }
