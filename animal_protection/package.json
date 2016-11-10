@@ -96,6 +96,7 @@
     "raf": "^3.3.0",
     "react": "^15.3.2",
     "react-holder": "^1.0.0",
+    "react-howler": "^3.2.0",
     "react-image-holder": "^2.0.1",
     "react-konva": "^1.0.6",
     "react-markdown": "^2.4.2",

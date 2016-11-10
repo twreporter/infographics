@@ -167,7 +167,7 @@ export default class OpeningStardust extends Component {
 
     const dotsCnt = isMobile ? 230 : 450
     const overlayDotsCnt = isMobile ? 100 : 350
-    const dotsRadius = isMobile ? 7 : 10
+    const dotsRadius = isMobile ? 6 : 10
     let dotsItems = []
     let overlayDotsItems = []
     let dotsCanvas

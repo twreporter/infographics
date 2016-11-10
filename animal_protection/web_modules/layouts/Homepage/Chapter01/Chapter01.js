@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-bind, no-empty, react/jsx-no-literals, max-len, react/prop-types, react/no-multi-comp, react/jsx-closing-bracket-location  */
 
+import _ from "lodash"
 import React, { Component } from "react"
-// import ReactDOM from "react-dom"
+import ReactDOM from "react-dom"
 import Markdown from "react-markdown"
 
 import classnames from "classnames"
@@ -9,6 +10,8 @@ import styles from "./Chapter01.scss"
 import Subsection from "../Components/Subsection"
 import ChapterTitle from "../Components/ChapterTitle"
 import VisibleSensor from "../Components/VisibleSensor"
+import AudioPlayer from "./AudioPlayer/AudioPlayer"
+
 import commonStyles from "../../../styles/common.scss"
 
 import shelter01 from "../../../../content/assets/shelter-medical.svg"
@@ -33,14 +36,37 @@ if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
 }
 
+const debounceTime = {
+  threshold: 15,
+  maxWait: 45,
+}
+
 const SLIDEIN_EFFECT = { translateY: [ "0%", "25%" ], opacity: [ 1, 0.5 ] }
 
 export default class Chapter01 extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      isAudioPlaying: true,
+    }
+
     this._handleProblem1 = this._handleProblem1.bind(this)
     this._handleProblem2 = this._handleProblem2.bind(this)
     this._handleProblem3 = this._handleProblem3.bind(this)
+
+    this._handleScroll = this._handleScroll.bind(this)
+    this.debouncedScroll = _.debounce(() => {
+      this._handleScroll()
+    }, debounceTime.threshold, { "maxWait": debounceTime.maxWait })
+  }
+
+  componentDidMount() {
+    // detect sroll position
+    window.addEventListener("scroll", this.debouncedScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.debouncedScroll)
   }
 
   _handleProblem1() {
@@ -76,12 +102,27 @@ export default class Chapter01 extends Component {
     }
   }
 
+  _handleScroll() {
+    const node = ReactDOM.findDOMNode(this.section2)
+    const rect = node.getBoundingClientRect()
+    const { top, bottom } = rect
+    if (top < 0 && bottom > 0) {
+      this.setState({ isAudioPlaying: true })
+    }
+    else {
+      this.setState({ isAudioPlaying: false })
+    }
+  }
+
   render() {
+    const { isAudioPlaying } = this.state
+    const audioClass = isAudioPlaying ? null : styles["audio-hidden"]
+
     return (
       <div>
         <ChapterTitle chapterId={ chapter.id } title={ chapter.title } />
         <div className={ classnames(styles.container,
-          commonStyles["text-center"]) }
+        commonStyles["text-center"]) }
         >
           <div>
             <div className={ classnames(commonStyles["content-outer"], commonStyles["content-box"]) }>
@@ -95,55 +136,60 @@ export default class Chapter01 extends Component {
               <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) } style={ { paddingBottom: "2rem" } }>
                 { sec1Credit }
               </div>
+              <div className={ classnames(styles["audio-fixed"], audioClass) } >
+                <AudioPlayer isPlaying={ isAudioPlaying } />
+              </div>
             </Subsection>
             <Subsection curSec={ 1 } titles={ titles } subIndex={ 1 }>
-              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) } style={ { paddingBottom: "4rem" } }>
-                <Markdown className={ commonStyles["inner-text"] } source={ sec2Des } />
-              </div>
-              <div className={ styles["photography-wrapper"] }>
-                <div className={  classnames(styles["photography"]) }>
-                  <div className={  classnames(styles["photo-1"]) }>
-                    <p className={ styles["photo-overlay-text"] }>{ photoText[0] }</p>
-                  </div>
-                  <div className={  classnames(commonStyles["content-outer"]) }>
-                    <div className={ classnames(styles["p-grid"], styles["p-v-space"]) }>
-                      <div className={ styles["p-left"] }>
-                        <img className={ commonStyles["img-responsive"] } src={ photo02a } srcSet={ `${photo02a} 1200w, ${photo02aM} 600w` } alt={ photoText[1] } />
-                        <p className={ styles["photo-description"] }>{ photoText[1] }</p>
-                      </div>
-                      <div className={ styles["p-right"] }>
-                        <img className={ commonStyles["img-responsive"] } src={ photo02b } srcSet={ `${photo02b} 1200w, ${photo02bM} 600w` } alt={ photoText[2] } />
-                        <p className={ styles["photo-description"] }>{ photoText[2] }</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={  classnames(styles["photo-3a"]) }>
-                    <p className={ styles["photo-overlay-text"] }>{ photoText[3] }</p>
-                  </div>
-                  <div className={  classnames(styles["photo-3b"]) }>
-                    <p className={ styles["photo-overlay-text"] }>{ photoText[4] }</p>
-                  </div>
-                  <div className={  classnames(commonStyles["content-outer"]) }>
-                    <div className={ classnames(styles["p-grid"], styles["p-v-space"]) }>
-                      <div className={ styles["p-full"] }>
-                        <img className={ commonStyles["img-responsive"] } src={ photo04 } srcSet={ `${photo04} 1200w, ${photo04M} 600w` } alt={ photoText[5] } />
-                        <p className={ styles["photo-description"] }>{ photoText[5] }</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={  classnames(styles["photo-5a"]) }>
-                    <p className={ styles["photo-overlay-text"] }>{ photoText[6] }</p>
-                  </div>
-                  <div className={  classnames(styles["photo-5b"]) }>
-                    <p className={ styles["photo-overlay-text"] }>{ photoText[7] }</p>
-                  </div>
+              <div ref={ (ref) => this.section2 = ref }>
+                <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) } style={ { paddingBottom: "4rem" } }>
+                  <Markdown className={ commonStyles["inner-text"] } source={ sec2Des } />
                 </div>
-                <div className={ styles["photography-last"] }>
-                  <div className={  classnames(commonStyles["content-outer"]) }>
-                    <div className={ classnames(styles["p-grid"], styles["p-v-space"]) }>
-                      <div className={ styles["p-full"] }>
-                        <img className={ commonStyles["img-responsive"] } src={ photo06 } srcSet={ `${photo06} 1200w, ${photo06M} 600w` } alt={ photoText[8] } />
-                        <p className={ styles["photo-description"] }>{ photoText[8] }</p>
+                <div className={ styles["photography-wrapper"] }>
+                  <div className={  classnames(styles["photography"]) }>
+                    <div className={  classnames(styles["photo-1"]) }>
+                      <p className={ styles["photo-overlay-text"] }>{ photoText[0] }</p>
+                    </div>
+                    <div className={  classnames(commonStyles["content-outer"]) }>
+                      <div className={ classnames(styles["p-grid"], styles["p-v-space"]) }>
+                        <div className={ styles["p-left"] }>
+                          <img className={ commonStyles["img-responsive"] } src={ photo02a } srcSet={ `${photo02a} 1200w, ${photo02aM} 600w` } alt={ photoText[1] } />
+                          <p className={ styles["photo-description"] }>{ photoText[1] }</p>
+                        </div>
+                        <div className={ styles["p-right"] }>
+                          <img className={ commonStyles["img-responsive"] } src={ photo02b } srcSet={ `${photo02b} 1200w, ${photo02bM} 600w` } alt={ photoText[2] } />
+                          <p className={ styles["photo-description"] }>{ photoText[2] }</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className={  classnames(styles["photo-3a"]) }>
+                      <p className={ styles["photo-overlay-text"] }>{ photoText[3] }</p>
+                    </div>
+                    <div className={  classnames(styles["photo-3b"]) }>
+                      <p className={ styles["photo-overlay-text"] }>{ photoText[4] }</p>
+                    </div>
+                    <div className={  classnames(commonStyles["content-outer"]) }>
+                      <div className={ classnames(styles["p-grid"], styles["p-v-space"]) }>
+                        <div className={ styles["p-full"] }>
+                          <img className={ commonStyles["img-responsive"] } src={ photo04 } srcSet={ `${photo04} 1200w, ${photo04M} 600w` } alt={ photoText[5] } />
+                          <p className={ styles["photo-description"] }>{ photoText[5] }</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className={  classnames(styles["photo-5a"]) }>
+                      <p className={ styles["photo-overlay-text"] }>{ photoText[6] }</p>
+                    </div>
+                    <div className={  classnames(styles["photo-5b"]) }>
+                      <p className={ styles["photo-overlay-text"] }>{ photoText[7] }</p>
+                    </div>
+                  </div>
+                  <div className={ styles["photography-last"] }>
+                    <div className={  classnames(commonStyles["content-outer"]) }>
+                      <div className={ classnames(styles["p-grid"], styles["p-v-space"]) }>
+                        <div className={ styles["p-full"] }>
+                          <img className={ commonStyles["img-responsive"] } src={ photo06 } srcSet={ `${photo06} 1200w, ${photo06M} 600w` } alt={ photoText[8] } />
+                          <p className={ styles["photo-description"] }>{ photoText[8] }</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -161,7 +207,7 @@ export default class Chapter01 extends Component {
                     </div>
                     <div className={ styles["c-right"] }>
                       <div className={ classnames(commonStyles["img-responsive"],
-                        styles["yoyo"], commonStyles["overlay-svg"]) }
+                      styles["yoyo"], commonStyles["overlay-svg"]) }
                         dangerouslySetInnerHTML={ { __html: shelter01 } }
                         ref={ (ref) => this.p1G = ref }
                       />
@@ -175,7 +221,7 @@ export default class Chapter01 extends Component {
                     </div>
                     <div className={ styles["c-left"] }>
                       <div className={ classnames(commonStyles["img-responsive"],
-                        styles["yoyo"], commonStyles["overlay-svg"]) }
+                      styles["yoyo"], commonStyles["overlay-svg"]) }
                         dangerouslySetInnerHTML={ { __html: shelter02 } }
                         ref={ (ref) => this.p2G = ref }
                       />

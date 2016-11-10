@@ -118,6 +118,25 @@
   }
 }
 
+.audio-fixed{
+  position: fixed;
+  top: 2rem;
+  right: 0.5rem;
+  z-index: 200;
+  opacity: 1;
+  transition: all 0.3s;
+  @media (max-width: $width-xs) {
+    right: 0;
+  }
+}
+
+.audio-hidden{
+  // display: none;
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: -200;
+}
+
 .photography {
   background-color: #111318;
   width: 100%;
