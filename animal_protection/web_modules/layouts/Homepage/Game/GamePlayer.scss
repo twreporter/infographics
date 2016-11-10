@@ -90,6 +90,9 @@
 
   span {
     padding-right: 0.2rem;
+    @media (min-width: $width-xs) {
+      margin-left: -3rem;
+    }
   }
 
   .time-des {
@@ -142,7 +145,7 @@
   }
 
   .dog-cnt-icon {
-    width: 2rem;
+    width: 2.2rem;
     display: inline-block;
     background: $white;
     border-radius: 50%;
