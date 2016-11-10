@@ -47,7 +47,7 @@ export default class Chapter01 extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isAudioPlaying: true,
+      isAudioPlaying: false,
     }
 
     this._handleProblem1 = this._handleProblem1.bind(this)

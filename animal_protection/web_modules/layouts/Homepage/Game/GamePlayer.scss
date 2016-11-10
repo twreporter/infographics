@@ -218,6 +218,26 @@
   }
 }
 
+.game-over-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 65%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: solid 2px $white;
+  display: table;
+  @media screen and (orientation:portrait) {
+    width: 75%;
+    height: 60%;
+  }
+  >div{
+    vertical-align: middle;
+    display: table-cell;
+  }
+}
+
 .center-dog {
   @include fade-out(1s);
   max-width: 18rem;

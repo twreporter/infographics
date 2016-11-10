@@ -11,7 +11,9 @@ import dogAnimated from "../../../../content/assets/dog_animated.gif"
 import dogNeutered from "../../../../content/assets/dog_neutered.gif"
 import dogCaptured from "../../../../content/assets/dog_captured.gif"
 import dogDeath from "../../../../content/assets/dog_death.gif"
+import dogNeuteredDeath from "../../../../content/assets/dog_neutered_dead.gif"
 import gameIcon from "../../../../content/assets/game_cnt_icon.svg"
+import alertIcon from "../../../../content/assets/alert-icon.svg"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -36,6 +38,9 @@ const F_CAPTURED = 2
 
 const A_YEAR = 5000           // use how many ms to represent a year
 const TOTAL_YEARS = 10
+
+let timeoutsArr = []
+let yearTimeoutArr = []
 
 let GameFooter = (props) => {
   return (
@@ -69,7 +74,7 @@ const Dog = (props) => {
 }
 
 const NeuteredDog = (props) => {
-  let dogImg = props.isAlive ? dogNeutered : dogDeath
+  let dogImg = props.isAlive ? dogNeutered : dogNeuteredDeath
   return (
     <img src={ dogImg } />
   )
@@ -121,6 +126,7 @@ export default class GamePlayer extends Component {
     this._removeDog = this._removeDog.bind(this)
     this._removeNeuteredDog = this._removeNeuteredDog.bind(this)
     this._simulateAfterAYear = this._simulateAfterAYear.bind(this)
+    this.checkIfExceedMax = this.checkIfExceedMax.bind(this)
     this.debouncedResize = _.debounce(() => { this.handleResize() }, 150, { "maxWait": 450 })
   }
 
@@ -131,15 +137,21 @@ export default class GamePlayer extends Component {
       .then(this._handleDialogOpened())
     window.addEventListener("resize", this.debouncedResize)
     this.debouncedResize()
+    timeoutsArr = []
+    yearTimeoutArr = []
   }
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.debouncedResize)
+
+    for (let i=0; i<timeoutsArr.length; i++) {
+      clearTimeout(timeoutsArr[i])
+    }
   }
 
   _handleDialogOpened() {
     this.setState({ isOpened: true })
-    setTimeout(this.handleGameStart, 2200)
+    timeoutsArr.push(setTimeout(this.handleGameStart, 2200))
   }
 
   handleGameStart() {
@@ -167,8 +179,9 @@ export default class GamePlayer extends Component {
     let self = this
     for (let i=0; i<TOTAL_YEARS; i++) {
       (function(y) {
-        // setTimeout(()=>{console.log("y * A_YEAR",y, y * A_YEAR)} , y * A_YEAR)
-        setTimeout(self._simulateAfterAYear, y * A_YEAR)
+        const timoutId = setTimeout(self._simulateAfterAYear, y * A_YEAR)
+        timeoutsArr.push(timoutId)
+        yearTimeoutArr.push(timoutId)
       }(i))
     }
   }
@@ -184,6 +197,15 @@ export default class GamePlayer extends Component {
     }
     console.log("*** indices", indices)
     return indices.slice(0, count)
+  }
+
+  checkIfExceedMax() {
+    if (this.state.totalDogs >= MAX_CAPACITY) {
+      console.log("***GAME OVER***")
+      for (let i=0; i<yearTimeoutArr.length; i++) {
+        clearTimeout(yearTimeoutArr[i])
+      }
+    }
   }
 
   _simulateAfterAYear() {
@@ -241,6 +263,10 @@ export default class GamePlayer extends Component {
     }
 
     this.setState({ currentYear: currentYear+1 })
+
+    // check if exceed max
+    this.checkIfExceedMax()
+
   }
 
   _removeNeuteredDog(gender, pos) {
@@ -258,7 +284,7 @@ export default class GamePlayer extends Component {
       this.setState({ neuteredDisplayF: neuteredDisplayF, totalDogs: totalDogs-1 })
     }
 
-    setTimeout(() => {
+    timeoutsArr.push(setTimeout(() => {
       const { neuteredDisplayM, neuteredDisplayF } = this.state
       if (gender==="M") {
         neuteredDisplayM.splice(_.findIndex(neuteredDisplayM, { position: pos.position, isAlive: false }), 1)
@@ -267,7 +293,7 @@ export default class GamePlayer extends Component {
         neuteredDisplayF.splice(_.findIndex(neuteredDisplayF, { position: pos.position, isAlive: false }), 1)
         this.setState({ neuteredDisplayF: neuteredDisplayF })
       }
-    }, 300)
+    }, 300))
   }
 
   _placeDog(gender) {
@@ -322,7 +348,7 @@ export default class GamePlayer extends Component {
     console.log("isDeath:",isDeath, posIdx, "unneutered: ", unneuteredM, unneuteredF, "total=", totalDogs, this.state.neuteredDisplayM, this.state.neuteredDisplayF)
 
     // after the disappearing animation terminates
-    setTimeout(() => {
+    timeoutsArr.push(setTimeout(() => {
       let { posList, freePos, neuteredDisplayM, neuteredDisplayF } = this.state
       // move the dog into neutered list
       if (posList[posIdx].dogs[0] === M_CAPTURED) {
@@ -341,7 +367,7 @@ export default class GamePlayer extends Component {
       this.setState({ posList: posList, freePos: freePos,
         neuteredDisplayM: neuteredDisplayM, neuteredDisplayF: neuteredDisplayF })
       console.log("timeout", this.state.unneuteredM, this.state.unneuteredF, this.state.neuteredDisplayM, this.state.neuteredDisplayF)
-    }, 300)
+    }, 300))
 
   }
 
@@ -477,7 +503,7 @@ export default class GamePlayer extends Component {
         ref={ (ref) => this.container = ref }
       >
         <div className={ classnames(styles["intro"],
-          commonStyles["text-center"], commonStyles["content-outer"], closingClass) }
+        commonStyles["text-center"], commonStyles["content-outer"], closingClass) }
         >
           <span className={ classnames(styles["close-button"]) } onClick={ this.handleClose }></span>
           <div className={ introClass }>
@@ -495,6 +521,16 @@ export default class GamePlayer extends Component {
               <div className={ classnames(styles["dog"], styles["hide-visible"]) } ref={ (ref) => this.exampleDog = ref }>
                 <Dog status={ M_NOTCAPTURED } />
               </div>
+
+              <div className={ classnames(styles["game-over-box"]) }>
+                <div>
+                  <div className={ classnames(commonStyles["img-responsive"], commonStyles["overlay-svg"]) }
+                    dangerouslySetInnerHTML={ { __html: alertIcon } } />
+                  <h2>你失敗了</h2>
+                  <h5>狗群數量已超過生物承載量上限</h5>
+                </div>
+              </div>
+
             </div>
             <GameFooter num={ totalDogs } currentYear={ currentYear } currentMonth={ currentMonth } />
           </div>

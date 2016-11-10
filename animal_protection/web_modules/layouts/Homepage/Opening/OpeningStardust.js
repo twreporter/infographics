@@ -161,8 +161,6 @@ export default class OpeningStardust extends Component {
   render() {
     const { isMobile, wWidth, wHeight } = this.state
 
-    console.log("render")
-
     const petBg = isMobile ? petMobile : petDesktop
 
     const dotsCnt = isMobile ? 230 : 450
