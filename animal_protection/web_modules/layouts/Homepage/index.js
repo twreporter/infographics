@@ -7,9 +7,8 @@ import Page from "../Page"
 import PagesList from "../../PagesList"
 
 import classnames from "classnames"
-import Markdown from "react-markdown"
 import Img from "react-image-holder"
-import { firstContent } from "./content"
+import { supportUs } from "./content"
 import OpeningTop from "./Opening/OpeningTop"
 import OpeningStardust from "./Opening/OpeningStardust"
 import OpeningLast from "./Opening/OpeningLast"
@@ -59,19 +58,15 @@ export default class Homepage extends Component {
     })
     .slice(0, numberOfLatestPosts)
 
+    let chapterArr = []
+    for (let i=1; i<=5; i++) {
+      chapterArr.push(<a href={ `#chapter0${i}` } className={ styles["sec-index"] }>{ i }</a>)
+    }
+
     return (
       <Page { ...this.props } className={
-          styles.container }
+      styles.container }
       >
-        {/* <div className={ styles["container"] }>
-          <div className={ classnames(commonStyles.content) }>
-            <h2>{ "Latest Posts" }</h2>
-            <div ref={ (ref) => this.block = ref }>
-              VelocityExample
-            </div>
-            <Img src="" width="800" height="500" usePlaceholder />
-          </div>
-        </div> */}
         <div itemScope itemType="http://schema.org/ScholarlyArticle">
           <OpeningTop />
           <OpeningStardust />
@@ -83,7 +78,6 @@ export default class Homepage extends Component {
           <Chapter05 />
 
           <div className={ commonStyles.content }>
-            <Markdown source={ firstContent } />
             <PagesList pages={ latestPosts } />
             地圖資料來源： CartoDB
             開頭照片來源：桃園新屋收容所
@@ -93,17 +87,26 @@ export default class Homepage extends Component {
 
         <div className={ styles.header }>
           <div className={ styles["index-box"] }>
-            index box
+            <a href="#" className={ styles["oval"] }></a>
+            { chapterArr }
           </div>
 
           <div className={ styles["share-box"] }>
-            share box
-            <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
-              dangerouslySetInnerHTML={ { __html: reporterIcon } }
-            />
-            <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
-              dangerouslySetInnerHTML={ { __html: donationIcon } }
-            />
+            <a href="https://www.twreporter.org/" target="_blank">
+              <div title="報導者TheReporter" className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
+                dangerouslySetInnerHTML={ { __html: reporterIcon } }
+              />
+            </a>
+            <div className={ styles["spacer"] }></div>
+            <a title={ supportUs } style={ { marginLeft: "-0.5rem", marginRight: "0.4rem" } }
+              href="https://twreporter.backme.tw/cashflow/checkout?project_id=175&reward_id=718" target="_blank"
+            >
+              <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
+                dangerouslySetInnerHTML={ { __html: donationIcon } }
+              />
+              <span style={ { opacity: 0.8 } }>{ supportUs }</span>
+            </a>
+            <div className={ styles["spacer"] }></div>
             <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
               dangerouslySetInnerHTML={ { __html: fbIcon } }
             />
@@ -113,6 +116,8 @@ export default class Homepage extends Component {
           </div>
 
         </div>
+
+        <div className={ styles["progress-bar"] }></div>
 
       </Page>
     )

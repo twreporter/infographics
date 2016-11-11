@@ -187,7 +187,7 @@ export default class Tnr extends Component {
   render() {
     return (
       <div>
-        <ChapterTitle chapterId={ chapter.id } title={ chapter.title } />
+        <ChapterTitle chapterId={ chapter.id } chapterNum={ 2 } title={ chapter.title } />
         <div className={ classnames(styles.container,
           commonStyles["text-center"]) }
         >

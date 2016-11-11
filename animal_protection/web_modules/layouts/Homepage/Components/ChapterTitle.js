@@ -33,10 +33,10 @@ export default class ChapterTitle extends Component {
   }
 
   render() {
-    const { chapterId, title } = this.props
+    const { chapterId, title, chapterNum } = this.props
 
     return (
-      <div className={ styles["container"] }>
+      <div id={ `chapter0${chapterNum}` } className={ styles["container"] }>
         <VisibleSensor handleVisible={ this._handleTitleVisible }>
           <p className={ styles["title"] }> { "Chapter " + chapterId }</p>
           <div className={ styles["outer"] }>
@@ -61,4 +61,5 @@ export default class ChapterTitle extends Component {
 ChapterTitle.propTypes = {
   chapterId: React.PropTypes.string,
   title: React.PropTypes.string,
+  chapterNum: React.PropTypes.number,
 }

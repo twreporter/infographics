@@ -1,4 +1,5 @@
 /*eslint-disable */
+export const supportUs = "贊助我們"
 export const firstContent = `
 # An exhibit of Markdown
 

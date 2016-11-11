@@ -69,9 +69,9 @@ export default class Chapter03 extends Component {
   render() {
     return (
       <div>
-        <ChapterTitle chapterId={ chapter.id } title={ chapter.title } />
+        <ChapterTitle chapterId={ chapter.id } chapterNum={ 3 } title={ chapter.title } />
         <div className={ classnames(styles.container,
-          commonStyles["text-center"]) }
+        commonStyles["text-center"]) }
         >
           <div>
             <div className={ classnames(commonStyles["content-outer"], commonStyles["content-box"]) }>

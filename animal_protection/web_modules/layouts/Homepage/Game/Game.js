@@ -88,7 +88,7 @@ export default class Game extends Component {
       <GamePlayer outerWidth={ width } outerHeight={ height } outerTop={ top } onClose={ this.handlePlayerClose } /> : null
 
     return (
-      <div className={ classnames(styles.container) }>
+      <div id="tnr-game" className={ classnames(styles.container) }>
         <div className={ classnames(styles["intro"],
           commonStyles["text-center"], commonStyles["content-outer"]) }
           ref={ (ref) => this.container = ref }
