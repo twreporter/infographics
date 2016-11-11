@@ -1,6 +1,8 @@
-/* eslint-disable react/jsx-no-bind, max-len, react/jsx-no-literals, no-unused-vars */
+/* eslint-disable react/jsx-no-bind, prefer-const, max-len, react/jsx-no-literals, no-unused-vars */
 
+import _ from "lodash"
 import React, { Component, PropTypes } from "react"
+import ReactDOM from "react-dom"
 import enhanceCollection from "phenomic/lib/enhance-collection"
 
 import Page from "../Page"
@@ -26,6 +28,13 @@ import donationIcon from "../../../content/assets/icon-donation.svg"
 import fbIcon from "../../../content/assets/icon-share-facebook.svg"
 import twitterIcon from "../../../content/assets/icon-share-twitter.svg"
 
+import { MOBILE_WIDTH } from "./config"
+
+const debounceTime = {
+  threshold: 600,
+  maxWait: 1200,
+}
+
 // let velocity
 // if (typeof window !== "undefined") {
 //   velocity = require("velocity-animate")
@@ -41,16 +50,98 @@ export default class Homepage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showSubComponent: true,
+      isMobile: false,
+      scrollPercent: 0,
+      activeIndex: -1,
+      heightArr: [],
+      shouldShowNav: false,
+      preScrollPos: 0,
     }
+
+    this._handleResize = this._handleResize.bind(this)
+    this.handleResize = _.debounce(() => {
+      this._handleResize()
+    }, debounceTime.threshold, { "maxWait": debounceTime.maxWait })
+
+    this._handleScroll = this._handleScroll.bind(this)
+    this.debouncedScroll = _.debounce(() => {
+      this._handleScroll()
+    }, debounceTime.threshold, { "maxWait": debounceTime.maxWait })
   }
 
   componentDidMount() {
-    // velocity(this.block, { scale: 2 }, 500)
-    //   .then(() => console.log("animation complete"))
+    // detect window width
+    window.addEventListener("resize", this.handleResize)
+    this._handleResize()
+
+    // detect sroll position
+    window.addEventListener("touchmove", this.debouncedScroll)
+    window.addEventListener("wheel", this.debouncedScroll)
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextState.isMobile!==this.state.isMobile
+    || nextState.scrollPercent!==this.state.scrollPercent
+    || nextState.activeIndex!==this.state.activeIndex) {
+      return true
+    }
+    return false
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize)
+    window.removeEventListener("touchmove", this.debouncedScroll)
+    window.removeEventListener("wheel", this.debouncedScroll)
+  }
+
+  _handleResize() {
+    this.setState({ wWidth: window.innerWidth, wHeight: window.innerHeight })
+    if (window.innerWidth > MOBILE_WIDTH)
+      this.setState({ isMobile: false })
+    else
+      this.setState({ isMobile: true })
+
+    let heightArr = []
+    const containers = [ this.chapter0, this.chapter1, this.chapter2, this.chapter3, this.chapter4, this.chapter5, this.artEnding ]
+    let totalHeight = 0
+    for (let i=0; i<containers.length; i++) {
+      heightArr.push(totalHeight)
+      totalHeight = totalHeight + ReactDOM.findDOMNode(containers[i]).getBoundingClientRect().height
+    }
+    this.setState({ heightArr: heightArr })
+  }
+
+  _handleScroll() {
+    const { heightArr, activeIndex, preScrollPos } = this.state
+    const node = ReactDOM.findDOMNode(this.container)
+    const rect = node.getBoundingClientRect()
+    const { height } = rect
+    const scrollPos = window.scrollY
+    let scrollPercent = Math.round(scrollPos/height * 100)
+    scrollPercent = (scrollPercent>100) ? 100: scrollPercent
+
+    this.setState({ scrollPercent: scrollPercent || 0, shouldShowNav: (scrollPos < preScrollPos) })
+
+    let curActive = -1
+    for (let i=0; i<heightArr.length; i++) {
+      if (scrollPos >= heightArr[i]) {
+        curActive++
+      }
+      else {
+        break
+      }
+    }
+    if (curActive !== activeIndex) {
+      this._handleResize()
+      this.setState({ activeIndex: curActive })
+    }
+
+    this.setState({ preScrollPos: scrollPos })
   }
 
   render() {
+    const { scrollPercent, activeIndex, shouldShowNav } = this.state
+
     const latestPosts = enhanceCollection(this.context.collection, {
       filter: { layout: "Post" },
       sort: "date",
@@ -60,34 +151,42 @@ export default class Homepage extends Component {
 
     let chapterArr = []
     for (let i=1; i<=5; i++) {
-      chapterArr.push(<a href={ `#chapter0${i}` } className={ styles["sec-index"] }>{ i }</a>)
+      const activeClass = (activeIndex===i) ? styles["active"] : null
+      chapterArr.push(<a key={ i } href={ `#chapter0${i}` } className={ classnames(styles["sec-index"], activeClass) }>{ i }</a>)
     }
+
+    const navClass = shouldShowNav ? null : commonStyles["hide"]
+
+    const activeOpening = (activeIndex===0) ? styles["active-opening"] : null
 
     return (
       <Page { ...this.props } className={
       styles.container }
       >
-        <div itemScope itemType="http://schema.org/ScholarlyArticle">
-          <OpeningTop />
-          <OpeningStardust />
-          <OpeningLast />
-          <Chapter01 />
-          <Tnr />
-          <Chapter03 />
-          <Chapter04 />
-          <Chapter05 />
-
-          <div className={ commonStyles.content }>
-            <PagesList pages={ latestPosts } />
-            地圖資料來源： CartoDB
-            開頭照片來源：桃園新屋收容所
+        <div itemScope itemType="http://schema.org/ScholarlyArticle" ref={ (ref) => this.container = ref }>
+          <div ref={ (ref) => this.chapter0 = ref }>
+            <OpeningTop />
+            <OpeningStardust />
+            <OpeningLast />
           </div>
+          <Chapter01 ref={ (ref) => this.chapter1 = ref } />
+          <Tnr ref={ (ref) => this.chapter2 = ref } />
+          <Chapter03 ref={ (ref) => this.chapter3 = ref } />
+          <Chapter04 ref={ (ref) => this.chapter4 = ref } />
+          <Chapter05 ref={ (ref) => this.chapter5 = ref } />
+          <div ref={ (ref) => this.artEnding = ref } />
 
         </div>
 
-        <div className={ styles.header }>
+        <div className={ commonStyles.content }>
+          <PagesList pages={ latestPosts } />
+          地圖資料來源： CartoDB
+          開頭照片來源：桃園新屋收容所
+        </div>
+
+        <div className={ classnames(styles.header, navClass) }>
           <div className={ styles["index-box"] }>
-            <a href="#" className={ styles["oval"] }></a>
+            <a href="#" className={ classnames(styles["oval"], activeOpening) }></a>
             { chapterArr }
           </div>
 
@@ -98,13 +197,13 @@ export default class Homepage extends Component {
               />
             </a>
             <div className={ styles["spacer"] }></div>
-            <a title={ supportUs } style={ { marginLeft: "-0.5rem", marginRight: "0.4rem" } }
+            <a title={ supportUs } style={ { marginLeft: "-0.5rem" } }
               href="https://twreporter.backme.tw/cashflow/checkout?project_id=175&reward_id=718" target="_blank"
             >
               <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
                 dangerouslySetInnerHTML={ { __html: donationIcon } }
               />
-              <span style={ { opacity: 0.8 } }>{ supportUs }</span>
+              <span className={ classnames(styles["support-text"]) } style={ { opacity: 0.8 } }>{ supportUs }</span>
             </a>
             <div className={ styles["spacer"] }></div>
             <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
@@ -117,7 +216,14 @@ export default class Homepage extends Component {
 
         </div>
 
-        <div className={ styles["progress-bar"] }></div>
+        <div className={ classnames(styles.footer, navClass) }>
+          <div className={ styles["footer-index-box"] }>
+            <a href="#" className={ classnames(styles["oval"], activeOpening) }></a>
+            { chapterArr }
+          </div>
+        </div>
+
+        <div className={ styles["progress-bar"] } style={ { width: `${scrollPercent+5}%` } }></div>
 
       </Page>
     )
