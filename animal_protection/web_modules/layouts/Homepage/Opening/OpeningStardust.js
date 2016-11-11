@@ -11,6 +11,8 @@ import commonStyles from "../../../styles/common.scss"
 
 import { MOBILE_WIDTH } from "../config"
 
+import { endingParagraphs } from "./text"
+
 import petDesktop from "../../../../content/assets/dog_bg_desktop_s.png"
 import petMobile from "../../../../content/assets/dog_bg_mobile.png"
 
@@ -104,7 +106,7 @@ export default class OpeningStardust extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
-    const frames = this.state.isMobile ? 45 : 20
+    const frames = this.state.isMobile ? 32 : 18
     const scaleFactor = this.state.isMobile ? 0.5 : 1
 
     if (this.pItemHeight) {
@@ -147,7 +149,7 @@ export default class OpeningStardust extends Component {
         }, 5)
         velocity(this.secondDots, {
           translateX: "-50%",
-          translateZ: (170 - Math.abs(sRatio * 320)) * scaleFactor + "px",
+          translateZ: (170 - Math.abs(sRatio * 310)) * scaleFactor + "px",
           opacity: this._getRatio(1.75 - sRatio),
         }, 1)
       }
@@ -240,7 +242,7 @@ export default class OpeningStardust extends Component {
               : null
           }
           <div className={ commonStyles["content-outer"] }>
-            <p className={ styles["des-text"] }>還有更多的狗狗與憂憂面對相似的命運</p>
+            <p className={ styles["des-text"] }>{ endingParagraphs[0] }</p>
           </div>
         </div>
       </div>

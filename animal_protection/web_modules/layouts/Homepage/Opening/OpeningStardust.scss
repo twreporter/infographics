@@ -116,8 +116,22 @@
 }
 
 .des-text {
-  padding-top: 165vh;
+  padding-top: 115vh;
   @media (max-width: $width-md) {
-    padding-top: 40vh;
+    padding-top: 110vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  text-shadow: 2px 1px 13px rgba(0, 0, 0, 0.9);
+  font-weight: $font-bold;
+
+  p {
+    margin: 0.3rem 0.5rem;
+    @media (min-width: $width-xs) {
+      font-size: 19px;
+    }
+    @media (min-width: $width-md) {
+      font-size: 20px;
+    }
   }
 }
