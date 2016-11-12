@@ -6,6 +6,8 @@ import classnames from "classnames"
 import styles from "./OpeningLast.scss"
 import commonStyles from "../../../styles/common.scss"
 
+import { endingParagraphs } from "./text"
+
 // let velocity
 // if (typeof window !== "undefined") {
 //   velocity = require("velocity-animate")
@@ -14,10 +16,6 @@ import commonStyles from "../../../styles/common.scss"
 export default class OpeningLast extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      showSubComponent: true,
-    }
-
   }
 
   render() {
@@ -28,6 +26,29 @@ export default class OpeningLast extends Component {
       >
       <div className={ commonStyles["content-outer"] }>
         <div className={ classnames(styles["content-box"]) }>
+          <div className={ styles["text-wrapper"] }>
+            <div className={ styles["story-box"] }>
+              <div className={ classnames(commonStyles["content-outer"]) }>
+                <div itemProp="description">{ endingParagraphs[1] }</div>
+              </div>
+            </div>
+          </div>
+
+          <div className={ styles["text-wrapper"] }>
+            <div className={ styles["story-box"] }>
+              <div className={ classnames(commonStyles["content-outer"]) }>
+                <div itemProp="description">{ endingParagraphs[2] }</div>
+              </div>
+            </div>
+          </div>
+
+          <div className={ styles["text-wrapper"] }>
+            <div className={ styles["story-box"] }>
+              <div className={ classnames(commonStyles["content-outer"]) }>
+                <div itemProp="description">{ endingParagraphs[3] }</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -2,14 +2,14 @@
 @import "../../../styles/variables.scss";
 
 .container {
-  height: 210vh;
+  height: 130vh;
   color: white;
   background: linear-gradient(to bottom,$pink 0%,$blue 100%);
   overflow: hidden;
   margin-top: -1px;
   margin-bottom: -1px;
   @media (max-width: $width-md) {
-    height: 180vh;
+    height: 110vh;
   }
 }
 
@@ -22,6 +22,7 @@
   width: 150%;
   left: 50%;
   padding-top: 35px;
+  opacity: 1;
   transform: translateX(-50%) translateZ(5px);
   // @media (max-width: $width-sm) {
   //   width: 150%;
@@ -68,7 +69,7 @@
   transform: translateX("-50%");
   width: 600%;
   height: 400vh;
-  margin-top: 5vh;
+  margin-top: 1vh;
 }
 
 .overlay-dots-container2 {
@@ -78,7 +79,7 @@
   transform: translateX("-50%");
   width: 600%;
   height: 400vh;
-  margin-top: 5vh;
+  margin-top: 2vh;
 }
 
 .dot {
@@ -116,17 +117,17 @@
 }
 
 .des-text {
-  padding-top: 115vh;
+  padding-top: 100vh;
   @media (max-width: $width-md) {
-    padding-top: 110vh;
+    padding-top: 75vh;
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  text-shadow: 2px 1px 13px rgba(0, 0, 0, 0.9);
-  font-weight: $font-bold;
 
-  p {
+  >p {
     margin: 0.3rem 0.5rem;
+    text-shadow: 2px 1px 13px rgba(0, 0, 0, 0.9);
+    font-weight: $font-bold;
     @media (min-width: $width-xs) {
       font-size: 19px;
     }

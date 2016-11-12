@@ -106,7 +106,7 @@ export default class OpeningStardust extends Component {
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
     const vpHeight = window.innerHeight
-    const frames = this.state.isMobile ? 32 : 18
+    const frames = this.state.isMobile ? 30 : 16
     const scaleFactor = this.state.isMobile ? 0.5 : 1
 
     if (this.pItemHeight) {
@@ -137,19 +137,20 @@ export default class OpeningStardust extends Component {
         this.setState({ scrollRatio: sRatio })
         velocity(this.petImgs, {
           translateX: "-50%",
-          translateY: Math.abs(sRatio * 15) + "vh",
-          translateZ: (5 - sRatio * (1+sRatio)* (1+sRatio) * 80) * scaleFactor + "px",
-          opacity: this._getRatio((1.4 - sRatio) * (1.3 - sRatio) * (1 - sRatio)),
+          translateY: Math.abs(sRatio * 14) + "vh",
+          translateZ: (5 - sRatio * (1+sRatio)* (1+sRatio) * 90) * scaleFactor + "px",
+          opacity: this._getRatio((1.4 - sRatio) * (1.3 - sRatio) * (1.1 - sRatio) * (1.1 - sRatio)),
         }, 1)
         velocity(this.dots, {
           translateX: "-50%",
           translateY: Math.abs(sRatio * 13.5) + "vh",
-          translateZ: (120 - Math.abs(sRatio * 290)) * scaleFactor + "px",
+          translateZ: (120 - Math.abs(sRatio * 280)) * scaleFactor + "px",
           opacity: this._getRatio(1.4 - sRatio),
         }, 5)
         velocity(this.secondDots, {
           translateX: "-50%",
-          translateZ: (170 - Math.abs(sRatio * 310)) * scaleFactor + "px",
+          translateY: Math.abs(sRatio * 4) + "vh",
+          translateZ: (170 - Math.abs(sRatio * 300)) * scaleFactor + "px",
           opacity: this._getRatio(1.75 - sRatio),
         }, 1)
       }
@@ -177,15 +178,15 @@ export default class OpeningStardust extends Component {
         dotsItems.push(<Circle key={ i }
           radius={ dotsRadius }
           fill={ colorArr[i%4] }
-          x={ (i*i*i*37%1950 + 50)/1000*wWidth }
-          y={ (((i+17)*i)%1950 + 50)/1000*wHeight } />)
+          x={ (i*i*i*37%1950 + 25)/1000*wWidth }
+          y={ (((i+17)*i)%1950 + 25)/1000*wHeight } />)
       }
       for (let i=0; i<overlayDotsCnt; i++) {
         overlayDotsItems.push(<Circle key={ i }
           radius={ dotsRadius }
           fill={ colorArr[i%4] }
-          x={ (i*i*37%1950 + 50)/1000*wWidth }
-          y={ (((i+37)*i)*i%1850 + 50)/1000*wHeight } />)
+          x={ (i*i*37%1950 + 25)/1000*wWidth }
+          y={ (((i+37)*i)*i%1950 + 25)/1000*wHeight } />)
       }
       dotsCanvas = (<Stage width={ wWidth*2 } height={ wHeight*2 }>
            <Layer>
@@ -242,7 +243,11 @@ export default class OpeningStardust extends Component {
               : null
           }
           <div className={ commonStyles["content-outer"] }>
-            <p className={ styles["des-text"] }>{ endingParagraphs[0] }</p>
+            <div className={ styles["des-text"] }>
+              <p>
+                { endingParagraphs[0] }
+              </p>
+            </div>
           </div>
         </div>
       </div>

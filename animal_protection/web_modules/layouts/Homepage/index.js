@@ -31,8 +31,8 @@ import twitterIcon from "../../../content/assets/icon-share-twitter.svg"
 import { MOBILE_WIDTH } from "./config"
 
 const debounceTime = {
-  threshold: 600,
-  maxWait: 1200,
+  threshold: 350,
+  maxWait: 700,
 }
 
 // let velocity

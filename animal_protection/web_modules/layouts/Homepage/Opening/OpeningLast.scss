@@ -5,9 +5,28 @@
   color: white;
   background: linear-gradient(to bottom,$blue 0%,$content-bg 100%);
   padding: 2rem 1rem;
+  padding-bottom: 4rem;
   min-height: 30vh;
   margin-top: -1px;
   margin-bottom: -1px;
   width: 100%;
   overflow-x: hidden;
+}
+
+.story-box {
+  text-shadow: 2px 1px 13px rgba(0, 0, 0, 0.9);
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  text-align: justify;
+  p {
+    margin: 0.3rem 0;
+    @media (min-width: $width-xs) {
+      font-size: 19px;
+    }
+    @media (min-width: $width-md) {
+      font-size: 20px;
+    }
+  }
 }
