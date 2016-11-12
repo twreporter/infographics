@@ -57,12 +57,14 @@
       transition: all 0.2s;
       user-select: none;
       @include fade-in(0.5s);
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
       &:hover {
         width: 9.5%;
         margin-top: -5px;
       }
       @media (max-width: $width-md) {
-        width: 11%;
+        width: 14.5%;
+        padding: 1%;
       }
       @media (max-width: $width-xs) {
         width: 15%;
@@ -276,7 +278,7 @@
 .game-results-box{
   position: absolute;
   text-align: center;
-  width: 100%;
+  width: 100.5%;
   height: 100.5%;
   background-color: rgba(0, 0, 0, 0.8);
   display: table;

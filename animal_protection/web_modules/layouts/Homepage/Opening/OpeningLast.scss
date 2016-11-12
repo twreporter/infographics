@@ -5,12 +5,15 @@
   color: white;
   background: linear-gradient(to bottom,$blue 0%,$content-bg 100%);
   padding: 2rem 1rem;
-  padding-bottom: 4rem;
+  padding-bottom: 7rem;
   min-height: 30vh;
   margin-top: -1px;
   margin-bottom: -1px;
   width: 100%;
   overflow-x: hidden;
+  @media (min-width: $width-md) {
+    padding-bottom: 15vh;
+  }
 }
 
 .story-box {

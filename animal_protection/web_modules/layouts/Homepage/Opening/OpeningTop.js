@@ -139,17 +139,17 @@ export default class OpeningTop extends Component {
       this.setState({ isYoyoCentered: false })
     }
 
-    if (!isBoxed && top < -vpHeight * 5.8 && top > -vpHeight * 7.4) {
+    if (!isBoxed && top < -vpHeight * 5.8 && top > -vpHeight * 7.45) {
       this.setState({ isBoxed: true })
     }
-    else if (isBoxed && (top > -vpHeight * 5.8 || top < -vpHeight * 7.4)) {
+    else if (isBoxed && (top > -vpHeight * 5.8 || top < -vpHeight * 7.45)) {
       this.setState({ isBoxed: false })
     }
 
-    if (!isCaged && top < -vpHeight * 7.7) {
+    if (!isCaged && top < -vpHeight * 7.6) {
       this.setState({ isCaged: true })
     }
-    else if (isCaged && top > -vpHeight * 7.7) {
+    else if (isCaged && top > -vpHeight * 7.6) {
       this.setState({ isCaged: false })
     }
 

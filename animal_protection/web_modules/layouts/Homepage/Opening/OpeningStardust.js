@@ -144,13 +144,13 @@ export default class OpeningStardust extends Component {
         velocity(this.dots, {
           translateX: "-50%",
           translateY: Math.abs(sRatio * 13.5) + "vh",
-          translateZ: (120 - Math.abs(sRatio * 280)) * scaleFactor + "px",
+          translateZ: (120 - Math.abs(sRatio * 270)) * scaleFactor + "px",
           opacity: this._getRatio(1.4 - sRatio),
         }, 5)
         velocity(this.secondDots, {
           translateX: "-50%",
           translateY: Math.abs(sRatio * 4) + "vh",
-          translateZ: (170 - Math.abs(sRatio * 300)) * scaleFactor + "px",
+          translateZ: (170 - Math.abs(sRatio * 290)) * scaleFactor + "px",
           opacity: this._getRatio(1.75 - sRatio),
         }, 1)
       }
@@ -193,7 +193,7 @@ export default class OpeningStardust extends Component {
               { dotsItems }
             </Layer>
           </Stage>)
-      overlayDotsCanvas = (<Stage width={ wWidth*2 } height={ wHeight*1.5 }>
+      overlayDotsCanvas = (<Stage width={ wWidth*2 } height={ wHeight*2 }>
             <Layer>
               { overlayDotsItems }
             </Layer>

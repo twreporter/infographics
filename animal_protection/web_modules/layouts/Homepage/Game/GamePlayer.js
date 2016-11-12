@@ -229,10 +229,11 @@ export default class GamePlayer extends Component {
 
   checkIfExceedMax() {
     if (this.state.totalDogs >= MAX_CAPACITY) {
+      this.setState({ isExceedMax: true })
+
       for (let i=0; i<yearTimeoutArr.length; i++) {
         clearTimeout(yearTimeoutArr[i])
       }
-      this.setState({ isExceedMax: true })
 
       // to show the game ending results
       timeoutsArr.push(setTimeout(()=>{
@@ -243,6 +244,8 @@ export default class GamePlayer extends Component {
 
   _simulateAfterAYear() {
     const { currentYear, unneuteredM, unneuteredF, neuteredDisplayM, neuteredDisplayF } = this.state
+
+    console.log(currentYear, this.state.freePos, this.state.totalDogs)
 
     // 1. deal with deaths of unneutered dogs
     const mUDeaths =  Math.floor(MALE_DEATH_RATE * unneuteredM.length)
@@ -257,6 +260,8 @@ export default class GamePlayer extends Component {
       this._removeDog(fUDeathIndices[i], true)
     }
 
+    console.log("1.", currentYear, this.state.freePos, this.state.totalDogs)
+
     // 2. deal with deaths of neutered dogs
     const mDeaths =  Math.floor(MALE_DEATH_RATE * neuteredDisplayM.length)
     const mDeathIndices = this._getRandomIndices(neuteredDisplayM, mDeaths)
@@ -269,6 +274,8 @@ export default class GamePlayer extends Component {
     for (let i=0; i<fDeaths; i++) {
       this._removeNeuteredDog("F", fDeathIndices[i])
     }
+
+    console.log("2.", currentYear, this.state.freePos, this.state.totalDogs)
 
     // 3. calculate and place the new borns
     const multi = (this.state.totalDogs > MAX_CAPACITY) ? 0 :
@@ -284,6 +291,8 @@ export default class GamePlayer extends Component {
       this._placeDog(F_NOTCAPTURED)
     }
 
+    console.log("3.", currentYear, this.state.freePos, this.state.totalDogs)
+
     // 4. add newly abandoned
     for (let i=0; i<NEWLY_ABANDONED; i++) {
       this._placeDog(M_NOTCAPTURED)
@@ -291,6 +300,8 @@ export default class GamePlayer extends Component {
     for (let i=0; i<NEWLY_ABANDONED; i++) {
       this._placeDog(F_NOTCAPTURED)
     }
+
+    console.log("4.", currentYear, this.state.freePos, this.state.totalDogs)
 
     this.setState({ currentYear: currentYear+1 })
 
@@ -411,21 +422,26 @@ export default class GamePlayer extends Component {
       iMax = 10
       jMax = 5
     }
-    const xStep = (gWidth) / jMax
-    const yStep = (gHeight) / iMax
+
+    const xOffset = dogWidth / 2
+    const yOffset = dogHeight / 2
+
+    const xStep = (gWidth - xOffset/2) / jMax
+    const yStep = (gHeight - yOffset) / iMax
     let _posList = []
     let freePos = []
     let totalPos = 0
+
     for (let i=0; i<iMax; i++) {
       for (let j=0; j<jMax; j++) {
-        _posList.push({ top: i*yStep + dogHeight/2, left: j*xStep + dogWidth/2, dogs: [], neutureCnt: 0 })
+        _posList.push({ top: i*yStep + dogHeight/2 + yOffset, left: j*xStep + dogWidth/2 + xOffset, dogs: [], neutureCnt: 0 })
         freePos.push(totalPos)
         totalPos++
       }
     }
-    for (let i=0; i<iMax+1; i++) {
-      for (let j=0; j<jMax+1; j++) {
-        _posList.push({ top: i*yStep, left: j*xStep, dogs: [], neutureCnt: 0 })
+    for (let i=0; i<iMax; i++) {
+      for (let j=0; j<jMax; j++) {
+        _posList.push({ top: i*yStep + yOffset, left: j*xStep + xOffset, dogs: [], neutureCnt: 0 })
         freePos.push(totalPos)
         totalPos++
       }
@@ -443,6 +459,7 @@ export default class GamePlayer extends Component {
       this.setState({ posList: posList })
     }
 
+    console.log("freePos", freePos, freePos.length)
   }
 
   handleResize() {
@@ -540,7 +557,7 @@ export default class GamePlayer extends Component {
         >
           <span className={ classnames(styles["close-button"]) } onClick={ this.handleClose }></span>
           <div className={ introClass }>
-            <h2>點選狗狗圖示執行 TNR！</h2>
+            <h2>點擊狗狗圖示施行TNR <br /> 減少新生狗狗數量！</h2>
             <div className={ styles["inner"] }>
               <div className={ classnames(commonStyles["img-responsive"], commonStyles["overlay-svg"], styles["center-dog"]) }
                 dangerouslySetInnerHTML={ { __html: gameIcon } } />

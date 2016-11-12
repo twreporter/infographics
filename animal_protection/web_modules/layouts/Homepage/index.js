@@ -116,7 +116,11 @@ export default class Homepage extends Component {
 
   _handleChapterNavigation(cIndex) {
     console.log("_handleChapterNavigation", this.state.heightArr[cIndex])
-    velocity(document.body, "scroll", { offset: this.state.heightArr[cIndex], duration: 300, easing: "easeOut" })
+    velocity(document.body, "scroll", { offset: this.state.heightArr[cIndex],
+      duration: 350, easing: "easeOut" })
+    .then(()=>{
+      this.setState({ activeIndex: cIndex })
+    })
   }
 
   _handleScroll() {
@@ -144,10 +148,10 @@ export default class Homepage extends Component {
       this.setState({ activeIndex: curActive })
     }
 
-    if (!isProgressShown && scrollPos>30) {
+    if (!isProgressShown && scrollPos>500) {
       this.setState({ isProgressShown: true })
     }
-    else if (isProgressShown && scrollPos<=30) {
+    else if (isProgressShown && scrollPos<=500) {
       this.setState({ isProgressShown: false })
     }
 
@@ -168,20 +172,11 @@ export default class Homepage extends Component {
     for (let i=1; i<=5; i++) {
       const activeClass = (activeIndex===i) ? styles["active"] : null
       let cIndex = i
-      chapterArr.push(<a key={ cIndex } href={ `#chapter0${cIndex}` }
+      chapterArr.push(<span key={ cIndex }
         className={ classnames(styles["sec-index"], activeClass) }
         onClick={ ()=>{
           this._handleChapterNavigation(cIndex)
-        } }>{ cIndex }</a>)
-      // (function(cIndex) {
-      //   chapterArr.push(
-      //     <a key={ cIndex } href={ `#chapter0${cIndex}` }
-      //       className={ classnames(styles["sec-index"], activeClass) }
-      //       // onClick={ self._handleChapterNavigation(cIndex) }
-      //       >
-      //       { cIndex }
-      //     </a>)
-      // })(i)
+        } }>{ cIndex }</span>)
     }
 
     const navClass = shouldShowNav ? null : commonStyles["hide"]
