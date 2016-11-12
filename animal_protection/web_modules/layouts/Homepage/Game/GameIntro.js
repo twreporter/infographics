@@ -4,7 +4,7 @@ import React, { Component } from "react"
 import ReactDOM from "react-dom"
 
 import classnames from "classnames"
-import styles from "./Game.scss"
+import styles from "./GameIntro.scss"
 import commonStyles from "../../../styles/common.scss"
 import VisibleSensor from "../Components/VisibleSensor"
 import GamePlayer from "./GamePlayer"
@@ -16,7 +16,7 @@ if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
 }
 
-export default class Game extends Component {
+export default class GameIntro extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -111,4 +111,4 @@ export default class Game extends Component {
   }
 }
 
-Game.propTypes = {}
+GameIntro.propTypes = {}

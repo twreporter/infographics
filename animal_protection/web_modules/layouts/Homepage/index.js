@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-bind, prefer-const, max-len, react/jsx-no-literals, no-unused-vars */
+/* eslint-disable react/jsx-no-bind, prefer-const, max-len, react/jsx-closing-bracket-location, no-unexpected-multiline, react/jsx-no-literals, no-unused-vars */
 
 import _ from "lodash"
 import React, { Component, PropTypes } from "react"
@@ -35,10 +35,10 @@ const debounceTime = {
   maxWait: 700,
 }
 
-// let velocity
-// if (typeof window !== "undefined") {
-//   velocity = require("velocity-animate")
-// }
+let velocity
+if (typeof window !== "undefined") {
+  velocity = require("velocity-animate")
+}
 
 const numberOfLatestPosts = 6
 
@@ -56,9 +56,11 @@ export default class Homepage extends Component {
       heightArr: [],
       shouldShowNav: false,
       preScrollPos: 0,
+      isProgressShown: false,
     }
 
     this._handleResize = this._handleResize.bind(this)
+    this._handleChapterNavigation = this._handleChapterNavigation.bind(this)
     this.handleResize = _.debounce(() => {
       this._handleResize()
     }, debounceTime.threshold, { "maxWait": debounceTime.maxWait })
@@ -82,7 +84,8 @@ export default class Homepage extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     if (nextState.isMobile!==this.state.isMobile
     || nextState.scrollPercent!==this.state.scrollPercent
-    || nextState.activeIndex!==this.state.activeIndex) {
+    || nextState.activeIndex!==this.state.activeIndex
+    || nextState.isProgressShown!==this.state.isProgressShown) {
       return true
     }
     return false
@@ -111,8 +114,13 @@ export default class Homepage extends Component {
     this.setState({ heightArr: heightArr })
   }
 
+  _handleChapterNavigation(cIndex) {
+    console.log("_handleChapterNavigation", this.state.heightArr[cIndex])
+    velocity(document.body, "scroll", { offset: this.state.heightArr[cIndex], duration: 300, easing: "easeOut" })
+  }
+
   _handleScroll() {
-    const { heightArr, activeIndex, preScrollPos } = this.state
+    const { heightArr, activeIndex, preScrollPos, isProgressShown } = this.state
     const node = ReactDOM.findDOMNode(this.container)
     const rect = node.getBoundingClientRect()
     const { height } = rect
@@ -136,11 +144,18 @@ export default class Homepage extends Component {
       this.setState({ activeIndex: curActive })
     }
 
+    if (!isProgressShown && scrollPos>30) {
+      this.setState({ isProgressShown: true })
+    }
+    else if (isProgressShown && scrollPos<=30) {
+      this.setState({ isProgressShown: false })
+    }
+
     this.setState({ preScrollPos: scrollPos })
   }
 
   render() {
-    const { scrollPercent, activeIndex, shouldShowNav } = this.state
+    const { scrollPercent, activeIndex, shouldShowNav, isProgressShown } = this.state
 
     const latestPosts = enhanceCollection(this.context.collection, {
       filter: { layout: "Post" },
@@ -152,12 +167,28 @@ export default class Homepage extends Component {
     let chapterArr = []
     for (let i=1; i<=5; i++) {
       const activeClass = (activeIndex===i) ? styles["active"] : null
-      chapterArr.push(<a key={ i } href={ `#chapter0${i}` } className={ classnames(styles["sec-index"], activeClass) }>{ i }</a>)
+      let cIndex = i
+      chapterArr.push(<a key={ cIndex } href={ `#chapter0${cIndex}` }
+        className={ classnames(styles["sec-index"], activeClass) }
+        onClick={ ()=>{
+          this._handleChapterNavigation(cIndex)
+        } }>{ cIndex }</a>)
+      // (function(cIndex) {
+      //   chapterArr.push(
+      //     <a key={ cIndex } href={ `#chapter0${cIndex}` }
+      //       className={ classnames(styles["sec-index"], activeClass) }
+      //       // onClick={ self._handleChapterNavigation(cIndex) }
+      //       >
+      //       { cIndex }
+      //     </a>)
+      // })(i)
     }
 
     const navClass = shouldShowNav ? null : commonStyles["hide"]
 
     const activeOpening = (activeIndex===0) ? styles["active-opening"] : null
+
+    const progressBar = isProgressShown ? <div className={ styles["progress-bar"] } style={ { width: `${scrollPercent+5}%` } }></div> : null
 
     return (
       <Page { ...this.props } className={
@@ -223,7 +254,7 @@ export default class Homepage extends Component {
           </div>
         </div>
 
-        <div className={ styles["progress-bar"] } style={ { width: `${scrollPercent+5}%` } }></div>
+        { progressBar }
 
       </Page>
     )

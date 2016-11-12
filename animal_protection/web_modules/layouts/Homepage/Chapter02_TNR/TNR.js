@@ -9,7 +9,7 @@ import styles from "./Tnr.scss"
 import Subsection from "../Components/Subsection"
 import ChapterTitle from "../Components/ChapterTitle"
 import VisibleSensor from "../Components/VisibleSensor"
-import Game from "../Game/Game"
+import GameIntro from "../Game/GameIntro"
 import commonStyles from "../../../styles/common.scss"
 
 import tnrT from "../../../../content/assets/tnvr-t.svg"
@@ -316,7 +316,7 @@ export default class Tnr extends Component {
             <Subsection curSec={ 2 } titles={ titles } subIndex={ 3 }>
               <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) }>
                 <Markdown className={ commonStyles["inner-text"] } source={ sec4Des } />
-                <Game />
+                <GameIntro />
                 <div className={ classnames(styles["research-des"]) }>
                   <div className={ classnames(styles["title-box"]) }>
                     <div className={ classnames(styles["yoyo"], commonStyles["overlay-svg"]) }
