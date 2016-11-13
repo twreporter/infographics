@@ -58,6 +58,7 @@
       user-select: none;
       @include fade-in(0.5s);
       -webkit-tap-highlight-color: rgba(0,0,0,0);
+      user-select: none;
       &:hover {
         width: 9.5%;
         margin-top: -5px;
@@ -72,6 +73,8 @@
       img {
         width: 100%;
         user-select: none;
+        user-drag: none;
+        -webkit-user-drag: none;
       }
     }
 

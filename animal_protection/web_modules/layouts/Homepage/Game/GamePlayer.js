@@ -37,8 +37,9 @@ const F_DEATH = 0
 const M_CAPTURED = 1
 const F_CAPTURED = 2
 
-const A_YEAR = 5000           // use how many ms to represent a year
+const A_YEAR = 3000           // use how many ms to represent a year
 const TOTAL_YEARS = 10
+const INITIAL_DELAY = 1800
 
 let timeoutsArr = []
 let yearTimeoutArr = []
@@ -56,7 +57,7 @@ let GameHeader = (props) => {
   )
 }
 
-let GameFooter = () => {
+let GameFooter = (props) => {
   return (
     <div className={ classnames(styles["footer"]) }>
       <nobr>
@@ -64,7 +65,7 @@ let GameFooter = () => {
           <div className={ classnames(commonStyles["img-responsive"], styles["dog-cnt-icon"]) }
             dangerouslySetInnerHTML={ { __html: gameIcon } }
           />
-          未結紮犬隻
+          未結紮
         </span>
       </nobr>
       <nobr>
@@ -72,11 +73,10 @@ let GameFooter = () => {
           <div className={ classnames(commonStyles["img-responsive"], styles["dog-cnt-icon"]) }
             dangerouslySetInnerHTML={ { __html: gameNeuteredIcon } }
           />
-          結紮犬隻
+          結紮
         </span>
       </nobr>
-      <span>
-        <nobr>時間：10年</nobr>
+      <span> { `${props.year}-${props.year+10}` }
       </span>
     </div>
   )
@@ -115,6 +115,7 @@ export default class GamePlayer extends Component {
       dogHeight: 60,  // height of a single dog
       currentYear: currentTime.getFullYear(),
       currentMonth: currentTime.getMonth() + 1,
+      initialYear: currentTime.getFullYear(),
       posList: [],    // list to store possible positions to place dogs
       freePos: [],
       totalDogs: 0,
@@ -175,7 +176,7 @@ export default class GamePlayer extends Component {
 
   _handleDialogOpened() {
     this.setState({ isOpened: true })
-    timeoutsArr.push(setTimeout(this.handleGameStart, 1500))
+    timeoutsArr.push(setTimeout(this.handleGameStart, INITIAL_DELAY))
   }
 
   handleGameStart() {
@@ -203,7 +204,7 @@ export default class GamePlayer extends Component {
     let self = this
     for (let i=0; i<TOTAL_YEARS; i++) {
       (function(y) {
-        const timoutId = setTimeout(self._simulateAfterAYear, y * A_YEAR + 1500)
+        const timoutId = setTimeout(self._simulateAfterAYear, y * A_YEAR + INITIAL_DELAY)
         timeoutsArr.push(timoutId)
         yearTimeoutArr.push(timoutId)
       }(i))
@@ -245,8 +246,6 @@ export default class GamePlayer extends Component {
   _simulateAfterAYear() {
     const { currentYear, unneuteredM, unneuteredF, neuteredDisplayM, neuteredDisplayF } = this.state
 
-    console.log(currentYear, this.state.freePos, this.state.totalDogs)
-
     // 1. deal with deaths of unneutered dogs
     const mUDeaths =  Math.floor(MALE_DEATH_RATE * unneuteredM.length)
     const mUDeathIndices = this._getRandomIndices(unneuteredM, mUDeaths)
@@ -260,7 +259,7 @@ export default class GamePlayer extends Component {
       this._removeDog(fUDeathIndices[i], true)
     }
 
-    console.log("1.", currentYear, this.state.freePos, this.state.totalDogs)
+    // console.log("1.", currentYear, this.state.freePos, this.state.totalDogs)
 
     // 2. deal with deaths of neutered dogs
     const mDeaths =  Math.floor(MALE_DEATH_RATE * neuteredDisplayM.length)
@@ -275,7 +274,7 @@ export default class GamePlayer extends Component {
       this._removeNeuteredDog("F", fDeathIndices[i])
     }
 
-    console.log("2.", currentYear, this.state.freePos, this.state.totalDogs)
+    // console.log("2.", currentYear, this.state.freePos, this.state.totalDogs)
 
     // 3. calculate and place the new borns
     const multi = (this.state.totalDogs > MAX_CAPACITY) ? 0 :
@@ -291,7 +290,7 @@ export default class GamePlayer extends Component {
       this._placeDog(F_NOTCAPTURED)
     }
 
-    console.log("3.", currentYear, this.state.freePos, this.state.totalDogs)
+    // console.log("3.", currentYear, this.state.freePos, this.state.totalDogs)
 
     // 4. add newly abandoned
     for (let i=0; i<NEWLY_ABANDONED; i++) {
@@ -301,7 +300,7 @@ export default class GamePlayer extends Component {
       this._placeDog(F_NOTCAPTURED)
     }
 
-    console.log("4.", currentYear, this.state.freePos, this.state.totalDogs)
+    // console.log("4.", currentYear, this.state.freePos, this.state.totalDogs)
 
     this.setState({ currentYear: currentYear+1 })
 
@@ -311,18 +310,19 @@ export default class GamePlayer extends Component {
   }
 
   _removeNeuteredDog(gender, pos) {
-    const { neuteredDisplayM, neuteredDisplayF, totalDogs } = this.state
+    const { neuteredDisplayM, neuteredDisplayF, totalDogs, freePos } = this.state
     let index = -1
+    freePos.push(pos.position)
     if (gender==="M") {
       index = _.findIndex(neuteredDisplayM, pos)
       // console.log("_removeNeuteredDog - M", pos.position, neuteredDisplayM, index, neuteredDisplayM[index])
       neuteredDisplayM[index].isAlive = false
-      this.setState({ neuteredDisplayM: neuteredDisplayM, totalDogs: totalDogs-1 })
+      this.setState({ neuteredDisplayM: neuteredDisplayM, totalDogs: totalDogs-1, freePos: freePos })
     } else {
       index = _.findIndex(neuteredDisplayF, pos)
       // console.log("_removeNeuteredDog - F", pos.position, neuteredDisplayF, index, neuteredDisplayF[index])
       neuteredDisplayF[index].isAlive = false
-      this.setState({ neuteredDisplayF: neuteredDisplayF, totalDogs: totalDogs-1 })
+      this.setState({ neuteredDisplayF: neuteredDisplayF, totalDogs: totalDogs-1, freePos: freePos })
     }
 
     timeoutsArr.push(setTimeout(() => {
@@ -383,11 +383,12 @@ export default class GamePlayer extends Component {
     }
     if (isDeath) {
       totalDogs--
+      freePos.push(posIdx)
     } else {
       posList[posIdx].neutureCnt++
     }
     this.setState({ posList: posList,
-    unneuteredM: unneuteredM, unneuteredF: unneuteredF, totalDogs: totalDogs  })
+    unneuteredM: unneuteredM, unneuteredF: unneuteredF, totalDogs: totalDogs, freePos: freePos  })
     // console.log("isDeath:",isDeath, posIdx, "unneutered: ", unneuteredM, unneuteredF, "total=", totalDogs, this.state.neuteredDisplayM, this.state.neuteredDisplayF)
 
     // after the disappearing animation terminates
@@ -404,9 +405,9 @@ export default class GamePlayer extends Component {
       posList[posIdx].dogs.shift()
 
       if (posList[posIdx].dogs.length === 0 && posList[posIdx].neutureCnt <= 0) {
-        freePos.push(posIdx)
+        // freePos.push(posIdx)
       }
-      this.setState({ posList: posList, freePos: freePos,
+      this.setState({ posList: posList,
         neuteredDisplayM: neuteredDisplayM, neuteredDisplayF: neuteredDisplayF })
     }, 300))
 
@@ -426,7 +427,7 @@ export default class GamePlayer extends Component {
     const xOffset = dogWidth / 2
     const yOffset = dogHeight / 2
 
-    const xStep = (gWidth - xOffset/2) / jMax
+    const xStep = (gWidth - xOffset) / jMax
     const yStep = (gHeight - yOffset) / iMax
     let _posList = []
     let freePos = []
@@ -459,7 +460,6 @@ export default class GamePlayer extends Component {
       this.setState({ posList: posList })
     }
 
-    console.log("freePos", freePos, freePos.length)
   }
 
   handleResize() {
@@ -542,7 +542,8 @@ export default class GamePlayer extends Component {
 
   render() {
     const { isIntoHidden, isOpened, isClosing, totalDogs, currentYear,
-      currentMonth, totalNeutered, unneuteredM, unneuteredF, isExceedMax, isEnded } = this.state
+      currentMonth, totalNeutered, unneuteredM, unneuteredF, isExceedMax,
+      isEnded, initialYear } = this.state
     const introClass = isIntoHidden ? styles["hide"] : null
     const closingClass = isClosing ? styles["hide-fast"] : null
     const exceedClass = isExceedMax ? styles["game-over-box"] : commonStyles["hide"]
@@ -591,7 +592,7 @@ export default class GamePlayer extends Component {
               </div>
 
             </div>
-            <GameFooter />
+            <GameFooter year={ initialYear } />
           </div>
         </div>
       </div>

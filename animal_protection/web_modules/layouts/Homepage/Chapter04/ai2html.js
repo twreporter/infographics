@@ -180,7 +180,7 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle0'>一隻狗一生可能需要的基本醫療成本</p>
 			</div>
 			<div id='g-ai0-2' class='g-Layer_1 g-aiAbs' style='top:4.0909%;left:49.8684%;width:39.3391%;margin-left:-19.6695%;'>
-				<p class='g-aiPstyle1'>資料來源： 農委會動保科</p>
+				<p class='g-aiPstyle1'>資料來源： 大群獸醫院</p>
 			</div>
 			<div id='g-ai0-3' class='g-Layer_1 g-aiAbs' style='top:6.7685%;left:64.3555%;'>
 				<p class='g-aiPstyle2'>疫苗費用</p>
@@ -457,7 +457,7 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle0'>一隻狗一生可能需要的基本醫療成本</p>
 			</div>
 			<div id='g-ai1-2' class='g-Layer_1 g-aiAbs' style='top:4.1386%;left:50.7335%;width:74.05%;margin-left:-37.025%;'>
-				<p class='g-aiPstyle1'>資料來源： 農委會動保科</p>
+				<p class='g-aiPstyle1'>資料來源： 大群獸醫院</p>
 			</div>
 			<div id='g-ai1-3' class='g-Layer_1 g-aiAbs' style='top:7.2237%;left:41.7412%;'>
 				<p class='g-aiPstyle2'>疫苗費用</p>

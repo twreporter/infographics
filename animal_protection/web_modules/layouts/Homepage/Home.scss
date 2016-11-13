@@ -5,9 +5,10 @@
 .container {
   width: 100%;
   overflow-x: hidden;
+  background-color: $content-bg;
 }
 .header {
-  @include fade-in(0.3s);
+  @include fade-in(0.2s);
   position: fixed;
   width: 100%;
   height: 2.5rem;
@@ -21,7 +22,7 @@
   }
 }
 .footer {
-  @include fade-in(0.3s);
+  @include fade-in(0.2s);
   position: fixed;
   display: none;
   width: 100%;

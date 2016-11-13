@@ -6,7 +6,7 @@ import ReactDOM from "react-dom"
 import enhanceCollection from "phenomic/lib/enhance-collection"
 
 import Page from "../Page"
-import PagesList from "../../PagesList"
+// import PagesList from "../../PagesList"
 
 import classnames from "classnames"
 import Img from "react-image-holder"
@@ -31,8 +31,8 @@ import twitterIcon from "../../../content/assets/icon-share-twitter.svg"
 import { MOBILE_WIDTH } from "./config"
 
 const debounceTime = {
-  threshold: 350,
-  maxWait: 700,
+  threshold: 300,
+  maxWait: 600,
 }
 
 let velocity
@@ -117,7 +117,7 @@ export default class Homepage extends Component {
   _handleChapterNavigation(cIndex) {
     console.log("_handleChapterNavigation", this.state.heightArr[cIndex])
     velocity(document.body, "scroll", { offset: this.state.heightArr[cIndex],
-      duration: 350, easing: "easeOut" })
+      duration: 500, easing: "easeIn" })
     .then(()=>{
       this.setState({ activeIndex: cIndex })
     })
@@ -205,9 +205,11 @@ export default class Homepage extends Component {
         </div>
 
         <div className={ commonStyles.content }>
-          <PagesList pages={ latestPosts } />
-          地圖資料來源： CartoDB
-          開頭照片來源：桃園新屋收容所
+          {/* <PagesList pages={ latestPosts } /> */}
+          <p className={ commonStyles["des-text"] }>
+            地圖資料來源： CartoDB &nbsp; &nbsp;
+            開頭照片來源：桃園新屋收容所
+          </p>
         </div>
 
         <div className={ classnames(styles.header, navClass) }>
