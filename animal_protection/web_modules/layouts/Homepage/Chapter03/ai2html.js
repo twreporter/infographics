@@ -667,7 +667,7 @@ export function pieChart(mobile, desktop) {
 					color:#ffffff;
 				}
 				#g-animal-3-ai2html-_____1 .g-aiPstyle2 {
-					font-size: 17px;
+					font-size: 16px;
     			line-height: 18px;
 					letter-spacing:0.02416666666667em;
 					color:#ffffff;
@@ -717,7 +717,7 @@ export function pieChart(mobile, desktop) {
 				<div id='g-ai0-8' class='g-___1 g-aiAbs' style='top:7.1858%;left:80.2476%;'>
 					<p class='g-aiPstyle2'> </p>
 				</div>
-				<div id='g-ai0-9' class='g-___1 g-aiAbs' style='top:8.6612%;left:60.0751%;'>
+				<div id='g-ai0-9' class='g-___1 g-aiAbs' style='top:8.6612%;left:59.0751%;'>
 					<p class='g-aiPstyle2'>兼職人數佔比</p>
 				</div>
 				<div id='g-ai0-10' class='g-___1 g-aiAbs' style='top:8.6885%;left:12.2811%;'>

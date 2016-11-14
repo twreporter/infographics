@@ -107,19 +107,19 @@ export function lineChart(mobile, desktop) {
 					color:#ffffff;
 				}
 				#g-animal-ai2html-_____1 .g-aiPstyle2 {
-					font-size: 15px;
+					font-size: 13.5px;
 					line-height: 22px;
 					letter-spacing:0.02416666666667em;
 					color:#4e91ff;
 				}
 				#g-animal-ai2html-_____1 .g-aiPstyle3 {
-					font-size: 15px;
+					font-size: 13.5px;
 					line-height: 22px;
 					letter-spacing:0.02416666666667em;
 					color:#ff6496;
 				}
 				#g-animal-ai2html-_____1 .g-aiPstyle4 {
-					font-size: 15px;
+					font-size: 13.5px;
 					line-height: 22px;
 					letter-spacing:0.02416666666667em;
 					color:#4d4d4d;

@@ -10,6 +10,7 @@ import Subsection from "../Components/Subsection"
 import ChapterTitle from "../Components/ChapterTitle"
 import commonStyles from "../../../styles/common.scss"
 import VisibleSensor from "../Components/VisibleSensor"
+import RelatedItem from "../Components/RelatedItem"
 
 import { chapter, topBox, titles, sec1Des, sec2Des, sec2End, sec2Note, problemList } from "./text"
 
@@ -20,6 +21,8 @@ import problem04 from "../../../../content/assets/5p-04.svg"
 
 import ai2htmlMobile from "../../../../content/assets/OWNERS-Artboard_1_copy.png"
 import ai2htmlDesktop from "../../../../content/assets/OWNERS-Artboard_1.png"
+
+import pet1 from "../../../../content/assets/dog01.jpg"
 
 import { barChart } from "./ai2html"
 
@@ -106,7 +109,7 @@ export default class Chapter04 extends Component {
                   <div className={ classnames(styles["b-grid"]) } style={ { marginTop: "-1rem" } }>
                     <div className={ styles["c-left"] }>
                       <div className={ classnames(commonStyles["img-responsive"],
-                        styles["c-human"], commonStyles["overlay-svg"]) }
+                      styles["c-human"], commonStyles["overlay-svg"]) }
                         dangerouslySetInnerHTML={ { __html: problem01 } }
                         ref={ (ref) => this.p1G = ref }
                       />
@@ -121,7 +124,7 @@ export default class Chapter04 extends Component {
                   <div className={ classnames(styles["b-grid"]) } style={ { marginTop: "-1rem" } }>
                     <div className={ styles["c-right"] }>
                       <div className={ classnames(commonStyles["img-responsive"],
-                        styles["c-human"], commonStyles["overlay-svg"]) }
+                      styles["c-human"], commonStyles["overlay-svg"]) }
                         dangerouslySetInnerHTML={ { __html: problem02 } }
                         ref={ (ref) => this.p2G = ref }
                       />
@@ -136,7 +139,7 @@ export default class Chapter04 extends Component {
                   <div className={ classnames(styles["b-grid"]) } style={ { marginTop: "-1rem" } }>
                     <div className={ styles["c-left"] }>
                       <div className={ classnames(commonStyles["img-responsive"],
-                        styles["c-human"], commonStyles["overlay-svg"]) }
+                      styles["c-human"], commonStyles["overlay-svg"]) }
                         dangerouslySetInnerHTML={ { __html: problem03 } }
                         ref={ (ref) => this.p3G = ref }
                       />
@@ -151,7 +154,7 @@ export default class Chapter04 extends Component {
                   <div className={ classnames(styles["b-grid"]) } style={ { marginTop: "-1rem" } }>
                     <div className={ styles["c-right"] }>
                       <div className={ classnames(commonStyles["img-responsive"],
-                        styles["c-human"], commonStyles["overlay-svg"]) }
+                      styles["c-human"], commonStyles["overlay-svg"]) }
                         dangerouslySetInnerHTML={ { __html: problem04 } }
                         ref={ (ref) => this.p4G = ref }
                       />
@@ -177,8 +180,25 @@ export default class Chapter04 extends Component {
                   <Markdown className={ commonStyles["inner-text"] }  source={ sec2Note } />
                 </div>
               </div>
-              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) } style={ { paddingBottom: "3.5rem" } }>
+              <div className={  classnames(commonStyles["content-outer"], commonStyles["pad-content"]) } style={ { paddingTop: "3.5rem", paddingBottom: "2rem" } }>
                 <Markdown className={ commonStyles["inner-text"] }  source={ sec2End } />
+              </div>
+              <div className={ classnames(commonStyles["content-outer"]) } style={ { paddingBottom: "3rem" } }>
+                <RelatedItem title="盧思岑／血汗的第一線獸醫師工作"
+                  description="政府一方面必須建立完整的收容所管理流程及人力的培訓，同時也應更關心第一線獸醫師的心理調適。獸醫師的養成不容易，面臨的心理壓力也高過於其他工作型態。"
+                  imgSrc={ pet1 }
+                  link="https://www.twreporter.org/a/opinion-veterinarian-suicide"
+                />
+                <RelatedItem title="盧思岑／血汗的第一線獸醫師工作"
+                  description="政府一方面必須建立完整的收容所管理流程及人力的培訓，同時也應更關心第一線獸醫師的心理調適。獸醫師的養成不容易，面臨的心理壓力也高過於其他工作型態。"
+                  imgSrc={ pet1 }
+                  link="https://www.twreporter.org/a/opinion-veterinarian-suicide"
+                />
+                <RelatedItem title="盧思岑／血汗的第一線獸醫師工作"
+                  description="政府一方面必須建立完整的收容所管理流程及人力的培訓，同時也應更關心第一線獸醫師的心理調適。獸醫師的養成不容易，面臨的心理壓力也高過於其他工作型態。"
+                  imgSrc={ pet1 }
+                  link="https://www.twreporter.org/a/opinion-veterinarian-suicide"
+                />
               </div>
             </Subsection>
           </div>

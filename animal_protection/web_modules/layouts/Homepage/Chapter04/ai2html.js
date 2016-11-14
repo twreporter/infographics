@@ -384,7 +384,7 @@ export function barChart(mobile, desktop) {
 			#g-OWNERS-Artboard_1_copy .g-aiPstyle0 {
 				font-weight: 700;
 				text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
-				font-size: 17px;
+				font-size: 16px;
 				line-height: 20px;
 				text-align:center;
 				letter-spacing:0.02916666666667em;
