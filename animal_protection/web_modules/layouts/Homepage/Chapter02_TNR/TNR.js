@@ -26,7 +26,7 @@ import ai2htmlMobile from "../../../../content/assets/tnr-animal-ai2html-_____1.
 import ai2htmlDesktop from "../../../../content/assets/tnr-animal-ai2html-_____2.png"
 
 import { chapter, topBox, titles, research, tnvrStrings,
-  sec2Des, sec3Des, sec4Des, problemStrings } from "./text"
+  sec2Des, sec3Des, sec4Des, problemStrings, researchRef } from "./text"
 
 import { lineChart } from "./ai2html"
 
@@ -189,7 +189,7 @@ export default class Tnr extends Component {
       <div>
         <ChapterTitle chapterId={ chapter.id } chapterNum={ 2 } title={ chapter.title } />
         <div className={ classnames(styles.container,
-          commonStyles["text-center"]) }
+        commonStyles["text-center"]) }
         >
           <div>
             <div className={ classnames(commonStyles["content-outer"], commonStyles["content-box"]) }>
@@ -200,41 +200,41 @@ export default class Tnr extends Component {
                 <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
                   <VisibleSensor handleVisible={ this._handleAnimationT }>
                     <div className={ classnames(commonStyles["img-responsive"],
-                      styles["yoyo"], commonStyles["overlay-svg"]) }
+                    styles["yoyo"], commonStyles["overlay-svg"]) }
                       dangerouslySetInnerHTML={ { __html: tnrT } }
                       ref={ (ref) => this.chartT = ref }
                     />
-                  <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.cTText = ref }>{ tnvrStrings[0] }</p>
+                    <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.cTText = ref }>{ tnvrStrings[0] }</p>
                   </VisibleSensor>
                 </div>
                 <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
                   <VisibleSensor handleVisible={ this._handleAnimationN }>
                     <div className={ classnames(commonStyles["img-responsive"],
-                      styles["yoyo"], commonStyles["overlay-svg"]) }
+                    styles["yoyo"], commonStyles["overlay-svg"]) }
                       dangerouslySetInnerHTML={ { __html: tnrN } }
                       ref={ (ref) => this.chartN = ref }
                     />
-                  <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.cNText = ref }>{ tnvrStrings[1] }</p>
+                    <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.cNText = ref }>{ tnvrStrings[1] }</p>
                   </VisibleSensor>
                 </div>
                 <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
                   <VisibleSensor handleVisible={ this._handleAnimationV }>
                     <div className={ classnames(commonStyles["img-responsive"],
-                      styles["yoyo"], commonStyles["overlay-svg"]) }
+                    styles["yoyo"], commonStyles["overlay-svg"]) }
                       dangerouslySetInnerHTML={ { __html: tnrV } }
                       ref={ (ref) => this.chartV = ref }
                     />
-                  <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.cVText = ref }>{ tnvrStrings[2] }</p>
+                    <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.cVText = ref }>{ tnvrStrings[2] }</p>
                   </VisibleSensor>
                 </div>
                 <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
                   <VisibleSensor handleVisible={ this._handleAnimationR }>
                     <div className={ classnames(commonStyles["img-responsive"],
-                      styles["yoyo"], commonStyles["overlay-svg"]) }
+                    styles["yoyo"], commonStyles["overlay-svg"]) }
                       dangerouslySetInnerHTML={ { __html: tnrR } }
                       ref={ (ref) => this.chartR = ref }
                     />
-                  <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.cRText = ref }>{ tnvrStrings[3] }</p>
+                    <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.cRText = ref }>{ tnvrStrings[3] }</p>
                   </VisibleSensor>
                 </div>
               </div>
@@ -246,42 +246,42 @@ export default class Tnr extends Component {
                   <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
                     <VisibleSensor handleVisible={ this._handleProblem1 }>
                       <div className={ classnames(commonStyles["img-responsive"],
-                        styles["yoyo"], commonStyles["overlay-svg"]) }
+                      styles["yoyo"], commonStyles["overlay-svg"]) }
                         style={ { marginTop: "-12%", marginLeft: "-10%", width: "120%", maxWidth:"120%" } }
                         dangerouslySetInnerHTML={ { __html: problem1 } }
                         ref={ (ref) => this.p1G = ref }
                       />
-                    <p className={ commonStyles["g-btm-text"] } style={ { marginBottom: "-12%" } } ref={ (ref) => this.p1Text = ref }>{ problemStrings[0] }</p>
+                      <p className={ commonStyles["g-btm-text"] } style={ { marginBottom: "-12%" } } ref={ (ref) => this.p1Text = ref }>{ problemStrings[0] }</p>
                     </VisibleSensor>
                   </div>
                   <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
                     <VisibleSensor handleVisible={ this._handleProblem2 }>
                       <div className={ classnames(commonStyles["img-responsive"],
-                        styles["yoyo"], commonStyles["overlay-svg"]) }
+                      styles["yoyo"], commonStyles["overlay-svg"]) }
                         dangerouslySetInnerHTML={ { __html: problem2 } }
                         ref={ (ref) => this.p2G = ref }
                       />
-                    <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.p2Text = ref }>{ problemStrings[1] }</p>
+                      <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.p2Text = ref }>{ problemStrings[1] }</p>
                     </VisibleSensor>
                   </div>
                   <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
                     <VisibleSensor handleVisible={ this._handleProblem3 }>
                       <div className={ classnames(commonStyles["img-responsive"],
-                        styles["yoyo"], commonStyles["overlay-svg"]) }
+                      styles["yoyo"], commonStyles["overlay-svg"]) }
                         dangerouslySetInnerHTML={ { __html: problem3 } }
                         ref={ (ref) => this.p3G = ref }
                       />
-                    <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.p3Text = ref }>{ problemStrings[2] }</p>
+                      <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.p3Text = ref }>{ problemStrings[2] }</p>
                     </VisibleSensor>
                   </div>
                   <div className={ classnames(commonStyles["grid-50"], commonStyles["c-grid"]) }>
                     <VisibleSensor handleVisible={ this._handleProblem4 }>
                       <div className={ classnames(commonStyles["img-responsive"],
-                        styles["yoyo"], commonStyles["overlay-svg"]) }
+                      styles["yoyo"], commonStyles["overlay-svg"]) }
                         dangerouslySetInnerHTML={ { __html: problem4 } }
                         ref={ (ref) => this.p4G = ref }
                       />
-                    <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.p4Text = ref }>{ problemStrings[3] }</p>
+                      <p className={ commonStyles["g-btm-text"] } ref={ (ref) => this.p4Text = ref }>{ problemStrings[3] }</p>
                     </VisibleSensor>
                   </div>
                 </div>
@@ -324,6 +324,9 @@ export default class Tnr extends Component {
                     <div className={ styles["r-title"] }>{ research.title }</div>
                   </div>
                   <Markdown source={ research.des } />
+                  <ul>
+                    <li><a href={ researchRef.link } target="_blank">{ researchRef.text }</a></li>
+                  </ul>
                 </div>
               </div>
             </Subsection>

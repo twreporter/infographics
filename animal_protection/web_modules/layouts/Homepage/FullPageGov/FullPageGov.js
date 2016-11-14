@@ -268,7 +268,7 @@ export default class FullPageGov extends Component {
 
     return (
       <div className={ classnames(styles.container,
-        commonStyles["text-center"]) }
+      commonStyles["text-center"]) }
         ref={ (ref) => this.container = ref }
       >
         <div className={ classnames(styles["map"], mapClass, endingClass) }
@@ -281,9 +281,9 @@ export default class FullPageGov extends Component {
                 <div className={ classnames(styles["bar"], ind2) }></div>
                 <div className={ classnames(styles["bar"], ind3) }></div>
               </div>
-                <div className={ styles["hierarchy1"] } ref={ (ref) => this.hierarchy1 = ref } ></div>
-                <div className={ styles["hierarchy2"] } ref={ (ref) => this.hierarchy2 = ref } ></div>
-                <div className={ styles["hierarchy3"] } ref={ (ref) => this.hierarchy3 = ref } ></div>
+              <div className={ styles["hierarchy1"] } ref={ (ref) => this.hierarchy1 = ref } ></div>
+              <div className={ styles["hierarchy2"] } ref={ (ref) => this.hierarchy2 = ref } ></div>
+              <div className={ styles["hierarchy3"] } ref={ (ref) => this.hierarchy3 = ref } ></div>
               <div className={ classnames(styles["slide-outer"]) }
                 ref={ (ref) => this.slideOuter = ref }
               >
@@ -293,7 +293,7 @@ export default class FullPageGov extends Component {
                   <div className={ styles["des-box"] }>
                     <h4 className={ styles["title"] }>1998 年動保法實施後</h4>
                     <p>
-                      收容所和留置所的位置都位於偏遠的郊區，交通不易到達。有些地方甚至無法得知路名，只能依靠經緯度大概定位。
+                      因政府沒有動物保護機關，因此動保業務就四散給與「動物」相關的單位。由農委會下的防檢局和畜牧處分別負責公立收容所與動保行政管理。
                     </p>
                     <div className={ styles["note-box"] }>
                       <p>畜牧行政科員額：9人<br />
@@ -307,10 +307,10 @@ export default class FullPageGov extends Component {
                   <div className={ styles["des-box"] }>
                     <h4 className={ styles["title"] }>2009-2016 年</h4>
                     <p>
-                      現今的收容所多由原本環保單位留下來的收容所設備改建。除非刻意，否則一般民眾不易前往。
+                      畜牧行政科改名為動物保護科，但只是在原本業務（畜牧處的行政彙整、預算統整等）上新增動保相關業務，人力依然不足。
                     </p>
                     <div className={ styles["note-box"] }>
-                      <p>畜牧行政科員額：9人<br />
+                      <p>動物保護科員額：9人<br />
                       業務：寵物管理、實驗動物人道管理、經濟動物福利政策、動物收容管理、動物保護政策與法規、動物保護團體輔導及監督、動物管制業務、動物保護國際合作、人才交流及訓練事宜之推動等。</p>
                     </div>
                   </div>

@@ -48,7 +48,7 @@ export default class Layout extends Component {
           ] }
           link={ [
             { "rel": "shortcut icon",
-              "href": "https://www.twreporter.org/asset/favicon.png" },
+            "href": "https://www.twreporter.org/asset/favicon.png" },
           ] }
           script={ [
             { src: "https://cdn.polyfill.io/v2/polyfill.min.js" },
@@ -61,10 +61,10 @@ export default class Layout extends Component {
             name: "viewport",
             content: "width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no",
           },
-          // {
-          //   name: "theme-color",
-          //   content: "#E30B20",
-          // }
+            // {
+            //   name: "theme-color",
+            //   content: "#E30B20",
+            // }
           ] }
         />
         <style>{ "@-ms-viewport { width: device-width; }" }</style>
