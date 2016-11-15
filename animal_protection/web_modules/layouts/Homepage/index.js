@@ -4,6 +4,7 @@ import _ from "lodash"
 import React, { Component, PropTypes } from "react"
 import ReactDOM from "react-dom"
 import enhanceCollection from "phenomic/lib/enhance-collection"
+import ReactGA from "react-ga"
 
 import Page from "../Page"
 // import PagesList from "../../PagesList"
@@ -83,6 +84,10 @@ export default class Homepage extends Component {
     // detect sroll position
     window.addEventListener("touchmove", this.debouncedScroll)
     window.addEventListener("wheel", this.debouncedScroll)
+
+    ReactGA.initialize("UA-69336956-1")
+    ReactGA.set({ page: window.location.pathname })
+    ReactGA.pageview(window.location.pathname)
   }
 
   shouldComponentUpdate(nextProps, nextState) {
