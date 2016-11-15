@@ -48,9 +48,10 @@ export default class Layout extends Component {
             { name: "description", content: pkg.aDescription },
             { property: "og:site_name", content: pkg.name },
             { property: "og:type", content: "article" },
-            { property: "og:description", content: ogImage },
-            { property: "og:image", content: pkg.aDescription },
+            { property: "og:description", content: pkg.aDescription },
+            { property: "og:image", content: ogImage },
             { name: "twitter:site", content: `@${ pkg.twitter }` },
+            { name: "twitter:image", content: ogImage },
           ] }
           link={ [
             { "rel": "shortcut icon",

@@ -3,17 +3,4 @@ title: 零安樂死政策 流浪動物的新天堂樂園？ / 報導者TheReport
 layout: Homepage
 ---
 
-Hi there.
-
-Before having fun with Phenomic, be sure to read (or at least pretend to)
-the documentation :
-
-* [Setup](https://phenomic.io/docs/setup/)
-* [Usage](https://phenomic.io/docs/usage/)
-* [FAQ](https://phenomic.io/docs/faq/)
-
-Built with
-<a href="https://facebook.github.io/react/">
-  <img alt="" src="assets/react.svg" width="16" height="16" />
-  React
-</a>.
+明年年初正式執行零安樂死政策，但原本資源就匱乏的收容所獸醫、動保員正面臨壓力的臨界點。對現階段的台灣來說，零安樂死就像是感性訴求的童話故事，但現實卻是殘酷的。
