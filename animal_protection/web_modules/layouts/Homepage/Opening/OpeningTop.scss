@@ -100,7 +100,7 @@
 .moon {
   position: absolute;
   width: 6.5%;
-  top: 12.5%;
+  top: 13%;
   left: 16%;
   transition-property: left, top, width;
   transition-duration: 1s;
@@ -252,14 +252,24 @@
     @media (max-width: $width-xs) {
       font-size: 30px;
     }
+    @media (max-width: 320px) {
+      font-size: 25px;
+    }
   }
 
   @media (max-width: $width-md) {
     font-size: 15px;
   }
   @media (max-width: $width-xs) {
-    top: 12%;
+    top: 11.5%;
   }
+  @media (max-width: 320px) {
+    top: 9%;
+  }
+}
+
+.description p {
+  margin: 0.5rem;
 }
 
 .story-box {
@@ -274,10 +284,13 @@
   p {
     margin: 0.3rem 0;
     @media (min-width: $width-xs) {
-      font-size: 19px;
+      font-size: 18px;
     }
     @media (min-width: $width-md) {
       font-size: 20px;
+    }
+    @media (max-width: 320px) {
+      font-size: 16.5px;
     }
   }
 }

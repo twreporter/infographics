@@ -24,6 +24,11 @@
   @media (max-width: $width-xs) {
     width: 100%;
   }
+  > a > div {
+    @media (min-width: $width-md) {
+      margin-left: -1.35rem;
+    }
+  }
 }
 
 .footer-links{

@@ -184,7 +184,7 @@ export default class OpeningTop extends Component {
             <div className={ styles["title-box"] }>
               <div className={ classnames(commonStyles["content-outer"]) }>
                 <h1 itemProp="headline"> { titlePart1 } <br /> { titlePart2 } </h1>
-                <div itemProp="description"><Markdown source={ description } /></div>
+                <div className={ styles["description"] } itemProp="description"><Markdown source={ description } /></div>
               </div>
             </div>
           </div>
@@ -192,28 +192,28 @@ export default class OpeningTop extends Component {
           <div className={ styles["text-wrapper"] }>
             <div className={ styles["story-box"] }>
               <div className={ classnames(commonStyles["content-outer"]) }>
-                <div itemProp="description"><Markdown source={ paragraphs[0] } /></div>
+                <div><Markdown source={ paragraphs[0] } /></div>
               </div>
             </div>
           </div>
           <div className={ styles["text-wrapper"] }>
             <div className={ styles["story-box"] }>
               <div className={ classnames(commonStyles["content-outer"]) }>
-                <div itemProp="description"><Markdown source={ paragraphs[1] } /></div>
+                <div><Markdown source={ paragraphs[1] } /></div>
               </div>
             </div>
           </div>
           <div className={ styles["text-wrapper"] }>
             <div className={ styles["story-box"] }>
               <div className={ classnames(commonStyles["content-outer"]) }>
-                <div itemProp="description"><Markdown source={ paragraphs[2] } /></div>
+                <div><Markdown source={ paragraphs[2] } /></div>
               </div>
             </div>
           </div>
           <div className={ styles["text-wrapper"] }>
             <div className={ styles["story-box"] }>
               <div className={ classnames(commonStyles["content-outer"]) }>
-                <div itemProp="description"><Markdown source={ paragraphs[3] } /></div>
+                <div><Markdown source={ paragraphs[3] } /></div>
               </div>
             </div>
           </div>
@@ -226,21 +226,21 @@ export default class OpeningTop extends Component {
           <div className={ styles["text-wrapper"] }>
             <div className={ styles["story-box"] }>
               <div className={ classnames(commonStyles["content-outer"]) }>
-                <div itemProp="description"><Markdown source={ paragraphs[4] } /></div>
+                <div><Markdown source={ paragraphs[4] } /></div>
               </div>
             </div>
           </div>
           <div className={ styles["text-wrapper"] }>
             <div className={ styles["story-box"] }>
               <div className={ classnames(commonStyles["content-outer"]) }>
-                <div itemProp="description"><Markdown source={ paragraphs[5] } /></div>
+                <div><Markdown source={ paragraphs[5] } /></div>
               </div>
             </div>
           </div>
           <div className={ styles["text-wrapper"] }>
             <div className={ styles["story-box"] }>
               <div className={ classnames(commonStyles["content-outer"]) }>
-                <div itemProp="description"><Markdown source={ paragraphs[6] } /></div>
+                <div><Markdown source={ paragraphs[6] } /></div>
               </div>
             </div>
           </div>
@@ -304,14 +304,14 @@ export default class OpeningTop extends Component {
             <div className={ styles["text-wrapper"] }>
               <div className={ styles["story-box"] } >
                 <div className={ classnames(commonStyles["content-outer"]) }>
-                  <div itemProp="description"><Markdown source={ paragraphs[7] } /></div>
+                  <div><Markdown source={ paragraphs[7] } /></div>
                 </div>
               </div>
             </div>
             <div className={ styles["text-wrapper"] } style={ { marginTop: "-22vh" } }>
               <div className={ styles["story-box"] } >
                 <div className={ classnames(commonStyles["content-outer"]) }>
-                  <div itemProp="description"><Markdown source={ paragraphs[8] } /></div>
+                  <div><Markdown source={ paragraphs[8] } /></div>
                 </div>
               </div>
             </div>

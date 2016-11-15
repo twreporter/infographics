@@ -58,6 +58,7 @@ export default class Homepage extends Component {
       shouldShowNav: false,
       preScrollPos: 0,
       isProgressShown: false,
+      isUp: false,
     }
 
     this._handleResize = this._handleResize.bind(this)
@@ -86,7 +87,8 @@ export default class Homepage extends Component {
     if (nextState.isMobile!==this.state.isMobile
     || nextState.scrollPercent!==this.state.scrollPercent
     || nextState.activeIndex!==this.state.activeIndex
-    || nextState.isProgressShown!==this.state.isProgressShown) {
+    || nextState.isProgressShown!==this.state.isProgressShown
+    || nextState.isUp!==this.state.isUp) {
       return true
     }
     return false
@@ -133,7 +135,8 @@ export default class Homepage extends Component {
     let scrollPercent = Math.round(scrollPos/height * 100)
     scrollPercent = (scrollPercent>100) ? 100: scrollPercent
 
-    this.setState({ scrollPercent: scrollPercent || 0, shouldShowNav: (scrollPos < preScrollPos) })
+    this.setState({ scrollPercent: scrollPercent || 0, shouldShowNav: (scrollPos > heightArr[1]),
+      isUp: (scrollPos < preScrollPos) })
 
     let curActive = -1
     for (let i=0; i<heightArr.length; i++) {
@@ -160,7 +163,7 @@ export default class Homepage extends Component {
   }
 
   render() {
-    const { scrollPercent, activeIndex, shouldShowNav, isProgressShown } = this.state
+    const { scrollPercent, activeIndex, shouldShowNav, isProgressShown, isUp } = this.state
 
     const latestPosts = enhanceCollection(this.context.collection, {
       filter: { layout: "Post" },
@@ -187,6 +190,8 @@ export default class Homepage extends Component {
     }
 
     const navClass = shouldShowNav ? null : commonStyles["hide"]
+
+    const mobileBottomNav = isUp ? null : commonStyles["hide"]
 
     const activeOpening = (activeIndex===0) ? styles["active-opening"] : null
 
@@ -252,7 +257,7 @@ export default class Homepage extends Component {
 
         </div>
 
-        <div className={ classnames(styles.footer, navClass) }>
+        <div className={ classnames(styles.footer, navClass, mobileBottomNav) }>
           <div className={ styles["footer-index-box"] }>
             <a href="#" className={ classnames(styles["oval"], activeOpening) }></a>
             { chapterArr }
