@@ -163,7 +163,7 @@ export default class Chapter01 extends Component {
                       </div>
                     </div>
                     <div className={  classnames(styles["photo-3a"]) }>
-                      <p className={ styles["photo-overlay-text"] }>{ photoText[3] }</p>
+                      <div className={ styles["photo-overlay-text"] }><Markdown source={ photoText[3] } /></div>
                     </div>
                     <div className={  classnames(styles["photo-3b"]) }>
                       <p className={ styles["photo-overlay-text"] }>{ photoText[4] }</p>

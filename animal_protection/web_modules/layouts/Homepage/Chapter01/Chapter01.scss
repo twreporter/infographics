@@ -165,6 +165,10 @@
   @media screen and (orientation:portrait) and (max-width: $width-md) {
     bottom: 8%;
   }
+
+  p{
+    margin: 0.1rem;
+  }
 }
 
 .photo {
