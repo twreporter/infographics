@@ -42,6 +42,11 @@ const SITE_URL = "animal-protection"
 let velocity
 if (typeof window !== "undefined") {
   velocity = require("velocity-animate")
+
+  // add Google Analytics
+  ReactGA.initialize("UA-69336956-1")
+  ReactGA.set({ page: window.location.pathname })
+  ReactGA.pageview(window.location.pathname)
 }
 
 const numberOfLatestPosts = 6
@@ -84,10 +89,6 @@ export default class Homepage extends Component {
     // detect sroll position
     window.addEventListener("touchmove", this.debouncedScroll)
     window.addEventListener("wheel", this.debouncedScroll)
-
-    ReactGA.initialize("UA-69336956-1")
-    ReactGA.set({ page: window.location.pathname })
-    ReactGA.pageview(window.location.pathname)
   }
 
   shouldComponentUpdate(nextProps, nextState) {

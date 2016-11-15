@@ -485,7 +485,9 @@ export default class GamePlayer extends Component {
 
   handleDogClick(dogId, event) {
     let { posList, freePos, totalNeutered } = this.state
-    event.stopPropagation()
+    if (event) {
+      event.stopPropagation()
+    }
     const dogs = posList[dogId].dogs
     let shouldRemove = false
     if (dogs) {
@@ -513,7 +515,7 @@ export default class GamePlayer extends Component {
           dogsList.push(
             <div key={ `${i}-${j}` } className={ styles["dog"] }
               style={ { top: posList[i].top, left: posList[i].left } }
-              onClick={ this.handleDogClick.bind(event, i) }>
+              onClick={ (event)=>{this.handleDogClick(i, event)} }>
               <Dog status={ dogs[j] } />
             </div>)
         }
