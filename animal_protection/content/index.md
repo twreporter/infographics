@@ -1,5 +1,5 @@
 ---
-title: 零安樂死政策 流浪動物的新天堂樂園？ / 報導者TheReporter
+title: 零安樂死政策 流浪動物的新天堂樂園？ / 報導者
 layout: Homepage
 ---
 
