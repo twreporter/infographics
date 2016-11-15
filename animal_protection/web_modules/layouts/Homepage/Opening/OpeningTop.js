@@ -25,8 +25,7 @@ import pet7 from "../../../../content/assets/dog07.jpg"
 import pet8 from "../../../../content/assets/dog08.jpg"
 import pet9 from "../../../../content/assets/dog09.jpg"
 
-import { titlePart1, titlePart2, description, authorText,
-  publishDate, authorSeparator, authorList, paragraphs } from "./text"
+import { titlePart1, titlePart2, description, paragraphs } from "./text"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -163,7 +162,6 @@ export default class OpeningTop extends Component {
   }
 
   render() {
-    let authorItems = []
     const { isIn, isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed, isCaged, isOneDog } = this.state
     const moonClass = isMoonIn ? styles["moon-center"] : styles["moon"]
     const doorClass = isDoorIn ? styles["door"] : styles["door-hidden"]
@@ -176,10 +174,6 @@ export default class OpeningTop extends Component {
     let yoyoPositionClass = isYoyoCentered ? styles["yoyo-centered"] : null
     yoyoPositionClass = isCaged ? styles["yoyo-center-bottom"] : yoyoPositionClass
     const cloudEndingClass = isCaged ? styles["cloud-ending"] : null
-    for (let i=0; i<authorList.length; i++) {
-      const separator = (i===authorList.length-1) ? "" : authorSeparator
-      authorItems.push(<span key={ i } itemProp="author">{ authorList[i] + separator }</span>)
-    }
 
     return (
       <div className={ classnames(commonStyles["text-center"], styles.container) }
@@ -191,7 +185,6 @@ export default class OpeningTop extends Component {
               <div className={ classnames(commonStyles["content-outer"]) }>
                 <h1 itemProp="headline"> { titlePart1 } <br /> { titlePart2 } </h1>
                 <div itemProp="description"><Markdown source={ description } /></div>
-                <p>{ authorText } { authorItems } &nbsp; | &nbsp; <span itemProp="datePublished">{ publishDate }</span></p>
               </div>
             </div>
           </div>

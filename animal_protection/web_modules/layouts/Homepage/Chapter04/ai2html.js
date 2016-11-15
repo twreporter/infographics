@@ -183,7 +183,7 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle1'>資料來源： 大群獸醫院</p>
 			</div>
 			<div id='g-ai0-3' class='g-Layer_1 g-aiAbs' style='top:6.7685%;left:64.3555%;'>
-				<p class='g-aiPstyle2'>疫苗費用</p>
+				<p class='g-aiPstyle2'>幼犬疫苗費用</p>
 			</div>
 			<div id='g-ai0-4' class='g-Layer_1 g-aiAbs' style='top:8.2189%;left:64.3555%;'>
 				<p class='g-aiPstyle3'>4500 NT$</p>
@@ -416,7 +416,7 @@ export function barChart(mobile, desktop) {
 				color:#ffffff;
 			}
 			#g-OWNERS-Artboard_1_copy .g-aiPstyle5 {
-				font-size: 20px;
+				font-size: 18.5px;
     		line-height: 18px;
 				letter-spacing:0.02916666666667em;
 				color:#ffffff;
@@ -460,7 +460,7 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle1'>資料來源： 大群獸醫院</p>
 			</div>
 			<div id='g-ai1-3' class='g-Layer_1 g-aiAbs' style='top:7.2237%;left:41.7412%;'>
-				<p class='g-aiPstyle2'>疫苗費用</p>
+				<p class='g-aiPstyle2'>幼犬疫苗費用</p>
 			</div>
 			<div id='g-ai1-4' class='g-Layer_1 g-aiAbs' style='top:8.691%;left:41.7412%;'>
 				<p class='g-aiPstyle3'>4500 NT$</p>

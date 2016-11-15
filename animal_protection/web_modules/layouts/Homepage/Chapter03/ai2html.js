@@ -39,7 +39,7 @@ export function barChart(mobile, desktop) {
     		line-height: 52px !important;
 			}
 			#g-animal-2-ai2html-_____1___ .g-aiPstyle11 {
-    		font-size: 16px !important;
+    		font-size: 15px !important;
 			}
 		}
 	</style>
@@ -86,7 +86,7 @@ export function barChart(mobile, desktop) {
 				color:#ffffff;
 			}
 			#g-animal-2-ai2html-_____1 .g-aiPstyle3 {
-				font-size:17px;
+				font-size:15.5px;
 				line-height:35px;
 				letter-spacing:0.02416666666667em;
 				color:#ffffff;
@@ -129,7 +129,7 @@ export function barChart(mobile, desktop) {
 				color:#4d4d4d;
 			}
 			#g-animal-2-ai2html-_____1 .g-aiPstyle10 {
-				font-size:16px;
+				font-size:15.5px;
 				line-height:35px;
 				letter-spacing:0.02416666666667em;
 				color:#4d4d4d;
@@ -160,7 +160,7 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle2'>｜</p>
 			</div>
 			<div id='g-ai0-7' class='g-___1 g-aiAbs' style='top:9.2601%;left:84.78%;'>
-				<p class='g-aiPstyle2'>件</p>
+				<p class='g-aiPstyle2'></p>
 			</div>
 			<div id='g-ai0-8' class='g-___1 g-aiAbs' style='top:9.2601%;left:10.0643%;'>
 				<p class='g-aiPstyle1'>單位：件/人 </p>
@@ -172,7 +172,7 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle1'> </p>
 			</div>
 			<div id='g-ai0-11' class='g-___1 g-aiAbs' style='top:9.2895%;left:68.3043%;'>
-				<p class='g-aiPstyle3'>=100</p>
+				<p class='g-aiPstyle3'>=100 件</p>
 			</div>
 			<div id='g-ai0-12' class='g-___1 g-aiAbs' style='top:13.0817%;left:28.4373%;'>
 				<p class='g-aiPstyle4'>苗栗縣</p>

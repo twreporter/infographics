@@ -29,6 +29,7 @@ import fbIcon from "../../../content/assets/icon-share-facebook.svg"
 import twitterIcon from "../../../content/assets/icon-share-twitter.svg"
 
 import { MOBILE_WIDTH } from "./config"
+import { authorText,  publishDate, authorSeparator, authorList } from "./content"
 
 const debounceTime = {
   threshold: 300,
@@ -179,6 +180,12 @@ export default class Homepage extends Component {
         } }>{ cIndex }</span>)
     }
 
+    let authorItems = []
+    for (let i=0; i<authorList.length; i++) {
+      const separator = (i===authorList.length-1) ? "" : authorSeparator
+      authorItems.push(<span key={ i } itemProp="author">{ authorList[i] + separator }</span>)
+    }
+
     const navClass = shouldShowNav ? null : commonStyles["hide"]
 
     const activeOpening = (activeIndex===0) ? styles["active-opening"] : null
@@ -206,6 +213,7 @@ export default class Homepage extends Component {
 
         <div className={ commonStyles.content }>
           {/* <PagesList pages={ latestPosts } /> */}
+          <p className={ commonStyles["white-text"] }>{ authorText } { authorItems } &nbsp; | &nbsp; <span itemProp="datePublished">{ publishDate }</span></p>
           <p className={ commonStyles["des-text"] }>
             地圖資料來源： CartoDB &nbsp; &nbsp;
             開頭照片來源：桃園新屋收容所

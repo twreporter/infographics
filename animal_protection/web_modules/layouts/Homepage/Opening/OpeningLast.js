@@ -21,34 +21,42 @@ export default class OpeningLast extends Component {
   render() {
     return (
       <div className={ classnames(styles.container,
-        commonStyles["text-center"]) }
+      commonStyles["text-center"]) }
         ref={ (ref) => this.container = ref }
       >
-      <div className={ commonStyles["content-outer"] }>
-        <div className={ classnames(styles["content-box"]) }>
-          <div className={ styles["text-wrapper"] }>
-            <div className={ styles["story-box"] }>
-              <div className={ classnames(commonStyles["content-outer"]) }>
-                <div itemProp="description">{ endingParagraphs[1] }</div>
+        <div className={ commonStyles["content-outer"] }>
+          <div className={ classnames(styles["content-box"]) }>
+            <div className={ styles["text-wrapper"] }>
+              <div className={ styles["story-box"] }>
+                <div className={ classnames(commonStyles["content-outer"]) }>
+                  <div itemProp="description">{ endingParagraphs[1] }</div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className={ styles["text-wrapper"] }>
-            <div className={ styles["story-box"] }>
-              <div className={ classnames(commonStyles["content-outer"]) }>
-                <div itemProp="description">{ endingParagraphs[2] }</div>
+            <div className={ styles["text-wrapper"] }>
+              <div className={ styles["story-box"] }>
+                <div className={ classnames(commonStyles["content-outer"]) }>
+                  <div itemProp="description">{ endingParagraphs[2] }</div>
+                </div>
               </div>
             </div>
-          </div>
+            
+            <div className={ styles["text-wrapper"] }>
+              <div className={ styles["story-box"] }>
+                <div className={ classnames(commonStyles["content-outer"]) }>
+                  <div itemProp="description">{ endingParagraphs[3] }</div>
+                </div>
+              </div>
+            </div>
 
-          <div className={ styles["text-wrapper"] }>
-            <div className={ styles["story-box"] }>
-              <div className={ classnames(commonStyles["content-outer"]) }>
-                <div itemProp="description">{ endingParagraphs[3] }</div>
+            <div className={ styles["text-wrapper"] }>
+              <div className={ styles["story-box"] }>
+                <div className={ classnames(commonStyles["content-outer"]) }>
+                  <div itemProp="description">{ endingParagraphs[3] }</div>
+                </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
 
