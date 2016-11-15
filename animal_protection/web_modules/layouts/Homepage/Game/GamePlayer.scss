@@ -1,0 +1,319 @@
+/* stylelint-disable number-no-trailing-zeros, function-comma-space-after, selector-list-comma-newline-after, selector-pseudo-element-colon-notation, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+@import "../../../styles/animation.scss";
+
+.container {
+  color: white;
+  background: $game-bg;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1200;
+
+  h2 {
+    font-size: $large-font-size;
+    margin-bottom: 5vh;
+    line-height: 1.6;
+    @media (max-width: $width-xs) {
+      font-size: $xs-large-font-size;
+    }
+  }
+}
+
+.game-outer {
+  @include fade-in(4s);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 100%;
+  @media (max-width: $width-md) {
+    margin-top: 0.5rem;
+  }
+
+  .game-container {
+    position: relative;
+    background: $white;
+    width: 960px;
+    height: 510px;
+    background-image: url('../../../../content/assets/gameBg-horizontal.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    @media (max-width: $width-md) {
+      width: 100%;
+      height: 78vh;
+    }
+
+    .dog {
+      position: absolute;
+      width: 9%;
+      cursor: pointer;
+      transform: translate(-50%,-50%);
+      transition: all 0.2s;
+      user-select: none;
+      @include fade-in(0.5s);
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      user-select: none;
+      &:hover {
+        width: 9.5%;
+        margin-top: -5px;
+      }
+      @media (max-width: $width-md) {
+        width: 14.5%;
+        padding: 1%;
+      }
+      @media (max-width: $width-xs) {
+        width: 15%;
+      }
+      img {
+        width: 100%;
+        user-select: none;
+        user-drag: none;
+        -webkit-user-drag: none;
+      }
+    }
+
+    .dog-neutered {
+      @extend .dog;
+      cursor: default;
+    }
+  }
+}
+
+.header {
+  width: 100%;
+  bottom: 1vh;
+  left: 0;
+  text-align: center;
+  @include fade-in(4s);
+  font-weight: $font-bold;
+  margin-top: 0.5rem;
+
+  span {
+    padding-right: 0.2rem;
+    @media (min-width: $width-xs) {
+      margin-left: -3rem;
+    }
+  }
+
+  .time-des {
+    @media (max-width: $width-xs) {
+      display: none;
+    }
+  }
+
+  .time-now {
+    margin-left: 0.8rem;
+    background-color: $white;
+    color: $text-blue;
+    padding: 0.1rem 0.5rem;
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.2);
+    font-size: 36px;
+    @media (max-width: $width-xs) {
+      margin-left: 1.5rem;
+      padding: 0.1rem 0.3rem;
+      font-size: 24px;
+    }
+  }
+}
+
+
+.footer {
+  width: 100%;
+  bottom: 6vh;
+  left: 0;
+  text-align: center;
+  padding: 0 1rem 0.5rem;
+  @include fade-in(4s);
+  margin-top: 0.5rem;
+
+  @media (max-width: $width-xs) {
+    font-size: 15px;
+  }
+
+  span {
+    padding-right: 2rem;
+    @media (max-width: $width-xs) {
+      padding-right: 1.2rem;
+    }
+  }
+
+  .dog-cnt {
+    font-size: 28px;
+    @media (max-width: $width-xs) {
+      font-size: 22px;
+    }
+  }
+
+  .dog-cnt-icon {
+    width: 2.2rem;
+    display: inline-block;
+    background: $white;
+    border-radius: 50%;
+    margin-right: 0.45rem;
+    @media (max-width: $width-xs) {
+      width: 1.8rem;
+      svg {
+        padding: 0.16rem 0.24rem;
+      }
+    }
+    svg {
+      width: 100%;
+      margin-bottom: -0.6rem;
+    }
+    @media (min-width: $width-xs) {
+      svg {
+        padding: 0.20rem 0.27rem;
+      }
+    }
+  }
+}
+
+.hide {
+  @include fade-out(1.5s);
+}
+
+.hide-fast {
+  @include fade-out(0.8s);
+}
+
+.hide-visible {
+  visibility: hidden;
+  z-index: 0;
+}
+
+.close-button {
+  @include fade-in(1s);
+  $size: 3.2rem;
+  height: $size;
+  width: $size;
+  box-sizing: border-box;
+  line-height: $size;
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  padding: 2.5rem;
+  z-index: 1010;
+
+  @media (max-width: $width-xs) {
+    $size: 2rem;
+    height: $size;
+    width: $size;
+    top: 0.4rem;
+    right: 0.4rem;
+    padding: 1.6rem;
+  }
+
+  &:before, &:after {
+    $width: 42px;
+    $height: 6px;
+    transform: rotate(-45deg);
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -$height/2;
+    margin-left: -$width/2;
+    display: block;
+    height: $height;
+    width: $width;
+    background-color: #fff;
+    transition: all 0.25s ease-out;
+    @media (max-width: $width-xs) {
+      $width: 32px;
+      $height: 4px;
+      height: $height;
+      width: $width;
+      margin-top: -$height/2;
+      margin-left: -$width/2;
+    }
+  }
+
+  &:after {
+    transform: rotate(-135deg);
+  }
+
+  &:hover {
+    &:before {
+        transform: rotate(0deg);
+    }
+    &:after {
+        transform: rotate(-180deg);
+    }
+  }
+}
+
+.game-over-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 65%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: solid 2px $white;
+  display: table;
+  @include fade-in(0.6s);
+  @media screen and (orientation:portrait) {
+    width: 75%;
+    height: 60%;
+  }
+  >div{
+    vertical-align: middle;
+    display: table-cell;
+  }
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.game-results-box{
+  position: absolute;
+  text-align: center;
+  width: 100.5%;
+  height: 100.5%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: table;
+  font-size: 22px;
+  @include fade-in(0.6s);
+  >div{
+    vertical-align: middle;
+    display: table-cell;
+    padding: 1rem;
+  }
+  b {
+    font-size: 32px;
+    color: $text-blue;
+    font-size: $font-bold;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.center-dog {
+  @include fade-out(1s);
+  max-width: 18rem;
+  @media (max-width: $width-xs) {
+    max-width: 12rem;
+  }
+}
+
+.intro {
+  padding: 4rem;
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: 20rem;
+}

@@ -1,0 +1,150 @@
+/* stylelint-disable block-closing-brace-newline-before, at-rule-empty-line-before, rule-non-nested-empty-line-before, indentation */
+@import "variables.scss";
+
+.content {
+  max-width: 60rem;
+  margin: auto;
+  padding: 1rem 0.75rem;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.super-text {
+  font-size: 50px;
+}
+
+.large-text {
+  font-weight: $font-bold;
+  font-size: 28px;
+}
+
+.pad-content {
+  padding: 0.9rem;
+  @media (max-width: $width-xs) {
+    padding: 0.8rem;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.inner-text {
+  text-align: justify;
+}
+
+.content-outer {
+  width: $outer-width;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 0.4px;
+  line-height: 1.95;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto !important;
+  svg {
+    max-width: 100%;
+  }
+}
+
+.fixedCenter {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay-svg {
+  svg {
+    overflow: overlay;
+  }
+}
+
+.content-box {
+  background: $white;
+  box-shadow: $c-box-shadow;
+  padding: 0.5rem 1.8rem;
+  color: $text-blue;
+  text-align: left;
+  font-size: $brief-font-size;
+  @media (max-width: $width-xs) {
+    padding: 0.2rem 1.3rem;
+  }
+}
+
+.hide {
+  display: none !important;
+}
+
+.c-grid {
+  background-color: $deco-blue;
+  padding: 1.5rem 1rem;
+  >div {
+    position: relative;
+    padding-bottom: 3rem;
+    height: 100%;
+  }
+}
+
+.wrap-grids {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.grid-50 {
+  width: calc(50% - 14px);
+  margin: 14px 7px;
+  @media (max-width: $width-xs) {
+    margin: 10px 0;
+    width: 100%;
+  }
+}
+
+.grid-33 {
+  width: calc(33% - 14px);
+  margin: 14px 7px;
+  @media (max-width: $width-xs) {
+    margin: 10px 0;
+    width: 100%;
+  }
+}
+
+.g-btm-text {
+  font-size: 28px;
+  font-weight: $font-bold;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%,0);
+}
+
+.white-box {
+  background-color: $white;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+  h4 {
+    font-size: 28px;
+    color: $tooltip-gray;
+    font-weight: $font-bold;
+  }
+}
+
+.des-text {
+  color: $white;
+  font-size: $small-font-size;
+}
+
+.white-text {
+  color: $white;
+}

@@ -1,0 +1,73 @@
+/* stylelint-disable length-zero-no-unit, function-comma-space-after, selector-list-comma-newline-after, block-closing-brace-newline-before, indentation, at-rule-empty-line-before, rule-non-nested-empty-line-before */
+@import "../../../styles/variables.scss";
+
+.container {
+  a, a:focus, a:hover {
+    text-decoration: none;
+  }
+  text-align: justify;
+}
+
+.related-item {
+  background: $white;
+  color: $tooltip-gray;
+  margin: 1rem 1.5rem;
+  padding: 0.8rem 1.2rem;
+  display: table;
+
+  &:hover {
+    box-shadow: 0px 4px 10px 0px rgba($tooltip-gray, 0.5);
+  }
+
+  .related-left {
+    width: 8.8rem;
+    display: table-cell;
+    position: relative;
+
+    .crop {
+      position: absolute;
+      left: -110%;
+      right: -100%;
+      top: -100%;
+      bottom: -100%;
+      margin: auto;
+      height: auto;
+      width: auto;
+      max-width: 6.5rem;
+      max-height: 6.5rem;
+      @media (max-width: $width-xs) {
+        max-width: 4.5rem;
+        max-height: 4.5rem;
+      }
+    }
+
+    @media (max-width: $width-xs) {
+      width: 6rem;
+      margin: 1rem 0rem;
+      padding: 0.3rem 0.5rem;
+    }
+  }
+
+  .related-right {
+    display: table-cell;
+    line-height: 1.75;
+
+    p {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .related-title {
+      font-weight: $font-bold;
+      font-size: $brief-font-size;
+    }
+
+    .related-des {
+      font-size: $small-font-size;
+      color: #7f7f7f;
+      @media (max-width: $width-xs) {
+        display: none;
+      }
+    }
+  }
+}
