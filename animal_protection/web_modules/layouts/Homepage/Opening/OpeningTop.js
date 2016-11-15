@@ -35,8 +35,8 @@ if (typeof window !== "undefined") {
 const CLOUD_DURATION = 8000
 
 const debounceTime = {
-  threshold: 15,
-  maxWait: 45,
+  threshold: 20,
+  maxWait: 60,
 }
 
 export default class OpeningTop extends Component {
@@ -53,6 +53,8 @@ export default class OpeningTop extends Component {
       isCaged: false,
       isOneDog: false,
       scrollRatio: -1,
+      isOut: false,
+      containerHeight: 3000,
     }
     this.pItemHeight = 100
     this._handleScroll = this._handleScroll.bind(this)
@@ -89,7 +91,7 @@ export default class OpeningTop extends Component {
     const node = ReactDOM.findDOMNode(this.container)
     const rect = node.getBoundingClientRect()
     const { top, bottom } = rect
-    const { isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed, isCaged, isOneDog } = this.state
+    const { isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed, isCaged, isOneDog, isOut } = this.state
     const vpHeight = window.innerHeight
 
     if (this.pItemHeight) {
@@ -160,10 +162,19 @@ export default class OpeningTop extends Component {
       this.setState({ isOneDog: false })
     }
 
+    // avoid page jumping on mobile
+    if (!isOut && bottom < 0) {
+      this.setState({ isOut: true, containerHeight: rect.height })
+    }
+    else if (isOut && bottom > 0) {
+      this.setState({ isOut: false })
+    }
+
   }
 
   render() {
-    const { isIn, isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed, isCaged, isOneDog } = this.state
+    const { isIn, isMoonIn, isDoorIn, isLoveIn, isYoyoCentered, isBoxed,
+      isCaged, isOneDog, isOut, containerHeight } = this.state
     const moonClass = isMoonIn ? styles["moon-center"] : styles["moon"]
     const doorClass = isDoorIn ? styles["door"] : styles["door-hidden"]
     const loveClass = isLoveIn ? styles["door-love"] : null
@@ -176,9 +187,13 @@ export default class OpeningTop extends Component {
     yoyoPositionClass = isCaged ? styles["yoyo-center-bottom"] : yoyoPositionClass
     const cloudEndingClass = isCaged ? styles["cloud-ending"] : null
 
+    // avoid page jumping on mobile devices when scrolling into the reverse direction
+    const containerStyle = isOut ? { height: `${containerHeight}px` } : null
+
     return (
       <div className={ classnames(commonStyles["text-center"], styles.container) }
         ref={ (ref) => this.container = ref }
+        style={ containerStyle }
       >
         <div className={ styles["container-yoyo-story"] }>
           <div className={ styles["text-wrapper"] }>
