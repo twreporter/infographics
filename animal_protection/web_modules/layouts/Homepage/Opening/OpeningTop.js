@@ -69,6 +69,7 @@ export default class OpeningTop extends Component {
 
     // detect sroll position
     window.addEventListener("scroll", this.debouncedScroll)
+    this.debouncedScroll()
 
     velocity(this.clouds, { left: "-100%" }, { duration: CLOUD_DURATION, easing: "linear" })
     velocity(this.clouds, "reverse", { duration: 1 })

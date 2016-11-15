@@ -73,6 +73,7 @@ export default class OpeningStardust extends Component {
 
     // detect sroll position
     window.addEventListener("scroll", this.debouncedScroll)
+    this.debouncedScroll()
   }
 
   shouldComponentUpdate(nextProps, nextState) {

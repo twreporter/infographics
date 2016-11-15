@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-bind, prefer-const, max-len, react/jsx-closing-bracket-location, no-unexpected-multiline, react/jsx-no-literals, no-unused-vars */
+/* eslint-disable react/jsx-no-bind, brace-style, prefer-const, max-len, react/jsx-closing-bracket-location, no-unexpected-multiline, react/jsx-no-literals, no-unused-vars */
 
 import _ from "lodash"
 import React, { Component, PropTypes } from "react"
@@ -35,6 +35,8 @@ const debounceTime = {
   threshold: 300,
   maxWait: 600,
 }
+
+const SITE_URL = "animal-protection"
 
 let velocity
 if (typeof window !== "undefined") {
@@ -189,7 +191,7 @@ export default class Homepage extends Component {
       authorItems.push(<span key={ i } itemProp="author">{ authorList[i] + separator }</span>)
     }
 
-    const navClass = shouldShowNav ? null : commonStyles["hide"]
+    const navClass = shouldShowNav || isUp ? null : commonStyles["hide"]
 
     const mobileBottomNav = isUp ? null : commonStyles["hide"]
 
@@ -247,12 +249,18 @@ export default class Homepage extends Component {
               <span className={ classnames(styles["support-text"]) } style={ { opacity: 0.8 } }>{ supportUs }</span>
             </a>
             <div className={ styles["spacer"] }></div>
-            <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
-              dangerouslySetInnerHTML={ { __html: fbIcon } }
-            />
-            <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
-              dangerouslySetInnerHTML={ { __html: twitterIcon } }
-            />
+            <a className={ classnames(styles["nav-icon"]) } target="_blank"
+              href={ `https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fa%2F${SITE_URL}` }
+            >
+              <div className={ classnames(commonStyles["img-responsive"]) }
+                dangerouslySetInnerHTML={ { __html: fbIcon } }
+              />
+            </a>
+            <a className={ classnames(styles["nav-icon"]) } target="_blank" href={ `https://twitter.com/home?status=https%3A%2F%2Fwww.twreporter.org%2Fa%2F${SITE_URL}` }>
+              <div className={ classnames(commonStyles["img-responsive"]) }
+                dangerouslySetInnerHTML={ { __html: twitterIcon } }
+              />
+            </a>
           </div>
 
         </div>
