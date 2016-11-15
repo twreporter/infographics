@@ -22,7 +22,11 @@ import problem04 from "../../../../content/assets/5p-04.svg"
 import ai2htmlMobile from "../../../../content/assets/OWNERS-Artboard_1_copy.png"
 import ai2htmlDesktop from "../../../../content/assets/OWNERS-Artboard_1.png"
 
-import pet1 from "../../../../content/assets/dog01.jpg"
+import related01 from "../../../../content/assets/related01.jpg"
+import related02 from "../../../../content/assets/related02.jpg"
+import related03 from "../../../../content/assets/related03.jpg"
+import related04 from "../../../../content/assets/related04.jpg"
+import related05 from "../../../../content/assets/related05.jpg"
 
 import { barChart } from "./ai2html"
 
@@ -184,20 +188,30 @@ export default class Chapter04 extends Component {
                 <Markdown className={ commonStyles["inner-text"] }  source={ sec2End } />
               </div>
               <div className={ classnames(commonStyles["content-outer"]) } style={ { paddingBottom: "3rem" } }>
-                <RelatedItem title="盧思岑／血汗的第一線獸醫師工作"
-                  description="政府一方面必須建立完整的收容所管理流程及人力的培訓，同時也應更關心第一線獸醫師的心理調適。獸醫師的養成不容易，面臨的心理壓力也高過於其他工作型態。"
-                  imgSrc={ pet1 }
-                  link="https://www.twreporter.org/a/opinion-veterinarian-suicide"
+                <RelatedItem title="零安樂死政策——流浪動物的新天堂樂園？（上）"
+                  description="2017年2月，零安樂死政策將正式實施，表面上看來似乎是台灣動保運動的一大里程碑。然而，關乎流浪動物的諸多問題仍未解決。倉促上路的結果，是對動物福利造成更多的傷害，衝擊最深的，將是第一線工作人員。"
+                  imgSrc={ related01 }
+                  link="https://www.twreporter.org/a/animal-protection-no-killing-ch1"
                 />
-                <RelatedItem title="盧思岑／血汗的第一線獸醫師工作"
-                  description="政府一方面必須建立完整的收容所管理流程及人力的培訓，同時也應更關心第一線獸醫師的心理調適。獸醫師的養成不容易，面臨的心理壓力也高過於其他工作型態。"
-                  imgSrc={ pet1 }
-                  link="https://www.twreporter.org/a/opinion-veterinarian-suicide"
+                <RelatedItem title="零安樂死政策——流浪動物的新天堂樂園？（下）"
+                  description="零安樂死政策的通過，只是再一次反映了台灣動保的陳年老問題：法律遠遠走在前面，人力和資源卻苦苦追趕不上。當政府無法務實的評估人力與資源並制定政策，零安樂死只能是表面功夫。最終公立收容所為了達成目標，不得不將流浪狗卻被「流放」至私人狗場，面臨未知的命運。"
+                  imgSrc={ related02 }
+                  link="https://www.twreporter.org/a/animal-protection-no-killing-ch2"
                 />
-                <RelatedItem title="盧思岑／血汗的第一線獸醫師工作"
-                  description="政府一方面必須建立完整的收容所管理流程及人力的培訓，同時也應更關心第一線獸醫師的心理調適。獸醫師的養成不容易，面臨的心理壓力也高過於其他工作型態。"
-                  imgSrc={ pet1 }
-                  link="https://www.twreporter.org/a/opinion-veterinarian-suicide"
+                <RelatedItem title="不願面對的真相——公立收容所獸醫師的困境"
+                  description="公立收容所是處理流浪動物的最前線，從街上被捕捉的狗，第一時間就送到這裡來。要等到什麼時候，從中央到地方政府真正將「專業」擺第一，而不是投大眾所好，空口開支票，由收容所獸醫師承擔所有的壓力與苦果？"
+                  imgSrc={ related03 }
+                  link="https://www.twreporter.org/a/animal-protection-veterinarian"
+                />
+                <RelatedItem title="【攝影】生殤相──流浪犬安樂死日最終肖像"
+                  description="我為台灣數家公立收容所內的流浪犬，於安樂死當日留下生前的最後身影。這些影像使觀者得以凝視不可能回復的過往時刻，以及那些逐漸腐敗的死亡肉身。  "
+                  imgSrc={ related04 }
+                  link="https://www.twreporter.org/a/photo-memento-mori"
+                />
+                <RelatedItem title="【攝影】城市新住民——街貓"
+                  description="因為觀念改變加上越來越多人住在公寓大廈，養貓的人增加了。不過，養的人多了，棄養的人也會跟著多。"
+                  imgSrc={ related05 }
+                  link="https://www.twreporter.org/a/photo-animal-protection-cats"
                 />
               </div>
             </Subsection>

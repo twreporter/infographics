@@ -41,6 +41,12 @@
   margin-top: 8rem;
   border-top: $yellow 8px solid;
   text-align: justify;
+
+  a, a:focus, a:hover {
+    color: $text-blue;
+    text-decoration: none;
+  }
+
   @media (max-width: $width-xs) {
     margin-top: 12rem;
     padding: 1rem;

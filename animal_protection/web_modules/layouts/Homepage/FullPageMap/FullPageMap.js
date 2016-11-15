@@ -25,8 +25,8 @@ const debounceTime = {
   threshold: 5,
   maxWait: 15,
 }
-const SLIDE_TIMEOUT = 10
-const SLIDEIN_LONG = 850
+const SLIDE_TIMEOUT = 1
+const SLIDEIN_LONG = 750
 
 const FADEOUT_SETTINGS = { duration: 800, easing: "easeInQuad" }
 const FADEIN_SETTINGS = { duration: 550, easing: "easeOutCubic" }
@@ -64,7 +64,7 @@ export default class FullPageMap extends Component {
     this.handleResize()
 
     // detect sroll position
-    // window.addEventListener("scroll", this._onScroll)
+    window.addEventListener("scroll", this._onScroll)
     window.addEventListener("touchmove", this._onScroll)
     window.addEventListener("wheel", this._onScroll)
   }
@@ -80,7 +80,7 @@ export default class FullPageMap extends Component {
   componentWillUnmount() {
     // clearInterval(this.intervalId)
     window.removeEventListener("resize", this.handleResize)
-    // window.removeEventListener("scroll", this._onScroll)
+    window.removeEventListener("scroll", this._onScroll)
     window.removeEventListener("touchmove", this._onScroll)
     window.removeEventListener("wheel", this._onScroll)
     this._ticking = false
@@ -210,7 +210,7 @@ export default class FullPageMap extends Component {
       if (isDown && (top < 1*vpHeight/3 && top > 0)) {
         this._EnterFirst(cTop, SLIDEIN_LONG)
       }
-      else if  (isDown && (top <= 0 && top > -1*vpHeight/2)) {
+      else if  (isDown && (top <= 0 && top > -2*vpHeight/3)) {
         this._EnterSecond(cTop+vpHeight, SLIDEIN_LONG)
       }
       else if (!isDown && (top<= -1*vpHeight/2  && top > -vpHeight)) {

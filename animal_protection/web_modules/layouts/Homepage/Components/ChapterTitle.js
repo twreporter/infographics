@@ -4,6 +4,7 @@ import React, { Component } from "react"
 import Markdown from "react-markdown"
 import VisibleSensor from "../Components/VisibleSensor"
 import classnames from "classnames"
+import ReactGA from "react-ga"
 
 import commonStyles from "../../../styles/common.scss"
 import styles from "./ChapterTitle.scss"
@@ -18,6 +19,7 @@ export default class ChapterTitle extends Component {
     super(props)
     this.state = {
       isPlaying: false,
+      isTracked: false,
     }
     this._handleTitleVisible = this._handleTitleVisible.bind(this)
   }
@@ -29,6 +31,16 @@ export default class ChapterTitle extends Component {
       .then(() => {
         this.setState({ isPlaying: false })
       })
+    }
+
+    // send section tracking event
+    if (!this.state.isTracked) {
+      ReactGA.event({
+        category: "Viewing",
+        action: "Chapter",
+        label: "Chapter "+this.props.chapterNum,
+      })
+      this.setState({ isTracked: true })
     }
   }
 

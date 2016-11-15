@@ -9,6 +9,8 @@ import styles from "./index.css"
 // import Header from "../Header"
 import Footer from "../Footer"
 
+import ogImage from "../../content/assets/og-image.png"
+
 export default class Layout extends Component {
 
   static propTypes = {
@@ -43,12 +45,17 @@ export default class Layout extends Component {
               name: "generator", content: `${
               process.env.PHENOMIC_NAME } ${ process.env.PHENOMIC_VERSION }`,
             },
+            { name: "description", content: pkg.aDescription },
             { property: "og:site_name", content: pkg.name },
+            { property: "og:type", content: "article" },
+            { property: "og:description", content: ogImage },
+            { property: "og:image", content: pkg.aDescription },
             { name: "twitter:site", content: `@${ pkg.twitter }` },
           ] }
           link={ [
             { "rel": "shortcut icon",
             "href": "https://www.twreporter.org/asset/favicon.png" },
+            { "rel": "canonical", "href": pkg.homepage },
           ] }
           script={ [
             { src: "https://cdn.polyfill.io/v2/polyfill.min.js" },

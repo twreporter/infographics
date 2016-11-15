@@ -50,6 +50,8 @@ if (typeof window !== "undefined") {
 
 const numberOfLatestPosts = 6
 
+let isTracked = false
+
 export default class Homepage extends Component {
   static contextTypes = {
     collection: PropTypes.array.isRequired,
@@ -91,6 +93,15 @@ export default class Homepage extends Component {
 
     // send ga pageview event
     ReactGA.pageview(window.location.pathname)
+    // send section tracking event
+    if (!isTracked) {
+      ReactGA.event({
+        category: "Viewing",
+        action: "Chapter",
+        label: "Opening",
+      })
+      isTracked = true
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
