@@ -41,14 +41,6 @@ export default class OpeningLast extends Component {
                 </div>
               </div>
             </div>
-            
-            <div className={ styles["text-wrapper"] }>
-              <div className={ styles["story-box"] }>
-                <div className={ classnames(commonStyles["content-outer"]) }>
-                  <div itemProp="description">{ endingParagraphs[3] }</div>
-                </div>
-              </div>
-            </div>
 
             <div className={ styles["text-wrapper"] }>
               <div className={ styles["story-box"] }>

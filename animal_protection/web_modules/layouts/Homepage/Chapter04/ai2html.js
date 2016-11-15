@@ -267,7 +267,7 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle5'>（各縣市政府補助不一，只列出基本</p>
 			</div>
 			<div id='g-ai0-31' class='g-Layer_1 g-aiAbs' style='top:47.3425%;right:65.1423%;'>
-				<p class='g-aiPstyle4'>全身健康檢查</p>
+				<p class='g-aiPstyle4'>青壯期健康檢查</p>
 			</div>
 			<div id='g-ai0-32' class='g-Layer_1 g-aiAbs' style='top:47.454%;left:64.3555%;'>
 				<p class='g-aiPstyle5'>手術麻醉費用）</p>
@@ -276,10 +276,10 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle6'>8000 NT$</p>
 			</div>
 			<div id='g-ai0-34' class='g-Layer_1 g-aiAbs' style='top:50.6523%;left:64.3555%;'>
-				<p class='g-aiPstyle8'>定期健康檢查</p>
+				<p class='g-aiPstyle8'>中老年健康檢查</p>
 			</div>
 			<div id='g-ai0-35' class='g-Layer_1 g-aiAbs' style='top:50.8011%;right:64.8932%;'>
-				<p class='g-aiPstyle7'>犬隻7歲後，每2~3年應進行全身所有</p>
+				<p class='g-aiPstyle7'>犬隻7歲前，每2~3年應進行全身所有</p>
 			</div>
 			<div id='g-ai0-36' class='g-Layer_1 g-aiAbs' style='top:51.9912%;right:64.8932%;'>
 				<p class='g-aiPstyle7'>項目的完整健康檢查。一次4000元。</p>
@@ -499,13 +499,13 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle3'>1500 NT$</p>
 			</div>
 			<div id='g-ai1-16' class='g-Layer_1 g-aiAbs' style='top:47.669%;left:41.7412%;'>
-				<p class='g-aiPstyle2'>全身健康檢查</p>
+				<p class='g-aiPstyle2'>青壯期健康檢查</p>
 			</div>
 			<div id='g-ai1-17' class='g-Layer_1 g-aiAbs' style='top:49.1363%;left:41.7412%;'>
 				<p class='g-aiPstyle3'>8000 NT$</p>
 			</div>
 			<div id='g-ai1-18' class='g-Layer_1 g-aiAbs' style='top:51.469%;left:41.7412%;'>
-				<p class='g-aiPstyle5'>定期健康檢查</p>
+				<p class='g-aiPstyle5'>中老年健康檢查</p>
 			</div>
 			<div id='g-ai1-19' class='g-Layer_1 g-aiAbs' style='top:52.861%;left:41.7412%;'>
 				<p class='g-aiPstyle6'>32000 NT$</p>
