@@ -67,7 +67,7 @@ export default class Layout extends Component {
         <Helmet
           meta={ [ {
             name: "viewport",
-            content: "width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no",
+            content: "width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui",
           },
             // {
             //   name: "theme-color",

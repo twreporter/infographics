@@ -64,7 +64,7 @@ export default class FullPageGov extends Component {
     this.handleResize()
 
     // detect sroll position
-    window.addEventListener("scroll", this._onScroll)
+    // window.addEventListener("scroll", this._onScroll)
     window.addEventListener("touchmove", this._onScroll)
     window.addEventListener("wheel", this._onScroll)
   }
@@ -80,7 +80,7 @@ export default class FullPageGov extends Component {
   componentWillUnmount() {
     // clearInterval(this.intervalId)
     window.removeEventListener("resize", this.handleResize)
-    window.removeEventListener("scroll", this._onScroll)
+    // window.removeEventListener("scroll", this._onScroll)
     window.removeEventListener("touchmove", this._onScroll)
     window.removeEventListener("wheel", this._onScroll)
     this._ticking = false

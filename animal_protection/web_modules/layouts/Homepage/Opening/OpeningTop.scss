@@ -1,16 +1,21 @@
 /* stylelint-disable function-comma-space-after, selector-list-comma-newline-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
 @import "../../../styles/variables.scss";
 
+$container-yoyo-story: 900vh;
+$height-container-one-dog: 120vh;
+
 .container {
   width: 100%;
   overflow: hidden;
   position: relative;
+  // height: $container-yoyo-story + $height-container-one-dog;
+  // transition: height 100s ease;  // avoid mobile jumping
 }
 
 .container-yoyo-story {
   position: relative;
   width: 100%;
-  height: 900vh;
+  height: $container-yoyo-story;
   color: white;
   background: linear-gradient(to bottom,
     #133166 0%, #b38fd4 12%, #7a6ead 35%,
@@ -20,7 +25,7 @@
 .container-one-dog {
   position: relative;
   width: 100%;
-  height: 120vh;
+  height: $height-container-one-dog;
   color: white;
   background: linear-gradient(to bottom,
     $content-bg 0%, $content-bg 40%, $pink 100%);

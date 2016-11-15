@@ -10,6 +10,7 @@ $img-bgcolor: $deco-blue;
   padding: 0;
   width: 100%;
   height: 300vh;
+  transition: height 1000000s ease;  // avoid mobile jumping
   position: relative;
 }
 .fix-outer {

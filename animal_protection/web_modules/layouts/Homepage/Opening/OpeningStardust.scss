@@ -8,6 +8,7 @@
   overflow: hidden;
   margin-top: -1px;
   margin-bottom: -1px;
+  transition: height 1000000s ease;  // avoid mobile jumping
   @media (max-width: $width-md) {
     height: 110vh;
   }
