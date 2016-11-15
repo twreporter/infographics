@@ -588,8 +588,9 @@ export default class GamePlayer extends Component {
               <div className={ endingClass }>
                 <div>
                   <p>你總共執行了<b>{ totalNeutered }</b>次TNR</p>
-                  <p>共結紮了<b>{ totalNeutered*50 }</b>隻狗狗</p>
-                  <p>此區域還有<b>{ (unneuteredM.length + unneuteredF.length) * 50 }</b>隻狗狗沒有結紮。</p>
+                  <p>但顯然跟不上狗狗繁衍及人類棄養的速度！</p>
+                  {/* <p>共結紮了<b>{ totalNeutered*50 }</b>隻狗狗</p>
+                  <p>此區域還有<b>{ (unneuteredM.length + unneuteredF.length) * 50 }</b>隻狗狗沒有結紮。</p> */}
                 </div>
               </div>
 

@@ -46,7 +46,6 @@ if (typeof window !== "undefined") {
   // add Google Analytics
   ReactGA.initialize("UA-69336956-1")
   ReactGA.set({ page: window.location.pathname })
-  ReactGA.pageview(window.location.pathname)
 }
 
 const numberOfLatestPosts = 6
@@ -89,6 +88,9 @@ export default class Homepage extends Component {
     // detect sroll position
     window.addEventListener("touchmove", this.debouncedScroll)
     window.addEventListener("wheel", this.debouncedScroll)
+
+    // send ga pageview event
+    ReactGA.pageview(window.location.pathname)
   }
 
   shouldComponentUpdate(nextProps, nextState) {

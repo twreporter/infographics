@@ -283,15 +283,17 @@
   text-align: center;
   width: 100.5%;
   height: 100.5%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.85);
   display: table;
+  font-size: 22px;
   @include fade-in(0.6s);
   >div{
     vertical-align: middle;
     display: table-cell;
+    padding: 1rem;
   }
   b {
-    font-size: 28px;
+    font-size: 32px;
     color: $text-blue;
     font-size: $font-bold;
     padding-left: 1rem;
