@@ -39,7 +39,7 @@ const F_CAPTURED = 2
 
 const A_YEAR = 3000           // use how many ms to represent a year
 const TOTAL_YEARS = 10
-const INITIAL_DELAY = 1800
+const INITIAL_DELAY = 1500
 
 let timeoutsArr = []
 let yearTimeoutArr = []
@@ -204,7 +204,7 @@ export default class GamePlayer extends Component {
     let self = this
     for (let i=0; i<TOTAL_YEARS; i++) {
       (function(y) {
-        const timoutId = setTimeout(self._simulateAfterAYear, y * A_YEAR + INITIAL_DELAY)
+        const timoutId = setTimeout(self._simulateAfterAYear, (y+1) * A_YEAR + INITIAL_DELAY)
         timeoutsArr.push(timoutId)
         yearTimeoutArr.push(timoutId)
       }(i))
@@ -588,7 +588,7 @@ export default class GamePlayer extends Component {
               <div className={ endingClass }>
                 <div>
                   <p>你總共執行了<b>{ totalNeutered }</b>次TNR</p>
-                  <p>但顯然跟不上狗狗繁衍及人類棄養的速度！</p>
+                  <p>但顯然很難跟上狗狗繁衍及人類棄養的速度！</p>
                   {/* <p>共結紮了<b>{ totalNeutered*50 }</b>隻狗狗</p>
                   <p>此區域還有<b>{ (unneuteredM.length + unneuteredF.length) * 50 }</b>隻狗狗沒有結紮。</p> */}
                 </div>
