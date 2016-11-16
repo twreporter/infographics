@@ -11,7 +11,7 @@ export const topBox = `
 `
 export const titles = [`TNvR是什麼？`, `放回街頭的狗狗，真的比較幸福嗎？`, `人狗衝突將會越來越嚴重！`, `集中強度，TNR才可能有效`]
 
-export const tnvrStrings = [`捕捉 TRAP`, `結紮 NEUTER`, `狂犬病疫苗施打 VACCINATION`, `原地回置 RETERN`]
+export const tnvrStrings = [`捕捉 TRAP`, `結紮 NEUTER`, `狂犬病疫苗施打 VACCINATE`, `原地回置 RETURN`]
 
 export const problemStrings = [`發生交通意外`, `無法適應自然環境`, `誤食導致中毒`, `獵食原生動物`]
 

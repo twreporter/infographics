@@ -235,19 +235,19 @@ export default class Homepage extends Component {
           <Chapter05 ref={ (ref) => this.chapter5 = ref } />
           <div ref={ (ref) => this.artEnding = ref } />
 
-        </div>
+          <div className={ commonStyles.content }>
+            {/* <PagesList pages={ latestPosts } /> */}
+            <p className={ commonStyles["white-text"] }>{ authorText } { authorItems } &nbsp; | &nbsp; <span itemProp="datePublished">{ publishDate }</span></p>
+            <p className={ commonStyles["des-text"] }>
+              地圖資料來源： CartoDB &nbsp; &nbsp;
+              開頭照片來源：桃園新屋收容所
+            </p>
+            <br /><br />
+            <div className={ commonStyles["white-text"] }
+              dangerouslySetInnerHTML={ { __html: `<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.twreporter.org%2Fa%2F${SITE_URL}&width=450&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=962589903815787" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameBorder="0" allowTransparency="true"></iframe>` } }
+            />
+          </div>
 
-        <div className={ commonStyles.content }>
-          {/* <PagesList pages={ latestPosts } /> */}
-          <p className={ commonStyles["white-text"] }>{ authorText } { authorItems } &nbsp; | &nbsp; <span itemProp="datePublished">{ publishDate }</span></p>
-          <p className={ commonStyles["des-text"] }>
-            地圖資料來源： CartoDB &nbsp; &nbsp;
-            開頭照片來源：桃園新屋收容所
-          </p>
-          <br /><br />
-          <div className={ commonStyles["white-text"] }
-            dangerouslySetInnerHTML={ { __html: `<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.twreporter.org%2Fa%2F${SITE_URL}&width=450&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=962589903815787" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameBorder="0" allowTransparency="true"></iframe>` } }
-          />
         </div>
 
         <div className={ classnames(styles.header, navClass) }>

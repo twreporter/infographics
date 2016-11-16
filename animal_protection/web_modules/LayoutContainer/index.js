@@ -12,7 +12,6 @@ import Footer from "../Footer"
 import ogImage from "../../content/assets/og-image.png"
 
 export default class Layout extends Component {
-
   static propTypes = {
     children: PropTypes.oneOfType([ PropTypes.array, PropTypes.object ]),
   };
@@ -20,6 +19,14 @@ export default class Layout extends Component {
   static contextTypes = {
     metadata: PropTypes.object.isRequired,
   };
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      isLoaded: false,
+    }
+    this.setPageLoaded = this.setPageLoaded.bind(this)
+  }
 
   componentDidMount() {
     try {
@@ -30,12 +37,22 @@ export default class Layout extends Component {
       Typekit.load({ async: true })
     }
     catch (e) {}
+
+    this.setPageLoaded()
+  }
+
+  setPageLoaded() {
+    // page loaded
+    this.setState({ isLoaded: true })
   }
 
   render() {
     const {
       pkg,
     } = this.context.metadata
+
+    const { isLoaded } = this.state
+    const spinnerClass = isLoaded ? styles["spinner-hide"] : styles["spinner-wrapper"]
 
     return (
       <div className={ styles.layout }>
@@ -81,6 +98,9 @@ export default class Layout extends Component {
         <div className={ styles.content }>
           { this.props.children }
         </div>
+
+        <div className={ spinnerClass }><div className={ styles["spinner"] }></div></div>
+
         <Footer />
         <script src="https://use.typekit.net/ckp5jxu.js"></script>
       </div>

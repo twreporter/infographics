@@ -1,7 +1,7 @@
 /*eslint-disable */
 export const titlePart1 = '零安樂死政策'
 export const titlePart2 = '流浪動物的新天堂樂園？'
-export const description = `明年年初正式執行零安樂死政策，但政策實施後，流浪動物真的就從此過著幸福快樂的日子嗎？
+export const description = `2017年年初正式執行零安樂死政策，但政策實施後，流浪動物真的就從此過著幸福快樂的日子嗎？
 
 
 原本資源就匱乏的收容所獸醫、動保員正面臨壓力的臨界點。
