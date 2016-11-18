@@ -148,6 +148,22 @@ export default (config = {}) => {
           }),
           */
         },
+        {
+          test: /\.scss$/,
+          exclude: /\.global\.scss$/,
+          include: path.resolve(__dirname, "src"),
+          loader: ExtractTextPlugin.extract(
+            "style-loader",
+            [ `css-loader?modules&localIdentName=${
+                config.production
+                ? "[hash:base64:5]"
+                : "[path][name]--[local]--[hash:base64:5]"
+              }`,
+              "postcss-loader",
+              "sass-loader",
+            ].join("!"),
+          ),
+        },
         // ! \\
         // If you want global CSS only, just remove the 2 sections above
         // and use the following one
@@ -203,7 +219,7 @@ export default (config = {}) => {
 
         // copy assets and return generated path in js
         {
-          test: /\.(html|ico|jpe?g|png|gif|eot|otf|webp|ttf|woff|woff2)$/,
+          test: /\.(html|ico|jpe?g|png|gif|eot|otf|webp|ttf|woff|woff2|mp3)$/,
           loader: "file-loader",
           query: {
             name: "[path][name].[hash].[ext]",

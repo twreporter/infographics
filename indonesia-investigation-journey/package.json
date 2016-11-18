@@ -87,7 +87,7 @@
     "extends": "./node_modules/phenomic/lib/eslint-config-recommended/index.js"
   },
   "stylelint": {
-    "extends": "./node_modules/phenomic/lib/stylelint-config-recommended/index.js"
+    "extends": "./stylelint.js"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
@@ -110,7 +110,9 @@
     "history": "^2.0.0",
     "invariant": "^2.1.1",
     "json-loader": "^0.5.2",
+    "node-sass": "^3.13.0",
     "npm-run-all": "^1.7.0",
+    "phenomic": "^0.18.1",
     "postcss-browser-reporter": "^0.4.0",
     "postcss-cssnext": "^2.4.0",
     "postcss-loader": "^0.13.0",
@@ -125,11 +127,11 @@
     "react-svg-inline": "^1.1.0",
     "react-topbar-progress-indicator": "^1.0.0",
     "redux": "^3.0.0",
+    "sass-loader": "^4.0.2",
     "style-loader": "^0.13.0",
     "stylelint": "^7.2.0",
     "stylelint-config-standard": "^13.0.0",
     "webpack": "^1.11.0",
-    "whatwg-fetch": "^0.11.0",
-    "phenomic": "^0.18.1"
+    "whatwg-fetch": "^0.11.0"
   }
 }
