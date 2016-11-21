@@ -30,5 +30,7 @@ module.exports = {
 
     "block-closing-brace-newline-before": null,
 
+    "at-rule-empty-line-before": null,
+
   }
 };

@@ -26,8 +26,6 @@ const Homepage = (props, { collection }) => {
   })
   .slice(0, numberOfLatestPosts)
 
-  const navClass = shouldShowNav || isUp ? null : commonStyles["hide"]
-
   return (
     <Page { ...props } className={
       styles.container }
@@ -39,7 +37,7 @@ const Homepage = (props, { collection }) => {
       </div>
       {/* Article - end */}
 
-      <div className={ classnames(styles.header, navClass) }>
+      <div className={ classnames(styles.header) }>
         <div className={ styles["index-box"] }>
         </div>
 
