@@ -257,7 +257,7 @@ export default class Homepage extends Component {
           </div>
 
           <div className={ styles["share-box"] }>
-            <a href="https://www.twreporter.org/" target="_blank">
+            <a href="https://twreporter.org/" target="_blank">
               <div title="報導者TheReporter" className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
                 dangerouslySetInnerHTML={ { __html: reporterIcon } }
               />
