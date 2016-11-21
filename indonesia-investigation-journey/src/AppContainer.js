@@ -17,6 +17,7 @@ const AppContainer = (props) => (
       { props.children }
     </Content>
     {/* <Footer /> */}
+    <script src="https://use.typekit.net/ckp5jxu.js"></script>
   </Container>
 )
 

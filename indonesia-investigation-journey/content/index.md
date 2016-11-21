@@ -1,21 +1,9 @@
 ---
 title: 在離岸之前
 layout: Homepage
+photo: cover-photo.jpg
+photoMobile: cover-photo-mobile.jpg
 ---
-
-Hi there.
-
-Before having fun with Phenomic, be sure to read (or at least pretend to)
-the documentation :
-
-* [Setup](https://phenomic.io/docs/setup/)
-* [Getting Started](https://phenomic.io/docs/getting-started/)
-* [Usage](https://phenomic.io/docs/usage/)
-* [FAQ](https://phenomic.io/docs/faq/)
-
-Also take a look to
-[existing websites that use Phenomic](https://phenomic.io/showcase/),
-some projects share their source code!
 
 Built with
 <a href="https://facebook.github.io/react/">

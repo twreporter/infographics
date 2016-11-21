@@ -51,8 +51,10 @@ const Page = (
         meta={ meta }
       />
       {
+        /*
         head.title &&
         <h1 className={ styles.heading }>{ head.title }</h1>
+        */
       }
       { header }
       {

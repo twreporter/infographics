@@ -111,6 +111,7 @@
     "invariant": "^2.1.1",
     "json-loader": "^0.5.2",
     "node-sass": "^3.13.0",
+    "normalize.css": "^5.0.0",
     "npm-run-all": "^1.7.0",
     "phenomic": "^0.18.1",
     "postcss-browser-reporter": "^0.4.0",

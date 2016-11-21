@@ -37,7 +37,6 @@
   left: 0;
   opacity: 0.7;
   margin-left: -2%;
-  border-radius: 10%;
   background: linear-gradient(to right, $primary-color 90%, rgba($primary-color, 0.8) 100%);
 }
 .index-box {
@@ -97,4 +96,16 @@
     background-color: transparent;
     display: none;
   }
+}
+.image {
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 50%;
+  transform: translateX(-50%);
 }

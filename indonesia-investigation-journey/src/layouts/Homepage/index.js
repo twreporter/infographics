@@ -36,8 +36,11 @@ class Homepage extends Component {
     .slice(0, numberOfLatestPosts)
 
     const { scrollPercent } = this.state
+    const { head } = this.props
 
     const progressBar = <div className={ styles["progress-outer"] }><div className={ styles["progress-bar"] } style={ { width: `${scrollPercent+5}%` } }></div></div>
+
+    console.log(this.props.head)
 
     return (
       <Page { ...this.props } className={
@@ -45,9 +48,12 @@ class Homepage extends Component {
       >
         {/* Article - begin */}
         <div itemScope itemType="http://schema.org/ScholarlyArticle">
-          <h2>{ "Latest Posts" }</h2>
-          <PagesList pages={ latestPosts } />
+          <img src={require("../../../content/assets/"+head.photo)} className={ styles["image"] }/>
+          <h1>{ head.title }</h1>
+          {/* <h2>{ "Latest Posts" } | {head.testPath}</h2>
+          <PagesList pages={ latestPosts } /> */}
         </div>
+
         {/* Article - end */}
 
         <div className={ classnames(styles.header) }>
@@ -94,6 +100,10 @@ class Homepage extends Component {
 
 Homepage.contextTypes = {
   collection: PropTypes.array.isRequired,
+}
+
+Homepage.propTypes = {
+  head: PropTypes.object,
 }
 
 export default Homepage
