@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react"
+/* eslint-disable no-undef, no-empty, max-len */
+import React, { Component, PropTypes } from "react"
 
 import "./index.global.css"
 import "./highlight.global.css"
@@ -9,17 +10,34 @@ import DefaultHeadMeta from "./components/DefaultHeadMeta"
 import Content from "./components/Content"
 // import Footer from "./components/Footer"
 
-const AppContainer = (props) => (
-  <Container>
-    <DefaultHeadMeta />
-    {/* <Header /> */}
-    <Content>
-      { props.children }
-    </Content>
-    {/* <Footer /> */}
-    <script src="https://use.typekit.net/rfl3ikc.js"></script>
-  </Container>
-)
+class AppContainer extends Component {
+  constructor(props) {
+    super(props)
+
+  }
+
+  componentDidMount() {
+    try {
+      Typekit.load({ async: true })
+    }
+    catch (e) {}
+  }
+
+  render() {
+    return(
+      <Container>
+        <DefaultHeadMeta />
+        {/* <Header /> */}
+        <Content>
+          { this.props.children }
+        </Content>
+        {/* <Footer /> */}
+        <script src="https://use.typekit.net/rfl3ikc.js"></script>
+      </Container>
+    )
+  }
+
+}
 
 AppContainer.propTypes = {
   children: PropTypes.node,

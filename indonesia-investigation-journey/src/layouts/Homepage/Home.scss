@@ -107,6 +107,7 @@
   margin: auto;
   left: 50%;
   transform: translateX(-50%);
+  user-select: none;
 }
 
 .center-box {
@@ -117,6 +118,8 @@
   margin-bottom: 10vh;
   width: 100%;
   font-family: "ro-nikkatsu-sei-kai-std", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 
   h1{
     font-size: 58px;
