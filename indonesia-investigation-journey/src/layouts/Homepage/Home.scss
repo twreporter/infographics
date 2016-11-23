@@ -19,25 +19,6 @@
     text-decoration: none;
   }
 }
-.progress-outer {
-  position: fixed;
-  width: 100%;
-  background: $white;
-  top: 0;
-  left: 0;
-  z-index: 1010;
-  height: 0.32rem;
-}
-.progress-bar {
-  @include fade-in(0.3s);
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.7;
-  margin-left: -2%;
-  background: linear-gradient(to right, $primary-color 90%, rgba($primary-color, 0.8) 100%);
-}
 .index-box {
   float: left;
   padding-left: 1.5rem;
@@ -122,7 +103,7 @@
   font-style: normal;
 
   h1{
-    font-size: 58px;
+    font-size: 65px;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 
     @media screen and (max-width: $width-xs) and (orientation:portrait) {
@@ -150,6 +131,7 @@
 
 .bottom-box {
   position: absolute;
+  width: 100%;
   bottom: 2.6rem;
   left: 50%;
   color: $white;

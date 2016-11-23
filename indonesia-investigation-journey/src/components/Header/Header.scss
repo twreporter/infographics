@@ -1,0 +1,22 @@
+@import "../../styles/variables.scss";
+@import "../../styles/animation.scss";
+
+.progress-outer {
+  position: fixed;
+  width: 100%;
+  background: $white;
+  top: 0;
+  left: 0;
+  z-index: 1010;
+  height: 0.32rem;
+}
+.progress-bar {
+  @include fade-in(0.3s);
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  margin-left: -2%;
+  background: linear-gradient(to right, $primary-color 90%, rgba($primary-color, 0.8) 100%);
+}

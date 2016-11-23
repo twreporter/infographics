@@ -1,7 +1,9 @@
 ---
 title: Hello World!
-date: 2016-02-14
-layout: Post
+layout: Slide
+photo: cover-photo.jpg
+photoMobile: cover-photo-mobile.jpg
+slideIndex: 5
 ---
 
 Hello there. Here is another dumb post.

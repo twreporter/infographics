@@ -28,8 +28,6 @@ class Homepage extends WindowSizeMixin(Component) {
       isMobile: false,
       scrollPercent: 0,
     }
-
-    this.fitToParentWidth = this.fitToParentWidth.bind(this)
   }
 
   componentDidMount() {
@@ -44,12 +42,10 @@ class Homepage extends WindowSizeMixin(Component) {
     // })
     // .slice(0, numberOfLatestPosts)
 
-    const { scrollPercent, isMobile, isPortrait } = this.state
+    const { isMobile, isPortrait } = this.state
     const { head } = this.props
 
     const bgPhoto = (isMobile && isPortrait) ? require("../../../content/assets/"+head.photoMobile) : require("../../../content/assets/"+head.photo)
-
-    const progressBar = <div className={ styles["progress-outer"] }><div className={ styles["progress-bar"] } style={ { width: `${scrollPercent+5}%` } }></div></div>
 
     return (
       <Page { ...this.props } className={
@@ -65,9 +61,11 @@ class Homepage extends WindowSizeMixin(Component) {
               <h2 itemProp="alternativeHeadline">{ head.subtitle }</h2>
             </div>
             <p itemProp="datePublished">{ head.date }</p>
-            <div className={ classnames(commonStyles["img-responsive"]) }
-              dangerouslySetInnerHTML={ { __html: bottomLogo } }
-            />
+            <a href="https://twreporter.org/" target="_blank">
+              <div className={ classnames(commonStyles["img-responsive"]) }
+                dangerouslySetInnerHTML={ { __html: bottomLogo } }
+              />
+            </a>
           </div>
           {/* <h2>{ "Latest Posts" } | {head.testPath}</h2>
           <PagesList pages={ latestPosts } /> */}
@@ -80,7 +78,7 @@ class Homepage extends WindowSizeMixin(Component) {
           </div>
 
           <div className={ styles["share-box"] }>
-            <a href="https://www.twreporter.org/" target="_blank">
+            <a href="https://twreporter.org/" target="_blank">
               <div title="報導者TheReporter" className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
                 dangerouslySetInnerHTML={ { __html: reporterIcon } }
               />
@@ -109,8 +107,6 @@ class Homepage extends WindowSizeMixin(Component) {
             </a>
           </div>
         </div>
-
-        { progressBar }
 
       </Page>
     )

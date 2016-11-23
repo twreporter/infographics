@@ -1,51 +1,30 @@
-import React, { PropTypes } from "react"
-import { Link } from "react-router"
-import Svg from "react-svg-inline"
+import React, { Component, PropTypes } from "react"
 
-import twitterSvg from "../icons/iconmonstr-twitter-1.svg"
-import gitHubSvg from "../icons/iconmonstr-github-1.svg"
+import styles from "./Header.scss"
 
-import styles from "./index.css"
+class Header extends Component {
+  render() {
+    const { head } = this
+    const curIndex = (head && head.slideIndex) ? head.slideIndex : 0
 
-const Header = (props, { metadata: { pkg } }) => (
-  <header className={ styles.header }>
-    <nav className={ styles.nav }>
-      <div className={ styles.navPart1 }>
-        <Link
-          className={ styles.link }
-          to="/"
-        >
-          { "Home" }
-        </Link>
-      </div>
-      <div className={ styles.navPart2 }>
-        {
-          pkg.twitter &&
-          <a
-            href={ `https://twitter.com/${pkg.twitter}` }
-            className={ styles.link }
-          >
-            <Svg svg={ twitterSvg } cleanup />
-            { "Twitter" }
-          </a>
-        }
-        {
-          pkg.repository &&
-          <a
-            href={ pkg.repository }
-            className={ styles.link }
-          >
-            <Svg svg={ gitHubSvg } cleanup />
-            { "GitHub" }
-          </a>
-        }
-      </div>
-    </nav>
-  </header>
-)
+    return (
+      <header>
+        <nav>
+          <div className={ styles["progress-outer"] }>
+            <div className={ styles["progress-bar"] } style={ { width: `${curIndex+5}%` } }></div>
+          </div>
+        </nav>
+      </header>
+    )
+  }
+}
 
 Header.contextTypes = {
   metadata: PropTypes.object.isRequired,
+}
+
+Header.propTypes = {
+  head: PropTypes.object,
 }
 
 export default Header
