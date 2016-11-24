@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 import Helmet from "react-helmet"
 import invariant from "invariant"
-import { BodyContainer, joinUri } from "phenomic"
+import { joinUri } from "phenomic"
 
 import Loading from "../../components/Loading"
 
@@ -57,12 +57,12 @@ const Page = (
         */
       }
       { header }
-      {
+      {/* {
         isLoading
         ? <Loading />
         : <BodyContainer>{ body }</BodyContainer>
-      }
-      { children }
+      } */}
+      { isLoading ? <Loading /> : children }
       { footer }
     </div>
   )

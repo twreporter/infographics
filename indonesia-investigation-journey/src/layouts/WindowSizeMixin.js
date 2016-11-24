@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom'
 // lodash
 import debounce from 'lodash/debounce'
 
-const MOBILE_WIDTH = 768
+const MOBILE_WIDTH = 544
+const TABLET_WIDTH = 768
 
 const debounceTime = {
   threshold: 60,
@@ -36,6 +37,7 @@ let WindowSizeMixin = (superclass) => class extends superclass {
     const elem = ReactDOM.findDOMNode(this).parentNode
     const {clientWidth, clientHeight} = elem
     const isMobile = clientWidth < MOBILE_WIDTH
+    const isTablet = clientWidth >= MOBILE_WIDTH && clientWidth <= TABLET_WIDTH
     const isPortrait = clientWidth < clientHeight
 
     if (clientWidth && clientWidth !== this.state.width) {
@@ -43,6 +45,7 @@ let WindowSizeMixin = (superclass) => class extends superclass {
         width: clientWidth,
         height: clientHeight,
         isMobile: isMobile,
+        isTablet: isTablet,
         isPortrait: isPortrait
       })
     }

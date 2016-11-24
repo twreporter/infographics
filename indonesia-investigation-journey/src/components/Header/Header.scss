@@ -20,3 +20,74 @@
   margin-left: -2%;
   background: linear-gradient(to right, $primary-color 90%, rgba($primary-color, 0.8) 100%);
 }
+.header {
+  @include fade-in(0.2s);
+  position: fixed;
+  width: 100%;
+  height: 2.5rem;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  a, a:hover{
+    color: $white;
+    text-decoration: none;
+  }
+}
+.index-box {
+  float: left;
+  padding-left: 1.5rem;
+  max-width: 50%;
+  color: $white;
+  opacity: 0.8;
+  @media (max-width: $width-xs) {
+    display: none;
+  }
+}
+.share-box {
+  float: right;
+  padding-right: 1.5rem;
+  max-width: 50%;
+  color: $white;
+  padding-top: 0.4rem;
+  a {
+    opacity: 0.85;
+  }
+  a:hover{
+    margin-top: -0.2rem;
+    opacity: 1;
+  }
+  @media (max-width: $width-xs) {
+    max-width: 100%;
+  }
+}
+.nav-icon {
+  padding: 0.3rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+  transition: padding 0.2s ease;
+  display: inline-block;
+  margin: 0.1rem 0.7rem;
+  margin-right: -0.5rem;
+  &:hover {
+    padding: 0.2rem 0.3rem 0.3rem;
+  }
+  @media (max-width: $width-xs) {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+.spacer {
+  display: inline-block;
+  width: 1px;
+  height: 1.1rem;
+  background-color: $white;
+  opacity: 0.45;
+  margin-left: 1.1rem;
+  margin-right: 1.1rem;
+  transform: translateY(8%);
+  @media (max-width: $width-xs) {
+    background-color: transparent;
+    display: none;
+  }
+}
