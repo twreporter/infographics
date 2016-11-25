@@ -1,0 +1,21 @@
+@import "../../styles/variables.scss";
+@import "../../styles/animation.scss";
+
+.button {
+  cursor: pointer;
+}
+
+.icon {
+  @media screen and (min-width: $width-sm) and (orientation:landscape) {
+    padding: 1.5rem;
+  }
+
+  svg {
+    width: 1.6rem;
+    height: auto;
+
+    @media screen and (max-width: $width-md) {
+      width: 2rem;
+    }
+  }
+}

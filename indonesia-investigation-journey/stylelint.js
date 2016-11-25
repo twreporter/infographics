@@ -32,5 +32,7 @@ module.exports = {
 
     "at-rule-empty-line-before": null,
 
+    "selector-pseudo-class-no-unknown": null,
+
   }
 };

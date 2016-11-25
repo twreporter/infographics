@@ -2,7 +2,7 @@
 @import "variables.scss";
 
 .content {
-  max-width: 60rem;
+  max-width: $outer-width;
   margin: auto;
   padding: 1rem 0.75rem;
 }
