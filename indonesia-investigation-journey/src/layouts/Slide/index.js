@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from "react"
 
+import { Link } from "react-router"
 import classnames from "classnames"
 import WindowSizeMixin from '../WindowSizeMixin'
 import Page from "../Page"
@@ -24,6 +25,11 @@ class Slide extends WindowSizeMixin(Component) {
   render() {
     const { isMobile, isTablet, isPortrait } = this.state
     const { head, body } = this.props
+    const { slideIndex } = head
+    const totalSlides = this.context.metadata.totalSlides
+
+    const previousLink = (slideIndex <= 1) ? '/' : `/posts/${slideIndex - 1}/`
+    const nextLink = (slideIndex+1 > totalSlides) ? null : `/posts/${slideIndex + 1}/`
 
     const bgPhoto = (isMobile && isPortrait) ? require("../../../content/assets/"+head.photoMobile) :
       require("../../../content/assets/"+head.photo)
@@ -53,17 +59,28 @@ class Slide extends WindowSizeMixin(Component) {
               />
             </div>
           </div>
-          <div className={ styles["left-button"] } >
-            <LeftNavButton isMobile={isMobile} isTablet={isTablet}/>
-          </div>
-          <div className={ styles["right-button"] } >
-            <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
-          </div>
+          <Link to={previousLink}>
+            <div className={ styles["left-button"] } >
+              <LeftNavButton isMobile={isMobile} isTablet={isTablet}/>
+            </div>
+          </Link>
+          {
+            (slideIndex+1 > totalSlides) ? null :
+            <Link to={nextLink}>
+              <div className={ styles["right-button"] } >
+                <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
+              </div>
+            </Link>
+          }
         </div>
       </Page>
     )
   }
 
+}
+
+Slide.contextTypes = {
+  metadata: PropTypes.object.isRequired,
 }
 
 Slide.propTypes = {

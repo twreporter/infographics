@@ -3,8 +3,8 @@ title: 在離岸之前
 subtitle: 印尼漁工走過的路
 layout: Homepage
 date: 2016.12.15
-photo: cover-photo.jpg
-photoMobile: cover-photo-mobile.jpg
+photo: cover.jpg
+photoMobile: cover-mobile.jpg
 ---
 
 Built with

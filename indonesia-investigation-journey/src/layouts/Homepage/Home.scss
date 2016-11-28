@@ -5,6 +5,11 @@
   width: 100%;
   overflow-x: hidden;
   background-color: $content-bg;
+
+  a, a:link, a:visited {
+    color: $white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
 }
 
 .image {
@@ -71,5 +76,59 @@
 
   p{
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  @media screen and (max-width: $width-xs) and (orientation:portrait) {
+    position: fixed;
+    top: 20vh;
+  }
+}
+
+.nav-button {
+  position: fixed;
+  bottom: 5.3rem;
+  z-index: 100;
+  div {
+    transition: all 0.5s ease;
+    opacity: 0.9;
+  }
+
+  &:hover {
+    div{
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: $width-xs) and (orientation:portrait) {
+    bottom: 0;
+  }
+}
+
+.right-button {
+  @extend .nav-button;
+  right: 0;
+
+  &:hover {
+    div{
+      margin-right: -0.5rem;
+    }
+  }
+
+  > div {
+    display: inline-block;
+  }
+}
+
+.info-box {
+  @media screen and (max-width: $width-xs) and (orientation:portrait) {
+    position: absolute;
+    bottom: -1.3rem;
+    text-align: left;
+    left: 0.5rem;
+    font-size: $small-font-size;
+
+    p {
+      margin-bottom: 0.35rem;
+    }
   }
 }
