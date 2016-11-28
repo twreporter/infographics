@@ -2,7 +2,7 @@
 import pkg from "../package.json"
 
 export default {
-  totalSlides: 2,
+  totalSlides: 3,
   pkg,
   // you can add any DYNAMIC data you need here
   // ...

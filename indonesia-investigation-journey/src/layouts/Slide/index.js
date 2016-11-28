@@ -9,6 +9,8 @@ import commonStyles from "../../styles/common.scss"
 import LeftNavButton from "../../components/Navigation/LeftNavButton"
 import RightNavButton from "../../components/Navigation/RightNavButton"
 
+import { PHOTOS } from "./multimedia.js"
+
 class Slide extends WindowSizeMixin(Component) {
   constructor(props) {
     super(props)
@@ -28,11 +30,11 @@ class Slide extends WindowSizeMixin(Component) {
     const { slideIndex } = head
     const totalSlides = this.context.metadata.totalSlides
 
-    const previousLink = (slideIndex <= 1) ? '/' : `/posts/${slideIndex - 1}/`
-    const nextLink = (slideIndex+1 > totalSlides) ? null : `/posts/${slideIndex + 1}/`
+    const previousLink = (slideIndex <= 0) ? '/' : `/posts/${slideIndex}/`
+    const nextLink = (slideIndex+2 > totalSlides) ? null : `/posts/${slideIndex + 2}/`
 
-    const bgPhoto = (isMobile && isPortrait) ? require("../../../content/assets/"+head.photoMobile) :
-      require("../../../content/assets/"+head.photo)
+    const bgPhoto = (isMobile && isPortrait) ? require("../../../content/assets/"+PHOTOS[slideIndex].photoMobile) :
+      require("../../../content/assets/"+PHOTOS[slideIndex].photo)
 
     const pageDate = head.date ? new Date(head.date) : null
     return (
@@ -65,7 +67,7 @@ class Slide extends WindowSizeMixin(Component) {
             </div>
           </Link>
           {
-            (slideIndex+1 > totalSlides) ? null :
+            (slideIndex+2 > totalSlides) ? null :
             <Link to={nextLink}>
               <div className={ styles["right-button"] } >
                 <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
