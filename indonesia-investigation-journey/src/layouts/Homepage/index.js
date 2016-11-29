@@ -13,7 +13,8 @@ import WindowSizeMixin from '../WindowSizeMixin'
 
 import bottomLogo from "../../../content/assets/logo-navbar.svg"
 import RightNavButton from "../../components/Navigation/RightNavButton"
-
+import Header from "../../components/Header"
+import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 // const numberOfLatestPosts = 6
 
 class Homepage extends WindowSizeMixin(Component) {
@@ -51,19 +52,17 @@ class Homepage extends WindowSizeMixin(Component) {
           <img src={bgPhoto} className={ styles["image"] }/>
           <div className={styles["bottom-box"]}>
             <div className={styles["center-box"]}>
-              <h1 itemProp="headline">{ head.title }</h1>
-              <hr/>
+              <ReactCSSTransitionGroup
+                transitionName="element"
+                transitionAppear={true}
+                transitionAppearTimeout={500}
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={300}>
+                <h1 itemProp="headline">{ head.title }</h1>
+                <hr/>
+              </ReactCSSTransitionGroup>
               <h2 itemProp="alternativeHeadline">{ head.subtitle }</h2>
             </div>
-
-            <Link to={`/posts/1/`}>
-              <div className={ styles["right-button"] } >
-                <div>
-                  點擊下一頁<br/>或左右滑動
-                </div>
-                <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
-              </div>
-            </Link>
 
             <div className={styles["info-box"]}>
               <p itemProp="datePublished">{ head.date }</p>
@@ -74,12 +73,22 @@ class Homepage extends WindowSizeMixin(Component) {
               </a>
             </div>
           </div>
+
+          <Link to={`/posts/1/`}>
+            <div className={ styles["right-button"] } >
+              <div>
+                點擊下一頁<br/>或左右滑動
+              </div>
+              <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
+            </div>
+          </Link>
           {/* <h2>{ "Latest Posts" } | {head.testPath}</h2>
           <PagesList pages={ latestPosts } /> */}
         </div>
 
         {/* Article - end */}
 
+        <Header {...this.props}/>
       </Page>
     )
   }

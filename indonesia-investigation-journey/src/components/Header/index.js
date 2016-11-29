@@ -5,20 +5,18 @@ import commonStyles from "../../styles/common.scss"
 import styles from "./Header.scss"
 
 import reporterIcon from "../../../content/assets/twreporter-icon.svg"
-import donationIcon from "../../../content/assets/icon-donation.svg"
 import fbIcon from "../../../content/assets/icon-share-facebook.svg"
 import twitterIcon from "../../../content/assets/icon-share-twitter.svg"
 
-import { supportUs } from "./content"
 const SITE_URL = "indonesia-investigation-journey"
 
 class Header extends Component {
   render() {
-    const { head } = this
+    const { head } = this.props
     const totalSlides = this.context.metadata.totalSlides || 20
     let curIndex = (head && head.slideIndex>0) ? head.slideIndex : 0
     curIndex = (curIndex>totalSlides) ? totalSlides : curIndex
-    const percentage = parseInt(curIndex*100/totalSlides  )
+    const percentage = parseInt((curIndex+1)*100/totalSlides)
 
     return (
       <header>
@@ -38,15 +36,6 @@ class Header extends Component {
                 <div title="報導者TheReporter" className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
                   dangerouslySetInnerHTML={ { __html: reporterIcon } }
                 />
-              </a>
-              <div className={ styles["spacer"] }></div>
-              <a title={ supportUs } style={ { marginLeft: "-0.5rem" } }
-                href="https://twreporter.backme.tw/cashflow/checkout?project_id=175&reward_id=718" target="_blank"
-              >
-                <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
-                  dangerouslySetInnerHTML={ { __html: donationIcon } }
-                />
-                <span className={ classnames(styles["support-text"]) } style={ { opacity: 0.8 } }>{ supportUs }</span>
               </a>
               <div className={ styles["spacer"] }></div>
               <a className={ classnames(styles["nav-icon"]) } target="_blank"

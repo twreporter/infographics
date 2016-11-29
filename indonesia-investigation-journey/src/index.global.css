@@ -81,3 +81,31 @@ body {
 a {
   color: #c71b0b;
 }
+
+/* animations  */
+.element-appear {
+  opacity: 0.01;
+}
+
+.element-appear.element-appear-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.element-enter {
+  opacity: 0.01;
+}
+
+.element-enter.element-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.element-leave {
+  opacity: 1;
+}
+
+.element-leave.element-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}

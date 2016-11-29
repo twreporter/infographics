@@ -1,5 +1,6 @@
 /* stylelint-disable block-closing-brace-newline-before, at-rule-empty-line-before, rule-non-nested-empty-line-before, indentation */
 @import "variables.scss";
+@import "animation.scss";
 
 .content {
   max-width: $outer-width;
@@ -81,6 +82,10 @@
 
 .hide {
   display: none !important;
+}
+
+.slide-up {
+  @include slide-up(1s, 50px);
 }
 
 .c-grid {

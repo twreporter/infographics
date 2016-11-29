@@ -8,6 +8,8 @@ import styles from "./Slide.scss"
 import commonStyles from "../../styles/common.scss"
 import LeftNavButton from "../../components/Navigation/LeftNavButton"
 import RightNavButton from "../../components/Navigation/RightNavButton"
+import CirclePlayButton from "../../components/Navigation/CirclePlayButton"
+import Header from "../../components/Header"
 
 import { PHOTOS, VIDEOS } from "./multimedia.js"
 
@@ -84,6 +86,12 @@ class Slide extends WindowSizeMixin(Component) {
             </Link>
           }
         </div>
+
+        <div className={styles["audio-button"]}>
+          <CirclePlayButton isMute={false}/>
+        </div>
+
+        <Header {...this.props}/>
       </Page>
     )
   }
