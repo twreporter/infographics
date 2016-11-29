@@ -9,7 +9,7 @@ import commonStyles from "../../styles/common.scss"
 import LeftNavButton from "../../components/Navigation/LeftNavButton"
 import RightNavButton from "../../components/Navigation/RightNavButton"
 
-import { PHOTOS } from "./multimedia.js"
+import { PHOTOS, VIDEOS } from "./multimedia.js"
 
 class Slide extends WindowSizeMixin(Component) {
   constructor(props) {
@@ -33,8 +33,16 @@ class Slide extends WindowSizeMixin(Component) {
     const previousLink = (slideIndex <= 0) ? '/' : `/posts/${slideIndex}/`
     const nextLink = (slideIndex+2 > totalSlides) ? null : `/posts/${slideIndex + 2}/`
 
-    const bgPhoto = (isMobile && isPortrait) ? require("../../../content/assets/"+PHOTOS[slideIndex].photoMobile) :
-      require("../../../content/assets/"+PHOTOS[slideIndex].photo)
+    let bgPhoto = null
+    if(PHOTOS[slideIndex] && PHOTOS[slideIndex].photo && PHOTOS[slideIndex].photoMobile){
+      bgPhoto = (isMobile && isPortrait) ? require("../../../content/assets/"+PHOTOS[slideIndex].photoMobile) :
+        require("../../../content/assets/"+PHOTOS[slideIndex].photo)
+    }
+
+    const Video = (VIDEOS[slideIndex] && VIDEOS[slideIndex].videoMobile) ?
+      <video className={ styles["video"] } autoPlay>
+        <source src={require("../../../content/assets/"+VIDEOS[slideIndex].videoMobile)} type="video/mp4" />
+      </video> : null
 
     const pageDate = head.date ? new Date(head.date) : null
     return (
@@ -53,6 +61,7 @@ class Slide extends WindowSizeMixin(Component) {
       >
         <div className={ styles["container"] }>
           <img src={bgPhoto} className={ styles["image"] }/>
+          { Video }
           <div className={styles["bg-overlay"]}></div>
           <div className={styles["bottom-box"]}>
             <div className={ classnames(commonStyles["content-outer"], styles["description"]) }>

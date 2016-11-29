@@ -219,7 +219,7 @@ export default (config = {}) => {
 
         // copy assets and return generated path in js
         {
-          test: /\.(html|ico|jpe?g|png|gif|eot|otf|webp|ttf|woff|woff2|mp3)$/,
+          test: /\.(html|ico|jpe?g|png|gif|eot|otf|webp|ttf|woff|woff2|mp3|mp4)$/,
           loader: "file-loader",
           query: {
             name: "[path][name].[hash].[ext]",
