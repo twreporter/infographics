@@ -35,14 +35,16 @@ class Slide extends WindowSizeMixin(Component) {
     const previousLink = (slideIndex <= 0) ? '/' : `/posts/${slideIndex}/`
     const nextLink = (slideIndex+2 > totalSlides) ? null : `/posts/${slideIndex + 2}/`
 
+    const isVideo = (VIDEOS[slideIndex] && VIDEOS[slideIndex].videoMobile)
+
     let bgPhoto = null
     if(PHOTOS[slideIndex] && PHOTOS[slideIndex].photo && PHOTOS[slideIndex].photoMobile){
       bgPhoto = (isMobile && isPortrait) ? require("../../../content/assets/"+PHOTOS[slideIndex].photoMobile) :
         require("../../../content/assets/"+PHOTOS[slideIndex].photo)
     }
 
-    const Video = (VIDEOS[slideIndex] && VIDEOS[slideIndex].videoMobile) ?
-      <video className={ styles["video"] } autoPlay>
+    const Video = isVideo ?
+      <video className={ styles["video"] } autoPlay muted>
         <source src={require("../../../content/assets/"+VIDEOS[slideIndex].videoMobile)} type="video/mp4" />
       </video> : null
 
@@ -87,9 +89,12 @@ class Slide extends WindowSizeMixin(Component) {
           }
         </div>
 
-        <div className={styles["audio-button"]}>
-          <CirclePlayButton isMute={false} percentage={60}/>
-        </div>
+        {
+          isVideo ? <div className={styles["audio-button"]}>
+            <CirclePlayButton isMute={false} percentage={60}/>
+          </div> : null
+        }
+
 
         <Header {...this.props}/>
       </Page>

@@ -14,7 +14,7 @@ class Header extends Component {
   render() {
     const { head } = this.props
     const totalSlides = this.context.metadata.totalSlides || 20
-    let curIndex = (head && head.slideIndex>0) ? head.slideIndex : 0
+    let curIndex = (head && head.slideIndex>=0) ? head.slideIndex : -1
     curIndex = (curIndex>totalSlides) ? totalSlides : curIndex
     const percentage = parseInt((curIndex+1)*100/totalSlides)
 

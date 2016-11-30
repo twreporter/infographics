@@ -122,6 +122,7 @@
 }
 
 .audio-button {
+  @include fade-in(0.5s);
   position: fixed;
   left: -0.9rem;
   top: 1rem;
