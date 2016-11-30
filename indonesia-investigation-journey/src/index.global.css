@@ -85,11 +85,13 @@ a {
 /* animations  */
 .element-appear {
   opacity: 0.01;
+  transform: translateY(30px);
 }
 
 .element-appear.element-appear-active {
   opacity: 1;
-  transition: opacity 0.5s ease-in;
+  transform: translateY(0);
+  transition: all 0.5s ease-in;
 }
 
 .element-enter {
@@ -108,4 +110,26 @@ a {
 .element-leave.element-leave-active {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
+}
+
+.subelement-appear {
+  opacity: 0.01;
+  transform: translateY(30px);
+}
+
+.subelement-appear.subelement-appear-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease-in;
+}
+
+.scaleX-appear {
+  opacity: 0.01;
+  transform: scaleX(0.3);
+}
+
+.scaleX-appear.scaleX-appear-active {
+  opacity: 1;
+  transform: scaleX(1);
+  transition: all 1s ease;
 }

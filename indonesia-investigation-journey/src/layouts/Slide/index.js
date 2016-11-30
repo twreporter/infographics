@@ -88,7 +88,7 @@ class Slide extends WindowSizeMixin(Component) {
         </div>
 
         <div className={styles["audio-button"]}>
-          <CirclePlayButton isMute={false}/>
+          <CirclePlayButton isMute={false} percentage={60}/>
         </div>
 
         <Header {...this.props}/>

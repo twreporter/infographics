@@ -6,16 +6,32 @@
 }
 
 .icon {
-  @media screen and (min-width: $width-sm) and (orientation:landscape) {
-    padding: 3rem;
-  }
+  padding: 1.9rem;
 
   svg {
-    width: 3rem;
+    width: 1.9rem;
     height: auto;
-
-    @media screen and (max-width: $width-md) {
-      width: 2rem;
-    }
   }
+}
+
+.circle {
+  position: absolute;
+  top: -9px;
+  left: 21px;
+  overflow: visible;
+  width: 70px;
+  height: 70px;
+}
+
+.circle-back {
+  @extend .circle;
+  opacity: 0.4;
+  path {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.circle-front {
+  @extend .circle;
+  opacity: 1;
 }

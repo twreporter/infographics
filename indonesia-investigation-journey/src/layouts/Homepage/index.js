@@ -57,11 +57,25 @@ class Homepage extends WindowSizeMixin(Component) {
                 transitionAppear={true}
                 transitionAppearTimeout={500}
                 transitionEnterTimeout={500}
-                transitionLeaveTimeout={300}>
+                transitionLeaveTimeout={0}>
                 <h1 itemProp="headline">{ head.title }</h1>
+              </ReactCSSTransitionGroup>
+              <ReactCSSTransitionGroup
+                transitionName="scaleX"
+                transitionAppear={true}
+                transitionAppearTimeout={600}
+                transitionEnterTimeout={600}
+              >
                 <hr/>
               </ReactCSSTransitionGroup>
-              <h2 itemProp="alternativeHeadline">{ head.subtitle }</h2>
+              <ReactCSSTransitionGroup
+                transitionName="subelement"
+                transitionAppear={true}
+                transitionAppearTimeout={1500}
+                transitionEnterTimeout={1500}
+              >
+                <h2 itemProp="alternativeHeadline">{ head.subtitle }</h2>
+              </ReactCSSTransitionGroup>
             </div>
 
             <div className={styles["info-box"]}>
