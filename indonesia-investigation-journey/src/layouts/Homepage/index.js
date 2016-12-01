@@ -65,6 +65,7 @@ class Homepage extends WindowSizeMixin(Component) {
                 transitionAppear={true}
                 transitionAppearTimeout={600}
                 transitionEnterTimeout={600}
+                transitionLeaveTimeout={0}
               >
                 <hr/>
               </ReactCSSTransitionGroup>
@@ -73,6 +74,7 @@ class Homepage extends WindowSizeMixin(Component) {
                 transitionAppear={true}
                 transitionAppearTimeout={1500}
                 transitionEnterTimeout={1500}
+                transitionLeaveTimeout={0}
               >
                 <h2 itemProp="alternativeHeadline">{ head.subtitle }</h2>
               </ReactCSSTransitionGroup>

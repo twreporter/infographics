@@ -1,7 +1,9 @@
+/* eslint-disable react/no-find-dom-node */
 import React, { Component, PropTypes } from "react"
-
+import ReactDOM from "react-dom"
 import { Link } from "react-router"
 import classnames from "classnames"
+
 import WindowSizeMixin from '../WindowSizeMixin'
 import Page from "../Page"
 import styles from "./Slide.scss"
@@ -12,6 +14,11 @@ import CirclePlayButton from "../../components/Navigation/CirclePlayButton"
 import Header from "../../components/Header"
 
 import { PHOTOS, VIDEOS } from "./multimedia.js"
+
+let makeVideoPlayableInline
+if (typeof window !== "undefined") {
+  makeVideoPlayableInline = require('iphone-inline-video')
+}
 
 class Slide extends WindowSizeMixin(Component) {
   constructor(props) {
@@ -24,6 +31,9 @@ class Slide extends WindowSizeMixin(Component) {
 
   componentDidMount() {
     if (super.componentDidMount) super.componentDidMount()
+
+    const node = ReactDOM.findDOMNode(this.refs.video)
+    makeVideoPlayableInline(node)
   }
 
   render() {
@@ -44,7 +54,9 @@ class Slide extends WindowSizeMixin(Component) {
     }
 
     const Video = isVideo ?
-      <video className={ styles["video"] } autoPlay muted>
+      <video className={ styles["video"] } autoPlay muted playsInline
+        ref={ (ref) => this.video = ref }
+      >
         <source src={require("../../../content/assets/"+VIDEOS[slideIndex].videoMobile)} type="video/mp4" />
       </video> : null
 
