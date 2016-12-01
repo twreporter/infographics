@@ -1,5 +1,6 @@
 /* eslint-disable react/no-find-dom-node */
 import React, { Component, PropTypes } from "react"
+import classnames from "classnames"
 
 import styles from "./VideoPlayer.scss"
 
@@ -22,27 +23,42 @@ class VideoPlayer extends Component {
   }
 
   componentDidUpdate() {
-    // this.handleVideoPlayback()
+    this.handleVideoPlayback()
+  }
+
+  componentWillUnmount() {
+    this.video = null
   }
 
   handleVideoPlayback() {
     const video = this.video
     if(video) {
       makeVideoPlayableInline(video, /* hasAudio */ false)
-      setTimeout(function () {
-        const e = new Event("touchstart")
-        video.dispatchEvent(e)
-        video.play()
-      }, 10)
+      // setTimeout(function () {
+        // const e = new Event("touchstart")
+        // video.dispatchEvent(e)
+        // video.play()
+      // }, 10)
 
-      video.addEventListener("touchstart", function (event) {
-        // event.preventDefault()
-        event.stopPropagation()
-        // event.stopImmediatePropagation()
-        event.returnValue = false
-        console.log("touchstart", video)
-        video.play()
-      })
+      video.addEventListener("contextmenu", function (e) {
+        e.preventDefault()
+        e.stopPropagation()
+      }, false)
+      //
+      // video.addEventListener("touchstart", function (event) {
+      //   event.preventDefault()
+      //   event.stopPropagation()
+      //   // event.stopImmediatePropagation()
+      //   video.play()
+      //
+      //   // hide the controls if they're visible
+      //   if (video.hasAttribute("controls")) {
+      //       video.removeAttribute("controls")
+      //   }
+      //
+      //   console.log("touchstart", video)
+      //
+      // })
     }
   }
 
@@ -50,7 +66,7 @@ class VideoPlayer extends Component {
     const { source } = this.props
 
     return (
-      <video className={ styles["video"] } autoPlay muted playsInline
+      <video className={ classnames(styles["video"]) } autoPlay muted playsInline
         ref={ (ref) => this.video = ref }
       >
         <source src={source} type="video/mp4" />
@@ -61,7 +77,7 @@ class VideoPlayer extends Component {
 }
 
 VideoPlayer.propTypes = {
-  source: PropTypes.object.string,
+  source: PropTypes.string,
 }
 
 export default VideoPlayer

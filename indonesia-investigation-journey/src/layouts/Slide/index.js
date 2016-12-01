@@ -45,8 +45,10 @@ class Slide extends WindowSizeMixin(Component) {
         require("../../../content/assets/"+PHOTOS[slideIndex].photo)
     }
 
+    const videoSource = isVideo ? require("../../../content/assets/"+VIDEOS[slideIndex].videoMobile) : null
+
     const Video = isVideo ?
-      <VideoPlayer source={require("../../../content/assets/"+VIDEOS[slideIndex].videoMobile)} />
+      <VideoPlayer source={videoSource} />
       : null
 
     const pageDate = head.date ? new Date(head.date) : null

@@ -19,8 +19,8 @@ export const VIDEOS = [
     videoMobile: "01.mp4",
   },
   {
-    video: null,
-    videoMobile: null,
+    video: "02.mp4",
+    videoMobile: "02.mp4",
   },
   {
     video: null,
