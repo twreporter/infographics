@@ -1,6 +1,5 @@
 /* eslint-disable react/no-find-dom-node */
 import React, { Component, PropTypes } from "react"
-import ReactDOM from "react-dom"
 import { Link } from "react-router"
 import classnames from "classnames"
 
@@ -27,13 +26,37 @@ class Slide extends WindowSizeMixin(Component) {
       isMobile: false,
       scrollPercent: 0,
     }
+    this.handleVideoPlayback = this.handleVideoPlayback.bind(this)
   }
 
   componentDidMount() {
     if (super.componentDidMount) super.componentDidMount()
+  }
 
-    const node = ReactDOM.findDOMNode(this.refs.video)
-    makeVideoPlayableInline(node)
+  componentDidUpdate() {
+    this.handleVideoPlayback()
+  }
+
+  handleVideoPlayback() {
+    const video = this.video
+    if(video) {
+      makeVideoPlayableInline(video, /* hasAudio */ false)
+      console.log("video", video)
+      setTimeout(function () {
+        const e = new Event("touchstart")
+        target.dispatchEvent(e)
+        video.play()
+      }, 10)
+
+      video.addEventListener("touchstart", function (event) {
+        // event.preventDefault()
+        event.stopPropagation()
+        // event.stopImmediatePropagation()
+        event.returnValue = false
+        console.log("touchstart", video)
+        video.play()
+      })
+    }
   }
 
   render() {
@@ -46,6 +69,8 @@ class Slide extends WindowSizeMixin(Component) {
     const nextLink = (slideIndex+2 > totalSlides) ? null : `/posts/${slideIndex + 2}/`
 
     const isVideo = (VIDEOS[slideIndex] && VIDEOS[slideIndex].videoMobile)
+
+    console.log("***render", isVideo, this.props)
 
     let bgPhoto = null
     if(PHOTOS[slideIndex] && PHOTOS[slideIndex].photo && PHOTOS[slideIndex].photoMobile){
