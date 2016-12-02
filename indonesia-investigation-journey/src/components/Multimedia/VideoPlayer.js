@@ -22,8 +22,12 @@ class VideoPlayer extends Component {
     this.handleVideoPlayback()
   }
 
-  componentDidUpdate() {
-    this.handleVideoPlayback()
+  componentDidUpdate(prevProps) {
+    if(prevProps.source !== this.props.source) {
+      this.video.load()
+      this.handleVideoPlayback()
+    }
+
   }
 
   componentWillUnmount() {
@@ -66,7 +70,7 @@ class VideoPlayer extends Component {
     const { source } = this.props
 
     return (
-      <video className={ classnames(styles["video"]) } autoPlay muted playsInline
+      <video className={ classnames(styles["video"]) } autoPlay muted playsInline loop
         ref={ (ref) => this.video = ref }
       >
         <source src={source} type="video/mp4" />

@@ -11,6 +11,10 @@ export const PHOTOS = [
     photo: "cover-photo.jpg",
     photoMobile: "cover-photo-mobile.jpg"
   },
+  {
+    photo: "02.jpg",
+    photoMobile: "02_mobile.jpg"
+  },
 ]
 
 export const VIDEOS = [
@@ -19,8 +23,12 @@ export const VIDEOS = [
     videoMobile: "01.mp4",
   },
   {
-    video: "02.mp4",
-    videoMobile: "02.mp4",
+    video: "34.mp4",
+    videoMobile: "34.mp4",
+  },
+  {
+    video: null,
+    videoMobile: null,
   },
   {
     video: null,

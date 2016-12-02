@@ -22,30 +22,58 @@ class Slide extends WindowSizeMixin(Component) {
       isMobile: false,
       scrollPercent: 0,
     }
+    this.getPhotoByIndex = this.getPhotoByIndex.bind(this)
+    this.getVideoByIndex = this.getVideoByIndex.bind(this)
   }
 
   componentDidMount() {
     if (super.componentDidMount) super.componentDidMount()
   }
 
+  getPhotoByIndex(slideIndex) {
+    const { isMobile, isPortrait } = this.state
+    let retPhoto = null
+    if(PHOTOS[slideIndex] && PHOTOS[slideIndex].photo && PHOTOS[slideIndex].photoMobile) {
+      const mobilePath = require(`../../../content/assets/${PHOTOS[slideIndex].photoMobile}`)
+      const desktopPath = require(`../../../content/assets/${PHOTOS[slideIndex].photo}`)
+      retPhoto = (isMobile && isPortrait) ? mobilePath : desktopPath
+    }
+    return retPhoto
+  }
+
+  getVideoByIndex(slideIndex) {
+    const { isMobile, isPortrait } = this.state
+    let retVideo = null
+    if(VIDEOS[slideIndex] && VIDEOS[slideIndex].video && VIDEOS[slideIndex].videoMobile) {
+      const mobilePath = require(`../../../content/assets/${VIDEOS[slideIndex].videoMobile}`)
+      const desktopPath = require(`../../../content/assets/${VIDEOS[slideIndex].video}`)
+      retVideo = (isMobile && isPortrait) ? mobilePath : desktopPath
+    }
+    return retVideo
+  }
+
   render() {
-    const { isMobile, isTablet, isPortrait } = this.state
+    const { isMobile, isTablet } = this.state
     const { head, body } = this.props
     const { slideIndex } = head
     const totalSlides = this.context.metadata.totalSlides
+
+    const preIndex = (slideIndex-1 < 0) ? -1 : slideIndex-1
+    const nextIndex = (slideIndex+1 >= totalSlides) ? -1 : slideIndex+1
 
     const previousLink = (slideIndex <= 0) ? '/' : `/posts/${slideIndex}/`
     const nextLink = (slideIndex+2 > totalSlides) ? null : `/posts/${slideIndex + 2}/`
 
     const isVideo = (VIDEOS[slideIndex] && VIDEOS[slideIndex].videoMobile)
 
-    let bgPhoto = null
-    if(PHOTOS[slideIndex] && PHOTOS[slideIndex].photo && PHOTOS[slideIndex].photoMobile){
-      bgPhoto = (isMobile && isPortrait) ? require("../../../content/assets/"+PHOTOS[slideIndex].photoMobile) :
-        require("../../../content/assets/"+PHOTOS[slideIndex].photo)
-    }
+    const bgPhoto = this.getPhotoByIndex(slideIndex)
+    const videoSource = this.getVideoByIndex(slideIndex)
 
-    const videoSource = isVideo ? require("../../../content/assets/"+VIDEOS[slideIndex].videoMobile) : null
+    const prePhoto = (preIndex>=0) ? this.getPhotoByIndex(preIndex) : null
+    const preVideo = (preIndex>=0) ? this.getVideoByIndex(preIndex) : null
+
+    const nextPhoto = (nextIndex>=0) ? this.getPhotoByIndex(nextIndex) : null
+    const nextVideo = (nextIndex>=0) ? this.getVideoByIndex(nextIndex) : null
 
     const Video = isVideo ?
       <VideoPlayer source={videoSource} />
@@ -67,7 +95,22 @@ class Slide extends WindowSizeMixin(Component) {
         }
       >
         <div className={ styles["container"] }>
+
+          {/* Preload Image and Video */}
+          <div className={ commonStyles["hide"] }>
+            <img src={prePhoto} className={ styles["image"] }/>
+            <img src={nextPhoto} className={ styles["image"] }/>
+            <video width="10" mute>
+              <source src={preVideo} type="video/webm"/>
+            </video>
+            <video width="10" mute>
+              <source src={nextVideo} type="video/webm"/>
+            </video>
+          </div>
+          {/* End - Preload Image and Video */}
+
           <img src={bgPhoto} className={ styles["image"] }/>
+
           { Video }
           <div className={styles["bg-overlay"]}></div>
           <div className={styles["bottom-box"]}>
