@@ -35,3 +35,19 @@ export const VIDEOS = [
     videoMobile: null,
   },
 ]
+
+
+export const AUDIOS = [
+  {
+    audio: "01.mp3",
+  },
+  {
+    audio: "34.mp3",
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+]

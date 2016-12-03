@@ -13,7 +13,7 @@ import CirclePlayButton from "../../components/Navigation/CirclePlayButton"
 import Header from "../../components/Header"
 import VideoPlayer from "../../components/Multimedia/VideoPlayer"
 
-import { PHOTOS, VIDEOS } from "./multimedia.js"
+import { PHOTOS, VIDEOS, AUDIOS } from "./multimedia.js"
 
 class Slide extends WindowSizeMixin(Component) {
   constructor(props) {
@@ -52,6 +52,13 @@ class Slide extends WindowSizeMixin(Component) {
     return retVideo
   }
 
+  getAudioByIndex(slideIndex) {
+    if(VIDEOS[slideIndex] && VIDEOS[slideIndex].video && AUDIOS[slideIndex].audio) {
+      return require(`../../../content/assets/${AUDIOS[slideIndex].audio}`)
+    }
+    return null
+  }
+
   render() {
     const { isMobile, isTablet } = this.state
     const { head, body } = this.props
@@ -68,6 +75,7 @@ class Slide extends WindowSizeMixin(Component) {
 
     const bgPhoto = this.getPhotoByIndex(slideIndex)
     const videoSource = this.getVideoByIndex(slideIndex)
+    const audioSource = this.getAudioByIndex(slideIndex)
 
     const prePhoto = (preIndex>=0) ? this.getPhotoByIndex(preIndex) : null
     const preVideo = (preIndex>=0) ? this.getVideoByIndex(preIndex) : null
@@ -76,7 +84,7 @@ class Slide extends WindowSizeMixin(Component) {
     const nextVideo = (nextIndex>=0) ? this.getVideoByIndex(nextIndex) : null
 
     const Video = isVideo ?
-      <VideoPlayer source={videoSource} />
+      <VideoPlayer source={videoSource} audio={audioSource} />
       : null
 
     const pageDate = head.date ? new Date(head.date) : null

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-find-dom-node */
 import React, { Component, PropTypes } from "react"
 import classnames from "classnames"
+import ReactHowler from "react-howler"
 
 import styles from "./VideoPlayer.scss"
 
@@ -67,14 +68,20 @@ class VideoPlayer extends Component {
   }
 
   render() {
-    const { source } = this.props
+    const { source, audio } = this.props
 
     return (
-      <video className={ classnames(styles["video"]) } autoPlay muted playsInline loop
-        ref={ (ref) => this.video = ref }
-      >
-        <source src={source} type="video/mp4" />
-      </video>
+      <div>
+        <video className={ classnames(styles["video"]) } autoPlay muted playsInline loop
+          ref={ (ref) => this.video = ref }
+        >
+          <source src={source} type="video/mp4" />
+        </video>
+        <ReactHowler
+          src={ audio }
+          ref={ (ref) => this.audio = ref }
+        />
+      </div>
     )
   }
 
@@ -82,6 +89,7 @@ class VideoPlayer extends Component {
 
 VideoPlayer.propTypes = {
   source: PropTypes.string,
+  audio: PropTypes.string,
 }
 
 export default VideoPlayer
