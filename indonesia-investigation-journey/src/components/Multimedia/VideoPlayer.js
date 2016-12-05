@@ -79,6 +79,7 @@ class VideoPlayer extends Component {
         </video>
         <ReactHowler
           src={ audio }
+          loop={ true }
           ref={ (ref) => this.audio = ref }
         />
       </div>

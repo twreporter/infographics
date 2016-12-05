@@ -108,10 +108,10 @@ class Slide extends WindowSizeMixin(Component) {
           <div className={ commonStyles["hide"] }>
             <img src={prePhoto} className={ styles["image"] }/>
             <img src={nextPhoto} className={ styles["image"] }/>
-            <video width="10" mute>
+            <video width="10" muted>
               <source src={preVideo} type="video/webm"/>
             </video>
-            <video width="10" mute>
+            <video width="10" muted>
               <source src={nextVideo} type="video/webm"/>
             </video>
           </div>
