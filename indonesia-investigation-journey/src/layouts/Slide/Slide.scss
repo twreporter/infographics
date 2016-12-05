@@ -31,7 +31,6 @@
 }
 
 .image {
-  @include fade-in(0.5s);
   min-height: 100%;
   min-width: 100%;
   height: auto;

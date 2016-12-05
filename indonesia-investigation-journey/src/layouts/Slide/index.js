@@ -1,9 +1,11 @@
 /* eslint-disable react/no-find-dom-node */
 import React, { Component, PropTypes } from "react"
+import ReactHowler from "react-howler"
 import { Link } from "react-router"
 import classnames from "classnames"
+import raf from "raf" // requestAnimationFrame polyfill
 
-import WindowSizeMixin from '../WindowSizeMixin'
+import WindowSizeMixin from "../WindowSizeMixin"
 import Page from "../Page"
 import styles from "./Slide.scss"
 import commonStyles from "../../styles/common.scss"
@@ -21,13 +23,42 @@ class Slide extends WindowSizeMixin(Component) {
     this.state = {
       isMobile: false,
       scrollPercent: 0,
+      isMute: false,
+      isPlaying: true,
+      percentage: 0,
     }
     this.getPhotoByIndex = this.getPhotoByIndex.bind(this)
     this.getVideoByIndex = this.getVideoByIndex.bind(this)
+    this.startAudioProgressSeek = this.startAudioProgressSeek.bind(this)
+    this.renderSeekPercent = this._renderSeekPercent.bind(this)
   }
 
   componentDidMount() {
     if (super.componentDidMount) super.componentDidMount()
+    this.startAudioProgressSeek()
+  }
+
+  componentWillUnmount() {
+    this.clearRAF()
+  }
+
+  startAudioProgressSeek() {
+    const { slideIndex } = this.props.head
+    const isAudio = (AUDIOS[slideIndex] && AUDIOS[slideIndex].audio)
+    this.clearRAF()
+    if(isAudio) {
+      this.setState({isPlaying: true})
+      this.renderSeekPercent(isAudio)
+    } else {
+      this.setState({isPlaying: false})
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { slideIndex } = this.props.head
+    if(prevProps.head.slideIndex !== slideIndex) {
+      this.startAudioProgressSeek()
+    }
   }
 
   getPhotoByIndex(slideIndex) {
@@ -53,14 +84,29 @@ class Slide extends WindowSizeMixin(Component) {
   }
 
   getAudioByIndex(slideIndex) {
-    if(VIDEOS[slideIndex] && VIDEOS[slideIndex].video && AUDIOS[slideIndex].audio) {
+    if(AUDIOS[slideIndex] && AUDIOS[slideIndex].audio) {
       return require(`../../../content/assets/${AUDIOS[slideIndex].audio}`)
     }
     return null
   }
 
+  clearRAF() {
+    raf.cancel(this._raf)
+  }
+
+  _renderSeekPercent(isAudio) {
+    if (isAudio) {
+      if(this.audio){
+        this.setState({
+          percentage: Math.floor(this.audio.seek() * 100 / this.audio.duration()),
+        })
+      }
+      this._raf = raf(this.renderSeekPercent)
+    }
+  }
+
   render() {
-    const { isMobile, isTablet } = this.state
+    const { isMobile, isTablet, isMute, percentage } = this.state
     const { head, body } = this.props
     const { slideIndex } = head
     const totalSlides = this.context.metadata.totalSlides
@@ -72,6 +118,7 @@ class Slide extends WindowSizeMixin(Component) {
     const nextLink = (slideIndex+2 > totalSlides) ? null : `/posts/${slideIndex + 2}/`
 
     const isVideo = (VIDEOS[slideIndex] && VIDEOS[slideIndex].videoMobile)
+    const isAudio = (AUDIOS[slideIndex] && AUDIOS[slideIndex].audio)
 
     const bgPhoto = this.getPhotoByIndex(slideIndex)
     const videoSource = this.getVideoByIndex(slideIndex)
@@ -84,7 +131,7 @@ class Slide extends WindowSizeMixin(Component) {
     const nextVideo = (nextIndex>=0) ? this.getVideoByIndex(nextIndex) : null
 
     const Video = isVideo ?
-      <VideoPlayer source={videoSource} audio={audioSource} />
+      <VideoPlayer source={videoSource} />
       : null
 
     const pageDate = head.date ? new Date(head.date) : null
@@ -144,11 +191,27 @@ class Slide extends WindowSizeMixin(Component) {
         </div>
 
         {
-          isVideo ? <div className={styles["audio-button"]}>
-            <CirclePlayButton isMute={false} percentage={60}/>
+          isVideo ?
+          <div className={styles["audio-button"]}
+            onClick={()=>{
+              this.setState({isMute: !isMute})}
+            }
+          >
+            <CirclePlayButton isMute={isMute}
+              percentage={ percentage }
+            />
           </div> : null
         }
 
+        {
+          isAudio ?
+          <ReactHowler
+            src={ audioSource }
+            loop={ true }
+            mute={ isMute }
+            ref={(ref) => this.audio = ref}
+          /> : null
+        }
 
         <Header {...this.props}/>
       </Page>

@@ -1,7 +1,6 @@
 /* eslint-disable react/no-find-dom-node */
 import React, { Component, PropTypes } from "react"
 import classnames from "classnames"
-import ReactHowler from "react-howler"
 
 import styles from "./VideoPlayer.scss"
 
@@ -68,7 +67,7 @@ class VideoPlayer extends Component {
   }
 
   render() {
-    const { source, audio } = this.props
+    const { source } = this.props
 
     return (
       <div>
@@ -77,11 +76,6 @@ class VideoPlayer extends Component {
         >
           <source src={source} type="video/mp4" />
         </video>
-        <ReactHowler
-          src={ audio }
-          loop={ true }
-          ref={ (ref) => this.audio = ref }
-        />
       </div>
     )
   }
@@ -90,7 +84,6 @@ class VideoPlayer extends Component {
 
 VideoPlayer.propTypes = {
   source: PropTypes.string,
-  audio: PropTypes.string,
 }
 
 export default VideoPlayer

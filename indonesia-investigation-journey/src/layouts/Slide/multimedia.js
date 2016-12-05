@@ -1,11 +1,11 @@
 export const PHOTOS = [
   {
-    photo: "cover-photo.jpg",
-    photoMobile: "cover-photo-mobile.jpg"
+    photo: "01.jpg",
+    photoMobile: "01.jpg"
   },
   {
-    photo: "02.jpg",
-    photoMobile: "02_mobile.jpg"
+    photo: "34.jpg",
+    photoMobile: "34.jpg"
   },
   {
     photo: "cover-photo.jpg",
