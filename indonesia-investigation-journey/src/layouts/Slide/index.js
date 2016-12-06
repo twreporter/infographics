@@ -31,15 +31,18 @@ class Slide extends WindowSizeMixin(Component) {
     this.getVideoByIndex = this.getVideoByIndex.bind(this)
     this.startAudioProgressSeek = this.startAudioProgressSeek.bind(this)
     this.renderSeekPercent = this._renderSeekPercent.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
   componentDidMount() {
     if (super.componentDidMount) super.componentDidMount()
     this.startAudioProgressSeek()
+    window.addEventListener("keydown", this.handleKeyPress)
   }
 
   componentWillUnmount() {
     this.clearRAF()
+    window.removeEventListener("keydown", this.handleKeyPress)
   }
 
   startAudioProgressSeek() {
@@ -90,6 +93,28 @@ class Slide extends WindowSizeMixin(Component) {
     return null
   }
 
+  getPreLink(slideIndex) {
+    return (slideIndex <= 0) ? '/' : `/posts/${slideIndex}/`
+  }
+
+  getNextLink(slideIndex) {
+    const totalSlides = this.context.metadata.totalSlides
+    return (slideIndex+2 > totalSlides) ? null : `/posts/${slideIndex + 2}/`
+  }
+
+  handleKeyPress(evt) {
+    const { slideIndex } = this.props.head
+    evt = evt || window.event;
+    switch (evt.keyCode) {
+      case 37:
+        this.context.router.replace(this.getPreLink(slideIndex))
+        break
+      case 39:
+        this.context.router.replace(this.getNextLink(slideIndex))
+        break
+    }
+  }
+
   clearRAF() {
     raf.cancel(this._raf)
   }
@@ -114,8 +139,8 @@ class Slide extends WindowSizeMixin(Component) {
     const preIndex = (slideIndex-1 < 0) ? -1 : slideIndex-1
     const nextIndex = (slideIndex+1 >= totalSlides) ? -1 : slideIndex+1
 
-    const previousLink = (slideIndex <= 0) ? '/' : `/posts/${slideIndex}/`
-    const nextLink = (slideIndex+2 > totalSlides) ? null : `/posts/${slideIndex + 2}/`
+    const previousLink = this.getPreLink(slideIndex)
+    const nextLink = this.getNextLink(slideIndex)
 
     const isVideo = (VIDEOS[slideIndex] && VIDEOS[slideIndex].videoMobile)
     const isAudio = (AUDIOS[slideIndex] && AUDIOS[slideIndex].audio)
@@ -148,6 +173,7 @@ class Slide extends WindowSizeMixin(Component) {
           }
           </header>
         }
+         onKeyPress={this.handleKeyPress}
       >
         <div className={ styles["container"] }>
 
@@ -175,19 +201,23 @@ class Slide extends WindowSizeMixin(Component) {
               />
             </div>
           </div>
-          <Link to={previousLink}>
-            <div className={ styles["left-button"] } >
-              <LeftNavButton isMobile={isMobile} isTablet={isTablet}/>
-            </div>
-          </Link>
-          {
-            (slideIndex+2 > totalSlides) ? null :
-            <Link to={nextLink}>
-              <div className={ styles["right-button"] } >
-                <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
+          <div ref={(ref) => this.preBtn = ref}>
+            <Link to={previousLink}>
+              <div className={ styles["left-button"] } >
+                <LeftNavButton isMobile={isMobile} isTablet={isTablet}/>
               </div>
             </Link>
-          }
+          </div>
+          <div ref={(ref) => this.nextBtn = ref}>
+            {
+              (slideIndex+2 > totalSlides) ? null :
+              <Link to={nextLink}>
+                <div className={ styles["right-button"] } >
+                  <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
+                </div>
+              </Link>
+            }
+          </div>
         </div>
 
         {
@@ -222,6 +252,7 @@ class Slide extends WindowSizeMixin(Component) {
 
 Slide.contextTypes = {
   metadata: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired,
 }
 
 Slide.propTypes = {
