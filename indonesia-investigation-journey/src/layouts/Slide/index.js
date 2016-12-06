@@ -151,9 +151,11 @@ class Slide extends WindowSizeMixin(Component) {
 
     const prePhoto = (preIndex>=0) ? this.getPhotoByIndex(preIndex) : null
     const preVideo = (preIndex>=0) ? this.getVideoByIndex(preIndex) : null
+    const preAudio = (preIndex>=0) ? this.getAudioByIndex(preIndex) : null
 
     const nextPhoto = (nextIndex>=0) ? this.getPhotoByIndex(nextIndex) : null
     const nextVideo = (nextIndex>=0) ? this.getVideoByIndex(nextIndex) : null
+    const nextAudio = (nextIndex>=0) ? this.getAudioByIndex(nextIndex) : null
 
     const Video = isVideo ?
       <VideoPlayer source={videoSource} />
@@ -184,9 +186,15 @@ class Slide extends WindowSizeMixin(Component) {
             <video width="10" muted>
               <source src={preVideo} type="video/webm"/>
             </video>
+            <audio width="10" muted>
+              <source src={preAudio} type="audio/ogg"/>
+            </audio>
             <video width="10" muted>
               <source src={nextVideo} type="video/webm"/>
             </video>
+            <audio width="10" muted>
+              <source src={nextAudio} type="audio/ogg"/>
+            </audio>
           </div>
           {/* End - Preload Image and Video */}
 
