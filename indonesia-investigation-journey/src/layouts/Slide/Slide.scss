@@ -42,6 +42,14 @@
   left: 50%;
   transform: translateX(-50%);
   user-select: none;
+
+  @media screen and (max-width: $width-xs) and (orientation:portrait) {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    top: 2.9rem;
+    bottom: inherit;
+  }
 }
 
 .bg-overlay {
