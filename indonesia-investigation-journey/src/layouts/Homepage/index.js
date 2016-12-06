@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react"
 // import enhanceCollection from "phenomic/lib/enhance-collectio
 import { Link } from "react-router"
-
+import Swipeable from "react-swipeable"
 import classnames from "classnames"
 import commonStyles from "../../styles/common.scss"
 import styles from "./Home.scss"
@@ -27,6 +27,7 @@ class Homepage extends WindowSizeMixin(Component) {
       scrollPercent: 0,
     }
     this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.goNextSlide = this.goNextSlide.bind(this)
   }
 
   componentDidMount() {
@@ -40,6 +41,10 @@ class Homepage extends WindowSizeMixin(Component) {
 
   getNextLink() {
     return `/posts/1/`
+  }
+
+  goNextSlide() {
+    this.context.router.replace(this.getNextLink())
   }
 
   getPhotoByIndex(slideIndex) {
@@ -92,67 +97,71 @@ class Homepage extends WindowSizeMixin(Component) {
       >
         {/* Article - begin */}
         <div itemScope itemType="http://schema.org/ScholarlyArticle" className={styles["container"]}>
-          {/* Preload Image and Video */}
-          <div className={ commonStyles["hide"] }>
-            <img src={this.getPhotoByIndex(0)} className={ styles["image"] }/>
-            <img src={this.getPhotoByIndex(1)} className={ styles["image"] }/>
-            <video width="10" muted>
-              <source src={this.getVideoByIndex(0)} type="video/webm"/>
-            </video>
-          </div>
-          {/* End - Preload Image and Video */}
-
-          <img src={bgPhoto} className={ styles["image"] }/>
-          <div className={styles["bottom-box"]}>
-            <div className={styles["center-box"]}>
-              <ReactCSSTransitionGroup
-                transitionName="element"
-                transitionAppear={true}
-                transitionAppearTimeout={500}
-                transitionEnterTimeout={500}
-                transitionLeaveTimeout={0}>
-                <h1 itemProp="headline">{ head.title }</h1>
-              </ReactCSSTransitionGroup>
-              <ReactCSSTransitionGroup
-                transitionName="scaleX"
-                transitionAppear={true}
-                transitionAppearTimeout={600}
-                transitionEnterTimeout={600}
-                transitionLeaveTimeout={0}
-              >
-                <hr/>
-              </ReactCSSTransitionGroup>
-              <ReactCSSTransitionGroup
-                transitionName="subelement"
-                transitionAppear={true}
-                transitionAppearTimeout={1500}
-                transitionEnterTimeout={1500}
-                transitionLeaveTimeout={0}
-              >
-                <h2 itemProp="alternativeHeadline">{ head.subtitle }</h2>
-              </ReactCSSTransitionGroup>
+          <Swipeable
+            onSwipedLeft={()=>{this.goNextSlide()}}
+          >
+            {/* Preload Image and Video */}
+            <div className={ commonStyles["hide"] }>
+              <img src={this.getPhotoByIndex(0)} className={ styles["image"] }/>
+              <img src={this.getPhotoByIndex(1)} className={ styles["image"] }/>
+              <video width="10" muted>
+                <source src={this.getVideoByIndex(0)} type="video/webm"/>
+              </video>
             </div>
+            {/* End - Preload Image and Video */}
 
-            <div className={styles["info-box"]}>
-              <p itemProp="datePublished">{ head.date }</p>
-              <a href="https://twreporter.org/" target="_blank">
-                <div className={ classnames(commonStyles["img-responsive"]) }
-                  dangerouslySetInnerHTML={ { __html: bottomLogo } }
-                />
-              </a>
-            </div>
-          </div>
-
-          <Link to={this.getNextLink()}>
-            <div className={ styles["right-button"] } >
-              <div>
-                點擊下一頁<br/>或左右滑動
+            <img src={bgPhoto} className={ styles["image"] }/>
+            <div className={styles["bottom-box"]}>
+              <div className={styles["center-box"]}>
+                <ReactCSSTransitionGroup
+                  transitionName="element"
+                  transitionAppear={true}
+                  transitionAppearTimeout={500}
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={0}>
+                  <h1 itemProp="headline">{ head.title }</h1>
+                </ReactCSSTransitionGroup>
+                <ReactCSSTransitionGroup
+                  transitionName="scaleX"
+                  transitionAppear={true}
+                  transitionAppearTimeout={600}
+                  transitionEnterTimeout={600}
+                  transitionLeaveTimeout={0}
+                >
+                  <hr/>
+                </ReactCSSTransitionGroup>
+                <ReactCSSTransitionGroup
+                  transitionName="subelement"
+                  transitionAppear={true}
+                  transitionAppearTimeout={1500}
+                  transitionEnterTimeout={1500}
+                  transitionLeaveTimeout={0}
+                >
+                  <h2 itemProp="alternativeHeadline">{ head.subtitle }</h2>
+                </ReactCSSTransitionGroup>
               </div>
-              <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
+
+              <div className={styles["info-box"]}>
+                <p itemProp="datePublished">{ head.date }</p>
+                <a href="https://twreporter.org/" target="_blank">
+                  <div className={ classnames(commonStyles["img-responsive"]) }
+                    dangerouslySetInnerHTML={ { __html: bottomLogo } }
+                  />
+                </a>
+              </div>
             </div>
-          </Link>
-          {/* <h2>{ "Latest Posts" } | {head.testPath}</h2>
-          <PagesList pages={ latestPosts } /> */}
+
+            <Link to={this.getNextLink()}>
+              <div className={ styles["right-button"] } >
+                <div>
+                  點擊下一頁<br/>或左右滑動
+                </div>
+                <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
+              </div>
+            </Link>
+            {/* <h2>{ "Latest Posts" } | {head.testPath}</h2>
+            <PagesList pages={ latestPosts } /> */}
+          </Swipeable>
         </div>
 
         {/* Article - end */}

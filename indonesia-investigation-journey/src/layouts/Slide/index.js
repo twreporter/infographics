@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from "react"
 import ReactHowler from "react-howler"
 import { Link } from "react-router"
 import classnames from "classnames"
+import Swipeable from "react-swipeable"
 import raf from "raf" // requestAnimationFrame polyfill
 
 import WindowSizeMixin from "../WindowSizeMixin"
@@ -32,6 +33,8 @@ class Slide extends WindowSizeMixin(Component) {
     this.startAudioProgressSeek = this.startAudioProgressSeek.bind(this)
     this.renderSeekPercent = this._renderSeekPercent.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.goPreSlide = this.goPreSlide.bind(this)
+    this.goNextSlide = this.goNextSlide.bind(this)
   }
 
   componentDidMount() {
@@ -61,6 +64,7 @@ class Slide extends WindowSizeMixin(Component) {
     const { slideIndex } = this.props.head
     if(prevProps.head.slideIndex !== slideIndex) {
       this.startAudioProgressSeek()
+      // console.log(this.imageBox.clientHeight, this.imageBox.getBoundingClientRect())
     }
   }
 
@@ -102,15 +106,23 @@ class Slide extends WindowSizeMixin(Component) {
     return (slideIndex+2 > totalSlides) ? null : `/posts/${slideIndex + 2}/`
   }
 
+  goPreSlide(slideIndex) {
+    this.context.router.replace(this.getPreLink(slideIndex))
+  }
+
+  goNextSlide(slideIndex) {
+    this.context.router.replace(this.getNextLink(slideIndex))
+  }
+
   handleKeyPress(evt) {
     const { slideIndex } = this.props.head
     evt = evt || window.event;
     switch (evt.keyCode) {
       case 37:
-        this.context.router.replace(this.getPreLink(slideIndex))
+        this.goPreSlide(slideIndex)
         break
       case 39:
-        this.context.router.replace(this.getNextLink(slideIndex))
+        this.goNextSlide(slideIndex)
         break
     }
   }
@@ -177,82 +189,87 @@ class Slide extends WindowSizeMixin(Component) {
         }
          onKeyPress={this.handleKeyPress}
       >
-        <div className={ styles["container"] }>
+        <Swipeable
+          onSwipedRight={()=>{this.goPreSlide(slideIndex)}}
+          onSwipedLeft={()=>{this.goNextSlide(slideIndex)}}
+        >
+          <div className={ styles["container"] }>
 
-          {/* Preload Image and Video */}
-          <div className={ commonStyles["hide"] }>
-            <img src={prePhoto} className={ styles["image"] }/>
-            <img src={nextPhoto} className={ styles["image"] }/>
-            <video width="10" muted>
-              <source src={preVideo} type="video/webm"/>
-            </video>
-            <audio width="10" muted>
-              <source src={preAudio} type="audio/ogg"/>
-            </audio>
-            <video width="10" muted>
-              <source src={nextVideo} type="video/webm"/>
-            </video>
-            <audio width="10" muted>
-              <source src={nextAudio} type="audio/ogg"/>
-            </audio>
-          </div>
-          {/* End - Preload Image and Video */}
-
-          <img src={bgPhoto}
-            className={ styles["image"] }
-             ref={(ref) => this.imageBox = ref}
-          />
-
-          { Video }
-          <div className={styles["bg-overlay"]}></div>
-          <div className={styles["bottom-box"]}>
-            <div className={ classnames(commonStyles["content-outer"], styles["description"]) }>
-              <div
-                dangerouslySetInnerHTML={ { __html: body } }
-              />
+            {/* Preload Image and Video */}
+            <div className={ commonStyles["hide"] }>
+              <img src={prePhoto} className={ styles["image"] }/>
+              <img src={nextPhoto} className={ styles["image"] }/>
+              <video width="10" muted>
+                <source src={preVideo} type="video/webm"/>
+              </video>
+              <audio width="10" muted>
+                <source src={preAudio} type="audio/ogg"/>
+              </audio>
+              <video width="10" muted>
+                <source src={nextVideo} type="video/webm"/>
+              </video>
+              <audio width="10" muted>
+                <source src={nextAudio} type="audio/ogg"/>
+              </audio>
             </div>
-          </div>
-          <div ref={(ref) => this.preBtn = ref}>
-            <Link to={previousLink}>
-              <div className={ styles["left-button"] } >
-                <LeftNavButton isMobile={isMobile} isTablet={isTablet}/>
+            {/* End - Preload Image and Video */}
+
+            <img src={bgPhoto}
+              className={ styles["image"] }
+               ref={(ref) => this.imageBox = ref}
+            />
+
+            { Video }
+            <div className={styles["bg-overlay"]}></div>
+            <div className={styles["bottom-box"]}>
+              <div className={ classnames(commonStyles["content-outer"], styles["description"]) }>
+                <div
+                  dangerouslySetInnerHTML={ { __html: body } }
+                />
               </div>
-            </Link>
-          </div>
-          <div ref={(ref) => this.nextBtn = ref}>
-            {
-              (slideIndex+2 > totalSlides) ? null :
-              <Link to={nextLink}>
-                <div className={ styles["right-button"] } >
-                  <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
+            </div>
+            <div ref={(ref) => this.preBtn = ref}>
+              <Link to={previousLink}>
+                <div className={ styles["left-button"] } >
+                  <LeftNavButton isMobile={isMobile} isTablet={isTablet}/>
                 </div>
               </Link>
-            }
+            </div>
+            <div ref={(ref) => this.nextBtn = ref}>
+              {
+                (slideIndex+2 > totalSlides) ? null :
+                <Link to={nextLink}>
+                  <div className={ styles["right-button"] } >
+                    <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
+                  </div>
+                </Link>
+              }
+            </div>
           </div>
-        </div>
 
-        {
-          isVideo ?
-          <div className={styles["audio-button"]}
-            onClick={()=>{
-              this.setState({isMute: !isMute})}
-            }
-          >
-            <CirclePlayButton isMute={isMute}
-              percentage={ percentage }
-            />
-          </div> : null
-        }
+          {
+            isVideo ?
+            <div className={styles["audio-button"]}
+              onClick={()=>{
+                this.setState({isMute: !isMute})}
+              }
+            >
+              <CirclePlayButton isMute={isMute}
+                percentage={ percentage }
+              />
+            </div> : null
+          }
 
-        {
-          isAudio ?
-          <ReactHowler
-            src={ audioSource }
-            loop={ true }
-            mute={ isMute }
-            ref={(ref) => this.audio = ref}
-          /> : null
-        }
+          {
+            isAudio ?
+            <ReactHowler
+              src={ audioSource }
+              loop={ true }
+              mute={ isMute }
+              ref={(ref) => this.audio = ref}
+            /> : null
+          }
+        </Swipeable>
 
         <Header {...this.props}/>
       </Page>

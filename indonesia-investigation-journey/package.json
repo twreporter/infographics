@@ -141,6 +141,7 @@
     "lodash": "^4.17.2",
     "raf": "^3.3.0",
     "react-addons-css-transition-group": "^15.4.1",
-    "react-howler": "^3.3.0"
+    "react-howler": "^3.3.0",
+    "react-swipeable": "^3.7.0"
   }
 }
