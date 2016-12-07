@@ -15,6 +15,10 @@ export const PHOTOS = [
     photo: "02.jpg",
     photoMobile: "02_mobile.jpg"
   },
+  {
+    photo: "02.jpg",
+    photoMobile: "02_mobile.jpg"
+  },
 ]
 
 export const VIDEOS = [
@@ -34,6 +38,10 @@ export const VIDEOS = [
     video: null,
     videoMobile: null,
   },
+  {
+    video: null,
+    videoMobile: null,
+  },
 ]
 
 
@@ -43,6 +51,9 @@ export const AUDIOS = [
   },
   {
     audio: "34.mp3",
+  },
+  {
+    audio: null,
   },
   {
     audio: null,

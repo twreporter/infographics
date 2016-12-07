@@ -5,6 +5,14 @@
   position: relative;
 }
 
+.bg-media {
+  transition: all 1s ease;
+}
+
+.blur {
+  filter: blur(5px) brightness(0.7);
+}
+
 .bottom-box {
   position: fixed;
   width: 100%;

@@ -102,7 +102,7 @@ class Slide extends WindowSizeMixin(Component) {
   }
 
   getNextLink(slideIndex) {
-    const totalSlides = this.context.metadata.totalSlides
+    const {totalSlides} = this.context.metadata
     return (slideIndex+2 > totalSlides) ? null : `/posts/${slideIndex + 2}/`
   }
 
@@ -116,13 +116,16 @@ class Slide extends WindowSizeMixin(Component) {
 
   handleKeyPress(evt) {
     const { slideIndex } = this.props.head
+    const {totalSlides} = this.context.metadata
     evt = evt || window.event;
     switch (evt.keyCode) {
       case 37:
         this.goPreSlide(slideIndex)
         break
       case 39:
-        this.goNextSlide(slideIndex)
+        if(slideIndex+2 <= totalSlides) {
+          this.goNextSlide(slideIndex)
+        }
         break
     }
   }
@@ -151,6 +154,8 @@ class Slide extends WindowSizeMixin(Component) {
     const preIndex = (slideIndex-1 < 0) ? -1 : slideIndex-1
     const nextIndex = (slideIndex+1 >= totalSlides) ? -1 : slideIndex+1
 
+    const isLastPage = (slideIndex+2 > totalSlides)
+
     const previousLink = this.getPreLink(slideIndex)
     const nextLink = this.getNextLink(slideIndex)
 
@@ -174,6 +179,9 @@ class Slide extends WindowSizeMixin(Component) {
       : null
 
     const pageDate = head.date ? new Date(head.date) : null
+
+    const lastPageBg = isLastPage ? styles["blur"] : null
+
     return (
       <Page
         { ...this.props }
@@ -214,12 +222,14 @@ class Slide extends WindowSizeMixin(Component) {
             </div>
             {/* End - Preload Image and Video */}
 
-            <img src={bgPhoto}
-              className={ styles["image"] }
-               ref={(ref) => this.imageBox = ref}
-            />
+            <div className={ classnames(lastPageBg, styles["bg-media"]) }>
+              <img src={bgPhoto}
+                className={ styles["image"] }
+                 ref={(ref) => this.imageBox = ref}
+              />
+              { Video }
+            </div>
 
-            { Video }
             <div className={styles["bg-overlay"]}></div>
             <div className={styles["bottom-box"]}>
               <div className={ classnames(commonStyles["content-outer"], styles["description"]) }>
