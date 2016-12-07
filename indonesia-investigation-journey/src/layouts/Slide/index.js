@@ -1,6 +1,7 @@
 /* eslint-disable react/no-find-dom-node */
 import React, { Component, PropTypes } from "react"
 import ReactHowler from "react-howler"
+import SVGInline from "react-svg-inline"
 import { Link } from "react-router"
 import classnames from "classnames"
 import Swipeable from "react-swipeable"
@@ -15,6 +16,13 @@ import RightNavButton from "../../components/Navigation/RightNavButton"
 import CirclePlayButton from "../../components/Navigation/CirclePlayButton"
 import Header from "../../components/Header"
 import VideoPlayer from "../../components/Multimedia/VideoPlayer"
+
+import copyrightImg from "../../../content/assets/cc-copyrights.svg"
+import topicIcon from "../../../content/assets/back-to-topics.svg"
+import tabIcon from "../../../content/assets/open-tab.svg"
+
+import relatedImg1 from "../../../content/assets/article1.jpg"
+import relatedImg2 from "../../../content/assets/article2.jpg"
 
 import { PHOTOS, VIDEOS, AUDIOS } from "./multimedia.js"
 
@@ -181,6 +189,7 @@ class Slide extends WindowSizeMixin(Component) {
     const pageDate = head.date ? new Date(head.date) : null
 
     const lastPageBg = isLastPage ? styles["blur"] : null
+    const desClass = isLastPage ? styles["description-hide"] : null
 
     return (
       <Page
@@ -232,7 +241,9 @@ class Slide extends WindowSizeMixin(Component) {
 
             <div className={styles["bg-overlay"]}></div>
             <div className={styles["bottom-box"]}>
-              <div className={ classnames(commonStyles["content-outer"], styles["description"]) }>
+              <div className={ classnames(commonStyles["content-outer"],
+                styles["description"], desClass) }
+              >
                 <div
                   dangerouslySetInnerHTML={ { __html: body } }
                 />
@@ -279,6 +290,12 @@ class Slide extends WindowSizeMixin(Component) {
               ref={(ref) => this.audio = ref}
             /> : null
           }
+
+          {
+            isLastPage ?
+              <LastSlide/> : null
+          }
+
         </Swipeable>
 
         <Header {...this.props}/>
@@ -286,6 +303,64 @@ class Slide extends WindowSizeMixin(Component) {
     )
   }
 
+}
+
+
+const LastSlide = () => {
+  return (
+    <div>
+      <div className={styles["ending-wrapper"]}>
+        <a target="_blank" href="https://www.twreporter.org/">
+          <div className={styles["topic-banner"]}>
+            <div className={styles["tab-icon"]}>
+              <SVGInline svg={ tabIcon } />
+            </div>
+            <SVGInline className={styles["topic-icon"]} svg={ topicIcon } />
+            <div className={styles["topic-text"]}>
+              <h3>造假·剝削·血淚漁場</h3>
+              <h5>直擊台灣遠洋漁業真相</h5>
+            </div>
+          </div>
+        </a>
+
+        <div className={styles["links-box"]}>
+          <div className={styles["grid-left"]}>
+            <a target="_blank" href="https://www.twreporter.org/">
+              <div className={ styles["related-item"] }>
+                <div className={ styles["related-left"] }>
+                  <img className={ styles["crop"] } src={relatedImg1} />
+                </div>
+                <div className={ styles["related-right"] }>
+                  <p className={ styles["related-title"] }>【印尼現場 I 】我們和印尼聯手剝削萬名漁工</p>
+                </div>
+              </div>
+            </a>
+            <a target="_blank" href="https://www.twreporter.org/">
+              <div className={ styles["related-item"] }>
+                <div className={ styles["related-left"] }>
+                  <img className={ styles["crop"] } src={relatedImg2} />
+                </div>
+                <div className={ styles["related-right"] }>
+                  <p className={ styles["related-title"] }>【印尼現場 I 】我們和印尼聯手剝削萬名漁工</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div className={styles["grid-right"]}>
+
+          </div>
+        </div>
+
+      </div>
+      <div className={styles["copyright"]}>
+        <SVGInline svg={ copyrightImg } />
+        <span className={styles["copyright-outer-text"]}>
+          <span className={styles["copyright-text"]}>除另有註明，網站內容皆</span>採用創用 CC 姓名標示-非商業性-禁止改作授權條款
+        </span>
+      </div>
+    </div>
+  )
 }
 
 Slide.contextTypes = {

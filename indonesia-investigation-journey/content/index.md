@@ -1,6 +1,6 @@
 ---
-title: 在離岸之前
-subtitle: 印尼漁工走過的路
+title: 前仆後繼
+subtitle: 印尼漁工的台灣夢
 layout: Homepage
 date: 2016.12.15
 photo: cover.jpg

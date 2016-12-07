@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>B4ABEC51-6D40-4034-8BB9-B3C5D726C38F</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="open-tab-2">
+            <g id="open-tab">
+                <path d="M18.5,10 L18.5,16.0081158 C18.5,17.9362641 16.9353963,19.5 15.0081158,19.5 L3.99188419,19.5 C2.06373587,19.5 0.5,17.9353963 0.5,16.0081158 L0.5,4.99188419 C0.5,3.06373587 2.06460372,1.5 3.99188419,1.5 L10,1.5 L10,4.5 L3.99188419,4.5 C3.72108547,4.5 3.5,4.72096284 3.5,4.99188419 L3.5,16.0081158 C3.5,16.2789145 3.72096284,16.5 3.99188419,16.5 L15.0081158,16.5 C15.2789145,16.5 15.5,16.2790372 15.5,16.0081158 L15.5,10 L18.5,10 Z" id="Combined-Shape" fill="#000000"></path>
+                <g id="Group" transform="translate(10.000000, 0.000000)" stroke="#000000" stroke-width="3">
+                    <path d="M3.71428571,0.571428571 L9.42857143,0.571428571" id="Line" stroke-linecap="square"></path>
+                    <path d="M9.42857143,0.571428571 L9.42857143,6.28571429" id="Line" stroke-linecap="square"></path>
+                    <path d="M9.14285714,0.857142857 L0.984663565,9.01533643" id="Line" stroke-linecap="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
