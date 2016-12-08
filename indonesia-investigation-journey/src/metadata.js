@@ -3,6 +3,7 @@ import pkg from "../package.json"
 
 export default {
   totalSlides: 5,
+  siteUrl: "indonesia-investigation-journey",
   pkg,
   // you can add any DYNAMIC data you need here
   // ...

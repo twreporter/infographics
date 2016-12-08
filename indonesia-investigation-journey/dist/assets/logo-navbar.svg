@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="179px" height="33px" viewBox="0 0 179 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: sketchtool 40 (33762) - http://www.bohemiancoding.com/sketch -->
-    <title>0009C652-C939-4C30-B87C-39ABD1AC30CE</title>
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>683E0416-2554-46D3-8458-97AFD407DBA3</title>
     <desc>Created with sketchtool.</desc>
     <defs></defs>
     <g id="spec" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Desktop---landing" transform="translate(-422.000000, -695.000000)" fill="#FFFFFF">
-            <g id="logo-navbar" transform="translate(422.000000, 695.000000)">
-                <g id="Typography" transform="translate(36.844826, 5.060844)">
+        <g id="Desktop-HD---Ending_hover" transform="translate(-1005.000000, -659.000000)">
+            <g id="logo-navbar" transform="translate(1005.000000, 659.000000)">
+                <g id="Typography" transform="translate(36.844826, 5.060844)" fill="#FFFFFF">
                     <g id="Group">
                         <path d="M64.5880664,3.39927426 C64.5880664,3.39927426 65.3211839,3.0725335 65.5041484,2.27576681 L67.131619,2.27576681 L67.131619,3.64472521 L64.5068188,3.64472521 L64.5880664,3.39927426 L64.5880664,3.39927426 Z" id="Fill-8"></path>
                         <path d="M69.6985067,7.78196547 C69.6985067,7.78196547 70.4309944,7.4549084 70.6142738,6.65750912 L72.2423743,6.65750912 L72.2423743,8.02678382 L69.6175741,8.02678382 L69.6985067,7.78196547 Z" id="Fill-10"></path>
@@ -81,8 +81,8 @@
                     </g>
                 </g>
                 <g id="Icon">
-                    <polygon id="Fill-1" fill-opacity="0.7" points="30.546565 26.5694329 18.5798694 23.7227079 18.5798694 8.85647762 30.546565 5.37714712"></polygon>
-                    <polygon id="Fill-2" fill-opacity="0.5" points="0 32.5791855 18.8947825 23.7227079 18.8947825 8.85647762 0 0"></polygon>
+                    <polygon id="Fill-1" fill="#C71B0A" points="30.546565 26.5694329 18.5798694 23.7227079 18.5798694 8.85647762 30.546565 5.37714712"></polygon>
+                    <polygon id="Fill-2" fill="#E62112" points="0 32.5791855 18.8947825 23.7227079 18.8947825 8.85647762 0 0"></polygon>
                 </g>
             </g>
         </g>

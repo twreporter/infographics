@@ -20,6 +20,9 @@ import VideoPlayer from "../../components/Multimedia/VideoPlayer"
 import copyrightImg from "../../../content/assets/cc-copyrights.svg"
 import topicIcon from "../../../content/assets/back-to-topics.svg"
 import tabIcon from "../../../content/assets/open-tab.svg"
+import githubIcon from "../../../content/assets/icon-github.svg"
+import largeLogo from "../../../content/assets/logo-navbar.svg"
+import donateIcon from "../../../content/assets/icon-donation.svg"
 
 import relatedImg1 from "../../../content/assets/article1.jpg"
 import relatedImg2 from "../../../content/assets/article2.jpg"
@@ -157,7 +160,7 @@ class Slide extends WindowSizeMixin(Component) {
     const { isMobile, isTablet, isMute, percentage } = this.state
     const { head, body } = this.props
     const { slideIndex } = head
-    const totalSlides = this.context.metadata.totalSlides
+    const { totalSlides, siteUrl } = this.context.metadata
 
     const preIndex = (slideIndex-1 < 0) ? -1 : slideIndex-1
     const nextIndex = (slideIndex+1 >= totalSlides) ? -1 : slideIndex+1
@@ -293,7 +296,7 @@ class Slide extends WindowSizeMixin(Component) {
 
           {
             isLastPage ?
-              <LastSlide/> : null
+              <LastSlide siteUrl={siteUrl}/> : null
           }
 
         </Swipeable>
@@ -306,7 +309,7 @@ class Slide extends WindowSizeMixin(Component) {
 }
 
 
-const LastSlide = () => {
+const LastSlide = (props) => {
   return (
     <div>
       <div className={styles["ending-wrapper"]}>
@@ -341,14 +344,22 @@ const LastSlide = () => {
                   <img className={ styles["crop"] } src={relatedImg2} />
                 </div>
                 <div className={ styles["related-right"] }>
-                  <p className={ styles["related-title"] }>【印尼現場 I 】我們和印尼聯手剝削萬名漁工</p>
+                  <p className={ styles["related-title"] }>【印尼現場 II 】未解的謎團——一位漁工之死</p>
                 </div>
               </div>
             </a>
           </div>
 
           <div className={styles["grid-right"]}>
-
+            <div>
+              <p className={styles["github-link"]}><a target="_blank" href="https://github.com/twreporter/infographics"><SVGInline svg={ githubIcon } /> &nbsp; github.com/twreporter</a></p>
+              <p><a target="_blank" href="https://www.twreporter.org/"><SVGInline svg={ largeLogo } /></a></p>
+              <a target="_blank" className={ styles["donate-btn"] } href="https://twreporter.backme.tw/cashflow/checkout?project_id=175&reward_id=718"><SVGInline svg={ donateIcon } /> &nbsp; 贊助我們</a>
+              <div className={ commonStyles["white-text"] }
+                dangerouslySetInnerHTML={ { __html:
+                  `<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.twreporter.org%2Fa%2F${props.siteUrl}&width=300&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=962589903815787&colorscheme=dark" width="300" height="80" style="border:none;overflow:hidden" scrolling="no" frameBorder="0" allowTransparency="true"></iframe>` } }
+              />
+            </div>
           </div>
         </div>
 
@@ -361,6 +372,10 @@ const LastSlide = () => {
       </div>
     </div>
   )
+}
+
+LastSlide.propTypes = {
+  siteUrl: PropTypes.string.isRequired,
 }
 
 Slide.contextTypes = {
