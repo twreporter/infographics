@@ -1,0 +1,22 @@
+@import "../../styles/variables.scss";
+@import "../../styles/animation.scss";
+
+.container {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  transform: translateX(-50%);
+
+  @media screen and (max-width: $width-md) {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  @media screen and (max-width: $width-xs) {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}

@@ -16,6 +16,7 @@ import CirclePlayButton from "../../components/Navigation/CirclePlayButton"
 import Header from "../../components/Header"
 import VideoPlayer from "../../components/Multimedia/VideoPlayer"
 import LastSlide from "./LastSlide"
+import MapOverlay from "./MapOverlay"
 
 import { PHOTOS, VIDEOS, AUDIOS } from "./multimedia.js"
 
@@ -175,6 +176,8 @@ class Slide extends WindowSizeMixin(Component) {
     const nextVideo = (nextIndex>=0) ? this.getVideoByIndex(nextIndex) : null
     const nextAudio = (nextIndex>=0) ? this.getAudioByIndex(nextIndex) : null
 
+    const isMapOverlay = (slideIndex === 3)
+
     const Video = isVideo ?
       <VideoPlayer source={videoSource} />
       : null
@@ -287,6 +290,11 @@ class Slide extends WindowSizeMixin(Component) {
           {
             isLastPage ?
               <LastSlide siteUrl={siteUrl}/> : null
+          }
+
+          {
+            isMapOverlay ?
+              <MapOverlay isMobile={ isMobile }/> : null
           }
 
         </Swipeable>

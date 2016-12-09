@@ -141,3 +141,20 @@ video::-webkit-media-controls-start-playback-button {
     pointer-events: none;
     width: 5px;
 }
+
+/* Velocity charts - default styles */
+#lineJourney {
+  stroke-dashoffset: 0;
+}
+
+#rectStart {
+  opacity: 0;
+}
+
+#rectEnd {
+  opacity: 0;
+}
+
+#journeyLength {
+  opacity: 0;
+}
