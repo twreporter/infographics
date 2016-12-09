@@ -227,10 +227,14 @@ class Slide extends WindowSizeMixin(Component) {
             </div>
             {/* End - Preload Image and Video */}
 
-            <div className={ classnames(lastPageBg, styles["bg-media"]) }>
-              <img src={bgPhoto}
+            <div className={ classnames(styles["bg-media"]) }>
+              {/* <img src={bgPhoto}
                 className={ styles["image"] }
                  ref={(ref) => this.imageBox = ref}
+              />*/}
+              <div style={ {backgroundImage: "url(" + bgPhoto + ")"} }
+                className={ classnames(lastPageBg, styles["bg-large-image"]) }
+                ref={(ref) => this.imageBox = ref}
               />
               { Video }
             </div>

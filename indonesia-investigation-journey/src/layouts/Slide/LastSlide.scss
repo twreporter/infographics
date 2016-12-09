@@ -1,0 +1,321 @@
+@import "../../styles/variables.scss";
+@import "../../styles/animation.scss";
+
+.ending-wrapper {
+  width: 100%;
+  max-width: 950px;
+  left: 50%;
+  position: absolute;
+  top: 5vh;
+  height: 70%;
+  margin-top: 3rem;
+  transform: translateX(-50%);
+  overflow: visible;
+  z-index: 2000;
+
+  @media (max-width: $width-md) {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  @media (max-width: $width-xs) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    top: 1vh;
+  }
+
+  .tab-icon {
+    width: 3rem;
+    height: 3rem;
+    background: $white;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    span {
+      display: block;
+      text-align: center;
+      position: relative;
+      top: 50%;
+      transform: translateY(-42%);
+    }
+  }
+
+  .topic-banner {
+    position: relative;
+    min-height: 200px;
+    height: 28vh;
+    background-color: $dark-gray;
+    color: $white;
+    background-image: url('../../../content/assets/pic.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: $outer-box-shadow;
+    border: solid 0 rgba($white, 0.5);
+    transition: all 0.5s ease;
+
+    &:hover {
+      transition: all 0.3s ease;
+      border: solid 15px $white;
+    }
+
+    @media screen and (max-width: $width-xs) {
+      min-height: 160px;
+      height: 22vh;
+    }
+  }
+
+  .topic-icon {
+    position: absolute;
+    left: 1.4rem;
+    bottom: 3rem;
+    @media screen and (min-width: $width-md) {
+      // desktop
+      bottom: 3.4rem;
+    }
+    @media screen and (max-width: $width-xs) {
+      bottom: 2.4rem;
+    }
+  }
+
+  .topic-text {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 4.5rem;
+    text-shadow: 2px 1px 13px rgba(0, 0, 0, 0.65);
+
+    h3 {
+      font-size: 30px;
+      font-weight: $font-bold;
+      margin-bottom: 0.3rem;
+      @media screen and (min-width: $width-md) {
+        // desktop
+        font-size: 40px;
+        margin-bottom: 0.8rem;
+      }
+      @media screen and (max-width: $width-xs) {
+        // mobile
+        font-size: 23px;
+        margin-bottom: 0.1rem;
+      }
+    }
+
+    h5 {
+      margin-top: 0.8rem;
+      margin-bottom: 0.6rem;
+      font-size: 17px;
+      @media screen and (min-width: $width-md) {
+        // desktop
+        margin-top: 1.2rem;
+      }
+      @media screen and (max-width: $width-xs) {
+        // mobile
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .links-box {
+    width: 100%;
+    margin-top: 3vh;
+    display: table;
+
+    a, a:hover, a:visited, a:link, a:active {
+      text-decoration: none !important;
+      color: rgba($white, 0.9);
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: $width-md) {
+      display: block;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    @media (max-width: $width-xs) {
+      margin-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .grid {
+    display: table-cell;
+    padding: 0.5rem;
+    vertical-align: top;
+
+    @media (max-width: $width-md) {
+      display: block;
+    }
+  }
+
+  .grid-left {
+    @extend .grid;
+    width: 60%;
+
+    @media (max-width: $width-md) {
+      width: 100%;
+    }
+  }
+
+  .grid-right {
+    @extend .grid;
+    color: $light-gray;
+    width: 40%;
+    text-align: right;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+    @media (max-width: $width-md) {
+      width: 100%;
+      text-align: center;
+    }
+
+    a {
+      margin: 0.5rem;
+    }
+
+    a:hover {
+      color: rgba($white, 1);
+      transform: translateY(-0.2rem);
+    }
+  }
+}
+
+.donate-btn {
+  width: 300px;
+  border-radius: 3px;
+  background-color: $red;
+  padding: 0.7rem 1rem;
+  display: block;
+  text-align: center;
+  float: right;
+  margin: 0.5rem 0 1.5rem !important;
+
+  @media (max-width: $width-md) {
+    padding: 0.5rem 1rem;
+    width: 100%;
+  }
+}
+
+.github-link {
+  @media (max-width: $width-md) {
+    display: none;
+  }
+}
+
+.related-item {
+  background: $white;
+  color: $tooltip-gray;
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  display: table;
+  transition: all 0.2s ease;
+  margin-top: 0.7rem;
+  overflow: hidden;
+
+  @media (max-width: $width-xs) {
+    padding: 0 0.6rem;
+    background: rgba($white, 0.8);
+  }
+
+  &:hover {
+    box-shadow: 0 4px 10px 0 rgba($tooltip-gray, 0.5);
+    transform: translateY(-0.1rem);
+  }
+
+  .related-left {
+    width: 8.8rem;
+    display: table-cell;
+    position: relative;
+
+    .crop {
+      position: absolute;
+      left: -115%;
+      right: -100%;
+      top: -100%;
+      bottom: -100%;
+      margin: auto;
+      height: auto;
+      width: auto;
+      max-width: 8rem;
+      max-height: 8rem;
+      @media (max-width: $width-md) {
+        max-width: 6rem;
+        max-height: 6rem;
+      }
+    }
+
+    @media (max-width: $width-md) {
+      width: 5rem;
+      margin: 1rem 0;
+      padding: 0.3rem 0.5rem;
+    }
+
+    @media (max-width: $width-xs) {
+      display: none;
+    }
+  }
+
+  .related-right {
+    display: table-cell;
+    line-height: 1.75;
+
+    @media (min-width: $width-xs) and (max-width: $width-md) {
+      padding-left: 1rem;
+    }
+
+    @media (max-width: $width-xs) {
+      line-height: 1.5;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      display: block;
+      @media (max-width: $width-xs) {
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+      }
+    }
+
+    .related-title {
+      font-weight: $font-bold;
+      font-size: $brief-font-size;
+
+      @media (max-width: $width-xs) {
+        font-size: $small-font-size;
+      }
+    }
+  }
+}
+
+.copyright {
+  position: fixed;
+  bottom: 11vh;
+  left: 50%;
+  font-size: 12px;
+  transform: translateX(-50%);
+  color: $opaque-text;
+
+  @media screen and (max-width: $width-xs) {
+    bottom: 6vh;
+  }
+
+  svg {
+    padding-right: 0.5rem;
+    vertical-align: bottom;
+    opacity: 0.7;
+  }
+
+  .copyright-outer-text {
+    @media screen and (max-width: $width-xs) {
+      display: none;
+    }
+  }
+
+  .copyright-text {
+    @media screen and (max-width: $width-md) {
+      display: none;
+    }
+  }
+}

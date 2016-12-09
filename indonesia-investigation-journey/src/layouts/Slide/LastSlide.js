@@ -2,7 +2,7 @@ import React, { PropTypes } from "react"
 import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 import SVGInline from "react-svg-inline"
 
-import styles from "./Slide.scss"
+import styles from "./LastSlide.scss"
 import commonStyles from "../../styles/common.scss"
 
 import copyrightImg from "../../../content/assets/cc-copyrights.svg"

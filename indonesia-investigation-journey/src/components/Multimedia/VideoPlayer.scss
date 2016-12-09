@@ -1,19 +1,10 @@
 @import "../../styles/variables.scss";
 @import "../../styles/animation.scss";
+@import "../../styles/common.scss";
 
 .video {
   @include fade-in(0.5s);
-  min-height: 100%;
-  min-width: 100%;
-  height: auto;
-  width: auto;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  left: 50%;
-  transform: translateX(-50%);
-  user-select: none;
+  @extend .bg-cover;
 
   @media screen and (max-width: $width-xs) and (orientation:portrait) {
     width: 100%;
