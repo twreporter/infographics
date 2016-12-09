@@ -3,7 +3,7 @@ import Helmet from "react-helmet"
 import invariant from "invariant"
 import { joinUri } from "phenomic"
 
-import Loading from "../../components/Loading"
+// import Loading from "../../components/Loading"
 
 import styles from "./index.css"
 
@@ -62,7 +62,8 @@ const Page = (
         ? <Loading />
         : <BodyContainer>{ body }</BodyContainer>
       } */}
-      { isLoading ? <Loading /> : children }
+      { /* isLoading ? <Loading /> : children */ }
+      { children }
       { footer }
     </div>
   )
