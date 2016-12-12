@@ -1,7 +1,6 @@
 /* eslint-disable react/no-find-dom-node */
 import React, { Component, PropTypes } from "react"
 import ReactHowler from "react-howler"
-import { Link } from "react-router"
 import classnames from "classnames"
 import Swipeable from "react-swipeable"
 import raf from "raf" // requestAnimationFrame polyfill
@@ -17,6 +16,7 @@ import Header from "../../components/Header"
 import VideoPlayer from "../../components/Multimedia/VideoPlayer"
 import LastSlide from "./LastSlide"
 import MapOverlay from "./MapOverlay"
+import LinkContainer from "../../components/Navigation/LinkContainer"
 
 import { PHOTOS, VIDEOS, AUDIOS } from "./multimedia.js"
 
@@ -260,20 +260,20 @@ class Slide extends WindowSizeMixin(Component) {
               </div>
             </div>
             <div ref={(ref) => this.preBtn = ref}>
-              <Link to={previousLink}>
+              <LinkContainer to={previousLink}>
                 <div className={ styles["left-button"] } >
                   <LeftNavButton isMobile={isMobile} isTablet={isTablet}/>
                 </div>
-              </Link>
+              </LinkContainer>
             </div>
             <div ref={(ref) => this.nextBtn = ref}>
               {
                 (slideIndex+2 > totalSlides) ? null :
-                <Link to={nextLink}>
+                <LinkContainer to={nextLink}>
                   <div className={ styles["right-button"] } >
                     <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
                   </div>
-                </Link>
+                </LinkContainer>
               }
             </div>
           </div>
