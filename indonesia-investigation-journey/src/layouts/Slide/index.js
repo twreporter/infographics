@@ -27,7 +27,7 @@ class Slide extends WindowSizeMixin(Component) {
       isMobile: false,
       scrollPercent: 0,
       isMute: false,
-      isPlaying: true,
+      isPlaying: false,
       percentage: 0,
     }
     this.getPhotoByIndex = this.getPhotoByIndex.bind(this)
@@ -55,10 +55,16 @@ class Slide extends WindowSizeMixin(Component) {
     const isAudio = (AUDIOS[slideIndex] && AUDIOS[slideIndex].audio)
     this.clearRAF()
     if(isAudio) {
-      this.setState({isPlaying: true})
+      // this.setState({isPlaying: true})
       this.renderSeekPercent(isAudio)
     } else {
-      this.setState({isPlaying: false})
+      // this.setState({isPlaying: false})
+    }
+  }
+
+  componentWillUpdate(nextProps) {
+    if(this.props.head.slideIndex !== nextProps.head.slideIndex) {
+      this.setState({ isPlaying: false })
     }
   }
 
@@ -148,7 +154,7 @@ class Slide extends WindowSizeMixin(Component) {
   }
 
   render() {
-    const { isMobile, isTablet, isMute, percentage } = this.state
+    const { isMobile, isTablet, isMute, isPlaying, percentage } = this.state
     const { head, body } = this.props
     const { slideIndex } = head
     const { totalSlides, siteUrl } = this.context.metadata
@@ -179,7 +185,11 @@ class Slide extends WindowSizeMixin(Component) {
     const isMapOverlay = (slideIndex === 3)
 
     const Video = isVideo ?
-      <VideoPlayer source={videoSource} />
+      <VideoPlayer source={videoSource}
+        handlePlay={ () => {
+          this.setState({ isPlaying: true })
+        } }
+      />
       : null
 
     const pageDate = head.date ? new Date(head.date) : null
@@ -287,6 +297,7 @@ class Slide extends WindowSizeMixin(Component) {
               src={ audioSource }
               loop={ true }
               mute={ isMute }
+              playing={ isPlaying }
               ref={(ref) => this.audio = ref}
             /> : null
           }

@@ -16,6 +16,7 @@ class VideoPlayer extends Component {
 
     }
     this.handleVideoPlayback = this.handleVideoPlayback.bind(this)
+    this.onPlay = this.onPlay.bind(this)
   }
 
   componentDidMount() {
@@ -66,12 +67,20 @@ class VideoPlayer extends Component {
     }
   }
 
+  onPlay() {
+    const { handlePlay } = this.props
+    if(handlePlay) {
+      handlePlay()
+    }
+  }
+
   render() {
     const { source } = this.props
 
     return (
       <div>
         <video className={ classnames(styles["video"]) } autoPlay muted playsInline loop
+          onPlay={ this.onPlay }
           ref={ (ref) => this.video = ref }
         >
           <source src={source} type="video/mp4" />
@@ -84,6 +93,7 @@ class VideoPlayer extends Component {
 
 VideoPlayer.propTypes = {
   source: PropTypes.string,
+  handlePlay: PropTypes.func,
 }
 
 export default VideoPlayer

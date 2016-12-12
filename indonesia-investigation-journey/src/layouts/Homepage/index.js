@@ -16,7 +16,7 @@ import RightNavButton from "../../components/Navigation/RightNavButton"
 import Header from "../../components/Header"
 import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 
-import { PHOTOS, VIDEOS } from "../Slide/multimedia.js"
+import { PHOTOS, VIDEOS, AUDIOS } from "../Slide/multimedia.js"
 // const numberOfLatestPosts = 6
 
 class Homepage extends WindowSizeMixin(Component) {
@@ -69,6 +69,13 @@ class Homepage extends WindowSizeMixin(Component) {
     return retVideo
   }
 
+  getAudioByIndex(slideIndex) {
+    if(AUDIOS[slideIndex] && AUDIOS[slideIndex].audio) {
+      return require(`../../../content/assets/${AUDIOS[slideIndex].audio}`)
+    }
+    return null
+  }
+
   handleKeyPress(evt) {
     evt = evt || window.event;
     switch (evt.keyCode) {
@@ -107,6 +114,15 @@ class Homepage extends WindowSizeMixin(Component) {
               <video width="10" muted>
                 <source src={this.getVideoByIndex(0)} type="video/webm"/>
               </video>
+              <video width="10" muted>
+                <source src={this.getVideoByIndex(1)} type="video/webm"/>
+              </video>
+              <audio width="10" muted>
+                <source src={this.getAudioByIndex(0)} type="audio/ogg"/>
+              </audio>
+              <audio width="10" muted>
+                <source src={this.getAudioByIndex(1)} type="audio/ogg"/>
+              </audio>
             </div>
             {/* End - Preload Image and Video */}
 

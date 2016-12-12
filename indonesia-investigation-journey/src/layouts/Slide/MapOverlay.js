@@ -18,10 +18,20 @@ class MapOverlay extends Component {
     this.state = {
 
     }
-
   }
 
   componentDidMount() {
+    this.playLineAnimation()
+  }
+
+  componentDidUpdate(prevProps) {
+    const { isMobile } = this.props
+    if(prevProps.isMobile !== isMobile) {
+      this.playLineAnimation()
+    }
+  }
+
+  playLineAnimation() {
     const startMark = document.getElementById("rectStart")
     const endMark = document.getElementById("rectEnd")
     const lineJourney = document.getElementById("lineJourney")
@@ -44,7 +54,6 @@ class MapOverlay extends Component {
         .then(() => {
           return velocity(journeyLength, { opacity: [ 1, 0 ] }, { duration: 350, easing: "easeOut" })
         })
-
     }
   }
 
