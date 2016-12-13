@@ -20,7 +20,7 @@ import LastSlide from "./LastSlide"
 import MapOverlay from "./MapOverlay"
 import LinkContainer from "../../components/Navigation/LinkContainer"
 
-import { PHOTOS, VIDEOS, AUDIOS } from "./multimedia.js"
+import { PHOTOS, VIDEOS, AUDIOS, TEXT } from "./multimedia.js"
 
 class Slide extends WindowSizeMixin(Component) {
   constructor(props) {
@@ -68,9 +68,10 @@ class Slide extends WindowSizeMixin(Component) {
     const nextSlideIndex = nextProps.head.slideIndex
     if(this.props.head.slideIndex !== nextSlideIndex) {
       this.setState({ isPlaying: false })
-    }
-    if(!this.getVideoByIndex(nextSlideIndex) && this.getAudioByIndex(nextSlideIndex)) {
-      this.setState({ isPlaying: true })
+
+      if(!this.getVideoByIndex(nextSlideIndex) && this.getAudioByIndex(nextSlideIndex)) {
+        this.setState({ isPlaying: true })
+      }
     }
   }
 
@@ -116,7 +117,7 @@ class Slide extends WindowSizeMixin(Component) {
   }
 
   getNextLink(slideIndex) {
-    const {totalSlides} = this.context.metadata
+    const { totalSlides } = this.context.metadata
     return (slideIndex+2 > totalSlides) ? null : `/posts/${slideIndex + 2}/`
   }
 
@@ -130,7 +131,7 @@ class Slide extends WindowSizeMixin(Component) {
 
   handleKeyPress(evt) {
     const { slideIndex } = this.props.head
-    const {totalSlides} = this.context.metadata
+    const { totalSlides } = this.context.metadata
     evt = evt || window.event;
     switch (evt.keyCode) {
       case 37:
@@ -161,7 +162,8 @@ class Slide extends WindowSizeMixin(Component) {
 
   render() {
     const { isMobile, isTablet, isMute, isPlaying, percentage } = this.state
-    const { head, body } = this.props
+    // const { head, body } = this.props
+    const { head } = this.props
     const { slideIndex } = head
     const { totalSlides, siteUrl } = this.context.metadata
 
@@ -188,7 +190,7 @@ class Slide extends WindowSizeMixin(Component) {
     const nextVideo = (nextIndex>=0) ? this.getVideoByIndex(nextIndex) : null
     const nextAudio = (nextIndex>=0) ? this.getAudioByIndex(nextIndex) : null
 
-    const isMapOverlay = (slideIndex === 3)
+    const isMapOverlay = (slideIndex === 1)
 
     const Video = isVideo ?
       <VideoPlayer source={videoSource} key={videoSource}
@@ -265,17 +267,18 @@ class Slide extends WindowSizeMixin(Component) {
             <ReactCSSTransitionGroup
               transitionName="fade"
               transitionAppear={true}
-              transitionAppearTimeout={0}
-              transitionEnterTimeout={0}
+              transitionAppearTimeout={500}
+              transitionEnterTimeout={500}
               transitionLeaveTimeout={800}>
               <div className={styles["bottom-box"]}>
                 <div className={ classnames(commonStyles["content-outer"],
                   styles["description"], desClass) }
                 >
-                  <div
+                  {/*<div
                     key={`text-${slideIndex}`}
                     dangerouslySetInnerHTML={ { __html: body } }
-                  />
+                  />*/}
+                  <span>{TEXT[slideIndex]}</span>
                 </div>
               </div>
             </ReactCSSTransitionGroup>
@@ -299,7 +302,7 @@ class Slide extends WindowSizeMixin(Component) {
           </div>
 
           {
-            isVideo ?
+            isAudio ?
             <div className={styles["audio-button"]}
               onClick={()=>{
                 this.setState({isMute: !isMute})}
@@ -308,18 +311,14 @@ class Slide extends WindowSizeMixin(Component) {
               <CirclePlayButton isMute={isMute}
                 percentage={ percentage }
               />
+              <ReactHowler
+                src={ audioSource }
+                loop={ true }
+                mute={ isMute }
+                playing={ isPlaying }
+                ref={(ref) => this.audio = ref}
+              />
             </div> : null
-          }
-
-          {
-            isAudio ?
-            <ReactHowler
-              src={ audioSource }
-              loop={ true }
-              mute={ isMute }
-              playing={ isPlaying }
-              ref={(ref) => this.audio = ref}
-            /> : null
           }
 
           {
