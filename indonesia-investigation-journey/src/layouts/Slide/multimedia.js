@@ -1,23 +1,99 @@
 export const PHOTOS = [
   {
-    photo: "01.jpg",
-    photoMobile: "01.jpg"
-  },
-  {
-    photo: "34.jpg",
-    photoMobile: "34.jpg"
-  },
-  {
-    photo: "cover-photo.jpg",
-    photoMobile: "cover-photo-mobile.jpg"
+    photo: "1.jpg",
+    photoMobile: "1_mobile.jpg"
   },
   {
     photo: "2.jpg",
     photoMobile: "2_mobile.jpg"
   },
   {
-    photo: "2.jpg",
-    photoMobile: "2_mobile.jpg"
+    photo: "3.jpg",
+    photoMobile: "3_mobile.jpg"
+  },
+  {
+    photo: "4.jpg",
+    photoMobile: "4_mobile.jpg"
+  },
+  {
+    photo: "5.jpg",
+    photoMobile: "5_mobile.jpg"
+  },
+  {
+    photo: "6.jpg",
+    photoMobile: "6_mobile.jpg"
+  },
+  {
+    photo: "7.jpg",
+    photoMobile: "7_mobile.jpg"
+  },
+  {
+    photo: "8.jpg",
+    photoMobile: "8_mobile.jpg"
+  },
+  {
+    photo: "9.jpg",
+    photoMobile: "9_mobile.jpg"
+  },
+  {
+    photo: "10.jpg",
+    photoMobile: "10_mobile.jpg"
+  },
+  {
+    photo: "11.jpg",
+    photoMobile: "11_mobile.jpg"
+  },
+  {
+    photo: "12.jpg",
+    photoMobile: "12_mobile.jpg"
+  },
+  {
+    photo: "13.jpg",
+    photoMobile: "13_mobile.jpg"
+  },
+  {
+    photo: "14.jpg",
+    photoMobile: "14_mobile.jpg"
+  },
+  {
+    photo: "15.jpg",
+    photoMobile: "15_mobile.jpg"
+  },
+  {
+    photo: "16.jpg",
+    photoMobile: "16_mobile.jpg"
+  },
+  {
+    photo: "17.jpg",
+    photoMobile: "17_mobile.jpg"
+  },
+  {
+    photo: "18.jpg",
+    photoMobile: "18_mobile.jpg"
+  },
+  {
+    photo: "19.jpg",
+    photoMobile: "19_mobile.jpg"
+  },
+  {
+    photo: "20.jpg",
+    photoMobile: "20_mobile.jpg"
+  },
+  {
+    photo: "21.jpg",
+    photoMobile: "21_mobile.jpg"
+  },
+  {
+    photo: "22.jpg",
+    photoMobile: "22_mobile.jpg"
+  },
+  {
+    photo: "23.jpg",
+    photoMobile: "23_mobile.jpg"
+  },
+  {
+    photo: "24.jpg",
+    photoMobile: "24_mobile.jpg"
   },
 ]
 
@@ -27,8 +103,8 @@ export const VIDEOS = [
     videoMobile: null,
   },
   {
-    video: "34.mp4",
-    videoMobile: "34.mp4",
+    video: "2.mp4",
+    videoMobile: "2_mobile.mp4",
   },
   {
     video: null,
@@ -41,16 +117,101 @@ export const VIDEOS = [
   {
     video: null,
     videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: "22.mp4",
+    videoMobile: "22_mobile.mp4",
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: "24.mp4",
+    videoMobile: "24_mobile.mp4",
   },
 ]
 
 
 export const AUDIOS = [
   {
-    audio: "01.mp3",
+    audio: null,
   },
   {
-    audio: "34.mp3",
+    audio: "2.mp3",
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: "5.mp3",
   },
   {
     audio: null,
@@ -60,6 +221,54 @@ export const AUDIOS = [
   },
   {
     audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: "21.mp3",
+  },
+  {
+    audio: "22.mp3",
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: "24.mp3",
   },
 ]
 
@@ -78,6 +287,7 @@ export const TEXT = [
   "這是Visa的家，磁磚只鋪了一半。2013年他因為特宏興案被判了28年，家裡頓時少了收入。",
   "母親Wadina緊緊抱著手邊僅有的Visa照片。",
   "妹妹Nova支撐起家裡經濟，她的丈夫準備再次申請上船工作。",
+  null,
   "另一個漁工Wara，只因朋友一句話：說台灣漁船很好賺，就出海捕魚。特宏興案發生後，Wara的太太為了生活，也到台灣當看護工。",
   "家裡剩下2位女兒。小女兒Saskia出生至今都還未見過Wara。",
   "出海6年了，所有人都在等他回家。",
