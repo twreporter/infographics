@@ -16,6 +16,10 @@ export default class LinkContainer extends Component {
     }
   }
 
+  handleClick(e) {
+    e.preventDefault();
+  }
+
   getIOSVersion() {
     if(window.MSStream){
       // There is some iOS in Windows Phone...
@@ -43,7 +47,7 @@ export default class LinkContainer extends Component {
 
     if(isIOS9) {
       return (
-        <a href={to} target="_blank">
+        <a href={to} target="_blank" onClick={this.handleClick}>
           { children }
         </a>
       )

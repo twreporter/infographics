@@ -63,8 +63,12 @@ class Slide extends WindowSizeMixin(Component) {
   }
 
   componentWillUpdate(nextProps) {
-    if(this.props.head.slideIndex !== nextProps.head.slideIndex) {
+    const nextSlideIndex = nextProps.head.slideIndex
+    if(this.props.head.slideIndex !== nextSlideIndex) {
       this.setState({ isPlaying: false })
+    }
+    if(!this.getVideoByIndex(nextSlideIndex) && this.getAudioByIndex(nextSlideIndex)) {
+      this.setState({ isPlaying: true })
     }
   }
 
@@ -325,6 +329,7 @@ class Slide extends WindowSizeMixin(Component) {
 Slide.contextTypes = {
   metadata: PropTypes.object.isRequired,
   router: PropTypes.object.isRequired,
+  isIOS9: React.PropTypes.bool,
 }
 
 Slide.propTypes = {

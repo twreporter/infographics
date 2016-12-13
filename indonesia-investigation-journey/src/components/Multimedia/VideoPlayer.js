@@ -37,33 +37,18 @@ class VideoPlayer extends Component {
 
   handleVideoPlayback() {
     const video = this.video
-    if(video) {
+    if(video && this.context.isIOS9) {
       makeVideoPlayableInline(video, /* hasAudio */ false)
-      // setTimeout(function () {
-        // const e = new Event("touchstart")
-        // video.dispatchEvent(e)
-        // video.play()
-      // }, 10)
+      setTimeout(function () {
+        const e = new Event('touchend')
+        document.dispatchEvent(e)
+        video.play()
+      }, 10)
 
       video.addEventListener("contextmenu", function (e) {
         e.preventDefault()
         e.stopPropagation()
       }, false)
-      //
-      // video.addEventListener("touchstart", function (event) {
-      //   event.preventDefault()
-      //   event.stopPropagation()
-      //   // event.stopImmediatePropagation()
-      //   video.play()
-      //
-      //   // hide the controls if they're visible
-      //   if (video.hasAttribute("controls")) {
-      //       video.removeAttribute("controls")
-      //   }
-      //
-      //   console.log("touchstart", video)
-      //
-      // })
     }
   }
 
@@ -78,10 +63,13 @@ class VideoPlayer extends Component {
     const { source } = this.props
 
     return (
-      <div>
-        <video className={ classnames(styles["video"]) } autoPlay muted playsInline loop
+      <div className={ classnames(styles["video"]) }
+        ref={ (ref) => this.vContainer = ref }
+      >
+        <video autoPlay muted playsInline loop
           onPlay={ this.onPlay }
           ref={ (ref) => this.video = ref }
+          is webkit-playsinline
         >
           <source src={source} type="video/mp4" />
         </video>
@@ -94,6 +82,10 @@ class VideoPlayer extends Component {
 VideoPlayer.propTypes = {
   source: PropTypes.string,
   handlePlay: PropTypes.func,
+}
+
+VideoPlayer.contextTypes = {
+  isIOS9: React.PropTypes.bool
 }
 
 export default VideoPlayer
