@@ -141,6 +141,7 @@
     "lodash": "^4.17.2",
     "raf": "^3.3.0",
     "react-addons-css-transition-group": "^15.4.1",
+    "react-css-transition-replace": "^2.1.0",
     "react-howler": "^3.3.0",
     "react-swipeable": "^3.7.0",
     "velocity-animate": "^1.3.1"

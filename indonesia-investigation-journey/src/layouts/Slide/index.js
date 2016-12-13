@@ -3,6 +3,8 @@ import React, { Component, PropTypes } from "react"
 import ReactHowler from "react-howler"
 import classnames from "classnames"
 import Swipeable from "react-swipeable"
+import ReactCSSTransitionGroup from "react-addons-css-transition-group"
+import ReactCSSTransitionReplace from "react-css-transition-replace"
 import raf from "raf" // requestAnimationFrame polyfill
 
 import WindowSizeMixin from "../WindowSizeMixin"
@@ -189,7 +191,7 @@ class Slide extends WindowSizeMixin(Component) {
     const isMapOverlay = (slideIndex === 3)
 
     const Video = isVideo ?
-      <VideoPlayer source={videoSource}
+      <VideoPlayer source={videoSource} key={videoSource}
         handlePlay={ () => {
           this.setState({ isPlaying: true })
         } }
@@ -246,23 +248,37 @@ class Slide extends WindowSizeMixin(Component) {
                 className={ styles["image"] }
                  ref={(ref) => this.imageBox = ref}
               />*/}
-              <div style={ {backgroundImage: "url(" + bgPhoto + ")"} }
-                className={ classnames(lastPageBg, styles["bg-large-image"]) }
-                ref={(ref) => this.imageBox = ref}
-              />
-              { Video }
+              <ReactCSSTransitionReplace transitionName="cross-fade"
+                             transitionEnterTimeout={350} transitionLeaveTimeout={350}>
+                <div key={bgPhoto} style={ {backgroundImage: "url(" + bgPhoto + ")"} }
+                  className={ classnames(lastPageBg, styles["bg-large-image"]) }
+                  ref={(ref) => this.imageBox = ref}
+                />
+              </ReactCSSTransitionReplace>
+              <ReactCSSTransitionReplace transitionName="fade-wait"
+                             transitionEnterTimeout={350} transitionLeaveTimeout={350}>
+                { Video }
+              </ReactCSSTransitionReplace>
             </div>
 
             <div className={styles["bg-overlay"]}></div>
-            <div className={styles["bottom-box"]}>
-              <div className={ classnames(commonStyles["content-outer"],
-                styles["description"], desClass) }
-              >
-                <div
-                  dangerouslySetInnerHTML={ { __html: body } }
-                />
+            <ReactCSSTransitionGroup
+              transitionName="fade"
+              transitionAppear={true}
+              transitionAppearTimeout={0}
+              transitionEnterTimeout={0}
+              transitionLeaveTimeout={800}>
+              <div className={styles["bottom-box"]}>
+                <div className={ classnames(commonStyles["content-outer"],
+                  styles["description"], desClass) }
+                >
+                  <div
+                    key={`text-${slideIndex}`}
+                    dangerouslySetInnerHTML={ { __html: body } }
+                  />
+                </div>
               </div>
-            </div>
+            </ReactCSSTransitionGroup>
             <div ref={(ref) => this.preBtn = ref}>
               <LinkContainer to={previousLink}>
                 <div className={ styles["left-button"] } >
@@ -311,11 +327,17 @@ class Slide extends WindowSizeMixin(Component) {
               <LastSlide siteUrl={siteUrl}/> : null
           }
 
+          <ReactCSSTransitionGroup
+            transitionName="fade"
+            transitionAppear={true}
+            transitionAppearTimeout={100}
+            transitionEnterTimeout={100}
+            transitionLeaveTimeout={800}>
           {
             isMapOverlay ?
               <MapOverlay isMobile={ isMobile }/> : null
           }
-
+          </ReactCSSTransitionGroup>
         </Swipeable>
 
         <Header {...this.props}/>
