@@ -200,7 +200,7 @@ class Slide extends WindowSizeMixin(Component) {
     const nextVideo = (nextIndex>=0) ? this.getVideoByIndex(nextIndex) : null
     const nextAudio = (nextIndex>=0) ? this.getAudioByIndex(nextIndex) : null
 
-    const isMapOverlay = (slideIndex === 1)
+    const isMapOverlay = (slideIndex === 2)
 
     const Video = isVideo ?
       <VideoPlayer source={videoSource} key={videoSource}
