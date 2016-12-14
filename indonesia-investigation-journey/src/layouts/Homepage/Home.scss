@@ -37,6 +37,12 @@
   font-weight: 400;
   font-style: normal;
 
+  @media screen and (min-width: $width-lg) {
+    width: 30%;
+    margin-right: 0;
+    margin-bottom: 23vh;
+  }
+
   h1{
     font-size: 65px;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);

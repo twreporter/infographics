@@ -240,6 +240,7 @@ class Slide extends WindowSizeMixin(Component) {
             <div className={ commonStyles["hide"] }>
               <img src={prePhoto} className={ styles["image"] }/>
               <img src={nextPhoto} className={ styles["image"] }/>
+              <img src={this.getPhotoByIndex(slideIndex+2)} className={ styles["image"] }/>
               <video width="10" muted>
                 <source src={preVideo} type="video/webm"/>
               </video>
@@ -251,6 +252,12 @@ class Slide extends WindowSizeMixin(Component) {
               </video>
               <audio width="10" muted>
                 <source src={nextAudio} type="audio/ogg"/>
+              </audio>
+              <video width="10" muted>
+                <source src={this.getVideoByIndex(slideIndex+2)} type="video/webm"/>
+              </video>
+              <audio width="10" muted>
+                <source src={this.getAudioByIndex(slideIndex+2)} type="audio/ogg"/>
               </audio>
             </div>
             {/* End - Preload Image and Video */}
@@ -274,6 +281,19 @@ class Slide extends WindowSizeMixin(Component) {
             </div>
 
             <div className={styles["bg-overlay"]}></div>
+
+            <ReactCSSTransitionGroup
+              transitionName="fade"
+              transitionAppear={true}
+              transitionAppearTimeout={300}
+              transitionEnterTimeout={300}
+              transitionLeaveTimeout={800}>
+            {
+              isMapOverlay ?
+                <MapOverlay isMobile={ isMobile }/> : null
+            }
+            </ReactCSSTransitionGroup>
+
             <ReactCSSTransitionGroup
               transitionName="fade"
               transitionAppear={true}
@@ -336,17 +356,6 @@ class Slide extends WindowSizeMixin(Component) {
               <LastSlide siteUrl={siteUrl}/> : null
           }
 
-          <ReactCSSTransitionGroup
-            transitionName="fade"
-            transitionAppear={true}
-            transitionAppearTimeout={100}
-            transitionEnterTimeout={100}
-            transitionLeaveTimeout={800}>
-          {
-            isMapOverlay ?
-              <MapOverlay isMobile={ isMobile }/> : null
-          }
-          </ReactCSSTransitionGroup>
         </Swipeable>
 
         <Header {...this.props}/>

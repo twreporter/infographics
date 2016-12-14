@@ -1,5 +1,9 @@
 export const PHOTOS = [
   {
+    photo: "0.jpg",
+    photoMobile: "0_mobile.jpg"
+  },
+  {
     photo: "1.jpg",
     photoMobile: "1_mobile.jpg"
   },
@@ -170,6 +174,10 @@ export const PHOTOS = [
 ]
 
 export const VIDEOS = [
+  {
+    video: "0.mp4",
+    videoMobile: "0_mobile.mp4",
+  },
   {
     video: null,
     videoMobile: null,
@@ -343,6 +351,9 @@ export const VIDEOS = [
 
 export const AUDIOS = [
   {
+    audio: "0.mp3",
+  },
+  {
     audio: null,
   },
   {
@@ -471,6 +482,7 @@ export const AUDIOS = [
 ]
 
 export const TEXT = [
+  null,
   "每一年，有近萬名印尼漁工，以境外聘僱的方式，為台灣遠洋漁業付出勞力。他們忍受惡劣的工作環境與勞動剝削，只為了更好的生活。",
   "我們從雅加達出發，開了8、9個多小時的車到中爪哇的城市直葛，這裡是輸出最多漁工到台灣的地方。",
   "直葛是沿海的城市，很多男性不到10歲就跟著家人到海上捕魚。他們比其他的印尼人更能適應海上的生活。",

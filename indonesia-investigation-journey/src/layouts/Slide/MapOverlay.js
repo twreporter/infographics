@@ -44,15 +44,15 @@ class MapOverlay extends Component {
       endMark.style.opacity = '0'
       journeyLength.style.opacity = '0'
 
-      velocity(startMark, { opacity: [ 1, 0 ] }, { duration: 200, easing: "easeInOut" })
+      velocity(startMark, { opacity: [ 1, 0 ] }, { duration: 800, easing: "easeInOut" })
         .then(() => {
-          return velocity(lineJourney, {"stroke-dashoffset": [0,jLength]}, { duration: 1300, easing: "easeIn" })
+          return velocity(lineJourney, {"stroke-dashoffset": [0,jLength]}, { duration: 1800, easing: "easeIn" })
         })
         .then(() => {
-          return velocity(endMark, { opacity: [ 1, 0 ] }, { duration: 200, easing: "easeInOut" })
+          return velocity(endMark, { opacity: [ 1, 0 ] }, { duration: 350, easing: "easeInOut" })
         })
         .then(() => {
-          return velocity(journeyLength, { opacity: [ 1, 0 ] }, { duration: 350, easing: "easeOut" })
+          return velocity(journeyLength, { opacity: [ 1, 0 ] }, { duration: 400, easing: "easeOut" })
         })
     }
   }
@@ -62,8 +62,10 @@ class MapOverlay extends Component {
     const imgSrc = isMobile ? mapImgMobile : mapImg
 
     return (
-      <div className={ styles["container"] }>
-        <SVGInline className={styles["icon"]} svg={ imgSrc } />
+      <div className={ styles["bg-overlay"] }>
+        <div className={ styles["container"] }>
+          <SVGInline className={styles["icon"]} svg={ imgSrc } />
+        </div>
       </div>
     )
   }
