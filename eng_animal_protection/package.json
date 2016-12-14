@@ -1,0 +1,110 @@
+{
+  "private": true,
+  "name": "animal-protection",
+  "homepage": "https://www.twreporter.org/a/animal-protection/",
+  "absPath": "https://www.twreporter.org",
+  "twitter": "報導者TheReporter",
+  "aDescription": "2017年年初正式執行零安樂死政策，但原本資源就匱乏的收容所獸醫、動保員正面臨壓力的臨界點。對現階段的台灣來說，零安樂死就像是感性訴求的童話故事，但現實卻是殘酷的。",
+  "repository": "",
+  "scripts": {
+    "lint:js": "eslint --ignore-path .gitignore --fix .",
+    "lint:css": "stylelint \"web_modules/**/*.css\"",
+    "lint": "npm-run-all --parallel lint:*",
+    "start": "phenomic start",
+    "build": "phenomic build",
+    "pretest": "npm run lint",
+    "test": "npm run build"
+  },
+  "phenomic": {
+    "CNAME": false
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-react",
+      "babel-preset-es2015",
+      "babel-preset-stage-1"
+    ],
+    "env": {
+      "production": {
+        "presets": [
+          "babel-preset-react-optimize"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "eslint-config-i-am-meticulous/react"
+    ],
+    "rules": {
+      "react/prefer-stateless-function": 0
+    }
+  },
+  "eslintConfigRuleReact/prefer-stateless-function": "https://github.com/MoOx/phenomic/issues/46",
+  "stylelint": {
+    "extends": "stylelint-config-standard"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.3.17",
+    "babel-core": "^6.3.26",
+    "babel-eslint": "^6.0.0-beta.0",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-react-hmre": "^1.0.1",
+    "babel-preset-react-optimize": "^1.0.1",
+    "babel-preset-stage-1": "^6.3.13",
+    "css-loader": "^0.23.0",
+    "eslint": "^2.0.0",
+    "eslint-config-i-am-meticulous": "^4.1.1",
+    "eslint-loader": "^1.3.0",
+    "eslint-plugin-react": "^4.3.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.1",
+    "history": "^2.0.0",
+    "html-loader": "^0.4.4",
+    "invariant": "^2.1.1",
+    "json-loader": "^0.5.2",
+    "node-sass": "^3.10.0",
+    "npm-run-all": "^1.7.0",
+    "phenomic": "^0.17.8",
+    "postcss-browser-reporter": "^0.4.0",
+    "postcss-cssnext": "^2.4.0",
+    "postcss-loader": "^0.7.0",
+    "postcss-reporter": "^1.3.0",
+    "raw-loader": "^0.5.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-helmet": "^3.0.0",
+    "react-redux": "^4.0.0",
+    "react-router": "^2.3.0",
+    "react-svg-inline": "^1.1.0",
+    "react-topbar-progress-indicator": "^1.0.0",
+    "redux": "^3.0.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.12.3",
+    "stylelint": "^6.8.0",
+    "stylelint-config-standard": "^10.0.0",
+    "webpack": "^1.13.2",
+    "whatwg-fetch": "^0.11.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^6.4.1",
+    "classnames": "^2.2.5",
+    "html-loader": "^0.4.4",
+    "konva": "^1.2.2",
+    "lodash": "^4.16.2",
+    "raf": "^3.3.0",
+    "react": "^15.3.2",
+    "react-ga": "^2.1.2",
+    "react-holder": "^1.0.0",
+    "react-howler": "^3.2.0",
+    "react-image-holder": "^2.0.1",
+    "react-konva": "^1.0.6",
+    "react-markdown": "^2.4.2",
+    "react-swipeable": "^3.7.0",
+    "react-waypoint": "^3.1.3",
+    "velocity-animate": "^1.3.1"
+  }
+}
