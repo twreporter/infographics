@@ -31,7 +31,7 @@
 
   @media screen and (max-width: $width-xs) and (orientation: portrait) {
     position: absolute;
-    top: 59vh;
+    top: 61vh;
   }
 
   @media screen and (max-height: $width-xs) and (orientation: landscape) {
@@ -96,7 +96,20 @@
   }
 }
 
-.bg-overlay {
+.bg-overlay-top {
+  width: 100%;
+  height: 8vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, 0) 100%);
+
+  @media screen and (max-width: $width-xs) and (orientation: portrait) {
+    display: none;
+  }
+}
+
+.bg-overlay-bottom {
   width: 100%;
   height: 30vh;
   position: fixed;

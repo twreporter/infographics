@@ -259,6 +259,8 @@ class Slide extends WindowSizeMixin(Component) {
               <audio width="10" muted>
                 <source src={this.getAudioByIndex(slideIndex+2)} type="audio/ogg"/>
               </audio>
+              <span>TEXT[slideIndex+1]</span>
+              <span>TEXT[slideIndex-1]</span>
             </div>
             {/* End - Preload Image and Video */}
 
@@ -280,7 +282,8 @@ class Slide extends WindowSizeMixin(Component) {
               </ReactCSSTransitionReplace>
             </div>
 
-            <div className={styles["bg-overlay"]}></div>
+            <div className={styles["bg-overlay-top"]}></div>
+            <div className={styles["bg-overlay-bottom"]}></div>
 
             <ReactCSSTransitionGroup
               transitionName="fade"
@@ -308,7 +311,7 @@ class Slide extends WindowSizeMixin(Component) {
                     key={`text-${slideIndex}`}
                     dangerouslySetInnerHTML={ { __html: body } }
                   />*/}
-                  <span>{TEXT[slideIndex]}</span>
+                  <span key={`text-${slideIndex}`} dangerouslySetInnerHTML={ { __html: TEXT[slideIndex] } }></span>
                 </div>
               </div>
             </ReactCSSTransitionGroup>

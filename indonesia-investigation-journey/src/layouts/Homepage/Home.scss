@@ -114,7 +114,7 @@
 
 .right-button {
   @extend .nav-button;
-  right: 0;
+  right: 0.5rem;
   padding-left: 10%;
 
   &:hover {
@@ -129,11 +129,15 @@
 }
 
 .info-box {
+  float: left;
+  text-align: left;
+  padding-left: 2.3rem;
+  display: inline-block;
   @media screen and (max-width: $width-xs) and (orientation:portrait) {
     position: absolute;
     bottom: -1.3rem;
-    text-align: left;
     left: 0.5rem;
+    padding-left: 0.35rem;
     font-size: $small-font-size;
 
     p {

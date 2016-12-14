@@ -205,6 +205,8 @@
 }
 
 .github-link {
+  position: relative;
+  top: -0.28rem;
   @media (max-width: $width-md) {
     display: none;
   }

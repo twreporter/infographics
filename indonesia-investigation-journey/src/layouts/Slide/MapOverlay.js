@@ -44,15 +44,15 @@ class MapOverlay extends Component {
       endMark.style.opacity = '0'
       journeyLength.style.opacity = '0'
 
-      velocity(startMark, { opacity: [ 1, 0 ] }, { duration: 800, easing: "easeInOut" })
+      velocity(startMark, { opacity: [ 1, 0 ] }, { delay: 500, duration: 800, easing: "easeInOut" })
         .then(() => {
-          return velocity(lineJourney, {"stroke-dashoffset": [0,jLength]}, { duration: 1800, easing: "easeIn" })
+          return velocity(lineJourney, {"stroke-dashoffset": [0,jLength]}, { duration: 2200, easing: "easeIn" })
         })
         .then(() => {
-          return velocity(endMark, { opacity: [ 1, 0 ] }, { duration: 350, easing: "easeInOut" })
+          return velocity(endMark, { opacity: [ 1, 0 ] }, { duration: 500, easing: "easeInOut" })
         })
         .then(() => {
-          return velocity(journeyLength, { opacity: [ 1, 0 ] }, { duration: 400, easing: "easeOut" })
+          return velocity(journeyLength, { opacity: [ 1, 0 ] }, { duration: 500, easing: "easeOut" })
         })
     }
   }
