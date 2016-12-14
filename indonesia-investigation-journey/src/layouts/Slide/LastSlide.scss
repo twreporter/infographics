@@ -51,11 +51,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: $outer-box-shadow;
-    border: solid 0 rgba($white, 0.5);
-    transition: all 0.5s ease;
+    border: solid 0 rgba($white, 0.8);
+    transition: all 0.5s ease-in-out;
 
     &:hover {
-      transition: all 0.3s ease;
+      transition: all 0.3s ease-in-out;
       border: solid 15px $white;
     }
 
@@ -181,11 +181,18 @@
   }
 }
 
+.reporter-logo {
+  margin-bottom: 0;
+  @media (max-width: $width-xs) {
+    display: none !important;
+  }
+}
+
 .donate-btn {
   width: 300px;
   border-radius: 3px;
   background-color: $red;
-  padding: 0.7rem 1rem;
+  padding: 0.6rem 1rem;
   display: block;
   text-align: center;
   float: right;

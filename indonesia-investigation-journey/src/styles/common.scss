@@ -84,6 +84,12 @@
   display: none !important;
 }
 
+.hide-mobile {
+  @media (max-width: $width-xs) {
+    display: none !important;
+  }
+}
+
 .slide-up {
   @include slide-up(1s, 50px);
 }

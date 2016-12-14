@@ -8,6 +8,12 @@
 
 .bg-media {
   transition: all 1s ease;
+  > span {
+    width: 100%;
+    > span {
+      width: 100%;
+    }
+  }
 }
 
 .blur {

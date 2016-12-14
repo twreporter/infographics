@@ -72,7 +72,9 @@ const LastSlide = (props) => {
               <div className={styles["grid-right"]}>
                 <div>
                   <p className={styles["github-link"]}><a target="_blank" href="https://github.com/twreporter/infographics"><SVGInline svg={ githubIcon } /> &nbsp; github.com/twreporter</a></p>
-                  <p><a target="_blank" href="https://www.twreporter.org/"><SVGInline svg={ largeLogo } /></a></p>
+                  <p >攝影 | <span itemProp="author">林佑恩</span> &nbsp; 文字 | <span itemProp="author">林佑恩</span>、<span itemProp="author">蔣宜婷</span> <br/>
+                  設計 | <span itemProp="author">吳政達</span> &nbsp; 工程 | <span itemProp="author">王珣沛</span> &nbsp; 監製 | <span itemProp="author">李雪莉</span></p>
+                  <p className={styles["reporter-logo"]}><a target="_blank" href="https://www.twreporter.org/"><SVGInline svg={ largeLogo } /></a></p>
                   <a target="_blank" className={ styles["donate-btn"] } href="https://twreporter.backme.tw/cashflow/checkout?project_id=175&reward_id=718"><SVGInline svg={ donateIcon } /> &nbsp; 贊助我們</a>
                   <div className={ commonStyles["white-text"] }
                     dangerouslySetInnerHTML={ { __html:

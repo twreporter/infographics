@@ -2,7 +2,7 @@
 title: 前仆後繼
 subtitle: 印尼漁工的台灣夢
 layout: Homepage
-date: 2016.12.15
+date: 2016.12.19
 photo: cover.jpg
 photoMobile: cover-mobile.jpg
 ---
