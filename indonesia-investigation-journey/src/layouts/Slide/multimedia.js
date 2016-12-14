@@ -95,6 +95,78 @@ export const PHOTOS = [
     photo: "24.jpg",
     photoMobile: "24_mobile.jpg"
   },
+  {
+    photo: "25.jpg",
+    photoMobile: "25_mobile.jpg"
+  },
+  {
+    photo: "26.jpg",
+    photoMobile: "26_mobile.jpg"
+  },
+  {
+    photo: "27.jpg",
+    photoMobile: "27_mobile.jpg"
+  },
+  {
+    photo: "28.jpg",
+    photoMobile: "28_mobile.jpg"
+  },
+  {
+    photo: "29.jpg",
+    photoMobile: "29_mobile.jpg"
+  },
+  {
+    photo: "30.jpg",
+    photoMobile: "30_mobile.jpg"
+  },
+  {
+    photo: "31.jpg",
+    photoMobile: "31_mobile.jpg"
+  },
+  {
+    photo: "32.jpg",
+    photoMobile: "32_mobile.jpg"
+  },
+  {
+    photo: "33.jpg",
+    photoMobile: "33_mobile.jpg"
+  },
+  {
+    photo: "34.jpg",
+    photoMobile: "34_mobile.jpg"
+  },
+  {
+    photo: "35.jpg",
+    photoMobile: "35_mobile.jpg"
+  },
+  {
+    photo: "36.jpg",
+    photoMobile: "36_mobile.jpg"
+  },
+  {
+    photo: "37.jpg",
+    photoMobile: "37_mobile.jpg"
+  },
+  {
+    photo: "38.jpg",
+    photoMobile: "38_mobile.jpg"
+  },
+  {
+    photo: "39.jpg",
+    photoMobile: "39_mobile.jpg"
+  },
+  {
+    photo: "40.jpg",
+    photoMobile: "40_mobile.jpg"
+  },
+  {
+    photo: "41.jpg",
+    photoMobile: "41_mobile.jpg"
+  },
+  {
+    photo: "41.jpg",
+    photoMobile: "41_mobile.jpg"
+  },
 ]
 
 export const VIDEOS = [
@@ -194,6 +266,78 @@ export const VIDEOS = [
     video: "24.mp4",
     videoMobile: "24_mobile.mp4",
   },
+  {
+    video: "25.mp4",
+    videoMobile: "25_mobile.mp4",
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: "27.mp4",
+    videoMobile: "27_mobile.mp4",
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: "33.mp4",
+    videoMobile: "33_mobile.mp4",
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: null,
+    videoMobile: null,
+  },
+  {
+    video: "39.mp4",
+    videoMobile: "39_mobile.mp4",
+  },
+  {
+    video: "40.mp4",
+    videoMobile: "40_mobile.mp4",
+  },
+  {
+    video: "41.mp4",
+    videoMobile: "41_mobile.mp4",
+  },
+  {
+    video: "41.mp4",
+    videoMobile: "41_mobile.mp4",
+  },
 ]
 
 
@@ -270,6 +414,60 @@ export const AUDIOS = [
   {
     audio: "24.mp3",
   },
+  {
+    audio: "25.mp3",
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: "27.mp3",
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: "33.mp3",
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: null,
+  },
+  {
+    audio: "39.mp3",
+  },
+  {
+    audio: "40.mp3",
+  },
+  {
+    audio: "41.mp3",
+  },
+  {
+    audio: "41.mp3",
+  },
 ]
 
 export const TEXT = [
@@ -303,11 +501,15 @@ export const TEXT = [
   "接駁的大哥說，從出境閘門出來，若是一團5、6個皮膚黑黑的，就是來當漁工的。",
   "破舊的廂型車，就是一個移動的鐵籠，將他們與車外的世界隔離。",
   "第二站，是到高雄民生醫院做登革熱的篩檢。漁工們事先不知道要抽血，有的看到針頭都非常緊張。",
+  null,
+  null,
   "等待篩檢結果要半個小時，這是他們第一次能夠好好呼吸到外界空氣。而身旁仲介大哥緊緊盯著。5、6個人點起了菸，摸摸肚子示意肚子餓。大哥只淡淡的回說：船上。",
   "第三站是岸置所，將 3、40個人關在一個門窗全部上鎖的狹小空間，統一管理。",
   null,
   "民生用品樣樣要另外付費。一杯可樂66元，一份炒蛋132元。",
   "但今年高雄地檢署以人口販運與妨礙人身自由，勒令所有岸置所停業，所有境外聘雇的漁工，做完體檢後就要直接上船。",
+  null,
   "最後一站，是直達未來2年，他們要待的漁船。車子慢慢地開到前鎮漁港，窗外出現一艘艘靠岸的船隻，他們靠在窗戶瞪大眼睛",
+  null,
   "出了海，就是隔絕又險峻的世界。即便知道可能回不了家，印尼漁工還是前仆後繼的上台灣漁船，掙一個足以翻身的夢。許多印尼漁工跟這群年輕人一樣，不到20歲就出海，抵上2年自由，跟他們不確定的命運。"
 ]

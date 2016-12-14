@@ -66,7 +66,12 @@ class Slide extends WindowSizeMixin(Component) {
 
   componentWillUpdate(nextProps) {
     const nextSlideIndex = nextProps.head.slideIndex
-    if(this.props.head.slideIndex !== nextSlideIndex) {
+    const { slideIndex } = this.props.head
+    if(this.getAudioByIndex(nextSlideIndex) &&
+       this.getAudioByIndex(slideIndex) === this.getAudioByIndex(nextSlideIndex)) {
+      // last two slide, continue playing
+      return
+    } else if(this.props.head.slideIndex !== nextSlideIndex) {
       this.setState({ isPlaying: false })
 
       if(!this.getVideoByIndex(nextSlideIndex) && this.getAudioByIndex(nextSlideIndex)) {
@@ -129,6 +134,11 @@ class Slide extends WindowSizeMixin(Component) {
     this.context.router.replace(this.getNextLink(slideIndex))
   }
 
+  checkIfLastSlide(slideIndex) {
+    const { totalSlides } = this.context.metadata
+    return slideIndex+2 > totalSlides
+  }
+
   handleKeyPress(evt) {
     const { slideIndex } = this.props.head
     const { totalSlides } = this.context.metadata
@@ -170,7 +180,7 @@ class Slide extends WindowSizeMixin(Component) {
     const preIndex = (slideIndex-1 < 0) ? -1 : slideIndex-1
     const nextIndex = (slideIndex+1 >= totalSlides) ? -1 : slideIndex+1
 
-    const isLastPage = (slideIndex+2 > totalSlides)
+    const isLastPage = this.checkIfLastSlide(slideIndex)
 
     const previousLink = this.getPreLink(slideIndex)
     const nextLink = this.getNextLink(slideIndex)
@@ -245,7 +255,7 @@ class Slide extends WindowSizeMixin(Component) {
             </div>
             {/* End - Preload Image and Video */}
 
-            <div className={ classnames(styles["bg-media"]) }>
+            <div className={ classnames(lastPageBg, styles["bg-media"]) }>
               {/* <img src={bgPhoto}
                 className={ styles["image"] }
                  ref={(ref) => this.imageBox = ref}
@@ -253,7 +263,7 @@ class Slide extends WindowSizeMixin(Component) {
               <ReactCSSTransitionReplace transitionName="cross-fade"
                              transitionEnterTimeout={350} transitionLeaveTimeout={350}>
                 <div key={bgPhoto} style={ {backgroundImage: "url(" + bgPhoto + ")"} }
-                  className={ classnames(lastPageBg, styles["bg-large-image"]) }
+                  className={ classnames(styles["bg-large-image"]) }
                   ref={(ref) => this.imageBox = ref}
                 />
               </ReactCSSTransitionReplace>
