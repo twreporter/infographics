@@ -1,5 +1,5 @@
 /*eslint-disable */
-export const supportUs = "贊助我們"
+export const supportUs = "Support Us"
 export const authorText = '製作團隊：'
 export const authorSeparator = '、'
 export const authorList = [

@@ -291,13 +291,13 @@ export default class FullPageGov extends Component {
                   ref={ (ref) => this.slide1 = ref }
                 >
                   <div className={ styles["des-box"] }>
-                    <h4 className={ styles["title"] }>1998 年動保法實施後</h4>
+                    <h4 className={ styles["title"] }>1998-2008</h4>
                     <p>
-                      因政府沒有動物保護機關，因此動保業務就四散給與「動物」相關的單位。由農委會下的防檢局和畜牧處分別負責公立收容所與動保行政管理。
+                      As there was no central authority coordinating and controlling animal welfare affairs, animal welfare functions were spread across a number of “animal-related” agencies. The Bureau of Animal and Plant Health Inspection and Quarantine and the Department of Animal Industry were delegated with the duties of running public shelters and administering animal welfare regulations, respectively.
                     </p>
                     <div className={ styles["note-box"] }>
-                      <p>畜牧行政科員額：9人<br />
-                      業務：畜牧生產政策與法規訂定、畜牧場管理之策畫與督導、畜牧發展基金之督導管理、畜牧團體之指導及監督、推動畜牧國際合作及人才交流與訓練計畫等，以及與動物保護相關的業務。</p>
+                      <p><b>Staffing of the Livestock Management Section:</b> nine<br />
+                      <b>Functions:</b> Formulation and administration of animal husbandry laws, regulation of livestock farms, management of the Fund for Animal Husbandry Development, support and supervision of animal husbandry and breeding entities, cooperation with global animal husbandry organizations, development of  training and talent exchange programs, protection and welfare of animals, etc.</p>
                     </div>
                   </div>
                 </div>
@@ -305,13 +305,13 @@ export default class FullPageGov extends Component {
                   ref={ (ref) => this.slide2 = ref }
                 >
                   <div className={ styles["des-box"] }>
-                    <h4 className={ styles["title"] }>2009-2016 年</h4>
+                    <h4 className={ styles["title"] }>2009-2016</h4>
                     <p>
-                      畜牧行政科改名為動物保護科，但只是在原本業務（畜牧處的行政彙整、預算統整等）上新增動保相關業務，人力依然不足。
+                      The Livestock Administration Section was renamed the Animal Welfare Section charged with the additional responsibility of upholding and enforcing animal welfare legislation. The shortage of staff remained one of its biggest challenges.
                     </p>
                     <div className={ styles["note-box"] }>
-                      <p>動物保護科員額：9人<br />
-                      業務：寵物管理、實驗動物人道管理、經濟動物福利政策、動物收容管理、動物保護政策與法規、動物保護團體輔導及監督、動物管制業務、動物保護國際合作、人才交流及訓練事宜之推動等。</p>
+                      <p><b>Staffing of the Animal Welfare Section:</b> nine<br />
+                      <b>Functions:</b> Regulation of pet care, regulation of laboratory animal care, protection and welfare of economic animals, animal sheltering and management, enforcement of animal welfare legislation and its associated policy guidelines, support and supervision of animal rights groups, animal control, cooperation with global animal welfare organizations, development of  training and talent exchange programs, etc.</p>
                     </div>
                   </div>
                 </div>
@@ -319,12 +319,12 @@ export default class FullPageGov extends Component {
                   ref={ (ref) => this.slide3 = ref }
                 >
                   <div className={ styles["des-box"] }>
-                    <h4 className={ styles["title"] }>未來推動方向</h4>
+                    <h4 className={ styles["title"] }>Present – </h4>
                     <p>
-                      動保團體要求新增動保司，將畜牧動保業務分開。農委會回應未來將設立「動物保護會」的常態性任務編組，下設兩個科，直接管理動保相關業務。但目前因「農業組織法」草案未審查通過，尚未設立。
+                      Animal welfare activists demand that a new department be established in order to differentiate the functions of regulating animal husbandry and enforcing animal protection laws. The Council of Agriculture is reported to consider forming the Animal Welfare Bureau with two sections attached to it. Their proposal is pending the passage of a draft of the Agriculture Organization Act.
                     </p>
                     <p>
-                      動物保護會員額：下設動物保護和寵物福利兩個科，員額尚未確定。
+                      <b>Staffing:</b> the number of staff for the planned Animal Welfare Section and Pet Care Section is not available at this time.
                     </p>
                   </div>
                 </div>

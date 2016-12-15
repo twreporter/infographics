@@ -1,11 +1,11 @@
 /*eslint-disable */
 export const chapter = {
   id: "V",
-  title: `你認為該怎麼處理<nobr>流浪動物</nobr>問題？`
+  title: `How should the issue with stray animals be addressed?`
 }
 
 export const topBox = `
-流浪動物政策關乎社會每一個人，社會的共識將會影響後續政策的推行。看完專題後，你對流浪動物政策有什麼想法呢？歡迎留下你的意見，並對他人意見投下【贊成／反對】票。
+The policy on stray animals relates to everyone. Citizen input and consensus of opinion are keys to effective public policy implementation. After you read this report, please feel welcome to leave a comment and vote on others’ comments. Animal advocacy groups will be invited to make comments as well.
 `
 
-export const sec1Des = `pol.is 是一種新的凝聚共識工具，以視覺化的方式呈現各方立場，並用演算法計算使用者與其他人的立場距離。一旦用社群帳號登入後，就可以看到朋友與追蹤者的立場。看到周邊親近的人的立場後，期望使用者重新思考自己的立場，讓彼此的立場靠攏，獲得共識。`
+export const sec1Des = `Pol.is is a new digital tool for finding and visualizing consensus. In a pol.is conversation, participants write comments in response to an open-ended question and react to each other's comments by voting.  Through the use of statistical analysis, pol.is generates real-time visualization showing opinion groups that have formed. After logging in with a social network, people can see how they are grouped with friends and followers they tend to agree with. They can also find the representative comments that separate their group from other groups. By exploring, people gain insights into differences and similarities, thereby expediting the process of reaching consensus.`

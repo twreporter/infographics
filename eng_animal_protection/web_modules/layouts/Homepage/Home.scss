@@ -6,6 +6,10 @@
   width: 100%;
   overflow-x: hidden;
   background-color: $content-bg;
+
+  b {
+    font-weight: $font-bold;
+  }
 }
 .header {
   @include fade-in(0.2s);

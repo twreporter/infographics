@@ -1,65 +1,65 @@
 /*eslint-disable */
 export const chapter = {
   id: "III",
-  title: `零安樂死政策<nobr>實施在即</nobr><br/>政府內部準備好了嗎？`
+  title: `New “zero-euthanasia” mandate fuels skepticism over readiness`
 }
 
 export const topBox = `
-要解決流浪動物問題，必須多管齊下。不管我們選擇何種解方，都需要有人去落實法律。除了流浪動物，如何落實寵物登記、加強飼主教育、管理繁殖業者也是問題。種種破洞等著政府解決，動保法至今已修法10次，但在人力及預算皆有限的情況下，法律真的有被落實嗎？政府內部面臨了什麼問題呢？
+Solving the stray animal problem is going to take a multi-faceted approach. Whichever approach is chosen, implementation is key to success. To address stray overpopulation at the source, registration of pet animals, education of pet owners and regulation of breeders must be put in place. After 10 revisions made to the Animal Protection Act, has animal welfare legislation been upheld and enforced, or has it become a lost cause due to implementation issues? What are the problems that exist within and outside of the animal welfare authorities?
 `
-export const titles = [`動保法頻繁修正新增，到底有沒有成效？`, `動物保護檢查員工作繁重、流動率高，兼職人數竟大於專職`, `動保業務年年增加但行政層級不足`]
+export const titles = [`Impact of animal law amendments in doubt`, `Animal welfare inspectors grappling with heavy workload and high turnover; full-time inspectors outnumbered by part-time inspectors`, `Too little power, too many responsibilities`]
 
-export const sec1Des = `**動保法**自1998年公布實施至今，已經經歷10次修法，針對流浪動物的問題，究竟有沒有辦法有效解決呢？我們訪問了第一線的執法人員，發現除了「法在，沒人力執行」的問題外，他們也很常遇到以下狀況，讓法律形同具文，無法有效落實。`
+export const sec1Des = `Enacted in 1998, the **Animal Protection Act** has been amended 10 times to date. Has the problem of stray animals been addressed by the revisions? ***The Reporter***’s interviews with law enforcement personnel pointed to a number of factors, including a shortage of staff, that contribute to poor enforcement of animal welfare laws.`
 
-export const sec2Des = `政府內部與動保業務相關的總共有三種職位：收容管理人員、收容所獸醫師、動物保護檢查員。其中又以動物檢查員工作最為繁雜。獸醫系出身的他們，除了要處理民眾投訴，舉凡查緝非法狗場、開設裁罰單等這類偏重辦案技巧、法律專業的業務，也都要一手包辦。
+export const sec2Des = `There are three types of personnel involved in animal welfare: staff and leadership of public shelters, veterinarians, and animal welfare inspectors. Among them, animal welfare inspectors are tasked with the most difficult responsibilities. In addition to handling animal welfare complaints, they use their veterinary knowledge along with legal and investigation skills to identity breaches of animal welfare standards and requirements, investigate illegal breeding kennels and issue citations.
 
-他們的工作內容大多在處理民眾情緒，這種面臨第一線衝突、心理壓力極大的職位，被內部諷刺為「屎缺」。通常都是年紀最輕的獸醫擔任，流動率高、經驗難以傳承。
+Working in what their fellow co-workers call a “shitty” position, animal welfare inspectors are exposed first-hand to situations that give rise to feelings of anxiety, personal conflicts, and psychological stress. As the duties as inspector are largely assumed by junior veterinarians, high turnover among inspection staff lead to a persistent gap in knowledge and skills.
 
-人力不足，加上業務繁重，少少的人力根本無法應付與日俱增的業務，導致發生「法在，但沒人執行」的狀況。
+Struggling with work overload and short-staffing, animal welfare inspectors are unable to keep pace with increasing demand. As a result, the law is there but it is not enforced.
 
-以桃園為例，桃園有兩百多家寵物業者，但卻只有一個動保員負責。根據農委會105年最新數據，全台檢舉與稽查按件數已經高達61568件，但目前正職與兼職的動保員人數卻只有154位，平均一個人要處理近4百件案件。`
+Take Taoyuan City. There is only one inspector who audits more than 200 pet shops and kennels in the city. The latest data available from the Council of Agriculture showed a total of 61,568 complaints and audits received and carried out throughout Taiwan in 2016, but the number of full- and part-time animal welfare inspectors was 154, meaning that each inspector must handle close to 400 animal care cases.`
 
-export const barChartDes = `人力吃緊的狀況下，許多縣市因此招募大量的兼職人員，105年資料顯示，某些縣市甚至有兼職人數超越正職的狀況。`
+export const barChartDes = `Municipal and county governments are hiring more and more part-time workers so that costs of labor can be saved. There are cases where part-time employees outnumber full-time employees.`
 
-export const sec3Des = `除了地方人力不足，專責動保業務的中央單位「動物保護科」也面臨行政層級過低的問題。
+export const sec3Des = `The Animal Welfare Section, responsible for upholding and enforcing animal welfare legislation, faces enormous problems of short staffing and insufficient power vested in it.
 
-農委會下設企劃處、畜牧處、輔導處、國際處、科技處、農田水利處6個處，依照不同業務分科辦事，總計共有24科。
+The Council of Agriculture consists of six departments: the Department of Planning, the Department of Animal Industry, the Department of Farmers’ Services, the Department of International Affairs, the Department of Science and Technology and the Department of Irrigation and Engineering. The departments are further broken down into 24 sections.
 
-動保科是畜牧處下的其中一科，由原本的畜牧行政科改制，除了要負責動保業務，也要處理畜牧相關的業務。面對年年增加的動保業務，動保科人力不足，加上位階太低，較難協調與其他單位的合作。 `
+The Animal Welfare Section, one of the units under the Department of Animal Industry, was previously known as the Livestock Administration Section. Its functions span from animal welfare protection to the regulation of animal husbandry industry. Understaffed and poorly coordinated with other agencies due to its low rank in the bureaucratic system, the Animal Welfare Section cannot meet the growing demand for more aggressive enforcement actions. `
 
 export const problem1 = {
-  title: '法條太理想化、容易鑽漏洞',
+  title: 'Holes in legislation',
   list: [
     {
-      lawTitle: '「提供安全、乾淨、通風、排水、適當及適量之遮蔽、照明與溫度之生活環境。」' ,
-      lawId: '動保法第 5 條',
-      lawDes: '關於飼主責任的相關法規，每個人的觀念不同。動保員曾遇過投訴方與飼主觀念差距極大的狀況，無法拒絕投訴，只能口頭勸導飼主。',
+      lawTitle: '“Providing a living environment that is safe, clean, well- ventilated, non-flooding with proper and adequate shelter, lighting and warmth”' ,
+      lawId: 'Article 5, Animal Protection Act',
+      lawDes: 'The rules on pet owners’ responsibilities could be interpreted in different ways. Many owners, when facing a complaint about animal abuse or neglect, argue that allegations of them violating the provision on “providing a living environment that is safe, clean, well- ventilated, non-flooding with proper and adequate shelter, lighting and warmth” (Article 5) are due to different perceptions of animal welfare standards. In such cases, inspectors cannot but advise owners and give notice of potential penalties if noncompliance is found in the future.',
     },
     {
-      lawTitle: '「飼主在寵物出生、取得、轉讓、遺失或死亡時，沒有按法規登記，經勸導拒不改善。」' ,
-      lawId: '動保法第 31 條',
-      lawDes: '原本違反法規就可以開罰的狀況（例如未作寵物登記、植晶片），被修為「經勸導拒不改善」才能裁罰。除了讓飼主容易有僥倖心態外，也多了勸導和視察的執法人力成本。',
+      lawTitle: '“Refusal to take corrective actions after receiving advice about noncompliance”' ,
+      lawId: 'Article 31, Animal Protection Act',
+      lawDes: 'Previously, penalties were imposed on a pet owner for any failure to comply with mandatory registration of birth, acquisition, transfer, missing or death of his/her pet. After amendments to the Animal Protection Act, the owner cannot be penalized only in the event of his/her “refusal to take corrective actions after receiving advice about noncompliance” (Article 31). This has led to increased workload for inspectors to advise and ensure compliance, with pet owners thinking that they will take a chance as long as they can.',
     },
   ]
 }
 
 export const problem2 = {
-  title: '法條定義不清、執法成本增加',
+  title: 'Unclear legislation and increased burden on law enforcement personnel',
   list: [
     {
-      lawTitle: '「除業者外，一般飼主都應為寵物絕育，如要繁殖，必須主管機關申報說明，得免絕育。」' ,
-      lawId: '動保法第 22 條',
-      lawDes: '不限理由、只要申報就可以免絕育的情況下，喪失原本規定絕育的原意。',
+      lawTitle: '“A neutering waiver is obtained upon filing a breeding management plan with the local competent authority”' ,
+      lawId: 'Article 22, Animal Protection Act',
+      lawDes: 'The exception to the spay/neuter provision – provided “a neutering waiver is obtained upon filing a breeding management plan with the local competent authority” (Article 22) – gives pet owners plenty leeway not to neuter their pets as they can request a waiver for any reason. It defeats the purpose of mandatory spaying and neutering.',
     },
     {
-      lawTitle: '「寵物來源，應由取得許可證的繁殖場或業者供應；完成晶片植入後，始得買賣或轉讓他人。」' ,
-      lawId: '動保法第 22 條',
-      lawDes: '但並沒有強制買方要登記為晶片主人。如此一來，動物賣出去了，買方如果沒登記，還是無法掌握動物流向。',
+      lawTitle: '“Only from pet breeders or traders with permits, and must not trade or transfer such animals to a third party without ID microchip implants”' ,
+      lawId: 'Article 22, Animal Protection Act',
+      lawDes: 'The Animal Protection Act does not require owners who get their pets from stores/breeders to notify the authorities of a change of ownership through microchip registry, thus making it hard to track the whereabouts of pet animals. The act only demands that animals should be acquired “only from pet breeders or traders with permits, and must not trade or transfer such animals to a third party without ID microchip implants” (Article 22).',
     },
     {
-      lawTitle: '「寵物之出生、取得、轉讓、遺失及死亡，飼主應向主管機關或其委託的民間機構、團體辦理登記、應給與登記寵物身分標識，並應植入晶片。」' ,
-      lawId: '動保法第 22 條',
-      lawDes: '雖然法條如此規定，但許多民眾並不清楚法規。「終身只要登記一次」的規範也無法定期追查動物狀況，且沒有人力可以強制落實法規。',
+      lawTitle: '“Register the birth, acquisition, transfer, missing and death of a pet…with the local competent authority or the delegated private entity. The local competent authority shall issue an ID tag to each registered pet. Every pet shall get an ID microchip implant”' ,
+      lawId: 'Article 19, Animal Protection Act',
+      lawDes: 'The act requires that pet owners “register the birth, acquisition, transfer, missing and death of a pet…with the local competent authority or the delegated private entity. The local competent authority shall issue an ID tag to each registered pet. Every pet shall get an ID microchip implant” (Article 19). But there is a widespread lack of awareness about microchipping. Animal registration is undertaken only once and need not be renewed, making it impossible for authorities to regularly assess animals (e.g. well-being). Moreover, enforcement is ineffective due to insufficient staffing.',
     },
   ]
 }

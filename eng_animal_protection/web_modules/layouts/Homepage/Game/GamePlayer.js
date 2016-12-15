@@ -65,7 +65,7 @@ let GameFooter = (props) => {
           <div className={ classnames(commonStyles["img-responsive"], styles["dog-cnt-icon"]) }
             dangerouslySetInnerHTML={ { __html: gameIcon } }
           />
-          未結紮
+        Non-Neutered
         </span>
       </nobr>
       <nobr>
@@ -73,7 +73,7 @@ let GameFooter = (props) => {
           <div className={ classnames(commonStyles["img-responsive"], styles["dog-cnt-icon"]) }
             dangerouslySetInnerHTML={ { __html: gameNeuteredIcon } }
           />
-          結紮
+          Neutered
         </span>
       </nobr>
       <span> { `${props.year}-${props.year+10}` }
@@ -560,7 +560,7 @@ export default class GamePlayer extends Component {
         >
           <span className={ classnames(styles["close-button"]) } onClick={ this.handleClose }></span>
           <div className={ introClass }>
-            <h2>點擊狗狗圖示施行TNR <br /> 減少新生狗狗數量！</h2>
+            <h2>Click on a dog icon to do a TNR <br />  to reduce the number of cubs produced.</h2>
             <div className={ styles["inner"] }>
               <div className={ classnames(commonStyles["img-responsive"], commonStyles["overlay-svg"], styles["center-dog"]) }
                 dangerouslySetInnerHTML={ { __html: gameIcon } } />
@@ -580,15 +580,15 @@ export default class GamePlayer extends Component {
                 <div>
                   <div className={ classnames(commonStyles["img-responsive"], commonStyles["overlay-svg"]) }
                     dangerouslySetInnerHTML={ { __html: alertIcon } } />
-                  <h2>你失敗了</h2>
-                  <h5>狗群數量已超過生物承載量上限</h5>
+                  <h2>Game over!</h2>
+                  <h5>The dog population already exceeds carrying capacity.</h5>
                 </div>
               </div>
 
               <div className={ endingClass }>
                 <div>
-                  <p>你總共執行了<b>{ totalNeutered }</b>次TNR</p>
-                  <p>但顯然很難跟上狗狗繁衍及人類棄養的速度！</p>
+                  <p>You have done a total of <b>{ totalNeutered }</b>TNRs</p>
+                  <p>But you have to work a lot harder to catch up to <br />the rates of breeding and abandonment by humans!</p>
                   {/* <p>共結紮了<b>{ totalNeutered*50 }</b>隻狗狗</p>
                   <p>此區域還有<b>{ (unneuteredM.length + unneuteredF.length) * 50 }</b>隻狗狗沒有結紮。</p> */}
                 </div>

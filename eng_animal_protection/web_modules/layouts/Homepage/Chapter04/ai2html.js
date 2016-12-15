@@ -177,13 +177,13 @@ export function barChart(mobile, desktop) {
 				src='${desktop}'
 				/>
 			<div id='g-ai0-1' class='g-Layer_1 g-aiAbs' style='top:1.376%;left:49.8684%;width:90.5625%;margin-left:-45.2813%;'>
-				<p class='g-aiPstyle0'>一隻狗一生可能需要的基本醫療成本</p>
+				<p class='g-aiPstyle0'>The lifetime cost of veterinary care for a dog</p>
 			</div>
 			<div id='g-ai0-2' class='g-Layer_1 g-aiAbs' style='top:4.0909%;left:49.8684%;width:39.3391%;margin-left:-19.6695%;'>
-				<p class='g-aiPstyle1'>資料來源： 大群獸醫院</p>
+				<p class='g-aiPstyle1'>Source: Da Cyun Veterinary Hospital</p>
 			</div>
 			<div id='g-ai0-3' class='g-Layer_1 g-aiAbs' style='top:6.7685%;left:64.3555%;'>
-				<p class='g-aiPstyle2'>幼犬疫苗費用</p>
+				<p class='g-aiPstyle2'>Expenses for puppy vaccines</p>
 			</div>
 			<div id='g-ai0-4' class='g-Layer_1 g-aiAbs' style='top:8.2189%;left:64.3555%;'>
 				<p class='g-aiPstyle3'>4500 NT$</p>
@@ -267,7 +267,7 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle5'>（各縣市政府補助不一，只列出基本</p>
 			</div>
 			<div id='g-ai0-31' class='g-Layer_1 g-aiAbs' style='top:47.3425%;right:65.1423%;'>
-				<p class='g-aiPstyle4'>青壯期健康檢查</p>
+				<p class='g-aiPstyle4'>Adolescent wellness examination</p>
 			</div>
 			<div id='g-ai0-32' class='g-Layer_1 g-aiAbs' style='top:47.454%;left:64.3555%;'>
 				<p class='g-aiPstyle5'>手術麻醉費用）</p>
@@ -276,7 +276,7 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle6'>8000 NT$</p>
 			</div>
 			<div id='g-ai0-34' class='g-Layer_1 g-aiAbs' style='top:50.6523%;left:64.3555%;'>
-				<p class='g-aiPstyle8'>中老年健康檢查</p>
+				<p class='g-aiPstyle8'>Middle-aged or geriatric wellness examination</p>
 			</div>
 			<div id='g-ai0-35' class='g-Layer_1 g-aiAbs' style='top:50.8011%;right:64.8932%;'>
 				<p class='g-aiPstyle7'>犬隻7歲前，每2~3年應進行全身所有</p>
@@ -454,13 +454,13 @@ export function barChart(mobile, desktop) {
 				src='${mobile}'
 				/>
 			<div id='g-ai1-1' class='g-Layer_1 g-aiAbs' style='top:1.3921%;left:50.7334%;width:170.4708%;margin-left:-85.2354%;'>
-				<p class='g-aiPstyle0'>一隻狗一生可能需要的基本醫療成本</p>
+				<p class='g-aiPstyle0'>The lifetime cost of veterinary care</p>
 			</div>
 			<div id='g-ai1-2' class='g-Layer_1 g-aiAbs' style='top:4.1386%;left:50.7335%;width:74.05%;margin-left:-37.025%;'>
-				<p class='g-aiPstyle1'>資料來源： 大群獸醫院</p>
+				<p class='g-aiPstyle1'>Source: Da Cyun Veterinary Hospital</p>
 			</div>
 			<div id='g-ai1-3' class='g-Layer_1 g-aiAbs' style='top:7.2237%;left:41.7412%;'>
-				<p class='g-aiPstyle2'>幼犬疫苗費用</p>
+				<p class='g-aiPstyle2'>Expenses for puppy vaccines</p>
 			</div>
 			<div id='g-ai1-4' class='g-Layer_1 g-aiAbs' style='top:8.691%;left:41.7412%;'>
 				<p class='g-aiPstyle3'>4500 NT$</p>
@@ -499,13 +499,13 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle3'>1500 NT$</p>
 			</div>
 			<div id='g-ai1-16' class='g-Layer_1 g-aiAbs' style='top:47.669%;left:41.7412%;'>
-				<p class='g-aiPstyle2'>青壯期健康檢查</p>
+				<p class='g-aiPstyle2'>Adolescent wellness examination</p>
 			</div>
 			<div id='g-ai1-17' class='g-Layer_1 g-aiAbs' style='top:49.1363%;left:41.7412%;'>
 				<p class='g-aiPstyle3'>8000 NT$</p>
 			</div>
 			<div id='g-ai1-18' class='g-Layer_1 g-aiAbs' style='top:51.469%;left:41.7412%;'>
-				<p class='g-aiPstyle5'>中老年健康檢查</p>
+				<p class='g-aiPstyle5'>Middle-aged or geriatric wellness examination</p>
 			</div>
 			<div id='g-ai1-19' class='g-Layer_1 g-aiAbs' style='top:52.861%;left:41.7412%;'>
 				<p class='g-aiPstyle6'>32000 NT$</p>
