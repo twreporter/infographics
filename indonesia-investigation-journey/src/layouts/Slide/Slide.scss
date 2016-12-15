@@ -170,11 +170,42 @@
   }
 }
 
+.home-button {
+  @include fade-in(0.5s);
+  position: fixed;
+  left: 1.1rem;
+  top: 0.85rem;
+  cursor: pointer;
+  width: 5rem;
+  height: 4rem;
+  opacity: 0.8;
+  z-index: 1010;
+
+  svg {
+    opacity: 0.85;
+    transition: opacity 0.5s ease;
+  }
+
+  &:hover {
+    opacity: 1;
+    svg {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+  }
+
+  @media screen and (max-width: $width-md) {
+    left: 0.6rem;
+    top: 0.75rem;
+    padding-right: 8.5rem;
+  }
+}
+
 .audio-button {
   @include fade-in(0.5s);
   position: fixed;
-  left: -0.9rem;
-  top: 1rem;
+  left: -0.8rem;
+  top: 3.7rem;
   cursor: pointer;
   width: 5rem;
   height: 4rem;
@@ -186,7 +217,7 @@
   }
 
   @media screen and (max-width: $width-md) {
-    left: -1rem;
-    top: 0.6rem;
+    left: -1.25rem;
+    top: 3.5rem;
   }
 }

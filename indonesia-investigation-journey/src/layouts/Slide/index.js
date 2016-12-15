@@ -1,8 +1,10 @@
 /* eslint-disable react/no-find-dom-node */
 import React, { Component, PropTypes } from "react"
+import { Link } from "react-router"
 import ReactHowler from "react-howler"
 import classnames from "classnames"
 import Swipeable from "react-swipeable"
+import SVGInline from "react-svg-inline"
 import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 import ReactCSSTransitionReplace from "react-css-transition-replace"
 import raf from "raf" // requestAnimationFrame polyfill
@@ -18,7 +20,9 @@ import Header from "../../components/Header"
 import VideoPlayer from "../../components/Multimedia/VideoPlayer"
 import LastSlide from "./LastSlide"
 import MapOverlay from "./MapOverlay"
-import LinkContainer from "../../components/Navigation/LinkContainer"
+
+import navHomeIcon from "../../../content/assets/nav-home.svg"
+import navHomeMobileIcon from "../../../content/assets/nav-home-mobile.svg"
 
 import { PHOTOS, VIDEOS, AUDIOS, TEXT } from "./multimedia.js"
 
@@ -200,6 +204,8 @@ class Slide extends WindowSizeMixin(Component) {
     const nextVideo = (nextIndex>=0) ? this.getVideoByIndex(nextIndex) : null
     const nextAudio = (nextIndex>=0) ? this.getAudioByIndex(nextIndex) : null
 
+    const homeIconSrc = isMobile ? navHomeMobileIcon : navHomeIcon
+
     const isMapOverlay = (slideIndex === 2)
 
     const Video = isVideo ?
@@ -316,23 +322,27 @@ class Slide extends WindowSizeMixin(Component) {
               </div>
             </ReactCSSTransitionGroup>
             <div ref={(ref) => this.preBtn = ref}>
-              <LinkContainer to={previousLink}>
+              <Link to={previousLink}>
                 <div className={ styles["left-button"] } >
                   <LeftNavButton isMobile={isMobile} isTablet={isTablet}/>
                 </div>
-              </LinkContainer>
+              </Link>
             </div>
             <div ref={(ref) => this.nextBtn = ref}>
               {
                 (slideIndex+2 > totalSlides) ? null :
-                <LinkContainer to={nextLink}>
+                <Link to={nextLink}>
                   <div className={ styles["right-button"] } >
                     <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
                   </div>
-                </LinkContainer>
+                </Link>
               }
             </div>
           </div>
+
+          <Link to="/" alt="離岸之前">
+            <SVGInline className={styles["home-button"]} svg={ homeIconSrc } />
+          </Link>
 
           {
             isAudio ?
