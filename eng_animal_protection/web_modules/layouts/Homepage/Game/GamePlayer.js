@@ -48,7 +48,7 @@ let GameHeader = (props) => {
   return (
     <div className={ classnames(styles["header"]) }>
       <span className={ styles["time-des"] }>
-        現在時間是
+        Current Time:   
       </span>
       <span className={ styles["time-now"] }>
         { props.currentYear }.{ props.currentMonth }

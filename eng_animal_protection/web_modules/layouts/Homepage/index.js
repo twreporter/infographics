@@ -28,6 +28,7 @@ import reporterIcon from "../../../content/assets/twreporter-icon.svg"
 import donationIcon from "../../../content/assets/icon-donation.svg"
 import fbIcon from "../../../content/assets/icon-share-facebook.svg"
 import twitterIcon from "../../../content/assets/icon-share-twitter.svg"
+import languageIcon from "../../../content/assets/CH.svg"
 
 import { MOBILE_WIDTH } from "./config"
 import { authorText,  publishDate, authorSeparator, authorList } from "./content"
@@ -239,8 +240,8 @@ export default class Homepage extends Component {
             {/* <PagesList pages={ latestPosts } /> */}
             <p className={ commonStyles["white-text"] }>{ authorText } { authorItems } &nbsp; | &nbsp; <span itemProp="datePublished">{ publishDate }</span></p>
             <p className={ commonStyles["des-text"] }>
-              地圖資料來源： CartoDB &nbsp; &nbsp;
-              開頭照片來源：桃園新屋收容所
+              Map images： CartoDB &nbsp; &nbsp;
+              Photos in the opening section：桃園新屋收容所
             </p>
             <br /><br />
             <div className={ commonStyles["white-text"] }
@@ -257,6 +258,11 @@ export default class Homepage extends Component {
           </div>
 
           <div className={ styles["share-box"] }>
+            <a href="https://www.twreporter.org/a/animal-protection/" style={ { opacity: 0.65, marginRight: "0.5rem" } } target="_blank">
+              <div title="Traditional Chinese - 零安樂死政策 流浪動物的新天堂樂園？" className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
+                dangerouslySetInnerHTML={ { __html: languageIcon } }
+              />
+            </a>
             <a href="https://twreporter.org/" target="_blank">
               <div title="報導者TheReporter" className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
                 dangerouslySetInnerHTML={ { __html: reporterIcon } }

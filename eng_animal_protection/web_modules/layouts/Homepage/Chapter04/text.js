@@ -19,9 +19,9 @@ export const sec2Des = `Many owners choose to dump their pets when they cannot o
 
 export const sec2End = `It is important to move beyond the same old story about educating pet owners. Without knowing and addressing the root cause, people too often fix only the surface-level problems. The biggest problem facing Taiwan’s animal welfare authorities is with the collection of data on pet population due to poor enforcement of pet licensing laws and microchip registry.
 
-零安樂死政策背後所衍生出的問題非常繁雜，想了解更多埋在社會底下的動保問題，請看接下來的深入追蹤報導。`
+The problems resulting from no-kill policy are complicated. If you want to explore the issues about animal protection, you can read in-depth reports as follows (all the articles are written in Chinese).`
 
-export const sec2Note = `**註：**各家獸醫院治療價格可能有所不同，本表僅供參考。<br/>疾病治療項目，本表僅列出一次性費用，但疾病治療可能是連續性的。<br/>本表疾病只列出老年狗好發疾病，不同品種的動物會有不同疾病需要治療。<br/>除狂犬病疫苗和結紮費用為必要花費外，其餘花費項目為獸醫師建議。`
+export const sec2Note = `**Note：**The treatment prices are varied in each veterinary hospitals. This graphic chart is for reference only.<br/>This graphic chart includes only one-off payments, but illnesses treatment may be continuous.<br/>This graphic chart includes only common illnesses of older dogs. The illnesses treatments are varied for different animal species.<br/>The payments of rabies vaccine and neutering are essential, and the others are optional.`
 
 export const problemList = [
   `“Most of the loose dogs in the countryside are half-feral, half-domesticated. Many farmers pick up stray puppies, raise them as their own and allow their dogs to roam outdoors freely. There is very little bonding, and the owners are not very concerned about their dogs.”`,

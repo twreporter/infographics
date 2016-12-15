@@ -1,11 +1,11 @@
 /*eslint-disable */
-export const titlePart1 = '零安樂死政策'
-export const titlePart2 = '流浪動物的新天堂樂園？'
+export const titlePart1 = 'No-Kill Policy'
+export const titlePart2 = 'The New Paradise for Homeless Animals?'
 export const description = `A ban on euthanizing impounded animals will take effect in 2017.
 
 Is no-kill policy the answer to ending the cycle of pet homelessness?
 
-Pressure is now at tipping point for veterinarians and animal welfare inspectors who work at resource-strapped public shelters.
+Pressure is now at tipping point for veterinarians and animal welfare inspectors working at resource-strapped public shelters.
 
 No-kill policy paints a rosy picture that all animals can be saved and kept alive. But Taiwan may be in need of a reality check.
 `

@@ -102,7 +102,7 @@ export default class Layout extends Component {
         <div className={ spinnerClass }><div className={ styles["spinner"] }></div></div>
 
         <Footer />
-        <script src="https://use.typekit.net/ckp5jxu.js"></script>
+        <script src="https://use.typekit.net/rbn4jua.js"></script>
       </div>
     )
   }

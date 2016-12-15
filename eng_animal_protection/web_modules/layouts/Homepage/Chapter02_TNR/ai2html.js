@@ -101,8 +101,8 @@ export function lineChart(mobile, desktop) {
 					color:#ffffff;
 				}
 				#g-animal-ai2html-_____1 .g-aiPstyle1 {
-					font-size:16px;
-					line-height:28px;
+					font-size:13px;
+					line-height:20px;
 					letter-spacing:0.02416666666667em;
 					color:#ffffff;
 				}
@@ -143,20 +143,20 @@ export function lineChart(mobile, desktop) {
 					class='g-aiImg'
 					src='${mobile}'
 					/>
-				<div id='g-ai0-1' class='g-___1 g-aiAbs' style='top:5.2813%;left:5.5%;width:88%;'>
-					<p class='g-aiPstyle0'>全台動物侵害他人案件數</p>
+				<div id='g-ai0-1' class='g-___1 g-aiAbs' style='top:2%;left:5.5%;width:88%;'>
+					<p class='g-aiPstyle0'> The Statistics of strays invading poeple. </p>
 				</div>
 				<div id='g-ai0-2' class='g-___1 g-aiAbs' style='top:16.992%;left:10.9081%;'>
-					<p class='g-aiPstyle1'>資料來源：農委會 ｜ 單位：件數</p>
+					<p class='g-aiPstyle1'>Data Source:  the Council of Agriculture｜ Unit：item count</p>
 				</div>
 				<div id='g-ai0-3' class='g-___1 g-aiAbs' style='top:26.9805%;left:21.1%;width: 27%;'>
-					<p class='g-aiPstyle2'>檢舉案件數</p>
+					<p class='g-aiPstyle2'>Reporting</p>
 				</div>
 				<div id='g-ai0-4' class='g-___1 g-aiAbs' style='top:26.9805%;left:58.1%;width: 27%;'>
-					<p class='g-aiPstyle3'>稽查案件數</p>
+					<p class='g-aiPstyle3'>Inspecting</p>
 				</div>
 				<div id='g-ai0-5' class='g-___1 g-aiAbs' style='top:34.3284%;left:39.4%;width: 27%;'>
-					<p class='g-aiPstyle4'>勸導案件數</p>
+					<p class='g-aiPstyle4'>Persuading</p>
 				</div>
 				<div id='g-ai0-6' class='g-___1 g-aiAbs' style='top:36.6246%;left:74.0023%;'>
 					<p class='g-aiPstyle5'>314</p>
@@ -186,13 +186,13 @@ export function lineChart(mobile, desktop) {
 					<p class='g-aiPstyle5'>32</p>
 				</div>
 				<div id='g-ai0-15' class='g-___1 g-aiAbs' style='top:89.4374%;left:10.9081%;'>
-					<p class='g-aiPstyle6'>102年</p>
+					<p class='g-aiPstyle6'>2013</p>
 				</div>
 				<div id='g-ai0-16' class='g-___1 g-aiAbs' style='top:89.4374%;left:73.7459%;'>
-					<p class='g-aiPstyle6'>104年</p>
+					<p class='g-aiPstyle6'>2015</p>
 				</div>
 				<div id='g-ai0-17' class='g-___1 g-aiAbs' style='top:89.667%;left:42.1987%;'>
-					<p class='g-aiPstyle6'>103年</p>
+					<p class='g-aiPstyle6'>2014</p>
 				</div>
 			</div>
 		</div>
@@ -225,13 +225,13 @@ export function lineChart(mobile, desktop) {
 					color:#ffffff;
 				}
 				#g-animal-ai2html-_____2 .g-aiPstyle1 {
-					font-size:47px;
+					font-size:43px;
 					line-height:60px;
 					letter-spacing:0.02416666666667em;
 					color:#4e91ff;
 				}
 				#g-animal-ai2html-_____2 .g-aiPstyle2 {
-					font-size:25px;
+					font-size:15px;
 					line-height:30px;
 					letter-spacing:0.02416666666667em;
 					color:#4e91ff;
@@ -255,19 +255,19 @@ export function lineChart(mobile, desktop) {
 					color:#4e91ff;
 				}
 				#g-animal-ai2html-_____2 .g-aiPstyle6 {
-					font-size:47px;
+					font-size:43px;
 					line-height:60px;
 					letter-spacing:0.02416666666667em;
 					color:#ff6496;
 				}
 				#g-animal-ai2html-_____2 .g-aiPstyle7 {
-					font-size:25px;
+					font-size:15px;
 					line-height:30px;
 					letter-spacing:0.02416666666667em;
 					color:#ff6496;
 				}
 				#g-animal-ai2html-_____2 .g-aiPstyle8 {
-					font-size:47px;
+					font-size:43px;
 					line-height:60px;
 					letter-spacing:0.02416666666667em;
 					color:#4d4d4d;
@@ -279,7 +279,7 @@ export function lineChart(mobile, desktop) {
 					color:#ff6496;
 				}
 				#g-animal-ai2html-_____2 .g-aiPstyle10 {
-					font-size:25px;
+					font-size:15px;
 					line-height:30px;
 					letter-spacing:0.02416666666667em;
 					color:#4d4d4d;
@@ -303,17 +303,17 @@ export function lineChart(mobile, desktop) {
 					class='g-aiImg'
 					src='${desktop}'
 					/>
-				<div id='g-ai1-1' class='g-___1 g-aiAbs' style='top:12.9249%;left:19.8242%;'>
-					<p class='g-aiPstyle0'>全台動物侵害他人案件數</p>
+				<div id='g-ai1-1' class='g-___1 g-aiAbs' style='top:12.9249%;left:13%;'>
+					<p class='g-aiPstyle0'>The Statistics of strays invading poeple.</p>
 				</div>
 				<div id='g-ai1-3' class='g-___1 g-aiAbs' style='top:12.9249%;left:75.1953%;'>
 					<p class='g-aiPstyle1'>314</p>
 				</div>
-				<div id='g-ai1-4' class='g-___1 g-aiAbs' style='top:16.1933%;left:83.4961%;'>
-					<p class='g-aiPstyle2'>件</p>
+				<div id='g-ai1-4' class='g-___1 g-aiAbs' style='top:16.1933%;left:83.2%;'>
+					<p class='g-aiPstyle2'>cases</p>
 				</div>
 				<div id='g-ai1-5' class='g-___1 g-aiAbs' style='top:23.77%;left:19.7266%;'>
-					<p class='g-aiPstyle3'>資料來源：農委會 ｜ 單位：件數</p>
+					<p class='g-aiPstyle3'>Data Source:  the Council of Agriculture｜ Unit：case </p>
 				</div>
 				<div id='g-ai1-6' class='g-___1 g-aiAbs' style='top:38.1806%;left:32.3242%;'>
 					<p class='g-aiPstyle4'>188</p>
@@ -322,13 +322,13 @@ export function lineChart(mobile, desktop) {
 					<p class='g-aiPstyle4'>202</p>
 				</div>
 				<div id='g-ai1-8' class='g-___1 g-aiAbs' style='top:41.5975%;left:16.3086%;'>
-					<p class='g-aiPstyle5'>檢舉案件數</p>
+					<p class='g-aiPstyle5'>Reporting</p>
 				</div>
 				<div id='g-ai1-9' class='g-___1 g-aiAbs' style='top:53.4825%;left:75.1953%;'>
 					<p class='g-aiPstyle6'>101</p>
 				</div>
-				<div id='g-ai1-10' class='g-___1 g-aiAbs' style='top:56.7509%;left:83.4961%;'>
-					<p class='g-aiPstyle7'>件</p>
+				<div id='g-ai1-10' class='g-___1 g-aiAbs' style='top:56.7509%;left:82.5%;'>
+					<p class='g-aiPstyle7'>cases</p>
 				</div>
 				<div id='g-ai1-11' class='g-___1 g-aiAbs' style='top:58.088%;left:50.9766%;'>
 					<p class='g-aiPstyle4'>93</p>
@@ -343,25 +343,25 @@ export function lineChart(mobile, desktop) {
 					<p class='g-aiPstyle4'>62</p>
 				</div>
 				<div id='g-ai1-15' class='g-___1 g-aiAbs' style='top:65.219%;left:16.3086%;'>
-					<p class='g-aiPstyle9'>稽查案件數</p>
+					<p class='g-aiPstyle9'>Inspecting</p>
 				</div>
-				<div id='g-ai1-16' class='g-___1 g-aiAbs' style='top:66.7046%;left:82.5195%;'>
-					<p class='g-aiPstyle10'>件</p>
+				<div id='g-ai1-16' class='g-___1 g-aiAbs' style='top:66.7046%;left:81.3%;'>
+					<p class='g-aiPstyle10'>cases</p>
 				</div>
 				<div id='g-ai1-17' class='g-___1 g-aiAbs' style='top:70.7158%;left:32.1289%;'>
 					<p class='g-aiPstyle4'>32</p>
 				</div>
 				<div id='g-ai1-18' class='g-___1 g-aiAbs' style='top:73.9842%;left:16.3086%;'>
-					<p class='g-aiPstyle11'>勸導案件數</p>
+					<p class='g-aiPstyle11'>Persuading</p>
 				</div>
 				<div id='g-ai1-19' class='g-___1 g-aiAbs' style='top:86.9091%;left:27.7344%;'>
-					<p class='g-aiPstyle12'>102年</p>
+					<p class='g-aiPstyle12'>2013</p>
 				</div>
 				<div id='g-ai1-20' class='g-___1 g-aiAbs' style='top:86.9091%;left:64.2578%;'>
-					<p class='g-aiPstyle12'>104年</p>
+					<p class='g-aiPstyle12'>2015</p>
 				</div>
 				<div id='g-ai1-21' class='g-___1 g-aiAbs' style='top:87.0577%;left:45.8984%;'>
-					<p class='g-aiPstyle12'>103年</p>
+					<p class='g-aiPstyle12'>2014</p>
 				</div>
 			</div>
 		</div>

@@ -105,6 +105,9 @@ $img-bgcolor: $content-bg;
   color: $tooltip-gray;
   p {
     text-shadow: 2px 0 2px white;
+    @media (max-width: $width-xs) {
+      font-size: 14.5px;
+    }
   }
   @media (max-width: $width-xs) {
     margin-left: auto;

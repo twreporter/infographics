@@ -4,8 +4,8 @@
 
 .layout {
   /* placeholder */
-  font-family: source-han-sans-traditional, Noto Sans TC, PingFang TC, Apple LiGothic Medium, Roboto, Microsoft JhengHei, Lucida Grande, Lucida Sans Unicode, sans-serif;
-  font-weight: 300;
+  font-family: myriad-pro, source-han-sans-traditional, Noto Sans TC, PingFang TC, Apple LiGothic Medium, Roboto, Microsoft JhengHei, Lucida Grande, Lucida Sans Unicode, sans-serif;
+  font-weight: 400;
   width: 100%;
   overflow-x: hidden;
   background: #7382a0;

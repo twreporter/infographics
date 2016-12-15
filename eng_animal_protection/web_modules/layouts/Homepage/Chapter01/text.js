@@ -24,9 +24,9 @@ A public works project proposed by the Council of Agriculture in 2013 set out a 
 export const sec3Des = `A public animal shelter is normally staffed with only one veterinarian. The veterinarian not only cares for the health of animals, but also has to attend the daily operations of the shelter from cleaning environment to rehoming homeless animals. What is to become of the veterinarian – already hard-pressed to juggle various responsibilities – after the zero-euthanasia policy takes effect?`
 
 export const sec3List = [
-`動物在所時間拉長，收容總量上升，但醫療資源有限，分配困難。`,
-`收容量有限，不可能無止盡收狗，面對民眾的投訴備感壓力，卻無能為力。`,
-`人力有限、業務量龐大的狀況下，沒有餘力追蹤被認養動物的後續狀況。`,
+`The homeless animals will be held in shelters for longer periods of times, and the number of animals will inevitably increase; however, medical resources for the shelters are constrained.`,
+`The number of animals in the shelter must be controlled, but the public’s complaints make the veterinarians in the shelters feel pressured and powerless.`,
+`With limited human resources and heavy workload, the veterinarians in the shelters have no time to follow up the conditions of the animals after adoption.`,
 ]
 
 export const photoText = [

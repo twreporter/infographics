@@ -298,16 +298,16 @@ export default class Tnr extends Component {
                 />
 
                 <div className={ classnames(commonStyles["content-outer"], commonStyles["pad-content"], commonStyles["white-box"]) }>
-                  <h4> 105年至8月止累計案件數 </h4>
+                  <h4> Cumulative Numbers (Until Aug. 2016) </h4>
                   <div className={ commonStyles["wrap-grids"] }>
                     <div className={ classnames(commonStyles["grid-33"], styles["case-number"], styles["case-blue"]) }>
-                      檢舉 <br /> <span className={ commonStyles["super-text"] }>260</span> 件
+                      Reporting <br /> <span className={ commonStyles["super-text"] }>260</span> cases
                     </div>
                     <div className={ classnames(commonStyles["grid-33"], styles["case-number"], styles["case-pink"]) }>
-                      緝查 <br /> <span className={ commonStyles["super-text"] }>123</span> 件
+                      Inspecting <br /> <span className={ commonStyles["super-text"] }>123</span> cases
                     </div>
                     <div className={ classnames(commonStyles["grid-33"], styles["case-number"], styles["case-dark"]) }>
-                      勸導 <br /> <span className={ commonStyles["super-text"] }>127</span> 件
+                      Persuading <br /> <span className={ commonStyles["super-text"] }>127</span> cases
                     </div>
                   </div>
                 </div>
