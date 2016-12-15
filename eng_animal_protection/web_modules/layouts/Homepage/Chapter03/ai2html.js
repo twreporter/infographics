@@ -66,27 +66,27 @@ export function barChart(mobile, desktop) {
 			}
 			#g-animal-2-ai2html-_____1 .g-aiPstyle0 {
 				font-weight: 700;
-				line-height: 15px !important;
+				line-height: 25px !important;
 				text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
-				font-size:27px;
+				font-size:20px;
 				line-height:42px;
 				letter-spacing:0.02916666666667em;
 				color:#ffffff;
 			}
 			#g-animal-2-ai2html-_____1 .g-aiPstyle1 {
-				font-size:17px;
-				line-height:35px;
+				font-size:13px;
+				line-height:20px;
 				letter-spacing:0.02416666666667em;
 				color:#ffffff;
 			}
 			#g-animal-2-ai2html-_____1 .g-aiPstyle2 {
-				font-size:17px;
+				font-size:13px;
 				line-height:35px;
 				letter-spacing:0.02416666666667em;
 				color:#ffffff;
 			}
 			#g-animal-2-ai2html-_____1 .g-aiPstyle3 {
-				font-size:15.5px;
+				font-size:13px;
 				line-height:35px;
 				letter-spacing:0.02416666666667em;
 				color:#ffffff;
@@ -129,8 +129,8 @@ export function barChart(mobile, desktop) {
 				color:#4d4d4d;
 			}
 			#g-animal-2-ai2html-_____1 .g-aiPstyle10 {
-				font-size:15.5px;
-				line-height:35px;
+				font-size:13px;
+				line-height:20px;
 				letter-spacing:0.02416666666667em;
 				color:#4d4d4d;
 			}
@@ -141,17 +141,17 @@ export function barChart(mobile, desktop) {
 				class='g-aiImg'
 				src='${mobile}'
 				/>
-			<div id='g-ai0-1' class='g-___1 g-aiAbs' style='top:1.7344%;left:3.1249%;'>
-				<p class='g-aiPstyle0'>各縣市動保員平均每年</p>
+			<div id='g-ai0-1' class='g-___1 g-aiAbs' style='top:1.5%;left:3.1249%;'>
+				<p class='g-aiPstyle0'> The annual average workload of an Animal welfare inspector in different counties.</p>
 			</div>
 			<div id='g-ai0-2' class='g-___1 g-aiAbs' style='top:1.7344%;left:93.7504%;'>
 				<p class='g-aiPstyle0'> </p>
 			</div>
 			<div id='g-ai0-3' class='g-___1 g-aiAbs' style='top:3.9686%;left:3.1249%;'>
-				<p class='g-aiPstyle0'>一人須承接案件數</p>
+				<p class='g-aiPstyle0'></p>
 			</div>
 			<div id='g-ai0-4' class='g-___1 g-aiAbs' style='top:7.6726%;left:10%;'>
-				<p class='g-aiPstyle1'>資料來源： 農委會動保科</p>
+				<p class='g-aiPstyle1'>Data Source:  the Council of Agriculture</p>
 			</div>
 			<div id='g-ai0-5' class='g-___1 g-aiAbs' style='top:7.6726%;left:80.9078%;'>
 				<p class='g-aiPstyle1'> </p>
@@ -163,7 +163,7 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle2'></p>
 			</div>
 			<div id='g-ai0-8' class='g-___1 g-aiAbs' style='top:9.2601%;left:10.0643%;'>
-				<p class='g-aiPstyle1'>單位：件/人 </p>
+				<p class='g-aiPstyle1'>Case/Person </p>
 			</div>
 			<div id='g-ai0-9' class='g-___1 g-aiAbs' style='top:9.2601%;left:47.8079%;'>
 				<p class='g-aiPstyle1'> </p>
@@ -172,22 +172,22 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle1'> </p>
 			</div>
 			<div id='g-ai0-11' class='g-___1 g-aiAbs' style='top:9.2895%;left:68.3043%;'>
-				<p class='g-aiPstyle3'>=100 件</p>
+				<p class='g-aiPstyle3'>=100 case</p>
 			</div>
 			<div id='g-ai0-12' class='g-___1 g-aiAbs' style='top:13.0817%;left:28.4373%;'>
-				<p class='g-aiPstyle4'>苗栗縣</p>
+				<p class='g-aiPstyle4'>Miaoli County</p>
 			</div>
 			<div id='g-ai0-13' class='g-___1 g-aiAbs' style='top:15.404%;left:28.4373%;'>
 				<p class='g-aiPstyle5'>3100</p>
 			</div>
 			<div id='g-ai0-14' class='g-___1 g-aiAbs' style='top:20.9013%;left:28.4373%;'>
-				<p class='g-aiPstyle6'>新竹市</p>
+				<p class='g-aiPstyle6'>Hsinchu City</p>
 			</div>
 			<div id='g-ai0-15' class='g-___1 g-aiAbs' style='top:22.5769%;left:28.4373%;'>
 				<p class='g-aiPstyle7'>1486</p>
 			</div>
 			<div id='g-ai0-16' class='g-___1 g-aiAbs' style='top:25.0757%;left:51.8752%;'>
-				<p class='g-aiPstyle6'>台北市</p>
+				<p class='g-aiPstyle6'>Taipei City</p>
 			</div>
 			<div id='g-ai0-17' class='g-___1 g-aiAbs' style='top:26.6925%;left:51.8752%;'>
 				<p class='g-aiPstyle7'>1007</p>
@@ -196,16 +196,16 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle8'>729</p>
 			</div>
 			<div id='g-ai0-19' class='g-___1 g-aiAbs' style='top:43.3018%;left:4.0625%;'>
-				<p class='g-aiPstyle1'>苗栗縣</p>
+				<p class='g-aiPstyle1'>Miaoli <br/> County</p>
 			</div>
 			<div id='g-ai0-20' class='g-___1 g-aiAbs' style='top:43.3018%;left:29.0627%;'>
-				<p class='g-aiPstyle1'>新竹市</p>
+				<p class='g-aiPstyle1'>Hsinchu <br/> City</p>
 			</div>
 			<div id='g-ai0-21' class='g-___1 g-aiAbs' style='top:43.3018%;left:54.0628%;'>
-				<p class='g-aiPstyle1'>台北市</p>
+				<p class='g-aiPstyle1'>Taipei <br/> City</p>
 			</div>
 			<div id='g-ai0-22' class='g-___1 g-aiAbs' style='top:43.3018%;left:79.0626%;'>
-				<p class='g-aiPstyle1'>新竹縣</p>
+				<p class='g-aiPstyle1'>Hsinchu <br/> County</p>
 			</div>
 			<div id='g-ai0-23' class='g-___1 g-aiAbs' style='top:49.3282%;left:6.9901%;'>
 				<p class='g-aiPstyle8'>627</p>
@@ -220,16 +220,16 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle8'>392</p>
 			</div>
 			<div id='g-ai0-27' class='g-___1 g-aiAbs' style='top:61.4986%;left:4.3748%;'>
-				<p class='g-aiPstyle1'>高雄市</p>
+				<p class='g-aiPstyle1'>Kaohsiung <br/> City </p>
 			</div>
 			<div id='g-ai0-28' class='g-___1 g-aiAbs' style='top:61.4986%;left:29.3751%;'>
-				<p class='g-aiPstyle1'>台南市</p>
+				<p class='g-aiPstyle1'>Tainan <br/> City</p>
 			</div>
 			<div id='g-ai0-29' class='g-___1 g-aiAbs' style='top:61.4986%;left:54.3755%;'>
-				<p class='g-aiPstyle1'>桃園市</p>
+				<p class='g-aiPstyle1'>Taoyuan <br/> City </p>
 			</div>
 			<div id='g-ai0-30' class='g-___1 g-aiAbs' style='top:61.4986%;left:79.3755%;'>
-				<p class='g-aiPstyle1'>台中市</p>
+				<p class='g-aiPstyle1'>Taichung <br/> City </p>
 			</div>
 			<div id='g-ai0-31' class='g-___1 g-aiAbs' style='top:67.7602%;left:7.0245%;'>
 				<p class='g-aiPstyle8'>367</p>
@@ -244,16 +244,16 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle8'>222</p>
 			</div>
 			<div id='g-ai0-35' class='g-___1 g-aiAbs' style='top:78.4313%;left:4.3748%;'>
-				<p class='g-aiPstyle1'>花蓮縣</p>
+				<p class='g-aiPstyle1'>Hualien <br/> County</p>
 			</div>
 			<div id='g-ai0-36' class='g-___1 g-aiAbs' style='top:78.4313%;left:29.3751%;'>
-				<p class='g-aiPstyle1'>金門縣</p>
+				<p class='g-aiPstyle1'>Kinmen <br/> County</p>
 			</div>
 			<div id='g-ai0-37' class='g-___1 g-aiAbs' style='top:78.4313%;left:54.3755%;'>
-				<p class='g-aiPstyle1'>澎湖縣</p>
+				<p class='g-aiPstyle1'>Penghu <br/> County </p>
 			</div>
 			<div id='g-ai0-38' class='g-___1 g-aiAbs' style='top:78.4313%;left:79.3755%;'>
-				<p class='g-aiPstyle1'>彰化縣</p>
+				<p class='g-aiPstyle1'>Changhua <br/> County </p>
 			</div>
 			<div id='g-ai0-39' class='g-___1 g-aiAbs' style='top:82.8702%;left:7.2619%;'>
 				<p class='g-aiPstyle9'>190</p>
@@ -268,16 +268,16 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle9'>129</p>
 			</div>
 			<div id='g-ai0-43' class='g-___1 g-aiAbs' style='top:84.4871%;left:5.5%;'>
-				<p class='g-aiPstyle10'>新北市</p>
+				<p class='g-aiPstyle10'>New Taipei <br/> City</p>
 			</div>
 			<div id='g-ai0-44' class='g-___1 g-aiAbs' style='top:84.4871%;left:29.3751%;'>
-				<p class='g-aiPstyle10'>基隆市</p>
+				<p class='g-aiPstyle10'>Keelung <br/> City</p>
 			</div>
 			<div id='g-ai0-45' class='g-___1 g-aiAbs' style='top:84.4871%;left:54.3755%;'>
-				<p class='g-aiPstyle10'>宜蘭縣</p>
+				<p class='g-aiPstyle10'>Yilan <br/> County </p>
 			</div>
 			<div id='g-ai0-46' class='g-___1 g-aiAbs' style='top:84.4871%;left:79.3755%;'>
-				<p class='g-aiPstyle10'>台東縣</p>
+				<p class='g-aiPstyle10'>Taitung <br/> County</p>
 			</div>
 			<div id='g-ai0-47' class='g-___1 g-aiAbs' style='top:88.3969%;left:7.5086%;'>
 				<p class='g-aiPstyle9'>122</p>
@@ -292,16 +292,16 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle9'>57</p>
 			</div>
 			<div id='g-ai0-51' class='g-___1 g-aiAbs' style='top:90.0137%;left:5.5%;'>
-				<p class='g-aiPstyle10'>連江縣</p>
+				<p class='g-aiPstyle10'>Lienchiang <br/> County </p>
 			</div>
 			<div id='g-ai0-52' class='g-___1 g-aiAbs' style='top:90.0137%;left:29.3751%;'>
-				<p class='g-aiPstyle10'>雲林縣</p>
+				<p class='g-aiPstyle10'>Yunlin <br/> County</p>
 			</div>
 			<div id='g-ai0-53' class='g-___1 g-aiAbs' style='top:90.0137%;left:54.3755%;'>
-				<p class='g-aiPstyle10'>南投縣</p>
+				<p class='g-aiPstyle10'>Nantou <br/> County</p>
 			</div>
 			<div id='g-ai0-54' class='g-___1 g-aiAbs' style='top:90.0137%;left:79.3755%;'>
-				<p class='g-aiPstyle10'>嘉義市</p>
+				<p class='g-aiPstyle10'>Chiayi <br/> Ciy</p>
 			</div>
 			<div id='g-ai0-55' class='g-___1 g-aiAbs' style='top:93.9529%;left:33.5%;'>
 				<p class='g-aiPstyle9'>21</p>
@@ -310,10 +310,10 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle9'>14</p>
 			</div>
 			<div id='g-ai0-57' class='g-___1 g-aiAbs' style='top:95.5698%;left:29.3751%;'>
-				<p class='g-aiPstyle10'>屏東縣</p>
+				<p class='g-aiPstyle10'>Pingtung <br/> County</p>
 			</div>
 			<div id='g-ai0-58' class='g-___1 g-aiAbs' style='top:95.5698%;left:54.3755%;'>
-				<p class='g-aiPstyle10'>嘉義縣</p>
+				<p class='g-aiPstyle10'>Chiayi <br/> County</p>
 			</div>
 		</div>
 	</div>
@@ -346,8 +346,8 @@ export function barChart(mobile, desktop) {
 			#g-animal-2-ai2html-_____1___ .g-aiPstyle1 {
 				font-weight: 700;
 				text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
-				font-size:27px;
-				line-height:34px;
+				font-size:22px;
+				line-height:32px;
 				letter-spacing:0.02916666666667em;
 				color:#ffffff;
 			}
@@ -358,19 +358,19 @@ export function barChart(mobile, desktop) {
 				color:#ffffff;
 			}
 			#g-animal-2-ai2html-_____1___ .g-aiPstyle3 {
-				font-size:15px;
+				font-size:12px;
 				line-height:20px;
 				letter-spacing:0.02416666666667em;
 				color:#ffffff;
 			}
 			#g-animal-2-ai2html-_____1___ .g-aiPstyle4 {
-				font-size:15px;
+				font-size:12px;
 				line-height:20px;
 				letter-spacing:0.02416666666667em;
 				color:#ffffff;
 			}
 			#g-animal-2-ai2html-_____1___ .g-aiPstyle5 {
-				font-size:15px;
+				font-size:12px;
 				line-height:20px;
 				letter-spacing:0.02416666666667em;
 				color:#ffffff;
@@ -406,8 +406,8 @@ export function barChart(mobile, desktop) {
 				color:#4d4d4d;
 			}
 			#g-animal-2-ai2html-_____1___ .g-aiPstyle11 {
-				font-size:17px;
-				line-height:20px;
+				font-size:13.5px;
+				line-height:18px;
 				letter-spacing:0.02416666666667em;
 				color:#4d4d4d;
 			}
@@ -419,19 +419,16 @@ export function barChart(mobile, desktop) {
 				src='${desktop}'
 				/>
 			<div id='g-ai1-1' class='g-___1 g-aiAbs' style='top:6.3253%;left:12.4023%;'>
-				<p class='g-aiPstyle0'>苗栗縣</p>
+				<p class='g-aiPstyle0'>Miaoli County</p>
 			</div>
-			<div id='g-ai1-2' class='g-___1 g-aiAbs' style='top:8.0321%;left:44.9219%;'>
-				<p class='g-aiPstyle1'>各縣市動保員平均每年一人須承接案件數</p>
-			</div>
-			<div id='g-ai1-3' class='g-___1 g-aiAbs' style='top:8.0321%;left:44.9219%;'>
-				<p class='g-aiPstyle1'>各縣市動保員平均每年一人須承接案件數</p>
+			<div id='g-ai1-2' class='g-___1 g-aiAbs' style='top:6%;left:44.9219%;'>
+				<p class='g-aiPstyle1'>The annual average workload of an Animal welfare inspector in different counties.</p>
 			</div>
 			<div id='g-ai1-4' class='g-___1 g-aiAbs' style='top:10.8434%;left:12.4023%;'>
 				<p class='g-aiPstyle2'>3100</p>
 			</div>
 			<div id='g-ai1-5' class='g-___1 g-aiAbs' style='top:14.8594%;left:48.8757%;'>
-				<p class='g-aiPstyle3'>資料來源： 農委會動保科 ｜ 單位：件/人 </p>
+				<p class='g-aiPstyle3'>Source:  Council of Agriculture｜ Case/Person </p>
 			</div>
 			<div id='g-ai1-6' class='g-___1 g-aiAbs' style='top:14.8594%;left:79.0714%;'>
 				<p class='g-aiPstyle4'>｜</p>
@@ -443,19 +440,19 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle3'> </p>
 			</div>
 			<div id='g-ai1-9' class='g-___1 g-aiAbs' style='top:14.8594%;left:93.4082%;'>
-				<p class='g-aiPstyle4'>件</p>
+				<p class='g-aiPstyle4'>case</p>
 			</div>
 			<div id='g-ai1-10' class='g-___1 g-aiAbs' style='top:14.9598%;left:88.2673%;'>
 				<p class='g-aiPstyle5'>=100</p>
 			</div>
 			<div id='g-ai1-11' class='g-___1 g-aiAbs' style='top:26.1044%;left:12.4023%;'>
-				<p class='g-aiPstyle0'>新竹市</p>
+				<p class='g-aiPstyle0'>Hsinchu City</p>
 			</div>
 			<div id='g-ai1-12' class='g-___1 g-aiAbs' style='top:30.7229%;left:12.4023%;'>
 				<p class='g-aiPstyle6'>1486</p>
 			</div>
 			<div id='g-ai1-13' class='g-___1 g-aiAbs' style='top:39.0562%;left:19.7266%;'>
-				<p class='g-aiPstyle7'>台北市</p>
+				<p class='g-aiPstyle7'>Taipei City</p>
 			</div>
 			<div id='g-ai1-14' class='g-___1 g-aiAbs' style='top:42.3695%;left:19.7266%;'>
 				<p class='g-aiPstyle8'>1007</p>
@@ -488,40 +485,40 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle9'>222</p>
 			</div>
 			<div id='g-ai1-24' class='g-___1 g-aiAbs' style='top:75.4016%;left:4.4922%;'>
-				<p class='g-aiPstyle3'>苗栗縣</p>
+				<p class='g-aiPstyle3'>Miaoli <br/> County</p>
 			</div>
 			<div id='g-ai1-25' class='g-___1 g-aiAbs' style='top:75.4016%;left:12.3047%;'>
-				<p class='g-aiPstyle3'>新竹市</p>
+				<p class='g-aiPstyle3'>Hsinchu <br/> City</p>
 			</div>
 			<div id='g-ai1-26' class='g-___1 g-aiAbs' style='top:75.4016%;left:20.1172%;'>
-				<p class='g-aiPstyle3'>台北市</p>
+				<p class='g-aiPstyle3'>Taipei <br/> City</p>
 			</div>
 			<div id='g-ai1-27' class='g-___1 g-aiAbs' style='top:75.4016%;left:27.9297%;'>
-				<p class='g-aiPstyle3'>新竹縣</p>
+				<p class='g-aiPstyle3'>Hsinchu <br/> County</p>
 			</div>
 			<div id='g-ai1-28' class='g-___1 g-aiAbs' style='top:75.4016%;left:35.7422%;'>
-				<p class='g-aiPstyle3'>高雄市</p>
+				<p class='g-aiPstyle3'>Kaohsiung <br/> City</p>
 			</div>
 			<div id='g-ai1-29' class='g-___1 g-aiAbs' style='top:75.4016%;left:43.5547%;'>
-				<p class='g-aiPstyle3'>台南市</p>
+				<p class='g-aiPstyle3'>Tainan <br/> City</p>
 			</div>
 			<div id='g-ai1-30' class='g-___1 g-aiAbs' style='top:75.4016%;left:51.3672%;'>
-				<p class='g-aiPstyle3'>桃園市</p>
+				<p class='g-aiPstyle3'>Taipei <br/> City</p>
 			</div>
 			<div id='g-ai1-31' class='g-___1 g-aiAbs' style='top:75.4016%;left:59.1797%;'>
-				<p class='g-aiPstyle3'>台中市</p>
+				<p class='g-aiPstyle3'>Taichung <br/> City</p>
 			</div>
 			<div id='g-ai1-32' class='g-___1 g-aiAbs' style='top:75.4016%;left:66.9922%;'>
-				<p class='g-aiPstyle3'>花蓮縣</p>
+				<p class='g-aiPstyle3'>Hualien <br/> County</p>
 			</div>
 			<div id='g-ai1-33' class='g-___1 g-aiAbs' style='top:75.4016%;left:74.8047%;'>
-				<p class='g-aiPstyle3'>金門縣</p>
+				<p class='g-aiPstyle3'>Kinmen <br/> County</p>
 			</div>
 			<div id='g-ai1-34' class='g-___1 g-aiAbs' style='top:75.4016%;left:82.6172%;'>
-				<p class='g-aiPstyle3'>澎湖縣</p>
+				<p class='g-aiPstyle3'>Penghu <br/> County</p>
 			</div>
 			<div id='g-ai1-35' class='g-___1 g-aiAbs' style='top:75.4016%;left:90.4297%;'>
-				<p class='g-aiPstyle3'>彰化縣</p>
+				<p class='g-aiPstyle3'>Changhua <br/> County</p>
 			</div>
 			<div id='g-ai1-36' class='g-___1 g-aiAbs' style='top:85.8434%;left:13.2068%;'>
 				<p class='g-aiPstyle10'>190</p>
@@ -554,34 +551,34 @@ export function barChart(mobile, desktop) {
 				<p class='g-aiPstyle10'>14</p>
 			</div>
 			<div id='g-ai1-46' class='g-___1 g-aiAbs' style='top:89.0562%;left:12.3047%;'>
-				<p class='g-aiPstyle11'>新北市</p>
+				<p class='g-aiPstyle11'>New Taipei <br/> City</p>
 			</div>
 			<div id='g-ai1-47' class='g-___1 g-aiAbs' style='top:89.0562%;left:20.1172%;'>
-				<p class='g-aiPstyle11'>基隆市</p>
+				<p class='g-aiPstyle11'>Keelung <br/> City</p>
 			</div>
 			<div id='g-ai1-48' class='g-___1 g-aiAbs' style='top:89.0562%;left:27.9297%;'>
-				<p class='g-aiPstyle11'>宜蘭縣</p>
+				<p class='g-aiPstyle11'>Yilan <br/> County</p>
 			</div>
 			<div id='g-ai1-49' class='g-___1 g-aiAbs' style='top:89.0562%;left:35.7422%;'>
-				<p class='g-aiPstyle11'>台東縣</p>
+				<p class='g-aiPstyle11'>Taitung <br/> County</p>
 			</div>
 			<div id='g-ai1-50' class='g-___1 g-aiAbs' style='top:89.0562%;left:43.5547%;'>
-				<p class='g-aiPstyle11'>連江縣</p>
+				<p class='g-aiPstyle11'>Lienchiang <br/> County</p>
 			</div>
 			<div id='g-ai1-51' class='g-___1 g-aiAbs' style='top:89.0562%;left:51.3672%;'>
-				<p class='g-aiPstyle11'>雲林縣</p>
+				<p class='g-aiPstyle11'>Yunlin <br/> County</p>
 			</div>
 			<div id='g-ai1-52' class='g-___1 g-aiAbs' style='top:89.0562%;left:59.1797%;'>
-				<p class='g-aiPstyle11'>南投縣</p>
+				<p class='g-aiPstyle11'>Nantou <br/> County</p>
 			</div>
 			<div id='g-ai1-53' class='g-___1 g-aiAbs' style='top:89.0562%;left:66.9922%;'>
-				<p class='g-aiPstyle11'>嘉義市</p>
+				<p class='g-aiPstyle11'>Chiayi <br/> City</p>
 			</div>
 			<div id='g-ai1-54' class='g-___1 g-aiAbs' style='top:89.0562%;left:74.8047%;'>
-				<p class='g-aiPstyle11'>屏東縣</p>
+				<p class='g-aiPstyle11'>Pingtung <br/> County</p>
 			</div>
 			<div id='g-ai1-55' class='g-___1 g-aiAbs' style='top:89.0562%;left:82.6172%;'>
-				<p class='g-aiPstyle11'>嘉義縣</p>
+				<p class='g-aiPstyle11'>Chiayi <br/> County</p>
 			</div>
 		</div>
 	</div>
@@ -654,34 +651,34 @@ export function pieChart(mobile, desktop) {
 				#g-animal-3-ai2html-_____1 .g-aiPstyle0 {
 					font-weight: 700;
 					text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
-					font-size: 27px;
+					font-size: 20px;
     			line-height: 28px;
 					letter-spacing:0.02916666666667em;
 					color:#ffffff;
 				}
 				#g-animal-3-ai2html-_____1 .g-aiPstyle1 {
-					font-size: 17px;
-    			line-height: 18px;
+					font-size: 12.5px;
+    			line-height: 12px;
 					text-align:center;
 					letter-spacing:0.02416666666667em;
 					color:#ffffff;
 				}
 				#g-animal-3-ai2html-_____1 .g-aiPstyle2 {
-					font-size: 16px;
+					font-size: 12px;
     			line-height: 18px;
 					letter-spacing:0.02416666666667em;
 					color:#ffffff;
 				}
 				#g-animal-3-ai2html-_____1 .g-aiPstyle3 {
-					font-size:28px;
+					font-size:26px;
 					line-height:25px;
 					text-align:center;
 					letter-spacing:0.02416666666667em;
 					color:#ffffff;
 				}
 				#g-animal-3-ai2html-_____1 .g-aiPstyle4 {
-					font-size:28px;
-					line-height:32px;
+					font-size:17px;
+					line-height:20px;
 					text-align:center;
 					letter-spacing:0.02916666666667em;
 					color:#ffffff;
@@ -694,10 +691,10 @@ export function pieChart(mobile, desktop) {
 					src='${mobile}'
 					/>
 				<div id='g-ai0-1' class='g-___1 g-aiAbs' style='top:1.7213%;left:3.1046%;'>
-					<p class='g-aiPstyle0'>動保員兼職人數大於專</p>
+					<p class='g-aiPstyle0'> In 12 counties, part-time employees outnumber full-time employees.</p>
 				</div>
 				<div id='g-ai0-2' class='g-___1 g-aiAbs' style='top:1.7213%;left:3.1046%;'>
-					<p class='g-aiPstyle0'>動保員兼職人數大於專</p>
+					<p class='g-aiPstyle0'>In 12 counties, part-time employees outnumber full-time employees.</p>
 				</div>
 				<div id='g-ai0-3' class='g-___1 g-aiAbs' style='top:1.7213%;left:93.7692%;'>
 					<p class='g-aiPstyle0'> </p>
@@ -705,23 +702,17 @@ export function pieChart(mobile, desktop) {
 				<div id='g-ai0-4' class='g-___1 g-aiAbs' style='top:1.7213%;left:93.7692%;'>
 					<p class='g-aiPstyle0'> </p>
 				</div>
-				<div id='g-ai0-5' class='g-___1 g-aiAbs' style='top:3.7978%;left:3.1046%;'>
-					<p class='g-aiPstyle0'>職人數的12縣市</p>
-				</div>
-				<div id='g-ai0-6' class='g-___1 g-aiAbs' style='top:3.7978%;left:3.1046%;'>
-					<p class='g-aiPstyle0'>職人數的12縣市</p>
-				</div>
 				<div id='g-ai0-7' class='g-___1 g-aiAbs' style='top:7.1858%;left:50.0771%;width:120.3172%;margin-left:-60.1586%;'>
-					<p class='g-aiPstyle1'>資料來源：農委會動保科</p>
+					<p class='g-aiPstyle1'>Source:  Council of Agriculture </p>
 				</div>
 				<div id='g-ai0-8' class='g-___1 g-aiAbs' style='top:7.1858%;left:80.2476%;'>
 					<p class='g-aiPstyle2'> </p>
 				</div>
-				<div id='g-ai0-9' class='g-___1 g-aiAbs' style='top:8.6612%;left:59.0751%;'>
-					<p class='g-aiPstyle2'>兼職人數佔比</p>
+				<div id='g-ai0-9' class='g-___1 g-aiAbs' style='top:8.6612%;left:56%;'>
+					<p class='g-aiPstyle2'> % of part-time employees</p>
 				</div>
 				<div id='g-ai0-10' class='g-___1 g-aiAbs' style='top:8.6885%;left:12.2811%;'>
-					<p class='g-aiPstyle2'>專職人數佔比           </p>
+					<p class='g-aiPstyle2'> % of full-time <br/> employees</p>
 				</div>
 				<div id='g-ai0-11' class='g-___1 g-aiAbs' style='top:11.8033%;left:24.4878%;width:30.6002%;margin-left:-15.3001%;'>
 					<p class='g-aiPstyle3'>100%</p>
@@ -730,22 +721,22 @@ export function pieChart(mobile, desktop) {
 					<p class='g-aiPstyle3'>100%</p>
 				</div>
 				<div id='g-ai0-13' class='g-___1 g-aiAbs' style='top:19.0437%;left:24.9399%;width:54.3613%;margin-left:-27.1807%;'>
-					<p class='g-aiPstyle4'>新竹縣</p>
+					<p class='g-aiPstyle4'>Hsinchu County</p>
 				</div>
 				<div id='g-ai0-14' class='g-___1 g-aiAbs' style='top:19.0437%;left:74.9617%;width:54.3611%;margin-left:-27.1806%;'>
-					<p class='g-aiPstyle4'>嘉義市</p>
+					<p class='g-aiPstyle4'>Chiayi City</p>
 				</div>
 				<div id='g-ai0-15' class='g-___1 g-aiAbs' style='top:21.0383%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>專職0人</p>
+					<p class='g-aiPstyle1'>Full-Time: 0 person</p>
 				</div>
 				<div id='g-ai0-16' class='g-___1 g-aiAbs' style='top:21.0383%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>專職0人</p>
+					<p class='g-aiPstyle1'>Full-Time: 0 person</p>
 				</div>
 				<div id='g-ai0-17' class='g-___1 g-aiAbs' style='top:22.5137%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>兼職1人</p>
+					<p class='g-aiPstyle1'>Part-Time: 1 person</p>
 				</div>
 				<div id='g-ai0-18' class='g-___1 g-aiAbs' style='top:22.5137%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>兼職1人</p>
+					<p class='g-aiPstyle1'>Part-Time: 1 person</p>
 				</div>
 				<div id='g-ai0-19' class='g-___1 g-aiAbs' style='top:26.5847%;left:25.9867%;width:23.8224%;margin-left:-11.9112%;'>
 					<p class='g-aiPstyle3'>90%</p>
@@ -754,22 +745,22 @@ export function pieChart(mobile, desktop) {
 					<p class='g-aiPstyle3'>83%</p>
 				</div>
 				<div id='g-ai0-21' class='g-___1 g-aiAbs' style='top:33.8251%;left:24.9399%;width:54.3613%;margin-left:-27.1807%;'>
-					<p class='g-aiPstyle4'>桃園市</p>
+					<p class='g-aiPstyle4'>Taoyuan City</p>
 				</div>
 				<div id='g-ai0-22' class='g-___1 g-aiAbs' style='top:33.8251%;left:74.9617%;width:54.3611%;margin-left:-27.1806%;'>
-					<p class='g-aiPstyle4'>金門縣</p>
+					<p class='g-aiPstyle4'>Kinmen County</p>
 				</div>
 				<div id='g-ai0-23' class='g-___1 g-aiAbs' style='top:35.8197%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>專職1人</p>
+					<p class='g-aiPstyle1'>Full-Time: 1 person</p>
 				</div>
 				<div id='g-ai0-24' class='g-___1 g-aiAbs' style='top:35.8197%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>專職1人</p>
+					<p class='g-aiPstyle1'>Full-Time: 1 person</p>
 				</div>
 				<div id='g-ai0-25' class='g-___1 g-aiAbs' style='top:37.2951%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>兼職9人</p>
+					<p class='g-aiPstyle1'>Part-Time: 9 person</p>
 				</div>
 				<div id='g-ai0-26' class='g-___1 g-aiAbs' style='top:37.2951%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>兼職5人</p>
+					<p class='g-aiPstyle1'>Part-Time: 5 person</p>
 				</div>
 				<div id='g-ai0-27' class='g-___1 g-aiAbs' style='top:41.3661%;left:26.2431%;width:23.8224%;margin-left:-11.9112%;'>
 					<p class='g-aiPstyle3'>82%</p>
@@ -778,22 +769,22 @@ export function pieChart(mobile, desktop) {
 					<p class='g-aiPstyle3'>80%</p>
 				</div>
 				<div id='g-ai0-29' class='g-___1 g-aiAbs' style='top:48.6066%;left:24.9399%;width:54.3613%;margin-left:-27.1807%;'>
-					<p class='g-aiPstyle4'>新北市</p>
+					<p class='g-aiPstyle4'>New Taipei City</p>
 				</div>
 				<div id='g-ai0-30' class='g-___1 g-aiAbs' style='top:48.6066%;left:74.9617%;width:54.3611%;margin-left:-27.1806%;'>
-					<p class='g-aiPstyle4'>彰化縣</p>
+					<p class='g-aiPstyle4'>Changhua County</p>
 				</div>
 				<div id='g-ai0-31' class='g-___1 g-aiAbs' style='top:50.6011%;left:25.7212%;width:38.4369%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>專職4人</p>
+					<p class='g-aiPstyle1'>Full-Time: 4 person</p>
 				</div>
 				<div id='g-ai0-32' class='g-___1 g-aiAbs' style='top:50.6011%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>專職1人</p>
+					<p class='g-aiPstyle1'>Full-Time: 1 person</p>
 				</div>
 				<div id='g-ai0-33' class='g-___1 g-aiAbs' style='top:52.0765%;left:25.7213%;width:44.0598%;margin-left:-22.0299%;'>
-					<p class='g-aiPstyle1'>兼職18人</p>
+					<p class='g-aiPstyle1'>Part-Time: 18 person</p>
 				</div>
 				<div id='g-ai0-34' class='g-___1 g-aiAbs' style='top:52.0765%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>兼職4人</p>
+					<p class='g-aiPstyle1'>Part-Time: 4 person</p>
 				</div>
 				<div id='g-ai0-35' class='g-___1 g-aiAbs' style='top:56.1475%;left:25.9336%;width:23.8224%;margin-left:-11.9112%;'>
 					<p class='g-aiPstyle3'>80%</p>
@@ -802,22 +793,22 @@ export function pieChart(mobile, desktop) {
 					<p class='g-aiPstyle3'>73%</p>
 				</div>
 				<div id='g-ai0-37' class='g-___1 g-aiAbs' style='top:63.3607%;left:24.9399%;width:54.3613%;margin-left:-27.1807%;'>
-					<p class='g-aiPstyle4'>台東縣</p>
+					<p class='g-aiPstyle4'>Taitung County</p>
 				</div>
 				<div id='g-ai0-38' class='g-___1 g-aiAbs' style='top:63.3607%;left:74.9617%;width:54.3611%;margin-left:-27.1806%;'>
-					<p class='g-aiPstyle4'>宜蘭縣</p>
+					<p class='g-aiPstyle4'>Yunlin County</p>
 				</div>
 				<div id='g-ai0-39' class='g-___1 g-aiAbs' style='top:65.3552%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>專職1人</p>
+					<p class='g-aiPstyle1'>Full-Time: 1 person</p>
 				</div>
 				<div id='g-ai0-40' class='g-___1 g-aiAbs' style='top:65.3552%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>專職3人</p>
+					<p class='g-aiPstyle1'>Full-Time: 3 person</p>
 				</div>
 				<div id='g-ai0-41' class='g-___1 g-aiAbs' style='top:66.8579%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>兼職4人</p>
+					<p class='g-aiPstyle1'>Part-Time: 4 person</p>
 				</div>
 				<div id='g-ai0-42' class='g-___1 g-aiAbs' style='top:66.8579%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>兼職8人</p>
+					<p class='g-aiPstyle1'>Part-Time: 8 person</p>
 				</div>
 				<div id='g-ai0-43' class='g-___1 g-aiAbs' style='top:70.929%;left:26.1993%;width:23.8224%;margin-left:-11.9112%;'>
 					<p class='g-aiPstyle3'>69%</p>
@@ -826,22 +817,22 @@ export function pieChart(mobile, desktop) {
 					<p class='g-aiPstyle3'>67%</p>
 				</div>
 				<div id='g-ai0-45' class='g-___1 g-aiAbs' style='top:78.1421%;left:24.9399%;width:54.3613%;margin-left:-27.1807%;'>
-					<p class='g-aiPstyle4'>台南市</p>
+					<p class='g-aiPstyle4'>Tainan City</p>
 				</div>
 				<div id='g-ai0-46' class='g-___1 g-aiAbs' style='top:78.1421%;left:74.9617%;width:54.3611%;margin-left:-27.1806%;'>
-					<p class='g-aiPstyle4'>苗栗縣</p>
+					<p class='g-aiPstyle4'>Miaoli County</p>
 				</div>
 				<div id='g-ai0-47' class='g-___1 g-aiAbs' style='top:80.1366%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>專職4人</p>
+					<p class='g-aiPstyle1'>Full-Time: 4 person</p>
 				</div>
 				<div id='g-ai0-48' class='g-___1 g-aiAbs' style='top:80.1366%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>專職1人</p>
+					<p class='g-aiPstyle1'>Full-Time: 1 person</p>
 				</div>
 				<div id='g-ai0-49' class='g-___1 g-aiAbs' style='top:81.6393%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>兼職9人</p>
+					<p class='g-aiPstyle1'>Part-Time: 9 person</p>
 				</div>
 				<div id='g-ai0-50' class='g-___1 g-aiAbs' style='top:81.6393%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>兼職2人</p>
+					<p class='g-aiPstyle1'>Part-Time: 2 person</p>
 				</div>
 				<div id='g-ai0-51' class='g-___1 g-aiAbs' style='top:85.7104%;left:26.365%;width:23.8224%;margin-left:-11.9112%;'>
 					<p class='g-aiPstyle3'>67%</p>
@@ -850,22 +841,22 @@ export function pieChart(mobile, desktop) {
 					<p class='g-aiPstyle3'>63%</p>
 				</div>
 				<div id='g-ai0-53' class='g-___1 g-aiAbs' style='top:92.9235%;left:24.9399%;width:54.3613%;margin-left:-27.1807%;'>
-					<p class='g-aiPstyle4'>連江縣</p>
+					<p class='g-aiPstyle4'>Lienchiang County</p>
 				</div>
 				<div id='g-ai0-54' class='g-___1 g-aiAbs' style='top:92.9235%;left:74.9617%;width:54.3611%;margin-left:-27.1806%;'>
-					<p class='g-aiPstyle4'>高雄市</p>
+					<p class='g-aiPstyle4'>Kaohsiung City</p>
 				</div>
 				<div id='g-ai0-55' class='g-___1 g-aiAbs' style='top:94.918%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>專職1人</p>
+					<p class='g-aiPstyle1'>Full-Time: 1 person</p>
 				</div>
 				<div id='g-ai0-56' class='g-___1 g-aiAbs' style='top:94.918%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>專職3人</p>
+					<p class='g-aiPstyle1'>Full-Time: 3 person</p>
 				</div>
 				<div id='g-ai0-57' class='g-___1 g-aiAbs' style='top:96.4208%;left:25.7625%;width:38.4369%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>兼職2人</p>
+					<p class='g-aiPstyle1'>Part-Time: 2 person</p>
 				</div>
 				<div id='g-ai0-58' class='g-___1 g-aiAbs' style='top:96.4208%;left:75.7844%;width:38.4367%;margin-left:-19.2184%;'>
-					<p class='g-aiPstyle1'>兼職5人</p>
+					<p class='g-aiPstyle1'>Part-Time: 5 person</p>
 				</div>
 			</div>
 		</div>
@@ -892,13 +883,13 @@ export function pieChart(mobile, desktop) {
 				#g-animal-3-ai2html-_____1___ .g-aiPstyle0 {
 					font-weight: 700;
 					text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
-					font-size:32px;
+					font-size:26px;
 					line-height:34px;
 					letter-spacing:0.02916666666667em;
 					color:#ffffff;
 				}
 				#g-animal-3-ai2html-_____1___ .g-aiPstyle1 {
-					font-size:17px;
+					font-size:11.5px;
 					line-height:20px;
 					letter-spacing:0.02416666666667em;
 					color:#ffffff;
@@ -911,15 +902,16 @@ export function pieChart(mobile, desktop) {
 					color:#ffffff;
 				}
 				#g-animal-3-ai2html-_____1___ .g-aiPstyle3 {
-					font-size:28px;
-					line-height:34px;
+					font-size:18px;
+					line-height:20px;
+					font-weight: 700;
 					text-align:center;
 					letter-spacing:0.02916666666667em;
 					color:#ffffff;
 				}
 				#g-animal-3-ai2html-_____1___ .g-aiPstyle4 {
-					font-size:17px;
-					line-height:20px;
+					font-size:13px;
+					line-height:12px;
 					text-align:center;
 					letter-spacing:0.02416666666667em;
 					color:#ffffff;
@@ -931,17 +923,17 @@ export function pieChart(mobile, desktop) {
 					class='g-aiImg'
 					src='${desktop}'
 					/>
-				<div id='g-ai1-1' class='g-___1 g-aiAbs' style='top:8.6034%;left:20.5%;'>
-					<p class='g-aiPstyle0'>動保員兼職人數大於專職人數的12縣市</p>
+				<div id='g-ai1-1' class='g-___1 g-aiAbs' style='top:7.5%;left:8.5%;'>
+					<p class='g-aiPstyle0'>In 12 counties, part-time employees outnumber full-time employees.</p>
 				</div>
 				<div id='g-ai1-3' class='g-___1 g-aiAbs' style='top:16.8715%;left:24.2484%;'>
-					<p class='g-aiPstyle1'>    資料來源：農委會動保科 ｜                 </p>
+					<p class='g-aiPstyle1'>   Source: Council of Agriculture </p>
 				</div>
 				<div id='g-ai1-4' class='g-___1 g-aiAbs' style='top:16.9832%;left:48.988%;'>
-					<p class='g-aiPstyle1'>專職人數佔比</p>
+					<p class='g-aiPstyle1'>% of Full-time</p>
 				</div>
 				<div id='g-ai1-5' class='g-___1 g-aiAbs' style='top:16.9832%;left:63.8968%;'>
-					<p class='g-aiPstyle1'>兼職人數佔比</p>
+					<p class='g-aiPstyle1'>% of Part-time</p>
 				</div>
 				<div id='g-ai1-6' class='g-___1 g-aiAbs' style='top:26.257%;left:10.699%;width:9.5583%;margin-left:-4.7791%;'>
 					<p class='g-aiPstyle2'>100%</p>
@@ -962,58 +954,58 @@ export function pieChart(mobile, desktop) {
 					<p class='g-aiPstyle2'>80%</p>
 				</div>
 				<div id='g-ai1-12' class='g-___1 g-aiAbs' style='top:43.6872%;left:10.699%;width:16.9804%;margin-left:-8.4902%;'>
-					<p class='g-aiPstyle3'>新竹縣</p>
+					<p class='g-aiPstyle3'>Hsinchu County</p>
 				</div>
 				<div id='g-ai1-13' class='g-___1 g-aiAbs' style='top:43.6872%;left:26.324%;width:16.9804%;margin-left:-8.4902%;'>
-					<p class='g-aiPstyle3'>嘉義市</p>
+					<p class='g-aiPstyle3'>Chiayi City</p>
 				</div>
 				<div id='g-ai1-14' class='g-___1 g-aiAbs' style='top:43.6872%;left:42.066%;width:16.9806%;margin-left:-8.4903%;'>
-					<p class='g-aiPstyle3'>桃園市</p>
+					<p class='g-aiPstyle3'>Taoyuan City</p>
 				</div>
 				<div id='g-ai1-15' class='g-___1 g-aiAbs' style='top:43.6872%;left:57.7137%;width:16.9806%;margin-left:-8.4903%;'>
-					<p class='g-aiPstyle3'>金門縣</p>
+					<p class='g-aiPstyle3'>Kinmen County </p>
 				</div>
 				<div id='g-ai1-16' class='g-___1 g-aiAbs' style='top:43.6872%;left:73.2148%;width:16.9804%;margin-left:-8.4902%;'>
-					<p class='g-aiPstyle3'>新北市</p>
+					<p class='g-aiPstyle3'>New Taipei City</p>
 				</div>
 				<div id='g-ai1-17' class='g-___1 g-aiAbs' style='top:43.6872%;left:88.9614%;width:16.9806%;margin-left:-8.4903%;'>
-					<p class='g-aiPstyle3'>彰化縣</p>
+					<p class='g-aiPstyle3'>Changhua County</p>
 				</div>
 				<div id='g-ai1-18' class='g-___1 g-aiAbs' style='top:48.4916%;left:10.699%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>專職0人</p>
+					<p class='g-aiPstyle4'>Full-Time: 0 person</p>
 				</div>
 				<div id='g-ai1-19' class='g-___1 g-aiAbs' style='top:48.4916%;left:26.324%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>專職0人</p>
+					<p class='g-aiPstyle4'>Full-Time: 0 person</p>
 				</div>
 				<div id='g-ai1-20' class='g-___1 g-aiAbs' style='top:48.4916%;left:42.066%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>專職1人</p>
+					<p class='g-aiPstyle4'>Full-Time: 1 person</p>
 				</div>
 				<div id='g-ai1-21' class='g-___1 g-aiAbs' style='top:48.4916%;left:57.7137%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>專職1人</p>
+					<p class='g-aiPstyle4'>Full-Time: 1 person</p>
 				</div>
 				<div id='g-ai1-22' class='g-___1 g-aiAbs' style='top:48.4916%;left:73.2148%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>專職4人</p>
+					<p class='g-aiPstyle4'>Full-Time: 4 person</p>
 				</div>
 				<div id='g-ai1-23' class='g-___1 g-aiAbs' style='top:48.4916%;left:88.9613%;width:12.0064%;margin-left:-6.0032%;'>
-					<p class='g-aiPstyle4'>專職1人</p>
+					<p class='g-aiPstyle4'>Full-Time: 1 person</p>
 				</div>
 				<div id='g-ai1-24' class='g-___1 g-aiAbs' style='top:52.067%;left:10.699%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>兼職1人</p>
+					<p class='g-aiPstyle4'>Part-Time: 1 person</p>
 				</div>
 				<div id='g-ai1-25' class='g-___1 g-aiAbs' style='top:52.067%;left:26.324%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>兼職1人</p>
+					<p class='g-aiPstyle4'>Part-Time: 1 person</p>
 				</div>
 				<div id='g-ai1-26' class='g-___1 g-aiAbs' style='top:52.067%;left:42.066%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>兼職9人</p>
+					<p class='g-aiPstyle4'>Part-Time: 9 person</p>
 				</div>
 				<div id='g-ai1-27' class='g-___1 g-aiAbs' style='top:52.067%;left:57.7137%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>兼職5人</p>
+					<p class='g-aiPstyle4'>Part-Time: 5 person</p>
 				</div>
 				<div id='g-ai1-28' class='g-___1 g-aiAbs' style='top:52.067%;left:73.2148%;width:13.7627%;margin-left:-6.8813%;'>
-					<p class='g-aiPstyle4'>兼職18人</p>
+					<p class='g-aiPstyle4'>Part-Time: 18 person</p>
 				</div>
 				<div id='g-ai1-29' class='g-___1 g-aiAbs' style='top:52.067%;left:88.9613%;width:12.0064%;margin-left:-6.0032%;'>
-					<p class='g-aiPstyle4'>兼職4人</p>
+					<p class='g-aiPstyle4'>Part-Time: 4 person</p>
 				</div>
 				<div id='g-ai1-30' class='g-___1 g-aiAbs' style='top:63.352%;left:11.0072%;width:7.4413%;margin-left:-3.7207%;'>
 					<p class='g-aiPstyle2'>80%</p>
@@ -1034,58 +1026,58 @@ export function pieChart(mobile, desktop) {
 					<p class='g-aiPstyle2'>63%</p>
 				</div>
 				<div id='g-ai1-36' class='g-___1 g-aiAbs' style='top:80.7821%;left:11.0073%;width:16.9806%;margin-left:-8.4903%;'>
-					<p class='g-aiPstyle3'>台東縣</p>
+					<p class='g-aiPstyle3'>Taitung County</p>
 				</div>
 				<div id='g-ai1-37' class='g-___1 g-aiAbs' style='top:80.7821%;left:26.6762%;width:16.9804%;margin-left:-8.4902%;'>
-					<p class='g-aiPstyle3'>宜蘭縣</p>
+					<p class='g-aiPstyle3'>Yilan County</p>
 				</div>
 				<div id='g-ai1-38' class='g-___1 g-aiAbs' style='top:80.7821%;left:42.278%;width:16.9804%;margin-left:-8.4902%;'>
-					<p class='g-aiPstyle3'>台南市</p>
+					<p class='g-aiPstyle3'>Tainan City</p>
 				</div>
 				<div id='g-ai1-39' class='g-___1 g-aiAbs' style='top:80.7821%;left:57.9159%;width:16.9806%;margin-left:-8.4903%;'>
-					<p class='g-aiPstyle3'>苗栗縣</p>
+					<p class='g-aiPstyle3'>Miaoli County</p>
 				</div>
 				<div id='g-ai1-40' class='g-___1 g-aiAbs' style='top:80.7821%;left:73.5409%;width:16.9806%;margin-left:-8.4903%;'>
-					<p class='g-aiPstyle3'>連江縣</p>
+					<p class='g-aiPstyle3'>Lienchiang County</p>
 				</div>
 				<div id='g-ai1-41' class='g-___1 g-aiAbs' style='top:80.7821%;left:89.1874%;width:16.9804%;margin-left:-8.4902%;'>
-					<p class='g-aiPstyle3'>高雄市</p>
+					<p class='g-aiPstyle3'>Kaohsiung City</p>
 				</div>
 				<div id='g-ai1-42' class='g-___1 g-aiAbs' style='top:85.5866%;left:11.0072%;width:12.0064%;margin-left:-6.0032%;'>
-					<p class='g-aiPstyle4'>專職1人</p>
+					<p class='g-aiPstyle4'>Full-Time: 1 person</p>
 				</div>
 				<div id='g-ai1-43' class='g-___1 g-aiAbs' style='top:85.5866%;left:26.6762%;width:12.0064%;margin-left:-6.0032%;'>
-					<p class='g-aiPstyle4'>專職3人</p>
+					<p class='g-aiPstyle4'>Full-Time: 3 person</p>
 				</div>
 				<div id='g-ai1-44' class='g-___1 g-aiAbs' style='top:85.5866%;left:42.278%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>專職4人</p>
+					<p class='g-aiPstyle4'>Full-Time: 4 person</p>
 				</div>
 				<div id='g-ai1-45' class='g-___1 g-aiAbs' style='top:85.5866%;left:57.9159%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>專職1人</p>
+					<p class='g-aiPstyle4'>Full-Time: 1 person</p>
 				</div>
 				<div id='g-ai1-46' class='g-___1 g-aiAbs' style='top:85.5866%;left:73.5409%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>專職1人</p>
+					<p class='g-aiPstyle4'>Full-Time: 1 person</p>
 				</div>
 				<div id='g-ai1-47' class='g-___1 g-aiAbs' style='top:85.5866%;left:89.1874%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>專職3人</p>
+					<p class='g-aiPstyle4'>Full-Time: 3 person</p>
 				</div>
 				<div id='g-ai1-48' class='g-___1 g-aiAbs' style='top:89.162%;left:11.0072%;width:12.0064%;margin-left:-6.0032%;'>
-					<p class='g-aiPstyle4'>兼職4人</p>
+					<p class='g-aiPstyle4'>Part-Time: 4 person</p>
 				</div>
 				<div id='g-ai1-49' class='g-___1 g-aiAbs' style='top:89.162%;left:26.6762%;width:12.0064%;margin-left:-6.0032%;'>
-					<p class='g-aiPstyle4'>兼職8人</p>
+					<p class='g-aiPstyle4'>Part-Time: 8 person</p>
 				</div>
 				<div id='g-ai1-50' class='g-___1 g-aiAbs' style='top:89.162%;left:42.278%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>兼職9人</p>
+					<p class='g-aiPstyle4'>Part-Time: 9 person</p>
 				</div>
 				<div id='g-ai1-51' class='g-___1 g-aiAbs' style='top:89.162%;left:57.9159%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>兼職2人</p>
+					<p class='g-aiPstyle4'>Part-Time: 2 person</p>
 				</div>
 				<div id='g-ai1-52' class='g-___1 g-aiAbs' style='top:89.162%;left:73.5409%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>兼職2人</p>
+					<p class='g-aiPstyle4'>Part-Time: 2 person</p>
 				</div>
 				<div id='g-ai1-53' class='g-___1 g-aiAbs' style='top:89.162%;left:89.1874%;width:12.0062%;margin-left:-6.0031%;'>
-					<p class='g-aiPstyle4'>兼職5人</p>
+					<p class='g-aiPstyle4'>Part-Time: 5 person</p>
 				</div>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 /*eslint-disable */
 export const titlePart1 = 'No-Kill Policy'
 export const titlePart2 = 'The New Paradise for Homeless Animals?'
-export const description = `A ban on euthanizing impounded animals will take effect in 2017.
+export const description = `A ban on euthanizing impounded animals will take effect in 2017 in Taiwan.
 
 Is no-kill policy the answer to ending the cycle of pet homelessness?
 

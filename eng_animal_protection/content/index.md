@@ -3,4 +3,4 @@ title: No-Kill Policy - The New Paradise for Homeless Animals? / TheReporter報�
 layout: Homepage
 ---
 
-2017年年初正式執行零安樂死政策，但原本資源就匱乏的收容所獸醫、動保員正面臨壓力的臨界點。對現階段的台灣來說，零安樂死就像是感性訴求的童話故事，但現實卻是殘酷的。
+A ban on euthanizing impounded animals will take effect in 2017. Pressure is now at tipping point for veterinarians and animal welfare inspectors working at resource-strapped public shelters. No-kill policy paints a rosy picture that all animals can be saved and kept alive. But Taiwan may be in need of a reality check.
