@@ -14,6 +14,7 @@ export default class Footer extends Component {
       <div className={ styles["container"] }>
         <footer className={ styles.footer }>
           <div className={ commonStyles["content-outer"] }>
+            <p className={ commonStyles["white-text"] }><span style={ { opacity: 0.6 } }>English Translation:</span> <a target="_blank" href="https://www.twreporter.org/a/eng-animal-protection/"><b>No-Kill Policy - The New Paradise for Homeless Animals?</b></a></p>
             <div className={ styles["logo"] }>
               <a href="https://www.twreporter.org/" className={ classnames(styles["tablet-logo"]) } target="_self">
                 <div title="報導者TheReporter" className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }

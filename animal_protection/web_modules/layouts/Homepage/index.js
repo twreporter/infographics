@@ -28,6 +28,7 @@ import reporterIcon from "../../../content/assets/twreporter-icon.svg"
 import donationIcon from "../../../content/assets/icon-donation.svg"
 import fbIcon from "../../../content/assets/icon-share-facebook.svg"
 import twitterIcon from "../../../content/assets/icon-share-twitter.svg"
+import languageIcon from "../../../content/assets/EN.svg"
 
 import { MOBILE_WIDTH } from "./config"
 import { authorText,  publishDate, authorSeparator, authorList } from "./content"
@@ -257,6 +258,11 @@ export default class Homepage extends Component {
           </div>
 
           <div className={ styles["share-box"] }>
+            <a href="https://www.twreporter.org/a/eng-animal-protection/" style={ { opacity: 0.65, marginRight: "0.5rem" } } target="_blank">
+              <div title="(English Translation) No-Kill Policy - The New Paradise for Homeless Animals?" className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
+                dangerouslySetInnerHTML={ { __html: languageIcon } }
+              />
+            </a>
             <a href="https://twreporter.org/" target="_blank">
               <div title="報導者TheReporter" className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
                 dangerouslySetInnerHTML={ { __html: reporterIcon } }

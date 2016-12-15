@@ -128,10 +128,24 @@ export const makeConfig = (config = {}) => {
 
         // copy assets and return generated path in js
         {
-          test: /\.(html|ico|jpe?g|png|gif|mp3)$/,
-          loader: "file-loader" +
-            "?name=[path][name].[hash].[ext]&context=" +
-            path.join(__dirname, config.source),
+          test: /\.(html|ico|eot|otf|webp|ttf|woff|woff2|mp3|mp4)$/,
+          loader: "file-loader",
+          query: {
+            name: "[path][name].[hash].[ext]",
+            context: path.join(__dirname, config.source),
+          },
+        },
+
+        {
+          test: /\.(jpe?g|png|gif)$/,
+          loaders: [
+            "file-loader",
+            "image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false",
+          ],
+          resolveLoader: {
+            name: "[path][name].[hash].[ext]",
+            context: path.join(__dirname, config.source),
+          },
         },
 
         // svg as raw string to be inlined
