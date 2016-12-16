@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from "react"
+import SVGInline from "react-svg-inline"
 // import enhanceCollection from "phenomic/lib/enhance-collectio
 import { Link } from "react-router"
 import Swipeable from "react-swipeable"
@@ -13,6 +14,7 @@ import Page from "../Page"
 import WindowSizeMixin from '../WindowSizeMixin'
 
 import bottomLogo from "../../../content/assets/logo-navbar.svg"
+import noticeLogo from "../../../content/assets/notice.svg"
 import RightNavButton from "../../components/Navigation/RightNavButton"
 import Header from "../../components/Header"
 
@@ -169,6 +171,14 @@ class Homepage extends WindowSizeMixin(Component) {
                       dangerouslySetInnerHTML={ { __html: bottomLogo } }
                     />
                   </a>
+                </div>
+              </div>
+
+              <div className={styles["warning-box"]}>
+                <div>
+                  <span>為達最佳瀏覽品質</span><br/>
+                  <SVGInline className={styles["warning-icon"]} svg={ noticeLogo } />
+                  <b>可橫放您的手機</b>
                 </div>
               </div>
 
