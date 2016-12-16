@@ -5,7 +5,6 @@ import ReactHowler from "react-howler"
 import classnames from "classnames"
 import Swipeable from "react-swipeable"
 import SVGInline from "react-svg-inline"
-import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 import ReactCSSTransitionReplace from "react-css-transition-replace"
 import raf from "raf" // requestAnimationFrame polyfill
 
@@ -25,6 +24,13 @@ import navHomeMobileIcon from "../../../content/assets/nav-home-mobile.svg"
 
 import { PHOTOS, VIDEOS, AUDIOS, TEXT } from "./multimedia.js"
 
+const MAP_SLIDE_INDEX = 2
+
+let velocity
+if (typeof window !== "undefined") {
+  velocity = require("velocity-animate")
+}
+
 class Slide extends Component {
   constructor(props) {
     super(props)
@@ -41,17 +47,38 @@ class Slide extends Component {
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.goPreSlide = this.goPreSlide.bind(this)
     this.goNextSlide = this.goNextSlide.bind(this)
+    this.fadeInText = this.fadeInText.bind(this)
   }
 
   componentDidMount() {
     if (super.componentDidMount) super.componentDidMount()
     this.startAudioProgressSeek()
     window.addEventListener("keydown", this.handleKeyPress)
+    this.fadeInText()
   }
 
   componentWillUnmount() {
     this.clearRAF()
     window.removeEventListener("keydown", this.handleKeyPress)
+  }
+
+  fadeInText() {
+    // let text fade in
+    const { textBox } = this
+    const { slideIndex } = this.props.head
+    const video = this.getVideoByIndex(slideIndex)
+    let tDelay = video ? 700 : 400
+    let tDuration = video ? 1500 : 1000
+    if(slideIndex === MAP_SLIDE_INDEX) {
+      tDelay = 3500
+      tDuration = 2000
+    }
+
+    if(textBox) {
+      textBox.style.opacity = '0'
+      velocity(textBox, "stop", true)
+      velocity(textBox, { opacity: [ 1, 0 ] }, { delay: tDelay, duration: tDuration, easing: "easeInOut" })
+    }
   }
 
   startAudioProgressSeek() {
@@ -86,6 +113,7 @@ class Slide extends Component {
     const { slideIndex } = this.props.head
     if(prevProps.head.slideIndex !== slideIndex) {
       this.startAudioProgressSeek()
+      this.fadeInText()
       // console.log(this.imageBox.clientHeight, this.imageBox.getBoundingClientRect())
     }
   }
@@ -205,7 +233,7 @@ class Slide extends Component {
 
     const homeIconSrc = isMobile ? navHomeMobileIcon : navHomeIcon
 
-    const isMapOverlay = (slideIndex === 2)
+    const isMapOverlay = (slideIndex === MAP_SLIDE_INDEX)
 
     const Video = isVideo ?
       <VideoPlayer source={videoSource} key={videoSource}
@@ -265,6 +293,7 @@ class Slide extends Component {
                 <source src={this.getAudioByIndex(slideIndex+2)} type="audio/ogg"/>
               </audio>
               <span>{ TEXT[slideIndex+1] }</span>
+              <span>{ TEXT[slideIndex+2] }</span>
               <span>{ TEXT[slideIndex-1] }</span>
             </div>
             {/* End - Preload Image and Video */}
@@ -290,36 +319,25 @@ class Slide extends Component {
             <div className={styles["bg-overlay-top"]}></div>
             <div className={styles["bg-overlay-bottom"]}></div>
 
-            <ReactCSSTransitionGroup
-              transitionName="fade"
-              transitionAppear={true}
-              transitionAppearTimeout={300}
-              transitionEnterTimeout={300}
-              transitionLeaveTimeout={800}>
             {
               isMapOverlay ?
                 <MapOverlay isMobile={ isMobile }/> : null
             }
-            </ReactCSSTransitionGroup>
 
-            <ReactCSSTransitionGroup
-              transitionName="fade"
-              transitionAppear={true}
-              transitionAppearTimeout={500}
-              transitionEnterTimeout={500}
-              transitionLeaveTimeout={800}>
-              <div className={styles["bottom-box"]}>
-                <div className={ classnames(commonStyles["content-outer"],
-                  styles["description"], desClass) }
-                >
-                  {/*<div
-                    key={`text-${slideIndex}`}
-                    dangerouslySetInnerHTML={ { __html: body } }
-                  />*/}
-                  <span key={`text-${slideIndex}`} dangerouslySetInnerHTML={ { __html: TEXT[slideIndex] } }></span>
-                </div>
+            <div className={styles["bottom-box"]}
+              style={{ opacity: 0 }}
+              ref={ (ref) => this.textBox = ref }
+            >
+              <div className={ classnames(commonStyles["content-outer"],
+                styles["description"], desClass) }
+              >
+                {/*<div
+                  key={`text-${slideIndex}`}
+                  dangerouslySetInnerHTML={ { __html: body } }
+                />*/}
+                <span key={`text-${slideIndex}`} dangerouslySetInnerHTML={ { __html: TEXT[slideIndex] } }></span>
               </div>
-            </ReactCSSTransitionGroup>
+            </div>
             <div ref={(ref) => this.preBtn = ref}>
               <Link to={previousLink} rel="prefetch">
                 <div className={ styles["left-button"] } >

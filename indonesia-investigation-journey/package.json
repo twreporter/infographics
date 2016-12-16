@@ -2,7 +2,10 @@
   "private": true,
   "name": "indonesia-investigation-journey",
   "homepage": "http://garfieldduck.github.io/infographics/indonesia-investigation-journey/dist/",
+  "absPath": "https://www.twreporter.org",
   "twitter": "indonesia-investigation-journey",
+  "siteTitle": "離岸之前/報導者TheReporter",
+  "aDescription": "每一年，有近萬名印尼漁工，以境外聘僱的方式，為台灣遠洋漁業付出勞力。他們忍受惡劣的工作環境與勞動剝削，只為了更好的生活。",
   "repository": "",
   "scripts": {
     "lint:js": "eslint --ignore-path .gitignore --fix .",
@@ -142,6 +145,7 @@
     "raf": "^3.3.0",
     "react-addons-css-transition-group": "^15.4.1",
     "react-css-transition-replace": "^2.1.0",
+    "react-ga": "^2.1.2",
     "react-howler": "^3.3.0",
     "react-swipeable": "^3.7.0",
     "velocity-animate": "^1.3.1"

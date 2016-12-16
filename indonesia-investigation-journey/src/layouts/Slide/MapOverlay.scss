@@ -2,6 +2,7 @@
 @import "../../styles/animation.scss";
 
 .container {
+  @include fade-in(4.3s);
   position: fixed;
   top: 18%;
   left: 50%;
@@ -23,7 +24,7 @@
 
 .bg-overlay {
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
   top: 0;
   left: 0;
   width: 100%;

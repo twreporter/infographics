@@ -1,5 +1,6 @@
 /* eslint-disable react/no-find-dom-node */
 import React, { Component, PropTypes } from "react"
+import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 import SVGInline from "react-svg-inline"
 
 import styles from "./MapOverlay.scss"
@@ -44,9 +45,9 @@ class MapOverlay extends Component {
       endMark.style.opacity = '0'
       journeyLength.style.opacity = '0'
 
-      velocity(startMark, { opacity: [ 1, 0 ] }, { delay: 500, duration: 800, easing: "easeInOut" })
+      velocity(startMark, { opacity: [ 1, 0 ] }, { delay: 1300, duration: 700, easing: "easeInOut" })
         .then(() => {
-          return velocity(lineJourney, {"stroke-dashoffset": [0,jLength]}, { duration: 2200, easing: "easeIn" })
+          return velocity(lineJourney, {"stroke-dashoffset": [0,jLength]}, { duration: 2200, easing: "easeInOut" })
         })
         .then(() => {
           return velocity(endMark, { opacity: [ 1, 0 ] }, { duration: 500, easing: "easeInOut" })
@@ -62,11 +63,18 @@ class MapOverlay extends Component {
     const imgSrc = isMobile ? mapImgMobile : mapImg
 
     return (
-      <div className={ styles["bg-overlay"] }>
-        <div className={ styles["container"] }>
-          <SVGInline className={styles["icon"]} svg={ imgSrc } />
+      <ReactCSSTransitionGroup
+        transitionName="fade"
+        transitionAppear={true}
+        transitionAppearTimeout={800}
+        transitionEnterTimeout={800}
+        transitionLeaveTimeout={800}>
+        <div className={ styles["bg-overlay"] }>
+          <div className={ styles["container"] }>
+            <SVGInline className={styles["icon"]} svg={ imgSrc } />
+          </div>
         </div>
-      </div>
+      </ReactCSSTransitionGroup>
     )
   }
 
