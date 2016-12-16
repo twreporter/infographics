@@ -171,7 +171,6 @@
 }
 
 .home-button {
-  @include fade-in(0.5s);
   position: fixed;
   left: 1.1rem;
   top: 0.85rem;

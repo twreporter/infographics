@@ -23,7 +23,6 @@ class Homepage extends WindowSizeMixin(Component) {
   constructor(props) {
     super(props)
     this.state = {
-      isMobile: false,
       scrollPercent: 0,
     }
     this.handleKeyPress = this.handleKeyPress.bind(this)
@@ -48,7 +47,7 @@ class Homepage extends WindowSizeMixin(Component) {
   }
 
   getPhotoByIndex(slideIndex) {
-    const { isMobile, isPortrait } = this.state
+    const { isMobile, isPortrait } = this.context
     let retPhoto = null
     if(PHOTOS[slideIndex] && PHOTOS[slideIndex].photo && PHOTOS[slideIndex].photoMobile) {
       const mobilePath = require(`../../../content/assets/${PHOTOS[slideIndex].photoMobile}`)
@@ -59,7 +58,7 @@ class Homepage extends WindowSizeMixin(Component) {
   }
 
   getVideoByIndex(slideIndex) {
-    const { isMobile, isPortrait } = this.state
+    const { isMobile, isPortrait } = this.context
     let retVideo = null
     if(VIDEOS[slideIndex] && VIDEOS[slideIndex].video && VIDEOS[slideIndex].videoMobile) {
       const mobilePath = require(`../../../content/assets/${VIDEOS[slideIndex].videoMobile}`)
@@ -93,7 +92,7 @@ class Homepage extends WindowSizeMixin(Component) {
     // })
     // .slice(0, numberOfLatestPosts)
 
-    const { isMobile, isTablet, isPortrait } = this.state
+    const { isMobile, isTablet, isPortrait } = this.context
     const { head } = this.props
 
     const bgPhoto = (isMobile && isPortrait) ? require("../../../content/assets/"+head.photoMobile) : require("../../../content/assets/"+head.photo)
@@ -199,6 +198,9 @@ Homepage.contextTypes = {
   metadata: PropTypes.object.isRequired,
   router: PropTypes.object.isRequired,
   collection: PropTypes.array.isRequired,
+  isMobile: React.PropTypes.bool,
+  isTablet: React.PropTypes.bool,
+  isPortrait: React.PropTypes.bool,
 }
 
 Homepage.propTypes = {

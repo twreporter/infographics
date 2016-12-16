@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from "react"
 import { Route } from "react-router"
 import { PageContainer as PhenomicPageContainer } from "phenomic"
 
+import WindowSizeMixin from "./layouts/WindowSizeMixin"
 import AppContainer from "./AppContainer"
 import Page from "./layouts/Page"
 import PageError from "./layouts/PageError"
@@ -9,9 +10,14 @@ import Homepage from "./layouts/Homepage"
 import Post from "./layouts/Post"
 import Slide from "./layouts/Slide"
 
-class PageContainer extends Component {
+class PageContainer extends WindowSizeMixin(Component) {
   getChildContext() {
-    return {isIOS9: this.state.isIOS9}
+    return {
+      isIOS9: this.state.isIOS9,
+      isMobile: this.state.isMobile,
+      isTablet: this.state.isTablet,
+      isPortrait: this.state.isPortrait,
+    }
   }
 
   constructor(props) {
@@ -22,6 +28,7 @@ class PageContainer extends Component {
   }
 
   componentDidMount() {
+    if (super.componentDidMount) super.componentDidMount()
     const iosVersion = this.getIOSVersion()
     if(iosVersion && iosVersion<10) {
       this.setState({isIOS9: true})
@@ -80,7 +87,10 @@ PageContainer.propTypes = {
 }
 
 PageContainer.childContextTypes = {
-  isIOS9: React.PropTypes.bool
+  isIOS9: React.PropTypes.bool,
+  isMobile: React.PropTypes.bool,
+  isTablet: React.PropTypes.bool,
+  isPortrait: React.PropTypes.bool,
 }
 
 export default (

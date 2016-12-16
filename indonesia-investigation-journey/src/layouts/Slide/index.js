@@ -9,7 +9,6 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 import ReactCSSTransitionReplace from "react-css-transition-replace"
 import raf from "raf" // requestAnimationFrame polyfill
 
-import WindowSizeMixin from "../WindowSizeMixin"
 import Page from "../Page"
 import styles from "./Slide.scss"
 import commonStyles from "../../styles/common.scss"
@@ -26,11 +25,10 @@ import navHomeMobileIcon from "../../../content/assets/nav-home-mobile.svg"
 
 import { PHOTOS, VIDEOS, AUDIOS, TEXT } from "./multimedia.js"
 
-class Slide extends WindowSizeMixin(Component) {
+class Slide extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isMobile: false,
       scrollPercent: 0,
       isMute: false,
       isPlaying: false,
@@ -93,7 +91,7 @@ class Slide extends WindowSizeMixin(Component) {
   }
 
   getPhotoByIndex(slideIndex) {
-    const { isMobile, isPortrait } = this.state
+    const { isMobile, isPortrait } = this.context
     let retPhoto = null
     if(PHOTOS[slideIndex] && PHOTOS[slideIndex].photo && PHOTOS[slideIndex].photoMobile) {
       const mobilePath = require(`../../../content/assets/${PHOTOS[slideIndex].photoMobile}`)
@@ -104,7 +102,7 @@ class Slide extends WindowSizeMixin(Component) {
   }
 
   getVideoByIndex(slideIndex) {
-    const { isMobile, isPortrait } = this.state
+    const { isMobile, isPortrait } = this.context
     let retVideo = null
     if(VIDEOS[slideIndex] && VIDEOS[slideIndex].video && VIDEOS[slideIndex].videoMobile) {
       const mobilePath = require(`../../../content/assets/${VIDEOS[slideIndex].videoMobile}`)
@@ -175,7 +173,8 @@ class Slide extends WindowSizeMixin(Component) {
   }
 
   render() {
-    const { isMobile, isTablet, isMute, isPlaying, percentage } = this.state
+    const { isMute, isPlaying, percentage } = this.state
+    const { isMobile, isTablet } = this.context
     // const { head, body } = this.props
     const { head } = this.props
     const { slideIndex } = head
@@ -383,6 +382,9 @@ Slide.contextTypes = {
   metadata: PropTypes.object.isRequired,
   router: PropTypes.object.isRequired,
   isIOS9: React.PropTypes.bool,
+  isMobile: React.PropTypes.bool,
+  isTablet: React.PropTypes.bool,
+  isPortrait: React.PropTypes.bool,
 }
 
 Slide.propTypes = {

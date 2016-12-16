@@ -23,10 +23,8 @@ let WindowSizeMixin = (superclass) => class extends superclass {
 
   componentDidMount() {
     // set state for the width of the images and listen to window resize event
-    if (ReactDOM.findDOMNode(this)) {
-      this.debouncedFitWidth()
-      window.addEventListener('resize', this.debouncedFitWidth)
-    }
+    this.fitToParentWidth()
+    window.addEventListener('resize', this.debouncedFitWidth)
   }
 
   componentWillUnmount() {
@@ -34,20 +32,22 @@ let WindowSizeMixin = (superclass) => class extends superclass {
   }
 
   fitToParentWidth() {
-    const elem = ReactDOM.findDOMNode(this).parentNode
-    const {clientWidth, clientHeight} = elem
-    const isMobile = clientWidth < MOBILE_WIDTH
-    const isTablet = clientWidth >= MOBILE_WIDTH && clientWidth <= TABLET_WIDTH
-    const isPortrait = clientWidth < clientHeight
+    if(window) {
+      const clientWidth = window.innerWidth
+      const clientHeight = window.innerHeight
+      const isMobile = clientWidth < MOBILE_WIDTH
+      const isTablet = clientWidth >= MOBILE_WIDTH && clientWidth <= TABLET_WIDTH
+      const isPortrait = clientWidth < clientHeight
 
-    if (clientWidth && clientWidth !== this.state.width) {
-      this.setState({
-        width: clientWidth,
-        height: clientHeight,
-        isMobile: isMobile,
-        isTablet: isTablet,
-        isPortrait: isPortrait
-      })
+      if (clientWidth && clientWidth !== this.state.width) {
+        this.setState({
+          width: clientWidth,
+          height: clientHeight,
+          isMobile: isMobile,
+          isTablet: isTablet,
+          isPortrait: isPortrait
+        })
+      }
     }
   }
 

@@ -22,7 +22,6 @@
   background: linear-gradient(to right, $primary-color 90%, rgba($primary-color, 0.8) 100%);
 }
 .header {
-  @include fade-in(0.2s);
   position: fixed;
   width: 100%;
   height: 2.5rem;
