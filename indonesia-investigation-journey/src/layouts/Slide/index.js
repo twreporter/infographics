@@ -264,8 +264,8 @@ class Slide extends Component {
               <audio width="10" muted>
                 <source src={this.getAudioByIndex(slideIndex+2)} type="audio/ogg"/>
               </audio>
-              <span>TEXT[slideIndex+1]</span>
-              <span>TEXT[slideIndex-1]</span>
+              <span>{ TEXT[slideIndex+1] }</span>
+              <span>{ TEXT[slideIndex-1] }</span>
             </div>
             {/* End - Preload Image and Video */}
 
@@ -321,7 +321,7 @@ class Slide extends Component {
               </div>
             </ReactCSSTransitionGroup>
             <div ref={(ref) => this.preBtn = ref}>
-              <Link to={previousLink}>
+              <Link to={previousLink} rel="prefetch">
                 <div className={ styles["left-button"] } >
                   <LeftNavButton isMobile={isMobile} isTablet={isTablet}/>
                 </div>
@@ -330,7 +330,7 @@ class Slide extends Component {
             <div ref={(ref) => this.nextBtn = ref}>
               {
                 (slideIndex+2 > totalSlides) ? null :
-                <Link to={nextLink}>
+                <Link to={nextLink} rel="prefetch">
                   <div className={ styles["right-button"] } >
                     <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
                   </div>

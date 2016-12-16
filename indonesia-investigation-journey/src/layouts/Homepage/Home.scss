@@ -134,6 +134,7 @@
   top: 10vh;
   padding-top: 70vh;
   z-index: 100;
+  user-select: none;
   div {
     transition: all 0.5s ease;
     opacity: 0.9;
@@ -195,8 +196,4 @@
   100% {
     transform: translateX(-12%);
   }
-}
-
-#box {
-   animation: slideLeftRight 1.5s infinite;
 }

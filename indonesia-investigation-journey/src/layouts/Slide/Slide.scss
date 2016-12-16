@@ -31,7 +31,7 @@
 
   @media screen and (max-width: $width-xs) and (orientation: portrait) {
     position: absolute;
-    top: 61vh;
+    top: 62vh;
   }
 
   @media screen and (max-height: $width-xs) and (orientation: landscape) {
@@ -129,6 +129,7 @@
   height: 100%;
   z-index: 100;
   padding-top: 65vh;
+  user-select: none;
 
   div {
     transition: all 0.5s ease;
@@ -196,7 +197,7 @@
   @media screen and (max-width: $width-md) {
     left: 0.6rem;
     top: 0.75rem;
-    padding-right: 8.5rem;
+    padding-right: 9.6rem;
   }
 }
 
