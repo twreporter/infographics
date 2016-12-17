@@ -55,6 +55,11 @@ class Slide extends Component {
     this.startAudioProgressSeek()
     window.addEventListener("keydown", this.handleKeyPress)
     this.fadeInText()
+
+    const { slideIndex } = this.props.head
+    if(!this.getVideoByIndex(slideIndex) && this.getAudioByIndex(slideIndex)) {
+      this.setState({ isPlaying: true })
+    }
   }
 
   componentWillUnmount() {
