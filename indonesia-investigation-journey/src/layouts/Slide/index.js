@@ -77,7 +77,7 @@ class Slide extends Component {
     if(textBox) {
       textBox.style.opacity = '0'
       velocity(textBox, "stop", true)
-      velocity(textBox, { opacity: [ 1, 0 ] }, { delay: tDelay, duration: tDuration, easing: "easeInOut" })
+      velocity(textBox, { opacity: [ 1, 0 ], translateX: [ "-50%", "-50%" ] }, { delay: tDelay, duration: tDuration, easing: "easeInOut" })
     }
   }
 

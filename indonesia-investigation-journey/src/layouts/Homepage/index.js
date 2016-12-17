@@ -185,7 +185,9 @@ class Homepage extends WindowSizeMixin(Component) {
               <Link to={this.getNextLink()}>
                 <div className={ styles["right-button"] } >
                   <div>
-                    點擊下一頁<br/>或左右滑動
+                    點擊下一頁<br/>
+                    <span className={ styles["mobile-text"] }>或左右滑動</span>
+                    <span className={ styles["desktop-text"] }>開始觀看</span>
                   </div>
                   <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
                 </div>

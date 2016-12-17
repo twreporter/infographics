@@ -166,6 +166,17 @@
     display: inline-block;
     animation: slideLeftRight 1.2s infinite;
   }
+
+  .mobile-text {
+    @media screen and (min-width: $width-md) {
+      display: none;
+    }
+  }
+  .desktop-text {
+    @media screen and (max-width: ($width-md - 1)) {
+      display: none;
+    }
+  }
 }
 
 .info-box {
