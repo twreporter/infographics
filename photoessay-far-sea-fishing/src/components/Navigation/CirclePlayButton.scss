@@ -1,0 +1,37 @@
+@import "../../styles/variables.scss";
+@import "../../styles/animation.scss";
+
+.button {
+  cursor: pointer;
+}
+
+.icon {
+  padding: 30px;
+
+  svg {
+    width: 30px;
+    height: auto;
+  }
+}
+
+.circle {
+  position: absolute;
+  top: -9px;
+  left: 21px;
+  overflow: visible;
+  width: 70px;
+  height: 70px;
+}
+
+.circle-back {
+  @extend .circle;
+  opacity: 0.4;
+  path {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.circle-front {
+  @extend .circle;
+  opacity: 1;
+}

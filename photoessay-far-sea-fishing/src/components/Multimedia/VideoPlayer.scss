@@ -1,0 +1,18 @@
+@import "../../styles/variables.scss";
+@import "../../styles/animation.scss";
+@import "../../styles/common.scss";
+
+.video {
+  video {
+    @include fade-in(0.5s);
+    @extend .bg-cover;
+
+    @media screen and (max-width: $width-xs) and (orientation: portrait) {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+      top: 2.8rem;
+      bottom: inherit;
+    }
+  }
+}

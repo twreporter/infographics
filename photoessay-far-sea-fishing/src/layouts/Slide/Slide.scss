@@ -1,0 +1,248 @@
+@import "../../styles/variables.scss";
+@import "../../styles/animation.scss";
+@import "../../styles/common.scss";
+
+.container {
+  position: relative;
+}
+
+.bg-media {
+  transition: all 1s ease;
+  > span {
+    width: 100%;
+    > span {
+      width: 100%;
+    }
+  }
+}
+
+.blur {
+  filter: blur(5px) brightness(0.7);
+}
+
+.bottom-box {
+  position: fixed;
+  width: 100%;
+  bottom: 2.6rem;
+  left: 50%;
+  color: $white;
+  text-align: justify;
+  transform: translateX(-50%);
+
+  @media screen and (max-width: $width-xs) and (orientation: portrait) {
+    position: absolute;
+    top: 63vh;
+  }
+
+  @media screen and (max-height: $width-xs) and (orientation: landscape) {
+    position: absolute;
+    top: 70vh;
+  }
+}
+
+.description {
+  padding: 0 1rem;
+  line-height: 1.73;
+  font-size: $base-font-size;
+  opacity: 1;
+  transition: 0.8s ease;
+
+  @media screen and (max-width: $width-xs) and (orientation: portrait) {
+    padding-bottom: 1.5rem;
+  }
+}
+
+.description-hide {
+  opacity: 0;
+}
+
+.image {
+  // min-height: 100%;
+  // min-width: 100%;
+  // height: auto;
+  // width: auto;
+  // position: fixed;
+  // top: 0;
+  // bottom: 0;
+  // margin: auto;
+  // left: 50%;
+  // transform: translateX(-50%);
+  @extend .bg-cover;
+
+  @media screen and (max-width: $width-xs) and (orientation: portrait) {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    top: 2.9rem;
+    bottom: inherit;
+  }
+}
+
+.bg-large-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  user-select: none;
+
+  @media screen and (max-width: $width-xs) and (orientation: portrait) {
+    background-position: 0 2.9rem;
+    bottom: inherit;
+    background-size: 100% auto;
+  }
+}
+
+.bg-overlay-top {
+  width: 100%;
+  height: 8vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, 0) 100%);
+
+  @media screen and (max-width: $width-xs) and (orientation: portrait) {
+    display: none;
+  }
+}
+
+.bg-overlay-bottom {
+  width: 100%;
+  height: 30vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+
+  @media screen and (max-width: $width-xs) and (orientation: portrait) {
+    height: 8vh;
+    z-index: 50;
+  }
+}
+
+.nav-button {
+  position: fixed;
+  top: 15vh;
+  height: 100%;
+  z-index: 100;
+  width: 35%;
+  user-select: none;
+
+  div {
+    transition: all 0.5s ease;
+    opacity: 0.9;
+  }
+
+  &:hover {
+    div{
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: $width-xs) and (orientation: portrait) {
+    bottom: 1.8rem;
+  }
+}
+
+.left-button {
+  @extend .nav-button;
+  left: 0;
+  padding-right: 8%;
+
+  > div {
+    left: 0;
+  }
+
+  &:hover {
+    div {
+      margin-left: -0.3rem;
+    }
+  }
+
+  &:active {
+    div {
+      margin-left: auto;
+    }
+  }
+}
+
+.right-button {
+  @extend .nav-button;
+  right: 0;
+  padding-left: 6%;
+
+  > div {
+    right: 0;
+  }
+
+  &:hover {
+    div {
+      margin-right: -0.3rem;
+    }
+  }
+
+  &:active {
+    div {
+      margin-right: auto;
+    }
+  }
+}
+
+.button-wraper {
+  position: absolute;
+  bottom: 22vh;
+}
+
+.home-button {
+  position: fixed;
+  left: 1.1rem;
+  top: 0.85rem;
+  cursor: pointer;
+  width: 5rem;
+  height: 4rem;
+  opacity: 0.8;
+  z-index: 1010;
+
+  svg {
+    opacity: 0.85;
+    transition: opacity 0.5s ease;
+  }
+
+  &:hover {
+    opacity: 1;
+    svg {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+  }
+
+  @media screen and (max-width: $width-md) {
+    left: 0.6rem;
+    top: 0.75rem;
+    padding-right: 9.6rem;
+  }
+}
+
+.audio-button {
+  @include fade-in(0.5s);
+  position: fixed;
+  left: -0.8rem;
+  top: 3.7rem;
+  cursor: pointer;
+  width: 5rem;
+  height: 4rem;
+  opacity: 0.8;
+  z-index: 1010;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media screen and (max-width: $width-md) {
+    left: -1.25rem;
+    top: 3.5rem;
+  }
+}

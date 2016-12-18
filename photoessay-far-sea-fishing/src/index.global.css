@@ -1,0 +1,234 @@
+/* Using global sytles is not recommended, prefer local styles via CSS Modules */
+
+/*
+ * box model like it should be
+ *
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+html { box-sizing: border-box; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+::selection {
+  background: #d92616;
+  color: #fff;
+}
+
+/*
+ * kill document defaults margin & padding. We all do that all the time, right ?
+ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/*
+ * page styles
+ */
+html {
+  min-height: 100%;
+  background: #323232;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.5rem;
+
+  /* system font https://medium.com/designing-medium/system-shock-6b1dc6d6596f */
+  font-family: source-han-sans-traditional, Noto Sans TC, PingFang TC, Apple LiGothic Medium, Roboto, Microsoft JhengHei, Lucida Grande, Lucida Sans Unicode, sans-serif;
+}
+
+/*
+ * .phenomic-HeadingAnchor
+ *
+ * anchors for markdown headings, generated via markdown renderer, so require
+ * global styling
+ */
+@custom-selector :--headings h1, h2, h3, h4, h5, h6;
+
+:--headings {
+  position: relative;
+}
+
+:root {
+  --phenomic-HeadingAnchor-width: 1.4rem;
+  --phenomic-HeadingAnchor-margin: 0.4rem;
+}
+
+.phenomic-HeadingAnchor {
+  display: inline-block;
+  text-align: center;
+  margin-left: calc(-1 * (var(--phenomic-HeadingAnchor-width) + var(--phenomic-HeadingAnchor-margin)));
+  margin-right: var(--phenomic-HeadingAnchor-margin);
+  width: var(--phenomic-HeadingAnchor-width);
+  line-height: var(--phenomic-HeadingAnchor-width);
+  text-decoration: none;
+  opacity: 0.1;
+  transition: opacity 0.2s;
+
+  @nest :--headings:hover & {
+    opacity: 1;
+  }
+}
+
+/* minimal styling, prefer removing this and use local styles */
+a {
+  color: #c71b0b;
+}
+
+/* animations  */
+.element-appear {
+  opacity: 0.01;
+  transform: translateY(30px);
+}
+
+.element-appear.element-appear-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease-in;
+}
+
+.element-enter {
+  opacity: 0.01;
+}
+
+.element-enter.element-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.element-leave {
+  opacity: 1;
+}
+
+.element-leave.element-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.subelement-appear {
+  opacity: 0.01;
+  transform: translateY(30px);
+}
+
+.subelement-appear.subelement-appear-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease-in;
+}
+
+.scaleX-appear {
+  opacity: 0.01;
+  transform: scaleX(0.3);
+}
+
+.scaleX-appear.scaleX-appear-active {
+  opacity: 1;
+  transform: scaleX(1);
+  transition: all 1s ease;
+}
+
+.fade-appear {
+  opacity: 0.01;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in-out;
+}
+
+/* React CSS transition replace */
+.cross-fade-leave {
+  opacity: 1;
+  height: 100%;
+}
+.cross-fade-leave.cross-fade-leave-active {
+  opacity: 0;
+  height: 100%;
+  transition: opacity 1s ease-in;
+}
+
+.cross-fade-enter {
+  opacity: 0;
+  height: 100%;
+}
+.cross-fade-enter.cross-fade-enter-active {
+  opacity: 1;
+  height: 100%;
+  transition: opacity 1s ease-in;
+}
+
+.cross-fade-height {
+  height: 100%;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-wait-leave {
+  opacity: 1;
+}
+.fade-wait-leave.fade-wait-leave-active {
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
+
+.fade-wait-enter {
+  opacity: 0;
+}
+.fade-wait-enter.fade-wait-enter-active {
+  opacity: 1;
+  /* Delay the enter animation until the leave completes */
+  transition: opacity 0.4s ease-in 0.6s;
+}
+
+.fade-wait-height {
+  transition: height 0.6s ease-in-out;
+}
+
+/* hide the video play button on iOS */
+.IIV::-webkit-media-controls-play-button,
+video::-webkit-media-controls-start-playback-button {
+    opacity: 0;
+    pointer-events: none;
+    width: 5px;
+}
+
+/* Velocity charts - default styles */
+#lineJourney {
+  stroke-dashoffset: 0;
+}
+
+#rectStart {
+  opacity: 0;
+}
+
+#rectEnd {
+  opacity: 0;
+}
+
+#journeyLength {
+  opacity: 0;
+}

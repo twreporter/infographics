@@ -1,0 +1,218 @@
+@import "../../styles/variables.scss";
+@import "../../styles/animation.scss";
+
+.container {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: $content-bg;
+
+  a, a:link, a:visited {
+    color: $white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.image {
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+.center-box {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: $white;
+  margin-bottom: 10vh;
+  width: 100%;
+  font-family: "ro-nikkatsu-sei-kai-std", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  @media screen and (min-width: $width-lg) {
+    width: 30%;
+    margin-right: 0;
+    margin-bottom: 23vh;
+  }
+
+  h1 {
+    font-size: 65px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+    @media screen and (max-width: $width-xs) and (orientation: portrait) {
+      font-size: 45px;
+    }
+  }
+
+  hr {
+    width: 3rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    height: 0;
+    border: solid 1px $white;
+    background-color: $white;
+  }
+
+  h2 {
+    font-size: 30px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+    @media screen and (max-width: $width-xs) and (orientation: portrait) {
+      font-size: 26px;
+    }
+  }
+}
+
+.warning-box {
+  @include fade-in(1s);
+  position: fixed;
+  color: $dark-gray;
+  font-weight: $font-bold;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  left: 0;
+  bottom: 23.5vh;
+  display: none;
+
+  @media screen and (max-width: $width-xs) and (orientation: portrait) {
+    display: block;
+  }
+
+  > div {
+    background-color: rgba($white, 0.75);
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    opacity: 0.8;
+  }
+
+  svg {
+    max-width: 2rem;
+    margin-right: 1rem;
+  }
+
+  b {
+    font-size: 25px;
+  }
+
+  .warning-icon {
+    position: relative;
+    bottom: -0.25rem;
+  }
+}
+
+.bottom-box {
+  position: absolute;
+  width: 100%;
+  bottom: 2.6rem;
+  left: 50%;
+  color: $white;
+  text-align: center;
+  transform: translateX(-50%);
+  font-size: $base-font-size;
+
+  p {
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  @media screen and (max-width: $width-xs) and (orientation: portrait) {
+    position: fixed;
+    top: 20vh;
+  }
+}
+
+.nav-button {
+  position: fixed;
+  height: 100%;
+  top: 15vh;
+  z-index: 100;
+  user-select: none;
+  width: 35%;
+  div {
+    transition: all 0.5s ease;
+    opacity: 0.9;
+  }
+
+  &:hover {
+    div {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: $width-xs) and (orientation: portrait) {
+    bottom: 0;
+  }
+}
+
+.right-button {
+  @extend .nav-button;
+  right: 0.5rem;
+  padding-left: 10%;
+
+  > div {
+    right: 0;
+  }
+
+  &:hover {
+    div {
+      margin-right: -0.5rem;
+    }
+  }
+
+  .mobile-text {
+    @media screen and (min-width: $width-md) {
+      display: none;
+    }
+  }
+  .desktop-text {
+    @media screen and (max-width: ($width-md - 1)) {
+      display: none;
+    }
+  }
+}
+
+.button-wraper {
+  position: absolute;
+  bottom: 25vh;
+  > div {
+    display: inline-block;
+    animation: slideLeftRight 1.2s infinite;
+  }
+}
+
+.info-box {
+  float: left;
+  text-align: left;
+  padding-left: 2.3rem;
+  display: inline-block;
+  @media screen and (max-width: $width-xs) and (orientation: portrait) {
+    position: absolute;
+    bottom: -1.3rem;
+    left: 0.5rem;
+    padding-left: 0.35rem;
+    font-size: $small-font-size;
+
+    p {
+      margin-bottom: 0.35rem;
+    }
+  }
+}
+
+@keyframes slideLeftRight {
+  0% {
+    transform: translateX(0);
+  }
+  70% {
+    transform: translateX(-12%);
+  }
+  100% {
+    transform: translateX(-12%);
+  }
+}
