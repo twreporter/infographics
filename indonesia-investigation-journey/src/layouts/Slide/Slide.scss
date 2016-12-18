@@ -31,7 +31,7 @@
 
   @media screen and (max-width: $width-xs) and (orientation: portrait) {
     position: absolute;
-    top: 62vh;
+    top: 63vh;
   }
 
   @media screen and (max-height: $width-xs) and (orientation: landscape) {
@@ -125,7 +125,7 @@
 
 .nav-button {
   position: fixed;
-  top: 20vh;
+  top: 17vh;
   height: 100%;
   z-index: 100;
   padding-top: 65vh;

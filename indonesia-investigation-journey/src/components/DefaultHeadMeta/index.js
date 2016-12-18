@@ -25,7 +25,11 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
     { /* meta viewport safari/chrome/edge */ }
     <Helmet
       meta={ [ {
-        name: "viewport", content: "width=device-width, initial-scale=1",
+        name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui",
+      },
+      {
+        name: "theme-color",
+        content: "#E30B20",
       } ] }
     />
     <style>{ "@-ms-viewport { width: device-width; }" }</style>

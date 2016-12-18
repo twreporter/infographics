@@ -42,7 +42,6 @@ class VideoPlayer extends Component {
       setTimeout(function () {
         const e = new Event('touchend')
         document.dispatchEvent(e)
-        video.play()
       }, 10)
 
       video.addEventListener("contextmenu", function (e) {
@@ -50,6 +49,7 @@ class VideoPlayer extends Component {
         e.stopPropagation()
       }, false)
     }
+    video.play()
   }
 
   onPlay() {
@@ -60,7 +60,7 @@ class VideoPlayer extends Component {
   }
 
   render() {
-    const { source } = this.props
+    const { source, poster } = this.props
 
     return (
       <div className={ classnames(styles["video"]) }
@@ -69,6 +69,7 @@ class VideoPlayer extends Component {
         <video autoPlay muted playsInline loop
           onPlay={ this.onPlay }
           ref={ (ref) => this.video = ref }
+           poster={ poster }
           is webkit-playsinline
         >
           <source src={source} type="video/mp4" />
@@ -81,6 +82,7 @@ class VideoPlayer extends Component {
 
 VideoPlayer.propTypes = {
   source: PropTypes.string,
+  poster: PropTypes.string,
   handlePlay: PropTypes.func,
 }
 

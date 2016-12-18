@@ -78,7 +78,7 @@
   width: 100%;
   padding: 0.7rem 1rem;
   left: 0;
-  bottom: 23vh;
+  bottom: 23.5vh;
   display: none;
 
   @media screen and (max-width: $width-xs) and (orientation: portrait) {
@@ -131,7 +131,7 @@
 .nav-button {
   position: fixed;
   height: 100%;
-  top: 10vh;
+  top: 9vh;
   padding-top: 70vh;
   z-index: 100;
   user-select: none;

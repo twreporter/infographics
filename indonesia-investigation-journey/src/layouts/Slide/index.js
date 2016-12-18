@@ -242,6 +242,7 @@ class Slide extends Component {
 
     const Video = isVideo ?
       <VideoPlayer source={videoSource} key={videoSource}
+        poster={bgPhoto}
         handlePlay={ () => {
           this.setState({ isPlaying: true })
         } }
@@ -381,6 +382,7 @@ class Slide extends Component {
                 loop={ true }
                 mute={ isMute }
                 playing={ isPlaying }
+                autoPlay={ isPlaying }
                 ref={(ref) => this.audio = ref}
               />
             </div> : null
