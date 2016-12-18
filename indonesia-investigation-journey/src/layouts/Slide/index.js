@@ -345,8 +345,8 @@ class Slide extends Component {
               </div>
             </div>
             <div ref={(ref) => this.preBtn = ref}>
-              <Link to={previousLink} rel="prefetch">
-                <div className={ styles["left-button"] } >
+              <Link to={previousLink} rel="prefetch" className={ styles["left-button"] }>
+                <div className={ styles["button-wraper"] } >
                   <LeftNavButton isMobile={isMobile} isTablet={isTablet}/>
                 </div>
               </Link>
@@ -354,8 +354,8 @@ class Slide extends Component {
             <div ref={(ref) => this.nextBtn = ref}>
               {
                 (slideIndex+2 > totalSlides) ? null :
-                <Link to={nextLink} rel="prefetch">
-                  <div className={ styles["right-button"] } >
+                <Link to={nextLink} rel="prefetch" className={ styles["right-button"] }>
+                  <div className={ styles["button-wraper"] } >
                     <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
                   </div>
                 </Link>

@@ -131,10 +131,10 @@
 .nav-button {
   position: fixed;
   height: 100%;
-  top: 9vh;
-  padding-top: 70vh;
+  top: 15vh;
   z-index: 100;
   user-select: none;
+  width: 35%;
   div {
     transition: all 0.5s ease;
     opacity: 0.9;
@@ -156,15 +156,14 @@
   right: 0.5rem;
   padding-left: 10%;
 
+  > div {
+    right: 0;
+  }
+
   &:hover {
     div {
       margin-right: -0.5rem;
     }
-  }
-
-  > div {
-    display: inline-block;
-    animation: slideLeftRight 1.2s infinite;
   }
 
   .mobile-text {
@@ -176,6 +175,15 @@
     @media screen and (max-width: ($width-md - 1)) {
       display: none;
     }
+  }
+}
+
+.button-wraper {
+  position: absolute;
+  bottom: 25vh;
+  > div {
+    display: inline-block;
+    animation: slideLeftRight 1.2s infinite;
   }
 }
 

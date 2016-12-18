@@ -125,10 +125,10 @@
 
 .nav-button {
   position: fixed;
-  top: 17vh;
+  top: 15vh;
   height: 100%;
   z-index: 100;
-  padding-top: 65vh;
+  width: 35%;
   user-select: none;
 
   div {
@@ -152,9 +152,19 @@
   left: 0;
   padding-right: 8%;
 
+  > div {
+    left: 0;
+  }
+
   &:hover {
     div {
-      margin-left: -0.5rem;
+      margin-left: -0.3rem;
+    }
+  }
+
+  &:active {
+    div {
+      margin-left: auto;
     }
   }
 }
@@ -164,11 +174,26 @@
   right: 0;
   padding-left: 6%;
 
+  > div {
+    right: 0;
+  }
+
   &:hover {
     div {
-      margin-right: -0.5rem;
+      margin-right: -0.3rem;
     }
   }
+
+  &:active {
+    div {
+      margin-right: auto;
+    }
+  }
+}
+
+.button-wraper {
+  position: absolute;
+  bottom: 22vh;
 }
 
 .home-button {

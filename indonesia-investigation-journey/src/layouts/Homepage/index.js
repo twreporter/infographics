@@ -182,8 +182,8 @@ class Homepage extends WindowSizeMixin(Component) {
                 </div>
               </div>
 
-              <Link to={this.getNextLink()}>
-                <div className={ styles["right-button"] } >
+              <Link to={this.getNextLink()} className={ styles["right-button"] }>
+                <div className={ styles["button-wraper"] }>
                   <div>
                     點擊下一頁<br/>
                     <span>開始觀看</span>
