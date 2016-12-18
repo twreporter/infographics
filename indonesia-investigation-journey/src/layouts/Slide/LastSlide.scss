@@ -60,8 +60,8 @@
     }
 
     @media screen and (max-width: $width-xs) {
-      min-height: 160px;
-      height: 22vh;
+      min-height: 140px;
+      height: 20vh;
     }
   }
 
@@ -168,6 +168,13 @@
     @media (max-width: $width-md) {
       width: 100%;
       text-align: center;
+    }
+
+    @media (max-width: $width-xs) {
+      p {
+        margin-top: 0.2rem;
+        margin-bottom: 0.5rem;
+      }
     }
 
     a {
