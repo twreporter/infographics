@@ -26,6 +26,16 @@ class Page extends Component {
 
   componentDidMount() {
     this.setPageLoaded()
+
+    // send ga pageview event
+    ReactGA.pageview(window.location.pathname)
+  }
+
+  componentWillUpdate(nextProps) {
+    if(this.props.head.__url !== nextProps.__url) {
+      // send ga pageview event
+      ReactGA.pageview(window.location.pathname)
+    }
   }
 
   setPageLoaded() {
