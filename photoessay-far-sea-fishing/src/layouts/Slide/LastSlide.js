@@ -80,7 +80,7 @@ const LastSlide = (props) => {
                   <a target="_blank" className={ styles["donate-btn"] } href="https://twreporter.backme.tw/cashflow/checkout?project_id=175&reward_id=718"><SVGInline svg={ donateIcon } /> &nbsp; 贊助我們</a>
                   <div className={ commonStyles["white-text"] }
                     dangerouslySetInnerHTML={ { __html:
-                      `<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.twreporter.org%2Fa%2F${props.siteUrl}&width=300&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=962589903815787&colorscheme=dark" width="300" height="80" style="border:none;overflow:hidden" scrolling="no" frameBorder="0" allowTransparency="true"></iframe>` } }
+                      `<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.twreporter.org%2Fa%2F${props.siteUrl}/&width=300&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=962589903815787&colorscheme=dark" width="300" height="80" style="border:none;overflow:hidden" scrolling="no" frameBorder="0" allowTransparency="true"></iframe>` } }
                   />
                 </div>
               </div>
