@@ -9,6 +9,13 @@ import PageError from "./layouts/PageError"
 import Homepage from "./layouts/Homepage"
 import Post from "./layouts/Post"
 import Slide from "./layouts/Slide"
+import ReactGA from "react-ga"
+
+if (typeof window !== "undefined") {
+  // add Google Analytics
+  ReactGA.initialize("UA-69336956-1")
+  ReactGA.set({ page: window.location.pathname })
+}
 
 class PageContainer extends WindowSizeMixin(Component) {
   getChildContext() {
@@ -29,9 +36,37 @@ class PageContainer extends WindowSizeMixin(Component) {
 
   componentDidMount() {
     if (super.componentDidMount) super.componentDidMount()
+
+    // send ga pageview event
+    ReactGA.pageview(window.location.pathname)
+
     const iosVersion = this.getIOSVersion()
     if(iosVersion && iosVersion<10) {
       this.setState({isIOS9: true})
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    const {isMobile, isTablet, isPortrait} = nextState
+    const isMobileSize = isMobile || isTablet
+
+    if((isTablet !== this.state.isTablet) ||
+      (isPortrait !== this.state.isPortrait)) {
+        if(isMobileSize && isPortrait) {
+          // mobile & vertical
+          ReactGA.event({
+            category: "Orientation",
+            action: "farseaPhotoessay",
+            label: "Vertical",
+          })
+        } else if (isMobileSize && !isPortrait) {
+          // mobile & Horizontal
+          ReactGA.event({
+            category: "Orientation",
+            action: "farseaPhotoessay",
+            label: "Horizontal",
+          })
+        }
     }
   }
 
@@ -42,6 +77,9 @@ class PageContainer extends WindowSizeMixin(Component) {
         location.reload()
         // console.log('*** ', nextProps.__url, this.props.__url)
       }
+
+      // send ga pageview event
+      ReactGA.pageview(window.location.pathname)
     }
   }
 

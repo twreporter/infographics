@@ -2,19 +2,12 @@ import React, { Component, PropTypes } from "react"
 import Helmet from "react-helmet"
 import invariant from "invariant"
 import { joinUri } from "phenomic"
-import ReactGA from "react-ga"
 
 // import Loading from "../../components/Loading"
 
 import ogImage from "../../../content/assets/cover-mobile.jpg"
 
 import styles from "./index.css"
-
-if (typeof window !== "undefined") {
-  // add Google Analytics
-  ReactGA.initialize("UA-69336956-1")
-  ReactGA.set({ page: window.location.pathname })
-}
 
 class Page extends Component {
   constructor(props) {
@@ -26,16 +19,6 @@ class Page extends Component {
 
   componentDidMount() {
     this.setPageLoaded()
-
-    // send ga pageview event
-    ReactGA.pageview(window.location.pathname)
-  }
-
-  componentWillUpdate(nextProps) {
-    if(this.props.head.__url !== nextProps.__url) {
-      // send ga pageview event
-      ReactGA.pageview(window.location.pathname)
-    }
   }
 
   setPageLoaded() {
@@ -131,6 +114,9 @@ Page.propTypes = {
 
 Page.contextTypes = {
   metadata: PropTypes.object.isRequired,
+  isMobile: React.PropTypes.bool,
+  isTablet: React.PropTypes.bool,
+  isPortrait: React.PropTypes.bool,
 }
 
 export default Page
