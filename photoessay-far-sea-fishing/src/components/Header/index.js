@@ -38,7 +38,7 @@ class Header extends Component {
               </a>
               <div className={ styles["spacer"] }></div>
               <a className={ classnames(styles["nav-icon"]) } target="_blank"
-                href={ `https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fa%2F${siteUrl}` }
+                href={ `https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.twreporter.org%2Fa%2F${siteUrl}/` }
               >
                 <div className={ classnames(commonStyles["img-responsive"]) }
                   dangerouslySetInnerHTML={ { __html: fbIcon } }
