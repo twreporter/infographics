@@ -1,0 +1,185 @@
+/* stylelint-disable function-comma-space-after, selector-list-comma-newline-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+@import "../../../styles/animation.scss";
+
+$img-bgcolor: $content-bg;
+
+.container {
+  color: white;
+  // background: $img-bgcolor;
+  padding: 0;
+  width: 100%;
+  height: 200vh;
+  transition: height 1000000s ease;  // avoid mobile jumping
+  position: relative;
+}
+.fix-outer {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  >div{
+    position: relative;
+  }
+}
+.slide-outer {
+  position: absolute;
+  height: 100vh;
+  // overflow-y: hidden;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.slide {
+  width: 100%;
+  height: 100vh;
+  padding: 2rem 1rem;
+  position: relative;
+}
+.map-fixed {
+  position: fixed !important;
+  z-index: 400;
+}
+.map-ending {
+  position: absolute !important;
+  top: 100vh !important;
+}
+.map {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  background: $img-bgcolor;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.bgImage {
+  width: 100%;
+  height: 100vh;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position-x: 0;
+  background-position-y: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.oldMap {
+  @extend .bgImage;
+  background-image: url("../../../../content/assets/map1.png");
+  @media screen and (orientation:portrait) {
+    background-image: url("../../../../content/assets/map1-m.png");
+  }
+}
+
+.newMap {
+  @extend .bgImage;
+  background-image: url("../../../../content/assets/map2.png");
+  @media screen and (orientation:portrait) {
+    background-image: url("../../../../content/assets/map2-m.png");
+  }
+}
+
+.odd {
+  background: $blue;
+}
+.even {
+  background: $pink;
+}
+.des-box {
+  width: 100%;
+  max-width: 360px;
+  position: absolute;
+  right: 3.5rem;
+  bottom: 12vh;
+  padding: 0 1rem;
+  z-index: 500;
+  color: $tooltip-gray;
+  p {
+    text-shadow: 2px 0 2px white;
+    @media (max-width: $width-xs) {
+      font-size: 14.5px;
+    }
+  }
+  @media (max-width: $width-xs) {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+  @media (min-width: $width-lg) {
+    right: 5.5rem;
+    bottom: 15vh;
+  }
+}
+.indicator {
+  @include fade-in(0.5s);
+  position: fixed;
+  top: 50%;
+  left: 1rem;
+  z-index: 600;
+}
+.bar {
+  width: 12px;
+  height: 4px;
+  margin: 10px 0;
+  background: rgba($dark-gray, 0.2);
+  transition: background 0.3s;
+  @media (min-width: $width-md) {
+    margin: 13px 0;
+    width: 16px;
+    height: 5px;
+  }
+}
+.active {
+  background: rgba($dark-gray, 0.8);
+}
+.title {
+  font-size: 35px;
+  font-weight: $font-bold;
+  margin-bottom: 0;
+  text-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  @media (max-width: $width-md) {
+    font-size: 28px;
+  }
+}
+.year {
+  @media (min-width: $width-xs) {
+    font-size: 80px;
+  }
+}
+.tooltip {
+  background-color: $tooltip-gray;
+  padding: 1rem;
+  padding: 0.5rem;
+  display: inline-block;
+  color: $white;
+  p {
+    margin: 0.2rem 0.5rem;
+    text-shadow: none;
+  }
+}
+.oval {
+  width: 15px;
+  height: 15px;
+  border: solid 2px $white;
+  display: inline-block;
+  margin-right: 0.8rem;
+  border-radius: 50%;
+}
+.oval-blue {
+  @extend .oval;
+  background-color: $text-blue;
+}
+.oval-pink {
+  @extend .oval;
+  background-color: $text-pink;
+}

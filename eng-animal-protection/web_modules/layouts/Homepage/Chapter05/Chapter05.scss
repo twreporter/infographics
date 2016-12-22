@@ -1,0 +1,12 @@
+/* stylelint-disable function-comma-space-after, selector-list-comma-newline-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+
+.container {
+  color: white;
+  background: $content-bg;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  width: 100%;
+  overflow-x: hidden;
+}

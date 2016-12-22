@@ -1,0 +1,86 @@
+/* Using global sytles is not recommended, prefer local styles via CSS Modules */
+
+/*
+ * box model like it should be
+ *
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+html { box-sizing: border-box; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/*
+ * kill document defaults margin & padding. We all do that all the time, right ?
+ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden !important;
+}
+
+::selection {
+  color: white;
+  background: #ff8d8d;
+}
+
+/*
+ * page styles
+ */
+html {
+  min-height: 100%;
+}
+
+body {
+  font-size: 18px;
+  line-height: 1.85;
+  letter-spacing: 0.4px;
+
+  font-family: source-han-sans-traditional, Noto Sans TC, PingFang TC, Apple LiGothic Medium, Roboto, Microsoft JhengHei, Lucida Grande, Lucida Sans Unicode, sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/*
+ * .phenomic-HeadingAnchor
+ *
+ * anchors for markdown headings, generated via markdown renderer, so require
+ * global styling
+ */
+@custom-selector :--headings h1, h2, h3, h4, h5, h6;
+
+:--headings {
+  position: relative;
+}
+
+:root {
+  --phenomic-HeadingAnchor-width: 1.4rem;
+  --phenomic-HeadingAnchor-margin: 0.4rem;
+}
+
+.phenomic-HeadingAnchor {
+  display: block;
+  text-align: center;
+  margin-left: calc(-1 * (var(--phenomic-HeadingAnchor-width) + var(--phenomic-HeadingAnchor-margin)));
+  margin-right: var(--phenomic-HeadingAnchor-margin);
+  width: var(--phenomic-HeadingAnchor-width);
+  line-height: var(--phenomic-HeadingAnchor-width);
+  text-decoration: none;
+
+  opacity: 0.1;
+  transition: opacity 0.2s;
+
+  @nest :--headings:hover & {
+    opacity: 1;
+  }
+}
+
+/* minimal styling, prefer removing this and use local styles */
+a {
+  color: #0e63e3;
+}

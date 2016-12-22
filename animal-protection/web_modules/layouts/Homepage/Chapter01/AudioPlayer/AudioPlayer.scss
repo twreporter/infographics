@@ -1,0 +1,17 @@
+/* stylelint-disable function-comma-space-after, block-closing-brace-newline-before, indentation, at-rule-empty-line-before, rule-non-nested-empty-line-before */
+@import "../../../../styles/variables.scss";
+
+.audio-icon {
+  padding: 0.7rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+  transition: padding 0.3s ease-out;
+  &:hover {
+    padding: 0.5rem;
+  }
+  @media (max-width: $width-xs) {
+    width: 3rem;
+    height: 3rem;
+  }
+}
