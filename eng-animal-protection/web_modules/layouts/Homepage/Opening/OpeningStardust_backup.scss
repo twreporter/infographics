@@ -1,0 +1,112 @@
+/* stylelint-disable function-comma-space-after, block-closing-brace-newline-before, indentation, at-rule-empty-line-before, rule-non-nested-empty-line-before */
+@import "../../../styles/variables.scss";
+
+.container {
+  height: 210vh;
+  color: white;
+  background: linear-gradient(to bottom,$pink 0%,$blue 100%);
+  overflow: hidden;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  @media (max-width: $width-md) {
+    height: 120vh;
+  }
+}
+
+.outer {
+  width: 100%;
+}
+
+.pet-container {
+  position: absolute;
+  width: 150%;
+  margin-left: -25%;
+  padding-top: 35px;
+  transform: translateZ(300px);
+
+  // @media (max-width: $width-sm) {
+  //   width: 150%;
+  //   margin-left: -25%;
+  // }
+
+  >img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.dots-container {
+  perspective: 600px;
+  margin-top: 0;
+}
+
+.pet-item {
+  width: 350px;
+  height: 350px;
+  margin: 60px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  @media (max-width: $width-xs) {
+    width: 180px;
+    height: 180px;
+    margin: 30px;
+  }
+  img {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+  }
+}
+
+.overlay-dots-container {
+  position: absolute;
+  top: 20vh;
+  width: 600%;
+  height: 400vh;
+  margin-top: 30vh;
+}
+
+.dot {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+
+  @media (max-width: $width-xs) {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.blue {
+  background-color: rgba($light-blue, 0.5);
+}
+.pink {
+  background-color: rgba($pink, 0.6);
+  width: 35px;
+  height: 35px;
+  @media (max-width: $width-xs) {
+    width: 25px;
+    height: 25px;
+  }
+}
+.white {
+  width: 30px;
+  height: 30px;
+  @media (max-width: $width-xs) {
+    width: 20px;
+    height: 20px;
+  }
+  background-color: rgba($light-gray, 0.4);
+}
+
+.des-text {
+  padding-top: 165vh;
+  @media (max-width: $width-md) {
+    padding-top: 40vh;
+  }
+}

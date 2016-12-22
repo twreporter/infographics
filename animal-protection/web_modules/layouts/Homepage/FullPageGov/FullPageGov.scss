@@ -1,0 +1,179 @@
+/* stylelint-disable function-comma-space-after, selector-list-comma-newline-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+@import "../../../styles/animation.scss";
+
+$img-bgcolor: $deco-blue;
+
+.container {
+  color: white;
+  background: $img-bgcolor;
+  padding: 0;
+  width: 100%;
+  height: 300vh;
+  transition: height 1000000s ease;  // avoid mobile jumping
+  position: relative;
+}
+.fix-outer {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  >div{
+    position: relative;
+  }
+}
+.slide-outer {
+  position: absolute;
+  height: 100vh;
+  // overflow-y: hidden;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.slide {
+  width: 100%;
+  height: 100vh;
+  padding: 2rem 1rem;
+  position: relative;
+}
+.map-fixed {
+  position: fixed !important;
+  z-index: 400;
+}
+.map-ending {
+  position: absolute !important;
+  top: 200vh !important;
+}
+.map {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  background: $img-bgcolor;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.bgImage {
+  width: 50%;
+  max-width: 700px;
+  height: 100vh;
+  position: absolute;
+  margin: 0 -2rem;
+  top: 0;
+  right: 50%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position-y: center;
+
+  @media screen and (orientation:portrait) {
+    background-position-y: 2rem;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.hierarchy1 {
+  @extend .bgImage;
+  background-image: url("../../../../content/assets/Group63.png");
+  @media only screen and (min-device-pixel-ratio: 1.5){
+    background-image: url("../../../../content/assets/Group63_2x.png");
+  }
+  opacity: 1;
+}
+.hierarchy2 {
+  @extend .bgImage;
+  background-image: url("../../../../content/assets/Group64.png");
+  @media only screen and (min-device-pixel-ratio: 1.5){
+    background-image: url("../../../../content/assets/Group64_2x.png");
+  }
+  opacity: 0;
+}
+.hierarchy3 {
+  @extend .bgImage;
+  background-image: url("../../../../content/assets/Group65.png");
+  @media only screen and (min-device-pixel-ratio: 1.5){
+    background-image: url("../../../../content/assets/Group65_2x.png");
+  }
+  opacity: 0;
+}
+.des-box {
+  position: absolute;
+  width: 50%;
+  max-width: 500px;
+  top: 50%;
+  left: calc(50% + 10px);
+  transform: translate(0,-50%);
+  padding: 0 1rem;
+  z-index: 500;
+  color: $white;
+  p {
+    text-align: justify;
+  }
+  @media screen and (orientation:portrait) {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    transform: translate(0,0);
+  }
+  @media (max-width: $width-xs) {
+    line-height: 1.55;
+    font-size: 15.5px;
+  }
+}
+.note-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 2rem;
+  color: $tooltip-gray;
+  font-size: $small-font-size;
+  @media (max-width: $width-xs) {
+    display: none;
+  }
+}
+.indicator {
+  @include fade-in(0.5s);
+  position: fixed;
+  top: 50%;
+  left: 1rem;
+  z-index: 600;
+}
+.bar {
+  width: 12px;
+  height: 4px;
+  margin: 10px 0;
+  background: rgba($dark-gray, 0.2);
+  transition: background 0.3s;
+  @media (min-width: $width-md) {
+    margin: 13px 0;
+    width: 16px;
+    height: 5px;
+  }
+}
+.active {
+  background: rgba($dark-gray, 0.8);
+}
+.title {
+  font-size: 29px;
+  font-weight: $font-bold;
+  color: $white;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 0;
+  text-align: left;
+  @media (max-width: $width-md) {
+    font-size: 28px;
+  }
+}
+.year {
+  @media (min-width: $width-xs) {
+    font-size: 80px;
+  }
+}

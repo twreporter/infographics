@@ -1,0 +1,566 @@
+/* stylelint-disable function-comma-space-after, selector-list-comma-newline-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+
+$container-yoyo-story: 900vh;
+$height-container-one-dog: 120vh;
+
+.container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  // height: $container-yoyo-story + $height-container-one-dog;
+  // transition: height 100s ease;  // avoid mobile jumping
+}
+
+.container-yoyo-story {
+  position: relative;
+  width: 100%;
+  height: $container-yoyo-story;
+  color: white;
+  background: linear-gradient(to bottom,
+    #133166 0%, #b38fd4 12%, #7a6ead 35%,
+    $pink 43%, #000 80%, #deae77 90%, #b36667 97%, #b36667 97.7%, $content-bg 97.9%, $content-bg 100%);
+}
+
+.container-one-dog {
+  position: relative;
+  width: 100%;
+  height: $height-container-one-dog;
+  color: white;
+  background: linear-gradient(to bottom,
+    $content-bg 0%, $content-bg 40%, $pink 100%);
+}
+
+.overlay-box {
+  width: 100%;
+  height: 100vh;
+}
+
+.top-dog-outer {
+  z-index: 50;
+}
+
+.night-container {
+  position: absolute;
+  top: 400vh;
+  left: 0;
+  width: 100%;
+}
+
+.text-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+}
+
+.cloud-middle {
+  position: absolute;
+  top: 400vh;
+  left: 0;
+  width: 200%;
+  opacity: 0.9;
+}
+
+.cloud {
+  position: fixed;
+  width: 200%;
+  top: 18%;
+  left: 0;
+  opacity: 0.8;
+}
+
+.cloud-ending {
+  position: absolute;
+  top: 800vh;
+  left: 0;
+  opacity: 0.8;
+  svg > g > path {
+    fill: #d3d2ad !important;
+  }
+  @media screen and (max-width: $width-xs) and (orientation:portrait) {
+    top: 815vh;
+  }
+  @media screen and (min-width: $width-lg) {
+    top: 790vh;
+  }
+}
+
+.subcloud {
+  display: inline-block;
+  width: 50%;
+  @media screen and (orientation:portrait) {
+    display: none;
+  }
+}
+
+.subcloud-mobile {
+  display: inline-block;
+  width: 50%;
+  @media screen and (orientation:landscape) {
+    display: none;
+  }
+}
+
+.moon {
+  position: absolute;
+  width: 6.5%;
+  top: 13%;
+  left: 16%;
+  transition-property: left, top, width;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+  @media screen and (orientation:portrait) {
+    width: 11%;
+    top: 25%;
+    left: 15%;
+  }
+  @media screen and (max-width: $width-xs) and (orientation:portrait) {
+    width: 15%;
+  }
+  div:first-child g > g {
+    transition: all 1s;
+  }
+}
+
+.moon-center {
+  position: absolute;
+  max-width: 20rem;
+  width: 20%;
+  top: 5.5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition-property: left, top, width;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+  @media screen and (orientation:portrait) {
+    width: 33%;
+    top: 15%;
+  }
+  @media screen and (max-width: $width-xs) and (orientation:portrait) {
+    width: 45%;
+  }
+  div:first-child g > g {
+    opacity: 1;
+    transition: all 1s;
+  }
+}
+
+.door-hidden {
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  transform: translate(5%, 0);
+}
+
+.door {
+  opacity: 1;
+  transition: all 0.5s ease-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  transform: translate(5%, -5%);
+  > svg > g > g:nth-of-type(3) {
+    // door
+    transition: all 1.5s;
+    opacity: 0 !important;
+  }
+  > svg > g > g:last-of-type {
+    // love
+    transition: all 1.8s;
+    opacity: 0 !important;
+    transform: translate(23%, 80%) scale(0.5);
+  }
+}
+
+.door-love {
+  > svg > g > g:nth-of-type(3), > svg > g > g:last-of-type {
+    transition: all 1.8s;
+    opacity: 1 !important;
+  }
+  > svg > g > g:last-of-type {
+    transition: all 1.5s;
+    transform: translate(0, 0) scale(1);
+    opacity: 1 !important;
+  }
+}
+
+.house {
+  position: absolute;
+  bottom: -0.8rem;
+  width: 100%;
+  svg {
+    width: 100%;
+  }
+  @media (max-width: 1600) {
+    width: 110%;
+    left: -5%;
+  }
+  @media (max-width: $width-lg) {
+    width: 120%;
+    left: -10%;
+  }
+  @media (max-width: $width-xs) {
+    width: 200%;
+    left: -56%;
+    bottom: -1.2rem;
+  }
+
+}
+
+.grass {
+  position: absolute;
+  top: 830vh;
+  width: 100%;
+  svg {
+    width: 100%;
+  }
+  @media (max-width: 1600) {
+    width: 110%;
+    left: -5%;
+  }
+  @media (max-width: $width-lg) {
+    top: 835vh;
+    width: 120%;
+    left: -10%;
+  }
+  @media (max-width: $width-md) {
+    top: 850vh;
+  }
+  @media (max-width: $width-xs) {
+    top: 855vh;
+    width: 200%;
+    left: -56%;
+  }
+}
+
+.title-box {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: $small-font-size;
+  h1 {
+    font-size: $font-bold;
+    font-size: 48px;
+    line-height: 1.55;
+    text-shadow: 1px 1px 11px rgba(0, 0, 0, 0.8);
+    @media (max-width: $width-md) {
+      font-size: 40px;
+    }
+    @media (max-width: $width-xs) {
+      font-size: 30px;
+    }
+    @media (max-width: 320px) {
+      font-size: 25px;
+    }
+  }
+
+  @media (max-width: $width-md) {
+    font-size: 15px;
+  }
+  @media (max-width: $width-xs) {
+    top: 11.5%;
+  }
+  @media (max-width: 320px) {
+    top: 9%;
+  }
+}
+
+.description p {
+  margin: 0.5rem;
+}
+
+.story-box {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-shadow: 2px 1px 13px rgba(0, 0, 0, 0.9);
+  font-weight: $font-bold;
+  p {
+    margin: 0.3rem 0;
+    @media (min-width: $width-xs) {
+      font-size: 18px;
+    }
+    @media (min-width: $width-md) {
+      font-size: 20px;
+    }
+    @media (max-width: 320px) {
+      font-size: 16.5px;
+    }
+  }
+}
+
+.yoyo {
+  position: fixed;
+  top: 50vh;
+  left: 0;
+  right: 0;
+  transform: translate(-1%, 29%);
+  z-index: 50;
+  transition: all 0.2s ease-in;
+  @media screen and (orientation:portrait) {
+    transform: translate(3%, 45%);
+  }
+
+  >svg {
+    width: 100%;
+    height: 45vh;
+    overflow: visible;
+    transition: height 0.8s ease-out;
+    @media screen and (orientation:portrait) {
+      height: 40vh;
+    }
+  }
+
+  svg > g > g:nth-of-type(1), svg > g > g:nth-of-type(3),
+  svg > g > g:nth-of-type(4) {
+    transition: all 0.5s ease-in;
+    opacity: 0 !important;
+    transform: translate(0, 10rem);
+  }
+}
+
+.yoyo-centered {
+  position: fixed;
+  top: 2vh;
+  transition: all 0.8s ease-in;
+  z-index: 5;
+}
+
+.yoyo-center-bottom {
+  position: fixed;
+  top: 20vh;
+  transition: all 0.8s ease-in;
+  z-index: 5;
+}
+
+.yoyo-boxed {
+  svg > g > g:nth-of-type(1), svg > g > g:nth-of-type(3) {
+    transition: all 0.85s ease-in-out;
+    opacity: 1 !important;
+    transform: translate(0, 0);
+  }
+}
+
+.yoyo-caged {
+  transition-property: width, left;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+  svg > g > g:nth-of-type(4) {
+    transition: all 0.85s ease-in-out;
+    opacity: 1 !important;
+    transform: translate(0, 0);
+  }
+}
+
+.yoyo-one-dog {
+  transition-property: width, left;
+  transition-duration: 0.6s;
+  transition-timing-function: ease-out;
+  position: absolute;
+  top: 938vh;
+  left: -1%;
+  @media screen and (orientation:portrait) {
+    left: -3%;
+  }
+  svg {
+    transition: height 0.8s ease-out;
+    width: 70%;
+    height: 40vh;
+    overflow: visible;
+    @media screen and (orientation:portrait) {
+      height: 35vh;
+    }
+  }
+}
+
+.yoyo-des {
+  padding-top: 2.5rem;
+}
+
+.pet-item {
+  width: 80px;
+  height: 80px;
+  margin: 20px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  border-radius: 50%;
+  @media (max-width: $width-xs) {
+    width: 55px;
+    height: 55px;
+  }
+  @media (min-width: $width-md) {
+    width: 90px;
+    height: 90px;
+  }
+  @media (min-width: $width-lg) {
+    width: 110px;
+    height: 110px;
+  }
+
+  img {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+  }
+}
+
+.pet1 {
+  top: 82%;
+  left: calc(28% - 80px);
+  opacity: 0.85;
+}
+
+.pet2 {
+  top: 88%;
+  left: 62%;
+  opacity: 0.75;
+  @media (max-width: $width-xs) {
+    top: 93%;
+    left: 27%;
+  }
+  @media (min-width: $width-md) {
+    width: 80px;
+    height: 80px;
+  }
+  @media (min-width: $width-lg) {
+    top: 91%;
+    left: 53%;
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.pet3 {
+  width: 100px;
+  height: 100px;
+  top: 80%;
+  left: calc(73% + 100px);
+  opacity: 0.95;
+  @media (min-width: $width-md) {
+    left: calc(72% + 130px);
+    width: 130px;
+    height: 130px;
+  }
+  @media (min-width: $width-lg) {
+    width: 170px;
+    height: 170px;
+  }
+  @media (max-width: $width-xs) {
+    left: calc(55% + 100px);
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.pet4 {
+  width: 70px;
+  height: 70px;
+  top: 55%;
+  left: calc(28% - 70px);
+  opacity: 1;
+  @media (max-width: $width-xs) {
+    top: 62%;
+    left: calc(25% - 70px);
+    width: 45px;
+    height: 45px;
+  }
+  @media (min-width: $width-md) {
+    width: 100px;
+    height: 100px;
+  }
+  @media (min-width: $width-lg) {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.pet5 {
+  width: 70px;
+  height: 70px;
+  top: 60%;
+  left: calc(74% + 70px);
+  opacity: 0.85;
+  @media (max-width: $width-xs) {
+    top: 70%;
+    left: calc(68% + 70px);
+    width: 45px;
+    height: 45px;
+  }
+  @media (min-width: $width-md) {
+    width: 100px;
+    height: 100px;
+  }
+  @media (min-width: $width-lg) {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.pet6 {
+  display: none;
+  width: 70px;
+  height: 70px;
+  top: 80%;
+  left: calc(60% + 70px);
+  opacity: 0.95;
+  @media (min-width: $width-md) {
+    display: block;
+  }
+}
+
+.pet7 {
+  display: none;
+  width: 80px;
+  height: 80px;
+  top: 70%;
+  left: calc(5% + 80px);
+  opacity: 0.85;
+  @media (min-width: $width-md) {
+    display: block;
+  }
+}
+
+.pet8 {
+  width: 60px;
+  height: 60px;
+  top: 86%;
+  left: calc(32% + 60px);
+  opacity: 0.75;
+  @media (max-width: $width-xs) {
+    left: calc(38% + 60px);
+    top: 91%;
+  }
+  @media (min-width: $width-md) {
+    width: 80px;
+    height: 80px;
+    top: 92%;
+  }
+}
+
+.pet9 {
+  display: none;
+  width: 55px;
+  height: 55px;
+  top: 80%;
+  left: calc(3%);
+  opacity: 0.85;
+  @media (min-width: $width-sm) {
+    display: block;
+  }
+}

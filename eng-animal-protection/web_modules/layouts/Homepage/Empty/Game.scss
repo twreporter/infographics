@@ -1,0 +1,8 @@
+/* stylelint-disable function-comma-space-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+
+.container {
+  color: white;
+  background: $content-bg;
+  padding: 2rem 1rem;
+}

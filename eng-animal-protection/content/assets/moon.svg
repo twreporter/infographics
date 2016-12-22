@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Layer_1">
+        <circle cx="200" cy="200" r="200" style="fill:rgb(255,240,0);"/>
+        <g id="moon_overlay">
+            <g opacity="0.25">
+                <circle cx="283.24" cy="158.21" r="22.94" style="fill:rgb(245,210,0);"/>
+                <circle cx="105.73" cy="88.8" r="17.26" style="fill:rgb(245,210,0);"/>
+                <circle cx="186.94" cy="363.75" r="14.26" style="fill:rgb(245,210,0);"/>
+                <circle cx="260.48" cy="293.62" r="41.15" style="fill:rgb(245,210,0);"/>
+                <path d="M57.18,293.82C46.904,293.811 37.14,298.378 30.56,306.27C42.848,325.807 58.409,343.083 76.56,357.34C86.159,350.903 91.934,340.078 91.934,328.52C91.934,309.484 76.27,293.82 57.234,293.82L57.18,293.82Z" style="fill:rgb(245,210,0);fill-rule:nonzero;"/>
+                <path d="M378.06,211.89C378.041,211.89 378.023,211.89 378.004,211.89C358.968,211.89 343.304,227.554 343.304,246.59C343.304,265.626 358.968,281.29 378.004,281.29C379.649,281.29 381.292,281.173 382.92,280.94C391.625,261.304 397.09,240.385 399.1,219C393.062,214.379 385.663,211.879 378.06,211.89Z" style="fill:rgb(245,210,0);fill-rule:nonzero;"/>
+            </g>
+        </g>
+    </g>
+</svg>

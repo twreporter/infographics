@@ -1,0 +1,78 @@
+/* stylelint-disable function-comma-space-after, rule-non-nested-empty-line-before, at-rule-empty-line-before, indentation, block-closing-brace-newline-before */
+@import "../../../styles/variables.scss";
+
+.container {
+  padding: 4.2rem 0;
+  background: $content-bg;
+  text-align: center;
+  width: 100%;
+  overflow-x: hidden;
+  h2 {
+    text-align: left;
+    display: table;
+    font-size: 52px;
+    color: $white;
+    font-weight: $font-bold;
+    text-shadow: 0 3px 0 $tooltip-gray;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 0.1rem;
+    @media (max-width: $width-md) {
+      font-size: 45px;
+    }
+    @media (max-width: $width-xs) {
+      font-size: 36px;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.outer {
+  background-color: $text-blue;
+  box-shadow: 0 5px 0 0 $yellow, inset 0 5px 0 0 $white;
+  padding: 2rem 0;
+  @media (max-width: $width-xs) {
+    padding: 0.8rem 0;
+  }
+}
+
+.bg-outer {
+  background-repeat: repeat;
+  background-image: url('../../../../content/assets/title-bg.png');
+  padding:  0.5rem 0;
+  @media (max-width: $width-md) {
+    padding: 1rem 0;
+  }
+  @media (max-width: $width-xs) {
+    padding: 1.7rem 0;
+  }
+}
+
+.title-box {
+  transform: translate(0, -15%);
+  opacity: 0.5;
+}
+
+.title {
+  font-size: 26px;
+  color: $tooltip-gray;
+  margin-bottom: 0.5rem;
+}
+
+.deco-line-1 {
+  width: 200px;
+  height: 2px;
+  border: solid 4px $deco-blue;
+  background-color: $deco-blue;
+  margin: 2.1rem auto 1rem;
+}
+
+.deco-line-2 {
+  width: 100px;
+  height: 3px;
+  border: solid 1px $deco-blue;
+  background-color: $deco-blue;
+  margin: 0.5rem auto 2rem;
+}
