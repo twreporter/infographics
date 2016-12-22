@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="180px" height="225px" viewBox="0 0 180 225" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_Athletics_shadow</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <ellipse id="path-1" cx="90.4440559" cy="90.0471698" rx="74.4440559" ry="74.0471698"></ellipse>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_Athletics_shadow">
+            <g id="Oval-2">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#B1F3F8" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <g id="Page-1" transform="translate(3.000000, 20.000000)">
+                <path d="M31.0595,9.6595 L50.9565,9.6595" id="Stroke-1" stroke="#000000" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M17.7627,19.6438 L39.2597,19.6438" id="Stroke-2" stroke="#000000" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M10.6455,77.242 L25.6105,77.242" id="Stroke-3" stroke="#000000" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M0.5,87.3658 L21.279,87.3658" id="Stroke-4" stroke="#000000" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M47.0607,111.6306 L69.7017,111.6306" id="Stroke-6" stroke="#000000" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M59.5607,121.9699 L77.8767,121.9699" id="Stroke-7" stroke="#000000" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M35.8858,131.8833 L65.0328,131.8833" id="Stroke-8" stroke="#000000" stroke-width="3" stroke-linecap="round"></path>
+                <g id="Group-42" transform="translate(23.000000, 0.994000)">
+                    <g id="Group-15" transform="translate(6.000000, 0.000000)">
+                        <path d="M33.441,19.2046 L50.92,2.1286 C51.638,1.4296 52.536,1.0346 53.462,0.9486 C54.677,0.8366 55.92,1.2536 56.841,2.1926 C58.014,3.3596 58.355,5.0956 57.775,6.6356 L57.143,8.2706 C54.683,14.6646 56.196,21.8956 60.998,26.7836 L66.518,32.3786 C70.013,35.9506 74.867,37.8306 79.864,37.5686 L88.339,37.1246 C90.958,36.9926 93.242,38.9906 93.415,41.6156 C94.072,51.5176 97.986,74.6846 119.316,90.1626 C132.01,99.3706 135.618,106.4476 134.554,118.8086 L134.195,120.7796 L114.284,117.1416 L83.493,111.5096 L41.806,69.1456 L43.472,65.4566 C48.188,55.1166 48.149,43.2096 43.234,32.9796 C43.186,32.8936 43.147,32.7966 43.109,32.7096 C41.893,30.2116 40.39,27.8706 38.654,25.7116 L33.441,19.2046 Z" id="Fill-9" fill="#FFFFFF"></path>
+                        <path d="M114.2841,117.1419 L134.1951,120.7799 L134.3991,120.8209 C136.4741,121.2119 137.8441,123.2039 137.4541,125.2789 L136.2961,131.5319 C135.9061,133.6069 133.9151,134.9869 131.8501,134.5949 L80.8111,125.2659 C78.0711,124.7459 75.5481,123.4239 73.5971,121.4349 L1.4331,48.1219 C-0.0539,46.6029 -0.0259,44.1899 1.4831,42.7039 L6.0201,38.2359 C7.5201,36.7519 9.9321,36.7789 11.4081,38.2889 L12.6391,39.5409 L28.7011,55.8379 L41.8051,69.1459 L83.4931,111.5099 L114.2841,117.1419 Z" id="Fill-11" fill="#FF5050"></path>
+                        <path d="M43.234,32.9796 C48.149,43.2096 48.188,55.1166 43.472,65.4566 L41.806,69.1456 L28.701,55.8386 L12.639,39.5406 L33.441,19.2046 L38.654,25.7116 C40.39,27.8706 41.893,30.2116 43.109,32.7096 C43.147,32.7966 43.186,32.8936 43.234,32.9796" id="Fill-13" fill="#FFBE64"></path>
+                    </g>
+                    <path d="M135.0372,120.3764 C136.0882,108.0254 132.4842,100.9534 119.7842,91.7404 C98.4522,76.2664 94.5532,53.0904 93.8902,43.1974 C93.7142,40.5634 91.4392,38.5684 88.8022,38.7064 L80.3372,39.1464 C75.3492,39.4054 70.4892,37.5164 66.9862,33.9564 L61.4722,28.3544 C56.6692,23.4744 55.1622,16.2374 57.6172,9.8464 L58.2452,8.2134 C58.8352,6.6764 58.4732,4.9354 57.3172,3.7614 L57.3162,3.7604 C55.6932,2.1114 53.0422,2.0854 51.3872,3.7024 L13.1142,41.1014" id="Stroke-16" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M74.0646,123.0058 L1.9066,49.6858 C0.4266,48.1818 0.4456,45.7618 1.9496,44.2818 L6.4886,39.8158 C7.9926,38.3358 10.4116,38.3548 11.8916,39.8588 L29.1706,57.4168 L83.9606,113.0868 L114.7456,118.7158 L134.8696,122.3948 C136.9446,122.7798 138.3146,124.7738 137.9296,126.8488 L136.7686,133.1098 C136.3836,135.1848 134.3896,136.5548 132.3146,136.1698 L81.2806,126.8288 C78.5396,126.3268 76.0196,124.9918 74.0646,123.0058 L74.0646,123.0058 Z" id="Stroke-18" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M2.2286,59.6634 L6.8736,55.0914" id="Stroke-20" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M14.1989,71.9058 L18.8439,67.3338" id="Stroke-22" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M26.1691,84.1482 L30.8141,79.5762" id="Stroke-24" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M96.6968,58.6403 L82.7458,62.1733" id="Stroke-26" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M100.1099,67.7109 L86.7669,71.0899" id="Stroke-28" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M104.7392,76.4736 L91.7922,79.7526" id="Stroke-30" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M41.0178,29.6547 C41.0178,29.6547 51.1038,44.9187 47.6338,58.9567" id="Stroke-32" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M129.7307,136.163 L128.7137,141.5" id="Stroke-34" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M114.5429,133.2731 L113.5259,138.6101" id="Stroke-36" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M99.3551,130.3833 L98.3381,135.7203" id="Stroke-38" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M84.1673,127.4934 L83.1503,132.8304" id="Stroke-40" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+            <ellipse id="Oval-3-Copy-4" fill-opacity="0.2" fill="#000000" cx="90" cy="214" rx="35" ry="11"></ellipse>
+        </g>
+    </g>
+</svg>
