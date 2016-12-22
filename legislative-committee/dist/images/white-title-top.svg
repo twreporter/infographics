@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 342 140.8" enable-background="new 0 0 342 140.8" xml:space="preserve">
+<g id="圖層_1">
+	<g>
+		<g>
+			<defs>
+				<polygon id="SVGID_11_" points="-219.5,377.4 -175.3,392.5 -167,402.1 -123.7,402.1 -123.7,210.1 -189.6,210.1 -203.4,284.8 
+					-219.5,306.1 				"/>
+			</defs>
+			<clipPath id="SVGID_2_">
+				<use xlink:href="#SVGID_11_"  overflow="visible"/>
+			</clipPath>
+			<g clip-path="url(#SVGID_2_)">
+			</g>
+		</g>
+	</g>
+	<g>
+		<polyline fill="#7CBCDE" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" points="314.8,13.5 327.9,13.5 327.9,26.6 		
+			"/>
+		<polyline fill="#7CBCDE" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" points="14.1,26.6 14.1,13.5 27.2,13.5 		"/>
+		<polyline fill="#7CBCDE" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" points="27.2,131.1 14.1,131.1 14.1,118 		"/>
+		<polyline fill="#7CBCDE" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" points="327.9,118 327.9,131.1 314.8,131.1 		
+			"/>
+		<polyline fill="#7CBCDE" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" points="71.3,4.8 35.9,4.8 1,39.7 1,104.9 
+			35.9,139.8 306.1,139.8 341,104.9 341,39.7 306.1,4.8 270.7,4.8 		"/>
+		<g>
+			<line fill="#7CBCDE" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="295" y1="4.8" x2="341" y2="50.8"/>
+			<line fill="#7CBCDE" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="295" y1="140" x2="341" y2="94"/>
+		</g>
+		<g>
+			<line fill="#7CBCDE" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="47" y1="4.8" x2="1" y2="50.8"/>
+			<line fill="#7CBCDE" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="47" y1="140" x2="1" y2="94"/>
+		</g>
+		<g>
+			<rect x="71.3" y="1" fill="#7CBCDE" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" width="45.3" height="7.3"/>
+			<rect x="225.4" y="1" fill="#7CBCDE" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" width="45.3" height="7.3"/>
+		</g>
+		<line fill="#7CBCDE" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="225.4" y1="4.8" x2="116.6" y2="4.8"/>
+	</g>
+</g>
+<g id="Layer_2">
+</g>
+</svg>
