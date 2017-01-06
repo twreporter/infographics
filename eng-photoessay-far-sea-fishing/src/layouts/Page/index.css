@@ -1,0 +1,42 @@
+@import "../../../node_modules/normalize.css/normalize.css";
+
+.page {
+  align-self: center;
+  width: 100%;
+  max-width: 60rem;
+  margin: 1rem 0.75rem;
+}
+
+.heading {
+  color: #c71b0b;
+}
+
+/* Loading Spinner */
+.spinner-hide {
+  display: none;
+}
+
+.spinner-wrapper {
+  position: fixed;
+  bottom: 26vh;
+  right: 5.8%;
+  height: 2.5rem;
+  width: 2.5rem;
+  opacity: 0.7;
+}
+
+.spinner {
+  height: 2.8rem;
+  width: 2.8rem;
+  animation: rotate 0.8s infinite linear;
+  border: 5px solid #fff;
+  border-right-color: transparent;
+  border-radius: 50%;
+  box-shadow: 2px 1px 13px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* End - Loading Spinner */
