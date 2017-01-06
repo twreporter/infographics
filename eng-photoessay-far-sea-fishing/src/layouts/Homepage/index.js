@@ -176,17 +176,17 @@ class Homepage extends WindowSizeMixin(Component) {
 
               <div className={styles["warning-box"]}>
                 <div>
-                  <span>為達最佳瀏覽品質</span><br/>
+                  <span>For the best viewing quality</span><br/>
                   <SVGInline className={styles["warning-icon"]} svg={ noticeLogo } />
-                  <b>可橫放您的手機</b>
+                  <b>Place Horizontally</b>
                 </div>
               </div>
 
               <Link to={this.getNextLink()} className={ styles["right-button"] }>
                 <div className={ styles["button-wraper"] }>
                   <div>
-                    點擊下一頁<br/>
-                    <span>開始觀看</span>
+                    Click Here<br/>
+                  <span>to Start</span>
                   </div>
                   <RightNavButton isMobile={isMobile} isTablet={isTablet}/>
                 </div>

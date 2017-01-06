@@ -3,7 +3,7 @@ import pkg from "../package.json"
 
 export default {
   totalSlides: 43,
-  siteUrl: "photoessay-far-sea-fishing",
+  siteUrl: "eng-photoessay-far-sea-fishing",
   pkg,
   // you can add any DYNAMIC data you need here
   // ...

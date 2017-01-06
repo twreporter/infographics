@@ -4,8 +4,8 @@
   "homepage": "https://www.twreporter.org/a/eng-photoessay-far-sea-fishing/",
   "absPath": "https://www.twreporter.org",
   "twitter": "eng-photoessay-far-sea-fishing",
-  "siteTitle": "【圖文故事】離岸之前——印尼漁工的台灣夢 - 報導者 The Reporter",
-  "aDescription": "每一年，有近萬名印尼漁工，以境外聘僱的方式，為台灣遠洋漁業付出勞力。他們忍受惡劣的工作環境與勞動剝削，只為了更好的生活。",
+  "siteTitle": "Before Departure: Taiwanese Dream of Indonesian Fishermen - 報導者 The Reporter",
+  "aDescription": "Every year, there are about ten thousand Indonesian fishermen dedicating themselves to Taiwan’s far sea fishery through offshore employment. They endure dreadful working conditions and labor exploitation to earn a better life.",
   "repository": "",
   "scripts": {
     "lint:js": "eslint --ignore-path .gitignore --fix .",

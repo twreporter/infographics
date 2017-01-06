@@ -32,8 +32,8 @@ const LastSlide = (props) => {
                   </div>
                   <SVGInline className={styles["topic-icon"]} svg={ topicIcon } />
                   <div className={styles["topic-text"]}>
-                    <h3>造假·剝削·血淚漁場</h3>
-                    <h5>直擊台灣遠洋漁業真相</h5>
+                    <h3>Fake, Exploitation, and Distressful Fishery</h3>
+                    <h5>Disclose the Truth about Taiwan’s Far Sea Fishery</h5>
                   </div>
                 </div>
             </ReactCSSTransitionGroup>
@@ -97,7 +97,7 @@ const LastSlide = (props) => {
           transitionLeaveTimeout={0}>
             <SVGInline svg={ copyrightImg } />
             <span className={styles["copyright-outer-text"]}>
-              <span className={styles["copyright-text"]}>除另有註明，網站內容皆</span>採用創用 CC 姓名標示-非商業性-禁止改作授權條款
+              <span className={styles["copyright-text"]}>Made by The Reporter Media Foundation, Taipei, Taiwan</span>
             </span>
           </ReactCSSTransitionGroup>
         </div>

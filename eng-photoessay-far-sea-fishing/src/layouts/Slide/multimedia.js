@@ -482,7 +482,7 @@ export const AUDIOS = [
 ]
 
 export const TEXT = [
-  "在印尼中爪哇島的村莊，每戶人家的電視機總是開著，螢幕裡，是他們對其他地方的美好想像。",
+  "In the villages of Central Java in Indonesia, every family’s television is always on; the scenes shown on the screen reflects their delightful imagination toward other places on the earth.",
   "Every year, around ten thousand Indonesian fishermen dedicate their labors to Taiwan’s far sea fishery through offshore employment. They tolerate dreadful working conditions and labor exploitation for a better life.",
   "We set off from Jakarta and drove for eight or nine hours to Tegal in Central Java, the place where exports most fishermen to Taiwan.",
   "Tegal is a coastal city, many of the male residents will go sea fishing before ten years old with their families. They are more adopted to life at sea than other Indonesians. ",
@@ -498,7 +498,7 @@ export const TEXT = [
   "Visa’s mother, Wadina, hold tightly Visa’s photo, the only one she has in hand.",
   "Visa’s sister, Nova, has to take the responsibility of supporting the family’s living. Her husband is prepared to apply for jobs in fishing boats.",
   null,
-  "Here is another family. Wara decided to go sea fishing because one of his friend said, “You can earn lots of money by working on Taiwan’s fishing boats.” After 特宏興案, Wara’s wife went to Taiwan and worked as a care worker. ",
+  "Here is another family. Wara decided to go sea fishing because one of his friend said, “You can earn lots of money by working on Taiwan’s fishing boats.” After the murder crime on the Te Hung Hsing No. 368 happened, Wara’s wife went to Taiwan and worked as a care worker. ",
   "Their two daughters stayed in their house. The little daughter, Saskia has never seen her father after her birth.",
   "It’s been six years since Wara went sea fishing. All the people are waiting for his return.",
   "The incidents of mistreatment, death by accidents and missing due to falling into the sea keep happening constantly. However, many people are willing to work on Taiwan’s fishing boats regardless of all consequences.",
@@ -515,14 +515,14 @@ export const TEXT = [
   "The second stop is Kaohsiung Municipal Ming-Sheng Hospital for dengue screening. They don’t know they have to take blood test in advance. Some of them are nervous as they see the pinhead. ",
   null,
   null,
-  "等待篩檢結果要半個小時，這是他們第一次能夠好好呼吸到外界空氣。而身旁仲介大哥緊緊盯著。5、6個人點起了菸，摸摸肚子示意肚子餓。大哥只淡淡地回說：船上。",
-  "第三站是岸置所，將 3、40個人關在一個門窗全部上鎖的狹小空間，統一管理。",
+  "It takes half an hour to wait for the screening outcome. This is the only opportunity for them to breathe freely outside. Some of them light up cigarettes and touch their belly to tell the agent they need something to eat. But the agent replies: on the boat.",
+  "The third stop is a settlement place. There are 30~40 people living in a narrow space with closed doors and windows.",
   null,
-  "民生用品樣樣要另外付費。一杯可樂66元，一份炒蛋132元。",
-  "但今年高雄地檢署以人口販運與妨礙人身自由，勒令所有岸置所停業，所有境外聘僱的漁工，做完體檢後就要直接上船。",
+  "They have to pay by themselves for consumer foods. A cup of cola costs 66 NTD, and the scrambled eggs costs 132 NTD.",
+  "This year, Taiwan’s Kaohsiung District Prosecutors Office forced all the settlement places to suspend operations on the grounds of human trafficking and hindering personal freedom. All the fishermen through offshore employment have to board the fishing boats immediately after health checkup.",
   null,
-  "最後一站，是直達未來2年，他們要待的漁船。車子慢慢地開到前鎮漁港，窗外出現一艘艘靠岸的船隻，他們靠在窗戶瞪大眼睛。",
+  "The final stop is a fishing boat, the place they will stay for the next two years. The man drives the car slowly to Chienchen fishing port. Outside the window, there are boats anchored offshore. The fishermen lean against the windows with eyes wide open.",
   null,
-  "出了海，就是隔絕又險峻的世界。即便知道可能回不了家，印尼漁工還是前仆後繼地上台灣漁船，掙一個足以翻身的夢。許多印尼漁工跟這群年輕人一樣，不到20歲就出海，抵上2年自由，跟他們不確定的命運。",
-  "造假·剝削·血淚漁場 直擊台灣遠洋漁業真相【印尼現場 I 】我們和印尼聯手剝削萬名漁工【印尼現場 II 】未解的謎團——一位漁工之死"
+  "Encountering with an isolated and dangerous world, Indonesian fishermen try to work on Taiwanese fishing boats one after another even though they may have no chance to go home. They desire to achieve the dream to improve their lives. Many Indonesian fishermen go sea fishing under 20 years old at the cost of two-year freedom and uncertain destiny.",
+  "Fake, Exploitation, and Distressful Fishery 直擊台灣遠洋漁業真相【印尼現場 I 】我們和印尼聯手剝削萬名漁工【印尼現場 II 】未解的謎團——一位漁工之死"
 ]

@@ -30,7 +30,7 @@ class AppContainer extends Component {
           { this.props.children }
         </Content>
         {/* <Footer /> */}
-        <script src="https://use.typekit.net/rfl3ikc.js"></script>
+        <script src="https://use.typekit.net/rbn4jua.js"></script>
       </Container>
     )
   }

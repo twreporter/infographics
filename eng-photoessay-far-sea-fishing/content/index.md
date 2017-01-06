@@ -1,6 +1,6 @@
 ---
-title: 離岸之前
-subtitle: 印尼漁工的台灣夢
+title: Before Departure
+subtitle: Taiwanese Dream of Indonesian Fishermen
 layout: Homepage
 date: 2016.12.19
 photo: cover.jpg

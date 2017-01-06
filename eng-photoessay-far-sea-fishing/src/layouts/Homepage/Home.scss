@@ -44,11 +44,12 @@
   }
 
   h1 {
-    font-size: 65px;
+    font-size: 60px;
+    line-height: 1.2;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 
     @media screen and (max-width: $width-xs) and (orientation: portrait) {
-      font-size: 45px;
+      font-size: 40px;
     }
   }
 
@@ -61,11 +62,14 @@
   }
 
   h2 {
-    font-size: 30px;
+    font-size: 25px;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    line-height: 1.5;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 
     @media screen and (max-width: $width-xs) and (orientation: portrait) {
-      font-size: 26px;
+      font-size: 20px;
     }
   }
 }
@@ -124,7 +128,7 @@
 
   @media screen and (max-width: $width-xs) and (orientation: portrait) {
     position: fixed;
-    top: 20vh;
+    top: 12vh;
   }
 }
 
