@@ -270,7 +270,7 @@ export default class Homepage extends Component {
             </a>
             <div className={ styles["spacer"] }></div>
             <a title={ supportUs } style={ { marginLeft: "-0.5rem" } }
-              href="https://twreporter.backme.tw/checkout/175/3788" target="_blank"
+              href="https://www.twreporter.org/donation/period" target="_blank"
             >
               <div className={ classnames(commonStyles["img-responsive"], styles["nav-icon"]) }
                 dangerouslySetInnerHTML={ { __html: donationIcon } }

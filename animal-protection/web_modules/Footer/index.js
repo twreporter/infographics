@@ -39,7 +39,7 @@ export default class Footer extends Component {
                 </a>
               </div>
               <div className={ styles["support"] }>
-                <a href="https://twreporter.backme.tw/checkout/175/3788" target="_blank">
+                <a href="https://www.twreporter.org/donation/period" target="_blank">
                     贊助我們
                 </a>
               </div>

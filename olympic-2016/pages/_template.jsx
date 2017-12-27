@@ -67,7 +67,7 @@ module.exports = React.createClass({
                           </a>
                       </div>
                       <div className='item'>
-                          <a href='https://twreporter.backme.tw:443/cashflow/checkout?project_id=175&reward_id=718' target="_self">
+                        <a href='https://www.twreporter.org/donation/period' target="_self">
                               贊助我們
                           </a>
                       </div>
